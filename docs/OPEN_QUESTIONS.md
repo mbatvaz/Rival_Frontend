@@ -21,4 +21,6 @@ Questions below are genuinely unresolved in the supplied source material. Do not
 
 ## Owner note
 
+Phase 01 update (2026-11-10): OQ-01..06 remain open and unchanged. None blocks infrastructure-only work. No permissions, business behavior, labels or holiday provider have been inferred or approved through this implementation. Phase 01 acceptance is tracked in `PROGRESS.md`.
+
 The owner's latest message ended with `22-` but contained no text or decision for item 22. No assumption has been made for it. If item 22 was intended to add another requirement, record it here after the owner supplies its content.

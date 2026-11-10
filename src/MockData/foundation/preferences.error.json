@@ -1,0 +1,5 @@
+{
+  "ok": false,
+  "demo": true,
+  "error": { "code": "DEMO_UNAVAILABLE", "message": "دادهٔ آزمایشی در دسترس نیست.", "status": 503 }
+}

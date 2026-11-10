@@ -1,0 +1,27 @@
+@layer utilities {
+  [hidden] { display: none; }
+
+  .rv-skip-link {
+    position: absolute;
+    inset-block-start: var(--space-2);
+    inset-inline-start: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    min-block-size: var(--size-touch);
+    transform: translateY(-200%);
+    background: var(--bg-inverse);
+    color: var(--text-inverse);
+    border-radius: var(--radius-sm);
+  }
+
+  .rv-skip-link:focus { transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto;
+      animation: none;
+      transition: none;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+/* Infrastructure directory only; this is not the Phase 02 product shell. */
+@layer layout {
+  .rv-preview {
+    max-inline-size: 1200px;
+    margin-inline: auto;
+    padding: var(--space-4);
+  }
+
+  .rv-preview__intro,
+  .rv-preview__group {
+    padding: var(--space-5);
+    border-radius: var(--radius-lg);
+    background: var(--bg-surface);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rv-preview__logo { inline-size: 150px; block-size: auto; margin-block-end: var(--space-6); }
+
+  .rv-preview__eyebrow,
+  .rv-preview__meta { color: var(--text-secondary); }
+  .rv-preview__eyebrow { margin-block-end: var(--space-2); }
+
+  .rv-preview__notice {
+    padding: var(--space-4);
+    background: var(--neutral-bg);
+    border-radius: var(--radius-sm);
+  }
+
+  .rv-preview__action {
+    display: inline-flex;
+    gap: var(--space-2);
+    align-items: center;
+    min-block-size: var(--size-touch);
+    min-inline-size: var(--size-touch);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-sm);
+    background: var(--bg-inverse);
+    color: var(--text-inverse);
+    text-decoration: none;
+  }
+
+  .rv-preview__action:hover { background: var(--bg-inverse-raised); }
+  .rv-preview__groups { display: grid; gap: var(--space-5); margin-block-start: var(--space-5); }
+  .rv-preview__group { min-inline-size: 0; }
+  .rv-preview__list { list-style: none; padding: 0; margin: 0; }
+  .rv-preview__list li + li { border-block-start: 1px solid var(--line-hairline); }
+
+  .rv-preview__entry {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-1) var(--space-2);
+    padding-block: var(--space-3);
+    min-block-size: var(--size-touch);
+    min-inline-size: var(--size-touch);
+    text-decoration: none;
+  }
+
+  .rv-preview__entry-title { flex: 1; overflow-wrap: anywhere; }
+  .rv-preview__entry:hover .rv-preview__entry-title { text-decoration: underline; }
+  .rv-preview__id { color: var(--text-muted); }
+  .rv-preview__entry .rv-preview__meta { inline-size: 100%; font-size: var(--body-sm-size); }
+  .rv-preview__placeholder { margin-block: var(--space-8); }
+
+  @media (min-width: 768px) {
+    .rv-preview { max-inline-size: 720px; padding: var(--space-6); }
+    .rv-preview__groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (min-width: 1024px) {
+    .rv-preview { max-inline-size: 1200px; }
+    .rv-preview__groups { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; }
+  }
+}

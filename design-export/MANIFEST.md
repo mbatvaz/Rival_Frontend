@@ -3,6 +3,8 @@
 Generated from the actual files in `design-export/batches/` and the canonical `docs/PAGE_INVENTORY.md`.
 Original export paths are preserved. All source evidence is read-only.
 
+Phase 01 derived-metadata correction (2026-11-10): STY-CUS uses `/stylist/customers/` for its preview route. A Markdown explanatory suffix had been included in the generated JSON route. All original HTML/screenshot paths remain unchanged; see GAP-15.
+
 ## Batch inventory
 
 | Batch | Files | HTML | Images | CSS | JS |

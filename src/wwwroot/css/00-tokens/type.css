@@ -1,0 +1,55 @@
+/* Generated from Design System v2 tokens.json. */
+@layer tokens {
+  :root {
+    --font-sans: "Yekan Bakh", sans-serif;
+    --font-display: "Yekan Bakh", sans-serif;
+    --font-display-regular: "Yekan Bakh", sans-serif;
+    --font-numeric: "Yekan Bakh", sans-serif;
+    --font-numeric-regular: "Yekan Bakh", sans-serif;
+    --display-xl-size: 36px;
+    --display-xl-line: 52px;
+    --display-xl-weight: 300;
+    --display-lg-size: 26px;
+    --display-lg-line: 40px;
+    --display-lg-weight: 400;
+    --numeral-xl-size: 40px;
+    --numeral-xl-line: 48px;
+    --numeral-xl-weight: 300;
+    --numeral-md-size: 20px;
+    --numeral-md-line: 28px;
+    --numeral-md-weight: 400;
+    --heading-xl-size: 22px;
+    --heading-xl-line: 34px;
+    --heading-xl-weight: 600;
+    --heading-lg-size: 18px;
+    --heading-lg-line: 30px;
+    --heading-lg-weight: 600;
+    --heading-md-size: 16px;
+    --heading-md-line: 26px;
+    --heading-md-weight: 600;
+    --title-size: 15px;
+    --title-line: 24px;
+    --title-weight: 400;
+    --body-lg-size: 16px;
+    --body-lg-line: 28px;
+    --body-lg-weight: 300;
+    --body-size: 14px;
+    --body-line: 24px;
+    --body-weight: 400;
+    --body-sm-size: 13px;
+    --body-sm-line: 22px;
+    --body-sm-weight: 300;
+    --label-size: 14px;
+    --label-line: 20px;
+    --label-weight: 400;
+    --caption-size: 12px;
+    --caption-line: 18px;
+    --caption-weight: 300;
+    --tag-size: 12px;
+    --tag-line: 18px;
+    --tag-weight: 400;
+    --overline-size: 11px;
+    --overline-line: 16px;
+    --overline-weight: 400;
+  }
+}

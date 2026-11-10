@@ -1,19 +1,41 @@
 import { test, expect } from '@playwright/test';
-test('Rival central page directory loads @smoke', async ({ page }) => {
+import { readJson, src, withBase, loadSite } from '../tools/lib/site.mjs';
+import path from 'node:path';
+const { basePath } = await loadSite();
+const registry = await readJson(path.join(src, 'page-registry.json'));
+
+test('Directory exposes every canonical ID and each route returns a labelled placeholder @smoke', async ({ page, request }) => {
+  const failures = [];
+  page.on('pageerror', error => failures.push(error.message));
+  page.on('response', response => { if (response.status() >= 400) failures.push(response.url()); });
   await page.goto('_preview/');
-  await expect(page.getByRole('heading', { name: 'فهرست صفحات و مسیرهای پروژه' })).toBeVisible();
-  await expect(page.locator('a[href="/"]')).toBeVisible();
-});
-test('All directory links resolve to a static page @smoke', async ({ page, request }) => {
-  await page.goto('_preview/');
-  const hrefs = await page.locator('a.item').evaluateAll(nodes => nodes.map(node => node.getAttribute('href')).filter(Boolean));
-  for (const href of [...new Set(hrefs)]) {
+  await expect(page.locator('[data-rv-page-id]')).toHaveCount(registry.pages.length);
+  for (const entry of registry.pages) {
+    const href = withBase(basePath, entry.previewPath);
+    await expect(page.locator('[data-rv-page-id="' + entry.id + '"]')).toHaveAttribute('href', href);
     const response = await request.get(href);
-    expect(response.ok(), `Expected ${href} to resolve`).toBeTruthy();
+    expect(response.status(), href).toBe(200);
+    expect(await response.text()).toContain('این صفحه هنوز پیاده‌سازی نشده است.');
+    expect(await response.text()).toContain(withBase(basePath, '/_preview/'));
   }
+  await page.evaluate(() => document.fonts.ready);
+  expect(failures).toEqual([]);
 });
-test('Public home static route is reachable @smoke @visual', async ({ page }) => {
+
+test('Home, alias, canonical slash redirect and static-only methods work @smoke', async ({ page, request }) => {
   await page.goto('');
   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
-  await expect(page).toHaveTitle(/Rival/);
+  await expect(page.locator('html')).toHaveAttribute('lang', 'fa');
+  await expect(page.getByText('این صفحه هنوز پیاده‌سازی نشده است.')).toBeVisible();
+  await page.getByRole('link', { name: 'بازگشت به فهرست صفحات' }).click();
+  await expect(page).toHaveURL(new RegExp(basePath + '_preview/$'));
+  expect((await request.get('pages.html')).status()).toBe(200);
+  const redirect = await request.get('portfolio', { maxRedirects: 0 });
+  expect(redirect.status()).toBe(301);
+  expect(redirect.headers().location).toBe(withBase(basePath, '/portfolio/'));
+  expect((await request.head('')).status()).toBe(200);
+  expect((await request.post('')).status()).toBe(405);
+  expect((await request.get('.htaccess')).status()).toBe(404);
+  expect((await request.get('missing/')).status()).toBe(404);
+  expect((await request.get('%ZZ')).status()).toBe(400);
 });

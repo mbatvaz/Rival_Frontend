@@ -522,8 +522,8 @@
     },
     {
       "id": "STY-CUS",
-      "routeTemplate": "/stylist/customers` + detail",
-      "previewPath": "/stylist/customers` + detail/",
+      "routeTemplate": "/stylist/customers",
+      "previewPath": "/stylist/customers/",
       "role": "Stylist",
       "status": "Fully Designed",
       "source": "Batch 4",

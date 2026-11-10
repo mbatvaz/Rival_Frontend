@@ -1,0 +1,11 @@
+@layer components {
+  /* ri-* is the approved compatibility exception to the rv-* namespace. */
+  .ri {
+    display: inline-block;
+    flex: none;
+    inline-size: var(--size-icon);
+    block-size: var(--size-icon);
+    background-color: currentcolor;
+    mask: var(--ri) center / contain no-repeat;
+  }
+}

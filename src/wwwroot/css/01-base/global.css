@@ -1,4 +1,29 @@
 @layer base {
-  :focus-visible { outline: 2px solid var(--focus-ring, currentColor); outline-offset: 3px; }
-  [hidden] { display: none !important; }
+  body {
+    direction: rtl;
+    font-family: var(--font-sans);
+    font-size: var(--body-size);
+    font-weight: var(--body-weight);
+    line-height: var(--body-line);
+    color: var(--text-primary);
+    background: var(--bg-canvas);
+  }
+
+  h1 {
+    font-size: var(--heading-xl-size);
+    font-weight: var(--heading-xl-weight);
+    line-height: var(--heading-xl-line);
+  }
+
+  h2 {
+    font-size: var(--heading-lg-size);
+    font-weight: var(--heading-lg-weight);
+    line-height: var(--heading-lg-line);
+  }
+
+  h1,
+  h2,
+  p { margin-block: 0 var(--space-4); }
+  a { color: inherit; text-underline-offset: var(--space-1); }
+  :focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; }
 }

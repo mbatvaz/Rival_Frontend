@@ -16,6 +16,17 @@
 | GAP-12 | Font and icon references were inconsistent. | Runtime uses normal-width Yekan Bakh 300/400/600 only and local Lucide-based SVG icons with `ri` compatibility prefix. | Resolved |
 | GAP-13 | Previous responsive notes disallowed all inner scrolling and described desktop as a mobile layout adjustment. | Nested vertical scroll is prohibited; documented horizontal rails are allowed. Desktop is a page-specific composition derived from mobile design language. | Resolved |
 | GAP-14 | Design exports may have missing screenshots or page IDs without independent artboards. | See `design-export/MANIFEST.md`; do not invent missing files or selectors. | Audited; owner review pending |
+| GAP-15 | STY-CUS derived route incorrectly included the Markdown suffix `` ` + detail ``. | Corrected registry and derived MANIFEST route to `/stylist/customers/`, following PAGE_INVENTORY. Original design files unchanged. | Fixed and route-tested in Phase 01 |
+| GAP-16 | Starter preview HTML/CSS was embedded in the build tool with unlayered styling, and canonical token/API/registry implementation was absent. | Moved infrastructure rendering to restricted Nunjucks partials; generated tokens, local assets and native modules. Product templates remain unimplemented. | Fixed in Phase 01 |
+| GAP-17 | Starter test harness assumed root-only links and lacked keyboard/mock/basePath coverage. | Added root/subfolder suites and a Windows-safe IPC lifecycle for the local test server. | 19 + 19 tests passed |
+
+## Phase 01 visual review
+
+- Reviewed neutral directory and placeholder screenshots at 320/390/768/1280; RTL, local typography, touch areas and readable content confirmed.
+- No product artboard applies to these infrastructure pages. No pixel-difference score or product desktop review approval is claimed.
+- Fixed geometry (320px minimum canvas, 720/1200px container limits, 768/1024px breakpoints, 150px logo, 2px focus outline and 3px offset) follows the repository responsive/accessibility scaffold; colors, typography, spaces, radii and shadows use canonical tokens.
+- Stylelint preserves original token color notation inside generated `00-tokens` files only. Other CSS remains checked normally; min-width notation follows the project contract.
+- Decorative asset gaps, non-independent CUS-02/CUS-07 references, and open product decisions remain unchanged for the owning phases.
 
 ## Remaining source gaps
 

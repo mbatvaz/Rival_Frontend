@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "description": "Static-first, Razor-compatible frontend reference for Rival",
-  "engines": { "node": ">=20.11" },
+  "engines": {
+    "node": ">=20.11"
+  },
   "scripts": {
     "build": "node tools/build-static.mjs",
     "preview:server": "node tools/serve-static.mjs",
@@ -12,11 +14,13 @@
     "lint:js": "eslint src/wwwroot/js tools tests playwright.config.mjs",
     "lint:css": "stylelint \"src/wwwroot/css/**/*.css\"",
     "lint": "npm run lint:structure && npm run lint:js && npm run lint:css",
-    "test:smoke": "npm run build && playwright test --grep @smoke",
-    "test:visual": "npm run build && playwright test --grep @visual",
-    "test:a11y": "npm run build && playwright test --grep @a11y",
-    "test": "npm run build && playwright test",
-    "export:lookup": "node tools/export-lookup.mjs"
+    "test:smoke": "node tools/run-tests.mjs --grep @smoke",
+    "test:visual": "node tools/run-tests.mjs --grep @visual",
+    "test:a11y": "node tools/run-tests.mjs --grep @a11y",
+    "test": "node tools/run-tests.mjs",
+    "export:lookup": "node tools/export-lookup.mjs",
+    "install:browsers": "node tools/playwright.mjs install chromium",
+    "test:subpath": "node tools/run-tests.mjs --subpath"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.3",

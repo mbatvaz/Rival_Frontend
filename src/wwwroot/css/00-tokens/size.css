@@ -1,0 +1,11 @@
+/* Generated from Design System v2 tokens.json. */
+@layer tokens {
+  :root {
+    --size-touch: 44px;
+    --size-control: 52px;
+    --size-control-sm: 40px;
+    --size-tile: 44px;
+    --size-nav: 64px;
+    --size-icon: 20px;
+  }
+}

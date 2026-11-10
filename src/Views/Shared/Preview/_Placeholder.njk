@@ -1,0 +1,12 @@
+{% extends "Shared/_Layout.njk" %}
+{% block content %}
+  <section class="rv-preview__intro rv-preview__placeholder">
+    <img class="rv-preview__logo" src="{{ urls.logo }}" alt="ریوال" width="150" height="50">
+    <p class="rv-preview__eyebrow"><bdi dir="ltr">{{ page.id | faDigits }}</bdi> · فاز {{ phaseNumber | faDigits }}</p>
+    <h1>{{ page.titleFa }}</h1>
+    <p class="rv-preview__notice">این صفحه هنوز پیاده‌سازی نشده است.</p>
+    <p>این مسیر برای بازبینی آماده شده و در فاز مربوط به خودش ساخته می‌شود.</p>
+    <p class="rv-preview__meta">مرجع طراحی: بستهٔ {{ sourceBatch | faDigits }}</p>
+    <a class="rv-preview__action" href="{{ urls.directory }}"><span class="ri ri-arrow-right" aria-hidden="true"></span>بازگشت به فهرست صفحات</a>
+  </section>
+{% endblock %}

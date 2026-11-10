@@ -1,19 +1,20 @@
 import { defineConfig } from '@playwright/test';
-import fs from 'node:fs/promises';
-const siteConfig = JSON.parse(await fs.readFile(new URL('./src/site-config.json', import.meta.url), 'utf8'));
-let basePath = String(siteConfig.basePath || '/').trim();
-if (!basePath.startsWith('/')) basePath = '/' + basePath;
-basePath = basePath.replace(/\/+$/, '') + '/';
-const localBaseURL = `http://127.0.0.1:4173${basePath}`;
+import { loadSite } from './tools/lib/site.mjs';
+
+const { basePath } = await loadSite();
+const port = process.env.PORT || 4173;
+const localBaseURL = 'http://127.0.0.1:' + port + basePath;
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
+  workers: 4,
   reporter: 'list',
+  outputDir: basePath === '/' ? 'test-results/root' : 'test-results/subpath',
   use: { baseURL: localBaseURL, trace: 'retain-on-failure' },
-  webServer: {
-    command: 'npm run preview:server',
-    url: `${localBaseURL}_preview/`,
-    reuseExistingServer: !process.env.CI,
+  webServer: process.env.RIVAL_TEST_SERVER_MANAGED ? undefined : {
+    command: 'node tools/serve-static.mjs',
+    url: localBaseURL + '_preview/',
+    reuseExistingServer: false,
     timeout: 15000
   }
 });

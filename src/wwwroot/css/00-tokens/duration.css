@@ -1,0 +1,9 @@
+/* Generated from Design System v2 tokens.json. */
+@layer tokens {
+  :root {
+    --duration-fast: 140ms;
+    --duration-base: 240ms;
+    --duration-slow: 380ms;
+    --duration-deliberate: 700ms;
+  }
+}

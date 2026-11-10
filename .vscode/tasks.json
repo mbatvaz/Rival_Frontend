@@ -4,13 +4,13 @@
     {
       "label": "Rival: Install Dependencies",
       "type": "shell",
-      "command": "npm install",
+      "command": "npm install --cache .npm-cache",
       "problemMatcher": []
     },
     {
       "label": "Rival: Install Playwright Chromium",
       "type": "shell",
-      "command": "npx playwright install chromium",
+      "command": "npm run install:browsers",
       "problemMatcher": []
     },
     {
@@ -24,7 +24,14 @@
       "type": "npm",
       "script": "preview:server",
       "isBackground": true,
-      "problemMatcher": []
+      "problemMatcher": {
+        "owner": "rival",
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+): (.*)$",
+          "file": 1, "line": 2, "column": 3, "message": 4
+        },
+        "background": { "activeOnStart": true, "beginsPattern": "^Rival", "endsPattern": "^Rival preview:" }
+      }
     },
     {
       "label": "Rival: Build + Preview",
@@ -42,6 +49,18 @@
       "label": "Rival: JavaScript + CSS Lint",
       "type": "shell",
       "command": "npm run lint:js && npm run lint:css",
+      "problemMatcher": []
+    },
+    {
+      "label": "Rival: All Foundation Tests",
+      "type": "npm",
+      "script": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Rival: Test Subfolder Deployment",
+      "type": "npm",
+      "script": "test:subpath",
       "problemMatcher": []
     },
     {

@@ -1,39 +1,61 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const src = path.join(root, 'src');
-const errors=[];
+import { root, src, readJson } from './lib/site.mjs';
+import { validateRegistry } from './lib/registry.mjs';
+
+const errors = [];
 async function walk(dir) {
-  let entries=[]; try { entries=await fs.readdir(dir,{withFileTypes:true}); } catch { return []; }
-  const out=[];
-  for (const e of entries) { const p=path.join(dir,e.name); if(e.isDirectory()) out.push(...await walk(p)); else out.push(p); }
-  return out;
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  return (await Promise.all(entries.map(e => e.isDirectory() ? walk(path.join(dir, e.name)) : path.join(dir, e.name)))).flat();
 }
 for (const file of await walk(src)) {
-  const ext=path.extname(file).toLowerCase();
-  if (!['.html','.njk','.css','.js','.mjs'].includes(ext)) continue;
-  const text=await fs.readFile(file,'utf8');
-  const rel=path.relative(root,file).replaceAll('\\','/');
-  const lines=text.split(/\r?\n/).length;
-  if (ext==='.css' && lines>150) errors.push(`${rel}: ${lines} lines (target <=150)`);
-  if (['.js','.mjs'].includes(ext) && lines>120) errors.push(`${rel}: ${lines} lines (target <=120)`);
-  if (/<\s*script\b(?![^>]*\bsrc=)[^>]*>/i.test(text)) errors.push(`${rel}: inline script element`);
-  if (/<\s*style\b/i.test(text)) errors.push(`${rel}: inline style element`);
-  if (/\son[a-z]+\s*=/i.test(text)) errors.push(`${rel}: inline event handler`);
-  if (/@tailwind|tailwindcss|tailwind\.config|cdn\.tailwindcss/i.test(text)) errors.push(`${rel}: Tailwind reference in application source`);
-  if (/https?:\/\/[^"'\s>]+\.(css|js)(\?|"|'|>)/i.test(text)) errors.push(`${rel}: external CSS/JS URL; use local assets`);
-  if (/font-family\s*:[^;]*(Inter|Roboto|Vazirmatn|Tahoma|Arial|system-ui)/i.test(text)) errors.push(`${rel}: non-Yekan Bakh font family`);
-  for (const face of text.matchAll(/@font-face\s*\{([^}]*)\}/gis)) {
-    const family = face[1].match(/font-family\s*:\s*([^;]+)/i)?.[1] || '';
-    if (!/Yekan Bakh/i.test(family)) errors.push(`${rel}: @font-face must use Yekan Bakh only`);
+  const ext = path.extname(file).toLowerCase();
+  if (!['.html', '.njk', '.css', '.js'].includes(ext)) continue;
+  const text = await fs.readFile(file, 'utf8');
+  const rel = path.relative(root, file).replaceAll('\\', '/');
+  const fail = message => errors.push(rel + ': ' + message);
+  const lines = text.trimEnd().split(/\r?\n/).length;
+  if (ext === '.css' && lines > 150) fail('CSS exceeds 150 lines');
+  if (ext === '.js' && lines > 120) fail('JS exceeds 120 lines');
+  if (/<\s*script\b(?![^>]*\bsrc=)[^>]*>/i.test(text)) fail('inline script');
+  if (/<\s*style\b|\sstyle\s*=/i.test(text)) fail('inline style');
+  if (/\son[a-z]+\s*=/i.test(text)) fail('inline event handler');
+  if (/@tailwind|tailwindcss|cdn\.tailwindcss/i.test(text)) fail('Tailwind in source');
+  if (/https?:\/\/[^"'\s>]+\.(css|js)(\?|"|'|>)/i.test(text)) fail('external CSS/JS');
+  if (/font-family\s*:[^;]*(Inter|Roboto|Vazirmatn|Tahoma|Arial|system-ui)/i.test(text)) fail('non-Yekan Bakh typeface');
+  if (/overflow-y\s*:\s*(auto|scroll)/i.test(text)) fail('nested vertical scrolling');
+  if (/\.(?:b[2-7]|f)-[a-z0-9_-]+/i.test(text)) fail('legacy batch class prefix');
+  if (ext === '.js' && !rel.endsWith('/core/api.js') && /\b(fetch|localStorage|sessionStorage)\b/.test(text)) {
+    fail('data access outside core/api.js');
   }
-  if (/overflow-y\s*:\s*(auto|scroll)/i.test(text)) errors.push(`${rel}: nested vertical scrolling is not allowed`);
-  if (/\.(?:b2|b3|b4|b5|b6|b7|f)-[a-z0-9_-]+/i.test(text)) errors.push(`${rel}: legacy export class prefix; use canonical rv-* classes`);
+  if (ext === '.njk') {
+    const allowed = new Set(['if', 'else', 'endif', 'for', 'endfor', 'include', 'extends', 'block', 'endblock']);
+    for (const match of text.matchAll(/\{%\s*(\w+)/g)) if (!allowed.has(match[1])) fail('non-Razor template tag: ' + match[1]);
+    for (const match of text.matchAll(/\{\{[^}]*\|\s*(\w+)/g)) {
+      if (!['faDigits', 'jalali'].includes(match[1])) fail('unmapped template filter: ' + match[1]);
+    }
+    if (/(?:href|src)="\/(?!\{)/.test(text)) fail('hard-coded root URL');
+  }
+  if (ext === '.css') {
+    if (!rel.includes('/00-tokens/') && /#[0-9a-f]{3,8}\b|\brgba?\(/i.test(text)) fail('raw color outside tokens');
+    if (/@media\s*\(\s*max-width/.test(text)) fail('use min-width breakpoints');
+    for (const match of text.matchAll(/url\("([^"#]+)"\)/g)) {
+      if (!match[1].startsWith('data:')) {
+        try { await fs.access(path.resolve(path.dirname(file), match[1])); }
+        catch { fail('missing CSS dependency: ' + match[1]); }
+      }
+    }
+  }
 }
-const pkg=JSON.parse(await fs.readFile(path.join(root,'package.json'),'utf8'));
-for (const dep of Object.keys({...pkg.dependencies,...pkg.devDependencies})) {
-  if (/^(tailwindcss|vite|webpack|express|alpinejs|htmx\.org|react|vue|angular)$/.test(dep)) errors.push(`package.json: forbidden dependency ${dep}`);
+const entry = await fs.readFile(path.join(src, 'wwwroot/css/app.css'), 'utf8');
+if (entry.replace(/@import[^;]+;/g, '').trim()) errors.push('app.css must contain imports only');
+const pkg = await readJson(path.join(root, 'package.json'));
+for (const dep of Object.keys({ ...pkg.dependencies, ...pkg.devDependencies })) {
+  if (/^(tailwindcss|vite|webpack|express|alpinejs|htmx\.org|react|vue|angular|sass|less|bootstrap)$/.test(dep)) {
+    errors.push('Forbidden dependency: ' + dep);
+  }
 }
-if (errors.length) { console.error('Structure lint failed:\n- '+errors.join('\n- ')); process.exit(1); }
-console.log('Structure lint passed for current application source.');
+try { validateRegistry(await readJson(path.join(src, 'page-registry.json'))); }
+catch (error) { errors.push(error.message); }
+if (errors.length) { console.error('Structure lint failed:\n- ' + errors.join('\n- ')); process.exitCode = 1; }
+else console.log('Structure lint passed: templates, CSS, data boundary, assets and routes.');

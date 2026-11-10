@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-rv-base-path="{{ site.basePath }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="محیط آزمایشی و بازبینی رابط کاربری ریوال">
+  <title>{{ title }}</title>
+  <link rel="icon" href="{{ urls.favicon }}">
+  <link rel="stylesheet" href="{{ urls.css }}">
+  <script type="module" src="{{ urls.js }}"></script>
+</head>
+<body>
+  <a class="rv-skip-link" href="#rv-main">رفتن به محتوای اصلی</a>
+  <main class="rv-preview" id="rv-main" tabindex="-1">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

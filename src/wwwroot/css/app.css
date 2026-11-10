@@ -1,4 +1,17 @@
-/* Ordered CSS entry point. Phase 01 generates and maintains imports only. */
-@import url("./00-tokens/tokens.css");
+@import url("./layers.css");
+@import url("./00-tokens/color.css");
+@import url("./00-tokens/type.css");
+@import url("./00-tokens/spacing.css");
+@import url("./00-tokens/radius.css");
+@import url("./00-tokens/shadow.css");
+@import url("./00-tokens/blur.css");
+@import url("./00-tokens/duration.css");
+@import url("./00-tokens/easing.css");
+@import url("./00-tokens/size.css");
+@import url("./01-base/fonts.css");
 @import url("./01-base/reset.css");
 @import url("./01-base/global.css");
+@import url("./02-layout/preview.css");
+@import url("./03-components/icons.css");
+@import url("./03-components/icon-map.css");
+@import url("./05-utilities/accessibility.css");

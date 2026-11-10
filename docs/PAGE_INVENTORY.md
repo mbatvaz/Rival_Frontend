@@ -89,6 +89,8 @@
 
 ## Page status summary
 
+- **Implementation status (2026-11-10):** Phase 01 infrastructure is complete and awaiting owner acceptance. All 73 registry page/state contexts remain **not implemented**; `Fully Designed` below describes source design coverage only. Each static route currently renders an explicit development placeholder. No product shell or product desktop composition is implemented.
+
 - **Fully Designed:** all canonical route/context IDs above have at least one authoritative artboard or explicit handoff spec.
 - **Reused:** CUS-01, STY-01, ADM-05 references in Batch 1 are historical/preview references; final source lives in Batches 3/4/5.
 - **Implied/no route:** CUS-07, bottom sheets, confirmations, toasts, and system patterns.
