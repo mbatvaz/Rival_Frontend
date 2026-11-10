@@ -56,11 +56,13 @@
 
   .rv-auth-alternatives {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     gap: var(--space-3);
     padding-block: var(--space-3);
   }
+
+  .rv-auth-alternatives > button { flex: 1; padding-inline: var(--space-2); font-size: var(--body-sm-size); }
 
   .rv-auth-link {
     font: inherit;
@@ -68,7 +70,7 @@
     padding: var(--space-2);
     color: var(--text-primary);
     background: none;
-    text-decoration: underline;
+    text-decoration: none;
     cursor: pointer;
   }
   .rv-auth-link:disabled { color: var(--text-muted); text-decoration: none; cursor: default; }

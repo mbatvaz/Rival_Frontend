@@ -1,5 +1,6 @@
 <figure class="rv-portfolio-card {% if item.lead %}rv-portfolio-card--lead{% endif %}" data-rv-work data-rv-service="{{ item.service }}" data-rv-stylist="{{ item.stylist }}">
   <img src="{{ basePath }}{{ item.image }}" alt="{{ item.title }}، {{ item.service }}، کار {{ item.stylist }}" width="358" height="440" loading="lazy">
   <span class="rv-portfolio-card__count">{{ item.images.length | faDigits }} تصویر</span>
-  <figcaption class="rv-portfolio-card__caption"><button type="button" data-rv-sheet-open="{{ item.id }}">{{ item.title }}</button><p>{{ item.service }} · {{ item.stylist }}</p></figcaption>
+  <figcaption class="rv-portfolio-card__caption rv-glass rv-glass--strong"><span>{{ item.title }}</span><p>{{ item.service }} · {{ item.stylist }}</p></figcaption>
+  <button class="rv-portfolio-card__open" type="button" data-rv-sheet-open="{{ item.id }}" aria-label="{{ item.title }}"></button>
 </figure>

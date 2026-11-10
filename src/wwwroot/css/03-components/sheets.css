@@ -1,4 +1,7 @@
 @layer components {
+  /* Runtime scroll offset preserves the visible page without nested scrolling. */
+  .rv-page--behind-sheet { position: fixed; inset-inline: 0; top: var(--rv-sheet-scroll); }
+
   .rv-sheet-layer {
     position: relative;
     isolation: isolate;

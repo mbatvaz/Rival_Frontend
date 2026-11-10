@@ -15,7 +15,16 @@
 
 ## Current gate
 
-Phase 02 ready for owner review: `docs-work/PHASE_02_REPORT_FA.md`. The owner explicitly approved all desktop briefs in this chat before desktop implementation. Phase 03 has not started and requires acceptance/assignment.
+Phase 02 owner-review corrections completed: `docs-work/PHASE_02_REVISIONS_FA.md` (supersedes the earlier visual report). The owner explicitly approved all desktop briefs in this chat before desktop implementation. Phase 03 has not started and requires acceptance/assignment.
+
+## Phase 02 owner-review corrections — 2026-11-10
+
+- All 20 owner comments addressed against nine supplied reference images; desktop-only revisions are scoped from 1024px. DEC-034..036 record the direct owner instructions.
+- PUB-01 responsive hero/about/carousel/map/CTA composition, glass navigation/captions, animated steps and contact/social links. PUB-02 borderless cards, overlay details, empty/error/shimmer and half-width desktop CTA. PUB-03 IconTile/policy/contact composition.
+- AUTH-01/02: 11-digit phone with Persian formatting/paste and read-only guard, five editable visual OTP cells with native autocomplete, red invalid fields, notice icons, direct methods and password bottom sheet with retained background.
+- Shared sheet background remains visible/inert, with focus/scroll restoration. Link/scrollbar utilities and reduced-motion-aware page/sheet/native route transitions are reusable in later phases.
+- Full checks: lint passed; root 50 passed; subpath 50 passed. After the final read-only paste guard, affected auth/review suites: 13 passed per path. Root output restored. 59 screenshots per deployment mode in tests/screens/phase02-revision/{root,subpath}/.
+- Scope unchanged: Phase 03 has not started; Phase 02 owner acceptance remains pending.
 
 ## Phase 02 evidence
 

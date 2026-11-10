@@ -1,0 +1,39 @@
+@layer utilities {
+  @view-transition { navigation: auto; }
+
+  a,
+  a:hover,
+  a:focus,
+  .rv-auth-link { text-decoration: none; }
+  * { scrollbar-width: none; }
+  ::-webkit-scrollbar { display: none; }
+
+  [data-rv-page] > main {
+    animation: rv-page-enter 380ms var(--ease-standard) both;
+  }
+  .rv-sheet { animation: rv-sheet-enter 320ms var(--ease-standard) both; }
+  .rv-sheet-scrim { animation: rv-fade-enter 240ms var(--ease-standard) both; }
+
+  @keyframes rv-page-enter {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes rv-sheet-enter {
+    from { opacity: 0; transform: translateY(32px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes rv-fade-enter {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    @view-transition { navigation: none; }
+
+    [data-rv-page] > main,
+    .rv-sheet,
+    .rv-sheet-scrim { animation: none; }
+  }
+}

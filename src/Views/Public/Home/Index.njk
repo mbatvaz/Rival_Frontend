@@ -10,18 +10,20 @@
     </div>
   </section>
   <div class="rv-public-content rv-home">
+    <div class="rv-home-intro">
     <section class="rv-home-about">
       <div><h2>سالنی که وقت شما را جدی می‌گیرد</h2><p class="rv-lead">{{ model.intro }}</p><figure class="rv-person"><img src="{{ basePath }}img/public/taha.png" alt="طاها" width="56" height="56"><figcaption>طاها بهرامی<br><span class="rv-muted">مدیر سالن و آرایشگر ارشد.</span></figcaption></figure></div>
-      <img class="rv-home-about__photo" src="{{ basePath }}img/public/hall.jpg" alt="تابلوی ریوال در سالن" width="480" height="320" loading="lazy">
     </section>
     <section aria-labelledby="home-portfolio"><header class="rv-section-head"><h2 id="home-portfolio">نمونه‌کارها</h2><a href="{{ productUrls.portfolio }}">همه نمونه‌کارها<span class="ri ri-chevron-left" aria-hidden="true"></span></a></header>
       {% include "Shared/Components/_HomeCarousel.njk" %}
     </section>
-    <section><h2>رزرو در سه قدم</h2><ol class="rv-home-steps rv-panel">{% for step in model.steps %}<li><span class="rv-home-steps__number">{{ loop.index | faDigits }}</span><h3>{{ step.title }}</h3><p>{{ step.description }}</p></li>{% endfor %}</ol><a class="rv-text-link" href="{{ productUrls.rules }}">قوانین رزرو، لغو و جابه‌جایی<span class="ri ri-chevron-left" aria-hidden="true"></span></a></section>
+    </div>
+    <section><h2>رزرو در سه قدم</h2><ol class="rv-home-steps rv-panel">{% for step in model.steps %}<li><span class="rv-home-steps__number">{{ loop.index | faDigits }}</span><h3>{{ step.title }}</h3></li>{% endfor %}</ol><a class="rv-text-link" href="{{ productUrls.rules }}">قوانین رزرو، لغو و جابه‌جایی<span class="ri ri-chevron-left" aria-hidden="true"></span></a></section>
     <div class="rv-home-visit">
       <section><h2>داخل سالن</h2><div class="rv-hall"><img src="{{ basePath }}img/public/hall.jpg" alt="تابلوی ریوال روی دیوار سالن" width="226" height="300"><img src="{{ basePath }}img/public/chair.png" alt="صندلی چرمی سالن" width="140" height="186"><img src="{{ basePath }}img/public/hall-wide.png" alt="نمای کلی سالن" width="230" height="150"></div></section>
-      <section><h2>ساعات کاری و نشانی</h2><div class="rv-visit"><svg class="rv-salon-map" viewBox="0 0 358 420" aria-hidden="true"><path d="M-10 54 L370 26"/><path d="M-10 142 L370 126"/><path d="M120 -10 L146 380"/><path d="M262 -10 L238 380"/><path d="M-10 96 L120 84 M150 80 L370 76"/><path d="M40 -10 L60 380 M320 -10 L330 380"/></svg><div class="rv-visit-card rv-panel"><span class="ri ri-map-pin" aria-hidden="true"></span><h3>{{ model.address }}</h3><dl><div><dt>شنبه تا پنج‌شنبه</dt><dd>{{ model.hours }}</dd></div></dl><p class="rv-muted">اطلاعات تماس و پیوند مسیریابی هنوز ثبت نشده است.</p><button class="rv-btn rv-btn--secondary" type="button" disabled>مسیریابی</button></div></div></section>
+      <div class="rv-home-visit__contact"><section><h2>ساعات کاری و نشانی</h2><div class="rv-visit"><svg class="rv-salon-map" viewBox="0 0 358 420" aria-hidden="true"><path d="M-10 54 L370 26"/><path d="M-10 142 L370 126"/><path d="M120 -10 L146 380"/><path d="M262 -10 L238 380"/><path d="M-10 96 L120 84 M150 80 L370 76"/><path d="M40 -10 L60 380 M320 -10 L330 380"/></svg><span class="rv-visit__marker" aria-hidden="true"><img src="{{ basePath }}img/rival-mark.png" alt=""></span><div class="rv-visit-card rv-glass rv-glass--strong"><h3><span class="ri ri-map-pin" aria-hidden="true"></span>{{ model.address }}</h3><div class="rv-visit-card__hours"><span>شنبه تا پنج‌شنبه · {{ model.hours }}</span><a href="tel:{{ model.phone }}" dir="ltr">{{ model.phone | faDigits }}</a></div><a class="rv-btn rv-btn--secondary" href="{{ model.links.map }}" title="مقصد نمونه؛ قابل‌تکمیل در توسعه"><span class="ri ri-map-pin" aria-hidden="true"></span>مسیریابی</a></div></div><nav class="rv-contact-links" aria-label="تماس و شبکه‌های اجتماعی"><a class="rv-btn rv-btn--secondary" href="tel:{{ model.phone }}"><span class="ri ri-phone" aria-hidden="true"></span>تماس با سالن</a><a class="rv-btn rv-btn--glass" href="{{ model.links.instagram }}" title="پیوند نمونه"><span class="ri ri-arrow-up-left" aria-hidden="true"></span>اینستاگرام</a><a class="rv-btn rv-btn--glass" href="{{ model.links.telegram }}" title="پیوند نمونه"><span class="ri ri-send" aria-hidden="true"></span>تلگرام</a></nav></section>
+      {% include "Shared/_BookingCta.njk" %}
+      </div>
     </div>
-    {% include "Shared/_BookingCta.njk" %}
   </div>
 {% endblock %}

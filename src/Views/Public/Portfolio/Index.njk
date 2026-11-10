@@ -6,9 +6,7 @@
       <div class="rv-filter" role="group" aria-label="فیلتر خدمت"><span>خدمت</span><div class="rv-chip-rail">{% for service in model.services %}<button class="rv-chip" type="button" data-rv-filter="service" data-rv-value="{{ service }}" aria-pressed="{% if loop.first %}true{% else %}false{% endif %}">{{ service }}</button>{% endfor %}</div></div>
       <div class="rv-filter" role="group" aria-label="فیلتر آرایشگر"><span>آرایشگر</span><div class="rv-chip-rail">{% for stylist in model.stylists %}<button class="rv-chip" type="button" data-rv-filter="stylist" data-rv-value="{{ stylist }}" aria-pressed="{% if loop.first %}true{% else %}false{% endif %}">{{ stylist }}</button>{% endfor %}</div></div>
     </div>
-    <div class="rv-feedback" role="status" aria-live="polite" data-rv-portfolio-status></div>
-    <button class="rv-btn rv-btn--secondary" type="button" data-rv-clear-filter hidden>پاک کردن فیلترها</button>
-    <button class="rv-btn rv-btn--secondary" type="button" data-rv-retry hidden>تلاش دوباره</button>
+    {% include "Shared/Components/_PortfolioFeedback.njk" %}
     <section class="rv-portfolio-grid" aria-label="نمونه‌کارها">
       {% for item in model.items %}{% if item.lead %}{% include "Shared/Components/_PortfolioCard.njk" %}{% endif %}{% endfor %}
       <div class="rv-portfolio-columns">

@@ -1,0 +1,68 @@
+@layer pages {
+  .rv-auth-return {
+    display: block;
+    position: relative;
+    padding: var(--space-3);
+    padding-inline-start: var(--space-12);
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface-muted);
+  }
+
+  .rv-auth-return::before,
+  .rv-auth-lock::before,
+  [data-rv-verified-phone]::before {
+    content: "";
+    display: inline-block;
+    inline-size: 22px;
+    block-size: 22px;
+    flex: none;
+    background: currentcolor;
+    mask: url("../../icons/calendar-plus.svg") center / contain no-repeat;
+  }
+  .rv-auth-return::before { position: absolute; inset-inline-start: var(--space-3); inset-block-start: var(--space-3); }
+
+  .rv-auth-lock {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    border: 1px solid var(--warning-line);
+  }
+  .rv-auth-lock::before { mask-image: url("../../icons/clock-alert.svg"); }
+  [data-rv-verified-phone] { display: flex; align-items: center; gap: var(--space-2); }
+  [data-rv-verified-phone]::before { mask-image: url("../../icons/check-circle.svg"); color: var(--success-fg); }
+
+  [data-rv-resend]::before {
+    content: "";
+    inline-size: 18px;
+    block-size: 18px;
+    background: currentcolor;
+    mask: url("../../icons/refresh.svg") center / contain no-repeat;
+  }
+
+  [data-rv-auth-status]:not(:empty) {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    border: 1px solid var(--danger-line);
+    border-radius: var(--radius-sm);
+    background: var(--danger-bg);
+    color: var(--danger-fg);
+    font-size: var(--body-sm-size);
+  }
+
+  [data-rv-auth-status]:not(:empty)::before,
+  [data-rv-auth-submit][data-rv-loading="true"]::before {
+    content: "";
+    flex: none;
+    inline-size: 20px;
+    block-size: 20px;
+    background: currentcolor;
+    mask: url("../../icons/alert.svg") center / contain no-repeat;
+  }
+  [data-rv-auth-status][data-rv-tone="info"] { background: var(--info-bg); color: var(--info-fg); border-color: var(--info-line); }
+  [data-rv-auth-status][data-rv-tone="info"]::before { mask-image: url("../../icons/info.svg"); }
+  [data-rv-auth-submit][data-rv-loading="true"]::before { mask-image: url("../../icons/refresh.svg"); animation: rv-auth-busy 1s linear infinite; }
+
+  @keyframes rv-auth-busy { to { transform: rotate(360deg); } }
+}

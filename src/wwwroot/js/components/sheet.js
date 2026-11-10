@@ -10,7 +10,11 @@ export function openSheet(id, opener = document.activeElement) {
   if (!panel || !layer) return;
   if (!current) {
     originalScroll = window.scrollY;
-    document.querySelector('[data-rv-page]').hidden = true;
+    const page = document.querySelector('[data-rv-page]');
+    page.style.setProperty('--rv-sheet-scroll', -originalScroll + 'px');
+    page.classList.add('rv-page--behind-sheet');
+    page.inert = true;
+    page.setAttribute('aria-hidden', 'true');
     document.querySelector('.rv-skip-link').hidden = true;
   } else {
     current.panel.hidden = true;
@@ -33,8 +37,13 @@ export function closeSheet() {
     (closing.opener?.isConnected ? closing.opener : current.panel).focus();
   } else {
     document.querySelector('[data-rv-sheet-layer]').hidden = true;
-    document.querySelector('[data-rv-page]').hidden = false;
+    const page = document.querySelector('[data-rv-page]');
+    page.classList.remove('rv-page--behind-sheet');
+    page.style.removeProperty('--rv-sheet-scroll');
+    page.inert = false;
+    page.removeAttribute('aria-hidden');
     document.querySelector('.rv-skip-link').hidden = false;
+    document.dispatchEvent(new CustomEvent('rv:sheet-close', { detail: { id: closing.panel.id } }));
     closing.opener?.focus({ preventScroll: true });
     window.scrollTo(0, originalScroll);
   }

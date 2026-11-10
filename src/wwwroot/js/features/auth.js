@@ -2,11 +2,13 @@ import { api } from '../core/api.js';
 import { basePath } from '../core/config.js';
 import { faDigits } from '../core/format.js';
 import { normalizePhone, validPhone, latinDigits, stateFor, issueCode, verify, finishSession, safeReturn } from '../core/auth-demo.js';
-import { closeSheet } from '../components/sheet.js';
-import { render, fieldError } from './auth-view.js';
+import { initOtp } from '../components/otp.js';
+import { initMethods } from './auth-methods.js';
+import { render, fieldError, notice } from './auth-view.js';
 import { applyPreview } from './auth-preview.js';
 
-export async function init(root) {
+export async function init() {
+  const root = document;
   const get = name => root.querySelector('[data-rv-' + name + ']');
   const form = get('auth-form');
   const view = { stage: 'phone', busy: false, newUser: false };
@@ -22,18 +24,19 @@ export async function init(root) {
       account = (await applyPreview(root, policy, view)) ?? account;
       get('auth-return').hidden = safeReturn(policy, candidate) !== basePath() + 'customer/book/';
       const supported = typeof window.PublicKeyCredential === 'function' && window.isSecureContext;
-      document.querySelector('[data-rv-passkey]').hidden = !supported;
+      document.querySelector('[data-rv-passkey]').dataset.rvSupported = String(supported);
       refresh();
+      if (new URLSearchParams(window.location.search).get('state') === 'password') root.querySelector('[data-rv-method="password"]').click();
       if (!timer) timer = window.setInterval(refresh, 1000);
     } catch (error) {
-      get('auth-status').textContent = error.message;
+      notice(root, error.message);
       get('auth-retry').hidden = false;
       get('auth-submit').disabled = true;
     }
   }
   get('auth-retry').addEventListener('click', () => {
     view.busy = false;
-    get('auth-status').textContent = '';
+    notice(root, '');
     get('auth-retry').hidden = true;
     if (policy) refresh(); else load();
   });
@@ -45,33 +48,37 @@ export async function init(root) {
         const result = await stateFor(phone, policy);
         if (revision === accountRevision && !view.busy) { account = result.account; refresh(); }
       }
-      catch (error) { get('auth-status').textContent = error.message; }
+      catch (error) { notice(root, error.message); }
     }
   });
-  get('phone').addEventListener('input', () => fieldError(root, 'phone', ''));
+  get('phone').addEventListener('input', () => {
+    get('phone').value = faDigits(latinDigits(get('phone').value).replace(/\D/g, '').slice(0, 11));
+    fieldError(root, 'phone', '');
+  });
+  get('phone').addEventListener('paste', event => {
+    if (get('phone').readOnly || get('phone').disabled) return;
+    event.preventDefault();
+    get('phone').value = faDigits(latinDigits(event.clipboardData.getData('text')).replace(/\D/g, '').slice(0, 11));
+    fieldError(root, 'phone', '');
+  });
+  initOtp(root);
   get('code').addEventListener('input', () => {
-    get('code').value = faDigits(latinDigits(get('code').value).replace(/\D/g, '').slice(0, policy.digits));
+    const caret = get('code').selectionStart;
+    get('code').value = faDigits(latinDigits(get('code').value).replace(/\D/g, '').slice(0, policy?.digits ?? 5));
+    get('code').setSelectionRange(caret, caret);
     fieldError(root, 'code', '');
     refresh();
   });
   const edit = () => { view.stage = 'phone'; get('code').value = ''; refresh(); get('phone').focus(); };
   get('edit-phone').addEventListener('click', edit);
-  document.addEventListener('click', event => {
-    const method = event.target.closest('[data-rv-method]');
-    if (!method || method.disabled || !policy) return;
-    closeSheet();
-    view.stage = method.dataset.rvMethod === 'password' ? 'password' : 'phone';
-    get('auth-status').textContent = method.dataset.rvMethod === 'passkey' ? 'ورود با Passkey در نسخهٔ آزمایشی فعال نیست؛ از کد پیامکی استفاده کنید.' : '';
-    refresh();
-    get('phone').focus();
-  });
+  initMethods(root, view, refresh, () => Boolean(policy));
   async function submit(resending = false) {
     if (!policy || view.busy) return;
     const phone = normalizePhone(get('phone').value);
     if (!validPhone(phone)) { fieldError(root, 'phone', 'شماره موبایل را درست بنویسید.'); get('phone').focus(); return; }
     view.busy = true;
     accountRevision++;
-    get('auth-status').textContent = '';
+    notice(root, '');
     refresh();
     try {
       if (view.stage === 'phone' || resending) {
@@ -98,10 +105,9 @@ export async function init(root) {
             ? 'کد درست نیست. ' + faDigits(policy.maxAttempts - account.failures.length) + ' تلاش دیگر دارید.'
             : 'اطلاعات ورود درست نیست. دوباره تلاش کنید.';
           fieldError(root, method === 'otp' ? 'code' : 'password', message);
-          get('auth-status').textContent = message;
         }
       }
-    } catch (error) { get('auth-status').textContent = error.message; }
+    } catch (error) { notice(root, error.message); }
     finally { view.busy = false; refresh(); }
   }
   form.addEventListener('submit', event => { event.preventDefault(); submit(); });

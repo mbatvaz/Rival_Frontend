@@ -48,3 +48,15 @@ Source prefix below: `design-export/batches/Rival_Batch1_Full(2)/rival-batch1-fu
 | ARCH regression | DEC-020/026/028/029/030/031/032 | build helper product.mjs; lazy feature loaders; canonical basePath; safe returns | full 45-test suite at root and subfolder; structure/JS/CSS lint |
 
 Desktop briefs in `docs-work/desktop-layouts/{PUB-01,PUB-02,PUB-03,AUTH-01,AUTH-02,SYS-ACC-01,SHELL}.md` were approved in the chat before implementation. Full source export/reference trees remain unchanged. StatePage stays in Phase 03 and finance/MVC boundaries remain unchanged.
+
+## Phase 02 owner-review revision — 2026-11-10
+
+| Evidence | Covered IDs / components | Implementation / verification |
+|---|---|---|
+| Owner comments 1–8, 10, 12; contact/map reference image; DEC-035/036 | PUB-01/02, HeaderPublic | Home composition, animated steps, compact contact and samples, navigation spacing, half-width CTA; revisions.spec.mjs at 1920/417/471 and responsive-a11y at 320/390/768/1280 |
+| Comments 3, 9, 11, 19, 20; supplied empty/error/loading images | PUB-02, Glass, PortfolioCard/Viewer | Borderless cards, DS glass, centered empty state, retry notice, animated skeleton and retained background; public-shell/revisions/responsive-a11y tests |
+| Comments 13–16; icon-tile image; source PUB-03.dc.html | PUB-03, IconTile, PolicyWindow | Shared chrome tile, note icons, segmented policy and colored rows, phone contact; policy copy and axe checks |
+| Comments 17/18; four supplied auth/error/code images; DEC-034 | AUTH-01/02, Otp/fields/notice | Phone limit and paste, five visual editable cells, inline error, direct methods and password overlay; auth/revisions/responsive-a11y tests |
+| General owner instructions | Shared Sheet, motion, scrollbar/link utilities | Visible inert background, focus/scroll restoration, entrance and native route transition, reduced motion; no underlines or visible scrollbar; shared-shell keyboard/axe checks |
+
+Full suites: 50 passed at root and 50 at /rival-demo/; after the final read-only paste guard, the 13 affected auth/review scenarios are rechecked at both paths. Original design-export/docs/references remain unchanged. Detailed results and 59 screenshots per mode are recorded in the review report.

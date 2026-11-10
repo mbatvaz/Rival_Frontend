@@ -17,7 +17,8 @@ export async function init(root) {
     verified = state.verified;
     const preview = ['default', 'field-error'].includes(query.get('state'));
     if (preview) {
-      await api.read('auth/profile-states/' + query.get('state'));
+      const sample = (await api.read('auth/profile-states/' + query.get('state'))).data;
+      root.querySelector('[data-rv-first-name]').value = sample.firstName ?? '';
       verified = { phone: policy.demoPhone };
     }
     destination = safeReturn(policy, query.get('return'));

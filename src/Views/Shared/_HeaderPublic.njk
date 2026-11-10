@@ -1,5 +1,5 @@
 <header class="rv-public-header {% if isHome %}rv-public-header--home{% endif %}">
-  {% if publicTitle %}<a class="rv-icon-btn rv-public-header__back" href="{{ urls.home }}" aria-label="بازگشت به خانه"><span class="ri ri-arrow-right" aria-hidden="true"></span></a>{% endif %}
+  {% if publicTitle %}<a class="rv-public-header__back" href="{{ urls.home }}" aria-label="بازگشت به خانه"><span class="ri ri-arrow-right" aria-hidden="true"></span></a>{% endif %}
   <a class="rv-public-header__logo" href="{{ urls.home }}" aria-label="ریوال — خانه"><img src="{{ urls.logo }}" alt="ریوال" width="120" height="40"></a>
   {% if publicTitle %}<h1 class="rv-public-header__title">{{ publicTitle }}</h1>{% endif %}
   <nav class="rv-public-header__nav" aria-label="ناوبری عمومی">

@@ -1,36 +1,34 @@
 @layer pages {
   @media (min-width: 1024px) {
     .rv-home-hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      block-size: 720px;
-      min-block-size: 720px;
-    }
-    .rv-home-hero__photo { position: static; grid-column: 2; object-position: center; }
-
-    .rv-home-hero__copy {
-      position: static;
-      grid-column: 1;
-      grid-row: 1;
-      align-self: center;
-      padding: var(--space-12);
-    }
-    .rv-home-hero::after { display: none; }
-
-    .rv-home-about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-12);
-      align-items: center;
-    }
-
-    .rv-home-about__photo {
-      display: block;
-      inline-size: 100%;
-      block-size: 320px;
-      object-fit: cover;
+      inline-size: calc(100% - var(--space-12));
+      max-inline-size: 1152px;
+      margin-inline: auto;
+      block-size: 640px;
+      min-block-size: 640px;
       border-radius: var(--radius-xl);
     }
-    .rv-home-visit { grid-template-columns: 1fr 1fr; gap: var(--space-12); }
+    .rv-home-hero__photo { object-position: center; }
+
+    .rv-home-hero__copy {
+      inset-inline: var(--space-12);
+      inset-block-end: var(--space-12);
+      max-inline-size: 540px;
+    }
+
+    .rv-home-hero::after {
+      background: linear-gradient(270deg, var(--scrim-photo), transparent), linear-gradient(0deg, var(--bg-inverse), transparent 80%);
+    }
+
+    .rv-home-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: center;
+      gap: var(--space-12);
+    }
+    .rv-home-intro > section { min-inline-size: 0; }
+    .rv-home-visit { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-12); }
+    .rv-home-visit__contact { min-inline-size: 0; }
+    .rv-home-visit .rv-booking-cta { margin-block-start: var(--space-5); }
   }
 }

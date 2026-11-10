@@ -1,9 +1,11 @@
-/* Decorative geometry copied from PUB-01 source; no real map coordinates. */
+/* Decorative source geometry; sample destinations live in public/home.json. */
 @layer pages {
   .rv-visit {
     position: relative;
-    min-block-size: 420px;
-    padding: calc(var(--space-12) * 3) var(--space-2) var(--space-2);
+    min-block-size: 480px;
+    display: flex;
+    align-items: flex-end;
+    padding: var(--space-2);
     border-radius: var(--radius-xl);
     background: var(--bg-plaster);
     overflow: clip;
@@ -20,5 +22,60 @@
   .rv-salon-map path:nth-child(3) { stroke-width: 12; }
   .rv-salon-map path:nth-child(4) { stroke-width: 8; }
   .rv-salon-map path:nth-child(n+5) { stroke: var(--chrome-300); stroke-width: 3; }
-  .rv-visit .rv-visit-card { position: relative; min-block-size: auto; }
+
+  .rv-visit__marker {
+    position: absolute;
+    inset-block-start: 22%;
+    inset-inline-start: calc(50% - 22px);
+    inline-size: 44px;
+    block-size: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-pill);
+    background: var(--bg-inverse);
+    box-shadow: var(--shadow-md);
+  }
+  .rv-visit__marker img { inline-size: 22px; filter: invert(1); }
+
+  .rv-visit .rv-visit-card {
+    position: relative;
+    min-block-size: 0;
+    inline-size: 100%;
+    gap: var(--space-1);
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+    font-size: var(--caption-size);
+  }
+
+  .rv-visit-card h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin: 0;
+    font-size: var(--caption-size);
+  }
+  .rv-visit-card dl { margin: 0; }
+
+  .rv-visit-card__hours {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+  .rv-visit-card__hours a { display: inline-flex; align-items: center; min-block-size: 44px; }
+  .rv-visit-card > .rv-btn { min-block-size: 44px; padding-block: var(--space-1); }
+
+  .rv-contact-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-block-start: var(--space-3);
+  }
+
+  .rv-contact-links a {
+    flex: 1;
+    min-inline-size: 44px;
+    padding-inline: var(--space-2);
+    font-size: var(--caption-size);
+  }
 }

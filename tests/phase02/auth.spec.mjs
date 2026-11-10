@@ -65,12 +65,11 @@ test('Five failures lock every method for the same phone for 15 minutes, includi
   await expect(submit(page)).toBeEnabled();
 });
 
-test('Password stays behind Other method and passkey has a usable fallback @smoke', async ({ page }) => {
+test('Direct password opens over login and unsupported passkey keeps an OTP fallback @smoke', async ({ page }) => {
   await page.addInitScript(() => Object.defineProperty(window, 'PublicKeyCredential', { value: undefined }));
   await login(page);
-  await page.getByRole('button', { name: 'روش دیگر', exact: true }).click();
-  await expect(page.getByRole('dialog')).toBeVisible();
-  await expect(page.locator('[data-rv-passkey]')).toBeHidden();
+  await expect(page.locator('[data-rv-passkey]')).toBeVisible();
+  await expect(page.locator('[data-rv-passkey]')).toBeDisabled();
   await page.getByRole('button', { name: 'ورود با رمز عبور', exact: true }).click();
   await page.getByLabel('شماره موبایل', { exact: true }).fill('09143214567');
   await page.getByLabel('رمز عبور', { exact: true }).fill('wrong');
@@ -104,7 +103,6 @@ test('Direct completion context returns to login, preserving a safe internal ret
 
 test('Switching login methods cannot reset the shared failure counter @smoke', async ({ page }) => {
   await login(page, '?state=wrong');
-  await page.getByRole('button', { name: 'روش دیگر', exact: true }).click();
   await page.getByRole('button', { name: 'ورود با رمز عبور', exact: true }).click();
   for (let i = 0; i < 3; i++) {
     await page.getByLabel('رمز عبور', { exact: true }).fill('wrong-' + i);
@@ -112,5 +110,5 @@ test('Switching login methods cannot reset the shared failure counter @smoke', a
     if (i < 2) await expect(page.locator('[data-rv-password-error]')).toContainText('درست نیست');
   }
   await expect(page.locator('[data-rv-auth-lock]')).toContainText('همهٔ روش‌های ورود');
-  await expect(page.getByRole('button', { name: 'روش دیگر', exact: true })).toBeDisabled();
+  await expect(page.locator('[data-rv-method="password"]')).toBeDisabled();
 });

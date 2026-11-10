@@ -1,0 +1,5 @@
+<article class="rv-panel rv-rule-window rv-glass" aria-label="{{ window.title }}">
+  <header class="rv-rule-window__head"><h3>{{ window.title }}</h3>{% if loop.first %}<span class="rv-policy-tag"><span class="ri ri-coins" aria-hidden="true"></span>بازگشت هزینه</span>{% endif %}</header>
+  <div class="rv-policy-bar" aria-hidden="true">{% for segment in [1,2,3] %}<span {% if segment == window.segment %}class="rv-policy-bar__active"{% endif %}></span>{% endfor %}</div>
+  <dl><div><dt>لغو</dt><dd class="rv-policy-{{ window.cancelTone }}"><span class="ri ri-{{ window.cancelIcon }}" aria-hidden="true"></span><span>{{ window.cancel }}</span></dd></div><div><dt>جابه‌جایی</dt><dd class="rv-policy-{{ window.moveTone }}"><span class="ri ri-{{ window.moveIcon }}" aria-hidden="true"></span><span>{{ window.move }}</span></dd></div></dl>
+</article>

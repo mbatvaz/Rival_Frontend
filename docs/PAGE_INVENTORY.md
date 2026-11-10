@@ -105,3 +105,5 @@
 - **Reused:** CUS-01, STY-01, ADM-05 references in Batch 1 are historical/preview references; final source lives in Batches 3/4/5.
 - **Implied/no route:** CUS-07, bottom sheets, confirmations, toasts, and system patterns.
 - **Removed/replaced:** ADM-17 Reports, ADM-18 Wallet, ADM-22 Announcements, ADM-19 standalone wallet detail.
+
+Phase 02 owner-review revision (2026-11-10): PUB-01..03 and AUTH-01/02 updated against the 20 comments and nine supplied images; shared Sheet/Glass/IconTile/fields/motion corrections also apply to existing shells and SYS-ACC-01. Acceptance remains pending. See `docs-work/PHASE_02_REVISIONS_FA.md`; no new route or Phase 03 page was introduced.

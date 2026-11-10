@@ -37,9 +37,14 @@
   .rv-home-hero__word { font-size: calc(var(--display-xl-size) * 2.5); line-height: 1.3; font-weight: var(--heading-xl-weight); }
 
   .rv-home > section,
+  .rv-home-intro,
   .rv-home-visit { margin-block-start: var(--space-12); }
 
-  .rv-home-about__photo { display: none; }
+  .rv-home-intro > section + section { margin-block-start: var(--space-8); }
+
+  @media (min-width: 1024px) {
+    .rv-home-intro > section + section { margin-block-start: 0; }
+  }
 
   .rv-person {
     display: flex;

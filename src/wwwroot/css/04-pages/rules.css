@@ -31,14 +31,29 @@
   }
   .rv-rule-ways li { display: flex; gap: var(--space-3); margin: 0; }
   .rv-rule-ways p { margin-block-end: var(--space-2); }
-  .rv-rule-ways .ri { margin-block-start: var(--space-1); }
+  .rv-rule-ways h3 { margin-block: 0; }
 
   .rv-rule-window,
   .rv-rules__body article { margin-block-end: var(--space-3); }
   .rv-rule-window dl { display: grid; gap: var(--space-3); margin: 0; }
   .rv-rule-window dl div { display: flex; gap: var(--space-4); }
-  .rv-rule-window dt { flex: 0 0 var(--size-nav); color: var(--text-secondary); }
+  .rv-rule-window dt { flex: 0 0 52px; color: var(--text-secondary); }
   .rv-rule-window dd { margin: 0; }
+
+  .rv-rules .rv-rule-notes { list-style: none; padding: 0; }
+  .rv-rule-notes li { display: flex; align-items: flex-start; gap: var(--space-2); }
+  .rv-rule-notes .ri { margin-block-start: var(--space-1); color: var(--text-muted); }
+  .rv-rule-heading { display: flex; align-items: center; gap: var(--space-3); }
+
+  .rv-rule-heading > span {
+    display: grid;
+    place-items: center;
+    inline-size: 32px;
+    block-size: 32px;
+    border-radius: var(--radius-pill);
+    background: var(--glass-fill);
+    box-shadow: var(--shadow-hairline);
+  }
 
   @media (min-width: 1024px) {
     .rv-rules { grid-template-columns: 220px minmax(0, 1fr); }

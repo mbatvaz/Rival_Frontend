@@ -4,6 +4,7 @@ import path from 'node:path';
 import { root, src, loadSite, readJson, normalizeBasePath } from '../../tools/lib/site.mjs';
 import { faDigits, jalali } from '../../tools/lib/format.mjs';
 
+const authorizedExternal = value => /^tel:09141452321$|^https:\/\/(?:instagram|telegram|maps)\.example\/rival$/.test(value);
 const out = path.join(root, 'dist');
 const { basePath } = await loadSite();
 async function walk(dir) {
@@ -25,7 +26,7 @@ test('Static output preserves 73 contexts and deploys no source or runtime @smok
     const html = await fs.readFile(file, 'utf8');
     expect(html).not.toMatch(/<style\b|\sstyle=|\son[a-z]+\s*=|<script(?![^>]*src=)/i);
     expect(html).not.toMatch(/\{[%{]|\b(?:b[2-7]|f)-[a-z]/);
-    for (const match of html.matchAll(/(?:href|src)="([^"#]+)"/g)) expect(match[1].startsWith(basePath)).toBe(true);
+    for (const match of html.matchAll(/(?:href|src)="([^"#]+)"/g)) expect(match[1].startsWith(basePath) || authorizedExternal(match[1])).toBe(true);
   }
   expect(faDigits(123)).toBe('۱۲۳');
   expect(jalali('2026-03-20T21:00:00Z')).toBe('۱۴۰۵/۰۱/۰۱');
@@ -65,6 +66,7 @@ test('Every local HTML, CSS import, font, icon and module reference resolves @sm
         : [...text.matchAll(/from '([^']+)'/g)];
     const fileUrl = 'http://127.0.0.1:' + (process.env.PORT || '4173') + basePath + path.relative(out, file).replaceAll('\\', '/');
     for (const match of matches) {
+      if (authorizedExternal(match[1])) continue;
       const url = new URL(match[1], fileUrl);
       expect(url.pathname.startsWith(basePath)).toBe(true);
       const response = await request.get(url.href);

@@ -40,3 +40,11 @@
 | DEC-031 | Phase 01 acceptance for DS/RULE/ARCH is recorded in TRACEABILITY, not PAGE_INVENTORY. | Confirmed | Do not require infrastructure IDs to appear as product pages. |
 | DEC-032 | Canonical CSS is generated from `tokens.json`; export CSS bundles are evidence only; production classes use `rv-*`. | Confirmed | Legacy batch prefixes are mapped, not copied into production. |
 | DEC-033 | The 2026-11-09 owner instruction supersedes active Claude Code setup documents. | Confirmed | `AGENTS.md` and Codex workflows are authoritative; legacy files are archived and marked inactive. |
+
+## Phase 02 owner review — 2026-11-10
+
+| ID | Decision | Status | Implementation consequence |
+|---|---|---|---|
+| DEC-034 | Direct adjacent password/Passkey buttons replace Other method; password opens above the current page. | Confirmed by owner comment 17 and supplied auth images | Supersedes D10-211 presentation only. Shared lock, OTP defaults and safe returns remain. Unsupported Passkey is visibly disabled; supported static demo provides OTP fallback. |
+| DEC-035 | Use phone 09141452321; social/map links may be nonreal samples until development supplies real destinations. | Confirmed in current chat | Phone and reserved .example destinations live in public fixtures. Sample links are titled as samples. Decorative map has no coordinate claim. |
+| DEC-036 | Desktop review changes: full-image bounded hero, about/carousel columns, map/CTA left and hall right, half-width portfolio CTA, glass navigation. | Confirmed by owner comments 1–12 | Updated page desktop briefs; mobile order preserved where the instruction is desktop-specific. |

@@ -1,0 +1,31 @@
+@layer components {
+  .rv-glass {
+    background: var(--glass-fill);
+    border: 1px solid var(--glass-edge);
+    box-shadow: var(--shadow-glass), 0 0 0 1px var(--glass-shade);
+    backdrop-filter: blur(var(--blur-glass)) saturate(180%);
+  }
+  .rv-glass--strong { background: var(--glass-fill-strong); backdrop-filter: blur(var(--blur-strong)) saturate(180%); }
+
+  .rv-icon-tile {
+    flex: none;
+    display: grid;
+    place-items: center;
+    inline-size: var(--size-touch);
+    block-size: var(--size-touch);
+    border-radius: var(--radius-sm);
+    background: linear-gradient(145deg, var(--bg-surface), var(--chrome-100) 55%, var(--chrome-300));
+    box-shadow: var(--shadow-sm), inset 0 1px 0 var(--glass-edge);
+    color: var(--chrome-700);
+  }
+
+  .rv-icon-tile--large {
+    inline-size: 96px;
+    block-size: 96px;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md), inset 0 1px 0 var(--glass-edge);
+  }
+  .rv-icon-tile--large .ri { inline-size: 28px; block-size: 28px; }
+  .rv-icon-row { display: flex; align-items: flex-start; gap: var(--space-3); }
+  .rv-icon-row > div { min-inline-size: 0; }
+}

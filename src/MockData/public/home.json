@@ -8,16 +8,13 @@
     "intro": "ریوال سالن مردانه طاها در اردبیل است. هر نوبت زمان مشخص خودش را دارد؛ وقتی می‌رسید، صندلی و آرایشگرتان آماده‌اند و لازم نیست منتظر بمانید.",
     "steps": [
       {
-        "title": "وارد شوید",
-        "description": "با کد پیامکی، بدون رمز"
+        "title": "وارد شوید"
       },
       {
-        "title": "انتخاب کنید",
-        "description": "خدمت، آرایشگر و زمان آزاد"
+        "title": "انتخاب کنید"
       },
       {
-        "title": "بپردازید",
-        "description": "هزینه رزرو، نه قیمت کامل خدمت"
+        "title": "رزرو شد"
       }
     ],
     "carouselInterval": 3000,
@@ -46,6 +43,12 @@
         "title": "فید کم با بافت بالا",
         "image": "img/public/fade.png"
       }
-    ]
+    ],
+    "phone": "09141452321",
+    "links": {
+      "instagram": "https://instagram.example/rival",
+      "telegram": "https://telegram.example/rival",
+      "map": "https://maps.example/rival"
+    }
   }
 }

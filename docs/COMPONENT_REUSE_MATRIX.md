@@ -38,3 +38,5 @@ Do not create separate “wallet page”, “announcement page”, “reports pa
 - `StatePage` base is implemented once in Phase 03 because the booking flow is its first production use. Phase 03 owns booking variants STATE-04..07. Phase 08 adds remaining STATE variants and SYS recovery patterns by composition; it must not rebuild the base.
 - `CreditPayments`, `WalletLedger`, `PaymentRow`, and the balance summary are canonical shared finance primitives. Phase 06 implements them for ADM-09; Phase 08 extends the same implementation for ADM-16 matching.
 - Batch-specific prefixes (`b2-` through `b7-`, `f-`) are export evidence only. Production components use `rv-*` classes.
+
+Phase 02 review: reusable native primitives now include Glass/IconTile (`materials.css`), editable five-cell Otp (`_Otp.njk`, `components/otp.js`), PolicyWindow (`_PolicyWindow.njk`), portfolio feedback/skeleton and auth notice styles. Sheet preserves an inert visible background. Future phase owners should reuse these primitives; canonical StatePage ownership remains Phase 03.

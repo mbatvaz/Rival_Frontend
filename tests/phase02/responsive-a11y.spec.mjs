@@ -14,7 +14,10 @@ const pages = [
 
 async function inspect(page, name, width, axe = true) {
   await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
-  await page.evaluate(() => document.fonts.ready);
+  await page.evaluate(async () => {
+    await document.fonts.ready;
+    await Promise.all(document.getAnimations().filter(a => a.effect.getComputedTiming().iterations !== Infinity).map(a => a.finished));
+  });
   const result = await page.evaluate(() => ({
     overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
     clippedChips: [...document.querySelectorAll('.rv-chip')].filter(el => el.checkVisibility() && el.scrollWidth > el.clientWidth + 1).map(el => el.textContent),
@@ -35,7 +38,7 @@ async function inspect(page, name, width, axe = true) {
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
     expect(results.violations, name).toEqual([]);
   }
-  const directory = 'tests/screens/phase02/' + mode;
+  const directory = 'tests/screens/phase02-revision/' + mode;
   await fs.mkdir(directory, { recursive: true });
   await page.screenshot({ path: directory + '/' + name + '-' + width + '.png', fullPage: true });
 }
@@ -88,6 +91,7 @@ test('Desktop confirmation is a centered bottom sheet with page scroll for long 
   await page.getByRole('button', { name: 'بیشتر', exact: true }).click();
   await inspect(page, 'MORE-ADM', 1280);
   await page.getByRole('dialog').getByRole('button', { name: 'خروج از حساب' }).click();
+  await page.getByRole('dialog').evaluate(async el => { await Promise.all(el.getAnimations().map(a => a.finished)); });
   const rect = await page.getByRole('dialog').boundingBox();
   expect(rect.width).toBeLessThanOrEqual(560);
   expect(Math.abs(rect.x - (1280 - rect.width) / 2)).toBeLessThan(1);

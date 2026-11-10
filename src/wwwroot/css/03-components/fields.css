@@ -26,8 +26,24 @@
     outline: none;
   }
   .rv-input input:focus-visible { outline: none; }
-  .rv-input:has([aria-invalid="true"]) { border-color: var(--danger-fg); }
+
+  .rv-input:has([aria-invalid="true"]) {
+    border: 2px solid var(--danger-solid);
+    background: var(--danger-bg);
+    color: var(--danger-fg);
+    outline: none;
+  }
   .rv-field__error { margin: 0; color: var(--danger-fg); font-size: var(--body-sm-size); }
+  .rv-field__error:not(:empty) { display: flex; align-items: center; gap: var(--space-1); }
+
+  .rv-field__error:not(:empty)::before {
+    content: "";
+    flex: none;
+    inline-size: 18px;
+    block-size: 18px;
+    background: currentcolor;
+    mask: url("../../icons/alert.svg") center / contain no-repeat;
+  }
   .rv-field__error:empty { display: none; }
   .rv-otp-input { text-align: center; letter-spacing: var(--space-4); font-size: var(--numeral-md-size); }
 
