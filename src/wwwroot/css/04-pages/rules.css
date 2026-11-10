@@ -58,7 +58,13 @@
   @media (min-width: 1024px) {
     .rv-rules { grid-template-columns: 220px minmax(0, 1fr); }
     .rv-rules__intro { grid-column: 1 / -1; }
-    .rv-rules__toc { flex-direction: column; grid-column: 1; }
+
+    .rv-rules__toc {
+      flex-direction: column;
+      grid-column: 1;
+      position: sticky;
+      inset-block-start: var(--space-6);
+    }
     .rv-rules__body { grid-column: 2; }
   }
 }

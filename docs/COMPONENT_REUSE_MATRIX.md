@@ -40,3 +40,5 @@ Do not create separate “wallet page”, “announcement page”, “reports pa
 - Batch-specific prefixes (`b2-` through `b7-`, `f-`) are export evidence only. Production components use `rv-*` classes.
 
 Phase 02 review: reusable native primitives now include Glass/IconTile (`materials.css`), editable five-cell Otp (`_Otp.njk`, `components/otp.js`), PolicyWindow (`_PolicyWindow.njk`), portfolio feedback/skeleton and auth notice styles. Sheet preserves an inert visible background. Future phase owners should reuse these primitives; canonical StatePage ownership remains Phase 03.
+
+Second Phase 02 review: PortfolioViewer has a centered desktop variant (DEC-037) and reuses gallery-rail.js for native touch, mouse drag/wheel and keyboard scrolling. Other shared sheets retain their bottom alignment. Auth password uses the full Auth layout, replacing its previous popup.

@@ -29,3 +29,5 @@ Phase 02 update (2026-11-10): all desktop composition briefs were explicitly app
 The owner's latest message ended with `22-` but contained no text or decision for item 22. No assumption has been made for it. If item 22 was intended to add another requirement, record it here after the owner supplies its content.
 
 Phase 02 review: phone is resolved, and sample social/map links are authorized for development. The final destinations remain content to complete later, not a blocker to these corrections. DEC-034 updates alternate-method presentation without changing authentication policy.
+
+Second Phase 02 review: comments 4 and 10 explicitly resolve the portfolio desktop dialog position and password-page presentation (DEC-037/038). No new content or business question is required for these corrections. OQ-08 sample destinations remain authorized.

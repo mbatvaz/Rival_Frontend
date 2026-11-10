@@ -7,6 +7,7 @@ registerFeature('shell', () => import('./features/shell.js'));
 registerFeature('auth', () => import('./features/auth.js'));
 registerFeature('complete-profile', () => import('./features/complete-profile.js'));
 registerFeature('home-carousel', () => import('./features/home-carousel.js'));
+registerFeature('gallery-rail', () => import('./features/gallery-rail.js'));
 initSheets();
 initializeFeatures().then(() => { document.documentElement.dataset.rvReady = 'true'; }).catch(error => {
   console.error('Rival feature initialization failed:', error);

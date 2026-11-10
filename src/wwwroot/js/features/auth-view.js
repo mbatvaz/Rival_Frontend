@@ -11,11 +11,11 @@ export function render(root, view, policy, account) {
   get('password-stage').hidden = !password;
   get('phone').readOnly = otp || view.busy;
   get('edit-phone').hidden = !otp;
-  get('back-to-code').hidden = view.stage === 'phone';
-  if (!password) {
-    get('auth-title').textContent = otp ? 'کد ورود را وارد کنید' : 'ورود یا ثبت‌نام';
-    get('auth-description').textContent = otp ? 'کد ۵ رقمی تا ۲ دقیقه معتبر است.' : 'با یک کد پیامکی، بدون رمز عبور';
-  }
+  get('password-toggle').dataset.rvMethod = password ? 'phone' : 'password';
+  get('method-label').textContent = password ? 'ورود با ارسال پیامک' : 'ورود با رمز عبور';
+  get('method-icon').className = 'ri ri-' + (password ? 'sms' : 'key');
+  get('auth-title').textContent = password ? 'ورود با رمز عبور' : otp ? 'کد ورود را وارد کنید' : 'ورود یا ثبت‌نام';
+  get('auth-description').textContent = password ? 'شماره موبایل و رمز عبورتان را وارد کنید.' : otp ? 'کد ۵ رقمی تا ۲ دقیقه معتبر است.' : 'با یک کد پیامکی، بدون رمز عبور';
   get('auth-submit').textContent = view.busy ? 'لطفاً صبر کنید…' : view.stage === 'phone' ? 'دریافت کد' : 'ورود';
   get('auth-form').setAttribute('aria-busy', String(view.busy));
   get('auth-submit').dataset.rvLoading = String(view.busy);
@@ -26,10 +26,8 @@ export function render(root, view, policy, account) {
     button.disabled = locked || view.busy || button.dataset.rvSupported === 'false';
   }
   const resend = Math.max(0, Math.ceil((account.issuedAt + policy.resendSeconds * 1000 - Date.now()) / 1000));
-  const valid = Math.max(0, Math.ceil((account.issuedAt + policy.validSeconds * 1000 - Date.now()) / 1000));
   get('resend').disabled = resend > 0 || locked || view.busy;
   get('resend').textContent = resend ? 'ارسال دوباره تا ' + faDigits(resend) + ' ثانیه' : 'ارسال دوباره کد';
-  get('code-timer').textContent = otp ? valid ? 'اعتبار کد: ' + faDigits(valid) + ' ثانیه' : 'اعتبار کد تمام شده است.' : '';
   get('auth-demo').textContent = 'نسخهٔ آزمایشی؛ هیچ پیامکی فرستاده نمی‌شود. ' + (password ? 'رمز نمونه: ' + policy.demoPassword : 'کد نمونه: ' + faDigits(policy.demoCodes[account.codeVersion ?? 0]));
 }
 

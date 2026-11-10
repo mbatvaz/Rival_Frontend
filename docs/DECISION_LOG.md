@@ -48,3 +48,12 @@
 | DEC-034 | Direct adjacent password/Passkey buttons replace Other method; password opens above the current page. | Confirmed by owner comment 17 and supplied auth images | Supersedes D10-211 presentation only. Shared lock, OTP defaults and safe returns remain. Unsupported Passkey is visibly disabled; supported static demo provides OTP fallback. |
 | DEC-035 | Use phone 09141452321; social/map links may be nonreal samples until development supplies real destinations. | Confirmed in current chat | Phone and reserved .example destinations live in public fixtures. Sample links are titled as samples. Decorative map has no coordinate claim. |
 | DEC-036 | Desktop review changes: full-image bounded hero, about/carousel columns, map/CTA left and hall right, half-width portfolio CTA, glass navigation. | Confirmed by owner comments 1–12 | Updated page desktop briefs; mobile order preserved where the instruction is desktop-specific. |
+
+## Phase 02 second owner review — 2026-11-10
+
+| ID | Decision | Status | Implementation consequence |
+|---|---|---|---|
+| DEC-037 | Portfolio viewer is centered on desktop; mobile remains bottom attached. | Confirmed by second-review comment 4 | Explicit exception to the older all-bottom-sheets rule, scoped to PortfolioViewer from 1024px. Mouse drag/wheel and native touch swipe scroll its horizontal image rail. Other dialogs are unchanged. |
+| DEC-038 | Password login is an independent full login view, with phone and password inputs and an SMS switch. | Confirmed by second-review comment 10 | Supersedes the password-sheet portion of DEC-034. Query route login/?method=password supports reload/back/forward and preserves return; shared lock/expiry rules stay intact. |
+| DEC-039 | Desktop hero grows by 20% of its previous width on each side; dark rounded navigation; shorter map aligns contact/CTA and salon images; error card half-width; sticky rules contents. | Confirmed by second-review comments 1–6 | Desktop briefs updated. Hero max 1612.8px with viewport gutters; layout remains responsive and mobile composition unchanged. |
+| DEC-040 | Remove the separate OTP validity countdown, center resend countdown/action, and use portrait OTP cells. | Confirmed by second-review comments 7–9 | One visible resend timer; 120-second code validity remains enforced in the adapter. Five centered cells are at most 52px wide and 64px high. |

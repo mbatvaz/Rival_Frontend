@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import { loadSite } from '../../tools/lib/site.mjs';
 
 const { basePath } = await loadSite();
-const directory = 'tests/screens/phase02-revision/' + (basePath === '/' ? 'root' : 'subpath');
+const directory = 'tests/screens/phase02-review02/' + (basePath === '/' ? 'root' : 'subpath');
 async function ready(page) {
   await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
   await page.evaluate(async () => {
@@ -35,15 +35,15 @@ test('Owner desktop composition fits the hero, aligns navigation and contains th
       scrollbar: getComputedStyle(document.documentElement).scrollbarWidth
     };
   });
-  expect(result.hero.x).toBeCloseTo(result.content.x + 24);
-  expect(result.hero.width).toBeCloseTo(result.content.width - 48);
+  expect(result.hero.x).toBeCloseTo((1920 - 1612.8) / 2, 1);
+  expect(result.hero.width).toBeCloseTo(1152 * 1.4, 1);
   expect(result.photo.width).toBeCloseTo(result.hero.width);
   expect(result.photo.height).toBeCloseTo(result.hero.height);
   expect(result.title.y).toBeGreaterThan(result.hero.y);
   expect(result.title.bottom).toBeLessThan(result.hero.bottom);
   expect(result.about.x).toBeGreaterThan(result.carousel.x);
   expect(result.hall.x).toBeGreaterThan(result.map.x);
-  expect(result.info.height).toBeLessThanOrEqual(result.map.height / 3);
+  expect(result.info.height).toBeLessThan(result.map.height);
   expect(result.cta.y).toBeGreaterThan(result.map.bottom);
   expect(result.cta.width).toBeCloseTo(result.map.width);
   expect(result.gaps[0]).toBeCloseTo(result.gaps[1]);

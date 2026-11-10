@@ -71,4 +71,13 @@
     border-radius: var(--radius-xl);
   }
   .rv-viewer__rail figcaption { text-align: center; padding-block: var(--space-2); }
+
+  .rv-viewer__rail[data-rv-scrollable="true"] { cursor: grab; }
+  .rv-viewer__rail--dragging { scroll-snap-type: none; user-select: none; }
+  .rv-viewer__rail.rv-viewer__rail--dragging { cursor: grabbing; }
+
+  @media (min-width: 1024px) {
+    .rv-sheet-layer:has(> .rv-viewer:not([hidden])) { justify-content: center; padding-block: var(--space-6); }
+    .rv-viewer { border-radius: var(--radius-xl); }
+  }
 }

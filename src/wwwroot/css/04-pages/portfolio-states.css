@@ -45,6 +45,7 @@
   }
 
   @media (min-width: 1024px) {
+    .rv-portfolio-error { inline-size: 50%; margin-inline: auto; }
     [data-rv="portfolio"] > .rv-booking-cta { inline-size: 50%; margin-inline: auto; }
     .rv-portfolio-skeleton { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .rv-portfolio-skeleton span { block-size: 260px; }

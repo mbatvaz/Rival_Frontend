@@ -44,7 +44,7 @@ test('Code expires after 120 seconds and can be recovered through resend @smoke'
   await expect(page.locator('[data-rv-code-error]')).toContainText('اعتبار کد تمام شده');
   await page.locator('[data-rv-resend]').click();
   await expect(page.locator('[data-rv-code-error]')).toBeEmpty();
-  await expect(page.locator('[data-rv-code-timer]')).not.toContainText('تمام شده');
+  await expect(page.locator('[data-rv-code-timer]')).toHaveCount(0);
 });
 
 test('Five failures lock every method for the same phone for 15 minutes, including reload @smoke', async ({ page }) => {
@@ -65,7 +65,7 @@ test('Five failures lock every method for the same phone for 15 minutes, includi
   await expect(submit(page)).toBeEnabled();
 });
 
-test('Direct password opens over login and unsupported passkey keeps an OTP fallback @smoke', async ({ page }) => {
+test('Password uses an independent login view and unsupported passkey keeps an OTP fallback @smoke', async ({ page }) => {
   await page.addInitScript(() => Object.defineProperty(window, 'PublicKeyCredential', { value: undefined }));
   await login(page);
   await expect(page.locator('[data-rv-passkey]')).toBeVisible();
@@ -110,5 +110,5 @@ test('Switching login methods cannot reset the shared failure counter @smoke', a
     if (i < 2) await expect(page.locator('[data-rv-password-error]')).toContainText('درست نیست');
   }
   await expect(page.locator('[data-rv-auth-lock]')).toContainText('همهٔ روش‌های ورود');
-  await expect(page.locator('[data-rv-method="password"]')).toBeDisabled();
+  await expect(page.locator('[data-rv-password-toggle]')).toBeDisabled();
 });

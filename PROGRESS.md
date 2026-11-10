@@ -15,7 +15,15 @@
 
 ## Current gate
 
-Phase 02 owner-review corrections completed: `docs-work/PHASE_02_REVISIONS_FA.md` (supersedes the earlier visual report). The owner explicitly approved all desktop briefs in this chat before desktop implementation. Phase 03 has not started and requires acceptance/assignment.
+Phase 02 second owner review completed: `docs-work/PHASE_02_REVIEW_02_FA.md` (supersedes conflicting presentation details in earlier reports). The owner explicitly approved all desktop briefs in this chat before desktop implementation. Phase 03 has not started and requires acceptance/assignment.
+
+## Phase 02 second owner-review corrections — 2026-11-10
+
+- Ten new comments completed; desktop hero max 1612.8px (+20% previous width each side), dark rounded navigation, intrinsic balanced visit columns, sticky rule contents and matching error/CTA widths.
+- DEC-037: desktop portfolio viewer is centered, mobile stays bottom attached; native touch plus mouse drag/wheel horizontal rail. Other sheets remain bottom attached.
+- DEC-038/040: full password login view with SMS switch and history/reload, one centered resend timer, portrait five-cell OTP. Existing shared locks and code validity preserved.
+- npm run lint passed. Full root suite: 56 passed; subpath suite: 56 passed, root output restored. New screenshot directory: tests/screens/phase02-review02/{root,subpath}/.
+- Original export/reference trees unchanged. Phase 02 acceptance is pending; Phase 03 has not started.
 
 ## Phase 02 owner-review corrections — 2026-11-10
 

@@ -1,11 +1,16 @@
 @layer components {
-  .rv-otp { position: relative; }
+  .rv-otp {
+    position: relative;
+    inline-size: 100%;
+    max-inline-size: 292px;
+    margin-inline: auto;
+  }
   .rv-otp__cells { display: grid; grid-template-columns: repeat(5, minmax(44px, 1fr)); gap: var(--space-1); }
 
   .rv-otp__cell {
     display: grid;
     place-items: center;
-    min-block-size: 56px;
+    min-block-size: 64px;
     border: 1px solid var(--line-control);
     border-radius: var(--radius-sm);
     background: var(--bg-surface);

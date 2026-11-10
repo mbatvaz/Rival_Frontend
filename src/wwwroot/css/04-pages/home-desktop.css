@@ -2,7 +2,7 @@
   @media (min-width: 1024px) {
     .rv-home-hero {
       inline-size: calc(100% - var(--space-12));
-      max-inline-size: 1152px;
+      max-inline-size: 1612.8px;
       margin-inline: auto;
       block-size: 640px;
       min-block-size: 640px;
@@ -28,7 +28,12 @@
     }
     .rv-home-intro > section { min-inline-size: 0; }
     .rv-home-visit { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-12); }
-    .rv-home-visit__contact { min-inline-size: 0; }
+    .rv-home-visit > section { display: flex; flex-direction: column; }
+    .rv-home-visit__contact { min-inline-size: 0; display: flex; flex-direction: column; }
+    .rv-home-visit__contact > section:first-child { flex: 1; display: flex; flex-direction: column; }
+    .rv-home-visit .rv-visit { flex: 1; min-block-size: 160px; }
+    .rv-home-visit .rv-hall { flex: 1; }
+
     .rv-home-visit .rv-booking-cta { margin-block-start: var(--space-5); }
   }
 }

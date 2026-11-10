@@ -3,7 +3,7 @@ import { basePath } from '../core/config.js';
 import { faDigits } from '../core/format.js';
 import { normalizePhone, validPhone, latinDigits, stateFor, issueCode, verify, finishSession, safeReturn } from '../core/auth-demo.js';
 import { initOtp } from '../components/otp.js';
-import { initMethods } from './auth-methods.js';
+import { initMethods, passwordMode } from './auth-methods.js';
 import { render, fieldError, notice } from './auth-view.js';
 import { applyPreview } from './auth-preview.js';
 
@@ -22,11 +22,11 @@ export async function init() {
     try {
       policy = (await api.read('auth/policy')).data;
       account = (await applyPreview(root, policy, view)) ?? account;
+      if (passwordMode()) view.stage = 'password';
       get('auth-return').hidden = safeReturn(policy, candidate) !== basePath() + 'customer/book/';
       const supported = typeof window.PublicKeyCredential === 'function' && window.isSecureContext;
       document.querySelector('[data-rv-passkey]').dataset.rvSupported = String(supported);
       refresh();
-      if (new URLSearchParams(window.location.search).get('state') === 'password') root.querySelector('[data-rv-method="password"]').click();
       if (!timer) timer = window.setInterval(refresh, 1000);
     } catch (error) {
       notice(root, error.message);

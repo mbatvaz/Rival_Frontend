@@ -38,7 +38,7 @@ async function inspect(page, name, width, axe = true) {
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
     expect(results.violations, name).toEqual([]);
   }
-  const directory = 'tests/screens/phase02-revision/' + mode;
+  const directory = 'tests/screens/phase02-review02/' + mode;
   await fs.mkdir(directory, { recursive: true });
   await page.screenshot({ path: directory + '/' + name + '-' + width + '.png', fullPage: true });
 }

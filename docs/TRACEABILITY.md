@@ -60,3 +60,17 @@ Desktop briefs in `docs-work/desktop-layouts/{PUB-01,PUB-02,PUB-03,AUTH-01,AUTH-
 | General owner instructions | Shared Sheet, motion, scrollbar/link utilities | Visible inert background, focus/scroll restoration, entrance and native route transition, reduced motion; no underlines or visible scrollbar; shared-shell keyboard/axe checks |
 
 Full suites: 50 passed at root and 50 at /rival-demo/; after the final read-only paste guard, the 13 affected auth/review scenarios are rechecked at both paths. Original design-export/docs/references remain unchanged. Detailed results and 59 screenshots per mode are recorded in the review report.
+
+## Phase 02 second owner review — 2026-11-10
+
+| Owner evidence | IDs/components | Implementation and regression |
+|---|---|---|
+| Comments 1–3 | PUB-01, HeaderPublic | home-desktop.css and public.css; hero +40% total width, button radius/dark navigation, intrinsic equal-height visit columns; review02/revisions tests at 1280/1920 and responsive tests at 320/390/768 |
+| Comments 4–5; DEC-037 | PUB-02, PortfolioViewer | sheets.css, gallery-rail.js, _PortfolioViewer.njk; desktop centering, mouse drag/wheel, touch swipe, same-width centered error/CTA; native touch gesture and mouse tests in review02.spec.mjs |
+| Comment 6 | PUB-03 | rules.css sticky contents, document scroll/bounds test |
+| Comments 7–9; DEC-040 | AUTH-01, Otp | one centered resend timer and portrait cells; auth expiry/resend tests still exercise unchanged validity rules |
+| Comment 10; DEC-038 | AUTH-01 | Login.njk, auth-methods/auth-view/auth; independent method=password view, SMS switch, reload/history and shared-lock regression |
+
+Source exports remain read-only. The second-review screenshot directory is tests/screens/phase02-review02/{root,subpath}/. Phase 03 has not started.
+
+Second review validation: lint passed; 56 tests passed at each deployment path; root output restored. New review scenarios cover native touch swipe, mouse wheel/drag, sticky contents, balanced image/CTA bounds and password/SMS history.
