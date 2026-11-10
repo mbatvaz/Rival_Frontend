@@ -1,0 +1,14 @@
+{% extends "Shared/_PublicLayout.njk" %}
+{% block content %}
+  <div class="rv-public-content rv-rules">
+    <section class="rv-rules__intro"><h2>پیش از پرداخت، این چند قاعده را بدانید</h2><p class="rv-muted">به زبان ساده: چطور رزرو می‌کنید، چه می‌پردازید، و اگر برنامه‌تان عوض شد چه می‌شود.</p><div class="rv-booking-cta"><h3>پرداخت یعنی پذیرش این قوانین</h3><p>پیوند همین صفحه پیش از هر پرداخت کنار دکمه پرداخت هست.</p><h3>مبلغ آنلاین، هزینه رزرو است</h3><p>نه قیمت کامل خدمت.</p></div></section>
+    <nav class="rv-rules__toc" aria-label="بخش‌های این صفحه"><a href="#book">رزرو</a><a href="#pay">پرداخت</a><a href="#cancel">لغو و جابه‌جایی</a><a href="#salon">تغییر از طرف سالن</a></nav>
+    <div class="rv-rules__body">
+      <section id="book"><h2>۱. رزرو</h2><ol class="rv-rule-ways rv-panel">{% for rule in model.book %}<li><span class="ri ri-{{ rule.icon }}" aria-hidden="true"></span><div><h3>{{ rule.title }}</h3><p class="rv-muted">{{ rule.label }}</p><p>{{ rule.text }}</p></div></li>{% endfor %}</ol><ul>{% for note in model.bookNotes %}<li>{{ note }}</li>{% endfor %}</ul></section>
+      <section id="pay"><h2>۲. پرداخت</h2><ul>{% for note in model.pay %}<li>{{ note }}</li>{% endfor %}</ul></section>
+      <section id="cancel"><h2>۳. لغو و جابه‌جایی نوبت</h2><p class="rv-muted">همه چیز به این بستگی دارد که چقدر به شروع نوبت مانده است.</p>{% for window in model.windows %}<article class="rv-panel rv-rule-window"><h3>{{ window.title }}</h3><dl><div><dt>لغو</dt><dd>{{ window.cancel }}</dd></div><div><dt>جابه‌جایی</dt><dd>{{ window.move }}</dd></div></dl></article>{% endfor %}<ul>{% for note in model.cancelNotes %}<li>{{ note }}</li>{% endfor %}</ul></section>
+      <section id="salon"><h2>۴. وقتی سالن نوبت را تغییر می‌دهد</h2>{% for rule in model.salon %}<article class="rv-panel"><h3>{{ rule.title }}</h3><p>{{ rule.text }}</p></article>{% endfor %}</section>
+      <aside class="rv-panel"><h3>سؤالی مانده؟</h3><p>با سالن تماس بگیرید.</p><p class="rv-muted">شمارهٔ تماس هنوز ثبت نشده است.</p></aside>
+    </div>
+  </div>
+{% endblock %}

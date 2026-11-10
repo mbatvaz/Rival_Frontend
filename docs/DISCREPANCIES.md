@@ -30,6 +30,20 @@
 
 ## Remaining source gaps
 
+### Phase 02 update — 2026-11-10
+
+- **GAP-18 — old shell routes:** Source `customer/recurring`, `admin/my-schedule` and `admin/booking-rules` were not canonical registry destinations. Reused BK-REC01 preview context, `/admin/schedules/?scope=me`, and `/admin/settings/booking/` respectively. No independent recurring or personal-schedule route was invented. All More destinations pass static route checks.
+- **GAP-19 — source contact placeholders:** Public source uses empty `tel:` and `href="#"` for map/social links. Canonical/handoff search did not establish real destinations. The fixture retains the designed address/hours; missing contact information is stated, and map navigation is disabled. The map illustration copies the exact decorative SVG street geometry from PUB-01 and makes no real coordinate claim. Real operational contact details remain owner-supplied content before external launch.
+- **GAP-20 — portfolio image counts:** Only PUB-02-V provides a verified three-image detail gallery. For other cards the exported source provides one independently mapped cover image; extra photos implied by badges are not fabricated or replaced with unrelated images. The demo count reflects the images actually available. `PHASE_02_ASSET_MAP.json` records all 14 copied asset filenames.
+- **GAP-21 — auth canvas synchronization:** Implemented newer D10-207/210/211 instead of stale always-visible alternate methods / OTP-only lock copy. Restored local logo files where isolated source masks render blank. Added explicit demo notice and sample credentials; real Passkey enrollment/authentication remains a backend integration and has an OTP fallback here.
+- **GAP-22 — local preview collision:** Existing preview was already listening on 4173. Tests now use isolated 4183/4184 ports (override `RIVAL_TEST_PORT`) and leave the existing preview intact. Startup port failure exits clearly instead of waiting for readiness timeout.
+
+Phase 02 visual review: source references rendered at 390; current screens captured at 320/390/768/1280. Checked local imagery, RTL, typography, rounded/glass surfaces, filter rails, sheet behavior and the approved desktop compositions. Full pixel identity is not claimed: canonical type scale, 44px controls, fluid content height, demo notices, auth decision corrections and honest missing-photo counts produce intentional differences from the fixed export canvases. The home selected-work six-card orbital rotation is reconstructed from the source positions with native JS/CSS; pause/previous/next controls and a reduced-motion pause are added for accessibility. Owner visual acceptance remains pending.
+
+Carousel geometry also follows the source: 260×350px cards, 372px stage, positions at ±195/±128px and six 3-second steps per cycle; transitions use canonical motion tokens.
+
+New fixed geometries are evidence-based: 844px mobile hero; 720px desktop hero; 420/260px portfolio image frames; 312×390px gallery frames; 480px auth column; 200px staff rail; 220px rule contents column; 560px maximum sheet. Home wordmark size derives from v2 display size. No new color/radius/shadow/spacing palette is introduced.
+
 - See `OPEN_QUESTIONS.md` for unresolved product/permission decisions.
 - Manifest entries with `not-found-in-export` or `implied-no-independent-artboard` must be reviewed against the relevant handoff before implementation.
 - Some design exports contain hashed decorative assets that cannot be mapped to a page by filename alone; they are retained in the batch asset directories and listed in `MANIFEST.json` at batch level.

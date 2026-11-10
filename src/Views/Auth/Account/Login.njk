@@ -1,0 +1,22 @@
+{% extends "Shared/_AuthLayout.njk" %}
+{% block content %}
+  <section data-rv="auth">
+    <header class="rv-auth-hero"><a href="{{ urls.home }}" aria-label="ریوال — خانه"><img src="{{ urls.logo }}" alt="ریوال" width="150" height="50"></a><h1 data-rv-auth-title>ورود یا ثبت‌نام</h1><p data-rv-auth-description>با یک کد پیامکی، بدون رمز عبور</p></header>
+    <form class="rv-panel rv-auth-form" method="post" action="{{ productUrls.login }}" novalidate data-rv-auth-form>
+      <!-- MVC:ANTIFORGERY -->
+      <p class="rv-auth-return" data-rv-auth-return hidden>بعد از ورود به <strong>رزرو نوبت</strong> برمی‌گردید.</p>
+      <p class="rv-auth-lock" role="alert" data-rv-auth-lock hidden></p>
+      <div class="rv-field"><label for="login-phone">شماره موبایل</label><div class="rv-input"><span class="ri ri-smartphone" aria-hidden="true"></span><input id="login-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="۰۹۱۲ ۳۴۵ ۶۷۸۹" aria-describedby="phone-error" data-rv-phone><button type="button" data-rv-edit-phone hidden>ویرایش</button></div><p class="rv-field__error" id="phone-error" data-rv-phone-error></p></div>
+      <div class="rv-field" data-rv-otp-stage hidden><label for="login-code">کد پیامک‌شده</label><div class="rv-input"><input class="rv-otp-input" id="login-code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="5" dir="ltr" aria-describedby="code-error code-demo" data-rv-code></div><p class="rv-field__error" id="code-error" data-rv-code-error></p><div class="rv-auth-timer"><span role="timer" aria-live="off" data-rv-code-timer></span><button class="rv-text-link rv-auth-link" type="button" data-rv-resend>ارسال دوباره کد</button></div></div>
+      <div class="rv-field" data-rv-password-stage hidden><label for="login-password">رمز عبور</label><div class="rv-input"><span class="ri ri-key" aria-hidden="true"></span><input id="login-password" name="password" type="password" autocomplete="current-password" aria-describedby="password-error" data-rv-password></div><p class="rv-field__error" id="password-error" data-rv-password-error></p></div>
+      <p class="rv-feedback" role="status" data-rv-auth-status></p>
+      <button class="rv-btn" type="submit" data-rv-auth-submit>دریافت کد</button>
+      <button class="rv-text-link rv-auth-link" type="button" data-rv-auth-retry hidden>تلاش دوباره</button>
+    </form>
+    <div class="rv-auth-alternatives"><button class="rv-text-link rv-auth-link" type="button" data-rv-sheet-open="rv-auth-methods">روش دیگر</button><button class="rv-text-link rv-auth-link" type="button" data-rv-method="phone" data-rv-back-to-code hidden>ورود با کد پیامکی</button></div>
+    <p class="rv-auth-demo" id="code-demo" data-rv-auth-demo>نسخهٔ آزمایشی؛ هیچ پیامکی فرستاده نمی‌شود.</p>
+  </section>
+{% endblock %}
+{% block sheets %}
+  <section class="rv-sheet" id="rv-auth-methods" role="dialog" aria-modal="true" aria-labelledby="auth-methods-title" tabindex="-1" hidden><header class="rv-sheet__header"><h2 id="auth-methods-title">روش دیگر</h2><button class="rv-icon-btn" type="button" data-rv-sheet-close aria-label="بستن روش‌های ورود"><span class="ri ri-x" aria-hidden="true"></span></button></header><div class="rv-auth-methods"><button class="rv-btn rv-btn--secondary" type="button" data-rv-method="password"><span class="ri ri-key" aria-hidden="true"></span>ورود با رمز عبور</button><button class="rv-btn rv-btn--secondary" type="button" data-rv-method="passkey" data-rv-passkey hidden><span class="ri ri-fingerprint" aria-hidden="true"></span>ورود با Passkey</button><button class="rv-btn rv-btn--secondary" type="button" data-rv-method="phone">ورود با کد پیامکی</button></div></section>
+{% endblock %}

@@ -27,6 +27,7 @@ export function directoryModel(registry, basePath) {
     groups.get(name).push({
       ...page, href: withBase(basePath, page.previewPath),
       phaseNumber: Number(page.phase.replace('Phase ', '')),
+      variants: (page.variants ?? []).map(variant => ({ ...variant, href: withBase(basePath, page.previewPath) + variant.query })),
       implementationLabel: page.template ? 'قالب موجود؛ نیازمند تأیید فاز' : 'هنوز پیاده‌سازی نشده'
     });
   }

@@ -4,7 +4,7 @@ import path from 'node:path';
 const { basePath } = await loadSite();
 const registry = await readJson(path.join(src, 'page-registry.json'));
 
-test('Directory exposes every canonical ID and each route returns a labelled placeholder @smoke', async ({ page, request }) => {
+test('Directory exposes every canonical ID and unimplemented routes remain labelled @smoke', async ({ page, request }) => {
   const failures = [];
   page.on('pageerror', error => failures.push(error.message));
   page.on('response', response => { if (response.status() >= 400) failures.push(response.url()); });
@@ -15,7 +15,7 @@ test('Directory exposes every canonical ID and each route returns a labelled pla
     await expect(page.locator('[data-rv-page-id="' + entry.id + '"]')).toHaveAttribute('href', href);
     const response = await request.get(href);
     expect(response.status(), href).toBe(200);
-    expect(await response.text()).toContain('این صفحه هنوز پیاده‌سازی نشده است.');
+    if (!entry.template) expect(await response.text()).toContain('این صفحه هنوز پیاده‌سازی نشده است.');
     expect(await response.text()).toContain(withBase(basePath, '/_preview/'));
   }
   await page.evaluate(() => document.fonts.ready);
@@ -26,8 +26,8 @@ test('Home, alias, canonical slash redirect and static-only methods work @smoke'
   await page.goto('');
   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
   await expect(page.locator('html')).toHaveAttribute('lang', 'fa');
-  await expect(page.getByText('این صفحه هنوز پیاده‌سازی نشده است.')).toBeVisible();
-  await page.getByRole('link', { name: 'بازگشت به فهرست صفحات' }).click();
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('آراسته دیده شوید');
+  await page.getByRole('link', { name: 'فهرست بازبینی' }).click();
   await expect(page).toHaveURL(new RegExp(basePath + '_preview/$'));
   expect((await request.get('pages.html')).status()).toBe(200);
   const redirect = await request.get('portfolio', { maxRedirects: 0 });

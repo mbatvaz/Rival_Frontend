@@ -1,0 +1,122 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "name": "طاها",
+    "label": "مدیر کل",
+    "primary": [
+      {
+        "title": "داشبورد",
+        "href": "/admin/",
+        "icon": "home"
+      },
+      {
+        "title": "تقویم",
+        "href": "/admin/calendar/",
+        "icon": "calendar-range"
+      },
+      {
+        "title": "درخواست‌ها",
+        "href": "/admin/requests/",
+        "icon": "send"
+      },
+      {
+        "title": "مشتری‌ها",
+        "href": "/admin/customers/",
+        "icon": "users"
+      }
+    ],
+    "more": [
+      {
+        "title": "نوبت‌ها",
+        "href": "/admin/appointments/",
+        "icon": "calendar"
+      },
+      {
+        "title": "رزرو دستی",
+        "href": "/admin/manual-booking/",
+        "icon": "calendar-plus"
+      },
+      {
+        "title": "برنامه کاری من",
+        "href": "/admin/schedules/?scope=me",
+        "icon": "calendar-range"
+      },
+      {
+        "title": "مرکز اقدام",
+        "href": "/admin/action-center/",
+        "icon": "check-circle"
+      },
+      {
+        "title": "اعلان‌ها",
+        "href": "/admin/notifications/",
+        "icon": "bell"
+      },
+      {
+        "title": "آرایشگران",
+        "href": "/admin/stylists/",
+        "icon": "users"
+      },
+      {
+        "title": "خدمات",
+        "href": "/admin/services/",
+        "icon": "scissors"
+      },
+      {
+        "title": "قیمت‌گذاری",
+        "href": "/admin/pricing/",
+        "icon": "coins"
+      },
+      {
+        "title": "برنامه‌ها و تعطیلات",
+        "href": "/admin/schedules/",
+        "icon": "calendar"
+      },
+      {
+        "title": "پرداخت‌ها و تطبیق",
+        "href": "/admin/payments/",
+        "icon": "card"
+      },
+      {
+        "title": "نمونه‌کارها",
+        "href": "/admin/portfolio/",
+        "icon": "images"
+      },
+      {
+        "title": "پیامک",
+        "href": "/admin/sms/",
+        "icon": "send"
+      },
+      {
+        "title": "تنظیمات عمومی",
+        "href": "/admin/settings/",
+        "icon": "settings"
+      },
+      {
+        "title": "قواعد رزرو",
+        "href": "/admin/settings/booking/",
+        "icon": "shield"
+      },
+      {
+        "title": "پروفایل و روش‌های ورود",
+        "href": "/admin/profile/",
+        "icon": "user"
+      },
+      {
+        "title": "صفحه اصلی سایت",
+        "href": "/",
+        "icon": "home"
+      },
+      {
+        "title": "نمونه‌کارها",
+        "href": "/portfolio/",
+        "icon": "images"
+      },
+      {
+        "title": "قوانین رزرو",
+        "href": "/booking-rules/",
+        "icon": "shield"
+      }
+    ]
+  }
+}

@@ -6,7 +6,7 @@ const browserGlobals = {
   URL: 'readonly', URLSearchParams: 'readonly', Intl: 'readonly', console: 'readonly',
   setTimeout: 'readonly', clearTimeout: 'readonly', requestAnimationFrame: 'readonly',
   MutationObserver: 'readonly', CustomEvent: 'readonly', Event: 'readonly', HTMLElement: 'readonly',
-  getComputedStyle: 'readonly', AbortController: 'readonly', Storage: 'readonly'
+  getComputedStyle: 'readonly', AbortController: 'readonly', Storage: 'readonly', history: 'readonly'
 };
 const nodeGlobals = {
   process: 'readonly', console: 'readonly', URL: 'readonly', Buffer: 'readonly',

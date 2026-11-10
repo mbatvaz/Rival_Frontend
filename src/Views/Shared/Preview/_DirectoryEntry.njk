@@ -4,4 +4,5 @@
     <bdi class="rv-preview__id" dir="ltr">{{ entry.id | faDigits }}</bdi>
     <span class="rv-preview__meta">فاز {{ entry.phaseNumber | faDigits }} · {{ entry.implementationLabel }}</span>
   </a>
+  {% if entry.variants %}<ul class="rv-preview__variants">{% for variant in entry.variants %}<li><a href="{{ variant.href }}">{{ variant.label }}</a></li>{% endfor %}</ul>{% endif %}
 </li>

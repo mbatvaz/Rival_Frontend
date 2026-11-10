@@ -10,11 +10,18 @@
       "status": "Fully Designed",
       "source": "Batch 1",
       "primaryBatch": 1,
-      "template": null,
-      "mockData": null,
+      "template": "Public/Home/Index.njk",
+      "mockData": "MockData/public/home.json",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "صفحه اصلی",
-      "phase": "Phase 02"
+      "phase": "Phase 02",
+      "implementationStatus": "ready-for-owner-review",
+      "variants": [
+        {
+          "label": "واردشده",
+          "query": "?state=signed-in"
+        }
+      ]
     },
     {
       "id": "PUB-02",
@@ -24,11 +31,34 @@
       "status": "Fully Designed",
       "source": "Batch 1",
       "primaryBatch": 1,
-      "template": null,
-      "mockData": null,
+      "template": "Public/Portfolio/Index.njk",
+      "mockData": "MockData/public/portfolio.json",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "نمونه‌کارها",
-      "phase": "Phase 02"
+      "phase": "Phase 02",
+      "implementationStatus": "ready-for-owner-review",
+      "variants": [
+        {
+          "label": "فیلتر",
+          "query": "?state=filter"
+        },
+        {
+          "label": "نمایشگر",
+          "query": "?state=viewer"
+        },
+        {
+          "label": "خالی",
+          "query": "?state=empty"
+        },
+        {
+          "label": "بارگیری",
+          "query": "?state=loading"
+        },
+        {
+          "label": "خطا",
+          "query": "?state=error"
+        }
+      ]
     },
     {
       "id": "PUB-03",
@@ -38,11 +68,12 @@
       "status": "Fully Designed",
       "source": "Batch 1",
       "primaryBatch": 1,
-      "template": null,
-      "mockData": null,
+      "template": "Public/Rules/Index.njk",
+      "mockData": "MockData/public/rules.json",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "قوانین رزرو",
-      "phase": "Phase 02"
+      "phase": "Phase 02",
+      "implementationStatus": "ready-for-owner-review"
     },
     {
       "id": "AUTH-01",
@@ -52,11 +83,50 @@
       "status": "Fully Designed + canvas sync required",
       "source": "Batch 1",
       "primaryBatch": 1,
-      "template": null,
-      "mockData": null,
+      "template": "Auth/Account/Login.njk",
+      "mockData": "MockData/auth/policy.json",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "ورود",
-      "phase": "Phase 02"
+      "phase": "Phase 02",
+      "implementationStatus": "ready-for-owner-review",
+      "variants": [
+        {
+          "label": "کد پیامکی",
+          "query": "?state=otp"
+        },
+        {
+          "label": "کد نادرست",
+          "query": "?state=wrong"
+        },
+        {
+          "label": "کد منقضی",
+          "query": "?state=expired"
+        },
+        {
+          "label": "قفل همه روش‌ها",
+          "query": "?state=locked"
+        },
+        {
+          "label": "رمز عبور",
+          "query": "?state=password"
+        },
+        {
+          "label": "کلید عبور",
+          "query": "?state=passkey"
+        },
+        {
+          "label": "کاربر جدید",
+          "query": "?state=new"
+        },
+        {
+          "label": "بارگیری",
+          "query": "?state=loading"
+        },
+        {
+          "label": "خطا",
+          "query": "?state=error"
+        }
+      ]
     },
     {
       "id": "AUTH-02",
@@ -66,11 +136,22 @@
       "status": "Fully Designed",
       "source": "Batch 1",
       "primaryBatch": 1,
-      "template": null,
-      "mockData": null,
+      "template": "Auth/Account/Complete.njk",
+      "mockData": "MockData/auth/profile.json",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "تکمیل اطلاعات پس از ورود",
-      "phase": "Phase 02"
+      "phase": "Phase 02",
+      "implementationStatus": "ready-for-owner-review",
+      "variants": [
+        {
+          "label": "بازبینی تکمیل حساب",
+          "query": "?state=default"
+        },
+        {
+          "label": "خطای نام خانوادگی",
+          "query": "?state=field-error"
+        }
+      ]
     },
     {
       "id": "SYS-ACC-01",
@@ -80,11 +161,12 @@
       "status": "Fully Designed",
       "source": "Batch 1",
       "primaryBatch": 1,
-      "template": null,
-      "mockData": null,
+      "template": "Auth/Account/Unavailable.njk",
+      "mockData": "MockData/auth/profile.json",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "حساب در دسترس نیست",
-      "phase": "Phase 02"
+      "phase": "Phase 02",
+      "implementationStatus": "ready-for-owner-review"
     },
     {
       "id": "CUS-01",

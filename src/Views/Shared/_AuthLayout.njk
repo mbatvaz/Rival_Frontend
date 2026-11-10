@@ -1,0 +1,13 @@
+{% extends "Shared/_Document.njk" %}
+{% block body %}
+  <div class="rv-auth-page" data-rv-page>
+    <header class="rv-auth-top"><a class="rv-icon-btn" href="{{ urls.home }}" aria-label="بازگشت به خانه"><span class="ri ri-arrow-right" aria-hidden="true"></span></a></header>
+    <main class="rv-auth" id="rv-main" tabindex="-1">{% block content %}{% endblock %}</main>
+    {% include "Shared/_FooterAuth.njk" %}
+    {% include "Shared/_DemoNotice.njk" %}
+  </div>
+  <div class="rv-sheet-layer" data-rv-sheet-layer hidden>
+    <button class="rv-sheet-scrim" type="button" data-rv-sheet-close aria-label="بستن برگه"></button>
+    {% block sheets %}{% endblock %}
+  </div>
+{% endblock %}

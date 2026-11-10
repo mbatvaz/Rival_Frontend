@@ -1,0 +1,8 @@
+{% extends "Shared/_RoleLayout.njk" %}
+{% block content %}
+  <section class="rv-panel">
+    <p class="rv-muted"><bdi>{{ page.id | faDigits }}</bdi> · فاز {{ phaseNumber | faDigits }}</p>
+    <h1>{{ page.titleFa }}</h1><p>این صفحه هنوز پیاده‌سازی نشده است.</p><p>پوسته و ناوبری آماده‌اند؛ محتوای این صفحه در فاز مربوط به خودش ساخته می‌شود.</p>
+    <a class="rv-btn rv-btn--secondary" href="{{ urls.directory }}">بازگشت به فهرست صفحات</a>
+  </section>
+{% endblock %}

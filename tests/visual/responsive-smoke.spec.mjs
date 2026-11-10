@@ -7,7 +7,7 @@ const mode = basePath === '/' ? 'root' : 'subpath';
 for (const width of [320, 390, 768, 1280]) {
   test('Foundation at ' + width + 'px: RTL, touch targets, fonts and overflow @visual', async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
-    for (const route of ['_preview/', '']) {
+    for (const route of ['_preview/', '_preview/context/kit-01/']) {
       await page.goto(route);
       await page.evaluate(() => document.fonts.ready);
       const result = await page.evaluate(() => ({
@@ -30,7 +30,7 @@ for (const width of [320, 390, 768, 1280]) {
       expect(result.fontLoaded).toBe(true);
       const directory = 'tests/screens/foundation/' + mode;
       await fs.mkdir(directory, { recursive: true });
-      await page.screenshot({ path: directory + '/' + (route ? 'directory' : 'placeholder') + '-' + width + '.png', fullPage: true });
+      await page.screenshot({ path: directory + '/' + (route === '_preview/' ? 'directory' : 'placeholder') + '-' + width + '.png', fullPage: true });
     }
   });
 }

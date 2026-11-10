@@ -1,0 +1,51 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "hero": "img/public/hero.jpg",
+    "address": "اردبیل، خیابان ولیعصر، پلاک ۱۲۴",
+    "hours": "۰۸:۰۰ تا ۱۹:۰۰",
+    "intro": "ریوال سالن مردانه طاها در اردبیل است. هر نوبت زمان مشخص خودش را دارد؛ وقتی می‌رسید، صندلی و آرایشگرتان آماده‌اند و لازم نیست منتظر بمانید.",
+    "steps": [
+      {
+        "title": "وارد شوید",
+        "description": "با کد پیامکی، بدون رمز"
+      },
+      {
+        "title": "انتخاب کنید",
+        "description": "خدمت، آرایشگر و زمان آزاد"
+      },
+      {
+        "title": "بپردازید",
+        "description": "هزینه رزرو، نه قیمت کامل خدمت"
+      }
+    ],
+    "carouselInterval": 3000,
+    "featured": [
+      {
+        "title": "فید کوتاه کلاسیک",
+        "image": "img/public/classic.png"
+      },
+      {
+        "title": "پاکسازی پوست صورت",
+        "image": "img/public/facial.png"
+      },
+      {
+        "title": "اصلاح صورت با تیغ",
+        "image": "img/public/shave.png"
+      },
+      {
+        "title": "فرم ریش با خط تیز",
+        "image": "img/public/beard-line.png"
+      },
+      {
+        "title": "حالت‌دهی موی متوسط",
+        "image": "img/public/medium.png"
+      },
+      {
+        "title": "فید کم با بافت بالا",
+        "image": "img/public/fade.png"
+      }
+    ]
+  }
+}

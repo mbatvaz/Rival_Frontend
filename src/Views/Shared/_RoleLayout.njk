@@ -1,0 +1,22 @@
+{% extends "Shared/_Document.njk" %}
+{% block body %}
+  <div class="rv-workspace rv-workspace--{{ shell.role }}" data-rv-page data-rv="shell">
+    <header class="rv-workspace__header"><a href="{{ urls.home }}" aria-label="ریوال — خانه"><img src="{{ urls.logo }}" alt="ریوال" width="120" height="40"></a><span>{{ shell.label }}</span><button class="rv-icon-btn" type="button" data-rv-sheet-open="rv-more" aria-label="باز کردن منوی بیشتر"><span class="ri ri-menu" aria-hidden="true"></span></button></header>
+    <div class="rv-workspace__body">
+      <nav class="rv-role-nav" aria-label="ناوبری اصلی {{ shell.label }}">
+        {% for item in shell.primary %}
+          <a href="{{ item.href }}" {% if item.active %}aria-current="page"{% endif %}><span class="ri ri-{{ item.icon }}" aria-hidden="true"></span><span>{{ item.title }}</span></a>
+        {% endfor %}
+        <button type="button" data-rv-sheet-open="rv-more"><span class="ri ri-more" aria-hidden="true"></span>بیشتر</button>
+        {% if shell.book %}<a class="rv-role-nav__book" href="{{ shell.book.href }}"><span class="ri ri-calendar-plus" aria-hidden="true"></span>رزرو</a>{% endif %}
+      </nav>
+      <main class="rv-workspace__content" id="rv-main" tabindex="-1">{% block content %}{% endblock %}</main>
+    </div>
+    {% include "Shared/_DemoNotice.njk" %}
+  </div>
+  <div class="rv-sheet-layer" data-rv-sheet-layer hidden>
+    <button class="rv-sheet-scrim" type="button" data-rv-sheet-close aria-label="بستن برگه"></button>
+    {% include "Shared/_MoreDrawer.njk" %}
+    {% include "Shared/_LogoutSheet.njk" %}
+  </div>
+{% endblock %}

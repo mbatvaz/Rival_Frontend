@@ -1,0 +1,94 @@
+@layer layout {
+  .rv-workspace { min-block-size: 100dvh; background: linear-gradient(var(--bg-gradient-a), var(--bg-gradient-c)); padding-block-end: calc(var(--size-nav) + var(--space-12)); }
+
+  .rv-workspace__header {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+    justify-content: space-between;
+    max-inline-size: 1200px;
+    margin-inline: auto;
+    padding: var(--space-3) var(--space-4);
+  }
+  .rv-workspace__header a { display: flex; align-items: center; min-block-size: var(--size-touch); }
+  .rv-workspace__body { max-inline-size: 1200px; margin-inline: auto; }
+  .rv-workspace__content { padding: var(--space-4); min-inline-size: 0; }
+
+  .rv-role-nav {
+    position: fixed;
+    inset-block-end: var(--space-4);
+    inset-inline: var(--space-4);
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    max-inline-size: 560px;
+    margin-inline: auto;
+    padding: var(--space-2);
+    gap: var(--space-1);
+    border-radius: var(--radius-pill);
+    background: var(--glass-fill-strong);
+    backdrop-filter: blur(var(--blur-glass));
+    box-shadow: var(--shadow-glass);
+  }
+
+  .rv-role-nav a,
+  .rv-role-nav button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-1);
+    min-inline-size: var(--size-touch);
+    min-block-size: var(--size-touch);
+    padding: var(--space-2) 0;
+    border: 0;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    color: var(--text-secondary);
+    background: none;
+    font: inherit;
+    font-size: var(--caption-size);
+    cursor: pointer;
+  }
+  .rv-role-nav [aria-current="page"] { background: var(--bg-inverse); color: var(--text-inverse); box-shadow: var(--shadow-sm); }
+  .rv-role-nav .rv-role-nav__book { background: var(--accent-500); color: var(--text-inverse); }
+  .rv-workspace .rv-demo { padding-block-end: var(--space-4); }
+
+  @media (min-width: 768px) {
+    .rv-workspace__content { max-inline-size: 720px; margin-inline: auto; }
+  }
+
+  @media (min-width: 1024px) {
+    .rv-workspace { padding-block-end: var(--space-4); }
+
+    .rv-workspace__body {
+      display: grid;
+      grid-template-columns: 200px minmax(0, 1fr);
+      gap: var(--space-6);
+      padding: var(--space-4);
+    }
+
+    .rv-role-nav {
+      position: static;
+      display: flex;
+      flex-direction: column;
+      align-self: start;
+      inline-size: 100%;
+      max-inline-size: none;
+      margin: 0;
+      border-radius: var(--radius-lg);
+    }
+
+    .rv-role-nav a,
+    .rv-role-nav button {
+      flex-direction: row;
+      justify-content: flex-start;
+      padding: var(--space-3);
+      font-size: var(--body-size);
+    }
+    .rv-workspace__content { max-inline-size: none; margin: 0; }
+    .rv-workspace--customer .rv-workspace__body { display: flex; flex-direction: column; }
+    .rv-workspace--customer .rv-role-nav { flex-direction: row; }
+    .rv-workspace--customer .rv-role-nav > * { flex: 1; justify-content: center; }
+  }
+}

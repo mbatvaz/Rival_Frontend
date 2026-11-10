@@ -1,0 +1,102 @@
+@layer pages {
+  .rv-home-hero {
+    position: relative;
+    min-block-size: 844px;
+    color: var(--text-inverse);
+    background: var(--bg-inverse);
+    border-end-start-radius: var(--radius-xl);
+    border-end-end-radius: var(--radius-xl);
+    overflow: clip;
+  }
+
+  .rv-home-hero__photo {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    object-position: center 38%;
+  }
+
+  .rv-home-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, var(--scrim-photo), transparent 25%, var(--scrim-photo) 60%, var(--bg-inverse));
+  }
+
+  .rv-home-hero__copy {
+    position: absolute;
+    inset-inline: var(--space-5);
+    inset-block-end: var(--space-8);
+    z-index: 1;
+  }
+  .rv-home-hero h1 { font-size: var(--display-lg-size); font-weight: var(--display-lg-weight); line-height: var(--display-lg-line); }
+  .rv-home-hero p { color: var(--text-inverse-muted); font-size: var(--body-sm-size); }
+  .rv-home-hero__action { display: flex; align-items: center; gap: var(--space-4); }
+  .rv-home-hero__word { font-size: calc(var(--display-xl-size) * 2.5); line-height: 1.3; font-weight: var(--heading-xl-weight); }
+
+  .rv-home > section,
+  .rv-home-visit { margin-block-start: var(--space-12); }
+
+  .rv-home-about__photo { display: none; }
+
+  .rv-person {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin: var(--space-5) 0 0;
+  }
+  .rv-person img { border-radius: var(--radius-pill); object-fit: cover; }
+
+
+
+  .rv-home-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-2);
+    margin: 0;
+    list-style: none;
+    padding: var(--space-5) var(--space-3);
+    text-align: center;
+  }
+
+  .rv-home-steps__number {
+    display: grid;
+    place-items: center;
+    inline-size: var(--size-touch);
+    block-size: var(--size-touch);
+    border-radius: var(--radius-pill);
+    background: var(--bg-inverse);
+    color: var(--text-inverse);
+    margin: 0 auto var(--space-2);
+  }
+  .rv-home-steps h3 { font-size: var(--label-size); font-weight: var(--label-weight); }
+  .rv-home-steps p { font-size: var(--caption-size); line-height: var(--caption-line); }
+  .rv-home-visit { display: grid; gap: var(--space-8); }
+
+  .rv-hall {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: var(--space-3);
+    align-items: start;
+  }
+
+  .rv-hall img {
+    inline-size: 100%;
+    block-size: auto;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+  }
+  .rv-hall img:first-child { grid-row: span 2; }
+
+  .rv-visit-card {
+    min-block-size: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .rv-visit-card dl div { display: flex; justify-content: space-between; gap: var(--space-2); }
+  .rv-visit-card dd { margin: 0; }
+
+}

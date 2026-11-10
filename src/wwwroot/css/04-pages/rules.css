@@ -1,0 +1,49 @@
+@layer pages {
+  .rv-rules { display: grid; gap: var(--space-6); }
+
+  .rv-rules__toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    align-self: start;
+  }
+
+  .rv-rules__toc a {
+    padding: var(--space-2) var(--space-3);
+    min-block-size: var(--size-touch);
+    display: flex;
+    align-items: center;
+    border-radius: var(--radius-pill);
+    background: var(--glass-fill);
+    box-shadow: var(--shadow-hairline);
+    text-decoration: none;
+  }
+  .rv-rules__body > section { margin-block-end: var(--space-8); scroll-margin-block-start: var(--space-4); }
+  .rv-rules h3 { font-size: var(--heading-md-size); line-height: var(--heading-md-line); font-weight: var(--heading-md-weight); }
+  .rv-rules li { margin-block-end: var(--space-4); }
+  .rv-rules ul { padding-inline-start: var(--space-5); }
+
+  .rv-rule-ways {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  .rv-rule-ways li { display: flex; gap: var(--space-3); margin: 0; }
+  .rv-rule-ways p { margin-block-end: var(--space-2); }
+  .rv-rule-ways .ri { margin-block-start: var(--space-1); }
+
+  .rv-rule-window,
+  .rv-rules__body article { margin-block-end: var(--space-3); }
+  .rv-rule-window dl { display: grid; gap: var(--space-3); margin: 0; }
+  .rv-rule-window dl div { display: flex; gap: var(--space-4); }
+  .rv-rule-window dt { flex: 0 0 var(--size-nav); color: var(--text-secondary); }
+  .rv-rule-window dd { margin: 0; }
+
+  @media (min-width: 1024px) {
+    .rv-rules { grid-template-columns: 220px minmax(0, 1fr); }
+    .rv-rules__intro { grid-column: 1 / -1; }
+    .rv-rules__toc { flex-direction: column; grid-column: 1; }
+    .rv-rules__body { grid-column: 2; }
+  }
+}

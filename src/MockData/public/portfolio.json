@@ -1,0 +1,115 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "items": [
+      {
+        "title": "فید کوتاه کلاسیک",
+        "service": "اصلاح سر",
+        "stylist": "امیر",
+        "image": "img/public/classic.png",
+        "images": [
+          "img/public/classic.png",
+          "img/public/fade.png",
+          "img/public/medium.png"
+        ],
+        "description": "کناره‌ها با ماشین از صفر تا شماره دو محو شده‌اند و بالای سر با قیچی کوتاه و بافت‌دار شده تا بدون واکس هم فرم بگیرد.",
+        "id": "work-1",
+        "lead": true,
+        "column": "none"
+      },
+      {
+        "title": "فرم ریش با خط تیز",
+        "service": "اصلاح ریش",
+        "stylist": "طاها",
+        "image": "img/public/beard-line.png",
+        "id": "work-2",
+        "images": [
+          "img/public/beard-line.png"
+        ],
+        "description": "",
+        "lead": false,
+        "column": "right"
+      },
+      {
+        "title": "حالت‌دهی موی متوسط",
+        "service": "اصلاح سر",
+        "stylist": "سینا",
+        "image": "img/public/medium.png",
+        "id": "work-3",
+        "images": [
+          "img/public/medium.png"
+        ],
+        "description": "",
+        "lead": false,
+        "column": "right"
+      },
+      {
+        "title": "پاکسازی پوست صورت",
+        "service": "فیشیال",
+        "stylist": "سینا",
+        "image": "img/public/facial.png",
+        "id": "work-4",
+        "images": [
+          "img/public/facial.png"
+        ],
+        "description": "",
+        "lead": false,
+        "column": "right"
+      },
+      {
+        "title": "اصلاح صورت با تیغ",
+        "service": "اصلاح سر و صورت",
+        "stylist": "مهدی",
+        "image": "img/public/shave.png",
+        "id": "work-5",
+        "images": [
+          "img/public/shave.png"
+        ],
+        "description": "",
+        "lead": false,
+        "column": "left"
+      },
+      {
+        "title": "فید کم با بافت بالا",
+        "service": "اصلاح سر",
+        "stylist": "امیر",
+        "image": "img/public/fade.png",
+        "id": "work-6",
+        "images": [
+          "img/public/fade.png"
+        ],
+        "description": "",
+        "lead": false,
+        "column": "left"
+      },
+      {
+        "title": "ریش پرپشت فرم‌دار",
+        "service": "اصلاح ریش",
+        "stylist": "طاها",
+        "image": "img/public/beard.png",
+        "id": "work-7",
+        "images": [
+          "img/public/beard.png"
+        ],
+        "description": "",
+        "lead": false,
+        "column": "left"
+      }
+    ],
+    "services": [
+      "همه خدمات",
+      "اصلاح سر",
+      "اصلاح ریش",
+      "اصلاح سر و صورت",
+      "فیشیال"
+    ],
+    "stylists": [
+      "همه آرایشگران",
+      "طاها",
+      "امیر",
+      "سینا",
+      "مهدی"
+    ]
+  }
+}

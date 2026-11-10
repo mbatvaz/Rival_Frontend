@@ -1,0 +1,9 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "name": "علی",
+    "role": "Customer",
+    "panel": "/customer/"
+  }
+}

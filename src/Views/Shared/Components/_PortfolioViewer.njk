@@ -1,0 +1,5 @@
+<section class="rv-sheet rv-viewer" id="{{ item.id }}" role="dialog" aria-modal="true" aria-labelledby="{{ item.id }}-title" tabindex="-1" hidden>
+  <header class="rv-sheet__header"><h2 id="{{ item.id }}-title">{{ item.title }}</h2><button class="rv-icon-btn" type="button" data-rv-sheet-close aria-label="بستن نمایشگر"><span class="ri ri-x" aria-hidden="true"></span></button></header>
+  <div class="rv-viewer__rail" tabindex="0" role="region" aria-label="تصاویر {{ item.title }}؛ برای دیدن بقیه بکشید">{% for image in item.images %}<figure><img src="{{ basePath }}{{ image }}" alt="{{ item.title }}؛ تصویر {{ loop.index | faDigits }}" width="312" height="390" loading="lazy"><figcaption>{{ loop.index | faDigits }} از {{ item.images.length | faDigits }}</figcaption></figure>{% endfor %}</div>
+  <p>{{ item.service }} · {{ item.stylist }}</p>{% if item.description %}<p>{{ item.description }}</p>{% endif %}
+</section>

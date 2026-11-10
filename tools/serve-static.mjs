@@ -57,7 +57,7 @@ const server = http.createServer(async (req, res) => {
     respond(['ENOENT', 'ENOTDIR'].includes(error.code) ? 404 : 500, 'Static file unavailable.');
   }
 });
-server.on('error', error => { console.error(error.message); process.exitCode = 1; });
+server.on('error', error => { console.error(error.message); process.exit(1); });
 function shutdown() {
   server.close(() => process.exit(0));
   server.closeAllConnections();

@@ -1,0 +1,100 @@
+@layer pages {
+  .rv-auth-page {
+    min-block-size: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(var(--bg-gradient-a), var(--bg-gradient-c));
+  }
+
+  .rv-auth-top {
+    padding: var(--space-5) var(--space-4) 0;
+    max-inline-size: 1200px;
+    inline-size: 100%;
+    margin-inline: auto;
+  }
+
+  .rv-auth {
+    inline-size: 100%;
+    max-inline-size: 480px;
+    padding-inline: var(--space-4);
+    margin-inline: auto;
+  }
+
+  .rv-auth-hero {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: var(--space-2);
+    text-align: center;
+    padding: var(--space-3) var(--space-2) var(--space-6);
+  }
+
+  .rv-auth-hero > a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--size-touch);
+    margin-block: var(--space-4);
+  }
+  .rv-auth-hero h1 { margin: 0; font-size: var(--heading-xl-size); }
+  .rv-auth-hero p { font-size: var(--body-sm-size); color: var(--text-muted); margin: 0; }
+  .rv-auth-form { display: flex; flex-direction: column; gap: var(--space-4); }
+  .rv-auth-form p { margin: 0; }
+
+  .rv-auth-return {
+    display: flex;
+    gap: var(--space-1);
+    color: var(--text-secondary);
+    font-size: var(--body-sm-size);
+  }
+
+  .rv-auth-lock {
+    padding: var(--space-3);
+    background: var(--warning-bg);
+    color: var(--warning-fg);
+    border-radius: var(--radius-sm);
+  }
+
+  .rv-auth-alternatives {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    padding-block: var(--space-3);
+  }
+
+  .rv-auth-link {
+    font: inherit;
+    border: 0;
+    padding: var(--space-2);
+    color: var(--text-primary);
+    background: none;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .rv-auth-link:disabled { color: var(--text-muted); text-decoration: none; cursor: default; }
+  .rv-auth-demo { text-align: center; color: var(--text-secondary); font-size: var(--caption-size); }
+
+  .rv-auth-timer {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--body-sm-size);
+  }
+
+  .rv-auth-footer {
+    margin-block-start: auto;
+    padding: var(--space-8) var(--space-4) var(--space-4);
+    text-align: center;
+    font-size: var(--caption-size);
+    color: var(--text-secondary);
+  }
+  .rv-auth-methods { display: flex; flex-direction: column; gap: var(--space-3); }
+  .rv-account-unavailable { padding-block: var(--space-12); }
+
+  @media (min-width: 1024px) {
+    .rv-auth { max-inline-size: 480px; }
+    .rv-auth-hero { padding-block-start: var(--space-6); }
+  }
+}

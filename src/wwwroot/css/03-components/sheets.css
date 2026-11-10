@@ -1,0 +1,71 @@
+@layer components {
+  .rv-sheet-layer {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-block-size: 100dvh;
+    padding-block-start: var(--space-6);
+  }
+
+  .rv-sheet-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border: 0;
+    background: var(--scrim-modal);
+    cursor: pointer;
+  }
+
+  .rv-sheet {
+    inline-size: 100%;
+    max-inline-size: 560px;
+    margin-inline: auto;
+    padding: var(--space-5);
+    border-start-start-radius: var(--radius-xl);
+    border-start-end-radius: var(--radius-xl);
+    background: var(--bg-canvas);
+    box-shadow: var(--shadow-sheet);
+  }
+
+  .rv-sheet__header {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    justify-content: space-between;
+    margin-block-end: var(--space-4);
+  }
+
+  .rv-sheet__header h2,
+  .rv-sheet__header p { margin-block-end: var(--space-1); }
+  .rv-more-list { display: flex; flex-direction: column; margin-block-end: var(--space-4); }
+
+  .rv-more-list a {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding-block: var(--space-3);
+    min-block-size: var(--size-touch);
+    text-decoration: none;
+    border-block-end: 1px solid var(--line-hairline);
+  }
+  .rv-more-list a .ri:last-child { margin-inline-start: auto; }
+
+  .rv-viewer__rail {
+    display: flex;
+    gap: var(--space-3);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-block-end: var(--space-4);
+  }
+  .rv-viewer__rail figure { flex: 0 0 min(312px, 85vw); margin: 0; scroll-snap-align: center; }
+
+  .rv-viewer__rail img {
+    inline-size: 100%;
+    block-size: 390px;
+    object-fit: cover;
+    border-radius: var(--radius-xl);
+  }
+  .rv-viewer__rail figcaption { text-align: center; padding-block: var(--space-2); }
+}

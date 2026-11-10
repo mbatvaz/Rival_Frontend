@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "name": "علی رضایی",
+    "label": "مشتری",
+    "primary": [
+      {
+        "title": "خانه",
+        "href": "/customer/",
+        "icon": "home"
+      },
+      {
+        "title": "درخواست‌ها",
+        "href": "/customer/requests/",
+        "icon": "send"
+      },
+      {
+        "title": "نوبت‌ها",
+        "href": "/customer/appointments/",
+        "icon": "calendar"
+      }
+    ],
+    "book": {
+      "title": "رزرو نوبت",
+      "href": "/customer/book/",
+      "icon": "calendar-plus"
+    },
+    "more": [
+      {
+        "title": "پروفایل و روش‌های ورود",
+        "href": "/customer/profile/",
+        "icon": "user"
+      },
+      {
+        "title": "اعلان آزادشدن زمان",
+        "href": "/customer/availability-alerts/",
+        "icon": "bell-ring"
+      },
+      {
+        "title": "رزرو دوره‌ای",
+        "href": "/_preview/context/bk-rec01/",
+        "icon": "repeat"
+      },
+      {
+        "title": "تاریخچه نوبت‌ها",
+        "href": "/customer/appointments/?tab=history",
+        "icon": "calendar-clock"
+      },
+      {
+        "title": "اعلان‌ها",
+        "href": "/customer/notifications/",
+        "icon": "bell"
+      },
+      {
+        "title": "صفحه اصلی سایت",
+        "href": "/",
+        "icon": "home"
+      },
+      {
+        "title": "نمونه‌کارها",
+        "href": "/portfolio/",
+        "icon": "images"
+      },
+      {
+        "title": "قوانین رزرو",
+        "href": "/booking-rules/",
+        "icon": "shield"
+      }
+    ]
+  }
+}

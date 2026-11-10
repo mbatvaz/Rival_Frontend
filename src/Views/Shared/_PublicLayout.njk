@@ -1,0 +1,13 @@
+{% extends "Shared/_Document.njk" %}
+{% block body %}
+  <div class="rv-public" data-rv-page data-rv="public-session">
+    {% include "Shared/_HeaderPublic.njk" %}
+    <main id="rv-main" tabindex="-1">{% block content %}{% endblock %}</main>
+    {% include "Shared/_FooterPublic.njk" %}
+    {% include "Shared/_DemoNotice.njk" %}
+  </div>
+  <div class="rv-sheet-layer" data-rv-sheet-layer hidden>
+    <button class="rv-sheet-scrim" type="button" data-rv-sheet-close aria-label="بستن برگه"></button>
+    {% block sheets %}{% endblock %}
+  </div>
+{% endblock %}

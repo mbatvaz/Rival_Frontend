@@ -1,0 +1,77 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "name": "امیر",
+    "label": "آرایشگر",
+    "primary": [
+      {
+        "title": "داشبورد",
+        "href": "/stylist/",
+        "icon": "home"
+      },
+      {
+        "title": "تقویم",
+        "href": "/stylist/calendar/",
+        "icon": "calendar-range"
+      },
+      {
+        "title": "درخواست‌ها",
+        "href": "/stylist/requests/",
+        "icon": "send"
+      },
+      {
+        "title": "مشتری‌ها",
+        "href": "/stylist/customers/",
+        "icon": "users"
+      }
+    ],
+    "more": [
+      {
+        "title": "نوبت‌ها",
+        "href": "/stylist/appointments/",
+        "icon": "calendar"
+      },
+      {
+        "title": "رزرو دستی",
+        "href": "/stylist/manual-booking/",
+        "icon": "calendar-plus"
+      },
+      {
+        "title": "برنامه کاری",
+        "href": "/stylist/schedule/",
+        "icon": "calendar-range"
+      },
+      {
+        "title": "نمونه‌کارهای من",
+        "href": "/stylist/portfolio/",
+        "icon": "images"
+      },
+      {
+        "title": "اعلان‌ها",
+        "href": "/stylist/notifications/",
+        "icon": "bell"
+      },
+      {
+        "title": "پروفایل و روش‌های ورود",
+        "href": "/stylist/profile/",
+        "icon": "user"
+      },
+      {
+        "title": "صفحه اصلی سایت",
+        "href": "/",
+        "icon": "home"
+      },
+      {
+        "title": "نمونه‌کارها",
+        "href": "/portfolio/",
+        "icon": "images"
+      },
+      {
+        "title": "قوانین رزرو",
+        "href": "/booking-rules/",
+        "icon": "shield"
+      }
+    ]
+  }
+}

@@ -89,7 +89,17 @@
 
 ## Page status summary
 
-- **Implementation status (2026-11-10):** Phase 01 infrastructure is complete and awaiting owner acceptance. All 73 registry page/state contexts remain **not implemented**; `Fully Designed` below describes source design coverage only. Each static route currently renders an explicit development placeholder. No product shell or product desktop composition is implemented.
+- **Implementation status (2026-11-10):** Phase 01 accepted. Phase 02 is implemented and awaiting owner review: PUB-01, PUB-02, PUB-03, AUTH-01, AUTH-02 and SYS-ACC-01. Shared role shells are implemented, while the other 67 registry contexts retain explicit placeholders for their owning phases. `Fully Designed` describes design-source coverage, not implementation acceptance. Desktop briefs for this phase were explicitly approved by the owner.
+
+### Phase 02 implemented states (owner acceptance pending)
+
+- PUB-01: signed-out / signed-in demo.
+- PUB-02: default, service/stylist filter, viewer, empty, loading, error/retry.
+- PUB-03: canonical reservation/payment/cancellation/salon-change copy and section anchors.
+- AUTH-01: phone, OTP, wrong/expired code, resend, password, Passkey fallback, shared lock, loading/error recovery, new-user path.
+- AUTH-02: verified demo completion, required-name errors, direct-entry return to login.
+- SYS-ACC-01: account unavailable and home recovery.
+- SHELL/MORE: shared Customer/Stylist/OwnerAdmin navigation, focus trap, bottom-attached logout confirmation, cancel/restore focus. These component IDs are not new product-page rows.
 
 - **Fully Designed:** all canonical route/context IDs above have at least one authoritative artboard or explicit handoff spec.
 - **Reused:** CUS-01, STY-01, ADM-05 references in Batch 1 are historical/preview references; final source lives in Batches 3/4/5.

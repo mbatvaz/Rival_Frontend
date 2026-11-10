@@ -1,0 +1,24 @@
+/* Decorative geometry copied from PUB-01 source; no real map coordinates. */
+@layer pages {
+  .rv-visit {
+    position: relative;
+    min-block-size: 420px;
+    padding: calc(var(--space-12) * 3) var(--space-2) var(--space-2);
+    border-radius: var(--radius-xl);
+    background: var(--bg-plaster);
+    overflow: clip;
+  }
+
+  .rv-salon-map {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+  .rv-salon-map path { fill: none; stroke: var(--bg-surface); stroke-width: 14; }
+  .rv-salon-map path:nth-child(2) { stroke-width: 18; }
+  .rv-salon-map path:nth-child(3) { stroke-width: 12; }
+  .rv-salon-map path:nth-child(4) { stroke-width: 8; }
+  .rv-salon-map path:nth-child(n+5) { stroke: var(--chrome-300); stroke-width: 3; }
+  .rv-visit .rv-visit-card { position: relative; min-block-size: auto; }
+}

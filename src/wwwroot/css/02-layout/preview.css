@@ -61,6 +61,14 @@
   .rv-preview__id { color: var(--text-muted); }
   .rv-preview__entry .rv-preview__meta { inline-size: 100%; font-size: var(--body-sm-size); }
   .rv-preview__placeholder { margin-block: var(--space-8); }
+  .rv-preview__variants { padding-inline-start: var(--space-5); }
+
+  .rv-preview__variants a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--size-touch);
+    min-inline-size: var(--size-touch);
+  }
 
   @media (min-width: 768px) {
     .rv-preview { max-inline-size: 720px; padding: var(--space-6); }

@@ -5,6 +5,7 @@ import { root, src, loadSite, readJson, withBase, inside, write } from './lib/si
 import { faDigits, jalali } from './lib/format.mjs';
 import { prepareDesignSystem } from './lib/design-system.mjs';
 import { directoryModel, validateRegistry } from './lib/registry.mjs';
+import { productContext } from './lib/product.mjs';
 
 // ARCH / DEC-020: cPanel receives only the generated dist contents.
 const out = path.join(root, 'dist');
@@ -29,11 +30,13 @@ const urls = {
 };
 let rendered = 0;
 for (const page of registry.pages) {
-  const template = page.template ?? 'Shared/Preview/_Placeholder.njk';
+  const product = await productContext(page, site.basePath);
+  const template = page.template ?? (product.shell ? 'Shared/Preview/_RolePlaceholder.njk' : 'Shared/Preview/_Placeholder.njk');
   if (page.template) inside(views, page.template);
-  const model = page.mockData ? await readJson(inside(src, page.mockData)) : {};
+  const fixture = page.mockData ? await readJson(inside(src, page.mockData)) : {};
+  const model = fixture.demo ? fixture.data : fixture;
   const html = env.render(template, {
-    site, urls, page, model, basePath: site.basePath,
+    site, urls, page, model, basePath: site.basePath, ...product,
     phaseNumber: Number(page.phase.replace('Phase ', '')), sourceBatch: page.primaryBatch,
     title: page.titleFa + ' — ریوال'
   });

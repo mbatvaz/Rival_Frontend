@@ -1,0 +1,36 @@
+@layer pages {
+  @media (min-width: 1024px) {
+    .rv-home-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      block-size: 720px;
+      min-block-size: 720px;
+    }
+    .rv-home-hero__photo { position: static; grid-column: 2; object-position: center; }
+
+    .rv-home-hero__copy {
+      position: static;
+      grid-column: 1;
+      grid-row: 1;
+      align-self: center;
+      padding: var(--space-12);
+    }
+    .rv-home-hero::after { display: none; }
+
+    .rv-home-about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-12);
+      align-items: center;
+    }
+
+    .rv-home-about__photo {
+      display: block;
+      inline-size: 100%;
+      block-size: 320px;
+      object-fit: cover;
+      border-radius: var(--radius-xl);
+    }
+    .rv-home-visit { grid-template-columns: 1fr 1fr; gap: var(--space-12); }
+  }
+}

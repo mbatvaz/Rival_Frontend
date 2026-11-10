@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "digits": 5,
+    "validSeconds": 120,
+    "resendSeconds": 60,
+    "maxAttempts": 5,
+    "windowSeconds": 900,
+    "lockSeconds": 900,
+    "demoCode": "12345",
+    "demoPassword": "RivalDemo123",
+    "demoPhone": "09143214567",
+    "allowedStates": [
+      "otp",
+      "wrong",
+      "expired",
+      "locked",
+      "password",
+      "passkey",
+      "error",
+      "loading",
+      "new"
+    ],
+    "returnPaths": [
+      "/customer/",
+      "/customer/book/"
+    ],
+    "completePath": "/_preview/context/auth-02/",
+    "demoCodes": [
+      "12345",
+      "23456",
+      "34567"
+    ]
+  }
+}
