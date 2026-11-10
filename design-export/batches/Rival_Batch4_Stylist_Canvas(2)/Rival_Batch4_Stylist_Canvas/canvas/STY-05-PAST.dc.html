@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>STY-05 — نوبت‌ها — گذشته</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1120px;">
+  <header class="f-bar-in">
+    <a href="#more" class="rv-icon-btn" aria-label="بازگشت"><i class="ri ri-arrow-right"></i></a>
+    <h1>نوبت‌ها</h1>
+    <span aria-hidden="true"></span>
+  </header>
+
+    <main class="f-enter" style="padding: var(--space-2) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <div class="b4-tabrow">
+      <div class="rv-seg rv-glass b4-seg-full" role="tablist" aria-label="نوبت‌ها">
+        <button type="button" id="tab-up" role="tab" aria-selected="false" aria-controls="p-up">پیش رو<span class="b4-n" aria-label="۲۴ نوبت">۲۴</span></button>
+        <button type="button" id="tab-past" role="tab" aria-selected="true" aria-controls="p-past">گذشته<span class="b4-n" aria-label="۱۲۶ نوبت">۱۲۶</span></button>
+      </div>
+      <div class="rv-card rv-glass b4-fcard"><button type="button" class="rv-btn rv-btn--ghost rv-btn--sm b4-fcard__b" aria-haspopup="dialog" aria-label="فیلتر نوبت‌ها"><i class="ri ri-sm ri-filter"></i>فیلتر</button></div>
+    </div>
+    <div id="p-past" role="tabpanel" aria-labelledby="tab-past" style="display: flex; flex-direction: column; gap: var(--space-5);">
+    <section aria-labelledby="a-past" class="b3-past">
+      <div class="f-head"><h2 id="a-past" class="f-h">گذشته</h2><span class="rv-caption rv-muted">۱۲۶ نوبت</span></div>
+      <h3 class="b3-mlbl">امروز</h3>
+      <div class="rv-list rv-glass">
+        <a class="rv-item b4-hrow is-cancel" href="/stylist/appointments/BK-48280" aria-label="علی محمدی، امروز ۱۷:۰۰، اصلاح سر و صورت، لغو شده توسط مشتری">
+          <span class="b4-hdate"><b>۲۶ مهر</b><span>۱۷:۰۰</span></span>
+          <div class="rv-grow" style="min-width: 0;"><div class="b3-past__t">اصلاح سر و صورت</div><div class="b3-past__s">علی محمدی</div></div>
+          <span class="rv-tag is-rose"><i class="ri ri-x-circle"></i>لغو توسط مشتری</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev" aria-hidden="true" style="flex: none; color: var(--text-muted);"></i>
+        </a>
+        <a class="rv-item b4-hrow" href="/stylist/appointments/BK-48299" aria-label="عرفان رحیمی، امروز ۱۰:۳۰، اصلاح سر، عدم حضور">
+          <span class="b4-hdate"><b>۲۶ مهر</b><span>۱۰:۳۰</span></span>
+          <div class="rv-grow" style="min-width: 0;"><div class="b3-past__t">اصلاح سر</div><div class="b3-past__s">عرفان رحیمی</div></div>
+          <span class="rv-tag is-danger"><i class="ri ri-ban"></i>عدم حضور</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev" aria-hidden="true" style="flex: none; color: var(--text-muted);"></i>
+        </a>
+        <a class="rv-item b4-hrow" href="/stylist/appointments/BK-48296" aria-label="پویا صادقی، امروز ۰۹:۳۰، اصلاح سر، انجام شده">
+          <span class="b4-hdate"><b>۲۶ مهر</b><span>۰۹:۳۰</span></span>
+          <div class="rv-grow" style="min-width: 0;"><div class="b3-past__t">اصلاح سر</div><div class="b3-past__s">پویا صادقی</div></div>
+          <span class="rv-tag is-success"><i class="ri ri-check-circle"></i>انجام شده</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev" aria-hidden="true" style="flex: none; color: var(--text-muted);"></i>
+        </a>
+        <a class="rv-item b4-hrow" href="/stylist/appointments/BK-48291" aria-label="کاوه احمدی، امروز ۰۸:۳۰، فیشیال، انجام شده">
+          <span class="b4-hdate"><b>۲۶ مهر</b><span>۰۸:۳۰</span></span>
+          <div class="rv-grow" style="min-width: 0;"><div class="b3-past__t">فیشیال</div><div class="b3-past__s">کاوه احمدی</div></div>
+          <span class="rv-tag is-success"><i class="ri ri-check-circle"></i>انجام شده</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev" aria-hidden="true" style="flex: none; color: var(--text-muted);"></i>
+        </a>
+      </div>
+      <h3 class="b3-mlbl" style="margin-top: var(--space-5);">مهر</h3>
+      <div class="rv-list rv-glass">
+        <a class="rv-item b4-hrow" href="/stylist/appointments/BK-48241" aria-label="مجید کاظمی، ۲۲ مهر ۱۸:۰۰، فیشیال، انجام شده">
+          <span class="b4-hdate"><b>۲۲ مهر</b><span>۱۸:۰۰</span></span>
+          <div class="rv-grow" style="min-width: 0;"><div class="b3-past__t">فیشیال</div><div class="b3-past__s">مجید کاظمی</div></div>
+          <span class="rv-tag is-success"><i class="ri ri-check-circle"></i>انجام شده</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev" aria-hidden="true" style="flex: none; color: var(--text-muted);"></i>
+        </a>
+        <a class="rv-item b4-hrow is-cancel" href="/stylist/appointments/BK-48215" aria-label="حسین جعفری، ۲۰ مهر ۱۵:۳۰، اصلاح سر، لغو شده توسط سالن">
+          <span class="b4-hdate"><b>۲۰ مهر</b><span>۱۵:۳۰</span></span>
+          <div class="rv-grow" style="min-width: 0;"><div class="b3-past__t">اصلاح سر</div><div class="b3-past__s">حسین جعفری</div></div>
+          <span class="rv-tag is-rose"><i class="ri ri-x-circle"></i>لغو توسط سالن</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev" aria-hidden="true" style="flex: none; color: var(--text-muted);"></i>
+        </a>
+      </div>
+      <button type="button" class="rv-btn rv-btn--ghost rv-btn--block b4-more">نمایش نوبت‌های قدیمی‌تر</button>
+    </section>
+    </div>
+  </main>
+
+  <!-- نوار پایین کارکنان (SHELL-STY) -->
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری آرایشگر">
+      <a href="/stylist" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+      <a href="/stylist/calendar" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+      <a href="/stylist/requests" aria-label="درخواست‌ها، ۳ درخواست منتظر پاسخ"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۳</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/stylist/customers" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+      <a href="#more" aria-current="page" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1120}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

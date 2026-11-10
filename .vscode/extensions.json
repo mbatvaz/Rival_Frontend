@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "openai.chatgpt",
+    "ms-playwright.playwright",
+    "ritwickdey.LiveServer",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "eamodio.gitlens"
+  ]
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>BK-REC01 — رزرو دوره‌ای — افزودن یا تغییر نوبت (Full-screen Sheet)</title>
+
+<link rel="stylesheet" href="../assets/ds/rival/tokens.css">
+<link rel="stylesheet" href="../assets/ds/rival/components/bundle.css">
+<link rel="stylesheet" href="../assets/rv-fixes.css">
+<link rel="stylesheet" href="../assets/rv-final.css">
+<link rel="stylesheet" href="../assets/rv-b2.css">
+</head>
+<body style="margin:0;background:#E7E8EB;display:flex;justify-content:center">
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px;">
+  <header class="f-bar-in">
+    <button type="button" class="rv-icon-btn" aria-label="بستن بدون ذخیره"><i class="ri ri-x"></i></button>
+    <h1>نوبت ۳<span class="f-bar-in__sub">رزرو دوره‌ای</span></h1>
+    <span aria-hidden="true"></span>
+  </header>
+
+  <!-- Full-screen Sheet: هر نوبت خدمت ثابت، آرایشگر و زمان خودش را دارد -->
+  <main style="padding: var(--space-2) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-4);">
+    <section aria-labelledby="s-svc" style="display: flex; flex-direction: column; gap: var(--space-2);">
+      <div class="f-head" style="margin-bottom: 0;"><h2 id="s-svc" class="f-h">خدمت</h2></div>
+      <div class="b2-minis" role="radiogroup" aria-labelledby="s-svc"><button type="button" class="b2-mini rv-glass" role="radio" aria-checked="false"><img src="../assets/img/9115564573058efd89988f589f50b4ee.png" alt="" style="object-position: center 35%;"><span><b>اصلاح سر و صورت</b><small>۱ ساعت</small></span></button><button type="button" class="b2-mini rv-glass" role="radio" aria-checked="true"><img src="../assets/img/25158cc1884d40bc22f1d5461e1c162f.png" alt="" style="object-position: center 30%;"><span><b>اصلاح سر</b><small>۳۰ دقیقه</small></span></button></div>
+    </section>
+    <section aria-labelledby="s-sty" style="display: flex; flex-direction: column; gap: var(--space-2);">
+      <div class="f-head" style="margin-bottom: 0;"><h2 id="s-sty" class="f-h">آرایشگر</h2></div>
+      <div class="b2-whos" role="radiogroup" aria-labelledby="s-sty"><button type="button" class="b2-who" role="radio" aria-checked="true"><span class="rv-avatar"><img src="../assets/img/6bb6abcc37e587b42ed96e8dcda0d273.png" alt=""></span><span>طاها</span></button><button type="button" class="b2-who" role="radio" aria-checked="false"><span class="rv-avatar"><img src="../assets/img/b7faac4034c06ba5781923a5e4432418.png" alt=""></span><span>امیر</span></button></div>
+    </section>
+    <section aria-labelledby="s-day" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <div class="f-head" style="margin-bottom: 0;"><h2 id="s-day" class="f-h">روز و ساعت</h2><span class="b2-count">تا ۲۰ فروردین</span></div>
+      <div class="rv-week rv-glass b2-days">
+        <div class="b2-days__row" role="tablist" aria-label="روزهای قابل انتخاب، تا شش ماه آینده">
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="۱۵ آذر"><small>ی</small><b>۱۵</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="۱۶ آذر"><small>د</small><b>۱۶</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="۱۷ آذر"><small>س</small><b>۱۷</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="۱۸ آذر"><small>چ</small><b>۱۸</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="true" aria-label="۱۹ آذر"><small>پ</small><b>۱۹</b></button>
+          <button type="button" class="rv-wd is-off" role="tab" aria-selected="false" aria-disabled="true" aria-label="۲۰ آذر، سالن تعطیل است"><small>ج</small><b>۲۰</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="۲۱ آذر"><small>ش</small><b>۲۱</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="۲۲ آذر"><small>ی</small><b>۲۲</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="۲۳ آذر"><small>د</small><b>۲۳</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="۲۴ آذر"><small>س</small><b>۲۴</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="۲۵ آذر"><small>چ</small><b>۲۵</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="۲۶ آذر"><small>پ</small><b>۲۶</b></button>
+          <button type="button" class="rv-wd is-off" role="tab" aria-selected="false" aria-disabled="true" aria-label="۲۷ آذر، سالن تعطیل است"><small>ج</small><b>۲۷</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="۲۸ آذر"><small>ش</small><b>۲۸</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="۲۹ آذر"><small>ی</small><b>۲۹</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="۳۰ آذر"><small>د</small><b>۳۰</b></button>
+        </div>
+      </div>
+      <div class="b2-slots4" role="group" aria-label="زمان‌های آزاد پنج‌شنبه ۱۹ آذر"><button type="button" class="rv-slot" aria-pressed="false">۱۰:۰۰</button><button type="button" class="rv-slot" aria-pressed="false">۱۰:۳۰</button><button type="button" class="rv-slot" aria-pressed="false">۱۱:۰۰</button><button type="button" class="rv-slot" aria-pressed="false">۱۴:۰۰</button><button type="button" class="rv-slot" aria-pressed="false">۱۵:۳۰</button><button type="button" class="rv-slot" aria-pressed="false">۱۷:۳۰</button><button type="button" class="rv-slot" aria-pressed="true">۱۸:۰۰</button><button type="button" class="rv-slot" aria-pressed="false">۱۹:۰۰</button></div>
+    </section>
+  </main>
+
+  <div class="rv-actionbar rv-glass-strong b2-bar">
+    <div class="b2-bar__sum"><span class="b2-bar__t">پنج‌شنبه ۱۹ آذر، ۱۸:۰۰</span><span class="b2-bar__s">اصلاح سر با طاها</span></div>
+    <button type="button" class="rv-btn rv-btn--primary">ذخیره نوبت</button>
+  </div>
+</div>
+</x-dc>
+
+</body>
+</html>

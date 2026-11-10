@@ -1,0 +1,436 @@
+{
+ "v": 3,
+ "attachments": {},
+ "boards": {
+  "F-PUB-01.dc.html": {
+   "h": 3350,
+   "title": "مرجع زبان — PUB-01 — خانه عمومی",
+   "w": 390,
+   "x": 2350,
+   "y": 300
+  },
+  "F-sheet.dc.html": {
+   "h": 2237,
+   "title": "مرجع زبان — برگه زبان",
+   "w": 520,
+   "x": 2820,
+   "y": 300
+  },
+  "MORE-CUS-01.dc.html": {
+   "h": 844,
+   "title": "MORE-CUS — کشوی بیشتر مشتری — باز",
+   "w": 390,
+   "x": 1880,
+   "y": 3900
+  },
+  "MORE-CUS-02.dc.html": {
+   "h": 844,
+   "title": "MORE-CUS — کشوی بیشتر مشتری — تب بیشتر فعال در صفحه اعلان‌ها",
+   "w": 390,
+   "x": 1410,
+   "y": 3900
+  },
+  "MORE-CUS-03.dc.html": {
+   "h": 844,
+   "title": "MORE-CUS — کشوی بیشتر مشتری — برگه تأیید خروج",
+   "w": 390,
+   "x": 940,
+   "y": 3900
+  },
+  "MORE-STY-01.dc.html": {
+   "h": 844,
+   "title": "MORE-STY — کشوی بیشتر آرایشگر — باز",
+   "w": 390,
+   "x": 2350,
+   "y": 5180
+  },
+  "MORE-STY-02.dc.html": {
+   "h": 844,
+   "title": "MORE-STY — کشوی بیشتر آرایشگر — آرایشگر غیرفعال",
+   "w": 390,
+   "x": 1880,
+   "y": 5180
+  },
+  "Main.dc.html": {
+   "h": 6150,
+   "title": "یادداشت دسته",
+   "w": 1100,
+   "x": 3960,
+   "y": 300
+  },
+  "SHELL-CUS-01.dc.html": {
+   "h": 960,
+   "title": "SHELL-CUS — پوسته مشتری — تب خانه فعال",
+   "w": 390,
+   "x": 2820,
+   "y": 3900
+  },
+  "SHELL-CUS-02.dc.html": {
+   "h": 844,
+   "title": "SHELL-CUS — پوسته مشتری — در صفحه رزرو",
+   "w": 390,
+   "x": 2350,
+   "y": 3900
+  },
+  "SHELL-KIT.dc.html": {
+   "h": 2962,
+   "title": "SHELL — اجزای مشترک پوسته — مرجع",
+   "w": 520,
+   "x": 3290,
+   "y": 3900
+  },
+  "SHELL-STY-01.dc.html": {
+   "h": 1236,
+   "title": "SHELL-STY — پوسته آرایشگر — تب داشبورد فعال",
+   "w": 390,
+   "x": 2820,
+   "y": 5180
+  },
+  "SHELL-ADM-01.dc.html": {
+   "h": 1084,
+   "title": "SHELL-ADM — پوسته مدیر کل — تب داشبورد فعال",
+   "w": 390,
+   "x": 2820,
+   "y": 6856
+  },
+  "SHELL-ADM-02.dc.html": {
+   "h": 1026,
+   "title": "SHELL-ADM — پوسته مدیر کل — Scope «من»",
+   "w": 390,
+   "x": 2350,
+   "y": 6856
+  },
+  "SHELL-ADM-03.dc.html": {
+   "h": 1058,
+   "title": "SHELL-ADM — پوسته مدیر کل — Scope «امیر»",
+   "w": 390,
+   "x": 1880,
+   "y": 6856
+  },
+  "SHELL-ADM-04.dc.html": {
+   "h": 1170,
+   "title": "SHELL-ADM — پوسته مدیر کل — Scope «همه سالن»",
+   "w": 390,
+   "x": 1410,
+   "y": 6856
+  },
+  "SHELL-ADM-05.dc.html": {
+   "h": 844,
+   "title": "SHELL-ADM — پوسته مدیر کل — منوی باز انتخاب Scope",
+   "w": 390,
+   "x": 940,
+   "y": 6856
+  },
+  "MORE-ADM-01.dc.html": {
+   "h": 844,
+   "title": "MORE-ADM — کشوی بیشتر مدیر کل — باز",
+   "w": 390,
+   "x": 470,
+   "y": 6856
+  },
+  "MORE-ADM-02.dc.html": {
+   "h": 844,
+   "title": "MORE-ADM — کشوی بیشتر مدیر کل — اسکرول تا پایین",
+   "w": 390,
+   "x": 0,
+   "y": 6856
+  },
+  "PUB-01.dc.html": {
+   "h": 3436,
+   "title": "PUB-01 — خانه — کاربر واردنشده",
+   "w": 390,
+   "x": 3760,
+   "y": 8420
+  },
+  "PUB-01-IN.dc.html": {
+   "h": 3436,
+   "title": "PUB-01 — خانه — کاربر واردشده",
+   "w": 390,
+   "x": 3290,
+   "y": 8420
+  },
+  "PUB-02.dc.html": {
+   "h": 1882,
+   "title": "PUB-02 — نمونه‌کارها — پیش‌فرض",
+   "w": 390,
+   "x": 2820,
+   "y": 8420
+  },
+  "PUB-02-F.dc.html": {
+   "h": 898,
+   "title": "PUB-02 — نمونه‌کارها — فیلتر خدمت و آرایشگر",
+   "w": 390,
+   "x": 2350,
+   "y": 8420
+  },
+  "PUB-02-V.dc.html": {
+   "h": 844,
+   "title": "PUB-02 — نمونه‌کارها — نمایشگر جزئیات باز",
+   "w": 390,
+   "x": 1880,
+   "y": 8420
+  },
+  "PUB-02-E.dc.html": {
+   "h": 960,
+   "title": "PUB-02 — نمونه‌کارها — نتیجه خالی فیلتر",
+   "w": 390,
+   "x": 1410,
+   "y": 8420
+  },
+  "PUB-02-L.dc.html": {
+   "h": 1610,
+   "title": "PUB-02 — نمونه‌کارها — در حال بارگذاری",
+   "w": 390,
+   "x": 940,
+   "y": 8420
+  },
+  "PUB-02-X.dc.html": {
+   "h": 844,
+   "title": "PUB-02 — نمونه‌کارها — خطا",
+   "w": 390,
+   "x": 470,
+   "y": 8420
+  },
+  "PUB-03.dc.html": {
+   "h": 3022,
+   "title": "PUB-03 — قوانین رزرو — پیش‌فرض",
+   "w": 390,
+   "x": 0,
+   "y": 8420
+  },
+  "AUTH-01.dc.html": {
+   "h": 844,
+   "title": "AUTH-01 — ورود — ورود شماره",
+   "w": 390,
+   "x": 3760,
+   "y": 12360
+  },
+  "AUTH-01-B.dc.html": {
+   "h": 844,
+   "title": "AUTH-01 — ورود — آمده از دکمه رزرو",
+   "w": 390,
+   "x": 3290,
+   "y": 12360
+  },
+  "AUTH-01-O.dc.html": {
+   "h": 844,
+   "title": "AUTH-01 — ورود — کد ارسال شد",
+   "w": 390,
+   "x": 2820,
+   "y": 12360
+  },
+  "AUTH-01-W.dc.html": {
+   "h": 875,
+   "title": "AUTH-01 — ورود — کد نادرست",
+   "w": 390,
+   "x": 2350,
+   "y": 12360
+  },
+  "AUTH-01-L.dc.html": {
+   "h": 844,
+   "title": "AUTH-01 — ورود — محدودیت تلاش",
+   "w": 390,
+   "x": 1880,
+   "y": 12360
+  },
+  "AUTH-01-P.dc.html": {
+   "h": 844,
+   "title": "AUTH-01 — ورود — ورود با رمز عبور",
+   "w": 390,
+   "x": 1410,
+   "y": 12360
+  },
+  "AUTH-02.dc.html": {
+   "h": 844,
+   "title": "AUTH-02 — تکمیل حساب — پیش‌فرض",
+   "w": 390,
+   "x": 940,
+   "y": 12360
+  },
+  "AUTH-02-E.dc.html": {
+   "h": 844,
+   "title": "AUTH-02 — تکمیل حساب — خطای فیلد",
+   "w": 390,
+   "x": 470,
+   "y": 12360
+  },
+  "SYS-ACC-01.dc.html": {
+   "h": 844,
+   "title": "SYS-ACC-01 — حساب پیدا نشد — پیش‌فرض",
+   "w": 390,
+   "x": 0,
+   "y": 12360
+  },
+  "ADM-05-M.dc.html": {
+   "h": 1370,
+   "title": "ADM-05 — نوبت‌های مدیر — پیش رو، Scope «من» (نسخه نهایی دسته ۵)",
+   "w": 390,
+   "x": 0,
+   "y": 300
+  },
+  "STY-01-M.dc.html": {
+   "h": 2140,
+   "title": "STY-01 — داشبورد آرایشگر — پیش رو (نسخه نهایی دسته ۴)",
+   "w": 390,
+   "x": 470,
+   "y": 300
+  },
+  "STY-01-E.dc.html": {
+   "h": 1330,
+   "title": "STY-01 — داشبورد آرایشگر — روز بدون نوبت (نسخه نهایی دسته ۴)",
+   "w": 390,
+   "x": 940,
+   "y": 300
+  },
+  "CUS-01-A.dc.html": {
+   "h": 1450,
+   "title": "CUS-01 — خانه مشتری (نسخه نهایی دسته ۳)",
+   "w": 390,
+   "x": 1410,
+   "y": 300
+  },
+  "CUS-01-EMPTY.dc.html": {
+   "h": 844,
+   "title": "CUS-01 — خانه مشتری — مشتری تازه، بدون نوبت (نسخه نهایی دسته ۳)",
+   "w": 390,
+   "x": 1880,
+   "y": 300
+  },
+  "MORE-STY-03.dc.html": {
+   "h": 844,
+   "title": "MORE-STY — کشوی بیشتر آرایشگر — برگه تأیید خروج",
+   "w": 390,
+   "x": 1410,
+   "y": 5180
+  },
+  "MORE-ADM-03.dc.html": {
+   "h": 844,
+   "title": "MORE-ADM — کشوی بیشتر مدیر کل — برگه تأیید خروج",
+   "w": 390,
+   "x": 3290,
+   "y": 6856
+  }
+ },
+ "createdOnFiles": {
+  "at": "2026-10-11T16:33:31Z",
+  "v": 1
+ },
+ "designSystems": [
+  {
+   "artifact": "https://claude.ai/artifact/VNKcocXpXh3LgPG1gE9To8",
+   "copiedAt": "2026-10-11T16:33:31Z",
+   "namespace": "rival",
+   "title": "Rival",
+   "version": "1791735698-27f8"
+  }
+ ],
+ "launch": {
+  "view": "canvas"
+ },
+ "notes": {
+  "rowF": {
+   "kind": "title1",
+   "maxW": 3810,
+   "text": "نسخه‌های نهایی از دسته‌های ۳، ۴ و ۵ (جای مرجع‌های قدیمی) و مرجع زبان «آراسته»",
+   "w": 240,
+   "x": 0,
+   "y": 40
+  },
+  "rowN": {
+   "kind": "title1",
+   "maxW": 1100,
+   "text": "یادداشت دسته",
+   "w": 240,
+   "x": 3960,
+   "y": 40
+  },
+  "rowS": {
+   "kind": "title1",
+   "maxW": 3810,
+   "text": "بخش ۲ — پوسته مشتری",
+   "w": 240,
+   "x": 0,
+   "y": 3640
+  },
+  "rowS2": {
+   "kind": "title1",
+   "maxW": 3810,
+   "text": "بخش ۲ — پوسته آرایشگر",
+   "w": 240,
+   "x": 0,
+   "y": 4920
+  },
+  "rowS3": {
+   "kind": "title1",
+   "maxW": 3810,
+   "text": "بخش ۳ — پوسته مدیر کل",
+   "w": 240,
+   "x": 0,
+   "y": 6596
+  },
+  "rowS4": {
+   "kind": "title1",
+   "maxW": 4150,
+   "text": "بخش ۴ — سایت عمومی",
+   "w": 240,
+   "x": 0,
+   "y": 8160
+  },
+  "rowS5": {
+   "kind": "title1",
+   "maxW": 4150,
+   "text": "بخش ۵ — ورود",
+   "w": 240,
+   "x": 0,
+   "y": 12100
+  }
+ },
+ "order": [
+  "F-sheet.dc.html",
+  "ADM-05-M.dc.html",
+  "STY-01-M.dc.html",
+  "STY-01-E.dc.html",
+  "CUS-01-A.dc.html",
+  "CUS-01-EMPTY.dc.html",
+  "F-PUB-01.dc.html",
+  "SHELL-KIT.dc.html",
+  "SHELL-CUS-01.dc.html",
+  "SHELL-CUS-02.dc.html",
+  "MORE-CUS-01.dc.html",
+  "MORE-CUS-02.dc.html",
+  "MORE-CUS-03.dc.html",
+  "SHELL-STY-01.dc.html",
+  "MORE-STY-01.dc.html",
+  "MORE-STY-02.dc.html",
+  "SHELL-ADM-01.dc.html",
+  "SHELL-ADM-02.dc.html",
+  "SHELL-ADM-03.dc.html",
+  "SHELL-ADM-04.dc.html",
+  "SHELL-ADM-05.dc.html",
+  "MORE-ADM-01.dc.html",
+  "MORE-ADM-02.dc.html",
+  "PUB-01.dc.html",
+  "PUB-01-IN.dc.html",
+  "PUB-02.dc.html",
+  "PUB-02-F.dc.html",
+  "PUB-02-V.dc.html",
+  "PUB-02-E.dc.html",
+  "PUB-02-L.dc.html",
+  "PUB-02-X.dc.html",
+  "PUB-03.dc.html",
+  "AUTH-01.dc.html",
+  "AUTH-01-B.dc.html",
+  "AUTH-01-O.dc.html",
+  "AUTH-01-W.dc.html",
+  "AUTH-01-L.dc.html",
+  "AUTH-01-P.dc.html",
+  "AUTH-02.dc.html",
+  "AUTH-02-E.dc.html",
+  "SYS-ACC-01.dc.html",
+  "Main.dc.html",
+  "MORE-STY-03.dc.html",
+  "MORE-ADM-03.dc.html"
+ ],
+ "pages": [],
+ "title": "Rival — دسته ۱ — پوسته، عمومی و ورود"
+}

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-02 — تقویم سالن — برگه بستن سریع زمان (Scope «امیر»)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px;">
+  <!-- صفحه مادر زیر پرده؛ کارت همان زمان آزاد بالای پرده می‌ماند (D10-59) و صفحه کمی بالا آمده است (در اجرا b3-rise) -->
+  <div aria-hidden="true" inert style="margin-top: -200px;">
+    <header class="rv-topbar">
+      <h1 class="rv-topbar__title" style="margin: 0;">تقویم</h1>
+      <span class="rv-grow"></span>
+      <a href="/admin/action-center" class="rv-icon-btn" aria-label="مرکز اقدام، ۳ مورد باز"><i class="ri ri-pending"></i><span class="rv-count is-plum">۳</span></a>
+    <a href="/admin/notifications" class="rv-icon-btn" aria-label="اعلان‌ها"><i class="ri ri-bell"></i></a>
+    </header>
+    <main style="padding: 0 var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-4);">
+      <!-- [مدیر] Scope زیر نوار بالا (f-scope + rv-seg، SHELL-ADM)؛ فقط داده را عوض می‌کند، نه نقش را -->
+      <div class="f-scope">
+        <span class="f-scope__lbl">نمایش برنامه</span>
+        <div class="rv-seg rv-glass" role="tablist" aria-label="دامنه نمایش" style="display: flex;">
+          <button role="tab" aria-selected="false" style="flex: 1; justify-content: center;"><i class="ri ri-sm ri-user"></i>من</button>
+          <button role="tab" aria-selected="true" aria-haspopup="dialog" aria-expanded="false" style="flex: 1; justify-content: center;">امیر<i class="ri ri-sm ri-chevron-down"></i></button>
+        </div>
+      </div>
+
+      <div class="rv-week rv-glass">
+        <div class="rv-week__head"><span class="b4-month">مهر ۱۴۰۵<i class="ri ri-chevron-down"></i></span><span class="rv-grow"></span></div>
+        <div class="rv-week__grid">
+          <span class="rv-week__ind" style="--i: 1;"></span>
+          <span class="rv-wd is-past is-off"><small>ش</small><b>۲۵</b></span>
+          <span class="rv-wd is-today" aria-selected="true"><small>ی</small><b>۲۶</b></span>
+          <span class="rv-wd"><small>د</small><b>۲۷</b></span>
+          <span class="rv-wd"><small>س</small><b>۲۸</b></span>
+          <span class="rv-wd"><small>چ</small><b>۲۹</b></span>
+          <span class="rv-wd"><small>پ</small><b>۳۰</b></span>
+          <span class="rv-wd is-off"><small>ج</small><b>۱</b></span>
+        </div>
+        <div class="rv-week__foot"><span>۴ نوبت پیش رو برای امیر، ۲ ساعت آزاد</span><span>سابقه نوبت‌ها</span></div>
+      </div>
+      <div class="b4-dayhead"><h2 class="f-h">برنامه امیر، امروز یکشنبه ۲۶ مهر</h2></div>
+      <ol class="f-tl">
+        <li>
+          <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۱۱:۰۰</b><small class="rv-caption rv-muted">اکنون</small></span>
+          <div class="rv-tl__b rv-glass f-tile is-now"><span class="rv-avatar rv-avatar--sm"><img src="/_blob/8b4db4f0bb515d0663b480815b96a0f8" alt=""></span><div class="rv-grow"><div style="font-size: 15px; line-height: 22px; font-weight: 600;">پویا صادقی</div><div class="f-t3" style="font-size: 12px; line-height: 18px;">اصلاح سر و صورت<span class="rv-sep"></span>۲۰ دقیقه مانده</div></div></div>
+        </li>
+        <li>
+          <span class="f-tl__t b3-lift" style="box-shadow: none;"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۱۲:۰۰</b></span>
+          <div class="rv-tl__b is-free b4-free b3-lift" style="background: var(--bg-surface);">
+            <span class="b4-free__book"><i class="ri ri-sm ri-plus"></i>رزرو دستی</span><span class="b4-free__lock"><i class="ri ri-lock"></i>بستن</span>
+          </div>
+        </li>
+        <li>
+          <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۱۳:۰۰</b></span>
+          <div class="rv-tl__b rv-glass f-tile"><span class="rv-avatar rv-avatar--sm">ک</span><div class="rv-grow"><div style="font-size: 15px; line-height: 22px; font-weight: 600;">کاوه احمدی</div><div class="f-t3" style="font-size: 12px; line-height: 18px;">اصلاح سر<span class="rv-sep"></span>۳۰ دقیقه</div></div></div>
+        </li>
+      </ol>
+    </main>
+  </div>
+
+  <div class="rv-scrim" aria-hidden="true"></div>
+  <!-- برگه بستن سریع: فقط داخل همان زمان آزاد؛ پس نوبتی متاثر نمی‌شود و پیش‌نمایش اثر لازم نیست -->
+  <section class="rv-sheet rv-glass-strong b2-sheet" role="dialog" aria-modal="true" aria-labelledby="blk-t">
+    <span class="b2-grip" aria-hidden="true"></span>
+    <div class="b2-sheet__head">
+      <span class="rv-tile"><i class="ri ri-lock"></i></span>
+      <div class="rv-grow"><h2 id="blk-t" class="b2-sheet__t">بستن این زمان</h2><p class="b2-sheet__d">در برنامه امیر</p></div>
+      <button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="بستن برگه"><i class="ri ri-x"></i></button>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+      <span class="b4-label" id="blk-h">کدام نیم‌ساعت‌ها؟</span>
+      <div class="b4-halves" role="group" aria-labelledby="blk-h">
+        <button type="button" class="rv-slot" aria-pressed="true">۱۲:۰۰</button>
+        <button type="button" class="rv-slot" aria-pressed="true">۱۲:۳۰</button>
+      </div>
+    </div>
+
+    <div class="rv-field">
+      <label for="blk-n">عنوان، برای شما و امیر</label>
+      <div class="rv-input"><input id="blk-n" value="استراحت"></div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+      <span class="b4-label" id="blk-r">آزاد شدن برای رزرو</span>
+      <div class="rv-seg rv-glass b4-seg2" role="radiogroup" aria-labelledby="blk-r">
+        <button type="button" role="radio" aria-checked="true">بسته بماند</button>
+        <button type="button" role="radio" aria-checked="false"><i class="ri ri-sm ri-timer"></i>از ساعتی مشخص</button>
+      </div>
+    </div>
+
+    <p class="b4-hint" style="margin: 0;"><i class="ri ri-info" aria-hidden="true"></i>نوبتی در این بازه نیست. امیر این بستن را در تقویم خودش می‌بیند. تکرار هفتگی و بازه‌های بلند در برنامه کاری امیر.</p>
+
+    <div class="b2-sheet__acts"><button type="button" class="rv-btn rv-btn--primary">بستن ۱۲:۰۰ تا ۱۳:۰۰</button><button type="button" class="rv-btn rv-btn--secondary">انصراف</button></div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,684 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "CUS-01-A.dc.html": {
+      "h": 1450,
+      "title": "CUS-01 — خانه — Default",
+      "w": 390,
+      "x": 1410,
+      "y": 1160
+    },
+    "CUS-01-EMPTY.dc.html": {
+      "h": 844,
+      "title": "CUS-01 — خانه — مشتری تازه، بدون نوبت",
+      "w": 390,
+      "x": 940,
+      "y": 1160
+    },
+    "CUS-01-INACTIVE.dc.html": {
+      "h": 1490,
+      "title": "CUS-01 — خانه — مشتری غیرفعال",
+      "w": 390,
+      "x": 470,
+      "y": 1160
+    },
+    "CUS-03-PAST.dc.html": {
+      "h": 900,
+      "title": "CUS-03 — نوبت‌های من — زبانه گذشته",
+      "w": 390,
+      "x": -470,
+      "y": 3160
+    },
+    "CUS-03-FILTER-PAST.dc.html": {
+      "h": 900,
+      "title": "CUS-03 — نوبت‌های من — برگه فیلتر، گذشته",
+      "w": 390,
+      "x": -940,
+      "y": 3160
+    },
+    "CUS-05-WAIT.dc.html": {
+      "h": 844,
+      "title": "CUS-05 — درخواست‌های من — زبانه در انتظار پاسخ",
+      "w": 390,
+      "x": 0,
+      "y": 14840
+    },
+    "CUS-05-DONE.dc.html": {
+      "h": 900,
+      "title": "CUS-05 — درخواست‌های من — زبانه تکمیل شده",
+      "w": 390,
+      "x": -470,
+      "y": 14840
+    },
+    "CUS-03-EMPTY.dc.html": {
+      "h": 844,
+      "title": "CUS-03 — نوبت‌های من — Empty",
+      "w": 390,
+      "x": 0,
+      "y": 3160
+    },
+    "CUS-03-FILTER.dc.html": {
+      "h": 844,
+      "title": "CUS-03 — نوبت‌های من — برگه فیلتر",
+      "w": 390,
+      "x": 940,
+      "y": 3160
+    },
+    "CUS-03-NORESULT.dc.html": {
+      "h": 844,
+      "title": "CUS-03 — نوبت‌های من — نتیجه خالی فیلتر",
+      "w": 390,
+      "x": 470,
+      "y": 3160
+    },
+    "CUS-03.dc.html": {
+      "h": 844,
+      "title": "CUS-03 — نوبت‌های من — Default",
+      "w": 390,
+      "x": 1410,
+      "y": 3160
+    },
+    "CUS-04-CAN-COMP.dc.html": {
+      "h": 844,
+      "title": "CUS-04-CAN — برگه لغو نوبت — با حق جبرانی",
+      "w": 390,
+      "x": 470,
+      "y": 9720
+    },
+    "CUS-04-CAN-DONE.dc.html": {
+      "h": 844,
+      "title": "CUS-04-CAN — لغو شد (Toast)",
+      "w": 390,
+      "x": 0,
+      "y": 9720
+    },
+    "CUS-04-CAN-GT24.dc.html": {
+      "h": 844,
+      "title": "CUS-04-CAN — برگه لغو نوبت — بیش از ۲۴ ساعت",
+      "w": 390,
+      "x": 1410,
+      "y": 9720
+    },
+    "CUS-04-CAN-LT24.dc.html": {
+      "h": 844,
+      "title": "CUS-04-CAN — برگه لغو نوبت — داخل ۲۴ ساعت",
+      "w": 390,
+      "x": 940,
+      "y": 9720
+    },
+    "CUS-04-COMP.dc.html": {
+      "h": 1340,
+      "title": "CUS-04 — جزئیات نوبت — حق جبرانی فعال",
+      "w": 390,
+      "x": 0,
+      "y": 4940
+    },
+    "CUS-04-DONE.dc.html": {
+      "h": 844,
+      "title": "CUS-04 — جزئیات نوبت — انجام شده",
+      "w": 390,
+      "x": 1410,
+      "y": 8320
+    },
+    "CUS-04-INACTIVE.dc.html": {
+      "h": 1330,
+      "title": "CUS-04 — جزئیات نوبت — مشتری غیرفعال",
+      "w": 390,
+      "x": 470,
+      "y": 6640
+    },
+    "CUS-04-LT3.dc.html": {
+      "h": 1120,
+      "title": "CUS-04 — جزئیات نوبت — کمتر از ۳ ساعت",
+      "w": 390,
+      "x": 1410,
+      "y": 6640
+    },
+    "CUS-04-NOSHOW.dc.html": {
+      "h": 880,
+      "title": "CUS-04 — جزئیات نوبت — عدم حضور",
+      "w": 390,
+      "x": 940,
+      "y": 8320
+    },
+    "CUS-04-PKG.dc.html": {
+      "h": 1290,
+      "title": "CUS-04 — جزئیات نوبت — جزء بسته درخواستی",
+      "w": 390,
+      "x": 470,
+      "y": 4940
+    },
+    "CUS-04-PROP.dc.html": {
+      "h": 1180,
+      "title": "CUS-04 — جزئیات نوبت — پیشنهادی (فقط لغو)",
+      "w": 390,
+      "x": 940,
+      "y": 4940
+    },
+    "CUS-04-RSC-COMP.dc.html": {
+      "h": 844,
+      "title": "CUS-04-RSC — جابه‌جایی جبرانی",
+      "w": 390,
+      "x": 940,
+      "y": 13320
+    },
+    "CUS-04-RSC-CONFIRM.dc.html": {
+      "h": 844,
+      "title": "CUS-04-RSC — جابه‌جایی — برگه تأیید",
+      "w": 390,
+      "x": 940,
+      "y": 12120
+    },
+    "CUS-04-RSC-DONE.dc.html": {
+      "h": 844,
+      "title": "CUS-04-RSC — جابه‌جایی — جابه‌جا شد",
+      "w": 390,
+      "x": 470,
+      "y": 12120
+    },
+    "CUS-04-RSC-USED.dc.html": {
+      "h": 1080,
+      "title": "CUS-04-RSC — سهم جابه‌جایی مصرف شده",
+      "w": 390,
+      "x": 470,
+      "y": 13320
+    },
+    "CUS-04-RSC-WARN.dc.html": {
+      "h": 844,
+      "title": "CUS-04-RSC — جابه‌جایی — هشدار بین ۲۴ تا ۳ ساعت",
+      "w": 390,
+      "x": 1410,
+      "y": 13320
+    },
+    "CUS-04-RSC.dc.html": {
+      "h": 844,
+      "title": "CUS-04-RSC — جابه‌جایی — انتخاب زمان تازه",
+      "w": 390,
+      "x": 1410,
+      "y": 12120
+    },
+    "CUS-04-SCXL.dc.html": {
+      "h": 890,
+      "title": "CUS-04 — جزئیات نوبت — لغو شده توسط سالن",
+      "w": 390,
+      "x": 470,
+      "y": 8320
+    },
+    "CUS-04-STARTED.dc.html": {
+      "h": 890,
+      "title": "CUS-04 — جزئیات نوبت — بعد از شروع",
+      "w": 390,
+      "x": 940,
+      "y": 6640
+    },
+    "CUS-04.dc.html": {
+      "h": 1130,
+      "title": "CUS-04 — جزئیات نوبت — ثابت، بیش از ۲۴ ساعت (Default)",
+      "w": 390,
+      "x": 1410,
+      "y": 4940
+    },
+    "CUS-05-EMPTY.dc.html": {
+      "h": 844,
+      "title": "CUS-05 — درخواست‌های من — Empty",
+      "w": 390,
+      "x": 470,
+      "y": 14840
+    },
+    "CUS-05-FILTER.dc.html": {
+      "h": 900,
+      "title": "CUS-05 — درخواست‌های من — برگه فیلتر",
+      "w": 390,
+      "x": 940,
+      "y": 14840
+    },
+    "CUS-05.dc.html": {
+      "h": 844,
+      "title": "CUS-05 — درخواست‌های من — Default",
+      "w": 390,
+      "x": 1410,
+      "y": 14840
+    },
+    "CUS-06-B.dc.html": {
+      "h": 1130,
+      "title": "CUS-06 — جزئیات درخواست — درخواستی در انتظار پرداخت",
+      "w": 390,
+      "x": 0,
+      "y": 16840
+    },
+    "CUS-06-BOOKED.dc.html": {
+      "h": 920,
+      "title": "CUS-06 — جزئیات درخواست — رزرو شده",
+      "w": 390,
+      "x": 1410,
+      "y": 18240
+    },
+    "CUS-06-CAN-PAY.dc.html": {
+      "h": 844,
+      "title": "CUS-06-CAN — برگه لغو درخواست — در مهلت پرداخت",
+      "w": 390,
+      "x": 470,
+      "y": 19640
+    },
+    "CUS-06-CAN-REVIEW.dc.html": {
+      "h": 844,
+      "title": "CUS-06-CAN — برگه لغو درخواست — قبل از پاسخ",
+      "w": 390,
+      "x": 940,
+      "y": 19640
+    },
+    "CUS-06-CXL.dc.html": {
+      "h": 844,
+      "title": "CUS-06 — جزئیات درخواست — لغو شده",
+      "w": 390,
+      "x": 470,
+      "y": 18240
+    },
+    "CUS-06-EXP.dc.html": {
+      "h": 960,
+      "title": "CUS-06 — جزئیات درخواست — منقضی شده",
+      "w": 390,
+      "x": 0,
+      "y": 18240
+    },
+    "CUS-06-INACTIVE.dc.html": {
+      "h": 1000,
+      "title": "CUS-06 — جزئیات درخواست — مشتری غیرفعال در انتظار پرداخت",
+      "w": 390,
+      "x": 1410,
+      "y": 19640
+    },
+    "CUS-06-P-PAY.dc.html": {
+      "h": 844,
+      "title": "CUS-06 — جزئیات درخواست — پیشنهادی در انتظار پرداخت",
+      "w": 390,
+      "x": 940,
+      "y": 16840
+    },
+    "CUS-06-P-REVIEW.dc.html": {
+      "h": 844,
+      "title": "CUS-06 — جزئیات درخواست — پیشنهادی در انتظار بررسی",
+      "w": 390,
+      "x": 1410,
+      "y": 16840
+    },
+    "CUS-06-R-REVIEW.dc.html": {
+      "h": 960,
+      "title": "CUS-06 — جزئیات درخواست — درخواستی در انتظار بررسی",
+      "w": 390,
+      "x": 470,
+      "y": 16840
+    },
+    "CUS-06-REJ.dc.html": {
+      "h": 844,
+      "title": "CUS-06 — جزئیات درخواست — رد شده",
+      "w": 390,
+      "x": 940,
+      "y": 18240
+    },
+    "CUS-08-ADD-DUP.dc.html": {
+      "h": 844,
+      "title": "CUS-08 — اعلان آزادشدن زمان — افزودن، ترکیب تکراری",
+      "w": 390,
+      "x": 470,
+      "y": 21300
+    },
+    "CUS-08-ADD.dc.html": {
+      "h": 844,
+      "title": "CUS-08 — اعلان آزادشدن زمان — افزودن (BK-ALERT01)",
+      "w": 390,
+      "x": 940,
+      "y": 21300
+    },
+    "CUS-08-CAN.dc.html": {
+      "h": 844,
+      "title": "CUS-08 — اعلان آزادشدن زمان — برگه لغو",
+      "w": 390,
+      "x": 0,
+      "y": 21300
+    },
+    "CUS-08.dc.html": {
+      "h": 910,
+      "title": "CUS-08 — اعلان آزادشدن زمان — Default",
+      "w": 390,
+      "x": 1410,
+      "y": 21300
+    },
+    "CUS-09-EMPTY.dc.html": {
+      "h": 844,
+      "title": "CUS-09 — اعلان‌ها — Empty",
+      "w": 390,
+      "x": 470,
+      "y": 22890
+    },
+    "CUS-09-READ.dc.html": {
+      "h": 1090,
+      "title": "CUS-09 — اعلان‌ها — همه خوانده شد",
+      "w": 390,
+      "x": 940,
+      "y": 22890
+    },
+    "CUS-09.dc.html": {
+      "h": 1090,
+      "title": "CUS-09 — اعلان‌ها — Default",
+      "w": 390,
+      "x": 1410,
+      "y": 22890
+    },
+    "CUS-10-EDIT.dc.html": {
+      "h": 844,
+      "title": "CUS-10 — پروفایل و روش‌های ورود — ویرایش نام و تصویر",
+      "w": 390,
+      "x": 940,
+      "y": 24660
+    },
+    "CUS-10-PASS.dc.html": {
+      "h": 844,
+      "title": "CUS-10 — پروفایل و روش‌های ورود — تنظیم رمز عبور",
+      "w": 390,
+      "x": 470,
+      "y": 24660
+    },
+    "CUS-10-PH1.dc.html": {
+      "h": 844,
+      "title": "CUS-10 — پروفایل و روش‌های ورود — تغییر شماره، قدم ۱",
+      "w": 390,
+      "x": 1410,
+      "y": 26300
+    },
+    "CUS-10-PH2.dc.html": {
+      "h": 844,
+      "title": "CUS-10 — پروفایل و روش‌های ورود — تغییر شماره، قدم ۲",
+      "w": 390,
+      "x": 940,
+      "y": 26300
+    },
+    "CUS-10-PK-DEL.dc.html": {
+      "h": 844,
+      "title": "CUS-10 — پروفایل و روش‌های ورود — حذف Passkey",
+      "w": 390,
+      "x": 0,
+      "y": 24660
+    },
+    "CUS-10.dc.html": {
+      "h": 960,
+      "title": "CUS-10 — پروفایل و روش‌های ورود — مشاهده",
+      "w": 390,
+      "x": 1410,
+      "y": 24660
+    },
+    "Main.dc.html": {
+      "h": 5480,
+      "title": "یادداشت دسته",
+      "w": 900,
+      "x": 2010,
+      "y": 1160
+    },
+    "CUS-04-LT24.dc.html": {
+      "h": 1290,
+      "title": "CUS-04 — جزئیات نوبت — ثابت، بین ۲۴ و ۳ ساعت",
+      "w": 390,
+      "x": 0,
+      "y": 6640
+    },
+    "CUS-04-CAN-LT3.dc.html": {
+      "h": 844,
+      "title": "CUS-04-CAN — برگه لغو نوبت — کمتر از ۳ ساعت",
+      "w": 390,
+      "x": 1410,
+      "y": 10920
+    },
+    "CUS-04-CAN-PROP.dc.html": {
+      "h": 844,
+      "title": "CUS-04-CAN — برگه لغو نوبت — پیشنهادی",
+      "w": 390,
+      "x": 940,
+      "y": 10920
+    },
+    "CUS-04-RSC-DONE-LT24.dc.html": {
+      "h": 844,
+      "title": "CUS-04-RSC — جابه‌جایی — جابه‌جا شد، بدون حق بازگشت",
+      "w": 390,
+      "x": 0,
+      "y": 12120
+    },
+    "CUS-04-RSC-USED-NR.dc.html": {
+      "h": 1080,
+      "title": "CUS-04-RSC — سهم جابه‌جایی مصرف شده، بدون حق بازگشت",
+      "w": 390,
+      "x": 0,
+      "y": 13320
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-14T13:20:00Z",
+    "v": 1
+  },
+  "designSystems": [
+    {
+      "artifact": "https://claude.ai/artifact/VNKcocXpXh3LgPG1gE9To8",
+      "copiedAt": "2026-10-14T13:20:00Z",
+      "namespace": "rival",
+      "title": "Rival",
+      "version": "1791735698-27f8"
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "row1": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "بخش ۲ — CUS-01 خانه",
+      "w": 240,
+      "x": 0,
+      "y": 900
+    },
+    "row2": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "بخش ۲ — CUS-03 نوبت‌های من",
+      "w": 240,
+      "x": 0,
+      "y": 2900
+    },
+    "row3": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "بخش ۳ — CUS-04 جزئیات نوبت: آینده، بیش از ۲۴ ساعت",
+      "w": 240,
+      "x": 0,
+      "y": 4680
+    },
+    "row3b": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "بخش ۳ — CUS-04: نزدیک شروع، در جریان، حساب غیرفعال",
+      "w": 240,
+      "x": 0,
+      "y": 6380
+    },
+    "row3c": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "بخش ۳ — CUS-04: پایان‌یافته",
+      "w": 240,
+      "x": 0,
+      "y": 8060
+    },
+    "row5a": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "بخش ۴ — CUS-04-CAN برگه لغو نوبت",
+      "w": 240,
+      "x": 0,
+      "y": 9460
+    },
+    "row5b": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "بخش ۴ — CUS-04-RSC جابه‌جایی: جریان اصلی",
+      "w": 240,
+      "x": 0,
+      "y": 11860
+    },
+    "row5c": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "بخش ۴ — CUS-04-RSC جابه‌جایی: حالت‌ها",
+      "w": 240,
+      "x": 0,
+      "y": 13060
+    },
+    "row6a": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "بخش ۵ — CUS-05 درخواست‌های من",
+      "w": 240,
+      "x": 0,
+      "y": 14580
+    },
+    "row6b": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "بخش ۵ — CUS-06 جزئیات درخواست: در جریان",
+      "w": 240,
+      "x": 0,
+      "y": 16580
+    },
+    "row6c": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "بخش ۵ — CUS-06 جزئیات درخواست: پایان‌یافته",
+      "w": 240,
+      "x": 0,
+      "y": 17980
+    },
+    "row6d": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "بخش ۵ — حساب غیرفعال و برگه لغو درخواست (CUS-06-CAN)",
+      "w": 240,
+      "x": 0,
+      "y": 19380
+    },
+    "row7a": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "بخش ۶ — CUS-08 اعلان آزادشدن زمان",
+      "w": 240,
+      "x": 0,
+      "y": 21040
+    },
+    "row7b": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "بخش ۶ — CUS-09 اعلان‌ها (و حالت خالی CUS-08)",
+      "w": 240,
+      "x": 0,
+      "y": 22630
+    },
+    "row7c": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "بخش ۶ — CUS-10 پروفایل و روش‌های ورود",
+      "w": 240,
+      "x": 0,
+      "y": 24400
+    },
+    "row7d": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "بخش ۶ — CUS-10 تغییر شماره موبایل",
+      "w": 240,
+      "x": 0,
+      "y": 26040
+    },
+    "rowN": {
+      "kind": "title1",
+      "maxW": 900,
+      "text": "یادداشت دسته",
+      "w": 240,
+      "x": 2010,
+      "y": 900
+    },
+    "row5a2": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "بخش ۴ — CUS-04-CAN: لغو وقتی جابه‌جایی ممکن نیست",
+      "w": 240,
+      "x": 0,
+      "y": 10660
+    }
+  },
+  "order": [
+    "CUS-01-A.dc.html",
+    "CUS-01-EMPTY.dc.html",
+    "CUS-01-INACTIVE.dc.html",
+    "CUS-03.dc.html",
+    "CUS-03-PAST.dc.html",
+    "CUS-03-FILTER.dc.html",
+    "CUS-03-FILTER-PAST.dc.html",
+    "CUS-03-NORESULT.dc.html",
+    "CUS-03-EMPTY.dc.html",
+    "CUS-04.dc.html",
+    "CUS-04-PROP.dc.html",
+    "CUS-04-PKG.dc.html",
+    "CUS-04-COMP.dc.html",
+    "CUS-04-LT3.dc.html",
+    "CUS-04-LT24.dc.html",
+    "CUS-04-STARTED.dc.html",
+    "CUS-04-INACTIVE.dc.html",
+    "CUS-04-DONE.dc.html",
+    "CUS-04-NOSHOW.dc.html",
+    "CUS-04-SCXL.dc.html",
+    "CUS-04-CAN-GT24.dc.html",
+    "CUS-04-CAN-LT24.dc.html",
+    "CUS-04-CAN-COMP.dc.html",
+    "CUS-04-CAN-DONE.dc.html",
+    "CUS-04-CAN-LT3.dc.html",
+    "CUS-04-CAN-PROP.dc.html",
+    "CUS-04-RSC.dc.html",
+    "CUS-04-RSC-CONFIRM.dc.html",
+    "CUS-04-RSC-DONE.dc.html",
+    "CUS-04-RSC-DONE-LT24.dc.html",
+    "CUS-04-RSC-WARN.dc.html",
+    "CUS-04-RSC-COMP.dc.html",
+    "CUS-04-RSC-USED.dc.html",
+    "CUS-04-RSC-USED-NR.dc.html",
+    "CUS-05.dc.html",
+    "CUS-05-WAIT.dc.html",
+    "CUS-05-DONE.dc.html",
+    "CUS-05-FILTER.dc.html",
+    "CUS-05-EMPTY.dc.html",
+    "CUS-06-P-REVIEW.dc.html",
+    "CUS-06-P-PAY.dc.html",
+    "CUS-06-R-REVIEW.dc.html",
+    "CUS-06-B.dc.html",
+    "CUS-06-BOOKED.dc.html",
+    "CUS-06-REJ.dc.html",
+    "CUS-06-CXL.dc.html",
+    "CUS-06-EXP.dc.html",
+    "CUS-06-INACTIVE.dc.html",
+    "CUS-06-CAN-REVIEW.dc.html",
+    "CUS-06-CAN-PAY.dc.html",
+    "CUS-08.dc.html",
+    "CUS-08-ADD.dc.html",
+    "CUS-08-ADD-DUP.dc.html",
+    "CUS-08-CAN.dc.html",
+    "CUS-09.dc.html",
+    "CUS-09-READ.dc.html",
+    "CUS-09-EMPTY.dc.html",
+    "CUS-10.dc.html",
+    "CUS-10-EDIT.dc.html",
+    "CUS-10-PASS.dc.html",
+    "CUS-10-PK-DEL.dc.html",
+    "CUS-10-PH1.dc.html",
+    "CUS-10-PH2.dc.html",
+    "Main.dc.html"
+  ],
+  "pages": [],
+  "title": "Rival — دسته ۳ — پنل مشتری"
+}

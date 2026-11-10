@@ -1,0 +1,758 @@
+{
+  "v": 3,
+  "assetGroups": {
+    "Customer": {
+      "files": {
+        "ChatGPT~20Image~20Oct~206~2c~202026~2c~2004_48_20~20PM-1.png": {
+          "blob": "f20afceb3e139ca84a3e82978a5b3131",
+          "name": "ChatGPT Image Oct 6, 2026, 04_48_20 PM-1.png",
+          "sha256": "e5ebf87d42e691ecae6a74f15d83e0f46d8018a9f3eecc305059b15c1a2ac223",
+          "size": 2032471,
+          "type": "image/png"
+        },
+        "ChatGPT~20Image~20Oct~206~2c~202026~2c~2004_48_22~20PM-2.png": {
+          "blob": "a772ad1e4bf3f4fd4d94b30b96bfce67",
+          "name": "ChatGPT Image Oct 6, 2026, 04_48_22 PM-2.png",
+          "sha256": "4a16a15485fab6087d5653aa020451b2242e5c1e1a040d71442283f42d778cdf",
+          "size": 2098370,
+          "type": "image/png"
+        },
+        "ChatGPT~20Image~20Oct~206~2c~202026~2c~2004_48_29~20PM-3.png": {
+          "blob": "41d6c43d3298e15fa48288bc7fab012e",
+          "name": "ChatGPT Image Oct 6, 2026, 04_48_29 PM-3.png",
+          "sha256": "04f6da300b7ce2ea43e1e4b723f811e85745fed9f8390418eee9a82e428d4d08",
+          "size": 2017248,
+          "type": "image/png"
+        }
+      },
+      "name": "Customer",
+      "order": [],
+      "tile": "s"
+    },
+    "Hall~20by~20AI": {
+      "files": {
+        "ChatGPT~20Image~20Oct~206~2c~202026~2c~2004_52_15~20PM-1.png": {
+          "blob": "93fcb97a4eeedb3f3cd790695a855023",
+          "name": "ChatGPT Image Oct 6, 2026, 04_52_15 PM-1.png",
+          "sha256": "ac27d6dd3e5568654c839a9e99a405fc836674dfc726dd88e1e91fa9a90bd015",
+          "size": 2700838,
+          "type": "image/png"
+        },
+        "ChatGPT~20Image~20Oct~206~2c~202026~2c~2004_52_17~20PM-2.png": {
+          "blob": "6e6be0e4e0ef9ffc13520529ada1e59c",
+          "name": "ChatGPT Image Oct 6, 2026, 04_52_17 PM-2.png",
+          "sha256": "2fbc9d3ec814899793ebe6bc0182fd76546c0a1b6541feed8a93a5a38c1de551",
+          "size": 2696215,
+          "type": "image/png"
+        },
+        "ChatGPT~20Image~20Oct~206~2c~202026~2c~2004_52_19~20PM-3.png": {
+          "blob": "9c281ae554fc57c41fed325ca9b8c9a8",
+          "name": "ChatGPT Image Oct 6, 2026, 04_52_19 PM-3.png",
+          "sha256": "3cf5c260f7e2c40ffbd92f813329b9eca0cad24ff227a183714189416e117072",
+          "size": 2626850,
+          "type": "image/png"
+        },
+        "ChatGPT~20Image~20Oct~206~2c~202026~2c~2004_52_21~20PM-4.png": {
+          "blob": "28fb4b52f0b096373325c83f1719017b",
+          "name": "ChatGPT Image Oct 6, 2026, 04_52_21 PM-4.png",
+          "sha256": "115a04c66611e08805fe1ebfcee0a7e462e61688f6a59ba4f0e0f0fc5be90314",
+          "size": 2817767,
+          "type": "image/png"
+        }
+      },
+      "name": "Hall by AI",
+      "order": []
+    },
+    "Icons": {
+      "files": {
+        "alert.svg": {
+          "blob": "888268755573e5d9052bba0487258ee2",
+          "name": "alert.svg",
+          "size": 382,
+          "type": "image/svg+xml"
+        },
+        "arrow-left.svg": {
+          "blob": "b517de42badaf8e254b46859f33c6206",
+          "name": "arrow-left.svg",
+          "size": 303,
+          "type": "image/svg+xml"
+        },
+        "arrow-right.svg": {
+          "blob": "e0fa2e6c54a12943b85e0bc29f5be8d1",
+          "name": "arrow-right.svg",
+          "size": 304,
+          "type": "image/svg+xml"
+        },
+        "arrow-up-left.svg": {
+          "blob": "05d4e67693aa9a6dafed2d5b81ee8af1",
+          "name": "arrow-up-left.svg",
+          "size": 307,
+          "type": "image/svg+xml"
+        },
+        "ban.svg": {
+          "blob": "85a46a6e32406ca5e1d474cee8b10694",
+          "name": "ban.svg",
+          "size": 305,
+          "type": "image/svg+xml"
+        },
+        "bell-ring.svg": {
+          "blob": "21b3d0efa1a5fa3ecd5e8bbac9c02092",
+          "name": "bell-ring.svg",
+          "size": 420,
+          "type": "image/svg+xml"
+        },
+        "bell.svg": {
+          "blob": "9412069a02c20aed1cc9db5e52a1c6af",
+          "name": "bell.svg",
+          "size": 340,
+          "type": "image/svg+xml"
+        },
+        "calendar-clock.svg": {
+          "blob": "6081d56ad3704aa701f79eee3edabb4c",
+          "name": "calendar-clock.svg",
+          "size": 461,
+          "type": "image/svg+xml"
+        },
+        "calendar-plus.svg": {
+          "blob": "6912a3fa04601dfbcb882bae06204531",
+          "name": "calendar-plus.svg",
+          "size": 433,
+          "type": "image/svg+xml"
+        },
+        "calendar-range.svg": {
+          "blob": "6fb09c1fe3538a5eee7fcdb0125eb66e",
+          "name": "calendar-range.svg",
+          "size": 461,
+          "type": "image/svg+xml"
+        },
+        "calendar-x.svg": {
+          "blob": "6cc23a4ceac566f49f11c02849996f58",
+          "name": "calendar-x.svg",
+          "size": 411,
+          "type": "image/svg+xml"
+        },
+        "calendar.svg": {
+          "blob": "6864a9b53a61d69514ce762c04f7f568",
+          "name": "calendar.svg",
+          "size": 502,
+          "type": "image/svg+xml"
+        },
+        "card.svg": {
+          "blob": "0929bad23c5f85cd4ea32cda15199d07",
+          "name": "card.svg",
+          "size": 339,
+          "type": "image/svg+xml"
+        },
+        "check-circle.svg": {
+          "blob": "72f8b906fa4d9a4d976ae7715905391d",
+          "name": "check-circle.svg",
+          "size": 318,
+          "type": "image/svg+xml"
+        },
+        "check.svg": {
+          "blob": "b76a6b5b50e888a6a054210039c002b5",
+          "name": "check.svg",
+          "size": 273,
+          "type": "image/svg+xml"
+        },
+        "chevron-down.svg": {
+          "blob": "208940686264bdf27efc2f057d2579a1",
+          "name": "chevron-down.svg",
+          "size": 284,
+          "type": "image/svg+xml"
+        },
+        "chevron-left.svg": {
+          "blob": "6a13b60ed4c8ef8957cf3e780d6ee886",
+          "name": "chevron-left.svg",
+          "size": 286,
+          "type": "image/svg+xml"
+        },
+        "chevron-right.svg": {
+          "blob": "725e6f205a7b704056d44783873f5fa7",
+          "name": "chevron-right.svg",
+          "size": 287,
+          "type": "image/svg+xml"
+        },
+        "clock-alert.svg": {
+          "blob": "6f0727be50eb48923d17822bb9993a85",
+          "name": "clock-alert.svg",
+          "size": 372,
+          "type": "image/svg+xml"
+        },
+        "clock.svg": {
+          "blob": "429a18619ce0bfa4938906de7a293a40",
+          "name": "clock.svg",
+          "size": 320,
+          "type": "image/svg+xml"
+        },
+        "coins.svg": {
+          "blob": "3bd12a4751e81a537d77da0fe2f316ab",
+          "name": "coins.svg",
+          "size": 380,
+          "type": "image/svg+xml"
+        },
+        "droplet.svg": {
+          "blob": "3e3654e476dbd00d926b5379798345de",
+          "name": "droplet.svg",
+          "size": 363,
+          "type": "image/svg+xml"
+        },
+        "edit.svg": {
+          "blob": "62b6eab38e41f83ef496481a64019770",
+          "name": "edit.svg",
+          "size": 435,
+          "type": "image/svg+xml"
+        },
+        "eye-off.svg": {
+          "blob": "74f64767d3a61870f924823e211c7ac5",
+          "name": "eye-off.svg",
+          "size": 533,
+          "type": "image/svg+xml"
+        },
+        "filter.svg": {
+          "blob": "6779f70e87580608c3db6a94978002f0",
+          "name": "filter.svg",
+          "size": 607,
+          "type": "image/svg+xml"
+        },
+        "fingerprint.svg": {
+          "blob": "e417824de94cd755ed259eab015c869d",
+          "name": "fingerprint.svg",
+          "size": 630,
+          "type": "image/svg+xml"
+        },
+        "grid.svg": {
+          "blob": "8a04958c3cd9f3fec28ba4e44a927c02",
+          "name": "grid.svg",
+          "size": 446,
+          "type": "image/svg+xml"
+        },
+        "home.svg": {
+          "blob": "0cb68517f91c51c2cf3357a13f7a6972",
+          "name": "home.svg",
+          "size": 421,
+          "type": "image/svg+xml"
+        },
+        "hourglass.svg": {
+          "blob": "85b398647b86c642de44fab10211a80c",
+          "name": "hourglass.svg",
+          "size": 465,
+          "type": "image/svg+xml"
+        },
+        "image.svg": {
+          "blob": "d9cc0aca31bbcdf38cb24f2de58e669f",
+          "name": "image.svg",
+          "size": 386,
+          "type": "image/svg+xml"
+        },
+        "images.svg": {
+          "blob": "402ffd486fb9cfb864e48cd914ddf582",
+          "name": "images.svg",
+          "size": 426,
+          "type": "image/svg+xml"
+        },
+        "inbox.svg": {
+          "blob": "8619ded12fa33d907b9fcd8084efa69e",
+          "name": "inbox.svg",
+          "size": 419,
+          "type": "image/svg+xml"
+        },
+        "info.svg": {
+          "blob": "bbbbc87f423c3137ad4c5461a16fcb53",
+          "name": "info.svg",
+          "size": 320,
+          "type": "image/svg+xml"
+        },
+        "key.svg": {
+          "blob": "f953c0d10fad5dd82dc8ab5f001bb4b0",
+          "name": "key.svg",
+          "size": 486,
+          "type": "image/svg+xml"
+        },
+        "layers.svg": {
+          "blob": "06aa69beb7bc980e5c1edafd52384d08",
+          "name": "layers.svg",
+          "size": 482,
+          "type": "image/svg+xml"
+        },
+        "list.svg": {
+          "blob": "bf8e8e0b1206a753a6e316d99997e286",
+          "name": "list.svg",
+          "size": 363,
+          "type": "image/svg+xml"
+        },
+        "lock.svg": {
+          "blob": "757e7dacf753085ebd65ea94b8c3326a",
+          "name": "lock.svg",
+          "size": 371,
+          "type": "image/svg+xml"
+        },
+        "logout.svg": {
+          "blob": "a47114f20e92d999bbfd1cb2e20b964a",
+          "name": "logout.svg",
+          "size": 377,
+          "type": "image/svg+xml"
+        },
+        "map-pin.svg": {
+          "blob": "a53b352f97694d8fec181c9be202a87d",
+          "name": "map-pin.svg",
+          "size": 394,
+          "type": "image/svg+xml"
+        },
+        "menu.svg": {
+          "blob": "6464462a9e521b18f85684bcd30724a3",
+          "name": "menu.svg",
+          "size": 358,
+          "type": "image/svg+xml"
+        },
+        "minus.svg": {
+          "blob": "e524e1b158c9ccdf2c7c150692bcc713",
+          "name": "minus.svg",
+          "size": 266,
+          "type": "image/svg+xml"
+        },
+        "moon.svg": {
+          "blob": "b4ed092626434663902d3fec1e37410e",
+          "name": "moon.svg",
+          "size": 290,
+          "type": "image/svg+xml"
+        },
+        "more.svg": {
+          "blob": "0e6c034b3640f9b39f39f75d54b78dce",
+          "name": "more.svg",
+          "size": 342,
+          "type": "image/svg+xml"
+        },
+        "pending.svg": {
+          "blob": "e25b12821f4c4cbf905c7f597930c0ee",
+          "name": "pending.svg",
+          "size": 613,
+          "type": "image/svg+xml"
+        },
+        "phone.svg": {
+          "blob": "2bff7d2f0aa4eb2cbbbf01a2405aa2fe",
+          "name": "phone.svg",
+          "size": 543,
+          "type": "image/svg+xml"
+        },
+        "plus.svg": {
+          "blob": "a03a766398ebf765eecdff2fe504dee4",
+          "name": "plus.svg",
+          "size": 285,
+          "type": "image/svg+xml"
+        },
+        "receipt.svg": {
+          "blob": "6b71306e7b444733533ea274616fed23",
+          "name": "receipt.svg",
+          "size": 400,
+          "type": "image/svg+xml"
+        },
+        "refresh.svg": {
+          "blob": "b71e29c55f7db31c290112b45b60e086",
+          "name": "refresh.svg",
+          "size": 424,
+          "type": "image/svg+xml"
+        },
+        "repeat.svg": {
+          "blob": "b8e4c49f1fb55db8ffc5c957f3f10d4b",
+          "name": "repeat.svg",
+          "size": 375,
+          "type": "image/svg+xml"
+        },
+        "scissors.svg": {
+          "blob": "e838523a2d2000fd25fd6ec804cb6561",
+          "name": "scissors.svg",
+          "size": 399,
+          "type": "image/svg+xml"
+        },
+        "search.svg": {
+          "blob": "9d60d4b1c29539071010e4a37c862b30",
+          "name": "search.svg",
+          "size": 306,
+          "type": "image/svg+xml"
+        },
+        "send.svg": {
+          "blob": "57e1f7d9b85ebd26c3677dae916075e1",
+          "name": "send.svg",
+          "size": 422,
+          "type": "image/svg+xml"
+        },
+        "settings.svg": {
+          "blob": "5c39379d351d21afbeaae8df3a7708d5",
+          "name": "settings.svg",
+          "size": 357,
+          "type": "image/svg+xml"
+        },
+        "shield.svg": {
+          "blob": "f8ebeeaddc1a045325b71aa905373983",
+          "name": "shield.svg",
+          "size": 454,
+          "type": "image/svg+xml"
+        },
+        "smartphone.svg": {
+          "blob": "45ba1241d6f8d7372fef3a4615a3e46e",
+          "name": "smartphone.svg",
+          "size": 335,
+          "type": "image/svg+xml"
+        },
+        "sms.svg": {
+          "blob": "191352e3a7da575039b136b1cc99b768",
+          "name": "sms.svg",
+          "size": 372,
+          "type": "image/svg+xml"
+        },
+        "sparkle.svg": {
+          "blob": "ac5e6a57c6d5293f12b4d8ec93584f80",
+          "name": "sparkle.svg",
+          "size": 513,
+          "type": "image/svg+xml"
+        },
+        "spray.svg": {
+          "blob": "9a43ed4edadd6beec5071d69e4a3d3ec",
+          "name": "spray.svg",
+          "size": 529,
+          "type": "image/svg+xml"
+        },
+        "star.svg": {
+          "blob": "3315b1b1c8868517e83a9c4b7dfbeb9d",
+          "name": "star.svg",
+          "size": 620,
+          "type": "image/svg+xml"
+        },
+        "stylist.svg": {
+          "blob": "dfbd0b1ceec180b01ab4e8f80ea31ce5",
+          "name": "stylist.svg",
+          "size": 414,
+          "type": "image/svg+xml"
+        },
+        "sun.svg": {
+          "blob": "435352b292a715a9354db57a58ac8e52",
+          "name": "sun.svg",
+          "size": 491,
+          "type": "image/svg+xml"
+        },
+        "tag.svg": {
+          "blob": "61df9fe2d23d93a48bd21e83f22d97f3",
+          "name": "tag.svg",
+          "size": 489,
+          "type": "image/svg+xml"
+        },
+        "timer.svg": {
+          "blob": "9753acec9e833eb99d870e65014ed932",
+          "name": "timer.svg",
+          "size": 355,
+          "type": "image/svg+xml"
+        },
+        "trash.svg": {
+          "blob": "9410a2e7cdf177c87d38a9239b23be03",
+          "name": "trash.svg",
+          "size": 444,
+          "type": "image/svg+xml"
+        },
+        "upload.svg": {
+          "blob": "9cbc4910ed597239758fb1e58e596344",
+          "name": "upload.svg",
+          "size": 375,
+          "type": "image/svg+xml"
+        },
+        "user-plus.svg": {
+          "blob": "5ac5b155cdd266c735ee169cdac5961f",
+          "name": "user-plus.svg",
+          "size": 370,
+          "type": "image/svg+xml"
+        },
+        "user.svg": {
+          "blob": "f838d433ba88911c381248daa562a8a5",
+          "name": "user.svg",
+          "size": 314,
+          "type": "image/svg+xml"
+        },
+        "users.svg": {
+          "blob": "97f943fbbde2bc4c2a90357872dc9719",
+          "name": "users.svg",
+          "size": 370,
+          "type": "image/svg+xml"
+        },
+        "wallet.svg": {
+          "blob": "7a30d9eb973834529df02c21c9429884",
+          "name": "wallet.svg",
+          "size": 364,
+          "type": "image/svg+xml"
+        },
+        "x-circle.svg": {
+          "blob": "4649951fbd28b4d55645b859b1a4ae2b",
+          "name": "x-circle.svg",
+          "size": 327,
+          "type": "image/svg+xml"
+        },
+        "x.svg": {
+          "blob": "e8c9d33c385d3374c895e9b5362b37a7",
+          "name": "x.svg",
+          "size": 283,
+          "type": "image/svg+xml"
+        }
+      },
+      "name": "Icons",
+      "order": [
+        "alert.svg",
+        "arrow-left.svg",
+        "arrow-right.svg",
+        "arrow-up-left.svg",
+        "ban.svg",
+        "bell-ring.svg",
+        "bell.svg",
+        "calendar-clock.svg",
+        "calendar-plus.svg",
+        "calendar-range.svg",
+        "calendar-x.svg",
+        "calendar.svg",
+        "card.svg",
+        "check-circle.svg",
+        "check.svg",
+        "chevron-down.svg",
+        "chevron-left.svg",
+        "chevron-right.svg",
+        "clock-alert.svg",
+        "clock.svg",
+        "coins.svg",
+        "droplet.svg",
+        "edit.svg",
+        "eye-off.svg",
+        "filter.svg",
+        "fingerprint.svg",
+        "grid.svg",
+        "home.svg",
+        "hourglass.svg",
+        "image.svg",
+        "images.svg",
+        "inbox.svg",
+        "info.svg",
+        "key.svg",
+        "layers.svg",
+        "list.svg",
+        "lock.svg",
+        "logout.svg",
+        "map-pin.svg",
+        "menu.svg",
+        "minus.svg",
+        "moon.svg",
+        "more.svg",
+        "pending.svg",
+        "phone.svg",
+        "plus.svg",
+        "receipt.svg",
+        "refresh.svg",
+        "repeat.svg",
+        "scissors.svg",
+        "search.svg",
+        "send.svg",
+        "settings.svg",
+        "shield.svg",
+        "smartphone.svg",
+        "sms.svg",
+        "sparkle.svg",
+        "spray.svg",
+        "star.svg",
+        "stylist.svg",
+        "sun.svg",
+        "tag.svg",
+        "timer.svg",
+        "trash.svg",
+        "upload.svg",
+        "user-plus.svg",
+        "user.svg",
+        "users.svg",
+        "wallet.svg",
+        "x-circle.svg",
+        "x.svg"
+      ],
+      "tile": "xs"
+    },
+    "Logo": {
+      "files": {
+        "Logo1.png": {
+          "blob": "ea71496f546a6d46c6190561a9920ce5",
+          "name": "Logo1.png",
+          "sha256": "fa0e4a92ec03a6d001bcd6317a45d601c2036c5977c3b57764b3ca49ef35f369",
+          "size": 365427,
+          "type": "image/png"
+        },
+        "Logo2.png": {
+          "blob": "9833e81397172d8b71e4928f9b9e312c",
+          "name": "Logo2.png",
+          "sha256": "ef5b57142e5c2796e316d264c53e2f0c1972a8831ac8e964baaafd7dda3c7395",
+          "size": 86303,
+          "type": "image/png"
+        }
+      },
+      "name": "Logo",
+      "order": [
+        "Logo1.png",
+        "Logo2.png"
+      ],
+      "tile": "l"
+    },
+    "Other": {
+      "files": {},
+      "name": "Other",
+      "order": []
+    },
+    "Real~20hall": {
+      "files": {
+        "photo_2026-10-06_15-42-50.jpg": {
+          "blob": "b6afd7dc7a8dea357c5c541fcd5d2d4f",
+          "name": "photo_2026-10-06_15-42-50.jpg",
+          "sha256": "557f5459867a65864f614ef51a8a2614ec4047c42957d2cc547667fa3948796a",
+          "size": 155530,
+          "type": "image/jpeg"
+        },
+        "photo_2026-10-06_15-42-54.jpg": {
+          "blob": "1323c649df8cf7838774aca93b1ff3fc",
+          "name": "photo_2026-10-06_15-42-54.jpg",
+          "sha256": "235efd2d0eedb1fae4e43588bb6cd29e7f47e83dd9d237ed5b4eae9b1c1597bc",
+          "size": 182288,
+          "type": "image/jpeg"
+        }
+      },
+      "name": "Real hall",
+      "order": [
+        "photo_2026-10-06_15-42-50.jpg",
+        "photo_2026-10-06_15-42-54.jpg"
+      ],
+      "tile": "l"
+    },
+    "Services": {
+      "files": {
+        "ChatGPT~20Image~20Oct~206~2c~202026~2c~2004_57_44~20PM-1.png": {
+          "blob": "d5a00bb005bc87ea23451df3ea7f600d",
+          "name": "ChatGPT Image Oct 6, 2026, 04_57_44 PM-1.png",
+          "sha256": "915002c26efde942d538c285765417c6864c645d7cb84e6fbcbc787b07dbed8f",
+          "size": 2155790,
+          "type": "image/png"
+        },
+        "ChatGPT~20Image~20Oct~206~2c~202026~2c~2004_57_46~20PM-2.png": {
+          "blob": "b24c74345db4af60e2768492772847b9",
+          "name": "ChatGPT Image Oct 6, 2026, 04_57_46 PM-2.png",
+          "sha256": "1605e43ef94bba957986c0f4e3b4966221685088f67d9d018e939e53b6637c9d",
+          "size": 2213646,
+          "type": "image/png"
+        },
+        "ChatGPT~20Image~20Oct~206~2c~202026~2c~2004_57_49~20PM-3.png": {
+          "blob": "42647153a1d251d863ad8952834b4214",
+          "name": "ChatGPT Image Oct 6, 2026, 04_57_49 PM-3.png",
+          "sha256": "05658bfe716b416bb927e2c6bf2abf079838a86ae3985b67deea77113dc2776c",
+          "size": 2129655,
+          "type": "image/png"
+        },
+        "ChatGPT~20Image~20Oct~206~2c~202026~2c~2004_57_51~20PM-4.png": {
+          "blob": "5297e20c8bd2c889e7952a915f7fc2a7",
+          "name": "ChatGPT Image Oct 6, 2026, 04_57_51 PM-4.png",
+          "sha256": "38101b9fa089be68f8e00077577b39b3eaed0bd2689b3eee8df35e5e1f335856",
+          "size": 2152222,
+          "type": "image/png"
+        }
+      },
+      "name": "Services",
+      "order": []
+    },
+    "Stylist": {
+      "files": {
+        "ChatGPT~20Image~20Oct~206~2c~202026~2c~2004_40_04~20PM.png": {
+          "blob": "d5e8045c24487436419d9b53ea989de7",
+          "name": "ChatGPT Image Oct 6, 2026, 04_40_04 PM.png",
+          "sha256": "3ae0851cb1c5098813060d958654951bd02bfc326ad3c1bd8a1666cc2c917886",
+          "size": 1967517,
+          "type": "image/png"
+        },
+        "ChatGPT~20Image~20Oct~206~2c~202026~2c~2004_41_45~20PM.png": {
+          "blob": "b780f0f73a69b84894049cf478fe2f7c",
+          "name": "ChatGPT Image Oct 6, 2026, 04_41_45 PM.png",
+          "sha256": "ad9593976471314dca1fb2d93d15300ffa756cf49419923dea7ffc9f92310e76",
+          "size": 1986566,
+          "type": "image/png"
+        },
+        "ChatGPT~20Image~20Oct~206~2c~202026~2c~2004_41_50~20PM.png": {
+          "blob": "beed8d0ddc32103e4504e269ead9c987",
+          "name": "ChatGPT Image Oct 6, 2026, 04_41_50 PM.png",
+          "sha256": "61a488e05f7a25f59bba160860168fe7df6ed422d11977421120b797c1775c9f",
+          "size": 2048536,
+          "type": "image/png"
+        }
+      },
+      "name": "Stylist",
+      "order": []
+    }
+  },
+  "blobs": {
+    "assets/0608934597a30f0b3c8f0434d5d9585a5492d37f.jpg": {
+      "blob": "79aaf66b22f0e8735fcdfd35270f6348",
+      "name": "assets/0608934597a30f0b3c8f0434d5d9585a5492d37f.jpg",
+      "sha256": "46582d68517166d78d19ae47d4d218f1fc2b7bd23bc91b272b93b86f5d6915ea",
+      "size": 238600,
+      "type": "image/jpeg"
+    },
+    "assets/Screenshot~202026-10-07~20152205.png": {
+      "blob": "08d4fe9c6ea52c77f715b503223846eb",
+      "name": "assets/Screenshot 2026-10-07 152205.png",
+      "sha256": "11ed0d25497474013b737b2ff023603c357b60c0776c0eb12fa0c222ee7aeb87",
+      "size": 34547,
+      "type": "image/png"
+    },
+    "assets/b79889bff2fa1da142f438740d266bc5.jpg": {
+      "blob": "7dfd99dfcab50f1564c03ab3b226f202",
+      "name": "assets/b79889bff2fa1da142f438740d266bc5.jpg",
+      "sha256": "5ddb170bd2646c516621e79f71619a73073ec0453ba076a941f05ecef22f81ae",
+      "size": 11168,
+      "type": "image/jpeg"
+    },
+    "assets/original-0093bc9da7a91b59a6590b4e8660b5eb.webp": {
+      "blob": "49f56978f721c3290020fe11d0085b35",
+      "name": "assets/original-0093bc9da7a91b59a6590b4e8660b5eb.webp",
+      "sha256": "7a9f280ad225bf19cb03c6aba38515972a3ea525011db8d1c69f034868788430",
+      "size": 91970,
+      "type": "image/webp"
+    },
+    "assets/trackizer-free-app-ui-kit-for-figma-01.webp": {
+      "blob": "197cbb0ab355a48355beb9fd55565cc0",
+      "name": "assets/trackizer-free-app-ui-kit-for-figma-01.webp",
+      "sha256": "a7d588c91dce792829c12cfea16ad14dc4ab1f84866ba379264becf2c251d7b3",
+      "size": 371698,
+      "type": "image/webp"
+    },
+    "assets/trackizer-free-app-ui-kit-for-figma.webp": {
+      "blob": "bac1308015ac194dd43cb14631abb054",
+      "name": "assets/trackizer-free-app-ui-kit-for-figma.webp",
+      "sha256": "afa665d5b9d0fa296c60f49eab4aee17746d48234f9cbb02793d163762da718a",
+      "size": 197102,
+      "type": "image/webp"
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-08T08:06:08.653Z",
+    "v": 1
+  },
+  "docs": {
+    "readme": "project/README.md",
+    "sections": []
+  },
+  "groups": [
+    "Logo",
+    "Real~20hall",
+    "Stylist",
+    "Services",
+    "Customer",
+    "Hall~20by~20AI",
+    "Icons",
+    "Other"
+  ],
+  "lastChange": {
+    "at": "2026-11-01T15:34:35Z",
+    "by": "Mohammad",
+    "via": "Claude",
+    "note": "v2 «آراسته»: normal-width type (no Expanded), canvas layers (f-, b2- … b7-) in bundle.css, base fixes (badges ink/plum, Pressed, sheets instead of dialogs, ARIA calendar), content rules, and 14 new cards from design batches 1–8. Nothing removed or renamed; v1 = version 1791735698-27f8."
+  },
+  "layout": "files",
+  "libraries": [],
+  "sections": {},
+  "title": "Rival"
+}

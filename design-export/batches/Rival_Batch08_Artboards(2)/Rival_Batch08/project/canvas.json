@@ -1,0 +1,296 @@
+{
+ "v": 3,
+ "title": "Rival — دسته ۸ — حالت‌های سیستمی و یکپارچه‌سازی",
+ "launch": {
+  "view": "canvas"
+ },
+ "pages": [],
+ "boards": {
+  "STATE-01-CUS.dc.html": {
+   "x": 3290,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "STATE-01 — عدم دسترسی — مشتری"
+  },
+  "STATE-01-STY.dc.html": {
+   "x": 2820,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "STATE-01 — عدم دسترسی — آرایشگر"
+  },
+  "STATE-01-ADM.dc.html": {
+   "x": 2350,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "STATE-01 — عدم دسترسی — مدیر کل"
+  },
+  "STATE-02-CUS.dc.html": {
+   "x": 1880,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "STATE-02 — یافت نشد — مشتری"
+  },
+  "STATE-02-STY.dc.html": {
+   "x": 1410,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "STATE-02 — یافت نشد — آرایشگر و مدیر"
+  },
+  "STATE-03-EXP.dc.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "STATE-03 — درخواست منقضی — پایان مهلت پرداخت"
+  },
+  "STATE-03-REJ.dc.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "STATE-03 — درخواست منقضی — بی‌پاسخ ماند (رد شده)"
+  },
+  "STATE-04.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "STATE-04 — نگه‌داشت رزرو منقضی — Default"
+  },
+  "STATE-05.dc.html": {
+   "x": 3290,
+   "y": 1224,
+   "w": 390,
+   "h": 844,
+   "title": "STATE-05 — پرداخت در حال بررسی — Default"
+  },
+  "STATE-06-LOST.dc.html": {
+   "x": 2820,
+   "y": 1224,
+   "w": 390,
+   "h": 844,
+   "title": "STATE-06 — پرداخت موفق، زمان از دست رفت — در انتظار بررسی"
+  },
+  "STATE-06-DONE.dc.html": {
+   "x": 2350,
+   "y": 1224,
+   "w": 390,
+   "h": 844,
+   "title": "STATE-06 — پرداخت موفق، زمان از دست رفت — به اعتبار برگشت"
+  },
+  "STATE-07-MAP.dc.html": {
+   "x": 1880,
+   "y": 1224,
+   "w": 390,
+   "h": 844,
+   "title": "STATE-07 — سرویس بیرونی — نقشه در دسترس نیست (PUB-01)"
+  },
+  "STATE-07-SMS.dc.html": {
+   "x": 1410,
+   "y": 1224,
+   "w": 390,
+   "h": 844,
+   "title": "STATE-07 — سرویس بیرونی — پیامک تأیید ارسال نشد (PAY-RES موفق)"
+  },
+  "STATE-07-GW.dc.html": {
+   "x": 940,
+   "y": 1224,
+   "w": 390,
+   "h": 844,
+   "title": "STATE-07 — سرویس بیرونی — درگاه پاسخ نمی‌دهد (BK-F02)"
+  },
+  "STATE-07-OTP.dc.html": {
+   "x": 470,
+   "y": 1224,
+   "w": 390,
+   "h": 960,
+   "title": "STATE-07 — سرویس بیرونی — کد ورود ارسال نشد (AUTH-01)"
+  },
+  "STATE-08.dc.html": {
+   "x": 0,
+   "y": 1224,
+   "w": 390,
+   "h": 844,
+   "title": "STATE-08 — JavaScript غیرفعال — همه نقش‌ها"
+  },
+  "SYS-SESSION-A.dc.html": {
+   "x": 3290,
+   "y": 2448,
+   "w": 390,
+   "h": 1000,
+   "title": "SYS-SESSION — نشست منقضی وسط جریان — Default"
+  },
+  "SYS-SESSION-OTP.dc.html": {
+   "x": 2820,
+   "y": 2448,
+   "w": 390,
+   "h": 1000,
+   "title": "SYS-SESSION — نشست منقضی وسط جریان — کد ورود دوباره"
+  },
+  "SYS-SESSION-BACK.dc.html": {
+   "x": 2350,
+   "y": 2448,
+   "w": 390,
+   "h": 844,
+   "title": "SYS-SESSION — نشست منقضی وسط جریان — بازگشت به همان نقطه (BK-F02)"
+  },
+  "SYS-RO-CUS.dc.html": {
+   "x": 1880,
+   "y": 2448,
+   "w": 390,
+   "h": 844,
+   "title": "SYS-RO — حساب غیرفعال — مشتری"
+  },
+  "SYS-RO-STY.dc.html": {
+   "x": 1410,
+   "y": 2448,
+   "w": 390,
+   "h": 1600,
+   "title": "SYS-RO — حساب غیرفعال — آرایشگر"
+  },
+  "SYS-OFFLINE-TOAST.dc.html": {
+   "x": 940,
+   "y": 2448,
+   "w": 390,
+   "h": 844,
+   "title": "SYS-OFFLINE — خطای شبکه — Toast"
+  },
+  "SYS-OFFLINE-FULL.dc.html": {
+   "x": 470,
+   "y": 2448,
+   "w": 390,
+   "h": 844,
+   "title": "SYS-OFFLINE — خطای شبکه — تمام‌صفحه"
+  },
+  "SYS-OFFLINE-RETRY.dc.html": {
+   "x": 0,
+   "y": 2448,
+   "w": 390,
+   "h": 844,
+   "title": "SYS-OFFLINE — خطای شبکه — تمام‌صفحه، در حال تلاش"
+  },
+  "KIT-01-A.dc.html": {
+   "x": 2800,
+   "y": 4168,
+   "w": 900,
+   "h": 1400,
+   "title": "KIT-01 — کتابچهٔ الگوها — Toast و Notice در نُه تن"
+  },
+  "KIT-01-B.dc.html": {
+   "x": 1820,
+   "y": 4168,
+   "w": 900,
+   "h": 1300,
+   "title": "KIT-01 — کتابچهٔ الگوها — دکمه: چهار حالت"
+  },
+  "KIT-01-C.dc.html": {
+   "x": 840,
+   "y": 4168,
+   "w": 900,
+   "h": 1900,
+   "title": "KIT-01 — کتابچهٔ الگوها — بارگذاری و حالت خالی"
+  },
+  "KIT-01-D.dc.html": {
+   "x": 2800,
+   "y": 6188,
+   "w": 900,
+   "h": 1480,
+   "title": "KIT-01 — کتابچهٔ الگوها — برگه‌های پایین‌شون"
+  },
+  "KIT-01-E.dc.html": {
+   "x": 1820,
+   "y": 6188,
+   "w": 900,
+   "h": 2100,
+   "title": "KIT-01 — کتابچهٔ الگوها — تکمیل با خطا و ناوبری"
+  },
+  "KIT-01-F.dc.html": {
+   "x": 840,
+   "y": 6188,
+   "w": 900,
+   "h": 1500,
+   "title": "KIT-01 — کتابچهٔ الگوها — خلاصهٔ زبان طراحی"
+  },
+  "Main.dc.html": {
+   "x": 3840,
+   "y": 0,
+   "w": 900,
+   "h": 5000,
+   "title": "یادداشت دسته ۸"
+  }
+ },
+ "order": [
+  "Main.dc.html",
+  "STATE-01-CUS.dc.html",
+  "STATE-01-STY.dc.html",
+  "STATE-01-ADM.dc.html",
+  "STATE-02-CUS.dc.html",
+  "STATE-02-STY.dc.html",
+  "STATE-03-EXP.dc.html",
+  "STATE-03-REJ.dc.html",
+  "STATE-04.dc.html",
+  "STATE-05.dc.html",
+  "STATE-06-LOST.dc.html",
+  "STATE-06-DONE.dc.html",
+  "STATE-07-MAP.dc.html",
+  "STATE-07-SMS.dc.html",
+  "STATE-07-GW.dc.html",
+  "STATE-07-OTP.dc.html",
+  "STATE-08.dc.html",
+  "SYS-SESSION-A.dc.html",
+  "SYS-SESSION-OTP.dc.html",
+  "SYS-SESSION-BACK.dc.html",
+  "SYS-RO-CUS.dc.html",
+  "SYS-RO-STY.dc.html",
+  "SYS-OFFLINE-TOAST.dc.html",
+  "SYS-OFFLINE-FULL.dc.html",
+  "SYS-OFFLINE-RETRY.dc.html",
+  "KIT-01-A.dc.html",
+  "KIT-01-B.dc.html",
+  "KIT-01-C.dc.html",
+  "KIT-01-D.dc.html",
+  "KIT-01-E.dc.html",
+  "KIT-01-F.dc.html"
+ ],
+ "notes": {
+  "s1a": {
+   "x": 0,
+   "y": -260,
+   "text": "بخش ۱ — حالت‌های سیستمی: STATE-01 تا STATE-04",
+   "kind": "title1",
+   "maxW": 3680
+  },
+  "s1b": {
+   "x": 0,
+   "y": 964,
+   "text": "بخش ۱ — حالت‌های سیستمی: STATE-05 تا STATE-08",
+   "kind": "title1",
+   "maxW": 3680
+  },
+  "s2": {
+   "x": 0,
+   "y": 2188,
+   "text": "بخش ۲ — حالت‌های بازیابی: SYS-SESSION و SYS-RO و SYS-OFFLINE",
+   "kind": "title1",
+   "maxW": 3680
+  },
+  "s3": {
+   "x": 0,
+   "y": 3908,
+   "text": "بخش ۳ — کتابچه الگوها: KIT-01",
+   "kind": "title1",
+   "maxW": 3680
+  }
+ },
+ "designSystems": [
+  {
+   "title": "Rival",
+   "namespace": "rival"
+  }
+ ]
+}

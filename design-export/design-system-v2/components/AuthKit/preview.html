@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rival — AuthKit</title><link rel="stylesheet" href="../../css/tokens.css"><link rel="stylesheet" href="../../css/rival.css"><style>body{margin:0}</style></head>
+<body>
+<!-- @dsCard width=900 group="Screens" height=960 subtitle="ورود یا ثبت‌نام، رمز یک‌بارمصرف و تکمیل نام" -->
+<div class="rv rv-final rv-pad" dir="rtl" lang="fa"><div style="display:grid;grid-template-columns:repeat(2,390px);gap:28px 40px;justify-content:center;align-items:start">
+<div class="rv-stack" style="gap:8px;min-width:0"><span class="rv-overline">ورود با رمز یک‌بار‌مصرف — AUTH-01</span><div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px; display: flex; flex-direction: column;;height:844px;width:390px;border-radius:28px;box-shadow:var(--shadow-hairline);background:var(--rv-page)">
+<!-- نوار بالا: فقط بازگشت به خانه -->
+<div class="f-auth-top"><a aria-label="بازگشت به خانه" class="rv-icon-btn" href="/"><i class="ri ri-arrow-right"></i></a></div>
+<!-- سرآغاز: لوگوی ریوال، عنوان و یک خط -->
+<div class="f-auth-hero">
+<a aria-label="ریوال — خانه" class="f-auth-mark" href="/"><span aria-label="Rival" class="rv-logo-ink" role="img" style="height: 32px; color: var(--text-primary);"></span></a>
+<h1 class="f-auth__t">کد ورود را وارد کنید</h1>
+<p class="f-auth__d">کد ۵ رقمی پیامک شد و تا ۲ دقیقه معتبر است.</p>
+</div>
+<main class="f-auth">
+<section class="rv-card rv-glass-strong rv-card--lg f-auth__card">
+<!-- فقط وقتی کاربر از دکمه رزرو آمده -->
+<div class="f-auth-ret"><i class="ri ri-calendar-plus"></i><span>بعد از ورود به <b>رزرو نوبت</b> برمی‌گردید.</span></div>
+<div class="rv-field">
+<label for="f-ph">شماره موبایل</label>
+<div class="rv-input is-readonly"><i class="ri ri-smartphone"></i><input class="rv-ltr" id="f-ph" readonly="" value="۰۹۱۴ ۳۲۱ ۴۵۶۷"/><a class="rv-link f-edit" href="#">ویرایش</a></div>
+</div>
+<div class="f-otp">
+<span class="rv-label">کد پیامک‌شده</span>
+<!-- در اجرا یک فیلد با autocomplete="one-time-code" و امکان چسباندن -->
+<div aria-label="کد ۵ رقمی" class="rv-otp" role="group"><span>۴</span><span>۸</span><span class="is-active"></span><span></span><span></span></div>
+<span class="rv-help f-resend"><i class="ri ri-sm ri-timer"></i>ارسال دوباره کد تا <b class="rv-ltr">۰:۴۲</b></span>
+</div>
+<button class="rv-btn rv-btn--primary rv-btn--block" disabled="" type="submit">ورود</button>
+</section>
+</main>
+<!-- روش‌های جایگزین، بیرون از کارت فرم -->
+<div class="f-auth-alts">
+<button class="rv-btn rv-btn--glass rv-glass rv-btn--block" type="button"><i class="ri ri-fingerprint"></i>ورود با Passkey</button>
+<button class="rv-btn rv-btn--glass rv-glass rv-btn--block" type="button"><i class="ri ri-key"></i>ورود با رمز عبور</button>
+</div>
+<!-- پای صفحه ورود: فقط حقوق و سازنده، مثل پای صفحات عمومی -->
+<footer class="f-auth-foot">
+<span class="rv-caption rv-muted">تمام حقوق این وب‌سایت برای سالن ریوال محفوظ است.</span>
+<a class="rv-row rv-caption rv-muted" href="#" style="gap: 6px; text-decoration: none; min-height: 44px;">توسعه‌یافته توسط<span style="font-weight: 400; color: var(--text-secondary);">ودان</span><img alt="" src="../../assets/photos/services/service-1.webp" style="width: 20px; height: 20px; object-fit: contain;"/></a>
+</footer>
+</div><span class="rv-caption rv-muted">لوگوی بی‌قاب؛ کد ۵ رقمی؛ Passkey و رمز عبور به‌عنوان راه‌های دیگر (دکمه شیشه‌ای)</span></div><div class="rv-stack" style="gap:8px;min-width:0"><span class="rv-overline">تکمیل نام — AUTH-02</span><div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px; display: flex; flex-direction: column;;height:844px;width:390px;border-radius:28px;box-shadow:var(--shadow-hairline);background:var(--rv-page)">
+<!-- نوار بالا: فقط بازگشت به خانه -->
+<div class="f-auth-top"></div>
+<!-- سرآغاز: لوگوی ریوال، عنوان و یک خط -->
+<div class="f-auth-hero">
+<a aria-label="ریوال — خانه" class="f-auth-mark" href="/"><span aria-label="Rival" class="rv-logo-ink" role="img" style="height: 32px; color: var(--text-primary);"></span></a>
+<h1 class="f-auth__t">خوش آمدید</h1>
+<p class="f-auth__d">فقط نامتان را بنویسید تا آرایشگر بداند نوبت برای کیست.</p>
+</div>
+<main class="f-auth">
+<section class="rv-card rv-glass-strong rv-card--lg f-auth__card">
+<!-- فقط وقتی کاربر از دکمه رزرو آمده -->
+<div class="f-auth-ret"><i class="ri ri-calendar-plus"></i><span>بعد از این مرحله به <b>رزرو نوبت</b> برمی‌گردید.</span></div>
+<div class="f-verified"><i class="ri ri-sm ri-check-circle"></i><span>شماره <b class="rv-ltr">۰۹۱۴ ۳۲۱ ۴۵۶۷</b> تأیید شد</span></div>
+<div class="rv-field">
+<label for="f-fn">نام</label>
+<div class="rv-input is-focus"><i class="ri ri-user"></i><input autocomplete="given-name" id="f-fn" value="علی"/></div>
+</div>
+<div class="rv-field">
+<label for="f-ln">نام خانوادگی</label>
+<div class="rv-input"><i class="ri ri-user"></i><input autocomplete="family-name" id="f-ln" placeholder="مثلاً رضایی"/></div>
+</div>
+<button class="rv-btn rv-btn--primary rv-btn--block" type="submit">ادامه رزرو<i class="ri ri-arrow-left"></i></button>
+</section>
+</main>
+<!-- پای صفحه ورود: فقط حقوق و سازنده، مثل پای صفحات عمومی -->
+<footer class="f-auth-foot">
+<span class="rv-caption rv-muted">تمام حقوق این وب‌سایت برای سالن ریوال محفوظ است.</span>
+<a class="rv-row rv-caption rv-muted" href="#" style="gap: 6px; text-decoration: none; min-height: 44px;">توسعه‌یافته توسط<span style="font-weight: 400; color: var(--text-secondary);">ودان</span><img alt="" src="../../assets/photos/services/service-1.webp" style="width: 20px; height: 20px; object-fit: contain;"/></a>
+</footer>
+</div><span class="rv-caption rv-muted">فقط نام و نام خانوادگی؛ «ثبت‌نام» جدا نیست: «ورود یا ثبت‌نام»</span></div>
+</div></div>
+
+</body></html>

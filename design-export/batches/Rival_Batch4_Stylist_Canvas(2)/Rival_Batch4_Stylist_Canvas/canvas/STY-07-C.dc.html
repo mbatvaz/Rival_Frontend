@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>STY-07 — رزرو دستی — ۱. مشتری، نتایج جست‌وجو</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px;">
+  <header class="f-bar-in">
+    <span aria-hidden="true"></span>
+    <h1>رزرو دستی</h1>
+    <a href="/stylist" class="rv-icon-btn" aria-label="بستن رزرو دستی"><i class="ri ri-x"></i></a>
+  </header>
+  <main style="padding: var(--space-2) var(--space-4) var(--space-6); display: flex; flex-direction: column; gap: var(--space-4);">
+    <nav class="b4-steps" aria-label="مرحله ۱ از ۴، مشتری"><ol><li class="is-on" aria-current="step"><span>مشتری</span></li><li><span>خدمت</span></li><li><span>زمان</span></li><li><span>تأیید</span></li></ol></nav>
+    <section aria-labelledby="c-h" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <h2 id="c-h" class="f-h" style="margin: 0;">مشتری را پیدا کنید</h2>
+      <label class="rv-input rv-input--search" style="height: 48px;"><i class="ri ri-search"></i><input placeholder="نام یا شماره موبایل مشتری" aria-label="جست‌وجوی مشتری" value="سامان"><button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="پاک کردن جست‌وجو" style="margin-inline-end: -10px;"><i class="ri ri-sm ri-x"></i></button></label>
+      <!-- نتیجه با نام و شماره؛ فقط نام و شماره (D10-01)؛ زدن روی نتیجه مستقیم به گام بعد می‌رود -->
+      <p class="b4-sres__lbl"><b>۲</b> نتیجه برای «سامان»</p>
+      <div class="rv-card rv-glass b4-sres" role="list">
+        <a href="#pick" class="b4-sres__i"><span class="rv-avatar"><img src="/_blob/81f810e4fcf2d32f78569d3761695c66" alt=""></span><span class="rv-grow" style="min-width: 0;"><span class="b4-sres__n">سامان نوری</span><span class="b4-sres__p">۰۹۱۴ ۳۹۰ ۱۲۵۸</span></span><i class="ri ri-chevron-left" aria-hidden="true"></i></a>
+        <a href="#pick" class="b4-sres__i"><span class="rv-avatar">س</span><span class="rv-grow" style="min-width: 0;"><span class="b4-sres__n">سامان کریمی</span><span class="b4-sres__p">۰۹۱۲ ۷۷۴ ۰۶۳۱</span></span><i class="ri ri-chevron-left" aria-hidden="true"></i></a>
+      </div>
+      <p class="b4-sres__more">مشتری مورد نظر نیست؟ <a href="#add" class="rv-link" aria-haspopup="dialog">افزودن مشتری جدید</a></p>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

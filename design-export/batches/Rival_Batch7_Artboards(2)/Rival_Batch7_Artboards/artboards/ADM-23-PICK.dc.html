@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-23 — پیامک گروهی — برگه انتخاب گیرندگان</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+<link rel="stylesheet" href="rv-b6.css">
+<link rel="stylesheet" href="rv-b7.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1020px;">
+  <div aria-hidden="true" inert style="position: absolute; inset: 0; overflow: hidden;">
+  <header class="f-bar-in">
+    <a href="#more" class="rv-icon-btn" aria-label="بازگشت"><i class="ri ri-arrow-right"></i></a>
+    <h1>پیامک</h1>
+    <span aria-hidden="true"></span>
+  </header>
+  <main class="f-enter" style="padding: var(--space-2) var(--space-4) 140px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <button type="button" class="rv-card rv-glass b6-sel" aria-haspopup="dialog" aria-label="گیرندگان، ۱۲ مشتری انتخاب شده">
+      <i class="ri ri-users" aria-hidden="true"></i>
+      <span class="rv-grow" style="min-width: 0;"><span class="b6-sel__h"><b>گیرندگان</b><span class="rv-tag is-outline">۱۲ مشتری</span></span><span class="b6-sel__v"><span class="b6-avs"><span class="rv-avatar rv-avatar--sm">س</span><span class="rv-avatar rv-avatar--sm">ر</span><span class="rv-avatar rv-avatar--sm">ک</span><span class="rv-avatar rv-avatar--sm">م</span></span><span>سامان نوری و ۱۱ نفر دیگر</span></span></span>
+      <i class="ri ri-sm ri-chevron-left" aria-hidden="true" style="margin-top: 4px;"></i>
+    </button>
+    <div class="rv-field" style="margin: 0;">
+      <label class="rv-label" for="sm-t">متن پیامک</label>
+      <div class="rv-input b4-ta"><textarea id="sm-t" rows="4" aria-describedby="sm-h">سلام، سالن طاها از اول آذر شنبه‌ها از ساعت ۱۰ صبح پذیرای شماست. برای رزرو نوبت وارد سایت شوید.</textarea></div>
+      <div id="sm-h" class="rv-help b4-ta__h"><span>پیامک با نام سالن فرستاده می‌شود.</span><span><bdi>۹۶</bdi> نویسه<span class="rv-sep" aria-hidden="true"></span>۲ پیامک برای هر نفر</span></div>
+    </div>
+    <div class="rv-card rv-glass" style="padding: var(--space-1) var(--space-4);">
+      <div class="rv-kv" style="min-height: 44px; align-items: center;"><span>گیرندگان</span><b>۱۲ مشتری</b></div>
+      <div class="rv-kv" style="min-height: 44px; align-items: center;"><span>جمع پیامک‌ها</span><b>۲۴ پیامک</b></div>
+    </div>
+    <p class="b4-hint" style="margin: 0;"><i class="ri ri-info" aria-hidden="true"></i>وضعیت هر گیرنده جدا ثبت می‌شود؛ خطا برای یک نفر ارسال بقیه را برنمی‌گرداند. پیامک تک‌مخاطب از جزئیات مشتری فرستاده می‌شود.</p>
+  </main>
+  </div>
+  <div class="rv-scrim" aria-hidden="true"></div>
+  <section class="rv-sheet rv-glass-strong b2-sheet b2-sheet--tall" role="dialog" aria-modal="true" aria-labelledby="pc-t" style="display: flex; flex-direction: column; gap: var(--space-4);">
+    <span class="b2-grip" aria-hidden="true"></span>
+    <div class="b2-sheet__head">
+      <span class="rv-tile"><i class="ri ri-users"></i></span>
+      <div class="rv-grow"><h2 id="pc-t" class="b2-sheet__t">انتخاب گیرندگان</h2><p class="b2-sheet__d">۱۲ از ۳۱۰ مشتری انتخاب شده</p></div>
+      <button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="بستن برگه"><i class="ri ri-x"></i></button>
+    </div>
+    <label class="rv-input rv-input--search" style="height: 48px;"><i class="ri ri-search"></i><input placeholder="نام یا شماره موبایل" aria-label="جست‌وجوی مشتری"></label>
+    <div class="b3-rg" role="radiogroup" aria-label="گزینه‌ها"><button class="rv-chip" type="button" role="radio" aria-checked="true">همه</button><button class="rv-chip" type="button" role="radio" aria-checked="false">فعال</button><button class="rv-chip" type="button" role="radio" aria-checked="false">غیرفعال</button></div>
+    <div class="b3-tools"><span class="b3-tools__sum"><b>۱۲</b> انتخاب شده</span><button type="button" class="rv-btn rv-btn--ghost rv-btn--sm">انتخاب همهٔ نتایج</button></div>
+    <div class="b6-pk b7-pk" role="group" aria-label="مشتریان">
+        <button type="button" role="checkbox" aria-checked="true" class="b6-pk__r is-on"><span class="rv-avatar rv-avatar--sm" aria-hidden="true">س</span><span class="rv-grow" style="min-width: 0;"><span class="rv-item__t" style="display: block;">سامان نوری</span><span class="rv-item__s" style="display: block;"><bdi dir="ltr">۰۹۱۴ ۳۹۰ ۱۲۵۸</bdi></span></span></button>
+        <button type="button" role="checkbox" aria-checked="true" class="b6-pk__r is-on"><span class="rv-avatar rv-avatar--sm" aria-hidden="true">ر</span><span class="rv-grow" style="min-width: 0;"><span class="rv-item__t" style="display: block;">رضا کریمی</span><span class="rv-item__s" style="display: block;"><bdi dir="ltr">۰۹۱۴ ۲۷۱ ۳۸۴۰</bdi></span></span></button>
+        <button type="button" role="checkbox" aria-checked="true" class="b6-pk__r is-on"><span class="rv-avatar rv-avatar--sm" aria-hidden="true">ک</span><span class="rv-grow" style="min-width: 0;"><span class="rv-item__t" style="display: block;">کاوه احمدی</span><span class="rv-item__s" style="display: block;"><bdi dir="ltr">۰۹۱۴ ۴۴۱ ۷۰۹۲</bdi></span></span><span class="rv-tag is-outline" style="margin-inline-start: auto; flex: none;">غیرفعال</span></button>
+        <button type="button" role="checkbox" aria-checked="false" class="b6-pk__r"><span class="rv-avatar rv-avatar--sm" aria-hidden="true">م</span><span class="rv-grow" style="min-width: 0;"><span class="rv-item__t" style="display: block;">مجید کاظمی</span><span class="rv-item__s" style="display: block;"><bdi dir="ltr">۰۹۱۴ ۹۰۵ ۳۱۲۷</bdi></span></span></button>
+        <button type="button" role="checkbox" aria-checked="false" class="b6-pk__r"><span class="rv-avatar rv-avatar--sm" aria-hidden="true">ب</span><span class="rv-grow" style="min-width: 0;"><span class="rv-item__t" style="display: block;">بهراد شریفی</span><span class="rv-item__s" style="display: block;"><bdi dir="ltr">۰۹۱۴ ۵۶۱ ۷۷۰۳</bdi></span></span></button>
+        <button type="button" role="checkbox" aria-checked="false" class="b6-pk__r" style="opacity: .55; cursor: not-allowed;" aria-disabled="true"><span class="rv-avatar rv-avatar--sm" aria-hidden="true">ح</span><span class="rv-grow" style="min-width: 0;"><span class="rv-item__t" style="display: block;">حسین جعفری</span><span class="rv-item__s" style="display: block;">شماره معتبر ندارد</span></span></button>
+    </div>
+    <p class="b4-hint" style="margin: 0;"><i class="ri ri-info" aria-hidden="true"></i>مشتری فعال یا غیرفعال با شماره معتبر قابل انتخاب است. مشتری حذف‌شده در این فهرست نمی‌آید.</p>
+    <div class="b2-sheet__acts"><button type="button" class="rv-btn rv-btn--primary">تأیید ۱۲ گیرنده</button><button type="button" class="rv-btn rv-btn--secondary">انصراف</button></div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1020}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

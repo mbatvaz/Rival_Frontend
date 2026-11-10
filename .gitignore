@@ -1,0 +1,10 @@
+node_modules/
+dist/
+playwright-report/
+test-results/
+tests/screens/**
+!tests/screens/.gitkeep
+.DS_Store
+Thumbs.db
+.env
+.env.*

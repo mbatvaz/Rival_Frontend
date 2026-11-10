@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-07 — رزرو دستی — ۱. آرایشگر</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px;">
+  <header class="f-bar-in">
+    <span aria-hidden="true"></span>
+    <h1>رزرو دستی</h1>
+    <a href="/admin" class="rv-icon-btn" aria-label="بستن رزرو دستی"><i class="ri ri-x"></i></a>
+  </header>
+  <main style="padding: var(--space-2) var(--space-4) var(--space-6); display: flex; flex-direction: column; gap: var(--space-4);">
+    <nav class="b4-steps" aria-label="مرحله ۱ از ۵، آرایشگر"><ol style="grid-template-columns: repeat(5, minmax(0, 1fr));"><li class="is-on" aria-current="step"><span>آرایشگر</span></li><li><span>مشتری</span></li><li><span>خدمت</span></li><li><span>زمان</span></li><li><span>تأیید</span></li></ol></nav>
+    <section aria-labelledby="t-h" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <h2 id="t-h" class="f-h" style="margin: 0;">آرایشگر را انتخاب کنید</h2>
+      <!-- [مدیر] گام تازه: آرایشگر هدف؛ فقط آرایشگران فعال؛ فقط عکس و نام (مثل برگه آرایشگر ADM-04-R)؛ انتخاب رادیویی (D10-63)؛ «ادامه» بعد از انتخاب فعال می‌شود -->
+      <div class="b5-rg" role="radiogroup" aria-labelledby="t-h">
+        <div class="rv-option b5-rr" role="radio" aria-checked="true" tabindex="0"><span class="rv-avatar rv-avatar--sm">ط</span><span class="rv-grow">طاها (من)</span></div>
+        <div class="rv-option b5-rr" role="radio" aria-checked="false" tabindex="0"><span class="rv-avatar rv-avatar--sm">ا</span><span class="rv-grow">امیر</span></div>
+        <div class="rv-option b5-rr" role="radio" aria-checked="false" tabindex="0"><span class="rv-avatar rv-avatar--sm">س</span><span class="rv-grow">سینا</span></div>
+        <div class="rv-option b5-rr" role="radio" aria-checked="false" tabindex="0"><span class="rv-avatar rv-avatar--sm">م</span><span class="rv-grow">مهدی</span></div>
+      </div>
+      <button type="button" class="rv-btn rv-btn--primary rv-btn--block">ادامه</button>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

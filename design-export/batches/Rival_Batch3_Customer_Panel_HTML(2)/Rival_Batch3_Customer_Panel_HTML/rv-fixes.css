@@ -1,0 +1,31 @@
+/* Rival — اصلاحات بوم (کپی عین rv-fixes.css بوم دسته ۱ و ۲؛ فقط آدرس دارایی‌های لوگو به کپی همین بوم دسته ۳ اشاره می‌کند).
+   Load after ds/rival/tokens.css and ds/rival/components/bundle.css. Tokens only. */
+
+/* ۱. ماسک لوگو → کپی دارایی‌ها روی همین بوم (آدرس /_blob دیزاین سیستم روی این بوم باز نمی‌شود) */
+.rv-logo-ink, .rv-logo-chrome {
+  -webkit-mask-image: url("assets/520f340e626a353b9579d012cc54aca5.png");
+  mask-image: url("assets/520f340e626a353b9579d012cc54aca5.png");
+}
+.rv-mark-ink, .rv-mark-chrome {
+  -webkit-mask-image: url("assets/60854a2da4edf6afa1ba91b2fae54ccf.png");
+  mask-image: url("assets/60854a2da4edf6afa1ba91b2fae54ccf.png");
+}
+
+/* ۲. ناحیه لمس نامرئی ۴۴px برای chip و segmented (فایل تحویل ۰۰ §۶) — ظاهر تغییر نمی‌کند */
+.rv-chip, .rv-seg button { position: relative; }
+.rv-chip::after, .rv-seg button::after { content: ""; position: absolute; inset: -4px 0; }
+
+/* ۳. معنای نشان‌ها (D10-04): نقطه جوهری = اعلان خوانده‌نشده؛ عدد بنفش = موارد باز منتظر اقدام */
+.rv-dot.is-ink { background: var(--bg-inverse); }
+.rv-count.is-plum, .rv-nav__badge.is-plum, .rv-seg .rv-n.is-plum { background: var(--plum-solid); color: var(--text-inverse); }
+
+/* ۴. سرتیتر بخش برای h2 هم (فایل تحویل ۰۰ §۶) */
+.rv-section-head :is(h2, h3) { margin: 0; font-size: 16px; line-height: 26px; font-weight: 600; }
+
+/* ۵. ریشه آرت‌بورد: ارتفاع از خود آرت‌بورد می‌آید، نه از 100vh */
+.rv.rv-board { min-height: 0; position: relative; overflow: hidden; }
+
+/* ۶. ناحیه لمس ۴۴px برای دکمه کوچک (۴۰px) و پیوند متنی — ظاهر تغییر نمی‌کند */
+.rv-btn--sm::before { content: ""; position: absolute; inset: -2px 0; }
+.rv-link { position: relative; }
+.rv-link::before { content: ""; position: absolute; inset: -12px -11px; }

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-09 — جزئیات مشتری — برگه تغییر موجودی</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px;">
+  <div aria-hidden="true" inert style="position: absolute; inset: 0; overflow: hidden;">
+  <header class="f-bar-in">
+    <a href="/admin/customers" class="rv-icon-btn" aria-label="بازگشت به مشتری‌ها"><i class="ri ri-arrow-right"></i></a>
+    <h1>مشتری</h1>
+    <a href="/admin/action-center" class="rv-icon-btn" aria-label="مرکز اقدام، ۳ مورد باز"><i class="ri ri-pending"></i><span class="rv-count is-plum">۳</span></a>
+  </header>
+
+  <main style="padding: var(--space-1) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-6);">
+    <!-- [مدیر] همان کارت مشتری STY-CUS-D؛ سابقه نزد همه آرایشگران. رمز و روش‌های ورود مشتری نمایش داده نمی‌شوند -->
+    <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+    <section class="b3-pf rv-glass-strong b4-cpf" aria-label="سامان نوری">
+      <span class="b3-pf__ph"><img src="/_blob/073e8bab91cfbb056ea68d266d51cbe7" alt=""></span>
+      <div class="rv-grow" style="min-width: 0;">
+        <div class="b3-pf__n">سامان نوری</div>
+        <div class="b3-pf__s"><bdi class="rv-ltr">۰۹۱۴ ۳۹۰ ۱۲۵۸</bdi></div>
+        <div class="b4-cpf__since">۹ نوبت در سالن، از مرداد ۱۴۰۵</div>
+      </div>
+      <a href="tel:09143901258" class="rv-icon-btn" aria-label="تماس با سامان نوری"><i class="ri ri-phone"></i></a>
+    </section>
+    <div class="b3-acts">
+      <a href="/admin/manual-booking?customer=1063" class="rv-btn rv-btn--primary"><i class="ri ri-sm ri-calendar-plus"></i>رزرو دستی برای او</a>
+      <button type="button" class="rv-btn rv-btn--secondary" aria-haspopup="dialog"><i class="ri ri-sm ri-sms"></i>ارسال پیام</button>
+    </div>
+    <!-- [مدیر] اقدام‌های حساب زیر دکمه‌های رزرو دستی و پیام: ویرایش اطلاعات (برگه با تغییر عکس)، غیرفعال/فعال‌سازی، حذف؛ هر سه برگهٔ پایین باز می‌کنند -->
+    <div class="b4-acc-acts" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2);">
+      <button type="button" class="rv-btn rv-btn--secondary rv-btn--sm" style="min-height: 44px; padding-inline: var(--space-2);" aria-haspopup="dialog"><i class="ri ri-sm ri-edit"></i>ویرایش</button>
+      <button type="button" class="rv-btn rv-btn--secondary rv-btn--sm" style="min-height: 44px; padding-inline: var(--space-2);" aria-haspopup="dialog"><i class="ri ri-sm ri-lock"></i>غیرفعال کردن</button>
+      <button type="button" class="rv-btn rv-btn--danger-soft rv-btn--sm" style="min-height: 44px; padding-inline: var(--space-2);" aria-haspopup="dialog"><i class="ri ri-sm ri-trash"></i>حذف حساب</button>
+    </div>
+    </div>
+
+    <!-- [مدیر] انتخاب‌گر دوحالته «خدمات / پرداخت‌ها» (رادیو؛ نه اسکرولی)؛ انتخاب‌شده سفید و بالاآمده با سایه، دیگری فرورفته (D10-152 سبک) — D10-176 -->
+    <div class="b5-mode" role="radiogroup" aria-label="بخش نمایش‌داده‌شده"><button type="button" role="radio" id="mode-svc" aria-checked="false"><i class="ri ri-sm ri-calendar" aria-hidden="true"></i>خدمات</button><button type="button" role="radio" id="mode-pay" aria-checked="true"><i class="ri ri-sm ri-wallet" aria-hidden="true"></i>پرداخت‌ها</button></div>
+
+    <!-- [مدیر] موجودی اعتبار فقط در حالت «پرداخت‌ها»؛ دکمهٔ «تغییر موجودی» برگهٔ اصلاح موجودی را باز می‌کند (برگه در دسته ۷؛ D10-171) -->
+    <section class="b5-balc rv-glass-strong" aria-label="موجودی اعتبار"><span class="b5-balc__ic" aria-hidden="true"><i class="ri ri-lg ri-wallet"></i></span><div class="rv-grow" style="min-width:0;"><div class="b5-balc__l">موجودی اعتبار</div><div class="b5-balc__v">۶۰٬۰۰۰<small>تومان</small></div></div><button type="button" class="rv-btn rv-btn--secondary rv-btn--sm" aria-haspopup="dialog" aria-label="تغییر موجودی اعتبار"><i class="ri ri-sm ri-edit"></i>تغییر موجودی</button></section>
+
+    <section role="tabpanel" id="p-pay" aria-labelledby="mode-pay" style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <!-- [مدیر] دو نما: پرداخت‌ها (پیش‌فرض) و حرکت‌های اعتبار (دفتر تغییرناپذیر) -->
+      <div class="rv-seg rv-glass b4-seg-full" role="tablist" aria-label="نمای زبانهٔ پرداخت‌ها"><button type="button" id="pv-pay" role="tab" aria-selected="true" aria-controls="pv-pay-p">پرداخت‌ها</button><button type="button" id="pv-led" role="tab" aria-selected="false" aria-controls="pv-led-p">حرکت‌های اعتبار</button></div>
+      <div id="pv-pay-p" role="tabpanel" aria-labelledby="pv-pay" class="rv-list rv-glass">
+      <div class="b5-pay">
+      <div class="b5-pay__top">
+        <div class="rv-grow" style="min-width: 0;"><a href="/admin/requests/RQ-2212" class="f-stretch b5-pay__t" style="display: block; color: inherit; text-decoration: none;">فیشیال</a><div class="b5-pay__s">درخواست RQ-2212<span class="rv-sep" aria-hidden="true"></span>۲۴ مهر<span class="rv-sep" aria-hidden="true"></span>۱۶:۲۵</div></div>
+        <div class="b5-pay__amt">۸۵٬۰۰۰<small>تومان</small></div>
+      </div>
+      <div class="b5-pay__split">از اعتبار ۲۵٬۰۰۰<span class="rv-sep" aria-hidden="true"></span>از درگاه ۶۰٬۰۰۰</div>
+      <div class="b5-pay__foot"><span class="rv-tag is-success"><i class="ri ri-check-circle"></i>موفق</span></div>
+      </div>
+      <div class="b5-pay">
+      <div class="b5-pay__top">
+        <div class="rv-grow" style="min-width: 0;"><a href="/admin/appointments/BK-48306" class="f-stretch b5-pay__t" style="display: block; color: inherit; text-decoration: none;">اصلاح سر و صورت</a><div class="b5-pay__s">نوبت BK-48306<span class="rv-sep" aria-hidden="true"></span>۲۲ مهر<span class="rv-sep" aria-hidden="true"></span>۰۹:۱۰</div></div>
+        <div class="b5-pay__amt">۱۱۰٬۰۰۰<small>تومان</small></div>
+      </div>
+      <div class="b5-pay__foot"><span class="rv-tag is-success"><i class="ri ri-check-circle"></i>موفق</span></div>
+      </div>
+      <div class="b5-pay">
+      <div class="b5-pay__top">
+        <div class="rv-grow" style="min-width: 0;"><a href="/admin/appointments/BK-48352" class="f-stretch b5-pay__t" style="display: block; color: inherit; text-decoration: none;">اصلاح سر</a><div class="b5-pay__s">نوبت BK-48352<span class="rv-sep" aria-hidden="true"></span>۲۶ مهر<span class="rv-sep" aria-hidden="true"></span>۱۱:۳۵</div></div>
+        <div class="b5-pay__amt">۶۰٬۰۰۰<small>تومان</small></div>
+      </div>
+      <div class="b5-pay__foot"><span class="rv-tag is-info"><i class="ri ri-hourglass"></i>در حال بررسی</span><a href="/admin/payments" class="b5-pay__lnk rv-link"><i class="ri ri-sm ri-search" aria-hidden="true"></i>بررسی در پرداخت‌ها و تطبیق</a></div>
+      </div>
+      <div class="b5-pay">
+      <div class="b5-pay__top">
+        <div class="rv-grow" style="min-width: 0;"><a href="/admin/requests/RQ-2198" class="f-stretch b5-pay__t" style="display: block; color: inherit; text-decoration: none;">فیشیال</a><div class="b5-pay__s">درخواست RQ-2198<span class="rv-sep" aria-hidden="true"></span>۱۸ مهر<span class="rv-sep" aria-hidden="true"></span>۱۰:۰۵</div></div>
+        <div class="b5-pay__amt">۸۵٬۰۰۰<small>تومان</small></div>
+      </div>
+      <div class="b5-pay__foot"><span class="rv-tag is-danger"><i class="ri ri-x-circle"></i>ناموفق</span></div>
+      </div>
+      <div class="b5-pay">
+      <div class="b5-pay__top">
+        <div class="rv-grow" style="min-width: 0;"><a href="/admin/requests/RQ-2185" class="f-stretch b5-pay__t" style="display: block; color: inherit; text-decoration: none;">فیشیال</a><div class="b5-pay__s">درخواست RQ-2185<span class="rv-sep" aria-hidden="true"></span>۱۰ مهر<span class="rv-sep" aria-hidden="true"></span>۱۵:۰۰</div></div>
+        <div class="b5-pay__amt">۸۵٬۰۰۰<small>تومان</small></div>
+      </div>
+      <div class="b5-pay__foot"><span class="rv-tag"><i class="ri ri-clock"></i>منقضی</span></div>
+      </div>
+      <div class="b5-pay">
+      <div class="b5-pay__top">
+        <div class="rv-grow" style="min-width: 0;"><a href="/admin/appointments/BK-47122" class="f-stretch b5-pay__t" style="display: block; color: inherit; text-decoration: none;">اصلاح سر و صورت</a><div class="b5-pay__s">نوبت BK-47122<span class="rv-sep" aria-hidden="true"></span>۱۸ مرداد<span class="rv-sep" aria-hidden="true"></span>۱۵:۴۵</div></div>
+        <div class="b5-pay__amt">۱۱۰٬۰۰۰<small>تومان</small></div>
+      </div>
+      <div class="b5-pay__foot"><span class="rv-tag is-accent"><i class="ri ri-check"></i>تطبیق شد</span></div>
+      </div>
+      <div class="b5-pay">
+      <div class="b5-pay__top">
+        <div class="rv-grow" style="min-width: 0;"><a href="/admin/appointments/BK-47390" class="f-stretch b5-pay__t" style="display: block; color: inherit; text-decoration: none;">اصلاح سر</a><div class="b5-pay__s">نوبت BK-47390<span class="rv-sep" aria-hidden="true"></span>۵ شهریور<span class="rv-sep" aria-hidden="true"></span>۱۱:۲۰</div></div>
+        <div class="b5-pay__amt">۴۰٬۰۰۰<small>تومان</small></div>
+      </div>
+      <div class="b5-pay__split">از اعتبار ۱۰٬۰۰۰<span class="rv-sep" aria-hidden="true"></span>از درگاه ۳۰٬۰۰۰</div>
+      <div class="b5-pay__foot"><span class="rv-tag is-rose"><i class="ri ri-refresh"></i>برگشت خورد</span></div>
+      </div>
+      </div>
+      <button type="button" class="rv-btn rv-btn--ghost rv-btn--block b4-more">نمایش ۳ مورد دیگر</button>
+    </section>
+
+  </main>
+
+  <!-- نوار پایین مدیر کل = نوار آرایشگر (SHELL-ADM) -->
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری مدیر کل">
+      <a href="/admin" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+      <a href="/admin/calendar" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+      <a href="/admin/requests" aria-label="درخواست‌ها، ۴ درخواست منتظر پاسخ شما"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۴</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/admin/customers" aria-current="page" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+      <a href="#more" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+  </div>
+</div>
+  <div class="rv-scrim" aria-hidden="true"></div>
+  <section class="rv-sheet rv-glass-strong b2-sheet" role="dialog" aria-modal="true" aria-labelledby="adj-t">
+    <span class="b2-grip" aria-hidden="true"></span>
+    <div class="b2-sheet__head">
+      <span class="rv-tile"><i class="ri ri-wallet"></i></span>
+      <div class="rv-grow"><h2 id="adj-t" class="b2-sheet__t">تغییر موجودی</h2><p class="b2-sheet__d">سامان نوری، موجودی فعلی ۶۰٬۰۰۰ تومان</p></div>
+      <button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="بستن برگه"><i class="ri ri-x"></i></button>
+    </div>
+    <!-- [مدیر] افزایش یا کاهش (رادیوی دوحالته هم‌سبک D10-176)؛ مبلغ و دلیل اجباری؛ ثبت یک سطر تازه «اصلاح مدیر» در دفتر تغییرناپذیر — D10-171، D10-177 -->
+    <div class="b5-mode" role="radiogroup" aria-label="نوع تغییر موجودی"><button type="button" role="radio" id="adj-up" aria-checked="true"><i class="ri ri-sm ri-plus" aria-hidden="true"></i>افزایش</button><button type="button" role="radio" id="adj-down" aria-checked="false"><i class="ri ri-sm ri-minus" aria-hidden="true"></i>کاهش</button></div>
+    <div class="rv-field"><label class="rv-label" for="adj-amt">مبلغ</label><div class="rv-input b4-ph"><input id="adj-amt" inputmode="numeric" dir="ltr" value="۲۰٬۰۰۰" placeholder="مثلاً ۲۰٬۰۰۰" autocomplete="off" aria-describedby="adj-h"><span class="rv-affix">تومان</span></div><div id="adj-h" class="rv-help">عدد را به تومان بنویسید.</div></div>
+    <div class="b5-after" aria-live="polite"><span>موجودی بعد از تغییر</span><b>۸۰٬۰۰۰<small>تومان</small></b></div>
+    <div class="rv-field"><label class="rv-label" for="adj-r">دلیل (اجباری)</label><div class="rv-input b4-ta"><textarea id="adj-r" rows="2" aria-describedby="adj-rh">جبران خسارت نوبت لغوشده از سمت سالن</textarea></div><div id="adj-rh" class="rv-help b4-ta__h"><span>در سطر دفتر اعتبار دیده می‌شود.</span><span><bdi dir="ltr">۳۵/۱۲۰</bdi></span></div></div>
+    <ul class="b2-facts">
+      <li><i class="ri ri-clock"></i><span>با نام شما و زمان ثبت، به‌صورت یک سطر تازه در حرکت‌های اعتبار می‌نشیند و بعداً ویرایش یا حذف نمی‌شود.</span></li>
+    </ul>
+    <div class="b2-sheet__acts"><button type="button" class="rv-btn rv-btn--primary">ثبت افزایش</button><button type="button" class="rv-btn rv-btn--secondary">انصراف</button></div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

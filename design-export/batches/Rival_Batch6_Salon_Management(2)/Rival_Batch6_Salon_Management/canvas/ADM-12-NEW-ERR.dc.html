@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-12-NEW — خدمت تازه — خطای فیلد</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+<link rel="stylesheet" href="rv-b6.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1205px;">
+  <header class="f-bar-in">
+    <span aria-hidden="true"></span>
+    <h1>خدمت تازه</h1>
+    <a href="/admin/services" class="rv-icon-btn" aria-label="بستن"><i class="ri ri-x"></i></a>
+  </header>
+  <main class="f-enter" style="padding: var(--space-2) var(--space-4) 150px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <!-- [مدیر] نوع فقط هنگام ساخت انتخاب می‌شود؛ انتخاب فقط با لبهٔ سیاه نشان داده می‌شود -->
+    <section aria-labelledby="t-h" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <div class="f-head" style="margin-bottom: 0;"><h2 id="t-h" class="f-h">نوع خدمت</h2></div>
+      <div class="b6-tc" role="radiogroup" aria-labelledby="t-h">
+        <div class="rv-option" role="radio" aria-checked="true" tabindex="0"><b>ثابت</b><small>رزرو مستقیم</small></div>
+        <div class="rv-option" role="radio" aria-checked="false" tabindex="0"><b>پیشنهادی</b><small>پیشنهاد آرایشگر</small></div>
+        <div class="rv-option" role="radio" aria-checked="false" tabindex="0"><b>چندخدمتی</b><small>ترکیب چند خدمت</small></div>
+      </div>
+      <p class="b4-hint" style="margin: 0;"><i class="ri ri-info" aria-hidden="true"></i>مشتری خودش یکی از نوبت‌های تعریف‌شدهٔ خدمت را انتخاب و رزرو می‌کند.</p>
+      <div class="rv-notice is-warning" role="note"><i class="ri ri-alert" aria-hidden="true"></i><div><div class="rv-notice__t">بعد از ساخت قابل تغییر نیست</div><div class="rv-notice__d">برای تغییر نوع باید خدمت را حذف و خدمت تازه بسازید.</div></div></div>
+    </section>
+    <div class="rv-field"><span class="rv-label">تصویر خدمت<span class="b6-opt">اختیاری</span></span><div class="b6-up"><span class="b6-up__ph"><span class="b6-ph" aria-hidden="true"><i class="ri ri-image"></i></span></span><div class="b6-up__a"><button type="button" class="rv-btn rv-btn--secondary rv-btn--sm"><i class="ri ri-sm ri-upload"></i>افزودن تصویر</button><button type="button" class="rv-btn rv-btn--ghost rv-btn--sm" disabled><i class="ri ri-sm ri-trash"></i>حذف تصویر</button></div></div></div>
+    <div class="rv-field"><label class="rv-label" for="s-t">عنوان</label><div class="rv-input is-invalid"><input id="s-t" value="" placeholder="مثلاً اصلاح سر" autocomplete="off" aria-describedby="s-th" aria-invalid="true"></div><div id="s-th" class="rv-help is-error"><i class="ri ri-sm ri-alert" aria-hidden="true"></i>عنوان خدمت لازم است.</div></div>
+    <!-- [مدیر] مدت: انتخاب‌گر غلتکی درون‌صفحه (گام ۳۰ دقیقه، حداقل ۳۰ دقیقه) -->
+    <section class="rv-card rv-glass" aria-labelledby="w-h" style="padding: var(--space-4) var(--space-4) var(--space-2);">
+      <div class="f-head" style="margin-bottom: var(--space-2);"><h2 id="w-h" class="f-h">مدت خدمت</h2><span class="rv-caption rv-muted">گام ۳۰ دقیقه</span></div>
+      <div class="b6-wh" role="listbox" aria-label="مدت خدمت" tabindex="0"><div class="b6-wh__i " role="option" aria-selected="false"></div><div class="b6-wh__i is-1" role="option" aria-selected="false"></div><div class="b6-wh__i is-0" role="option" aria-selected="true">۳۰ دقیقه</div><div class="b6-wh__i is-1" role="option" aria-selected="false">۱ ساعت</div><div class="b6-wh__i " role="option" aria-selected="false">۱ ساعت و ۳۰ دقیقه</div></div>
+      
+    </section>
+    <!-- [مدیر] الگوی ارائه (فقط خدمت ثابت: برش‌های زمانی هر روز، برگهٔ ADM-13-PATE) و نگاشت اولیهٔ اختیاری آرایشگران (برگهٔ ADM-13-MAP) -->
+    <div class="rv-card rv-glass b4-kvcard">
+      <a href="#s-pat" role="button" aria-haspopup="dialog" class="rv-kv" style="color: inherit; text-decoration: none; min-height: 44px; align-items: center;"><span>الگوی ارائه</span><b><span style="color: var(--text-muted);">تعریف نشده</span><i class="ri ri-sm ri-chevron-left" aria-hidden="true" style="margin-inline-start: 4px; vertical-align: -3px; color: var(--text-muted);"></i></b></a>
+      <a href="#s-map" role="button" aria-haspopup="dialog" class="rv-kv" style="color: inherit; text-decoration: none; min-height: 44px; align-items: center;"><span>آرایشگرها، اختیاری</span><b><span style="color: var(--text-muted);">انتخاب نشده</span><i class="ri ri-sm ri-chevron-left" aria-hidden="true" style="margin-inline-start: 4px; vertical-align: -3px; color: var(--text-muted);"></i></b></a>
+    </div>
+    <ul class="b2-facts">
+      <li><i class="ri ri-ban"></i><span>خدمت تازه تا آرایشگر و الگوی ارائه نداشته باشد رزرو نمی‌گیرد.</span></li>
+    </ul>
+  </main>
+  <div class="rv-actionbar rv-glass-strong b2-bar">
+    <div class="b2-bar__sum"><span class="b2-bar__t b2-bar__t--bad"><i class="ri ri-alert"></i>عنوان خدمت را بنویسید</span><span class="b2-bar__s">ثابت، ۳۰ دقیقه</span></div>
+    <button type="button" class="rv-btn rv-btn--primary" disabled>ثبت خدمت</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1205}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

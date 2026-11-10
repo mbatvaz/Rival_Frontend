@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-05 — نوبت‌ها — پیش رو، Scope «من» (Default)</title>
+<link rel="stylesheet" href="../css/ds/rival/tokens.css">
+<link rel="stylesheet" href="../css/ds/rival/components/bundle.css">
+<link rel="stylesheet" href="../css/rv-fixes.css">
+<link rel="stylesheet" href="../css/rv-final.css">
+<link rel="stylesheet" href="../css/rv-b2.css">
+<link rel="stylesheet" href="../css/rv-b3.css">
+<link rel="stylesheet" href="../css/rv-b4.css">
+<style>body{margin:0;background:#e9e9ec}.rv-board{margin:0 auto;box-shadow:0 0 0 1px rgba(0,0,0,.08)}</style>
+</head>
+<body>
+
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1370px;">
+  <header class="f-bar-in">
+    <a href="#more" class="rv-icon-btn" aria-label="بازگشت"><i class="ri ri-arrow-right"></i></a>
+    <h1>نوبت‌ها</h1>
+    <a href="/admin/action-center" class="rv-icon-btn" aria-label="مرکز اقدام، ۳ مورد باز"><i class="ri ri-pending"></i><span class="rv-count is-plum">۳</span></a>
+  </header>
+
+    <main class="f-enter" style="padding: var(--space-2) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <!-- [مدیر] Scope زیر نوار بالا (f-scope + rv-seg، همان ADM-02 و ADM-03): «من» یا یک آرایشگر؛ فقط داده عوض می‌شود -->
+    <div class="f-scope">
+      <span class="f-scope__lbl">نوبت‌های</span>
+      <div class="rv-seg rv-glass" role="tablist" aria-label="دامنه نمایش" style="display: flex;">
+        <button role="tab" aria-selected="true" style="flex: 1; justify-content: center;"><i class="ri ri-sm ri-user"></i>من</button>
+        <button role="tab" aria-selected="false" aria-haspopup="listbox" aria-expanded="false" style="flex: 1; justify-content: center;">آرایشگر<i class="ri ri-sm ri-chevron-down"></i></button>
+      </div>
+    </div>
+    <div class="b4-tabrow">
+      <div class="rv-seg rv-glass b4-seg-full" role="tablist" aria-label="نوبت‌ها">
+        <button type="button" id="tab-up" role="tab" aria-selected="true" aria-controls="p-up">پیش رو<span class="b4-n" aria-label="۲۴ نوبت">۲۴</span></button>
+        <button type="button" id="tab-past" role="tab" aria-selected="false" aria-controls="p-past">گذشته<span class="b4-n" aria-label="۱۲۶ نوبت">۱۲۶</span></button>
+      </div>
+      <div class="rv-card rv-glass b4-fcard"><button type="button" class="rv-btn rv-btn--ghost rv-btn--sm b4-fcard__b" aria-haspopup="dialog" aria-label="فیلتر نوبت‌ها"><i class="ri ri-sm ri-filter"></i>فیلتر</button></div>
+    </div>
+    <div id="p-up" role="tabpanel" aria-labelledby="tab-up" style="display: flex; flex-direction: column; gap: var(--space-5);">
+    <section aria-labelledby="a-up">
+      <div class="f-head"><h2 id="a-up" class="f-h">امروز و پیش رو</h2><span class="rv-caption rv-muted">۲۴ نوبت</span></div>
+      <ol class="b2-tl2" aria-label="نوبت‌های امروز و پیش رو">
+        <li class="b2-tg">
+          <span class="b2-tg__m">امروز</span>
+          <div class="b2-tg__items">
+            <div class="b2-c2w"><article class="b2-c2 b3-up" aria-label="رضا کریمی، امروز ۱۱:۰۰، اصلاح سر و صورت، در حال انجام">
+              <img class="b2-c2__img" src="../assets/9bcf376b87aa77f58843d56fee2541ad.png" alt="" style="object-position: center 35%;">
+              <a href="/admin/appointments/BK-48302" class="b2-c2__hit" aria-label="جزئیات نوبت رضا کریمی، یکشنبه ساعت ۱۱:۰۰"></a>
+              <div class="b2-c2__txt">
+                <span class="b2-c2__when"><b class="b2-c1__t">۲۶</b><span class="b2-c1__d">یکشنبه<span class="rv-sep" aria-hidden="true"></span><b class="b2-c2__time">۱۱:۰۰</b></span></span>
+                <span class="b2-c1__s">اصلاح سر و صورت</span>
+                <span class="b2-c2__who"><span class="rv-avatar rv-avatar--sm"><img src="../assets/79929513347b228deb811bd4c90b3de1.png" alt=""></span><span>رضا کریمی</span></span>
+                <span class="rv-tag is-live"><i class="ri ri-scissors"></i>در حال انجام</span>
+              </div>
+            </article></div>
+            <div class="b2-c2w"><article class="b2-c2 b3-up" aria-label="محمد رستمی، امروز ۱۳:۰۰، اصلاح سر، رزرو شده، جابه‌جا شده از دوشنبه ۱۰:۰۰">
+              <img class="b2-c2__img" src="../assets/3c5d827818a79d3b3182c1c25d9367b1.png" alt="" style="object-position: center 30%;">
+              <a href="/admin/appointments/BK-48303" class="b2-c2__hit" aria-label="جزئیات نوبت محمد رستمی، یکشنبه ساعت ۱۳:۰۰"></a>
+              <div class="b2-c2__txt">
+                <span class="b2-c2__when"><b class="b2-c1__t">۲۶</b><span class="b2-c1__d">یکشنبه<span class="rv-sep" aria-hidden="true"></span><b class="b2-c2__time">۱۳:۰۰</b></span></span>
+                <span class="b2-c1__s">اصلاح سر</span>
+                <span class="b3-was">قبلاً <s>دوشنبه ۱۰:۰۰</s></span>
+                <span class="b2-c2__who"><span class="rv-avatar rv-avatar--sm">م</span><span>محمد رستمی</span></span>
+                <span class="rv-tag is-ink"><i class="ri ri-check-circle"></i>رزرو شده</span>
+              </div>
+            </article></div>
+            <div class="b2-c2w"><article class="b2-c2 b3-up" aria-label="حسین جعفری، امروز ۱۴:۳۰، اصلاح سر، رزرو شده">
+              <img class="b2-c2__img" src="../assets/3c5d827818a79d3b3182c1c25d9367b1.png" alt="" style="object-position: center 30%;">
+              <a href="/admin/appointments/BK-48304" class="b2-c2__hit" aria-label="جزئیات نوبت حسین جعفری، یکشنبه ساعت ۱۴:۳۰"></a>
+              <div class="b2-c2__txt">
+                <span class="b2-c2__when"><b class="b2-c1__t">۲۶</b><span class="b2-c1__d">یکشنبه<span class="rv-sep" aria-hidden="true"></span><b class="b2-c2__time">۱۴:۳۰</b></span></span>
+                <span class="b2-c1__s">اصلاح سر</span>
+                <span class="b2-c2__who"><span class="rv-avatar rv-avatar--sm">ح</span><span>حسین جعفری</span></span>
+                <span class="rv-tag is-ink"><i class="ri ri-check-circle"></i>رزرو شده</span>
+              </div>
+            </article></div>
+            <div class="b2-c2w"><article class="b2-c2 b3-up" aria-label="سامان نوری، امروز ۱۶:۰۰، اصلاح سر و صورت، رزرو شده">
+              <img class="b2-c2__img" src="../assets/9bcf376b87aa77f58843d56fee2541ad.png" alt="" style="object-position: center 35%;">
+              <a href="/admin/appointments/BK-48306" class="b2-c2__hit" aria-label="جزئیات نوبت سامان نوری، یکشنبه ساعت ۱۶:۰۰"></a>
+              <div class="b2-c2__txt">
+                <span class="b2-c2__when"><b class="b2-c1__t">۲۶</b><span class="b2-c1__d">یکشنبه<span class="rv-sep" aria-hidden="true"></span><b class="b2-c2__time">۱۶:۰۰</b></span></span>
+                <span class="b2-c1__s">اصلاح سر و صورت</span>
+                <span class="b2-c2__who"><span class="rv-avatar rv-avatar--sm"><img src="../assets/680d177350899e6d10684ae0081fa5b2.png" alt=""></span><span>سامان نوری</span></span>
+                <span class="rv-tag is-ink"><i class="ri ri-check-circle"></i>رزرو شده</span>
+              </div>
+            </article></div>
+          </div>
+        </li>
+        <li class="b2-tg">
+          <span class="b2-tg__m">این هفته</span>
+          <div class="b2-tg__items">
+            <div class="b2-c2w"><article class="b2-c2 b3-up" aria-label="کاوه احمدی، دوشنبه ۲۷ مهر ۰۹:۳۰، اصلاح سر، رزرو شده">
+              <img class="b2-c2__img" src="../assets/3c5d827818a79d3b3182c1c25d9367b1.png" alt="" style="object-position: center 30%;">
+              <a href="/admin/appointments/BK-48311" class="b2-c2__hit" aria-label="جزئیات نوبت کاوه احمدی، دوشنبه ساعت ۰۹:۳۰"></a>
+              <div class="b2-c2__txt">
+                <span class="b2-c2__when"><b class="b2-c1__t">۲۷</b><span class="b2-c1__d">دوشنبه<span class="rv-sep" aria-hidden="true"></span><b class="b2-c2__time">۰۹:۳۰</b></span></span>
+                <span class="b2-c1__s">اصلاح سر</span>
+                <span class="b2-c2__who"><span class="rv-avatar rv-avatar--sm">ک</span><span>کاوه احمدی</span></span>
+                <span class="rv-tag is-ink"><i class="ri ri-check-circle"></i>رزرو شده</span>
+              </div>
+            </article></div>
+            <!-- [مدیر] نوبت جزء درخواست چندخدمتی: برچسب پیوند به همان درخواست، بالای لایه لینک کارت -->
+            <div class="b2-c2w"><article class="b2-c2 b3-up" aria-label="پویا صادقی، پنج‌شنبه ۳۰ مهر ۱۲:۰۰، گریم داماد، بخش ۳ از ۳ درخواست چندخدمتی پکیج دامادی، رزرو شده">
+              <img class="b2-c2__img" src="../assets/a594ff45171e1ef6a113b85a7c7017ed.png" alt="" style="object-position: center 40%;">
+              <a href="/admin/appointments/BK-48331" class="b2-c2__hit" aria-label="جزئیات نوبت پویا صادقی، پنج‌شنبه ساعت ۱۲:۰۰"></a>
+              <div class="b2-c2__txt">
+                <span class="b2-c2__when"><b class="b2-c1__t">۳۰</b><span class="b2-c1__d">پنج‌شنبه<span class="rv-sep" aria-hidden="true"></span><b class="b2-c2__time">۱۲:۰۰</b></span></span>
+                <span class="b2-c1__s">گریم داماد</span>
+                <span class="b2-c2__who"><span class="rv-avatar rv-avatar--sm">پ</span><span>پویا صادقی</span></span>
+                <span class="rv-tag is-ink"><i class="ri ri-check-circle"></i>رزرو شده</span>
+                <a href="/admin/requests/RQ-2219" class="rv-tag is-outline" style="position: relative; z-index: 2; text-decoration: none;"><i class="ri ri-layers"></i>پکیج دامادی، ۳ از ۳</a>
+              </div>
+            </article></div>
+          </div>
+        </li>
+      </ol>
+      <button type="button" class="rv-btn rv-btn--ghost rv-btn--block b4-more">نمایش ۱۸ نوبت دیگر</button>
+    </section>
+
+    </div>
+  </main>
+
+  <!-- نوار پایین مدیر کل = نوار آرایشگر (SHELL-ADM)؛ «بیشتر» فعال چون نوبت‌ها از کشوست -->
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری مدیر کل">
+      <a href="/admin" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+      <a href="/admin/calendar" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+      <a href="/admin/requests" aria-label="درخواست‌ها، ۴ درخواست منتظر پاسخ شما"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۴</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/admin/customers" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+      <a href="#more" aria-current="page" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+  </div>
+</div>
+
+</body>
+</html>

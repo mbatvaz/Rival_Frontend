@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rival — HoldTimer</title><link rel="stylesheet" href="../../css/tokens.css"><link rel="stylesheet" href="../../css/rival.css"><style>body{margin:0}</style></head>
+<body>
+<!-- @dsCard width=900 group="Feedback" height=430 subtitle="Time holds — 5 minutes for Fixed, 3 hours for a published answer: glass ring, glass bar, urgent and expired states" -->
+<div class="rv rv-final rv-pad" dir="rtl" lang="fa"><div style="display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center">
+  <div class="rv-card rv-glass rv-card--lg rv-stack" style="align-items:center;text-align:center;gap:10px">
+    <div class="rv-gauge" role="timer" aria-label="زمان باقی‌مانده نگه‌داشت">
+      <svg viewBox="0 0 168 168"><circle class="trk" cx="84" cy="84" r="74"/><circle class="val" id="arc" cx="84" cy="84" r="74" stroke-dasharray="465" stroke-dashoffset="142"/></svg>
+      <div class="rv-gauge__c"><span>نگه‌داشت زمان</span><b id="t">۰۳:۲۸</b><span>از ۵ دقیقه</span></div>
+    </div>
+    <span class="rv-tag is-warning"><i class="ri ri-hourglass"></i>نگه‌داشت فعال</span>
+    <span class="rv-caption rv-muted" style="max-width:200px">این زمان تا پایان شمارش فقط برای شما نگه داشته می‌شود.</span>
+  </div>
+  <div class="rv-stack">
+    <div class="rv-card rv-glass rv-hold"><span class="rv-tile is-warning"><i class="ri ri-timer"></i></span><div class="rv-grow"><div class="rv-title">پاسخ طاها برای شما نگه داشته شده</div><div class="rv-progress is-warning" style="margin-top:8px"><i style="width:89%"></i></div></div><span class="rv-hold__time">۲:۴۱:۰۸</span></div>
+    <div class="rv-card rv-glass rv-hold"><span class="rv-tile is-danger"><i class="ri ri-alert"></i></span><div class="rv-grow"><div class="rv-title">کمتر از یک دقیقه مانده</div><div class="rv-caption rv-muted">پس از آن زمان آزاد می‌شود</div></div><span class="rv-hold__time" style="color:var(--danger-fg);animation:rv-breathe 1.2s ease-in-out infinite">۰۰:۴۸</span></div>
+    <div class="rv-card rv-glass rv-hold"><div class="rv-gauge rv-gauge--sm"><svg viewBox="0 0 60 60"><circle class="trk" cx="30" cy="30" r="25"/><circle class="val" cx="30" cy="30" r="25" stroke-dasharray="157" stroke-dashoffset="40"/></svg><div class="rv-gauge__c"><b>۲:۱۰</b></div></div><div class="rv-grow"><div class="rv-title">پاسخ «فیشیال» آماده است</div><div class="rv-caption rv-muted">پنج‌شنبه ۲۳ مهر<span class="rv-sep" aria-hidden="true"></span>۱۷:۰۰<span class="rv-sep" aria-hidden="true"></span>۲۲۰٬۰۰۰ تومان</div></div><button class="rv-btn rv-btn--accent rv-btn--sm">پرداخت</button></div>
+    <div class="rv-card rv-glass rv-hold"><span class="rv-tile is-neutral"><i class="ri ri-clock-alert"></i></span><div class="rv-grow"><div class="rv-title">مهلت پرداخت تمام شد</div><div class="rv-caption rv-muted">زمان آزاد شد؛ برای ادامه درخواست تازه بدهید.</div></div><span class="rv-tag is-neutral"><i class="ri ri-clock-alert"></i>منقضی شده</span></div>
+  </div>
+</div></div>
+<script>(function(){var s=208,fa='۰۱۲۳۴۵۶۷۸۹',f=function(n){return String(n).replace(/\d/g,function(d){return fa[d]})};setInterval(function(){s=s>0?s-1:300;var m=Math.floor(s/60),x=s%60;document.getElementById('t').textContent=f('0'+m)+':'+f((x<10?'0':'')+x);document.getElementById('arc').setAttribute('stroke-dashoffset',465-465*s/300);},1000);})();</script>
+
+</body></html>

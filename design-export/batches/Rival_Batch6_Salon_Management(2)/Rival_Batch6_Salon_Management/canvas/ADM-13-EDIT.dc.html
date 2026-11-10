@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-13 — ویرایش خدمت — برگه ویرایش اطلاعات</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+<link rel="stylesheet" href="rv-b6.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1045px;">
+  <div aria-hidden="true" inert style="position: absolute; inset: 0; overflow: hidden;">
+  <header class="f-bar-in">
+    <a href="/admin/services" class="rv-icon-btn" aria-label="بازگشت"><i class="ri ri-arrow-right"></i></a>
+    <h1>خدمت</h1>
+    <a href="/admin/action-center" class="rv-icon-btn" aria-label="مرکز اقدام، ۳ مورد باز"><i class="ri ri-pending"></i><span class="rv-count is-plum">۳</span></a>
+  </header>
+  <main style="padding: var(--space-1) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+    <section class="b3-pf rv-glass-strong b4-cpf b6-sh b3-lift" aria-label="اصلاح سر و صورت">
+      <span class="b3-pf__ph"><img src="/_blob/8a8eb19c5d8d350ff62ee1a4c4e22b2c" alt=""></span>
+      <div class="rv-grow" style="min-width: 0;">
+        <div class="b3-pf__n">اصلاح سر و صورت</div>
+        <div class="b3-pf__s">ثابت<span class="rv-sep" aria-hidden="true"></span>۱ ساعت</div>
+        <div class="b4-cpf__since">در فهرست از مهر ۱۴۰۴</div>
+      </div>
+    </section>
+    <div class="b4-acc-acts" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2);">
+      <button type="button" class="rv-btn rv-btn--secondary rv-btn--sm" style="min-height: 44px; padding-inline: var(--space-2);" aria-haspopup="dialog"><i class="ri ri-sm ri-edit"></i>ویرایش</button>
+      <button type="button" class="rv-btn rv-btn--secondary rv-btn--sm" style="min-height: 44px; padding-inline: var(--space-2);" aria-haspopup="dialog"><i class="ri ri-sm ri-lock"></i>غیرفعال کردن</button>
+      <button type="button" class="rv-btn rv-btn--danger-soft rv-btn--sm" style="min-height: 44px; padding-inline: var(--space-2);" aria-haspopup="dialog"><i class="ri ri-sm ri-trash"></i>حذف خدمت</button>
+    </div>
+    </div>
+    <section aria-labelledby="d-st">
+      <div class="f-head"><h2 id="d-st" class="f-h">وضعیت</h2></div>
+      <div class="rv-card rv-glass" style="padding: var(--space-1) var(--space-4) var(--space-3);">
+        <div class="rv-kv" style="min-height: 44px; align-items: center;"><span>وضعیت</span><b><span class="rv-tag is-ink"><i class="ri ri-check-circle"></i>فعال</span></b></div><div class="rv-kv" style="min-height: 44px; align-items: center;"><span>نوع</span><b>ثابت<i class="ri ri-sm ri-lock" aria-hidden="true" style="margin-inline-start: 4px; vertical-align: -3px; color: var(--text-muted);"></i></b></div><div class="rv-kv" style="min-height: 44px; align-items: center;"><span>مدت</span><b>۱ ساعت</b></div><div class="rv-kv" style="min-height: 44px; align-items: center;"><span>رزرو تازه</span><b>می‌پذیرد</b></div><div class="rv-kv" style="min-height: 44px; align-items: center;"><span>نوبت‌های پیش رو</span><b>۵ نوبت</b></div>
+      </div>
+    </section>
+<div class="rv-seg rv-glass b4-seg-full" role="tablist" aria-label="بخش‌های خدمت"><button type="button" role="tab" aria-selected="true">آرایشگران<span class="b4-n">۳</span></button><button type="button" role="tab" aria-selected="false">الگوی ارائه</button></div>
+    <section role="tabpanel" aria-label="آرایشگران" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <div class="f-head" style="margin-bottom: 0;"><span class="rv-caption rv-muted">۳ آرایشگر نگاشت‌شده</span><button type="button" class="rv-btn rv-btn--secondary rv-btn--sm" style="min-height: 44px;" aria-haspopup="dialog"><i class="ri ri-sm ri-edit"></i>افزودن یا حذف</button></div>
+      <div class="rv-list rv-glass">
+        <a class="rv-item" href="/admin/stylists/1"><span class="rv-avatar"><img src="/_blob/92858d17f7588a28f873f9e48c4fa8ba" alt=""></span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">طاها بهرامی (من)</div><div class="rv-item__s">۲ نوبت پیش رو برای این خدمت</div></div><i class="ri ri-sm ri-chevron-left rv-chev" aria-hidden="true"></i></a>
+        <a class="rv-item" href="/admin/stylists/2"><span class="rv-avatar"><img src="/_blob/0a3b58d23c54a75f94904a6d6fa33639" alt=""></span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">امیر صالحی</div><div class="rv-item__s">۱ نوبت پیش رو برای این خدمت</div></div><i class="ri ri-sm ri-chevron-left rv-chev" aria-hidden="true"></i></a>
+        <a class="rv-item" href="/admin/stylists/3"><span class="rv-avatar"><img src="/_blob/9783e86f458ebcebd2fc5b4666e66be1" alt=""></span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">سینا فرهمند</div><div class="rv-item__s">۲ نوبت پیش رو برای این خدمت</div></div><i class="ri ri-sm ri-chevron-left rv-chev" aria-hidden="true"></i></a>
+      </div>
+
+    </section>
+  </main>
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری مدیر کل">
+      <a href="/admin" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+      <a href="/admin/calendar" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+      <a href="/admin/requests" aria-label="درخواست‌ها، ۴ درخواست منتظر پاسخ شما"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۴</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/admin/customers" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+      <a href="#more" aria-current="page" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+  </div>
+  </div>
+  <div class="rv-scrim" aria-hidden="true"></div>
+  <section class="rv-sheet rv-glass-strong b2-sheet" role="dialog" aria-modal="true" aria-labelledby="ed-t">
+    <span class="b2-grip" aria-hidden="true"></span>
+    <div class="b2-sheet__head">
+      <span class="rv-tile is-neutral"><i class="ri ri-scissors"></i></span>
+      <div class="rv-grow"><h2 id="ed-t" class="b2-sheet__t">ویرایش اطلاعات</h2><p class="b2-sheet__d">اصلاح سر و صورت</p></div>
+      <button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="بستن برگه"><i class="ri ri-x"></i></button>
+    </div>
+    <!-- [مدیر] ویرایش اطلاعات؛ نوع قفل است و دلیلش نوشته شده؛ تغییر مدت فقط آینده را عوض می‌کند -->
+    <div class="rv-field"><span class="rv-label">تصویر خدمت<span class="b6-opt">اختیاری</span></span><div class="b6-up"><span class="b6-up__ph"><img src="/_blob/8a8eb19c5d8d350ff62ee1a4c4e22b2c" alt=""></span><div class="b6-up__a"><button type="button" class="rv-btn rv-btn--secondary rv-btn--sm"><i class="ri ri-sm ri-upload"></i>تغییر تصویر</button><button type="button" class="rv-btn rv-btn--ghost rv-btn--sm"><i class="ri ri-sm ri-trash"></i>حذف تصویر</button></div></div></div>
+    <div class="rv-field"><label class="rv-label" for="e-t">عنوان</label><div class="rv-input"><input id="e-t" value="اصلاح سر و صورت" autocomplete="off"></div></div>
+    <!-- [مدیر] مدت: انتخاب‌گر غلتکی درون‌صفحه (گام ۳۰ دقیقه، حداقل ۳۰ دقیقه) -->
+    <section class="rv-card rv-glass" aria-labelledby="w-h" style="padding: var(--space-4) var(--space-4) var(--space-2);">
+      <div class="f-head" style="margin-bottom: var(--space-2);"><h2 id="w-h" class="f-h">مدت خدمت</h2><span class="rv-caption rv-muted">گام ۳۰ دقیقه</span></div>
+      <div class="b6-wh" role="listbox" aria-label="مدت خدمت" tabindex="0"><div class="b6-wh__i " role="option" aria-selected="false">۳۰ دقیقه</div><div class="b6-wh__i is-1" role="option" aria-selected="false">۱ ساعت</div><div class="b6-wh__i is-0" role="option" aria-selected="true">۱ ساعت و ۳۰ دقیقه</div><div class="b6-wh__i is-1" role="option" aria-selected="false">۲ ساعت</div><div class="b6-wh__i " role="option" aria-selected="false">۲ ساعت و ۳۰ دقیقه</div></div>
+      <p class="b4-hint" style="margin: 0 0 var(--space-2);"><i class="ri ri-info" aria-hidden="true"></i>مدت قبلی ۱ ساعت بود؛ تغییر فقط روی رزروهای آینده اثر دارد.</p>
+    </section>
+    <div class="rv-card rv-glass b4-kvcard">
+      <div class="rv-kv" style="min-height: 44px; align-items: center;"><span>نوع خدمت</span><b>ثابت<i class="ri ri-sm ri-lock" aria-hidden="true" style="margin-inline-start: 4px; vertical-align: -3px; color: var(--text-muted);"></i></b></div>
+    </div>
+    <p class="b4-hint" style="margin: 0;"><i class="ri ri-lock" aria-hidden="true"></i>برای تغییر نوع، این خدمت را حذف و خدمت تازه بسازید.</p>
+    <div class="b2-sheet__acts"><button type="button" class="rv-btn rv-btn--primary">ذخیره</button><button type="button" class="rv-btn rv-btn--secondary">انصراف</button></div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1045}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

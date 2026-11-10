@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-15 — باز شدن رزرو — جهت الف</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+<link rel="stylesheet" href="rv-b6.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1525px;">
+  <header class="f-bar-in">
+    <a href="#more" class="rv-icon-btn" aria-label="بازگشت"><i class="ri ri-arrow-right"></i></a>
+    <h1>برنامه‌ها و تعطیلات</h1>
+    <a href="/admin/action-center" class="rv-icon-btn" aria-label="مرکز اقدام، ۳ مورد باز"><i class="ri ri-pending"></i><span class="rv-count is-plum">۳</span></a>
+  </header>
+
+  <main class="f-enter" style="padding: var(--space-2) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <!-- جهت الف: باز شدن رزرو زبانه خودش را دارد، کنار الگوی سالن، برنامه آرایشگران و تعطیلات -->
+    <div class="rv-seg rv-glass b4-seg-full b6-seg4" role="tablist" aria-label="برنامه‌ها و تعطیلات"><button type="button" role="tab" aria-selected="false" aria-controls="p-bf">سالن</button><button type="button" role="tab" aria-selected="false" aria-controls="p-bf">آرایشگران</button><button type="button" role="tab" aria-selected="false" aria-controls="p-bf">تعطیلات</button><button type="button" id="tab-bf" role="tab" aria-selected="true" aria-controls="p-bf">باز شدن رزرو</button></div>
+
+    <section id="p-bf" role="tabpanel" aria-labelledby="tab-bf" style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <div class="b6-bfp__hd" style="align-items: center; padding: 0 var(--space-1);">
+        <span class="rv-tile" aria-hidden="true"><i class="ri ri-calendar-clock"></i></span>
+        <h2 class="b6-bfp__t rv-grow">زمان باز شدن رزرو</h2>
+        <button type="button" class="rv-btn rv-btn--secondary rv-btn--sm" style="min-height: 44px;" aria-haspopup="dialog"><i class="ri ri-sm ri-plus"></i>افزودن</button>
+      </div>
+
+      <!-- راهنمای خط زمان: فقط نام، روی پس‌زمینه، یک‌بار -->
+      <div class="b6-lgn" role="group" aria-label="راهنمای خط زمان">
+        <span><span class="b6-gate__now" aria-hidden="true"></span>اکنون</span>
+        <span><span class="b6-gate__wait" aria-hidden="true"></span>تا باز شدن</span>
+        <span><span class="b6-gate__pin" aria-hidden="true"><i class="ri ri-calendar-clock"></i></span>باز شدن رزرو</span>
+        <span><span class="b6-gate__tgt" aria-hidden="true"></span>بازه انتخابی</span>
+      </div>
+
+      <div class="b4-xcs">
+        <article class="b6-bf rv-card rv-glass" aria-label="فیشیال و اصلاح سر و صورت طاها و دو آرایشگر دیگر؛ بازه ۱ تا ۱۵ آذر؛ رزرو از چهارشنبه ۲۰ آبان ساعت ۱۰:۰۰ باز می‌شود">
+          <a href="#bf-1" class="b6-bf__hit" aria-label="ویرایش زمان باز شدن"></a>
+          <div class="b6-bf__hd">
+            <span class="b6-rg" role="group" aria-label="بازه انتخابی از ۱ تا ۱۵ آذر"><span class="b6-rg__c"><small>از</small><b>۱</b><em>آذر</em></span><i class="ri ri-arrow-left" aria-hidden="true"></i><span class="b6-rg__c"><small>تا</small><b>۱۵</b><em>آذر</em></span></span>
+            <span class="rv-tag"><i class="ri ri-calendar-clock"></i>هنوز بسته</span>
+          </div>
+          <span class="b6-op"><i class="ri ri-calendar-clock" aria-hidden="true"></i>باز شدن<b>چهارشنبه ۲۰ آبان، ۱۰:۰۰</b></span>
+          <div class="b6-gate" aria-hidden="true">
+            <div class="b6-gate__trk"><span class="b6-gate__now"></span><span class="b6-gate__wait"></span><span class="b6-gate__pin"><i class="ri ri-calendar-clock"></i></span><span class="b6-gate__run"></span><span class="b6-gate__tgt"></span></div>
+            <div class="b6-gate__d"><span class="is-sp10"></span><span class="is-w">۱۷ روز</span><span class="is-sp28"></span><span class="is-r"></span><span class="is-t">۱۵ روز</span></div>
+          </div>
+          <ul class="b6-who" aria-label="آرایشگران و خدمت‌های شامل این قاعده">
+            <li class="b6-who__r"><span class="rv-avatar rv-avatar--sm" aria-hidden="true"><img src="/_blob/92858d17f7588a28f873f9e48c4fa8ba" alt=""></span><div><span class="b6-who__n">طاها</span><span class="b6-svs"><span class="b6-sv">فیشیال</span><span class="b6-sv">اصلاح سر و صورت</span></span></div></li>
+            <li><button type="button" class="b6-who__tg" aria-expanded="false"><span class="b6-avs" aria-hidden="true"><span class="rv-avatar rv-avatar--xs" aria-hidden="true"><img src="/_blob/0a3b58d23c54a75f94904a6d6fa33639" alt=""></span><span class="rv-avatar rv-avatar--xs" aria-hidden="true"><img src="/_blob/9783e86f458ebcebd2fc5b4666e66be1" alt=""></span></span><span>و ۲ آرایشگر دیگر</span><i class="ri ri-chevron-down" aria-hidden="true"></i></button></li>
+          </ul>
+        </article>
+        <article class="b6-bf rv-card rv-glass" aria-label="اصلاح سر، اصلاح سر و صورت و رنگ ریش؛ بازه ۲۳ تا ۲۹ اسفند؛ رزرو از شنبه ۱ اسفند ساعت ۱۰:۰۰ باز می‌شود">
+          <a href="#bf-2" class="b6-bf__hit" aria-label="ویرایش زمان باز شدن"></a>
+          <div class="b6-bf__hd">
+            <span class="b6-rg" role="group" aria-label="بازه انتخابی از ۲۳ تا ۲۹ اسفند"><span class="b6-rg__c"><small>از</small><b>۲۳</b><em>اسفند</em></span><i class="ri ri-arrow-left" aria-hidden="true"></i><span class="b6-rg__c"><small>تا</small><b>۲۹</b><em>اسفند</em></span></span>
+            <span class="rv-tag"><i class="ri ri-calendar-clock"></i>هنوز بسته</span>
+          </div>
+          <span class="b6-op"><i class="ri ri-calendar-clock" aria-hidden="true"></i>باز شدن<b>شنبه ۱ اسفند، ۱۰:۰۰</b></span>
+          <div class="b6-gate" style="--w: 3; --t: 18%;" aria-hidden="true">
+            <div class="b6-gate__trk"><span class="b6-gate__now"></span><span class="b6-gate__wait"></span><span class="b6-gate__pin"><i class="ri ri-calendar-clock"></i></span><span class="b6-gate__run"></span><span class="b6-gate__tgt"></span></div>
+            <div class="b6-gate__d"><span class="is-sp10"></span><span class="is-w">۱۱۸ روز</span><span class="is-sp28"></span><span class="is-r"></span><span class="is-t">۷ روز</span></div>
+          </div>
+          <ul class="b6-who" aria-label="آرایشگران و خدمت‌های شامل این قاعده">
+            <li class="b6-who__r"><span class="rv-avatar rv-avatar--sm" aria-hidden="true"><img src="/_blob/92858d17f7588a28f873f9e48c4fa8ba" alt=""></span><div><span class="b6-who__n">طاها</span><span class="b6-svs"><span class="b6-sv">اصلاح سر</span><span class="b6-sv">اصلاح سر و صورت</span></span></div></li>
+            <li class="b6-who__r"><span class="rv-avatar rv-avatar--sm" aria-hidden="true"><img src="/_blob/0a3b58d23c54a75f94904a6d6fa33639" alt=""></span><div><span class="b6-who__n">امیر</span><span class="b6-svs"><span class="b6-sv">اصلاح سر</span></span></div></li>
+            <li class="b6-who__r"><span class="rv-avatar rv-avatar--sm" aria-hidden="true">م</span><div><span class="b6-who__n">مهدی</span><span class="b6-svs"><span class="b6-sv">رنگ ریش</span></span></div></li>
+            <li><button type="button" class="b6-who__tg" aria-expanded="true"><span class="b6-avs" aria-hidden="true"><span class="rv-avatar rv-avatar--xs" aria-hidden="true"><img src="/_blob/0a3b58d23c54a75f94904a6d6fa33639" alt=""></span><span class="rv-avatar rv-avatar--xs" aria-hidden="true">م</span></span><span>نمایش کمتر</span><i class="ri ri-chevron-down" aria-hidden="true"></i></button></li>
+          </ul>
+        </article>
+        <!-- روز تعطیل (جمعه) در برگ تقویم قرمز است؛ قاعده‌ای که زمانش رسیده تا پایان بازه با برچسب «باز شد» می‌ماند -->
+        <article class="b6-bf rv-card rv-glass is-done" aria-label="گریم داماد طاها؛ بازه ۵ تا ۲۰ آبان؛ رزرو از جمعه ۱ آبان (تعطیل) ساعت ۱۰:۰۰ باز است">
+          <a href="#bf-3" class="b6-bf__hit" aria-label="ویرایش زمان باز شدن"></a>
+          <div class="b6-bf__hd">
+            <span class="b6-rg" role="group" aria-label="بازه انتخابی از ۵ تا ۲۰ آبان"><span class="b6-rg__c"><small>از</small><b>۵</b><em>آبان</em></span><i class="ri ri-arrow-left" aria-hidden="true"></i><span class="b6-rg__c"><small>تا</small><b>۲۰</b><em>آبان</em></span></span>
+            <span class="rv-tag is-success"><i class="ri ri-check-circle"></i>باز شد</span>
+          </div>
+          <span class="b6-op is-hol"><i class="ri ri-calendar-clock" aria-hidden="true"></i>باز شدن<b>جمعه ۱ آبان، ۱۰:۰۰</b><em>تعطیل</em></span>
+          
+          <ul class="b6-who" aria-label="آرایشگران و خدمت‌های شامل این قاعده">
+            <li class="b6-who__r"><span class="rv-avatar rv-avatar--sm" aria-hidden="true"><img src="/_blob/92858d17f7588a28f873f9e48c4fa8ba" alt=""></span><div><span class="b6-who__n">طاها</span><span class="b6-svs"><span class="b6-sv">گریم داماد</span></span></div></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری مدیر کل">
+      <a href="/admin" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+      <a href="/admin/calendar" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+      <a href="/admin/requests" aria-label="درخواست‌ها، ۴ درخواست منتظر پاسخ شما"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۴</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/admin/customers" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+      <a href="#more" aria-current="page" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1525}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

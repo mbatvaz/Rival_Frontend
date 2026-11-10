@@ -1,0 +1,539 @@
+/* Rival — اجزای ترکیبی دسته ۲ (جریان رزرو). بعد از tokens.css، bundle.css، rv-fixes.css و rv-final.css بارگذاری می‌شود.
+   فقط توکن؛ هیچ رنگ، فونت یا افکت تازه‌ای نیست. هر کلاس در «یادداشت دسته» ثبت شده است. */
+
+/* ۱. نوار اقدام پایین صفحه (جای نوار پایین را در قدم‌های دارای اقدام پایانی می‌گیرد) */
+.b2-bar { position: absolute; inset: auto 0 0 0; z-index: 10; padding: var(--space-3) var(--space-4) var(--space-5); }
+.b2-bar__sum { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.b2-bar__t { font-size: 16px; line-height: 24px; font-weight: 600; white-space: nowrap; }
+.b2-bar__s { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); white-space: nowrap; }
+.b2-bar .rv-btn { flex: none; min-width: 148px; }
+
+/* ۲. نوار زمینه انتخاب (خدمت + آرایشگر، با «تغییر») */
+.b2-ctx { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2) var(--space-2) var(--space-2) var(--space-3); border-radius: var(--radius-lg); }
+.b2-ctx__media { position: relative; flex: none; width: 48px; height: 48px; }
+.b2-ctx__media > img { width: 48px; height: 48px; border-radius: var(--radius-sm); object-fit: cover; }
+.b2-ctx__media > .rv-avatar { position: absolute; inset-inline-start: -8px; bottom: -6px; width: 26px; height: 26px; box-shadow: 0 0 0 2px var(--bg-surface); }
+.b2-ctx__t { font-size: 15px; line-height: 22px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.b2-ctx__s { display: flex; align-items: center; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); white-space: nowrap; }
+.b2-ctx > .rv-btn { flex: none; }
+
+/* ۳. BK-01 چرخ‌فلک: برچسب بالای کارت و خط «این نوع چطور کار می‌کند» */
+.b2-svc__tag { position: absolute; top: var(--space-3); inset-inline-start: var(--space-3); }
+.f-svc.is-side .b2-svc__tag { top: var(--space-2); inset-inline-start: var(--space-2); }
+.f-car--b2 .f-svc { width: 200px; height: 272px; }
+.f-car--b2 .f-svc.is-side { width: 156px; height: 224px; }
+.b2-type { display: flex; align-items: center; gap: var(--space-2); margin: 0 var(--space-1); font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b2-type > .rv-tag { flex: none; }
+
+/* ۴. BK-01 ریل گروه‌دار: همه خدمات کنار هم، گروه‌بندی‌شده با نوع */
+.b2-grail { display: flex; gap: var(--space-5); overflow-x: auto; scrollbar-width: none; margin: 0 calc(var(--space-4) * -1); padding: var(--space-1) var(--space-4) var(--space-4); }
+.b2-grail::-webkit-scrollbar { display: none; }
+.b2-grp { flex: none; display: flex; flex-direction: column; gap: var(--space-2); }
+.b2-grp + .b2-grp { padding-inline-start: var(--space-5); border-inline-start: 1px solid var(--line-hairline); }
+.b2-grp__l { display: flex; align-items: center; gap: 6px; font-size: 12px; line-height: 18px; font-weight: 400; color: var(--text-secondary); }
+.b2-grp__l .ri { width: 14px; height: 14px; color: var(--text-muted); }
+.b2-grp__cards { display: flex; gap: var(--space-3); }
+.b2-qrow { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2); min-height: 64px; color: inherit; text-decoration: none; }
+.b2-qrow__m { position: relative; flex: none; width: 48px; height: 48px; }
+.b2-qrow__m > img { width: 48px; height: 48px; border-radius: var(--radius-sm); object-fit: cover; }
+.b2-qrow__m > .rv-avatar { position: absolute; inset-inline-start: -6px; bottom: -6px; width: 24px; height: 24px; box-shadow: 0 0 0 2px var(--bg-surface); }
+.b2-ways { display: flex; flex-direction: column; }
+.b2-way { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: var(--space-3); align-items: center; padding: var(--space-2) var(--space-1); }
+.b2-way + .b2-way { border-top: 1px solid var(--line-hairline); }
+.b2-way__t { font-size: 14px; line-height: 20px; font-weight: 600; }
+.b2-way__d { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+
+/* ۵. BK-F01 زمان‌ها: چهارستونه برای یک بازه، و کارت‌های «زودترین زمان» */
+.b2-slots4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-2); }
+.b2-slots4 .rv-slot { min-width: 0; padding: 0; }
+.b2-period { display: flex; align-items: center; gap: 6px; }
+.b2-period > b { font-weight: 400; color: var(--text-secondary); }
+.b2-soon { display: flex; gap: var(--space-2); overflow-x: auto; scrollbar-width: none; margin: 0 calc(var(--space-4) * -1); padding: var(--space-1) var(--space-4) var(--space-3); }
+.b2-soon::-webkit-scrollbar { display: none; }
+.b2-soon__c { flex: 0 0 auto; min-width: 104px; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: var(--space-3) var(--space-4); border: 0; border-radius: var(--radius-lg); text-align: start; cursor: pointer; color: inherit; font: inherit; }
+.b2-soon__l { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b2-soon__t { font-size: 28px; line-height: 34px; font-weight: 300; }
+.b2-soon__d { font-size: 12px; line-height: 18px; font-weight: 400; color: var(--text-primary); white-space: nowrap; }
+.b2-note { display: flex; align-items: center; gap: var(--space-2); margin: 0 var(--space-1); font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b2-note .ri { width: 14px; height: 14px; }
+.b2-alert { display: flex; align-items: center; gap: var(--space-3); min-height: 56px; padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); box-shadow: inset 0 0 0 1px var(--line-hairline); text-decoration: none; color: inherit; }
+.b2-alert__t { font-size: 14px; line-height: 20px; font-weight: 400; }
+.b2-alert__d { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+
+/* ۶. BK-F02: رسید با بریدگی، مبلغ درشت، نوار سهم اعتبار و درگاه، خط زمانی پنجره‌های لغو */
+.b2-ticket { --cut: 176px; position: relative; border-radius: var(--radius-xl); overflow: visible; }
+.b2-ticket__media { position: relative; height: 120px; border-radius: var(--radius-xl) var(--radius-xl) 0 0; overflow: hidden; }
+.b2-ticket__media > img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+.b2-ticket__body { padding: var(--space-4) var(--space-5) var(--space-5); }
+.b2-ticket .rv-divider { margin: var(--space-3) calc(var(--space-5) * -1) var(--space-2); border-top-color: var(--line-strong); }
+.b2-amt { display: flex; align-items: baseline; justify-content: center; gap: var(--space-2); }
+.b2-amt > b { font-size: 56px; line-height: 64px; font-weight: 300; }
+.b2-amt > span { font-size: 15px; line-height: 24px; font-weight: 300; color: var(--text-secondary); }
+.b2-split { display: flex; gap: 3px; height: 10px; }
+.b2-split > i { border-radius: var(--radius-pill); }
+.b2-split > i.is-credit { background: var(--accent-500); }
+.b2-split > i.is-gw { background: var(--bg-inverse); }
+.b2-split-l { display: flex; justify-content: space-between; gap: var(--space-3); margin-top: var(--space-2); font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b2-split-l > span { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.b2-split-l b { font-weight: 400; color: var(--text-primary); }
+.b2-split-l i { width: 8px; height: 8px; border-radius: 50%; }
+.b2-split-l i.is-credit { background: var(--accent-500); }
+.b2-split-l i.is-gw { background: var(--bg-inverse); }
+.b2-credit > b { color: var(--accent-text); }
+.b2-pt { list-style: none; margin: 0; padding: 0; position: relative; }
+.b2-pt::before { content: ""; position: absolute; top: 10px; bottom: 10px; inset-inline-start: 7px; width: 2px; background: var(--chrome-300); }
+.b2-pt > li { position: relative; display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: var(--space-3); padding-bottom: var(--space-3); }
+.b2-pt > li:last-child { padding-bottom: 0; }
+.b2-pt__dot { position: relative; z-index: 1; width: 16px; height: 16px; margin-top: 3px; border-radius: 50%; background: var(--bg-surface); box-shadow: inset 0 0 0 2px var(--chrome-500); }
+.b2-pt > li.is-now .b2-pt__dot { background: var(--bg-inverse); box-shadow: 0 0 0 3px var(--bg-surface); }
+.b2-pt > li.is-start .b2-pt__dot { box-shadow: inset 0 0 0 2px var(--text-primary); }
+.b2-pt__w { font-size: 13px; line-height: 22px; font-weight: 400; }
+.b2-pt__c { display: flex; align-items: flex-start; gap: 6px; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b2-pt__c > .ri { flex: none; width: 14px; height: 14px; margin-top: 3px; }
+.b2-pt__c.is-gain > .ri { color: var(--accent-fg); }
+.b2-pt__c.is-loss > .ri { color: var(--text-muted); }
+.b2-pt__c.is-no > .ri { color: var(--danger-fg); }
+.b2-rules { display: flex; align-items: center; gap: var(--space-2); margin: 0 var(--space-1); font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+
+/* ۶ب. ترکیب نهایی BK-F01: نوار زمینه بزرگ‌تر (عکس‌ها بهتر دیده شوند) و نوار روزهای قابل اسکرول افقی */
+.b2-ctx--lg { padding: var(--space-3) var(--space-3) var(--space-3) var(--space-4); gap: var(--space-4); }
+.b2-ctx--lg .b2-ctx__media { width: 72px; height: 72px; }
+.b2-ctx--lg .b2-ctx__media > img { width: 72px; height: 72px; border-radius: var(--radius-md); }
+.b2-ctx--lg .b2-ctx__media > .rv-avatar { width: 36px; height: 36px; inset-inline-start: -10px; bottom: -8px; }
+.b2-ctx--lg .b2-ctx__t { font-size: 17px; line-height: 26px; }
+.b2-ctx--lg .b2-ctx__s { font-size: 13px; line-height: 20px; }
+.b2-days { padding: var(--space-2) 0; overflow: hidden; }
+.b2-days__row { display: flex; gap: var(--space-1); overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; padding: 0 var(--space-2); }
+.b2-days__row::-webkit-scrollbar { display: none; }
+.b2-days__row > .rv-wd { flex: 0 0 44px; height: 72px; border-radius: 18px; scroll-snap-align: start; }
+.b2-days__row > .rv-wd[aria-selected="true"] { background: var(--bg-inverse); }
+@media (prefers-reduced-motion: no-preference) { .b2-days__row > .rv-wd[aria-selected="true"] { animation: rv-pop var(--duration-slow) var(--ease-spring); } }
+.b2-days__m { flex: 0 0 auto; align-self: center; padding: 0 var(--space-2); font-size: 11px; line-height: 14px; font-weight: 300; color: var(--text-muted); writing-mode: vertical-rl; }
+
+/* ۷. حرکت: ورود نوار اقدام و پاپ زمان انتخاب‌شده (با reduced-motion حذف می‌شود) */
+@media (prefers-reduced-motion: no-preference) {
+  .b2-bar { animation: rv-sheet-up var(--duration-slow) var(--ease-standard) both; }
+  .b2-hero-time { animation: rv-pop var(--duration-slow) var(--ease-spring) both; }
+}
+
+/* ۸. بخش ۲ — حالت‌ها */
+/* BK-01 فقط‌خواندنی (مشتری غیرفعال): همان قرارداد PickerCard غیرفعال دیزاین سیستم */
+.b2-ro .f-svc { cursor: not-allowed; box-shadow: var(--shadow-sm); }
+.b2-ro .f-svc > img { filter: grayscale(1) contrast(.9); opacity: .7; }
+/* اسکلت چرخ‌فلک و کارت‌های رزرو دوباره */
+.f-svc.rv-skel { box-shadow: none; }
+.b2-skel-card { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-2); }
+/* BK-02 شبکه PickerCard آرایشگر */
+.b2-pickgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+.b2-pickgrid > .rv-pick { width: auto; }
+.b2-pickgrid > .rv-pick .rv-pick__pin { display: inline-flex; }
+/* BK-F01 روز بسته یا هنوز بازنشده: انتخاب‌شدنی برای توضیح، بدون جوهر */
+.b2-days__row > .rv-wd.is-off[aria-selected="true"], .b2-days__row > .rv-wd.is-locked[aria-selected="true"] { background: var(--bg-plaster); box-shadow: inset 0 0 0 1.5px var(--line-strong); color: var(--text-secondary); animation: none; }
+.b2-days__row > .rv-wd.is-off[aria-selected="true"] small, .b2-days__row > .rv-wd.is-locked[aria-selected="true"] small { color: var(--text-muted); }
+.b2-days__row > .rv-wd.is-locked { color: var(--text-disabled); }
+.b2-days__row > .rv-wd .ri { width: 12px; height: 12px; color: var(--text-muted); }
+/* توضیح روز (به‌جای زمان‌ها) */
+.b2-daynote { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-1); padding: var(--space-4); border-radius: var(--radius-lg); box-shadow: inset 0 0 0 1px var(--line-hairline); }
+.b2-daynote__t { font-size: 15px; line-height: 24px; font-weight: 600; }
+.b2-daynote__d { font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); max-width: 280px; }
+.b2-daynote > .rv-btn { margin-top: var(--space-2); }
+/* پیام پایین صفحه، جای ورودی اعلان (خطای گرفته‌شدن زمان) */
+.b2-dock-msg { position: absolute; inset-inline: var(--space-4); bottom: 98px; z-index: 5; }
+.b2-pickgrid > .rv-pick[aria-disabled="true"] .rv-pick__check { display: none; }
+/* روز تعطیل سالن در نوار روزها: قرمز (danger) با خط‌خوردگی؛ رنگ تنها حامل معنا نیست */
+.b2-days__row > .rv-wd.is-off:not([aria-selected="true"]) b { color: var(--danger-fg); }
+.b2-days__row > .rv-wd.is-off:not([aria-selected="true"]) small { color: color-mix(in srgb, var(--danger-fg) 70%, transparent); }
+.b2-days__row > .rv-wd.is-off[aria-selected="true"] b, .b2-days__row > .rv-wd.is-off[aria-selected="true"] small { color: var(--danger-fg); }
+/* امروز در نوار روزها: کادر سبز نازک به‌جای نقطه (تصمیم مالک) */
+.b2-days__row > .rv-wd.is-today b::after { display: none; }
+.b2-days__row > .rv-wd.is-today { box-shadow: inset 0 0 0 1.5px var(--accent-500); }
+.b2-days__row > .rv-wd.is-today[aria-selected="true"] { box-shadow: inset 0 0 0 1.5px var(--accent-300); }
+/* کارت «زودترین زمان» داخل ظرف اسکرول است؛ تاری پس‌زمینه در ظرف برش‌خورده نوار روشن با لبه سخت می‌سازد، پس بدون backdrop-filter و با پرکننده شیشه‌ای ثابت */
+.b2-soon__c.rv-glass { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--glass-fill-strong); }
+/* سایه کارت‌ها داخل ظرف اسکرول برش می‌خورد و لبه سخت می‌سازد؛ ظرف بالا و پایین بزرگ‌تر می‌شود و با حاشیه منفی هم‌اندازه جبران می‌شود تا چیدمان عوض نشود */
+.b2-soon { padding-block: var(--space-6); margin-block: calc((var(--space-6) - var(--space-1)) * -1) calc((var(--space-6) - var(--space-3)) * -1); }
+/* سایه شیشه تا حدود ۴۴ پیکسل زیر کارت می‌رسد؛ پایین ظرف به همان اندازه بازتر می‌شود */
+.b2-soon { padding-bottom: var(--space-12); margin-bottom: calc((var(--space-12) - var(--space-3)) * -1); }
+/* بخش بازشده ظرف روی عنوان بعدی می‌افتد؛ فقط خود کارت‌ها لمس می‌گیرند */
+.b2-soon { pointer-events: none; }
+.b2-soon__c { pointer-events: auto; }
+
+/* نوار روزها با کادر ثابت وسط: روزی که زیر کادر می‌ایستد، روز نمایش‌داده‌شده است. اسکرول به چپ و راست روز را زیر کادر می‌برد؛ ابتدا و انتهای نوار خالی می‌ماند تا اولین و آخرین روز هم به وسط برسند */
+.b2-days { position: relative; --b2-cell: 44px; }
+.b2-days__row { scroll-snap-type: x mandatory; padding-inline: calc(50% - var(--b2-cell) / 2); }
+.b2-days__row > .rv-wd { flex: 0 0 var(--b2-cell); scroll-snap-align: center; }
+.b2-days__row > .rv-wd[aria-selected="true"] { scroll-initial-target: nearest; }
+.b2-days::after { content: ""; position: absolute; top: 50%; inset-inline-start: 50%; width: calc(var(--b2-cell) + 12px); height: 84px; transform: translate(-50%, -50%); border-radius: 22px; box-shadow: 0 0 0 1.5px var(--text-primary); pointer-events: none; }
+[dir="rtl"] .b2-days::after { transform: translate(50%, -50%); }
+
+/* کادر وسط به‌تنهایی روز انتخاب‌شده را نشان می‌دهد: بدون پر شدن جوهری و هم‌اندازه خود روز */
+.b2-days__row > .rv-wd[aria-selected="true"], .b2-days__row > .rv-wd.is-off[aria-selected="true"], .b2-days__row > .rv-wd.is-locked[aria-selected="true"] { background: transparent; animation: none; color: var(--text-primary); }
+.b2-days__row > .rv-wd[aria-selected="true"] small { color: var(--text-secondary); }
+.b2-days__row > .rv-wd.is-off[aria-selected="true"] b, .b2-days__row > .rv-wd.is-off[aria-selected="true"] small { color: var(--danger-fg); }
+.b2-days__row > .rv-wd.is-locked[aria-selected="true"] { color: var(--text-disabled); }
+.b2-days__row > .rv-wd.is-today[aria-selected="true"] { box-shadow: inset 0 0 0 1.5px var(--accent-500); }
+.b2-days__row > .rv-wd.is-off[aria-selected="true"], .b2-days__row > .rv-wd.is-locked[aria-selected="true"] { box-shadow: none; }
+.b2-days::after { width: var(--b2-cell); height: 72px; border-radius: 18px; box-shadow: inset 0 0 0 1.5px var(--text-primary); }
+
+/* ورود کادر تقویم از چپ (با reduced-motion حذف می‌شود) */
+@keyframes b2-in-left { from { opacity: 0; transform: translateX(calc(var(--space-8) * -1)); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) { .b2-days { animation: b2-in-left var(--duration-slow) var(--ease-standard) both; } }
+
+/* ۹. بخش ۳ — پرداخت و نتیجه */
+/* نگه‌داشت کمتر از ۱ دقیقه: نوار با تن danger */
+.b2-hold--danger .f-bar__track > i { background: var(--danger-solid); }
+.b2-hold--danger .f-bar__txt b { color: var(--danger-fg); }
+/* رسید منقضی: کم‌رنگ و غیرتعاملی */
+.b2-ticket--off { opacity: .6; }
+.b2-ticket--off .b2-ticket__media > img { filter: grayscale(1); }
+/* نتیجه پرداخت (PAY-RES): کاشی xl با تن معنا، تیتر، توضیح، یک اقدام */
+.b2-res { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-2); padding: var(--space-8) var(--space-4) 0; }
+.b2-res > .rv-tile--xl { margin-bottom: var(--space-3); }
+.b2-res__t { margin: 0; font-size: 20px; line-height: 32px; font-weight: 600; }
+.b2-res__d { margin: 0; max-width: 300px; font-size: 14px; line-height: 24px; font-weight: 300; color: var(--text-secondary); }
+.b2-res__steps { list-style: none; margin: var(--space-2) 0 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); text-align: start; max-width: 320px; }
+.b2-res__steps > li { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: var(--space-2); font-size: 14px; line-height: 22px; font-weight: 300; color: var(--text-secondary); }
+.b2-res__steps > li > .ri { width: 16px; height: 16px; margin-top: 3px; color: var(--text-muted); }
+.b2-res__steps b { font-weight: 400; color: var(--text-primary); }
+.b2-code { display: inline-flex; align-items: center; gap: var(--space-2); margin-top: var(--space-2); font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b2-code > b { font-family: var(--font-numeric-regular); font-weight: 400; color: var(--text-primary); letter-spacing: .02em; }
+.b2-res__act { align-self: stretch; margin-top: var(--space-4); }
+.b2-res .rv-tile--xl .rv-check-draw { color: var(--success-fg); }
+/* خلاصه نوبت ثبت‌شده (موفق) */
+.b2-done { align-self: stretch; text-align: start; padding: var(--space-3); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: var(--space-2); margin-top: var(--space-3); }
+
+/* ۱۰. بخش ۴ — درخواست‌ها */
+/* تقویم بازه (BK-P01): روزهای بیرون از افق یک ماه */
+.rv-day.b2-out { color: var(--text-disabled); cursor: not-allowed; }
+.rv-day.b2-out > i { text-decoration: line-through; text-decoration-thickness: 1px; }
+.rv-day.b2-out.in-range { background: var(--danger-bg); }
+.rv-day.b2-out.range-end > i { background: var(--danger-solid); color: var(--text-inverse); text-decoration: none; }
+/* انتخاب‌گر بازه ساعتی: دو فیلد کنار هم */
+.b2-trange { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: var(--space-2); align-items: end; }
+.b2-trange > span { padding-bottom: 14px; font-size: 13px; color: var(--text-muted); }
+.b2-trange .rv-input b { flex: 1; font-family: var(--font-numeric-regular); font-weight: 400; font-size: 15px; color: var(--text-primary); }
+/* برچسب «اختیاری» و فیلد متن چندخطی */
+.b2-opt { display: flex; align-items: center; justify-content: space-between; }
+.b2-opt > small { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b2-ta { height: auto; align-items: flex-start; padding: var(--space-3) var(--space-4); }
+.b2-ta textarea { flex: 1; min-width: 0; min-height: 72px; border: 0; outline: 0; resize: none; background: transparent; font: inherit; font-size: 15px; line-height: 24px; color: var(--text-primary); }
+.b2-ta textarea::placeholder { color: var(--text-muted); }
+/* کنترل سبک تاریخ ترجیحی (BK-R01): خط‌چین، بدون پرشدگی؛ با «انتخاب قطعی زمان» فرق دارد */
+.b2-softpick { display: inline-flex; align-items: center; gap: var(--space-2); height: 40px; padding: 0 var(--space-3) 0 var(--space-4); border-radius: var(--radius-pill); border: 1.5px dashed var(--line-strong); background: transparent; font: inherit; font-size: 14px; color: var(--text-secondary); }
+.b2-softpick > .ri { width: 16px; height: 16px; color: var(--text-muted); }
+.b2-softpick > b { font-weight: 400; color: var(--text-primary); }
+/* اجزای خدمت مرکب (فقط برای اطلاع) */
+.b2-parts .rv-item { min-height: 56px; padding: var(--space-2) var(--space-3); }
+.b2-parts img { width: 40px; height: 40px; border-radius: var(--radius-sm); object-fit: cover; flex: none; }
+.b2-parts .rv-item__n { width: 20px; flex: none; font-family: var(--font-numeric-regular); font-size: 13px; color: var(--text-muted); text-align: center; }
+.b2-trange button.rv-input { width: 100%; border: 0; font: inherit; cursor: pointer; text-align: start; }
+.b2-parts4 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+.b2-days--none::after { display: none; }
+.b2-flow { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); position: relative; }
+.b2-flow::before { content: ""; position: absolute; inset-block: 28px; inset-inline-start: 15px; width: 2px; border-radius: 1px; background: var(--line-strong); }
+.b2-step { display: flex; align-items: center; gap: var(--space-3); position: relative; }
+.b2-step__n { flex: none; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--bg-inverse); color: var(--text-inverse, #fff); font-family: var(--font-numeric-regular); font-size: 14px; position: relative; z-index: 1; box-shadow: 0 0 0 4px var(--bg-canvas, #f3f4f7); }
+.b2-step__c { flex: 1; min-width: 0; display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2); border-radius: var(--radius-lg); }
+.b2-step__c img { width: 64px; height: 64px; border-radius: var(--radius-md); object-fit: cover; flex: none; }
+.b2-step__t { font-size: 16px; line-height: 24px; font-weight: 600; color: var(--text-primary); }
+.b2-step__d { font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b2-pk { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); }
+.b2-pk__i { position: relative; aspect-ratio: 3 / 4; border-radius: var(--radius-lg); box-shadow: var(--shadow-md, 0 6px 18px rgb(0 0 0 / 0.12)); }
+.b2-pk__i > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+.b2-pk__t { position: absolute; inset-inline: var(--space-1); bottom: var(--space-1); z-index: 1; padding: 6px var(--space-2); border-radius: var(--radius-md); color: var(--text-primary); font-size: 13px; line-height: 18px; font-weight: 600; text-align: center; }
+.b2-pk__i + .b2-pk__i::before { content: "+"; position: absolute; z-index: 2; top: 50%; inset-inline-start: -18px; width: 24px; height: 24px; margin-top: -12px; border-radius: 50%; display: grid; place-items: center; background: var(--bg-surface); color: var(--text-primary); font-size: 16px; line-height: 1; font-weight: 600; box-shadow: 0 2px 6px rgb(0 0 0 / 0.12); }
+.b2-pk + .b2-note { margin-top: var(--space-2); }
+.b2-res__acts { position: absolute; inset-inline: var(--space-4); bottom: var(--space-8, 32px); display: flex; gap: var(--space-2); }
+.b2-res__acts .rv-btn { flex: 1 1 0; min-width: 0; padding-inline: var(--space-2); white-space: nowrap; }
+
+/* ---------- بخش ۵: رزرو دوره‌ای و اعلان آزادشدن ---------- */
+.b2-lead { margin: 0 var(--space-1); font-size: 14px; line-height: 24px; font-weight: 300; color: var(--text-secondary); }
+.b2-count { flex: none; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b2-count.is-low { color: var(--warning-fg); font-weight: 400; }
+.b2-occs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.b2-occ { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-2) var(--space-3) var(--space-3); border-radius: var(--radius-lg); }
+.b2-occ__t { display: block; font-size: 15px; line-height: 22px; font-weight: 400; color: var(--text-primary); }
+.b2-occ__s { display: block; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b2-occ > .rv-icon-btn { flex: none; }
+.b2-occ--bad { align-items: flex-start; padding-inline-end: var(--space-3); box-shadow: inset 0 0 0 1.5px var(--danger-line); }
+.b2-occ__why { margin: var(--space-1) 0 0; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--danger-fg); }
+.b2-occ__acts { display: flex; gap: var(--space-2); margin-top: var(--space-3); }
+.b2-occ-add { width: 100%; height: 56px; display: flex; align-items: center; justify-content: center; gap: var(--space-2); border-radius: var(--radius-lg); border: 1.5px dashed var(--line-strong); background: transparent; font: inherit; font-size: 15px; color: var(--text-secondary); cursor: pointer; }
+.b2-minis { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+.b2-mini { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2); border: 0; border-radius: var(--radius-lg); font: inherit; text-align: start; color: inherit; cursor: pointer; }
+.b2-mini > img { width: 48px; height: 48px; flex: none; border-radius: var(--radius-md); object-fit: cover; }
+.b2-mini b { display: block; font-size: 14px; line-height: 20px; font-weight: 400; }
+.b2-mini small { display: block; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b2-mini[aria-checked="true"] { box-shadow: inset 0 0 0 1.5px var(--text-primary); }
+.b2-whos { display: flex; gap: var(--space-4); padding: 0 var(--space-1); }
+.b2-who { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); padding: 0; border: 0; background: transparent; font: inherit; font-size: 13px; line-height: 20px; color: var(--text-secondary); cursor: pointer; }
+.b2-who .rv-avatar { width: 56px; height: 56px; }
+.b2-who[aria-checked="true"] { color: var(--text-primary); }
+.b2-who[aria-checked="true"] .rv-avatar { box-shadow: 0 0 0 2px var(--bg-surface), 0 0 0 3.5px var(--text-primary); }
+.b2-gsum { border-radius: var(--radius-xl); padding: var(--space-4) var(--space-5) var(--space-5); }
+.b2-gsum__h { margin: 0 0 var(--space-2); font-size: 18px; line-height: 28px; font-weight: 600; }
+.b2-gsum .rv-divider { margin: var(--space-3) calc(var(--space-5) * -1) var(--space-2); border-top-color: var(--line-strong); }
+.b2-prows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.b2-prow { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2) 0; }
+.b2-prow + .b2-prow { border-top: 1px solid var(--line-hairline); }
+.b2-prow .rv-tile--date { width: 40px; height: 40px; }
+.b2-prow__fee { flex: none; font-family: var(--font-numeric-regular); font-size: 14px; line-height: 20px; font-weight: 400; }
+.b2-sheet { display: flex; flex-direction: column; gap: var(--space-4); z-index: 3; }
+.b2-grip { align-self: center; width: 36px; height: 4px; border-radius: 2px; background: var(--line-strong); }
+.b2-sheet__head { display: flex; align-items: center; gap: var(--space-3); }
+.b2-sheet__t { margin: 0; font-size: 18px; line-height: 28px; font-weight: 600; }
+.b2-sheet__d { margin: 0; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b2-sheet__acts { display: flex; gap: var(--space-2); }
+.b2-sheet__acts > .rv-btn { flex: 1 1 0; min-width: 0; }
+.b2-sheet .rv-scrim { z-index: 2; }
+.rv-board > .rv-scrim { z-index: 2; }
+.b2-facts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-3); }
+.b2-facts > li { display: flex; gap: var(--space-3); align-items: flex-start; font-size: 14px; line-height: 22px; font-weight: 300; color: var(--text-secondary); }
+.b2-facts .ri { flex: none; margin-top: 3px; color: var(--text-muted); }
+.b2-alert--on { box-shadow: inset 0 0 0 1px var(--accent-line); background: var(--accent-bg); }
+.b2-toast { position: absolute; z-index: 4; top: 64px; inset-inline: var(--space-4); }
+
+/* ---------- بخش ۵ (بازطراحی رزرو دوره‌ای): سه جهت ---------- */
+/* الف: خط زمان */
+.b2-sum { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-5); border-radius: var(--radius-xl); }
+.b2-sum__n { font-size: 15px; line-height: 24px; color: var(--text-secondary); }
+.b2-sum__n b { font-family: var(--font-numeric-regular); font-size: 34px; line-height: 40px; font-weight: 600; color: var(--text-primary); margin-inline-end: 4px; }
+.b2-sum__d { font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b2-tl { list-style: none; margin: 0; padding: 0; position: relative; display: flex; flex-direction: column; gap: var(--space-2); }
+.b2-tl::before { content: ""; position: absolute; inset-block: 8px 28px; inset-inline-start: 7px; width: 2px; border-radius: 1px; background: var(--line-strong); }
+.b2-tl__m { padding-inline-start: 28px; margin-top: var(--space-2); font-size: 12px; line-height: 18px; font-weight: 400; color: var(--text-muted); }
+.b2-tl__i { position: relative; padding-inline-start: 28px; }
+.b2-tl__dot { position: absolute; inset-inline-start: 2px; top: 22px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg-inverse); box-shadow: 0 0 0 4px var(--bg-gradient-a, #f3f4f7); }
+.b2-tl__i--add .b2-tl__dot { background: var(--bg-surface); box-shadow: inset 0 0 0 2px var(--line-strong), 0 0 0 4px var(--bg-gradient-a, #f3f4f7); }
+.b2-tl__c { border-radius: var(--radius-lg); padding: var(--space-3) var(--space-2) var(--space-3) var(--space-4); display: flex; flex-direction: column; gap: var(--space-2); }
+.b2-tl__when { display: flex; align-items: baseline; gap: var(--space-2); }
+.b2-tl__when b { font-family: var(--font-numeric-regular); font-size: 22px; line-height: 28px; font-weight: 600; }
+.b2-tl__when span { font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b2-tl__who { display: flex; align-items: center; gap: var(--space-3); }
+.b2-tl__media { position: relative; flex: none; width: 44px; height: 44px; }
+.b2-tl__media > img { width: 44px; height: 44px; border-radius: var(--radius-md); object-fit: cover; }
+.b2-tl__media .rv-avatar { position: absolute; inset-inline-start: -6px; bottom: -6px; width: 24px; height: 24px; box-shadow: 0 0 0 2px var(--bg-surface); }
+.b2-tl__adds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+.b2-tl__adds .b2-occ-add { height: 52px; font-size: 13px; }
+.b2-occ-add--same { border-style: solid; border-color: var(--line-hairline); background: rgba(255, 255, 255, .5); }
+
+/* ب: کارت‌های عکس */
+.b2-rrail { display: flex; gap: var(--space-3); overflow-x: auto; scrollbar-width: none; margin-inline: calc(var(--space-4) * -1); padding: var(--space-2) var(--space-4) var(--space-3); scroll-snap-type: x mandatory; }
+.b2-rrail::-webkit-scrollbar { display: none; }
+.b2-rcard { position: relative; flex: 0 0 216px; height: 288px; border-radius: var(--radius-xl); overflow: hidden; scroll-snap-align: start; background: var(--bg-plaster); box-shadow: var(--shadow-sm); }
+.b2-rcard > img { width: 100%; height: 100%; object-fit: cover; }
+.b2-rcard__date { position: absolute; top: 10px; inset-inline-start: 10px; width: 56px; padding: 6px 0 8px; border-radius: 18px; display: flex; flex-direction: column; align-items: center; }
+.b2-rcard__date b { font-family: var(--font-numeric-regular); font-size: 24px; line-height: 28px; font-weight: 600; }
+.b2-rcard__date small { font-size: 12px; line-height: 16px; color: var(--text-secondary); }
+.b2-rcard__no { position: absolute; top: 14px; inset-inline-end: 12px; padding: 2px 10px; border-radius: var(--radius-pill); background: rgba(18, 20, 23, .55); color: #fff; font-size: 12px; line-height: 20px; }
+.b2-rcard__plate { position: absolute; inset: auto 8px 8px 8px; padding: 10px 12px; border-radius: 20px; display: flex; align-items: center; gap: var(--space-2); }
+.b2-rcard__plate b { display: block; font-size: 14px; line-height: 20px; font-weight: 400; }
+.b2-rcard__plate span:not(.rv-avatar) { display: block; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b2-rcard--add { border: 1.5px dashed var(--line-strong); background: transparent; box-shadow: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-2); font: inherit; color: var(--text-secondary); cursor: pointer; flex-basis: 160px; }
+.b2-rcard--add b { font-weight: 400; color: var(--text-primary); }
+.b2-rcard--add small { font-size: 12px; font-weight: 300; }
+.b2-hz { border-radius: var(--radius-lg); padding: var(--space-3) var(--space-4) var(--space-4); }
+.b2-hz__t { font-size: 14px; line-height: 20px; font-weight: 400; }
+.b2-hz__row { list-style: none; margin: var(--space-3) 0 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+.b2-hz__row li { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 11px; line-height: 14px; font-weight: 300; color: var(--text-muted); }
+.b2-hz__row i { width: 100%; height: 8px; border-radius: 4px; background: var(--line-hairline); }
+.b2-hz__row li.is-on i { background: var(--bg-inverse); }
+.b2-hz__row li.is-on { color: var(--text-primary); }
+
+/* ج: برنامه ماه‌به‌ماه */
+.b2-mos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+.b2-mo { border-radius: var(--radius-lg); padding: var(--space-3); display: flex; flex-direction: column; gap: var(--space-2); min-height: 148px; }
+.b2-mo__m { font-size: 14px; line-height: 20px; font-weight: 600; }
+.b2-mo--empty { border: 1.5px dashed var(--line-strong); }
+.b2-mo--empty .b2-mo__m { color: var(--text-muted); font-weight: 400; }
+.b2-mo__add { flex: 1; display: grid; place-items: center; border: 0; background: transparent; color: var(--text-secondary); cursor: pointer; border-radius: var(--radius-md); }
+.b2-mo__add .ri { width: 28px; height: 28px; }
+.b2-mo__occ { flex: 1; display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto auto; gap: 6px var(--space-2); align-items: center; padding: var(--space-2); border: 0; border-radius: var(--radius-md); background: var(--bg-surface); box-shadow: var(--shadow-hairline, 0 0 0 1px rgba(18,20,23,.06)); font: inherit; color: inherit; text-align: start; cursor: pointer; }
+.b2-mo__d { display: flex; align-items: baseline; gap: 6px; }
+.b2-mo__d b { font-family: var(--font-numeric-regular); font-size: 26px; line-height: 30px; font-weight: 600; }
+.b2-mo__d span { font-size: 12px; line-height: 16px; font-weight: 300; color: var(--text-secondary); }
+.b2-mo__t { font-family: var(--font-numeric-regular); font-size: 15px; line-height: 20px; }
+.b2-mo__who { grid-column: 1 / -1; display: flex; align-items: center; }
+.b2-mo__img { width: 32px; height: 32px; border-radius: 10px; overflow: hidden; flex: none; }
+.b2-mo__img img { width: 100%; height: 100%; object-fit: cover; }
+.b2-mo__who .rv-avatar { margin-inline-start: -8px; box-shadow: 0 0 0 2px var(--bg-surface); }
+.b2-mo__svc { margin-inline-start: var(--space-2); min-width: 0; font-size: 12px; line-height: 16px; font-weight: 300; color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.b2-mo--wide { grid-column: 1 / -1; min-height: 72px; flex-direction: row; align-items: center; }
+.b2-mo--wide .b2-mo__add { flex: none; width: 44px; height: 44px; margin-inline-start: auto; }
+.b2-mo__m small { font-size: 12px; font-weight: 300; color: var(--text-muted); margin-inline-start: 4px; }
+
+/* ---------- بخش ۵: رزرو دوره‌ای، نسخه نهایی جهت الف ---------- */
+.b2-tl2 { list-style: none; margin: 0; padding: 0; position: relative; display: flex; flex-direction: column; gap: var(--space-4); }
+.b2-tl2::before { content: ""; position: absolute; inset-block: 12px 12px; inset-inline-start: 23px; width: 2px; border-radius: 1px; background: var(--line-strong); }
+.b2-tg { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: var(--space-2); align-items: start; }
+.b2-tg__m { position: relative; z-index: 1; justify-self: center; margin-top: var(--space-3); padding: 3px 8px; border-radius: var(--radius-pill); background: var(--bg-inverse); color: var(--text-inverse); font-size: 12px; line-height: 18px; white-space: nowrap; box-shadow: 0 0 0 4px var(--bg-gradient-a, #f3f4f7); }
+.b2-tg__items { display: flex; flex-direction: column; gap: var(--space-2); }
+.b2-c1__d { display: block; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b2-c1__t { display: block; font-family: var(--font-numeric-regular); font-size: 24px; line-height: 30px; font-weight: 600; color: var(--text-primary); }
+.b2-c1__s { display: block; font-size: 14px; line-height: 20px; font-weight: 400; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.b2-cacts { display: flex; gap: var(--space-1); margin-top: var(--space-2); margin-inline-start: -6px; }
+.b2-cbtn { display: inline-flex; align-items: center; gap: 4px; height: 32px; padding: 0 10px; border: 0; border-radius: var(--radius-pill); background: rgba(255, 255, 255, .6); box-shadow: inset 0 0 0 1px var(--line-hairline); font: inherit; font-size: 13px; color: var(--text-secondary); cursor: pointer; }
+.b2-cbtn .ri { width: 16px; height: 16px; }
+/* نسخه ۱ */
+.b2-c1 { display: flex; gap: var(--space-3); padding: var(--space-2); border-radius: var(--radius-lg); }
+.b2-c1__img { position: relative; flex: none; width: 112px; height: 136px; }
+.b2-c1__img > img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-md); }
+.b2-c1__img .rv-avatar { position: absolute; inset-inline-start: 6px; bottom: 6px; width: 32px; height: 32px; box-shadow: 0 0 0 2px var(--bg-surface); }
+.b2-c1__txt { min-width: 0; flex: 1; display: flex; flex-direction: column; justify-content: center; padding-block: var(--space-1); }
+/* نسخه ۲ */
+.b2-c2 { position: relative; overflow: hidden; border-radius: var(--radius-lg); background: var(--bg-surface); box-shadow: var(--shadow-sm); min-height: 128px; }
+.b2-c2__img { position: absolute; inset-block: 0; left: 0; width: 58%; height: 100%; object-fit: cover; }
+.b2-c2::after { content: ""; position: absolute; inset-block: 0; left: 0; width: 58%; background: linear-gradient(to left, var(--bg-surface) 0%, rgba(255, 255, 255, .55) 38%, rgba(255, 255, 255, 0) 75%); pointer-events: none; }
+.b2-c2__txt { position: relative; z-index: 1; width: 62%; padding: var(--space-3) var(--space-4); }
+/* پنجره بلند */
+.b2-sheet--tall { overflow: auto; gap: var(--space-5); padding-bottom: 0; }
+.b2-sheet__acts--sticky { position: sticky; bottom: 0; margin: 0 calc(var(--space-5) * -1); padding: var(--space-3) var(--space-5) var(--space-5); background: linear-gradient(to top, var(--bg-surface) 70%, rgba(255,255,255,0)); }
+.b2-step2 { display: flex; flex-direction: column; gap: var(--space-3); }
+.b2-step2__h { margin: 0; display: flex; align-items: center; gap: var(--space-2); font-size: 15px; line-height: 22px; font-weight: 600; }
+.b2-step2__h > span { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: var(--bg-inverse); color: var(--text-inverse); font-family: var(--font-numeric-regular); font-size: 12px; font-weight: 400; }
+.b2-chips { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-2); }
+.b2-chips .rv-slot { padding-inline: 4px; font-size: 13px; white-space: nowrap; }
+.b2-prev { border-radius: var(--radius-lg); padding: var(--space-3) var(--space-4); display: flex; flex-direction: column; gap: var(--space-3); }
+.b2-prev__h b { display: block; font-size: 15px; line-height: 22px; font-weight: 600; }
+.b2-prev__h span { font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b2-prev__row { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--space-2); }
+.b2-prev__row li { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 6px 0; border-radius: var(--radius-md); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-hairline); }
+.b2-prev__row b { font-family: var(--font-numeric-regular); font-size: 18px; line-height: 24px; font-weight: 600; }
+.b2-prev__row span { font-size: 11px; line-height: 14px; color: var(--text-secondary); }
+.b2-prev__n { margin: 0; font-size: 12px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+/* نسخه ۲ اصلاح‌شده: بدون خط گرادیان، کوتاه‌تر، آواتار، حالت نامعتبر */
+.b2-c2 { min-height: 0; }
+.b2-c2::after { content: none; }
+.b2-c2__img { width: 60%; -webkit-mask-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,.35) 30%, #000 70%); mask-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,.35) 30%, #000 70%); }
+.b2-c2__txt { width: 64%; padding: var(--space-3) var(--space-4); }
+.b2-c2__who { display: flex; align-items: center; gap: var(--space-2); margin-top: 2px; }
+.b2-c2__who .rv-avatar { width: 24px; height: 24px; }
+.b2-c2__acts { position: absolute; z-index: 1; left: 8px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 6px; }
+.b2-c2__btn { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; border: 0; background: var(--glass-fill, rgba(255,255,255,.72)); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: var(--shadow-sm); color: var(--text-primary); cursor: pointer; }
+.b2-c2--bad { box-shadow: inset 0 0 0 1.5px var(--danger-line), 0 0 0 1px var(--danger-line); }
+.b2-c2--bad .b2-c2__img { filter: grayscale(1); opacity: .85; }
+.b2-c2__tag { margin-top: var(--space-2); }
+.b2-c2__why { display: block; margin-top: 4px; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--danger-fg); }
+.b2-prow__img { flex: none; width: 40px; height: 40px; border-radius: var(--radius-md); overflow: hidden; }
+.b2-prow__img img { width: 100%; height: 100%; object-fit: cover; }
+.b2-c2__when { display: flex; align-items: baseline; gap: var(--space-2); flex-wrap: wrap; }
+.b2-c2__who span:not(.rv-avatar) { font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+/* تصویر کوچک‌تر و منوی کشویی گزینه‌ها */
+.b2-c2__img { width: 42%; }
+.b2-c2__txt { width: 74%; }
+.b2-c2w { position: relative; }
+.b2-c2__acts { top: 8px; transform: none; }
+.b2-c2__btn { width: 32px; height: 32px; }
+.b2-c2__menu { position: absolute; z-index: 5; left: 8px; top: 46px; min-width: 168px; box-shadow: var(--shadow-md); }
+.b2-c2__menu { background: var(--bg-surface); }
+/* کل کارت = ویرایش؛ دکمه کوچک حذف */
+.b2-c2__acts, .b2-c2__menu { display: none; }
+.b2-c2__hit { position: absolute; inset: 0; z-index: 2; border-radius: inherit; }
+.b2-c2__hit:focus-visible { box-shadow: inset 0 0 0 2px var(--text-primary); }
+.b2-c2__del { position: absolute; z-index: 3; left: 8px; top: 8px; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; border: 0; background: var(--glass-fill, rgba(255,255,255,.72)); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: var(--shadow-sm); color: var(--text-secondary); cursor: pointer; }
+.b2-c2__del .ri { width: 14px; height: 14px; }
+.b2-c2__del::before { content: ""; position: absolute; inset: -8px; }
+.b2-c2 { cursor: pointer; }
+.b2-c2__del { color: var(--danger-fg); background: var(--bg-surface); }
+.b2-btn-del { color: var(--danger-fg); gap: 6px; }
+.b2-c2__time { font-family: var(--font-numeric-regular); font-size: 15px; font-weight: 400; color: var(--text-primary); }
+
+.b2-prow__n { flex: none; width: 40px; height: 40px; border-radius: var(--radius-md); display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line-strong); font-size: 16px; line-height: 24px; font-weight: 600; }
+.b2-gsum .b2-prows { margin-top: calc(var(--space-2) * -1); }
+
+/* کارت زمینه به سبک کارت نوبت (b2-c2): تصویر خدمت سمت چپ با محو نرم، نوشته سمت راست، آواتار کنار نام آرایشگر */
+.b2-ctx.rv-glass { position: relative; overflow: hidden; background: var(--bg-surface); -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: var(--shadow-sm); min-height: 88px; padding: var(--space-3) var(--space-4); gap: 0; }
+.b2-ctx--lg.rv-glass { min-height: 104px; }
+.b2-ctx.rv-glass > .b2-ctx__media { position: absolute; inset-block: 0; left: 0; width: 42%; height: auto; z-index: 0; }
+.b2-ctx.rv-glass > .b2-ctx__media > img { width: 100%; height: 100%; border-radius: 0; object-fit: cover; -webkit-mask-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,.35) 30%, #000 70%); mask-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,.35) 30%, #000 70%); }
+.b2-ctx.rv-glass > .rv-grow { position: relative; z-index: 1; max-width: 64%; }
+.b2-ctx.rv-glass .b2-ctx__s { gap: var(--space-2); margin-top: 4px; font-size: 13px; line-height: 20px; }
+.b2-ctx__s > .rv-avatar { flex: none; width: 24px; height: 24px; }
+.b2-ctx.rv-glass > .rv-btn { position: absolute; z-index: 1; left: var(--space-3); top: 50%; transform: translateY(-50%); background: var(--bg-surface); box-shadow: var(--shadow-sm); }
+.b2-ctx.rv-glass > .ri { position: absolute; z-index: 1; left: var(--space-3); top: 50%; transform: translateY(-50%); width: 32px; height: 32px; padding: 8px; box-sizing: border-box; border-radius: 50%; background: var(--bg-surface); box-shadow: var(--shadow-sm); }
+/* «تغییر» بیرون از تصویر: درست کنار نوشته‌ها، روی سطح سفید کارت */
+.b2-ctx.rv-glass { gap: var(--space-3); }
+.b2-ctx.rv-glass > .rv-grow { flex: 0 1 auto; min-width: 0; max-width: 46%; }
+.b2-ctx.rv-glass > .rv-btn { position: relative; left: auto; top: auto; transform: none; box-shadow: none; }
+.b2-ctx.rv-glass > .rv-btn { background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-strong); }
+
+/* «تغییر» زیر نام خدمت، داخل ستون نوشته؛ قرص کوچک با آیکن */
+.b2-ctx.rv-glass > .rv-grow { flex: 1 1 auto; max-width: 62%; }
+.b2-ctx__chg { display: inline-flex; align-items: center; gap: 6px; margin-top: var(--space-2); padding: 4px 12px; border-radius: 999px; background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-strong); color: var(--text-primary); font-size: 13px; line-height: 20px; font-weight: 400; text-decoration: none; }
+.b2-ctx__chg .ri { width: 14px; height: 14px; }
+.b2-ctx.rv-glass > .rv-grow { display: flex; flex-direction: column; align-items: flex-start; }
+
+.b2-bar__t--bad { display: inline-flex; align-items: center; gap: 6px; color: var(--danger-fg); }
+.b2-bar__t--bad .ri { width: 16px; height: 16px; }
+/* هدف لمسی «تغییر» حداقل ۴۴ پیکسل: ناحیه لمس نامرئی دور قرص */
+.b2-ctx__chg { position: relative; }
+.b2-ctx__chg::before { content: ""; position: absolute; inset: -8px -4px; }
+
+/* ===== اصلاحات پس از بازبینی نهایی (۱۰ آبان) ===== */
+/* §A شیشه: لبهٔ یکنواخت در هر چهار طرف (بدون border جدا و سایهٔ درونی بالا/پایین)، پرکنندهٔ شیب‌دار و درخشش درونی هم‌اندازه تا حس شیشه بدهد.
+   فقط توکن‌های شیشه؛ ماده شیشه‌ای دیزاین سیستم همان است. */
+.rv-final .rv-glass:not(.b2-ctx),
+.rv-final .rv-glass-strong:not(.b2-ctx) {
+  border: 0;
+  background: linear-gradient(150deg, var(--glass-fill-strong) 0%, var(--glass-fill) 100%);
+  box-shadow: inset 0 0 0 1px var(--glass-edge), inset 0 0 14px var(--glass-fill), 0 0 0 1px var(--glass-shade), 0 0 18px var(--glass-shade);
+}
+.rv-final .rv-glass-strong:not(.b2-ctx) { background: linear-gradient(150deg, var(--glass-fill-strong) 0%, var(--glass-fill-strong) 100%); }
+.rv-final .b2-ctx.rv-glass { border: 0; box-shadow: 0 0 0 1px var(--glass-shade), 0 0 18px var(--glass-shade); }
+.rv-final .rv-glass-strong.rv-nav, .rv-final .rv-actionbar.rv-glass-strong { box-shadow: inset 0 0 0 1px var(--glass-edge), 0 0 0 1px var(--glass-shade), 0 0 18px var(--glass-shade); }
+
+/* §B کارت زمینه بدون «تغییر»: همهٔ عرض برای نام خدمت، عکس و نام آرایشگر */
+.b2-ctx.rv-glass > .rv-grow { max-width: 60%; }
+.b2-ctx.rv-glass .b2-ctx__t { font-size: 18px; line-height: 28px; }
+.b2-ctx.rv-glass .b2-ctx__s { margin-top: 6px; font-size: 14px; line-height: 22px; gap: var(--space-2); }
+.b2-ctx__s > .rv-avatar { width: 32px; height: 32px; }
+
+/* §C بدون خط‌خوردگی روی ساعت‌ها و روزهای ناموجود یا جمعه؛ تمایز با رنگ و سطح */
+.rv-final .rv-slot[disabled], .rv-final .rv-slot[aria-disabled="true"],
+.rv-final .rv-day > i, .rv-final .rv-day.is-past > i, .rv-final .rv-day.b2-out > i, .rv-final .rv-cal--avail .rv-day.is-full > i,
+.rv-final .rv-wd.is-off b, .rv-final .b2-days__row > .rv-wd b { text-decoration: none; }
+
+/* §D تقویم استاندارد دیزاین سیستم (rv-cal--avail): روز قابل انتخاب کاشی سفید برجسته، روز ناموجود مات و تخت */
+.rv-cal--avail .rv-day:not(.is-open) > i { box-shadow: none; background: transparent; }
+.rv-cal--avail .rv-day[aria-selected="true"] > i { box-shadow: var(--shadow-md); }
+/* نوار روزها: قابل انتخاب = کاشی سفید با سایه؛ جمعه و قفل = تخت و کم‌رنگ */
+.b2-days__row > .rv-wd { background: var(--bg-surface); box-shadow: var(--shadow-sm); }
+.b2-days__row > .rv-wd.is-off, .b2-days__row > .rv-wd.is-locked { background: transparent; box-shadow: none; }
+.b2-days__row > .rv-wd[aria-selected="true"]:not(.is-off):not(.is-locked) { background: var(--bg-surface); }
+.b2-days__row > .rv-wd.is-off small, .b2-days__row > .rv-wd.is-locked small { opacity: .8; }
+
+/* §E رادیوی «بالا آمده / فرورفته» دسته ۷ (همان b6 §۴۷) برای هر انتخاب یکی‌ازچند: ساعت‌ها، تکرار، تا کی، بخش روز، خدمت و آرایشگر */
+:root { --b6-lift: 0 1px 2px rgba(18, 20, 23, 0.10), 0 10px 20px rgba(18, 20, 23, 0.16), 0 24px 40px rgba(18, 20, 23, 0.12); --b6-sunk: inset 0 1px 3px rgba(18, 20, 23, 0.10), inset 0 0 0 1px var(--line-hairline); }
+.rv-final .rv-slot, .rv-final .b2-mini, .rv-final .b2-who .rv-avatar { transition: transform var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard), opacity var(--duration-fast) var(--ease-standard); }
+.rv-final .rv-slot:not([disabled]):not([aria-pressed="true"]):not([aria-checked="true"]) { background: var(--bg-surface-muted); box-shadow: var(--b6-sunk); color: var(--text-secondary); font-weight: 400; }
+.rv-final .rv-slot[aria-pressed="true"], .rv-final .rv-slot[aria-checked="true"] { position: relative; z-index: 2; background: var(--bg-surface); color: var(--text-primary); font-weight: 600; box-shadow: var(--b6-lift); transform: translateY(-4px); animation: none; }
+.rv-final .rv-slot[disabled], .rv-final .rv-slot[aria-disabled="true"] { background: transparent; box-shadow: none; color: var(--text-disabled); }
+.rv-final .b2-mini[aria-checked="false"] { background: var(--bg-surface-muted); box-shadow: var(--b6-sunk); }
+.rv-final .b2-mini[aria-checked="false"] > img { opacity: .62; filter: saturate(.55); }
+.rv-final .b2-mini[aria-checked="false"] b { color: var(--text-secondary); font-weight: 400; }
+.rv-final .b2-mini[aria-checked="true"] { position: relative; z-index: 2; background: var(--bg-surface); box-shadow: var(--b6-lift); transform: translateY(-4px); }
+.rv-final .b2-mini[aria-checked="true"] b { font-weight: 600; color: var(--text-primary); }
+.rv-final .b2-who[aria-checked="false"] .rv-avatar { opacity: .62; filter: saturate(.55); box-shadow: var(--b6-sunk); }
+.rv-final .b2-who[aria-checked="true"] .rv-avatar { box-shadow: var(--b6-lift); transform: translateY(-4px); }
+.rv-final .b2-who[aria-checked="true"] > span:last-child { font-weight: 600; }
+@media (prefers-reduced-motion: reduce) { .rv-final .rv-slot, .rv-final .b2-mini, .rv-final .b2-who .rv-avatar { transition: none; } }
+
+/* §F نوار روزها: فضای عمودی برای سایهٔ کاشی‌ها (دیگر بریده نمی‌شود) و کادر انتخاب ضخیم‌تر و بزرگ‌تر از کاشی */
+.b2-days__row { gap: var(--space-2); padding-block: var(--space-3); }
+.b2-days::after { width: calc(var(--b2-cell) + 8px); height: 88px; border-radius: 22px; box-shadow: inset 0 0 0 2px var(--text-primary); }
+
+/* §G برگهٔ پایین روشن: پشت پردهٔ تیره شیشه تیره نشود؛ پرکننده تقریباً سفید و پشت‌نما روشن‌تر می‌شود تا متن خوانا بماند */
+.rv-final .rv-sheet.rv-glass-strong.b2-sheet {
+  background: color-mix(in srgb, var(--bg-surface) 94%, transparent);
+  -webkit-backdrop-filter: blur(var(--blur-strong)) saturate(160%) brightness(1.18);
+  backdrop-filter: blur(var(--blur-strong)) saturate(160%) brightness(1.18);
+}
+
+/* §H حرکت رادیو: بالا آمدن با فنر، فرورفتن نرم، فشار هنگام لمس */
+@keyframes b2-rise { 0% { transform: translateY(0) scale(.97); box-shadow: var(--b6-sunk); } 60% { transform: translateY(-6px) scale(1.02); } 100% { transform: translateY(-4px) scale(1); } }
+.rv-final .rv-slot, .rv-final .b2-mini, .rv-final .b2-who .rv-avatar { transition: transform var(--duration-slow) var(--ease-spring), box-shadow var(--duration-base) var(--ease-standard), background var(--duration-base) var(--ease-standard), color var(--duration-base) var(--ease-standard), opacity var(--duration-base) var(--ease-standard), filter var(--duration-base) var(--ease-standard); }
+.rv-final .rv-slot:not([disabled]):active, .rv-final .b2-mini:active, .rv-final .b2-who:active .rv-avatar { transform: translateY(-1px) scale(.97); transition-duration: var(--duration-fast); }
+@media (prefers-reduced-motion: no-preference) {
+  .rv-final .rv-slot[aria-pressed="true"], .rv-final .rv-slot[aria-checked="true"], .rv-final .b2-mini[aria-checked="true"], .rv-final .b2-who[aria-checked="true"] .rv-avatar { animation: b2-rise var(--duration-slow) var(--ease-spring) both; }
+}
+@media (prefers-reduced-motion: reduce) { .rv-final .rv-slot:not([disabled]):active, .rv-final .b2-mini:active { transform: none; } }

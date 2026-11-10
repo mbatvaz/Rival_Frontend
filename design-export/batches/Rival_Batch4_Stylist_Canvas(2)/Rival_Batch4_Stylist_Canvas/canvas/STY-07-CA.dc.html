@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>STY-07 — رزرو دستی — ۱. مشتری، برگهٔ افزودن مشتری</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px;">
+  <header class="f-bar-in">
+    <span aria-hidden="true"></span>
+    <h1>رزرو دستی</h1>
+    <a href="/stylist" class="rv-icon-btn" aria-label="بستن رزرو دستی"><i class="ri ri-x"></i></a>
+  </header>
+  <main inert aria-hidden="true" style="padding: var(--space-2) var(--space-4) var(--space-6); display: flex; flex-direction: column; gap: var(--space-4);">
+    <nav class="b4-steps" aria-label="مرحله ۱ از ۴، مشتری"><ol><li class="is-on" aria-current="step"><span>مشتری</span></li><li><span>خدمت</span></li><li><span>زمان</span></li><li><span>تأیید</span></li></ol></nav>
+    <section aria-labelledby="c-h" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <h2 id="c-h" class="f-h" style="margin: 0;">مشتری را پیدا کنید</h2>
+      <label class="rv-input rv-input--search" style="height: 48px;"><i class="ri ri-search"></i><input placeholder="نام یا شماره موبایل مشتری" aria-label="جست‌وجوی مشتری" value="۰۹۱۴ ۵۵۵ ۰۱۲۷"><button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="پاک کردن جست‌وجو" style="margin-inline-end: -10px;"><i class="ri ri-sm ri-x"></i></button></label>
+      <!-- نتیجه‌ای نیست: گزینهٔ افزودن با همان شماره؛ زدنش برگهٔ پایین را باز می‌کند -->
+      <div class="b4-nores" role="status">
+        <span class="b4-nores__ic" aria-hidden="true"><i class="ri ri-search"></i></span>
+        <h3 class="b4-nores__t">مشتری پیدا نشد</h3>
+        <p class="b4-nores__d">مشتری‌ای با شمارهٔ <bdi dir="ltr">۰۹۱۴ ۵۵۵ ۰۱۲۷</bdi> ثبت نشده است.</p>
+        <button type="button" class="rv-btn rv-btn--secondary" aria-haspopup="dialog"><i class="ri ri-user-plus" aria-hidden="true"></i>افزودن مشتری جدید</button>
+      </div>
+    </section>
+  </main>
+  <div class="rv-scrim" aria-hidden="true"></div>
+  <section class="rv-sheet rv-glass-strong b2-sheet" role="dialog" aria-modal="true" aria-labelledby="ca-t">
+    <span class="b2-grip" aria-hidden="true"></span>
+    <div class="b2-sheet__head">
+      <span class="rv-tile is-neutral"><i class="ri ri-user-plus"></i></span>
+      <div class="rv-grow"><h2 id="ca-t" class="b2-sheet__t">افزودن مشتری</h2><p class="b2-sheet__d">با ثبت، حساب مشتری با این شماره ساخته می‌شود.</p></div>
+      <button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="بستن برگه"><i class="ri ri-x"></i></button>
+    </div>
+    <div class="rv-field"><label class="rv-label" for="ca-ph">شماره موبایل</label><div class="rv-input b4-ph"><input id="ca-ph" inputmode="tel" dir="ltr" value="۰۹۱۴ ۵۵۵ ۰۱۲۷"></div></div>
+    <div class="b4-2col">
+      <div class="rv-field"><label class="rv-label" for="ca-fn">نام</label><div class="rv-input"><input id="ca-fn" value="آرش" autocomplete="off"></div></div>
+      <div class="rv-field"><label class="rv-label" for="ca-ln">نام خانوادگی</label><div class="rv-input"><input id="ca-ln" value="رستمی" autocomplete="off"></div></div>
+    </div>
+    <div class="b2-sheet__acts"><button type="button" class="rv-btn rv-btn--primary">ایجاد حساب و ادامه</button><button type="button" class="rv-btn rv-btn--secondary">انصراف</button></div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

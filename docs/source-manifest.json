@@ -1,0 +1,45 @@
+{
+  "generated_on": "2026-11-06",
+  "input_files": [
+    "upload/Pasted text(20261106-150116).txt",
+    "upload/Rival_Batch08_Artboards(2).zip",
+    "upload/Rival_Batch1_Full(2).zip",
+    "upload/Rival_Batch2_Full(2).zip",
+    "upload/Rival_Batch3_Customer_Panel_HTML(2).zip",
+    "upload/Rival_Batch4_Stylist_Canvas(2).zip",
+    "upload/Rival_Batch5_Admin_Daily(3).zip",
+    "upload/Rival_Batch6_Salon_Management(2).zip",
+    "upload/Rival_Batch7_Artboards(2).zip",
+    "upload/Rival_ClaudeCode_Kickstart(1).zip",
+    "upload/Rival_Design_System_v2(2).zip",
+    "upload/Rival_Docs_For_ClaudeCode(2).zip"
+  ],
+  "source_counts": {
+    "workspace_files": 1305,
+    "docs_markdown": 28,
+    "design_batches": 8,
+    "canvas_board_records": 441,
+    "canvas_note_boards": 8,
+    "html_exports_by_batch": {
+      "Rival_Batch5_Admin_Daily(3)": 56,
+      "Rival_Batch4_Stylist_Canvas(2)": 105,
+      "Rival_Batch2_Full(2)": 45,
+      "Rival_Batch7_Artboards(2)": 44,
+      "Rival_Batch6_Salon_Management(2)": 60,
+      "Rival_Batch08_Artboards(2)": 31,
+      "Rival_Batch1_Full(2)": 101,
+      "Rival_Batch3_Customer_Panel_HTML(2)": 129
+    },
+    "design_system_component_groups": 51,
+    "design_system_files": 278
+  },
+  "canonical_sources": [
+    "references/canonical/Owner_Closures.md",
+    "references/canonical/ADM09_Credit_And_Payments.md",
+    "references/canonical/Manual_Booking_No_Override_Reason.md",
+    "references/canonical/Frontend_Architecture.md",
+    "references/canonical/Design_Handoff_08.md",
+    "references/canonical/Design_Common.md"
+  ],
+  "status": "analysis-complete; implementation-not-started"
+}

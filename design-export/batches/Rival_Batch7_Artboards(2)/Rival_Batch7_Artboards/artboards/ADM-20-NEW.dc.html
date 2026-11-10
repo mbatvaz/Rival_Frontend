@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-20 — نمونه‌کار تازه (Full-screen Sheet)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+<link rel="stylesheet" href="rv-b6.css">
+<link rel="stylesheet" href="rv-b7.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1040px;">
+  <header class="f-bar-in">
+    <span aria-hidden="true"></span>
+    <h1>نمونه‌کار تازه</h1>
+    <a href="/admin/portfolio" class="rv-icon-btn" aria-label="بستن"><i class="ri ri-x"></i></a>
+  </header>
+  <main class="f-enter" style="padding: var(--space-2) var(--space-4) 140px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <div class="rv-field" style="margin: 0;"><span class="rv-label">آرایشگر صاحب نمونه‌کار</span>
+      <button type="button" class="rv-card rv-glass b6-bc b6-bc--btn" aria-haspopup="dialog" style="margin-top: var(--space-2);"><span class="rv-avatar"><img src="/_blob/60d51be0935b93cfc50f2fcf171bcef8" alt="" style="object-position: center 20%;"></span><span class="rv-grow" style="min-width: 0;"><span class="b6-bc__l">با نام او در صفحهٔ عمومی دیده می‌شود</span><b>طاها بهرامی (من)</b></span><i class="ri ri-chevron-left" aria-hidden="true"></i></button>
+    </div>
+    <section aria-labelledby="pf-i" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <div class="f-head" style="margin-bottom: 0;"><h2 id="pf-i" class="f-h">تصویرها</h2><span class="rv-caption rv-muted">2 از ۵</span></div>
+      <div class="b4-ups"><div class="b4-up is-main" role="group" aria-label="تصویر ۱، تصویر اصلی" aria-current="true"><img src="/_blob/dd309ab453d1e82c4c9722dabbb19cf1" alt="" style="object-position: center 25%;"><button type="button" class="b4-up__x" aria-label="برداشتن تصویر ۱"><i class="ri ri-sm ri-x"></i></button></div><div class="b4-up" role="group" aria-label="تصویر ۲"><img src="/_blob/9b38904b3664baed54989e1d298229d3" alt="" style="object-position: center 25%;"><button type="button" class="b4-up__x" aria-label="برداشتن تصویر ۲"><i class="ri ri-sm ri-x"></i></button></div><button type="button" class="rv-add b4-up b4-up--add"><i class="ri ri-plus" aria-hidden="true"></i>افزودن</button></div>
+      <p class="rv-help" style="margin: 0;">JPG یا PNG؛ به WebP زیر ۱ مگابایت تبدیل می‌شود. تصویر اول، تصویر اصلی کارت است.</p>
+    </section>
+    <div class="rv-field" style="margin: 0;"><label class="rv-label" for="pf-t">عنوان</label><div class="rv-input"><input id="pf-t" value="فید کوتاه با خط ریش" autocomplete="off"></div></div>
+    <fieldset class="b3-fs"><legend class="rv-label">خدمت</legend><div class="b3-rg" role="radiogroup" aria-label="خدمت"><button class="rv-chip" type="button" role="radio" aria-checked="true">اصلاح سر</button><button class="rv-chip" type="button" role="radio" aria-checked="false">اصلاح ریش</button><button class="rv-chip" type="button" role="radio" aria-checked="false">اصلاح سر و صورت</button></div><p class="rv-help" style="margin: var(--space-2) 0 0;">فقط خدمت‌هایی که طاها ارائه می‌کند.</p></fieldset>
+    <label class="rv-card rv-glass b4-swrow"><div class="rv-grow"><div class="b4-swrow__t">نمایش در صفحهٔ عمومی</div><div class="b4-swrow__d">روشن: همه می‌بینند</div></div><input type="checkbox" class="rv-switch" checked aria-label="نمایش در صفحهٔ عمومی"></label>
+  </main>
+  <div class="rv-actionbar rv-glass-strong b2-bar">
+    <div class="b2-bar__sum"><span class="b2-bar__t">۲ تصویر</span><span class="b2-bar__s">طاها بهرامی</span></div>
+    <button type="button" class="rv-btn rv-btn--primary">انتشار</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1040}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-23 — نتیجه ارسال — در جریان، وضعیت مستقل هر گیرنده</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+<link rel="stylesheet" href="rv-b6.css">
+<link rel="stylesheet" href="rv-b7.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1160px;">
+  <header class="f-bar-in">
+    <a href="#more" class="rv-icon-btn" aria-label="بازگشت"><i class="ri ri-arrow-right"></i></a>
+    <h1>نتیجه ارسال</h1>
+    <span aria-hidden="true"></span>
+  </header>
+  <main class="f-enter" style="padding: var(--space-2) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <div class="rv-card rv-glass b4-ps" role="status">
+      <div class="rv-gauge" aria-label="۸ از ۱۲ گیرنده"><svg viewBox="0 0 168 168" aria-hidden="true"><circle class="trk" cx="84" cy="84" r="74"></circle><circle class="val is-success" cx="84" cy="84" r="74" stroke-dasharray="465" stroke-dashoffset="155"></circle></svg><div class="rv-gauge__c"><b>۸/۱۲</b><span>ارسال شد</span></div></div>
+      <span class="rv-tag is-info"><i class="ri ri-send"></i>در حال ارسال</span>
+      <h2 class="b4-ps__t">پیامک در حال ارسال است</h2>
+      <p class="b4-ps__d">۸ نفر دریافت کردند. وضعیت هر گیرنده جدا ثبت می‌شود.</p>
+    </div>
+    <section aria-labelledby="g-run">
+      <div class="b4-psh"><span class="rv-tag is-info"><i class="ri ri-clock"></i><span id="g-run">در جریان</span></span><span class="rv-caption rv-muted">۳ مورد</span></div>
+      <div class="rv-list rv-glass b4-psl">
+        <div class="rv-item"><span class="rv-avatar rv-avatar--sm" aria-hidden="true">م</span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">مجید کاظمی</div></div><span class="rv-tag is-info"><i class="ri ri-send"></i>در حال ارسال</span></div>
+        <div class="rv-item"><span class="rv-avatar rv-avatar--sm" aria-hidden="true">ب</span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">بهراد شریفی</div></div><span class="rv-tag is-info"><i class="ri ri-clock"></i>در صف</span></div>
+        <div class="rv-item"><span class="rv-avatar rv-avatar--sm" aria-hidden="true">ر</span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">رضا کریمی</div><div class="rv-item__s">تلاش بعدی ۱۱:۳۰</div></div><span class="rv-tag is-warning"><i class="ri ri-refresh"></i>تلاش ۲ از ۴</span></div>
+      </div>
+    </section>
+    <section aria-labelledby="g-blk">
+      <div class="b4-psh"><span class="rv-tag"><i class="ri ri-ban"></i><span id="g-blk">ارسال نشد</span></span><span class="rv-caption rv-muted">۱ مورد</span></div>
+      <div class="rv-list rv-glass b4-psl">
+        <div class="rv-item"><span class="rv-avatar rv-avatar--sm" aria-hidden="true">ح</span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">حسین جعفری</div><div class="rv-item__s">مشتری دریافت پیامک را بسته است؛ تکرار نمی‌شود.</div></div><span class="rv-tag"><i class="ri ri-ban"></i>دریافت مسدود</span></div>
+      </div>
+    </section>
+    <section aria-labelledby="g-ok">
+      <div class="b4-psh"><span class="rv-tag is-success"><i class="ri ri-check"></i><span id="g-ok">ارسال شد</span></span><span class="rv-caption rv-muted">۸ مورد</span></div>
+      <div class="rv-list rv-glass b4-psl">
+        <button type="button" class="b6-ex" aria-expanded="false">نمایش ۸ مورد<i class="ri ri-sm ri-chevron-down" aria-hidden="true"></i></button>
+      </div>
+    </section>
+    <p class="b4-hint"><i class="ri ri-info" aria-hidden="true"></i>می‌توانید این صفحه را ببندید؛ تلاش‌ها ادامه پیدا می‌کنند و اگر خطای نهایی بماند، در اعلان‌ها خبر می‌دهیم.</p>
+    <div class="b4-acts"><a href="/admin/sms" class="rv-btn rv-btn--secondary rv-btn--block">بازگشت به پیامک</a></div>
+  </main>
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری مدیر کل">
+      <a href="/admin" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+      <a href="/admin/calendar" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+      <a href="/admin/requests" aria-label="درخواست‌ها، ۴ درخواست منتظر پاسخ شما"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۴</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/admin/customers" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+      <a href="#more" aria-current="page" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1160}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

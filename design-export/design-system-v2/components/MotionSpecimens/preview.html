@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rival — MotionSpecimens</title><link rel="stylesheet" href="../../css/tokens.css"><link rel="stylesheet" href="../../css/rival.css"><style>body{margin:0}</style></head>
+<body>
+<!-- @dsCard width=900 group="Brand" height=510 subtitle="Motion that carries meaning — every loop is a real component state, on the four duration tokens and two easings" -->
+<div class="rv rv-final rv-pad" dir="rtl" lang="fa"><style>
+.mo{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;min-height:200px}
+.mo small{font-size:12px;color:var(--text-muted);line-height:18px}.mo code{font-size:10px;color:var(--text-muted);direction:ltr;font-family:var(--font-sans)}
+.mo-pop{animation:rv-pop var(--duration-slow) var(--ease-spring) infinite alternate 1s}
+.mo-glide{position:relative;width:180px;height:44px;border-radius:14px;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px var(--glass-edge)}
+.mo-glide i{position:absolute;top:4px;right:4px;width:36px;height:36px;border-radius:11px;background:linear-gradient(180deg,var(--bg-inverse-raised),var(--bg-inverse));animation:mo-glide 3s var(--ease-spring) infinite}
+@keyframes mo-glide{0%,20%{transform:none}35%,55%{transform:translateX(-68px)}70%,100%{transform:translateX(-136px)}}
+.mo-sheet{width:180px;height:96px;border-radius:18px;position:relative;overflow:hidden;background:var(--bg-plaster)}
+.mo-sheet>div{position:absolute;inset:auto 6px 0;height:62px;border-radius:16px 16px 0 0;animation:mo-sheet 3s var(--ease-standard) infinite}
+@keyframes mo-sheet{0%{transform:translateY(100%)}25%,75%{transform:none}100%{transform:translateY(100%)}}
+.mo-toast{animation:mo-toast 3s var(--ease-standard) infinite}
+@keyframes mo-toast{0%{opacity:0;transform:translateY(-14px) scale(.98)}15%,80%{opacity:1;transform:none}100%{opacity:0}}
+.mo-draw path{animation:mo-draw 2.4s var(--ease-standard) infinite}
+@keyframes mo-draw{0%{stroke-dashoffset:40}35%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:0;opacity:0}}
+.mo-cd .val{animation:mo-cd 6s linear infinite}
+@keyframes mo-cd{from{stroke-dashoffset:0}to{stroke-dashoffset:157}}
+.mo-snip{animation:rv-snip 1.2s var(--ease-standard) infinite}
+.mo-ring{animation:rv-ring 2.4s var(--ease-standard) infinite;transform-origin:50% 10%}
+</style>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+  <div class="rv-card rv-glass mo"><span class="rv-pick__check mo-pop" style="position:static;color:var(--text-inverse);background:var(--bg-inverse);box-shadow:none;width:36px;height:36px"><i class="ri ri-check"></i></span><small>انتخاب ثبت شد</small><code>pop<span class="rv-sep" aria-hidden="true"></span>slow<span class="rv-sep" aria-hidden="true"></span>spring</code></div>
+  <div class="rv-card rv-glass mo"><div class="mo-glide"><i></i></div><small>کپسول روز هفته جابه‌جا می‌شود</small><code>translate<span class="rv-sep" aria-hidden="true"></span>base<span class="rv-sep" aria-hidden="true"></span>spring</code></div>
+  <div class="rv-card rv-glass mo"><div class="mo-sheet"><div class="rv-glass-strong"></div></div><small>برگه از پایین می‌آید</small><code>sheet-up<span class="rv-sep" aria-hidden="true"></span>slow<span class="rv-sep" aria-hidden="true"></span>standard</code></div>
+  <div class="rv-card rv-glass mo"><div class="rv-toast mo-toast" style="width:190px;padding:8px 12px;animation-name:mo-toast"><span class="rv-ic is-success"><i class="ri ri-sm ri-check"></i></span><span class="rv-body-sm" style="font-weight:400">ذخیره شد</span></div><small>پیام کوتاه از بالا</small><code>toast-in<span class="rv-sep" aria-hidden="true"></span>slow</code></div>
+  <div class="rv-card rv-glass mo"><span class="rv-tile rv-tile--lg is-success"><svg class="rv-check-draw mo-draw" viewBox="0 0 44 44" style="width:34px;height:34px"><path d="M12 23 l7 7 l14 -15"/></svg></span><small>پرداخت تایید شد</small><code>draw<span class="rv-sep" aria-hidden="true"></span>deliberate</code></div>
+  <div class="rv-card rv-glass mo"><div class="rv-gauge rv-gauge--sm mo-cd"><svg viewBox="0 0 60 60"><circle class="trk" cx="30" cy="30" r="25"/><circle class="val" cx="30" cy="30" r="25" stroke-dasharray="157"/></svg><div class="rv-gauge__c"><i class="ri ri-sm ri-hourglass" style="color:var(--warning-fg)"></i></div></div><small>نگه‌داشت در حال تمام شدن</small><code>stroke-dashoffset<span class="rv-sep" aria-hidden="true"></span>linear</code></div>
+  <div class="rv-card rv-glass mo"><span class="rv-tag is-ink is-live rv-tag--lg"><span class="rv-tag__dot"></span>اکنون</span><small>نوبت در حال انجام</small><code>pulse<span class="rv-sep" aria-hidden="true"></span>1.6s</code></div>
+  <div class="rv-card rv-glass mo"><div class="rv-row" style="gap:12px"><span class="rv-tile"><i class="ri ri-scissors mo-snip"></i></span><span class="rv-tile"><i class="ri ri-bell mo-ring"></i></span></div><small>آیکون‌ها فقط در لحظه معنا تکان می‌خورند</small><code>snip<span class="rv-sep" aria-hidden="true"></span>ring</code></div>
+</div>
+<div class="rv-legend" style="margin-top:16px"><span class="rv-ltr">fast 140</span><span class="rv-ltr">base 240</span><span class="rv-ltr">slow 380</span><span class="rv-ltr">deliberate 700</span><span>با prefers-reduced-motion همه حذف می‌شوند</span></div>
+</div>
+
+</body></html>

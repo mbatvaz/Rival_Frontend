@@ -1,0 +1,1199 @@
+/* Rival — اجزای ترکیبی دسته ۴ (پنل آرایشگر). فقط توکن.
+   بعد از rv-fixes.css، rv-final.css، rv-b2.css و rv-b3.css بارگذاری می‌شود.
+   بخش ۱ (مفهوم): بخش‌هایی که فقط در یک جهت به کار رفته‌اند، پس از انتخاب مالک پاک می‌شوند. */
+/* شماره‌گذاری بخش‌ها (§۱ تا §۱۲۳) برای ارجاع در فایل تحویل ۰۴ اضافه شد؛ محتوا تغییر نکرده است. */
+
+/* §۱ ۱. نوبت جاری روی جوهر (STY-01، همه جهت‌ها): پیشرفت زمانی به‌جای ساعت پایان (D10-32)، بدون «ثبت انجام شد» */
+.b4-now { border-radius: var(--radius-xl); display: flex; flex-direction: column; gap: var(--space-4); }
+.b4-now__eye { display: flex; align-items: center; gap: 6px; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-inverse-muted); }
+.b4-now__dot { flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--text-inverse); }
+@media (prefers-reduced-motion: no-preference) { .b4-now__dot { animation: rv-pulse 1.6s var(--ease-standard) infinite; } }
+.b4-now__name { font-size: 18px; line-height: 28px; font-weight: 600; }
+.b4-now__svc { font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-inverse-muted); }
+.b4-now__note { margin: calc(var(--space-2) * -1) 0 0; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-inverse-muted); }
+.b4-prog { display: flex; flex-direction: column; gap: 6px; }
+.b4-prog__track { height: 6px; border-radius: var(--radius-pill); background: var(--bg-inverse-raised); overflow: hidden; }
+.b4-prog__track > i { display: block; height: 100%; border-radius: inherit; background: var(--text-inverse); transform-origin: right; }
+@media (prefers-reduced-motion: no-preference) { .b4-prog__track > i { animation: rv-grow-x var(--duration-deliberate) var(--ease-standard) both; } }
+.b4-prog__row { display: flex; justify-content: space-between; gap: var(--space-2); font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-inverse-muted); }
+.b4-prog__row b { font-weight: 400; color: var(--text-inverse); }
+/* §۲ ردیف شماره: در ۳۶۰ هم داخل کارت می‌ماند (کار باز «ایرادهای عرض ۳۶۰») */
+.b4-phone { display: flex; align-items: center; gap: var(--space-2); min-width: 0; padding: var(--space-1) var(--space-1) var(--space-1) var(--space-3); border-radius: var(--radius-md); background: var(--bg-inverse-raised); }
+.b4-phone__ic { flex: none; width: 16px; height: 16px; color: var(--text-inverse-muted); }
+.b4-phone__n { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; direction: ltr; text-align: right; font-size: 15px; line-height: 24px; font-weight: 400; }
+.b4-ib-inv { flex: none; background: transparent; color: var(--text-inverse); box-shadow: inset 0 0 0 1px var(--chrome-700); }
+
+/* §۳ ۲. پایان‌یافته‌های امروز با «عدم حضور» (STY-01) */
+.b4-done .rv-item { min-height: 64px; gap: var(--space-2); }
+.b4-done__hit { flex: 1; min-width: 0; display: flex; align-items: center; gap: var(--space-3); min-height: 44px; color: inherit; text-decoration: none; }
+.b4-done__t { width: 44px; flex: none; text-align: center; font-size: 14px; line-height: 20px; font-weight: 400; color: var(--text-secondary); }
+.b4-done__n { display: block; font-size: 15px; line-height: 22px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.b4-done__s { display: flex; align-items: center; gap: 4px; font-size: 12px; line-height: 18px; font-weight: 400; color: var(--success-fg); }
+.b4-done__s .ri { width: 14px; height: 14px; }
+
+/* §۴ ۳. درخواست پیشنهادی نزدیک مهلت (STY-01، STY-03): مهلت ۷ روزه با زمان واقعی */
+.b4-rq { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); min-height: 76px; position: relative; color: inherit; text-decoration: none; }
+.b4-rq + .b4-rq { border-top: 1px solid var(--line-hairline); }
+.b4-rq__img { width: 44px; height: 52px; flex: none; border-radius: var(--radius-sm); object-fit: cover; }
+.b4-rq__t { font-size: 15px; line-height: 22px; font-weight: 600; }
+.b4-rq__s { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-rq__due { flex: none; display: flex; flex-direction: column; align-items: flex-end; gap: 2px; text-align: left; }
+.b4-rq__due b { font-size: 15px; line-height: 22px; font-weight: 400; color: var(--warning-fg); white-space: nowrap; }
+.b4-rq__due small { font-size: 11px; line-height: 16px; font-weight: 300; color: var(--text-muted); white-space: nowrap; }
+
+/* §۵ ۴. جهت ب داشبورد: نوار روز داخل کارت جوهری (کل روز ۰۸ تا ۱۹، هر واحد ۳۰ دقیقه) */
+.b4-rib { display: flex; flex-direction: column; gap: 6px; }
+.b4-rib__bar { position: relative; display: flex; gap: 2px; height: 26px; }
+.b4-rib__bar > i { flex: var(--u, 1) 1 0; border-radius: 6px; background: var(--chrome-700); }
+.b4-rib__bar > i.is-done { background: var(--chrome-500); }
+.b4-rib__bar > i.is-now { background: var(--text-inverse); }
+.b4-rib__bar > i.is-free { background: transparent; box-shadow: inset 0 0 0 1px var(--chrome-700); }
+.b4-rib__bar > i.is-block { background: repeating-linear-gradient(135deg, var(--chrome-700) 0 3px, transparent 3px 6px); }
+.b4-rib__now { position: absolute; top: -4px; bottom: -4px; width: 2px; margin-inline-start: -1px; border-radius: 1px; background: var(--text-inverse); box-shadow: 0 0 0 2px var(--bg-inverse); }
+.b4-rib__ticks { display: flex; justify-content: space-between; font-size: 11px; line-height: 16px; font-weight: 300; color: var(--text-inverse-muted); }
+.b4-rib__lg { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-3); margin: 0; padding: 0; list-style: none; font-size: 11px; line-height: 16px; font-weight: 300; color: var(--text-inverse-muted); }
+.b4-rib__lg li { display: inline-flex; align-items: center; gap: 6px; }
+.b4-rib__lg li::before { content: ""; width: 10px; height: 10px; border-radius: 3px; background: var(--chrome-700); }
+.b4-rib__lg li.is-done::before { background: var(--chrome-500); }
+.b4-rib__lg li.is-free::before { background: transparent; box-shadow: inset 0 0 0 1px var(--chrome-500); }
+.b4-rib__lg li.is-block::before { background: repeating-linear-gradient(135deg, var(--chrome-500) 0 2px, transparent 2px 4px); }
+
+/* §۶ جهت ب: «بعدی» درشت و ادامه به شکل ردیف فشرده */
+.b4-next { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4) var(--space-5); border-radius: var(--radius-xl); position: relative; }
+.b4-next__time { display: flex; flex-direction: column; align-items: center; min-width: 76px; }
+.b4-next__time b { font-family: var(--font-numeric); font-size: 34px; line-height: 40px; font-weight: 300; }
+.b4-next__time small { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b4-next__sep { align-self: stretch; width: 1px; background: var(--line-hairline); }
+.b4-rows { list-style: none; margin: 0; padding: 0; }
+.b4-rows > li { display: flex; align-items: center; gap: var(--space-3); min-height: 60px; padding: var(--space-2) var(--space-4); position: relative; }
+.b4-rows > li + li { border-top: 1px solid var(--line-hairline); }
+.b4-rows__t { width: 44px; flex: none; text-align: center; font-size: 14px; line-height: 20px; font-weight: 400; }
+.b4-rows__n { font-size: 15px; line-height: 22px; font-weight: 600; }
+.b4-rows__s { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-rows > li.is-free { min-height: 48px; color: var(--text-muted); }
+.b4-rows > li.is-free a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: 13px; line-height: 20px; font-weight: 400; color: var(--text-primary); text-decoration: none; }
+.b4-rows > li.is-block .b4-rows__n { font-weight: 400; color: var(--text-secondary); }
+.b4-rows > li.is-hold { background: var(--warning-bg); }
+.b4-rows .rv-icon-btn { position: relative; z-index: 1; }
+
+/* §۷ ریل کارت‌های کوچک (پایان‌یافته‌ها و درخواست‌ها در جهت ب) */
+.b4-mini { width: 208px; padding: var(--space-4); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: var(--space-3); }
+.b4-mini__top { display: flex; align-items: center; gap: var(--space-3); }
+.b4-mini__t { font-size: 15px; line-height: 22px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.b4-mini__s { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-mini .rv-btn { width: 100%; }
+.b4-rail { margin-top: calc(var(--space-6) * -1); margin-bottom: calc(var(--space-6) * -1); }
+
+/* §۸ ۵. جهت ج داشبورد: سوییچ «پیش رو / پایان‌یافته» با شمار خنثی */
+.b4-n { display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 6px; border-radius: var(--radius-pill); background: var(--chrome-300); color: var(--text-primary); font-size: 11px; line-height: 20px; }
+.rv-seg button[aria-selected="true"] .b4-n { background: var(--bg-inverse-raised); color: var(--text-inverse); }
+.b4-seg-full { display: flex; width: 100%; }
+.b4-seg-full button { flex: 1; justify-content: center; }
+.b4-cta { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-lg); text-decoration: none; }
+.b4-cta__t { font-size: 15px; line-height: 22px; font-weight: 600; }
+.b4-cta__d { font-size: 12px; line-height: 18px; font-weight: 300; }
+.rv-card--inverse .b4-cta__d, .b4-cta.rv-card--inverse .b4-cta__d { color: var(--text-inverse-muted); }
+
+/* §۹ ۶. تقویم (STY-02): سوییچ نما و خط وضعیت روز */
+.b4-view { display: flex; align-items: center; gap: var(--space-3); }
+.b4-view .rv-seg { flex: 1; display: flex; }
+.b4-view .rv-seg button { flex: 1; justify-content: center; }
+.b4-daysum { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin: 0 var(--space-1); }
+.b4-daysum__t { font-size: 17px; line-height: 28px; font-weight: 600; }
+.b4-daysum__s { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+/* §۱۰ Block شخصی با ReleaseAt: زمان آزاد شدن روشن، جدا از BookableFrom مدیر */
+.b4-rel { display: inline-flex; align-items: center; gap: 4px; margin-top: 4px; font-size: 12px; line-height: 18px; font-weight: 400; color: var(--text-primary); }
+.b4-rel .ri { width: 14px; height: 14px; color: var(--text-muted); }
+.rv-tl__b.is-block { align-items: flex-start; }
+
+/* §۱۱ جهت ب تقویم: شبکه ساعت با ارتفاع متناسب با مدت (هر ۳۰ دقیقه ۴۰px) */
+.b4-hg { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: var(--space-2); --row: 40px; }
+.b4-hg__h { list-style: none; margin: 0; padding: 0; }
+.b4-hg__h li { height: calc(var(--row) * 2); font-size: 12px; line-height: 16px; font-weight: 400; color: var(--text-muted); text-align: center; transform: translateY(-8px); }
+.b4-hg__lane { position: relative; height: calc(var(--rows) * var(--row)); border-radius: var(--radius-md); background: repeating-linear-gradient(180deg, var(--line-hairline) 0 1px, transparent 1px calc(var(--row) * 2)); }
+.b4-ev { position: absolute; inset-inline: 0; top: calc(var(--s) * var(--row) + 2px); height: calc(var(--d) * var(--row) - 4px); border-radius: var(--radius-sm); padding: 6px var(--space-3); display: flex; align-items: center; gap: var(--space-2); overflow: hidden; color: inherit; text-decoration: none; }
+.b4-ev__n { font-size: 14px; line-height: 20px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.b4-ev__s { font-size: 12px; line-height: 16px; font-weight: 300; color: var(--text-secondary); white-space: nowrap; }
+.b4-ev.is-short { padding-block: 0; }
+.b4-ev.is-short .b4-ev__s::before { content: ""; display: inline-block; width: 1px; height: 12px; margin: 0 var(--space-2); background: var(--line-strong); vertical-align: -1px; }
+.b4-ev.is-now { box-shadow: var(--shadow-glass), inset 0 0 0 1.5px var(--text-primary); }
+.b4-ev.is-free { justify-content: center; border: 1.5px dashed var(--line-strong); color: var(--text-primary); font-size: 13px; font-weight: 400; background: transparent; }
+.b4-ev.is-block { align-items: flex-start; background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .55) 0 8px, rgba(232, 234, 237, .6) 8px 16px); border: 1px solid var(--glass-edge); }
+.b4-ev.is-hold { background: var(--warning-bg); border: 1.5px dashed var(--warning-line); }
+.b4-hg__now { position: absolute; z-index: 2; inset-inline: -6px 0; top: calc(var(--at) * var(--row)); height: 0; border-top: 1.5px solid var(--text-primary); }
+.b4-hg__now::before { content: ""; position: absolute; inset-inline-start: 0; top: -5px; width: 8px; height: 8px; border-radius: 50%; background: var(--text-primary); }
+
+/* §۱۲ جهت ج تقویم: دستور کار پیوسته روزبه‌روز با سرتیتر چسبان */
+.b4-ag { display: flex; flex-direction: column; gap: var(--space-5); }
+.b4-ag__day { display: flex; flex-direction: column; gap: var(--space-2); }
+.b4-ag__h { position: sticky; top: 0; z-index: 2; display: flex; align-items: baseline; gap: var(--space-2); padding: var(--space-2) var(--space-1); }
+.b4-ag__d { font-family: var(--font-numeric); font-size: 28px; line-height: 32px; font-weight: 300; }
+.b4-ag__w { font-size: 15px; line-height: 22px; font-weight: 600; }
+.b4-ag__m { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-ag__sum { margin-inline-start: auto; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); white-space: nowrap; }
+.b4-ag__off { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+
+/* §۱۳ ۷. پاسخ درخواست (STY-04) */
+/* §۱۴ روز ترجیحی مشتری در نوار روزها: حلقه خط‌چین، جدا از کادر ثابت انتخاب */
+.b2-days .rv-wd.b4-pref::before { content: ""; position: absolute; inset: 6px 4px; border-radius: 16px; border: 1.5px dashed var(--line-control); pointer-events: none; }
+.b4-prefline { display: flex; align-items: center; gap: var(--space-2); margin: 0 var(--space-1); font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b4-prefline b { font-weight: 400; color: var(--text-primary); }
+.b4-prefline__mk { flex: none; width: 18px; height: 18px; border-radius: 6px; border: 1.5px dashed var(--line-control); }
+/* §۱۵ گروه زمان‌ها با برچسب «ترجیح مشتری» */
+.b4-sgrp { display: flex; flex-direction: column; gap: var(--space-2); }
+.b4-sgrp__l { display: flex; align-items: center; gap: var(--space-2); margin: 0 var(--space-1); font-size: 13px; line-height: 20px; font-weight: 400; color: var(--text-secondary); }
+.b4-sgrp__l .rv-tag { height: 22px; padding: 0 8px; }
+/* §۱۶ مبلغ: مرجع سیستم و مبلغ نهایی */
+.b4-fee { display: flex; flex-direction: column; gap: var(--space-2); }
+.b4-fee .rv-input input { font-family: var(--font-numeric); font-size: 20px; font-weight: 400; }
+.b4-fee__ref { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin: 0 var(--space-1); font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-fee__ref b { font-weight: 400; color: var(--text-primary); }
+.b4-label { margin: 0 var(--space-1); font-size: 13px; line-height: 20px; font-weight: 400; color: var(--text-secondary); }
+.b4-optfee .rv-option { min-height: 56px; }
+.b4-optfee__amt { margin-inline-start: auto; font-size: 15px; line-height: 22px; font-weight: 400; white-space: nowrap; }
+.b4-optfee .rv-input { margin-top: var(--space-2); }
+/* §۱۷ سر فشرده درخواست برای پنل (جهت ب) */
+.b4-rqhead { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-xl); }
+.b4-rqhead__top { display: flex; align-items: center; gap: var(--space-3); }
+.b4-rqhead__img { width: 52px; height: 60px; flex: none; border-radius: var(--radius-md); object-fit: cover; }
+.b4-rqhead__t { font-size: 18px; line-height: 28px; font-weight: 600; }
+.b4-rqhead__s { font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b4-due { display: flex; flex-direction: column; gap: 6px; padding-top: var(--space-3); border-top: 1px solid var(--line-hairline); }
+.b4-due__row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-due__row b { font-size: 13px; font-weight: 400; color: var(--warning-fg); }
+.b4-due__track { height: 4px; border-radius: var(--radius-pill); background: var(--chrome-300); overflow: hidden; }
+.b4-due__track > i { display: block; height: 100%; border-radius: inherit; background: var(--warning-solid); }
+/* §۱۸ پیش‌نمایش پاسخ: همان کارت «پاسخ» که مشتری می‌بیند (b3-ans) با برچسب */
+.b4-prev { position: relative; }
+.b4-prev__l { position: absolute; top: calc(var(--space-3) * -1); inset-inline-start: var(--space-4); z-index: 1; }
+/* §۱۹ نتیجه یک‌خطی ارسال در نوار اقدام */
+.b4-barnote { display: flex; align-items: center; gap: 6px; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-barnote .ri { width: 14px; height: 14px; color: var(--text-muted); flex: none; }
+.b4-textbtn { align-self: center; min-height: 44px; padding: 0 var(--space-4); border: 0; background: transparent; font: inherit; font-size: 14px; font-weight: 400; color: var(--danger-fg); cursor: pointer; }
+
+/* §۲۰ ۸. آزمون فونت */
+.b4-ft { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: var(--space-3) var(--space-4); align-items: baseline; }
+.b4-ft dt { font-family: var(--font-sans); font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); direction: ltr; text-align: right; }
+.b4-ft dd { margin: 0; font-size: 22px; line-height: 34px; }
+
+/* §۲۱ ===== بازخورد مالک بر بخش ۱ (۲۶ مهر) ===== */
+
+/* §۲۲ ۹. STY-01 ترکیب: زبانه‌های «پیش رو / پایان‌یافته» بالای همان کارت‌های جهت الف */
+.b4-tabs { display: flex; flex-direction: column; gap: var(--space-4); }
+.b4-tabs .rv-seg { margin: 0; }
+@media (prefers-reduced-motion: no-preference) { .b4-tabs [role="tabpanel"] { animation: rv-fade var(--duration-base) var(--ease-standard) both; } }
+
+/* §۲۳ ۱۰. STY-02 ترکیب: ماه به‌جای سوییچ نما، و زمان آزاد با دو اقدام (رزرو دستی، بستن) */
+.b4-month { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; padding: 0 var(--space-2); margin-inline-start: calc(var(--space-2) * -1); border: 0; border-radius: var(--radius-sm); background: transparent; font: inherit; font-size: 16px; font-weight: 400; color: var(--text-primary); cursor: pointer; }
+.b4-month .ri { width: 16px; height: 16px; color: var(--text-muted); }
+.b4-dayhead { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin: 0 var(--space-1); }
+.b4-free { padding: 0; justify-content: space-between; gap: 0; align-items: stretch !important; }
+.b4-free__book { flex: 1; min-width: 0; display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 48px; color: var(--text-muted); font-size: 13px; line-height: 20px; font-weight: 300; text-decoration: none; }
+.b4-free__book b { font-weight: 400; color: var(--text-primary); }
+.b4-free__lock { flex: none; display: inline-flex; align-items: center; gap: 6px; min-width: 88px; justify-content: center; padding: 0 var(--space-3); border: 0; border-inline-start: 1.5px dashed var(--line-strong); background: transparent; font: inherit; font-size: 13px; line-height: 20px; font-weight: 400; color: var(--text-primary); cursor: pointer; }
+.b4-free__lock .ri { width: 16px; height: 16px; color: var(--text-secondary); }
+/* §۲۴ برگه بستن سریع: نیم‌ساعت‌های همان بازه آزاد */
+.b4-halves { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+.b4-seg2 { display: flex; width: 100%; }
+.b4-seg2 button { flex: 1; justify-content: center; }
+
+/* §۲۵ ۱۱. STY-04 ترکیب: سر صفحه با ترجیح مشتری، مشتری و زمان‌سنج مهلت */
+.b4-hpanel { display: flex; flex-direction: column; gap: 0; }
+.b4-hpanel .rv-bk-hero__when { margin-top: var(--space-4); }
+.b4-hpanel .rv-bk-hero__time b { font-family: var(--font-sans); font-size: 30px; line-height: 46px; }
+.b4-cust { display: flex; align-items: center; gap: var(--space-3); margin-top: var(--space-4); padding-top: var(--space-3); border-top: 1px solid var(--line-hairline); position: relative; }
+.b4-cust__n { display: block; font-size: 15px; line-height: 22px; font-weight: 600; color: inherit; text-decoration: none; }
+.b4-cust__p { display: block; direction: ltr; text-align: right; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b4-cust .rv-icon-btn { position: relative; z-index: 1; }
+.b4-exp { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin-top: var(--space-3); padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); background: var(--warning-bg); box-shadow: inset 0 0 0 1px var(--warning-line); }
+.b4-exp__l { display: flex; flex-direction: column; min-width: 0; }
+.b4-exp__t { display: flex; align-items: center; gap: 6px; font-size: 13px; line-height: 20px; font-weight: 400; color: var(--warning-fg); }
+.b4-exp__t .ri { width: 16px; height: 16px; }
+.b4-exp__d { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-exp .f-cdn { margin-top: 0; flex: none; }
+.b4-exp .f-cdn__c b { font-family: var(--font-numeric-regular); font-size: 16px; line-height: 22px; font-weight: 400; color: var(--warning-fg); }
+
+/* §۲۶ تقویم ۳۰ روزه: آزاد (سفید جامد)، پر (خط‌خورده)، تعطیل (قرمز)، روز درخواستی مشتری (حلقه خط‌چین + ستاره) */
+.b4-cal { padding: var(--space-3) var(--space-2) var(--space-2); }
+.b4-cal .rv-cal__grid { gap: 2px 0; }
+.b4-cal .rv-day { height: 48px; }
+.b4-cal .rv-day > i { position: relative; width: 40px; height: 42px; border-radius: var(--radius-sm); font-family: var(--font-numeric-regular); color: var(--text-disabled); }
+.b4-cal .rv-day > i small { position: absolute; top: -2px; inset-inline: 0; font-family: var(--font-sans); font-size: 10px; line-height: 12px; font-weight: 400; color: var(--text-muted); }
+.b4-cal .rv-day.is-open > i { background: var(--bg-surface); color: var(--text-primary); box-shadow: var(--shadow-md); }
+.b4-cal .rv-day.is-full > i { color: var(--text-muted); cursor: not-allowed; }
+.b4-cal .rv-day.is-holiday > i { color: var(--danger-fg); }
+.b4-cal .rv-day.is-past > i, .b4-cal .rv-day.is-out > i { color: var(--text-disabled); background: transparent; box-shadow: none; }
+.b4-cal .rv-day.is-pref > i { box-shadow: 0 0 0 1.5px var(--bg-surface), 0 0 0 3px var(--text-primary); }
+.b4-cal__star { position: absolute; z-index: 1; top: 0; inset-inline-end: 2px; width: 16px; height: 16px; border-radius: 50%; display: grid; place-items: center; background: var(--bg-inverse); color: var(--text-inverse); box-shadow: 0 0 0 2px var(--bg-surface); }
+.b4-cal__star .ri { width: 10px; height: 10px; }
+.b4-cal .rv-day[aria-selected="true"] > i { background: var(--bg-inverse); color: var(--text-inverse); }
+@media (prefers-reduced-motion: no-preference) { .b4-cal .rv-day[aria-selected="true"] > i { animation: rv-pop var(--duration-slow) var(--ease-spring); } }
+.b4-cal .rv-day.is-today:not([aria-selected="true"]) > i { box-shadow: 0 0 0 1.5px var(--accent-500); }
+.b4-lg { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); margin: var(--space-2) var(--space-2) 0; padding: var(--space-2) 0 0; border-top: 1px solid var(--line-hairline); list-style: none; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-lg li { display: inline-flex; align-items: center; gap: 6px; }
+.b4-lg__m { width: 14px; height: 14px; border-radius: 5px; flex: none; }
+.b4-lg__m.is-open { background: var(--bg-surface); box-shadow: var(--shadow-md); }
+.b4-lg__m.is-full { background: transparent; box-shadow: inset 0 0 0 1px var(--line-strong); }
+.b4-lg__m.is-pref { background: transparent; box-shadow: inset 0 0 0 2px var(--text-primary); }
+.b4-lg__m.is-off { background: var(--danger-bg); box-shadow: inset 0 0 0 1px var(--danger-line); }
+
+/* §۲۷ ساعت‌های روز: هر ساعت یک قرص دوتکه (نیم‌ساعت)؛ پر، مسدود، آزاد و بازه انتخاب‌شده */
+.b4-clock { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-1); }
+.b4-clock__r { display: grid; grid-template-columns: 48px minmax(0, 1fr) minmax(0, 1fr); gap: 2px; align-items: stretch; }
+.b4-clock__h { display: flex; align-items: center; justify-content: center; font-family: var(--font-numeric-regular); font-size: 13px; line-height: 20px; color: var(--text-muted); }
+.b4-hc { position: relative; height: 44px; border: 0; padding: 0 var(--space-3); display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); font: inherit; font-size: 13px; line-height: 20px; font-weight: 400; color: var(--text-primary); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-hairline); cursor: pointer; transition: background var(--duration-fast), color var(--duration-fast); }
+.b4-hc b { font-family: var(--font-numeric-regular); font-weight: 400; }
+.b4-hc small { font-size: 11px; line-height: 14px; font-weight: 300; color: var(--text-muted); }
+.b4-clock__r > .b4-hc:nth-child(2) { border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+.b4-clock__r > .b4-hc:nth-child(3) { border-radius: var(--radius-sm) 0 0 var(--radius-sm); }
+.b4-hc.is-busy { cursor: not-allowed; color: var(--text-muted); background: var(--bg-plaster); box-shadow: none; }
+.b4-hc.is-block { cursor: not-allowed; color: var(--text-secondary); background: repeating-linear-gradient(135deg, rgba(255,255,255,.7) 0 6px, rgba(205,209,214,.55) 6px 12px); box-shadow: inset 0 0 0 1px var(--line-hairline); }
+.b4-hc.is-busy b, .b4-hc.is-block b { text-decoration: none; }
+.b4-hc[aria-pressed="true"] { background: var(--bg-inverse); color: var(--text-inverse); box-shadow: none; }
+.b4-hc[aria-pressed="true"] small { color: var(--text-inverse-muted); }
+@media (prefers-reduced-motion: no-preference) { .b4-hc[aria-pressed="true"] { animation: rv-pop var(--duration-base) var(--ease-spring); } }
+/* §۲۸ گروه زمانی ترجیحی مشتری: خط‌چین کنار ردیف‌ها با برچسب */
+.b4-clock__grp { position: relative; display: flex; flex-direction: column; gap: var(--space-1); padding-inline-end: var(--space-3); margin-inline-end: calc(var(--space-3) * -1); border-inline-end: 1.5px dashed var(--text-primary); }
+.b4-clock__grp > li { list-style: none; }
+.b4-clock__lbl { display: inline-flex; align-items: center; gap: 4px; margin: var(--space-2) 48px var(--space-1) 0; font-size: 12px; line-height: 18px; font-weight: 400; color: var(--text-primary); }
+.b4-clock__lbl .ri { width: 14px; height: 14px; }
+/* §۲۹ خلاصه بازه انتخاب‌شده */
+.b4-span { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: var(--space-3) var(--space-2); border-radius: var(--radius-lg); text-align: center; }
+.b4-span > div + div { border-inline-start: 1px solid var(--line-hairline); }
+.b4-span small { display: block; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-span b { display: block; font-family: var(--font-numeric); font-size: 26px; line-height: 34px; font-weight: 300; }
+.b4-span b.is-txt { font-family: var(--font-sans); font-size: 18px; font-weight: 400; }
+.b4-hint { display: flex; align-items: flex-start; gap: 6px; margin: 0 var(--space-1); font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-hint .ri { flex: none; width: 14px; height: 14px; margin-top: 2px; color: var(--text-muted); }
+/* §۳۰ مبلغ: گزینه پیشنهاد سیستم + کادر مبلغ دیگر که با لمس فعال می‌شود */
+.b4-fee2 .rv-option { min-height: 60px; }
+.b4-fee2 .rv-option b { margin-inline-start: auto; font-size: 16px; line-height: 24px; font-weight: 400; white-space: nowrap; }
+.b4-fee2 .rv-option small { display: block; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-fee2 .rv-input input { font-family: var(--font-numeric-regular); font-size: 18px; }
+.b4-fee2 .rv-input input::placeholder { font-family: var(--font-sans); font-size: 14px; font-weight: 300; }
+
+/* §۳۱ ---------- STY-04 انتخاب ساعت، دو طرح (بازخورد مالک) ---------- */
+/* §۳۲ کارت انتخاب: شروع، مدت، پایان */
+.b4-pick { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: stretch; gap: var(--space-2); padding: var(--space-2); border-radius: var(--radius-lg); text-align: center; }
+.b4-pick__c { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 72px; padding: var(--space-2); border: 0; border-radius: var(--radius-md); background: transparent; font: inherit; color: var(--text-primary); cursor: pointer; }
+.b4-pick__c[aria-pressed="true"] { background: var(--bg-surface); box-shadow: inset 0 0 0 1.5px var(--text-primary), var(--shadow-sm); }
+.b4-pick small, .b4-pick__d small { display: block; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-pick b { display: block; font-family: var(--font-numeric); font-size: 26px; line-height: 34px; font-weight: 300; }
+.b4-pick__d { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 var(--space-2); border-inline: 1px solid var(--line-hairline); }
+.b4-pick__d b { font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 400; white-space: nowrap; }
+.b4-step { cursor: default; }
+.b4-step__row { display: flex; align-items: center; gap: var(--space-1); }
+.b4-step__row b { font-size: 22px; line-height: 30px; min-width: 64px; }
+.b4-step__b { flex: none; width: 32px; height: 32px; border: 0; border-radius: 50%; display: grid; place-items: center; background: var(--bg-surface); color: var(--text-primary); box-shadow: var(--shadow-sm); cursor: pointer; }
+
+/* §۳۳ طرح ۱: دیسک ساعت — بدون کارت، تمام‌عرض؛ نوار زمان پیوسته روی کمان و نشانگر ثابت */
+.b4-dial { position: relative; margin-inline: calc(var(--space-4) * -1); padding-top: var(--space-1); padding-bottom: var(--space-1); touch-action: pan-y; cursor: grab; }
+.b4-dial__val { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.b4-dial__val small { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-dial__val b { font-family: var(--font-numeric); font-size: 26px; line-height: 34px; font-weight: 300; color: var(--text-primary); }
+.b4-dial__wintag { display: inline-flex; align-items: center; gap: 4px; margin-top: 2px; font-size: 11px; line-height: 16px; font-weight: 400; color: var(--text-primary); }
+.b4-dial__wintag .ri { width: 12px; height: 12px; }
+.b4-dial__svg { display: block; width: 100%; height: auto; -webkit-mask-image: linear-gradient(to left, transparent 0, #000 56px, #000 calc(100% - 56px), transparent 100%); mask-image: linear-gradient(to left, transparent 0, #000 56px, #000 calc(100% - 56px), transparent 100%); }
+.b4-dial .g0 { stop-color: var(--bg-surface); stop-opacity: .9; }
+.b4-dial .g2 { stop-color: var(--bg-surface); stop-opacity: 0; }
+.b4-dial .s-disc { fill: url(#dg); }
+.b4-dial .s-track { fill: none; stroke: var(--chrome-100); stroke-width: 18; }
+.b4-dial .s-run { stroke-width: 8; stroke-linejoin: round; fill: var(--c); stroke: var(--c); }
+.b4-dial .s-free { --c: var(--bg-surface); filter: drop-shadow(0 0 3px rgba(20, 24, 31, .38)) drop-shadow(0 0 7px rgba(20, 24, 31, .16)); }
+.b4-dial .s-cl { fill: none; stroke: var(--text-muted); stroke-width: 2; stroke-dasharray: 1 4; stroke-linecap: round; }
+.b4-dial .s-busy { --c: var(--chrome-500); }
+.b4-dial .s-block { stroke: url(#hatch); }
+.b4-dial .s-hatch-bg { fill: var(--chrome-100); }
+.b4-dial .s-hatch { fill: var(--chrome-500); }
+.b4-dial .s-closed { --c: var(--bg-surface); }
+.b4-dial .s-sel { --c: var(--bg-inverse); }
+.b4-dial .s-tk { stroke: var(--text-muted); stroke-width: 1.5; stroke-linecap: round; }
+.b4-dial .s-tk.is-h { stroke: var(--text-primary); stroke-width: 2; }
+.b4-dial .s-hl { font-family: var(--font-numeric-regular); font-size: 12px; fill: var(--text-secondary); }
+.b4-dial .s-day { font-family: var(--font-sans); font-size: 11px; font-weight: 400; fill: var(--text-primary); }
+.b4-dial .s-win { fill: none; stroke: var(--text-primary); stroke-width: 2; stroke-linecap: round; }
+.b4-dial .s-dayline { stroke: var(--bg-canvas); stroke-width: 4; }
+.b4-dial .s-thumb { fill: var(--text-primary); stroke: var(--bg-surface); stroke-width: 1.5; filter: drop-shadow(0 1px 3px rgba(0,0,0,.25)); }
+
+/* §۳۴ طرح ۲: نوار کل روز + شروع‌های مناسب */
+.b4-dbar { position: relative; padding: var(--space-8) var(--space-3) var(--space-3); border-radius: var(--radius-lg); }
+.b4-dbar__win { position: absolute; top: var(--space-3); right: calc(var(--space-3) + (100% - 2 * var(--space-3)) * var(--a) / 100% * 0); }
+.b4-dbar__win { inset-inline-start: calc(var(--space-3) + (100% - var(--space-3) * 2) * 0.72727); inset-inline-end: var(--space-3); right: auto; display: flex; align-items: center; justify-content: center; gap: 4px; padding-bottom: 4px; border-bottom: 1.5px solid var(--text-primary); font-size: 11px; line-height: 16px; font-weight: 400; color: var(--text-primary); }
+.b4-dbar__win .ri { width: 12px; height: 12px; }
+.b4-dbar__cells { display: flex; gap: 2px; height: 36px; margin-top: var(--space-2); }
+.b4-dbar__cells > i { flex: 1 1 0; border-radius: 4px; }
+.b4-dbar__cells > i.is-free { background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-strong); }
+.b4-dbar__cells > i.is-busy { background: var(--chrome-300); }
+.b4-dbar__cells > i.is-block { background: repeating-linear-gradient(135deg, var(--chrome-300) 0 3px, var(--bg-surface) 3px 6px); }
+.b4-dbar__cells > i.is-sel { background: var(--bg-inverse); }
+.b4-dbar__ticks { position: relative; height: 18px; margin-top: 4px; }
+.b4-dbar__ticks span { position: absolute; top: 0; inset-inline-start: var(--p); transform: translateX(50%); font-family: var(--font-numeric-regular); font-size: 11px; line-height: 18px; color: var(--text-muted); }
+.b4-dbar__ticks span:first-child { transform: none; }
+.b4-dbar__ticks span:last-child { transform: translateX(100%); }
+.b4-starts { display: flex; flex-direction: column; gap: var(--space-2); }
+.b4-starts .rv-slot[aria-pressed="true"] { background: var(--bg-inverse); color: var(--text-inverse); box-shadow: none; }
+.b4-label--win { display: inline-flex; align-items: center; gap: 4px; margin-top: var(--space-1); color: var(--text-primary); }
+
+/* §۳۵ راهنمای رنگ‌های دیسک ساعت */
+.b4-dlg { display: flex; flex-wrap: wrap; gap: 6px var(--space-3); margin: 0; padding: 0; list-style: none; font-size: 11px; line-height: 16px; font-weight: 300; color: var(--text-secondary); }
+.b4-dlg li { display: flex; align-items: center; gap: 5px; }
+.b4-dlg__m { flex: none; width: 16px; height: 7px; border-radius: var(--radius-pill); }
+.b4-dlg__m.is-free { background: var(--bg-surface); box-shadow: 0 0 4px rgba(20, 24, 31, .4); }
+.b4-dlg__m.is-cl { height: 0; border-top: 2px dotted var(--text-muted); border-radius: 0; }
+.b4-dlg__m.is-busy { background: var(--chrome-500); }
+.b4-dlg__m.is-block { background: repeating-linear-gradient(135deg, var(--chrome-500) 0 2px, var(--chrome-100) 2px 4px); }
+.b4-dlg__m.is-closed { background: var(--chrome-300); }
+.b4-dlg__m.is-sel { background: var(--bg-inverse); }
+.b4-dlg__m.is-win { height: 0; border-top: 2px solid var(--text-primary); border-radius: 0; }
+
+/* §۳۶ ---------- بخش ۲: داشبورد و تقویم، همه حالت‌ها ---------- */
+/* §۳۷ آرایشگر غیرفعال */
+.b4-off .rv-notice__t { font-weight: 600; }
+.b4-off__how { margin-top: var(--space-1); color: var(--text-primary); }
+.rv-final .f-act.is-off { cursor: not-allowed; color: var(--text-muted); box-shadow: inset 0 0 0 1px var(--line-hairline); background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.f-act.is-off .f-act__ic { color: var(--text-disabled); }
+.f-act__s { margin-top: calc(var(--space-2) * -1); font-size: 11px; line-height: 14px; font-weight: 300; color: var(--text-muted); }
+.rv-tl__b.b4-free-off { min-height: 48px; gap: 6px; font-weight: 300; cursor: default; }
+.b4-free-off .ri { width: 14px; height: 14px; }
+/* §۳۸ روز بدون نوبت در داشبورد */
+.rv-card.b4-noday { padding: var(--space-6) var(--space-4) var(--space-4); }
+.b4-noday .b3-empty__ic .ri { width: 28px; height: 28px; }
+.b4-noday .rv-btn--block { width: 100%; }
+.b4-next { display: flex; align-items: center; gap: var(--space-3); width: 100%; margin-top: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background: var(--bg-surface); box-shadow: var(--shadow-hairline), var(--shadow-sm); color: inherit; text-decoration: none; text-align: start; }
+.b4-next__b { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.b4-next__l { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b4-next__v { font-size: 15px; line-height: 24px; font-weight: 600; color: var(--text-primary); }
+.b4-next__s { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-next > .ri { flex: none; color: var(--text-muted); }
+/* §۳۹ عدم حضور: برگه تأیید و نتیجه */
+.b4-sum { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); }
+.b4-sum__n { font-size: 15px; line-height: 22px; font-weight: 600; }
+.b4-sum__s { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-code { flex: none; font-size: 12px; line-height: 18px; font-weight: 400; color: var(--text-muted); letter-spacing: .02em; }
+.b4-done__s.is-ns { color: var(--warning-fg); }
+.b4-toastwrap { position: absolute; z-index: 40; top: var(--space-3); inset-inline: var(--space-4); }
+/* §۴۰ تقویم: تعطیل رسمی، پذیرش، روز بدون نوبت، پایان ساعت کاری */
+.rv-wd.is-hol:not([aria-selected="true"]) b, .rv-wd.is-hol:not([aria-selected="true"]) small { color: var(--danger-fg); }
+.rv-wd.is-hol.is-off b, .rv-wd.is-hol.is-off small { opacity: .8; }
+.b4-cal .rv-day.is-past.is-holiday > i { color: var(--danger-fg); opacity: .55; }
+.b4-cal .rv-day.is-holiday > i small { color: var(--danger-fg); }
+.b4-cal .rv-cal__dow:last-child { color: var(--danger-fg); }
+.rv-notice.b4-hol { --fg: var(--text-secondary); --bg: rgba(255, 255, 255, .55); --ln: var(--glass-edge); }
+.rv-notice.b4-hol .rv-notice__t { font-weight: 600; }
+.b4-dayempty { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-lg); }
+.b4-dayempty__ic { flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--bg-plaster); box-shadow: inset 0 1px 2px var(--glass-shade); color: var(--text-muted); }
+.b4-dayempty__t { font-size: 15px; line-height: 22px; font-weight: 600; }
+.b4-dayempty__d { font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b4-free--day .b4-free__book { min-height: 120px; }
+.f-tl > li.b4-end { align-items: center; }
+.b4-end__l { display: flex; align-items: center; gap: var(--space-2); font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b4-end__l::after { content: ""; flex: 1; height: 0; border-top: 1px dashed var(--line-strong); }
+/* §۴۱ برگه جزئیات بستن شخصی */
+.b4-kvcard { padding: var(--space-1) var(--space-4); border-radius: var(--radius-lg); }
+.b4-kvcard .rv-kv { padding: 10px 0; }
+.b4-kvcard .rv-kv + .rv-kv { border-top: 1px solid var(--line-hairline); }
+.b4-kv--rel > span { display: inline-flex; align-items: center; gap: 4px; }
+.b4-kv--rel > span .ri { width: 14px; height: 14px; }
+.b4-kv--rel > b { display: flex; flex-direction: column; align-items: flex-end; }
+.b4-kv--rel > b small { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+
+/* §۴۲ ---------- بخش ۳: درخواست‌ها ---------- */
+/* §۴۳ STY-03: جمله راهنمای بالای صفحه */
+.b4-lead { margin: 0 var(--space-1); font-size: 14px; line-height: 22px; font-weight: 300; color: var(--text-secondary); }
+/* §۴۴ مهلت کمتر از ۲۴ ساعت: قرمز */
+.b4-rq.is-soon .b4-rq__due b { color: var(--danger-fg); }
+/* §۴۵ ستون مبلغ در ردیف منتظر پرداخت */
+.b4-rq__due.is-amt b { color: var(--text-primary); }
+/* §۴۶ ردیف بسته‌شده: عکس سیاه‌وسفید و متن کم‌رنگ؛ برچسب وضعیت کنار ردیف */
+.b4-rq.is-off { min-height: 68px; }
+.b4-rq.is-off .b4-rq__img { filter: grayscale(1); opacity: .7; width: 40px; height: 46px; }
+.b4-rq.is-off .b4-rq__t { font-weight: 400; color: var(--text-secondary); }
+.b4-rq__tag { flex: none; height: 24px; padding: 0 10px; font-size: 12px; }
+/* §۴۷ منتظر پرداخت: نوار نگه‌داشت زیر ردیف */
+.b4-rqp__hold { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-2) var(--space-4) var(--space-3); border-top: 1px solid var(--line-hairline); }
+.b4-rqp__hold .f-bar__txt b { font-family: var(--font-numeric-regular); font-size: 14px; font-weight: 400; color: var(--warning-fg); }
+/* §۴۸ STY-04 در انتظار پاسخ: جای دیسک پیش از انتخاب روز */
+.b4-wait { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-lg); border: 1.5px dashed var(--line-strong); }
+.b4-wait__t { font-size: 15px; line-height: 24px; font-weight: 600; }
+.b4-wait__d { margin-top: 2px; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b4-fee-wait { font-size: 13px !important; font-weight: 300 !important; color: var(--text-muted); white-space: nowrap; }
+.rv-option[aria-disabled="true"] { cursor: default; }
+.rv-option[aria-disabled="true"] .rv-radio { opacity: .4; }
+/* §۴۹ زمان پاک‌شده در کارت انتخاب */
+.b4-pick b.is-empty { color: var(--text-disabled); }
+/* §۵۰ STY-04 پاسخ ارسال شد: کارت نگه‌داشت ۳ ساعته */
+.b4-hold { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); }
+.b4-hold__t { font-size: 14px; line-height: 22px; font-weight: 300; color: var(--text-secondary); }
+.b4-hold__t b { font-family: var(--font-numeric-regular); font-size: 20px; line-height: 28px; font-weight: 400; color: var(--warning-fg); }
+.b4-hold__l { list-style: none; margin: 0; padding: var(--space-3) 0 0; border-top: 1px solid var(--line-hairline); display: flex; flex-direction: column; gap: var(--space-2); }
+.b4-hold__l li { display: flex; align-items: flex-start; gap: var(--space-2); font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b4-hold__l .ri { flex: none; margin-top: 3px; color: var(--text-muted); }
+/* §۵۱ STY-04 لغو مشتری: کارت پاسخ کم‌رنگ و خط «دوباره آزاد است» */
+.b4-ans-off .rv-bk-hero__date b, .b4-ans-off .rv-bk-hero__time b { color: var(--text-secondary); }
+.b4-ans-off .rv-bk-hero__time b { text-decoration: line-through; text-decoration-thickness: 1px; }
+.b4-freed { display: flex; align-items: center; gap: 6px; font-size: 13px; line-height: 20px; font-weight: 400; color: var(--text-primary); }
+.b4-freed .ri { color: var(--text-muted); }
+/* §۵۲ برگه رد: تصویر خدمت به‌جای آواتار در خلاصه */
+.b4-sum .b4-rq__img { width: 40px; height: 46px; }
+.b4-rqp__hold .f-bar__track, .b4-hold .f-bar__track { flex: none; width: 100%; }
+.b4-rq__s2 { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+/* §۵۳ مهلت ۷ روزه به‌صورت دایمر دایره‌ای: حلقه زمان مانده را نشان می‌دهد و عدد درونش مقیاس زمان */
+.b4-ring { position: relative; flex: none; width: 52px; height: 52px; }
+.b4-ring svg { display: block; transform: rotate(-90deg) scaleY(-1); }
+.b4-ring circle { fill: none; stroke-width: 5; }
+.b4-ring__t { stroke: var(--chrome-300); }
+.b4-ring__v { stroke: var(--warning-solid); stroke-linecap: round; }
+.b4-rq.is-soon .b4-ring__v { stroke: var(--danger-solid); }
+.b4-ring__c { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
+.b4-ring__c b { font-family: var(--font-numeric-regular); font-size: 17px; line-height: 18px; font-weight: 400; color: var(--warning-fg); }
+.b4-ring__c small { font-size: 10px; line-height: 12px; font-weight: 300; color: var(--text-muted); }
+.b4-rq.is-soon .b4-ring__c b { color: var(--danger-fg); }
+@media (prefers-reduced-motion: no-preference) { .b4-ring__v { animation: rv-ring-in var(--duration-slow, .6s) var(--ease-standard, ease) both; } }
+@keyframes rv-ring-in { from { stroke-dasharray: 0 132; } }
+
+/* §۵۴ ---------- بخش ۴: مشتریان و نوبت‌ها ---------- */
+/* §۵۵ STY-CUS: ردیف مشتری؛ زمان نوبت بعدی یا آخرین نوبت در ستون چپ */
+.b4-cr { gap: var(--space-3); min-height: 72px; }
+.b4-cr__t { font-size: 15px; line-height: 22px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.b4-cr__p { font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); text-align: right; }
+.b4-cr__n { display: flex; align-items: center; gap: 4px; margin-top: 2px; font-size: 12px; line-height: 18px; font-weight: 400; color: var(--warning-fg); }
+.b4-cr__n .ri { width: 14px; height: 14px; flex: none; }
+.b4-cr__when { flex: none; display: flex; flex-direction: column; align-items: flex-end; text-align: left; }
+.b4-cr__l { font-size: 11px; line-height: 16px; font-weight: 300; color: var(--text-muted); white-space: nowrap; }
+.b4-cr__when b { font-family: var(--font-numeric); font-size: 18px; line-height: 24px; font-weight: 300; color: var(--text-primary); }
+.b4-cr__when small { font-size: 12px; line-height: 18px; font-weight: 400; color: var(--text-secondary); white-space: nowrap; }
+.b4-cr__when.is-last b { color: var(--text-secondary); }
+.b4-cr .rv-chev { flex: none; color: var(--text-muted); }
+/* §۵۶ ترتیب فهرست: segmented کوچک در نوار ابزار */
+.b4-sort { flex: none; }
+.b4-sort button { padding-inline: var(--space-3); font-size: 13px; }
+/* §۵۷ «نمایش بیشتر» زیر فهرست */
+.b4-more { margin-top: var(--space-2); color: var(--text-secondary); }
+/* §۵۸ کارت‌های پیش رو بدون خط زمان (جزئیات مشتری) */
+.b4-cards { display: flex; flex-direction: column; gap: var(--space-3); }
+.b4-c2__dur { font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+/* §۵۹ STY-CUS-D: کارت مشتری */
+.b4-cpf__since { margin-top: 2px; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b4-cpf .rv-icon-btn { flex: none; }
+/* §۶۰ برگه پیامک: کادر متن چندخطی و شمار نویسه */
+.b4-ta { height: auto; padding: var(--space-3) var(--space-4); align-items: stretch; }
+.b4-ta textarea { flex: 1; min-width: 0; border: 0; outline: 0; resize: none; background: transparent; font: inherit; font-size: 15px; line-height: 26px; color: var(--text-primary); }
+.b4-ta__h { display: flex; justify-content: space-between; gap: var(--space-3); }
+.b4-ta__h > span:last-child { flex: none; white-space: nowrap; }
+
+/* §۶۱ خط مهلت زیر ردیف درخواست منتظر پاسخ در جزئیات مشتری */
+.b4-rqp__due { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4) var(--space-3); border-top: 1px solid var(--line-hairline); font-size: 13px; line-height: 20px; font-weight: 300; color: var(--warning-fg); }
+
+/* §۶۲ درخواست منتظر پاسخ در داشبورد: کارت جدا با عکس خدمت چپ و گرادیان سفید، مهلت زیر کارت */
+.b4-rqks { display: flex; flex-direction: column; gap: var(--space-4); }
+.b4-rqk { display: flex; flex-direction: column; gap: var(--space-2); }
+.b4-rqk .b2-c2 { min-height: 0; display: flex; flex-direction: column; }
+.b4-rqk__main { position: relative; min-height: 112px; display: flex; align-items: center; }
+.b4-rqk__main .b2-c2__txt { padding-block: var(--space-4); }
+.b4-rqk__t { font-size: 16px; line-height: 24px; font-weight: 600; }
+.b4-rqk__who { display: flex; align-items: center; gap: var(--space-2); margin-top: 2px; font-size: 13px; line-height: 20px; font-weight: 400; color: var(--text-primary); }
+.b4-rqk__who { margin-top: var(--space-2); gap: var(--space-3); font-size: 14px; line-height: 20px; font-weight: 600; }
+.b4-rqk__who .rv-avatar { width: 40px; height: 40px; font-size: 15px; flex: none; box-shadow: 0 0 0 2px var(--bg-surface); }
+.b4-rqk__pref { display: block; margin-top: 2px; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-rqk__due { position: relative; z-index: 3; display: flex; flex-direction: column; gap: 6px; padding: var(--space-3) var(--space-4) var(--space-3); background: var(--bg-surface); border-top: 1px solid var(--line-hairline); }
+.b4-rqk__row { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); }
+.b4-rqk__row span { font-size: 14px; line-height: 20px; font-weight: 400; color: var(--warning-fg); white-space: nowrap; }
+.b4-rqk__row span .ri { vertical-align: -3px; margin-inline-end: 4px; }
+.b4-rqk__row small { font-size: 11px; line-height: 16px; font-weight: 300; color: var(--text-muted); white-space: nowrap; }
+.b4-rqk__bar { height: 4px; border-radius: 2px; background: var(--chrome-300); overflow: hidden; }
+.b4-rqk__bar i { display: block; height: 100%; border-radius: 2px; background: var(--warning-solid); }
+
+.b4-rqk.is-soon .b4-rqk__row span { color: var(--danger-fg); }
+.b4-rqk.is-soon .b4-rqk__bar i { background: var(--danger-solid); }
+
+/* §۶۳ ردیف فیلتر درخواست‌ها: دکمه فیلتر ثابت در ابتدا و چیپ‌های وضعیت کنارش */
+.b4-frow { display: flex; align-items: center; gap: var(--space-2); margin-inline-end: calc(var(--space-4) * -1); }
+.b4-frow > .b3-filter-btn { flex: none; }
+.b4-frow > .f-chiprail { flex: 1; min-width: 0; margin-inline-end: 0; padding-inline-end: var(--space-4); }
+.rv-chip .b4-n { margin-inline-start: 2px; min-width: 18px; height: 18px; line-height: 18px; padding: 0 5px; }
+.rv-chip[aria-pressed="true"] .b4-n { background: var(--bg-inverse-raised); color: var(--text-inverse); }
+
+/* §۶۴ زبانه باز / بسته‌شده با کارت جداگانه فیلتر در چپ */
+.b4-tabrow { display: flex; align-items: center; gap: var(--space-2); }
+.b4-tabrow > .rv-seg { flex: 1; min-width: 0; }
+.b4-fcard { flex: none; padding: 4px; border-radius: var(--radius-pill); display: flex; align-items: center; }
+.b4-fcard__b { height: 40px; padding-inline: var(--space-3); }
+
+/* §۶۵ پروفایل مشتری روی همه کارت‌ها و ردیف‌های مرتبط با مشتری */
+.b4-rq__who { display: flex; align-items: center; gap: 6px; }
+.b4-rq__who .rv-avatar { width: 28px; height: 28px; font-size: 12px; flex: none; }
+.b3-past__who { display: flex; align-items: center; gap: 8px; }
+.b3-past__who .rv-avatar { width: 28px; height: 28px; font-size: 12px; flex: none; }
+.b4-done__hit .rv-avatar { flex: none; }
+
+/* §۶۶ پایان‌یافته‌های امروز: هر نوبت کارت مستقل روی خط زمان، ساعت کنار کارت */
+.b4-donetl .f-tile .b4-done__s { margin-top: 2px; }
+.b4-donetl .f-tile > .rv-btn, .b4-donetl .f-tile > .rv-tag { flex: none; }
+.rv-final .rv-tl__b.b3-lift { background: var(--bg-surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
+/* §۶۷ پنل زبانه انیمیشن fade دارد و یک stacking context می‌سازد؛ در برگه، کارت بالابرده باید از پرده بالاتر بماند */
+.b4-tabs [role="tabpanel"] { animation: none; }
+
+/* §۶۸ ردیف گذشته نوبت‌ها: نام خدمت تیتر خوانا، مشتری با پروفایل زیر آن و فاصله بیشتر از عکس خدمت */
+.b3-past__img + .rv-grow { margin-inline-start: var(--space-3); }
+.b3-past__t { font-size: 15px; line-height: 22px; font-weight: 600; color: var(--text-primary); }
+.b3-past__who { margin-top: 6px; margin-bottom: 6px; font-size: 13px; line-height: 20px; color: var(--text-secondary); }
+.b3-past__who .rv-avatar { width: 24px; height: 24px; font-size: 11px; }
+.rv-item.is-cancel .b3-past__t { color: var(--text-secondary); font-weight: 400; }
+
+/* §۶۹ D10-76: در ردیف‌های گذشته و بسته‌شده پنل آرایشگر تصویر خدمت نیست؛ پروفایل مشتری جای آن است */
+.b4-rq__av, .b3-past__av { width: 40px; height: 40px; font-size: 15px; flex: none; margin-inline-end: var(--space-1); }
+.b4-rq.is-off .b4-rq__av, .rv-item.is-cancel .b3-past__av { filter: grayscale(1); opacity: .75; }
+.b4-done__c { display: block; font-size: 13px; line-height: 18px; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.b3-past__when > .rv-tag { margin-bottom: 2px; white-space: nowrap; }
+.b3-past__when > .rv-tag { font-size: 11px; padding-inline: 6px; gap: 3px; }
+.b4-donetl .b4-nsbtn { min-height: 32px; height: 32px; padding-inline: 10px; font-size: 12px; line-height: 16px; gap: 4px; }
+.b4-donetl .b4-nsbtn .ri { width: 14px; height: 14px; }
+.b4-donetl .b4-done__act { flex: none; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.b4-donetl .b4-done__act { align-items: stretch; }
+.b4-donetl .b4-done__act .b4-done__s { justify-content: center; }
+.b4-donetl .b4-done__act .b4-nsbtn { width: 0; min-width: 100%; padding-inline: 0; justify-content: center; white-space: nowrap; }
+
+/* §۷۰ ===== بخش ۵ — STY-06 جزئیات نوبت ===== */
+.b4-ok { display: inline-flex; align-items: center; gap: 4px; color: var(--success-fg); font-weight: 600; }
+.b4-ok .ri { width: 14px; height: 14px; }
+.b4-muted { color: var(--text-secondary); font-weight: 400; }
+.b4-fb { font-weight: 600; color: var(--text-primary); }
+.b4-hnote { display: flex; align-items: flex-start; gap: 6px; margin: 0; padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); background: var(--chrome-100); font-size: 13px; line-height: 20px; font-weight: 400; color: var(--text-secondary); }
+.b4-hnote .ri { flex: none; width: 14px; height: 14px; margin-top: 3px; color: var(--text-muted); }
+.b4-nscard { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); }
+.b4-nscard__t { font-size: 15px; line-height: 22px; font-weight: 600; }
+.b4-nscard__d { margin: 2px 0 0; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b4-nscard > .rv-btn { flex: none; }
+.b4-nscard.is-off .b4-nscard__t { color: var(--text-secondary); }
+.b4-hpanel .b4-hnote { margin-top: var(--space-4); }
+.b4-pick--2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.b4-pick--2 .b4-pick__d { border-inline: 0; border-inline-start: 1px solid var(--line-hairline); }
+.b4-starts-grid .rv-slot[aria-pressed="true"] { background: var(--bg-inverse); color: var(--text-inverse); box-shadow: none; }
+/* §۷۱ ردیف گذشته متوازن (جزئیات مشتری): تاریخ و ساعت با هم در کاشی راست، وضعیت در چپ */
+.b4-hrow { display: flex; align-items: center; gap: var(--space-2); }
+.b4-hdate { flex: none; width: 70px; padding: 6px 0; border-radius: var(--radius-md); background: var(--chrome-100); display: flex; flex-direction: column; align-items: center; text-align: center; }
+.b4-hdate b { font-size: 13px; line-height: 20px; font-weight: 600; color: var(--text-primary); white-space: nowrap; }
+.b4-hdate span { font-family: var(--font-numeric); font-size: 15px; line-height: 22px; font-weight: 300; color: var(--text-secondary); }
+.b4-hrow > .rv-tag { flex: none; font-size: 11px; padding-inline: 6px; gap: 3px; white-space: nowrap; }
+.rv-item.is-cancel .b4-hdate b { color: var(--text-secondary); font-weight: 400; }
+.b4-hrow > .rv-chev { display: none; }
+/* §۷۲ ===== بخش ۶ — رزرو دستی (STY-07) ===== */
+.b4-steps ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-2); }
+.b4-steps li { display: flex; flex-direction: column; gap: 6px; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b4-steps li::before { content: ""; height: 4px; border-radius: 2px; background: var(--line-hairline); }
+.b4-steps li.is-done { color: var(--text-secondary); }
+.b4-steps li.is-done::before, .b4-steps li.is-on::before { background: var(--bg-inverse); }
+.b4-steps li.is-on { color: var(--text-primary); font-weight: 600; }
+.b4-mctx { padding: var(--space-1) var(--space-3); display: flex; flex-direction: column; }
+.b4-mctx__r { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2) 0; }
+.b4-mctx__r + .b4-mctx__r { border-top: 1px solid var(--line-hairline); }
+.b4-mctx__r .rv-avatar { width: 32px; height: 32px; flex: none; }
+.b4-mctx__r .rv-tile--sm { width: 32px; height: 32px; flex: none; }
+.b4-mctx__r b { display: block; font-size: 14px; line-height: 22px; font-weight: 600; }
+.b4-mctx__r .rv-grow > span, .b4-mctx__r bdi { display: block; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-mctx__r .rv-link { flex: none; font-size: 13px; }
+.b4-ph input { font-family: var(--font-numeric); font-size: 18px; letter-spacing: .02em; text-align: left; }
+.b4-found { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); }
+.b4-found .rv-avatar { width: 44px; height: 44px; flex: none; }
+.b4-found__n { font-size: 16px; line-height: 24px; font-weight: 600; }
+.b4-found__s { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-2col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-3); }
+.b4-svcs { display: flex; flex-direction: column; gap: var(--space-2); }
+.b4-svc { position: relative; display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2); padding-inline-end: var(--space-4); border-radius: var(--radius-lg); background: var(--bg-surface); box-shadow: var(--shadow-sm); cursor: pointer; }
+.b4-svc input { position: absolute; opacity: 0; pointer-events: none; }
+.b4-svc img { width: 56px; height: 56px; flex: none; border-radius: var(--radius-md); object-fit: cover; }
+.b4-svc b { display: block; font-size: 15px; line-height: 24px; font-weight: 600; }
+.b4-svc .rv-grow > span { display: block; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-svc__c { flex: none; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-size: 14px; color: transparent; box-shadow: inset 0 0 0 1.5px var(--line-strong); }
+.b4-svc.is-on { box-shadow: inset 0 0 0 1.5px var(--text-primary), var(--shadow-sm); }
+.b4-svc.is-on .b4-svc__c { background: var(--bg-inverse); color: var(--text-inverse); box-shadow: none; }
+.b4-ovr-open { margin-top: calc(var(--space-2) * -1); }
+.b4-ovr { padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-3); box-shadow: inset 0 0 0 1px var(--warning-line), var(--shadow-sm); }
+.b4-ovr__h { display: flex; align-items: flex-start; gap: var(--space-3); }
+.b4-ovr__h b { display: block; font-size: 15px; line-height: 24px; font-weight: 600; }
+.b4-ovr__h .rv-grow > span { display: block; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b4-ovr__rules li { font-size: 13px; line-height: 20px; }
+.b4-req { margin-inline-start: 4px; font-size: 11px; font-weight: 400; color: var(--warning-fg); }
+.rv-day.b4-day-ovr[aria-selected="true"] > i { color: var(--text-inverse); }
+.b4-sumc { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4); }
+.b4-sumc__when { flex: none; width: 72px; padding: var(--space-2) 0; border-radius: var(--radius-md); background: var(--chrome-100); display: flex; flex-direction: column; align-items: center; }
+.b4-sumc__when b { font-family: var(--font-numeric); font-size: 30px; line-height: 36px; font-weight: 300; }
+.b4-sumc__when span { font-size: 13px; line-height: 18px; font-weight: 600; }
+.b4-sumc__when small { font-size: 11px; line-height: 16px; color: var(--text-muted); }
+.b4-sumc__t { font-size: 17px; line-height: 26px; font-weight: 600; }
+.b4-sumc__s { font-size: 14px; line-height: 22px; color: var(--text-secondary); }
+.b4-sumc__s b { font-family: var(--font-numeric); font-size: 18px; font-weight: 400; color: var(--text-primary); }
+.b4-sumc__c { margin-top: var(--space-2); display: flex; align-items: center; gap: var(--space-2); font-size: 13px; line-height: 20px; }
+.b4-sumc__c .rv-avatar { width: 24px; height: 24px; flex: none; }
+.b4-sumc__c bdi { margin-inline-start: auto; color: var(--text-secondary); font-size: 12px; }
+.b4-nofee { color: var(--text-secondary); font-weight: 400; }
+
+/* §۷۳ دکمهٔ عدم حضور در جزئیات نوبت: قرمز (نظر مالک) */
+.b4-nsbtn--danger { background: transparent; border: 1px solid var(--danger-line); color: var(--danger-fg); }
+.b4-nsbtn--danger:hover { background: var(--danger-bg); }
+
+/* §۷۴ STY-07 گام ۱ و ۲ (بازطراحی): جست‌وجوی مشتری و کارت ساده خدمت */
+.b4-sres { padding: var(--space-1) var(--space-4); display: flex; flex-direction: column; }
+.b4-sres__i { position: relative; display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) 0; }
+.b4-sres__i + .b4-sres__i { border-top: 1px solid var(--line-hairline); }
+.b4-sres__i .rv-avatar { width: 56px; height: 56px; flex: none; font-size: 22px; }
+.b4-sres__i .rv-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.b4-sres__n { display: block; font-size: 16px; line-height: 24px; font-weight: 600; }
+.b4-sres__p { display: block; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); direction: ltr; text-align: right; }
+.b4-sres__i > .ri { flex: none; color: var(--text-muted); }
+.b4-sres__i.is-add .rv-avatar { background: var(--bg-inverse); color: var(--text-inverse); }
+.b4-sres__lbl { margin: 0; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b4-sres__lbl b { font-weight: 600; color: var(--text-primary); }
+.b4-addrow { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-lg); background: transparent; box-shadow: inset 0 0 0 1px var(--line-strong); font-size: 14px; line-height: 22px; font-weight: 600; }
+.b4-addrow .ri { flex: none; }
+.b4-svc2 { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-lg); background: var(--bg-surface); box-shadow: var(--shadow-sm); }
+.b4-svc2 b { display: block; font-size: 16px; line-height: 24px; font-weight: 600; }
+.b4-svc2 .rv-grow > span { display: block; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b4-svc2 > .ri { flex: none; color: var(--text-muted); }
+a.b4-sres__i, a.b4-addrow, a.b4-svc2 { text-decoration: none; color: inherit; }
+.b4-sres__more { margin: var(--space-1) 0 0; text-align: center; font-size: 14px; line-height: 22px; font-weight: 300; color: var(--text-secondary); }
+.b4-sres__more .rv-link { font-weight: 600; }
+.b4-nores { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-2); padding: var(--space-8) var(--space-4) 0; }
+.b4-nores__ic { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--bg-surface); box-shadow: var(--shadow-sm); font-size: 24px; color: var(--text-muted); }
+.b4-nores__t { margin: var(--space-2) 0 0; font-size: 18px; line-height: 28px; font-weight: 600; }
+.b4-nores__d { margin: 0 0 var(--space-3); font-size: 14px; line-height: 22px; font-weight: 300; color: var(--text-secondary); }
+.b4-svc2 { padding: var(--space-2); padding-inline-end: var(--space-4); }
+.b4-svc2 img { width: 64px; height: 64px; flex: none; border-radius: var(--radius-md); object-fit: cover; }
+.b4-mctx__r .rv-avatar { width: 52px; height: 52px; }
+.b4-mctx__r .rv-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.b4-mctx__r b { font-size: 16px; line-height: 24px; }
+.b4-mctx__r .rv-grow > span, .b4-mctx__r bdi { font-size: 13px; line-height: 20px; }
+/* §۷۵ الگوی تصویر خدمت: تصویر سمت چپ کارت با محو شدن سفید از راست به چپ (مثل b2-c2) */
+.b4-mctx { overflow: hidden; }
+.b4-mctx__s { position: relative; min-height: 64px; }
+.b4-mctx__s > img { position: absolute; z-index: 0; inset-block: -4px; left: calc(var(--space-3) * -1); width: 60%; height: calc(100% + 8px); object-fit: cover; -webkit-mask-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,.35) 30%, #000 70%); mask-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,.35) 30%, #000 70%); }
+.b4-mctx__s > .rv-grow { position: relative; z-index: 1; }
+.b4-mctx__s .rv-link { display: block; margin-top: 2px; font-size: 13px; line-height: 20px; }
+a.b4-svc3 { display: block; text-decoration: none; color: inherit; }
+.b4-svc3 .b2-c2__txt { display: flex; align-items: center; min-height: 80px; box-sizing: border-box; }
+.b4-svc3 .b2-c2__txt b { font-size: 16px; line-height: 24px; font-weight: 600; }
+/* §۷۶ کارت یکپارچهٔ خلاصه: تصویر خدمت چپ با محو سفید، عنوان خدمت و مشتری راست */
+.b4-mctx2 { position: relative; overflow: hidden; min-height: 128px; display: flex; align-items: center; padding: var(--space-4); }
+.b4-mctx2 > img { position: absolute; z-index: 0; inset-block: 0; left: 0; width: 40%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,.35) 30%, #000 70%); mask-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,.35) 30%, #000 70%); }
+.b4-mctx2__t { position: relative; z-index: 1; width: 66%; display: flex; flex-direction: column; gap: var(--space-4); }
+.b4-mctx2__svc { font-size: 16px; line-height: 24px; font-weight: 600; }
+.b4-mctx2__who { display: flex; align-items: center; gap: var(--space-3); }
+.b4-mctx2__who .rv-avatar { width: 52px; height: 52px; flex: none; }
+.b4-mctx2__who .rv-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.b4-mctx2__who b { display: block; font-size: 15px; line-height: 22px; font-weight: 600; }
+.b4-mctx2__who bdi { display: block; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b4-mctx__r bdi, .b4-mctx2__who bdi { text-align: right; }
+.b4-bar-warn { display: flex; align-items: center; gap: 4px; color: var(--warning-fg); font-weight: 600; }
+.b4-bar-warn .ri { flex: none; }
+/* §۷۷ هماهنگی نوشته‌های کارت خلاصه: یک عنوان پررنگ، اطلاعات مشتری در یک سطح آرام‌تر */
+.b4-mctx2__svc { font-size: 18px; line-height: 28px; font-weight: 600; }
+.b4-mctx2__who { gap: var(--space-2); }
+.b4-mctx2__who .rv-avatar { width: 44px; height: 44px; }
+.b4-mctx2__who b { font-size: 14px; line-height: 20px; font-weight: 500; color: var(--text-primary); }
+.b4-mctx2__who bdi { font-family: var(--font-numeric-regular, inherit); font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+/* §۷۸ کارت خلاصه در تأیید و نتیجه: خط روز و ساعت زیر عنوان خدمت */
+.b4-mctx2__t > div:first-child { display: flex; flex-direction: column; gap: 2px; }
+.b4-mctx2__when { display: flex; align-items: center; flex-wrap: wrap; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b4-mctx2__when b { font-family: var(--font-numeric-regular, inherit); font-weight: 600; color: var(--text-primary); }
+.b4-mctx2--res { width: 100%; box-sizing: border-box; text-align: right; margin-top: var(--space-2); }
+.b2-res .rv-tile--xl > .ri-check-circle { width: 44px; height: 44px; font-size: 44px; color: var(--success-fg); }
+/* §۷۹ تیک استاندارد رسید (rv-check-draw): در بوم همیشه کامل دیده شود */
+.b2-res .rv-tile--xl .rv-check-draw { width: 40px; height: 40px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.b2-res .rv-tile--xl .rv-check-draw path { stroke-dasharray: none; stroke-dashoffset: 0; opacity: 1; }
+/* §۸۰ اعلان Override در نوار ادامه */
+.b4-bar--note { flex-wrap: wrap; row-gap: var(--space-3); }
+.b4-bar-note { flex: 0 0 100%; display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-3); border-radius: var(--radius-md); background: var(--warning-bg); box-shadow: inset 0 0 0 1px var(--warning-line, rgba(217,119,6,.35)); }
+.b4-bar-note__ic { flex: none; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--warning-solid); color: var(--text-inverse); }
+.b4-bar-note__ic .ri { width: 18px; height: 18px; }
+.b4-bar-note b { display: block; font-size: 14px; line-height: 22px; font-weight: 600; color: var(--warning-fg); }
+.b4-bar-note span { display: block; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-bar-note__ic { width: 24px; height: 22px; background: none; color: var(--warning-fg); }
+.b4-bar-note__ic .ri { width: 22px; height: 22px; }
+
+/* §۸۱ ---- بخش ۷: برنامه کاری (STY-08) ---- */
+/* §۸۲ الگوی هفتگی: هر روز یک ردیف؛ نوار کوچک پوشش روز (۰۷:۰۰ تا ۲۱:۰۰، راست = زودتر) */
+.b4-wk { padding: 0; border-radius: var(--radius-lg); overflow: hidden; }
+.b4-wk__r { display: grid; grid-template-columns: 76px 1fr 20px; align-items: center; gap: var(--space-2) var(--space-3); padding: var(--space-3) var(--space-4); text-decoration: none; color: inherit; }
+.b4-wk__r + .b4-wk__r { border-top: 1px solid var(--line-hairline); }
+.b4-wk__d { font-size: 15px; line-height: 22px; font-weight: 600; color: var(--text-primary); }
+.b4-wk__h { display: flex; flex-direction: column; gap: 2px; font-family: var(--font-numeric-regular); font-size: 15px; line-height: 22px; color: var(--text-primary); }
+.b4-wk__r > .ri { color: var(--text-muted); }
+.b4-wk__bar { grid-column: 2 / 3; position: relative; height: 6px; border-radius: 3px; background: var(--chrome-100); }
+.b4-wk__bar i { position: absolute; top: 0; bottom: 0; border-radius: 3px; background: var(--text-primary); }
+.b4-wk__r.is-off .b4-wk__d { font-weight: 400; color: var(--text-muted); }
+.b4-wk__r.is-off .b4-wk__h { font-family: var(--font-sans); font-size: 14px; color: var(--text-muted); }
+.b4-wk__r.is-edit { background: var(--bg-surface); }
+
+/* §۸۳ ویرایشگر بازه ساعت: «از … تا …» با حذف بازه */
+.b4-rng { display: flex; flex-direction: column; gap: var(--space-2); }
+.b4-tr { display: flex; align-items: center; gap: var(--space-2); }
+.b4-tr__l { flex: none; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b4-tf { flex: 1 1 0; min-width: 0; height: 48px; display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); padding: 0 var(--space-3); border: 0; border-radius: var(--radius-sm); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-control); font-family: var(--font-numeric-regular); font-size: 16px; line-height: 24px; color: var(--text-primary); cursor: pointer; text-align: start; }
+.b4-tf .ri { flex: none; width: 16px; height: 16px; color: var(--text-muted); }
+.b4-tf--txt { font-family: var(--font-sans); font-size: 15px; }
+.b4-tf.is-chg { box-shadow: inset 0 0 0 2px var(--text-primary); }
+.b4-tr .rv-icon-btn { flex: none; }
+.b4-addr { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; border: 0; background: none; padding: var(--space-1) 0; font-size: 14px; line-height: 22px; font-weight: 600; color: var(--text-primary); cursor: pointer; }
+.b4-addr .ri { width: 16px; height: 16px; }
+.b4-swrow { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); }
+.b4-swrow__t { font-size: 15px; line-height: 22px; font-weight: 600; }
+.b4-swrow__d { font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+
+/* §۸۴ فهرست استثناها و تعطیلات: تاریخ‌محور با کاشی تاریخ */
+.b4-exl { padding: 0; border-radius: var(--radius-lg); overflow: hidden; }
+.b4-ex { position: relative; display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-3) var(--space-4); text-decoration: none; color: inherit; }
+.b4-ex + .b4-ex { border-top: 1px solid var(--line-hairline); }
+.b4-ex__b { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.b4-ex__row { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-2); }
+.b4-ex__t { font-size: 15px; line-height: 22px; font-weight: 600; color: var(--text-primary); }
+.b4-ex__s { font-size: 14px; line-height: 22px; font-weight: 400; color: var(--text-primary); }
+.b4-ex__m { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b4-ex > .ri-chevron-left { flex: none; align-self: center; color: var(--text-muted); }
+.b4-ex .rv-btn { align-self: flex-start; margin-top: var(--space-2); }
+.b4-ex .b4-rel { margin-top: 2px; }
+.b4-dch { flex: none; width: 48px; height: 54px; border-radius: var(--radius-sm); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-hairline); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.b4-dch b { font-family: var(--font-numeric-regular); font-size: 19px; line-height: 24px; font-weight: 400; color: var(--text-primary); }
+.b4-dch small { font-size: 11px; line-height: 14px; font-weight: 400; color: var(--text-muted); }
+.b4-dch.is-hol b { color: var(--danger-fg); }
+.b4-dch.is-off { background: transparent; }
+.b4-addl { display: inline-flex; align-items: center; gap: 4px; font-size: 14px; line-height: 22px; font-weight: 600; color: var(--text-primary); text-decoration: none; background: none; border: 0; padding: 0; cursor: pointer; }
+.b4-addl .ri { width: 16px; height: 16px; }
+
+/* §۸۵ BookableFrom فقط‌خواندنی: قاب خط‌چین و آیکون جدا، تا با ReleaseAt شخصی یکی دیده نشود (W9-07) */
+.b4-bf { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-lg); border: 1px dashed var(--chrome-300); }
+.b4-bf .rv-tile { background: transparent; box-shadow: inset 0 0 0 1px var(--line-hairline); }
+.b4-bf__t { font-size: 14px; line-height: 22px; font-weight: 600; color: var(--text-primary); }
+.b4-bf__d { margin: 2px 0 0; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+
+/* §۸۶ تقویم انتخاب تاریخ برنامه: همه روزهای آینده انتخاب‌شدنی؛ نقطه = استثنای موجود */
+.b4-scal .rv-day[aria-selected="true"] > i { background: var(--bg-inverse); color: var(--text-inverse); }
+.b4-scal .rv-day.has-ex > i::after { content: ""; position: absolute; bottom: 4px; width: 4px; height: 4px; border-radius: 50%; background: var(--text-muted); }
+.b4-scal .rv-day > i { position: relative; }
+.b4-scal .rv-day[aria-selected="true"].has-ex > i::after { background: var(--text-inverse); }
+
+/* §۸۷ پیش‌نمایش اثر: فهرست نوبت‌های متاثر داخل برگه */
+.b4-aff { padding: 0; border-radius: var(--radius-md); }
+.b4-aff .rv-item { min-height: 60px; padding: var(--space-2) var(--space-3); }
+.b4-aff .rv-item__t { font-size: 14px; line-height: 22px; font-weight: 600; }
+.b4-aff .rv-item__s { font-size: 12px; line-height: 18px; font-weight: 300; }
+.b4-amt { font-family: var(--font-numeric-regular); font-size: 14px; line-height: 20px; color: var(--text-primary); }
+.b4-amt small { display: block; font-family: var(--font-sans); font-size: 11px; line-height: 14px; color: var(--text-muted); text-align: left; }
+.b4-amt.is-none { font-family: var(--font-sans); font-size: 12px; color: var(--text-muted); }
+.b4-stale { opacity: .45; pointer-events: none; }
+
+/* §۸۸ نتیجه «تکمیل با خطا» (PartialSuccess) در پهنای موبایل */
+.b4-ps { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-3); padding: var(--space-6) var(--space-5) var(--space-5); border-radius: var(--radius-xl); }
+.b4-ps .rv-gauge { width: 128px; height: 128px; }
+.b4-ps .rv-gauge__c b { font-size: 28px; line-height: 34px; }
+.b4-ps__t { margin: 0; font-size: 18px; line-height: 28px; font-weight: 600; }
+.b4-ps__d { margin: 0; font-size: 14px; line-height: 22px; font-weight: 300; color: var(--text-secondary); }
+.b4-psh { display: flex; align-items: center; gap: var(--space-2); margin: 0 var(--space-1) var(--space-2); }
+.b4-psl .rv-item { align-items: flex-start; }
+.b4-psl .rv-item__t { font-size: 14px; line-height: 22px; font-weight: 600; }
+.b4-psl .rv-item__s { font-size: 13px; line-height: 20px; font-weight: 300; }
+.b4-psl .rv-tag { flex: none; }
+.b4-acts { display: flex; flex-direction: column; gap: var(--space-2); }
+@media (prefers-reduced-motion: no-preference) { .b4-ps .rv-gauge .val { animation: b4-gauge 900ms var(--ease-standard) both; } }
+@keyframes b4-gauge { from { stroke-dashoffset: 465; } }
+
+/* §۸۹ ---- استثناها: یک کارت با چیپ نوع + باکس تاریخ/بازه (D10-96) ---- */
+.b4-exh { display: flex; gap: var(--space-2); padding: var(--space-3); border-bottom: 1px solid var(--line-hairline); }
+.b4-exh .rv-chip { flex: 1 1 0; min-width: 0; justify-content: center; padding-inline: 8px; white-space: nowrap; }
+.b4-exf { display: flex; justify-content: center; padding: var(--space-2) var(--space-4); border-top: 1px solid var(--line-hairline); }
+.b4-dr { flex: none; display: flex; align-items: center; gap: 4px; color: var(--text-muted); }
+.b4-dr .b4-dch { width: 44px; }
+
+/* §۹۰ ---- الگوی هفتگی، طرح بازتر (نظر مالک: خیلی فشرده بود) ---- */
+.b4-wsum { padding: var(--space-4); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: var(--space-4); }
+.b4-wsum__stats { display: grid; grid-template-columns: repeat(3, 1fr); }
+.b4-wsum__stats > div { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.b4-wsum__stats > div + div { border-inline-start: 1px solid var(--line-hairline); }
+.b4-wsum__stats b { font-family: var(--font-numeric-regular); font-size: 22px; line-height: 30px; font-weight: 400; color: var(--text-primary); }
+.b4-wsum__stats small { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b4-wsum__cols { display: grid; grid-template-columns: repeat(7, 1fr); gap: var(--space-2); height: 76px; }
+.b4-wsum__cols > span { position: relative; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 4px; }
+.b4-wsum__cols i { width: 100%; max-width: 28px; border-radius: 8px 8px 4px 4px; background: var(--text-primary); min-height: 4px; }
+.b4-wsum__cols small { font-size: 12px; line-height: 16px; color: var(--text-muted); }
+.b4-wsum__cols .is-off i { background: var(--chrome-200, var(--line-hairline)); }
+.b4-wsum__cols .is-today small { color: var(--text-primary); font-weight: 600; }
+.b4-wsum__cols .is-today i { box-shadow: 0 0 0 2px var(--bg-surface), 0 0 0 4px var(--accent-500); }
+
+.b4-wk2__axis { position: relative; height: 16px; margin: 0 calc(var(--space-4) + 56px) 0 calc(var(--space-4) + 28px); }
+.b4-wk2__axis span { position: absolute; top: 0; transform: translateX(50%); font-family: var(--font-numeric-regular); font-size: 11px; line-height: 16px; color: var(--text-muted); }
+.b4-wk2l { display: flex; flex-direction: column; gap: var(--space-2); }
+.b4-wk2 { display: grid; grid-template-columns: 44px 1fr 16px; align-items: center; gap: var(--space-2) var(--space-3); padding: var(--space-3) var(--space-4) var(--space-4); border-radius: var(--radius-lg); background: var(--bg-surface); box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,.06)), inset 0 0 0 1px var(--line-hairline); text-decoration: none; color: inherit; }
+.b4-wk2__ini { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--chrome-100); font-size: 17px; line-height: 1; font-weight: 600; color: var(--text-primary); }
+.b4-wk2.is-today .b4-wk2__ini { background: var(--bg-inverse-raised); color: var(--text-inverse); }
+.b4-wk2__b { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.b4-wk2__top { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-2); }
+.b4-wk2__d { font-size: 16px; line-height: 24px; font-weight: 600; color: var(--text-primary); }
+.b4-wk2__m { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b4-wk2__ps { display: flex; flex-wrap: wrap; gap: 6px; }
+.b4-wk2__p { display: inline-flex; align-items: center; gap: 4px; height: 28px; padding: 0 10px; border-radius: var(--radius-pill); background: var(--chrome-100); font-family: var(--font-numeric-regular); font-size: 14px; line-height: 28px; color: var(--text-primary); }
+.b4-wk2__p i { font-style: normal; font-family: var(--font-sans); font-size: 12px; color: var(--text-muted); }
+.b4-wk2__off { font-size: 14px; line-height: 28px; color: var(--text-muted); }
+.b4-wk2 > .ri { color: var(--text-muted); }
+.b4-wk2__bar { grid-column: 2 / 3; position: relative; height: 8px; border-radius: 4px; background: var(--chrome-100); }
+.b4-wk2__bar i { position: absolute; top: 0; bottom: 0; border-radius: 4px; background: var(--text-primary); }
+.b4-wk2__gap { position: absolute; top: 50%; height: 0; border-top: 2px dashed var(--text-muted); transform: translateY(-50%); opacity: .6; }
+.b4-wk2.is-off { background: transparent; box-shadow: inset 0 0 0 1px var(--line-hairline); }
+.b4-wk2.is-off .b4-wk2__ini, .b4-wk2.is-off .b4-wk2__d { color: var(--text-muted); font-weight: 400; }
+.b4-wk2.is-off .b4-wk2__ini { background: transparent; box-shadow: inset 0 0 0 1px var(--line-hairline); }
+
+/* §۹۱ ---- الگوی هفتگی: بدون دایره حرف روز؛ هر کارت یک بازه با آیکن‌های انتخاب بازه (D10-90) ---- */
+.b4-wk2 { grid-template-columns: 1fr 24px; }
+.b4-wk2__ini { display: none; }
+.b4-wk2__b { grid-column: 1; }
+.b4-wk2__go { grid-column: 2; grid-row: 1; align-self: center; display: grid; place-items: center; width: 24px; height: 44px; color: var(--text-muted); text-decoration: none; }
+.b4-wk2__bar { grid-column: 1 / -1; }
+.b4-wk2.is-today .b4-wk2__d::after { content: ""; display: inline-block; width: 8px; height: 8px; margin-inline-start: 8px; border-radius: 50%; background: var(--accent-500); vertical-align: middle; }
+.b4-wk2__ps { align-items: center; gap: 8px; min-height: 32px; }
+.b4-wk2__ics { display: inline-flex; gap: 4px; }
+.b4-wk2__ic { display: grid; place-items: center; width: 28px; height: 28px; padding: 0; border: 0; border-radius: 50%; background: transparent; box-shadow: inset 0 0 0 1px var(--line-hairline); color: var(--text-muted); cursor: pointer; }
+.b4-wk2__ic.is-on { background: var(--bg-inverse-raised); color: var(--text-inverse); box-shadow: none; }
+.b4-wk2__ic .ri { width: 14px; height: 14px; }
+.b4-wk2__p { height: 32px; line-height: 32px; font-size: 16px; padding: 0 14px; }
+.b4-wk2__bar i:not(.is-on) { background: var(--chrome-300); }
+.b4-wk2__bar:not(:has(i.is-on)) i { background: var(--text-primary); }
+.b4-wk2__axis { margin: 0 var(--space-4); }
+
+/* §۹۲ خلاصه هفته: دو مورد، دو ستون برابر */
+.b4-wsum__stats { grid-template-columns: repeat(2, 1fr); }
+
+/* §۹۳ ---- الگوی هفتگی: آیکن هر بازه بالای همان بازه روی نوار؛ با لمس آیکن، ساعت همان بازه جایش می‌نشیند ---- */
+.b4-wk2__trk { grid-column: 1 / -1; position: relative; height: 32px; }
+.b4-wk2__it { position: absolute; top: 0; transform: translateX(50%); }
+.b4-wk2__trk .b4-wk2__p { display: inline-flex; white-space: nowrap; }
+.b4-wk2__trk .b4-wk2__ic { width: 32px; height: 32px; }
+.b4-wk2__trk .b4-wk2__ic .ri { width: 16px; height: 16px; }
+
+.b4-wk2.is-edit { box-shadow: inset 0 0 0 2px var(--text-primary); }
+
+/* §۹۴ ---- روز غیرکاری: وقتی «روز کاری» خاموش است بازه‌ها غیرفعال می‌شوند ---- */
+.b4-rng.is-disabled, .b4-swrow:has(input:not(:checked)) ~ .b4-rng { opacity: .45; pointer-events: none; filter: grayscale(1); }
+.b4-rng.is-disabled .b4-tf { background: var(--chrome-100); box-shadow: inset 0 0 0 1px var(--line-hairline); color: var(--text-muted); }
+
+.b4-dr__n { display: flex; flex-direction: column; align-items: center; gap: 0; min-width: 40px; }
+.b4-dr__n b { font-size: 12px; line-height: 16px; font-weight: 500; color: var(--text-secondary); white-space: nowrap; }
+
+/* §۹۵ b4-x2: ردیف استثنا با دو باکس تاریخ */
+.b4-x2 { display: block; padding: var(--space-3) var(--space-4); text-decoration: none; color: inherit; }
+.b4-x2 + .b4-x2 { border-top: 1px solid var(--line-hairline); }
+.b4-x2__r { display: flex; align-items: center; gap: 6px; }
+.b4-x2__r > .ri-chevron-left { flex: none; color: var(--text-muted); }
+.b4-x2__s { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
+.b4-x2__s b { font-size: 13px; line-height: 18px; font-weight: 500; color: var(--text-primary); white-space: nowrap; }
+.b4-x2__s small { font-size: 12px; line-height: 16px; font-weight: 300; color: var(--text-muted); white-space: nowrap; }
+.b4-x2__r > .b4-dch { width: 44px; }
+.b4-x2__f { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-2); }
+.b4-x2__f .b4-rel { flex-basis: 100%; }
+.b4-x2__f .b4-ex__m { flex-basis: auto; }
+.b4-exf { padding: var(--space-3) var(--space-4); }
+.b4-exf .b4-addl { width: 100%; min-height: 52px; justify-content: center; gap: 6px; border-radius: var(--radius-md); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-hairline); font-size: 15px; }
+
+/* §۹۶ b4-dc2: باکس تاریخ با نام روز عمودی و ساعت زیر تاریخ */
+.b4-dc2 { flex: none; width: 78px; height: 68px; border-radius: var(--radius-sm); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-hairline); display: flex; align-items: stretch; overflow: hidden; }
+.b4-dc2 em { flex: none; width: 20px; display: flex; align-items: center; justify-content: center; writing-mode: vertical-rl; transform: rotate(180deg); font-style: normal; font-size: 11px; line-height: 20px; font-weight: 400; color: var(--text-secondary); background: var(--chrome-100); white-space: nowrap; }
+.b4-dc2 > span { flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.b4-dc2 b { font-family: var(--font-numeric-regular); font-size: 19px; line-height: 22px; font-weight: 400; color: var(--text-primary); }
+.b4-dc2 small { font-size: 11px; line-height: 13px; font-weight: 400; color: var(--text-muted); }
+.b4-dc2 i { font-style: normal; font-family: var(--font-numeric-regular); font-size: 11px; line-height: 14px; color: var(--text-secondary); }
+.b4-dc2.is-hol b { color: var(--danger-fg); }
+.b4-x2__r .b4-dr__n { flex: 1 1 auto; }
+.b4-dc2 { height: 78px; }
+.b4-dc2 em { width: 24px; font-size: 11px; line-height: 24px; letter-spacing: 0; overflow: hidden; }
+
+/* §۹۷ b4-dc2 v3: ماه کنار روز، ساعت زیر؛ فاصله کمتر */
+.b4-dc2 { height: 66px; width: 92px; }
+.b4-dc2 u { text-decoration: none; display: flex; align-items: baseline; gap: 4px; }
+.b4-dc2 small { font-size: 12px; line-height: 16px; }
+.b4-dc2 i { font-size: 12px; margin-top: 2px; }
+.b4-x2__r { justify-content: flex-start; gap: 4px; }
+.b4-x2__r .b4-dr__n { flex: none; min-width: 52px; }
+.b4-x2__r > .ri-chevron-left { margin-inline-start: auto; }
+.b4-x2__f { margin-top: 6px; gap: 6px; }
+/* §۹۸ b4-x2 v4: گروه باکس‌ها وسط ردیف، فاصله تاریخ و ساعت بیشتر */
+.b4-x2__r { position: relative; justify-content: center; }
+.b4-x2__r > .ri-chevron-left { position: absolute; inset-inline-end: 0; top: 50%; transform: translateY(-50%); margin: 0; }
+.b4-dc2 { height: 74px; }
+.b4-dc2 i { margin-top: 8px; }
+
+/* §۹۹ شماره ردیف */
+.b4-x2__n { position: absolute; inset-inline-start: 0; top: 50%; transform: translateY(-50%); width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-numeric-regular); font-size: 12px; line-height: 1; color: var(--text-secondary); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-hairline); }
+
+/* §۱۰۰ ============ B4 v5 — برنامه کاری: ردیف استثنا/تعطیل، غلتک ساعت ============ */
+/* §۱۰۱ ردیف: کاشی تاریخ یا ریل دو نقطه، بدنه، دکمه گزینه‌ها؛ بدون قاب داخلی */
+.b4-xl { display: flex; flex-direction: column; }
+.b4-xr { position: relative; display: flex; align-items: center; gap: var(--space-2); padding: 14px var(--space-3) 14px var(--space-2); }
+.b4-xr + .b4-xr::before { content: ""; position: absolute; top: 0; inset-inline: var(--space-4); border-top: 1px solid var(--line-hairline); }
+.b4-xr__a { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: var(--space-3); padding-inline-start: var(--space-2); text-decoration: none; color: inherit; }
+.b4-xr__d { flex: none; width: 54px; height: 64px; border-radius: var(--radius-md); background: var(--bg-surface-muted); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.b4-xr__d small { font-size: 11px; line-height: 15px; font-weight: 400; color: var(--text-muted); white-space: nowrap; }
+.b4-xr__d b { font-family: var(--font-numeric-regular); font-size: 22px; line-height: 26px; font-weight: 400; color: var(--text-primary); }
+.b4-xr__d.is-hol { background: var(--danger-bg); }
+.b4-xr__d.is-hol b, .b4-xr__d.is-hol small:first-child { color: var(--danger-fg); }
+.b4-xr__b { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.b4-xr__t { display: flex; align-items: center; flex-wrap: wrap; gap: 4px var(--space-2); font-size: 15px; line-height: 22px; font-weight: 600; color: var(--text-primary); }
+.b4-xr__t .b4-num { font-family: var(--font-numeric-regular); font-size: 17px; font-weight: 400; letter-spacing: 0; }
+.b4-xr__m { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b4-xr__bar { position: relative; height: 4px; border-radius: 2px; background: var(--line-hairline); margin-top: 6px; }
+.b4-xr__bar i { position: absolute; top: 0; bottom: 0; border-radius: 2px; background: var(--text-primary); }
+.b4-xr__bar u { position: absolute; top: 0; bottom: 0; border-radius: 2px; background: var(--line-strong); }
+.b4-xr > .rv-icon-btn { flex: none; color: var(--text-muted); }
+.b4-xr > .rv-btn { flex: none; }
+/* §۱۰۲ ریل دو نقطه برای بازه‌های چندروزه یا ساعتی */
+.b4-it { position: relative; display: flex; flex-direction: column; padding-inline-start: 22px; }
+.b4-it::before { content: ""; position: absolute; inset-inline-start: 5px; top: 12px; bottom: 12px; border-inline-start: 2px dotted var(--line-strong); }
+.b4-it__p { position: relative; display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-2); }
+.b4-it__p::before { content: ""; position: absolute; inset-inline-start: -22px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--text-primary); box-sizing: border-box; }
+.b4-it__p.is-end::before { background: var(--bg-surface); border: 2px solid var(--text-primary); }
+.b4-it__p b { font-size: 14px; line-height: 26px; font-weight: 600; color: var(--text-primary); white-space: nowrap; }
+.b4-it__p b.is-soft { font-weight: 400; color: var(--text-muted); }
+.b4-it__p span { font-family: var(--font-numeric-regular); font-size: 15px; line-height: 26px; color: var(--text-primary); white-space: nowrap; }
+.b4-it__p span.is-soft { font-family: var(--font-sans); font-size: 12px; font-weight: 300; color: var(--text-muted); }
+.b4-it__dur { align-self: flex-start; margin: 1px 0; padding: 0 8px; border-radius: var(--radius-pill); background: var(--bg-surface-muted); font-size: 11px; line-height: 18px; font-weight: 500; color: var(--text-secondary); }
+.b4-xr__h { font-size: 15px; line-height: 22px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+.b4-xr__f { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-2); margin-top: 6px; }
+.b4-rl { display: inline-flex; align-items: center; gap: 4px; padding: 0 8px; height: 24px; border-radius: var(--radius-pill); font-size: 12px; line-height: 24px; font-weight: 500; background: var(--success-bg); color: var(--success-fg); }
+.b4-rl .ri { width: 14px; height: 14px; }
+.b4-rl.is-lock { background: var(--bg-surface-muted); color: var(--text-secondary); }
+/* §۱۰۳ دکمه افزودن در پای کارت */
+.b4-exf { padding: var(--space-3) var(--space-4) var(--space-4); border-top: 1px solid var(--line-hairline); }
+
+/* §۱۰۴ غلتک ساعت: گام ۳۰ دقیقه، ۵ ردیف پیدا، نوار انتخاب سراسری */
+.b4-whl { padding: var(--space-3) var(--space-3) var(--space-3); border-radius: var(--radius-lg); }
+.b4-whl__hd, .b4-whl__bd { display: grid; grid-template-columns: repeat(var(--cols, 2), 1fr); }
+.b4-whl__hd { text-align: center; font-size: 12px; line-height: 18px; font-weight: 500; color: var(--text-muted); margin-bottom: 4px; }
+.b4-whl__bd { position: relative; }
+.b4-whl__bd::before { content: ""; position: absolute; inset-inline: 0; top: 72px; height: 44px; border-radius: var(--radius-md); background: var(--bg-surface); box-shadow: var(--shadow-sm), inset 0 0 0 1px var(--line-hairline); }
+.b4-whl__c { position: relative; display: flex; flex-direction: column; align-items: center; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 34%, #000 66%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0, #000 34%, #000 66%, transparent 100%); }
+.b4-whl__c span { height: 36px; display: flex; align-items: center; justify-content: center; font-family: var(--font-numeric-regular); font-size: 15px; color: var(--text-muted); white-space: nowrap; }
+.b4-whl__c span.is-sel { height: 44px; font-size: 21px; color: var(--text-primary); }
+.b4-whl__c span.is-dis { color: var(--text-disabled); }
+.b4-whl__c span.is-txt { font-family: var(--font-sans); font-size: 14px; }
+.b4-whl__c span.is-txt.is-sel { font-size: 16px; font-weight: 600; }
+.b4-whl__ar { position: absolute; top: 72px; height: 44px; inset-inline-start: 50%; transform: translateX(50%); display: flex; align-items: center; color: var(--text-muted); z-index: 1; }
+.b4-whl__ar .ri { width: 16px; height: 16px; }
+.b4-whl__ft { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-top: var(--space-2); padding: var(--space-2) var(--space-2) 0; border-top: 1px solid var(--line-hairline); font-size: 12px; line-height: 20px; color: var(--text-muted); }
+.b4-whl__ft b { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.b4-whl__ft .b4-whl__del { display: inline-flex; align-items: center; gap: 4px; border: 0; background: none; padding: 0; font-size: 13px; font-weight: 500; color: var(--danger-fg); cursor: pointer; }
+.b4-whl__ft .b4-whl__del .ri { width: 14px; height: 14px; }
+/* §۱۰۵ بازه جمع‌شده (آکاردئون) که با لمس غلتکش باز می‌شود */
+.b4-rr { display: flex; align-items: center; gap: var(--space-3); width: 100%; min-height: 52px; padding: 0 var(--space-4); border: 0; border-radius: var(--radius-md); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-hairline); font: inherit; color: inherit; text-align: start; cursor: pointer; }
+.b4-rr__l { font-size: 13px; color: var(--text-muted); }
+.b4-rr__v { flex: 1 1 auto; font-family: var(--font-numeric-regular); font-size: 16px; color: var(--text-primary); }
+.b4-rr .ri { color: var(--text-muted); }
+.b4-rr.is-chg { box-shadow: inset 0 0 0 1.5px var(--text-primary); }
+.b4-rr.is-open { border-radius: var(--radius-md) var(--radius-md) 0 0; box-shadow: inset 0 0 0 1px var(--line-hairline); background: var(--bg-surface-muted); }
+.b4-rr.is-open + .b4-whl { border-radius: 0 0 var(--radius-lg) var(--radius-lg); margin-top: calc(var(--space-3) * -1); }
+.b4-rng.is-disabled .b4-rr { background: var(--bg-surface-muted); }
+/* §۱۰۶ خط زمانی آزاد شدن خودکار */
+.b4-relbar { display: flex; flex-direction: column; gap: 6px; }
+.b4-relbar__t { display: flex; height: 10px; border-radius: 5px; overflow: hidden; background: var(--bg-surface-muted); }
+.b4-relbar__t i { background: repeating-linear-gradient(-45deg, var(--text-primary) 0 4px, color-mix(in srgb, var(--text-primary) 78%, transparent) 4px 8px); }
+.b4-relbar__t u { background: var(--success-solid); opacity: .55; }
+.b4-relbar__l { display: flex; justify-content: space-between; font-size: 11px; line-height: 16px; color: var(--text-muted); }
+.b4-relbar__l b { font-weight: 600; color: var(--text-secondary); }
+/* §۱۰۷ پنجره حذف */
+.b4-dlg { display: flex; flex-direction: column; align-items: stretch; gap: var(--space-4); text-align: center; }
+.b4-dlg > .rv-tile { align-self: center; }
+.b4-dlg__t { margin: 0; font-size: 18px; line-height: 28px; font-weight: 700; color: var(--text-primary); }
+.b4-dlg__d { margin: calc(var(--space-2) * -1) 0 0; font-size: 13px; line-height: 22px; color: var(--text-secondary); }
+.b4-dlg__s { text-align: start; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background: var(--bg-surface-muted); }
+.b4-dlg__acts { display: flex; flex-direction: column; gap: var(--space-2); }
+.b4-dlg__acts .rv-btn { width: 100%; }
+.b4-rr.is-open + .b4-whl { margin-top: calc(var(--space-2) * -1); }
+.b4-rr.is-open > .ri { transform: rotate(180deg); }
+.rv-dialog.b4-dlg { padding: var(--space-6) var(--space-5) var(--space-5); background: var(--bg-surface); box-shadow: var(--shadow-sheet); }
+.b4-whl.b4-whl--flat { padding: 0; background: none; box-shadow: none; border-radius: 0; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.b4-relbar__t { position: relative; display: block; }
+.b4-relbar__t i, .b4-relbar__t u { position: absolute; top: 0; bottom: 0; }
+.b4-relbar__t i { inset-inline-start: 0; }
+.b4-relbar__t u { inset-inline-end: 0; }
+/* §۱۰۸ v6: ردیف بازه — کاشی مدت + «از/تا» با تاریخ و ساعت در یک خط */
+.b4-xr__d.is-dur b { font-size: 20px; line-height: 24px; }
+.b4-xr__d.is-dur small { font-size: 12px; }
+.b4-ft { display: flex; flex-direction: column; gap: 2px; }
+.b4-ft__r { display: flex; align-items: baseline; gap: var(--space-2); min-width: 0; }
+.b4-ft__k { flex: none; width: 14px; font-size: 12px; line-height: 22px; font-weight: 400; color: var(--text-muted); }
+.b4-ft__v { min-width: 0; font-size: 14px; line-height: 22px; font-weight: 600; color: var(--text-primary); }
+.b4-xr__h + .b4-ft { margin-top: 2px; }
+.b4-dsum { padding: var(--space-3) var(--space-4); border-radius: var(--radius-lg); }
+.b4-dsum__d { margin: calc(var(--space-1) * -1) 0 0; font-size: 13px; line-height: 22px; color: var(--text-secondary); }
+
+/* §۱۰۹ ============ v7 — کارت استثنا/تعطیل هم‌خانواده کارت نوبت (STY-05) و درخواست (STY-03) ============ */
+/* §۱۱۰ متن در راست با سلسله‌مراتب: تاریخ درشت ← ساعت ← توضیح ← برچسب؛ در چپ صفحه ساعت ۲۴ساعته به‌جای عکس */
+.b4-xh { display: flex; gap: var(--space-2); }
+.b4-xh .rv-chip { flex: 1 1 0; min-width: 0; justify-content: center; padding-inline: 8px; white-space: nowrap; }
+.b4-xcs { display: flex; flex-direction: column; gap: var(--space-3); }
+.b4-xc { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 116px; padding: 0; border-radius: var(--radius-lg); overflow: hidden; }
+.b4-xc__hit { position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.b4-xc__txt { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; min-width: 0; padding: var(--space-4) var(--space-4) var(--space-4) var(--space-2); }
+.b4-xc__t { font-size: 16px; line-height: 24px; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+.b4-xc__txt .b2-c2__when { gap: 6px; }
+.b4-xc__txt .b2-c1__t small { font-family: var(--font-sans); font-size: 14px; font-weight: 400; color: var(--text-secondary); margin: 0 2px; }
+.b4-xc__tm { font-family: var(--font-numeric-regular); font-size: 15px; line-height: 22px; color: var(--text-primary); }
+.b4-xc__m { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b4-xc__txt > .rv-tag { margin-top: var(--space-2); }
+.b4-xc__art { display: grid; place-items: center; background: linear-gradient(to left, var(--bg-surface-muted) 55%, transparent); }
+.b4-xc__more { position: absolute; z-index: 3; inset-inline-end: 4px; top: 4px; color: var(--text-muted); }
+.b4-xc > .b4-rqk__due { grid-column: 1 / -1; }
+.b4-xc .b4-rqk__row span { color: var(--success-fg); }
+.b4-xc .b4-rqk__bar i { background: var(--success-solid); }
+.b4-xc .b4-rqk__row.is-lock span { color: var(--text-secondary); }
+.b4-xc .b4-rqk__row .rv-btn { position: relative; z-index: 3; }
+.b4-xc.is-static { box-shadow: none; background: var(--bg-surface); }
+/* §۱۱۱ صفحه ساعت ۲۴ساعته: بالا نیمه‌شب، پایین ظهر */
+.b4-dial { position: relative; width: 80px; height: 80px; }
+.b4-dial__r { position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(var(--chrome-300) 0 var(--a), var(--c, var(--text-primary)) var(--a) var(--b), var(--chrome-300) var(--b) 360deg); -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 calc(100% - 7px)); mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 calc(100% - 7px)); }
+.b4-dial::after { content: ""; position: absolute; top: -3px; inset-inline-start: 50%; width: 2px; height: 6px; margin-inline-start: -1px; border-radius: 1px; background: var(--text-muted); }
+.b4-dial__c { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.b4-dial__c b { font-family: var(--font-numeric-regular); font-size: 20px; line-height: 24px; font-weight: 400; color: var(--text-primary); }
+.b4-dial__c small { font-size: 11px; line-height: 14px; color: var(--text-muted); }
+.b4-dial__c .ri { color: var(--text-muted); }
+.b4-dial.is-acc { --c: var(--accent-solid); }
+.b4-dial.is-off { --c: var(--danger-solid); }
+.b4-dial.is-blk { --c: var(--chrome-700); }
+.b4-dial.is-ok { --c: var(--success-solid); }
+.b4-addrow { width: 100%; min-height: 52px; justify-content: center; gap: 6px; border: 0; color: var(--text-primary); cursor: pointer; font: inherit; font-size: 15px; font-weight: 600; background: transparent; box-shadow: inset 0 0 0 1.5px var(--line-strong); border-radius: var(--radius-lg); }
+.b4-xc.is-hol .b2-c1__t { color: var(--danger-fg); }
+.b4-xc__art { background: none; padding-inline-end: var(--space-2); }
+.rv-card.b4-xc { background: var(--bg-surface); box-shadow: var(--shadow-sm); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.b4-xc .b4-rqk__row { align-items: center; }
+/* §۱۱۲ v8: به‌جای صفحه ساعت، نشان نوع (آیکون در کاشی رنگی) و مدت زیر آن */
+.b4-xb { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.b4-xb__i { width: 56px; height: 56px; border-radius: var(--radius-lg); display: grid; place-items: center; background: var(--bg-plaster); color: var(--text-primary); }
+.b4-xb__i .ri { width: 26px; height: 26px; }
+.b4-xb__n { font-size: 12px; line-height: 18px; font-weight: 400; color: var(--text-secondary); white-space: nowrap; }
+.b4-xb__n b { font-family: var(--font-numeric-regular); font-size: 15px; font-weight: 400; color: var(--text-primary); }
+.b4-xb.is-acc .b4-xb__i { background: var(--accent-bg); color: var(--accent-fg); }
+.b4-xb.is-off .b4-xb__i { background: var(--danger-bg); color: var(--danger-fg); }
+.b4-xb.is-blk .b4-xb__i { background: var(--neutral-bg); color: var(--neutral-fg); }
+.b4-xb.is-ok .b4-xb__i { background: var(--success-bg); color: var(--success-fg); }
+.b4-xb.is-shut .b4-xb__i { background: var(--bg-surface-muted); color: var(--text-muted); }
+/* §۱۱۳ v9: باکس مدت به‌جای نشان؛ متن «از ساعت، تاریخ تا ساعت، تاریخ» برای چندروزه و «تاریخ، از ساعت تا ساعت» برای یک‌روزه */
+.b4-xd { width: 72px; height: 72px; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--bg-plaster); color: var(--text-primary); }
+.b4-xd b { font-family: var(--font-numeric-regular); font-size: 26px; line-height: 30px; font-weight: 400; }
+.b4-xd small { font-size: 12px; line-height: 16px; font-weight: 400; opacity: .8; }
+.b4-xd.is-acc { background: var(--accent-bg); color: var(--accent-fg); }
+.b4-xd.is-off { background: var(--danger-bg); color: var(--danger-fg); }
+.b4-xd.is-blk { background: var(--neutral-bg); color: var(--neutral-fg); }
+.b4-xd.is-ok { background: var(--success-bg); color: var(--success-fg); }
+.b4-xd.is-shut { background: var(--bg-surface-muted); color: var(--text-muted); }
+.b4-xd.is-shut b { font-family: var(--font-sans); font-size: 15px; font-weight: 600; }
+.b4-xc__tm .b4-k, .b4-xc__rg .b4-k { font-family: var(--font-sans); font-size: 12px; font-weight: 400; color: var(--text-muted); margin-inline-end: 4px; }
+.b4-xc__tm .b4-k + * , .b4-xc__tm i { font-style: normal; }
+.b4-xc__tm i.b4-k { margin-inline: 6px 4px; }
+.b4-xc__rgs { display: flex; flex-direction: column; gap: 4px; margin-top: 2px; }
+.b4-xc__rg { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 6px; }
+.b4-xc__rg .b4-k { width: 14px; margin: 0; }
+.b4-xc__rg em { font-style: normal; font-family: var(--font-numeric-regular); font-size: 17px; line-height: 26px; color: var(--text-primary); }
+.b4-xc__rg em.is-txt { font-family: var(--font-sans); font-size: 14px; font-weight: 600; }
+.b4-xc__rg span:last-child { font-size: 14px; line-height: 22px; font-weight: 400; color: var(--text-secondary); }
+
+/* §۱۱۴ ============ v10 — بخش ۸: نمونه‌کار (STY-09) ============ */
+/* §۱۱۵ کارت همان f-pf صفحه عمومی (PUB-02)؛ اضافه‌های نمای آرایشگر: دکمه گزینه‌ها، حالت مخفی، کاشی افزودن */
+.b4-pfw { position: relative; }
+.b4-pf__more { position: relative; z-index: 2; width: 32px; height: 32px; flex: none; border: 0; border-radius: 50%; display: grid; place-items: center; background: var(--glass-fill-strong); -webkit-backdrop-filter: blur(var(--blur-glass)); backdrop-filter: blur(var(--blur-glass)); box-shadow: var(--shadow-sm); color: var(--text-primary); cursor: pointer; }
+.b4-pf__more[aria-expanded="true"] { background: var(--bg-inverse); color: var(--text-inverse); }
+.f-pf.is-hidden > img { filter: grayscale(1); opacity: .72; }
+.f-pf.is-hidden .f-pf__t { color: var(--text-secondary); }
+.b4-pf-add { width: 100%; height: 200px; border-radius: var(--radius-lg); }
+.b4-pf-menu { position: absolute; z-index: 6; top: 50px; inset-inline-end: 6px; min-width: 196px; box-shadow: var(--shadow-md); }
+.b4-pf-menu button { font: inherit; font-size: 14px; color: var(--text-primary); }
+.b4-pf-menu button.is-danger { color: var(--danger-fg); }
+.f-pf.b3-lift { box-shadow: var(--shadow-md), 0 0 0 3px var(--bg-surface); }
+/* §۱۱۶ بارگذار تصویر: شبکه سه‌تایی مربعی، اولی «اصلی» */
+.b4-ups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); }
+.b4-up { position: relative; aspect-ratio: 1; border-radius: var(--radius-md); overflow: hidden; background: var(--bg-surface-muted); box-shadow: var(--shadow-sm); }
+.b4-up > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.b4-up__lead { position: absolute; bottom: 6px; inset-inline-start: 6px; height: 22px; font-size: 11px; }
+.b4-up__x { position: absolute; top: 6px; inset-inline-end: 6px; width: 28px; height: 28px; border: 0; border-radius: 50%; display: grid; place-items: center; background: var(--glass-fill-strong); -webkit-backdrop-filter: blur(var(--blur-glass)); backdrop-filter: blur(var(--blur-glass)); box-shadow: var(--shadow-sm); color: var(--text-primary); cursor: pointer; }
+.b4-up__x::before { content: ""; position: absolute; inset: -8px; }
+.b4-up.is-up > img { filter: blur(1px) saturate(.6); opacity: .7; }
+.b4-up__prog { position: absolute; inset-inline: 10px; bottom: 12px; height: 4px; border-radius: 2px; background: rgba(255, 255, 255, .6); overflow: hidden; }
+.b4-up__prog i { display: block; height: 100%; border-radius: 2px; background: var(--text-primary); }
+.b4-up__pct { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-numeric-regular); font-size: 15px; color: var(--text-primary); }
+.b4-up--add { aspect-ratio: 1; padding: 0; box-shadow: none; background: rgba(255, 255, 255, .35); font-size: 13px; }
+/* §۱۱۷ گزینه کم‌خطرتر در برگه حذف دائمی */
+.b4-safer { width: 100%; border: 0; font: inherit; text-align: start; color: inherit; }
+.b4-safer .rv-label { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+.b4-safer > .ri { color: var(--text-muted); }
+
+
+/* §۱۱۸ STY-09 v2: نمونه‌کار تازه به‌صورت نوار کوتاه، بدون فضای خالی بالای ستون کناری؛ پله از ارتفاع نوار می‌آید */
+.b4-pfg .f-pf-col + .f-pf-col { padding-top: 0; }
+.b4-pfg .b4-pf-add { height: 88px; flex-direction: row; gap: var(--space-3); padding: 0 var(--space-3); justify-content: flex-start; }
+.b4-pfg .b4-pf-add .rv-caption { margin-inline-start: auto; }
+.b4-pfg .b4-pf-add { white-space: nowrap; }
+.b4-pfg .b4-pf-add .rv-caption { display: none; }
+
+/* §۱۱۹ تصویر اصلی با قاب پررنگ مشخص می‌شود، نه برچسب */
+.b4-up.is-main::after { content: ""; position: absolute; inset: 0; border-radius: inherit; border: 3px solid var(--text-primary); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .9); pointer-events: none; }
+
+/* §۱۲۰ نمونه‌کار تازه: دکمه اصلی جوهری، نه کاشی خط‌چین */
+.b4-pfg .b4-pf-add.rv-btn { height: 88px; width: 100%; flex-direction: row; justify-content: center; gap: var(--space-2); padding: 0 var(--space-3); border: 0; border-radius: var(--radius-lg); font-size: 15px; font-weight: 600; white-space: nowrap; }
+
+/* §۱۲۱ همان شیشه سفید دکمه بازگشت بالای صفحه، نه جوهری */
+.b4-pfg .b4-pf-add.is-glass { background: var(--glass-fill); color: var(--text-primary); -webkit-backdrop-filter: blur(var(--blur-glass)); backdrop-filter: blur(var(--blur-glass)); box-shadow: inset 0 0 0 1px var(--glass-edge), var(--shadow-sm); }
+.b4-pfg .b4-pf-add.is-glass:active { transform: scale(.98); }
+
+/* §۱۲۲ دکمه شیشه‌ای عمومی (هم‌خانواده دکمه بازگشت) */
+.rv-btn.is-glass { background: var(--glass-fill); color: var(--text-primary); -webkit-backdrop-filter: blur(var(--blur-glass)); backdrop-filter: blur(var(--blur-glass)); box-shadow: inset 0 0 0 1px var(--glass-edge), var(--shadow-sm); border: 0; }
+
+/* §۱۲۳ بازبینی پایانی: پیوند متنی روی <button> ظاهر پیش‌فرض مرورگر نگیرد */
+button.rv-link { -webkit-appearance: none; appearance: none; background: none; border: 0; padding: 0; font-family: inherit; cursor: pointer; }
+
+/* §۱۲۴ زبانه‌های سه‌تایی درخواست‌ها (STY-03): دکمه فیلتر فقط نماد، تا برچسب‌ها در یک خط بمانند */
+.b4-fcard.is-icon .b4-fcard__b { width: 40px; padding: 0; justify-content: center; }
+.b4-seg-full.is-3 button { padding-inline: var(--space-3); gap: 4px; white-space: nowrap; }
+
+/* §۱۲۵ ADM-09 (۳۱ اکتبر): حالت «پرداخت‌ها»، ردیف پرداخت و دفتر اعتبار؛ انتخاب‌گر حالت و کارت موجودی در پایین (D10-176) */
+.b5-pay, .b5-led { position: relative; display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-3) var(--space-4); }
+.b5-pay + .b5-pay, .b5-led + .b5-led { border-top: 1px solid var(--line-hairline); }
+.b5-pay__top { display: flex; align-items: flex-start; gap: var(--space-3); }
+.b5-pay__t { font-size: 15px; line-height: 22px; font-weight: 600; }
+.b5-pay__s { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b5-pay__amt, .b5-led__amt { flex: none; text-align: left; font-family: var(--font-numeric-regular); font-size: 15px; line-height: 22px; white-space: nowrap; color: var(--text-primary); }
+.b5-pay__amt small, .b5-led__amt small { display: block; font-family: var(--font-sans); font-size: 11px; line-height: 14px; font-weight: 300; color: var(--text-muted); }
+.b5-led__amt.is-pos { color: var(--success-fg); }
+.b5-pay__split, .b5-led__r { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b5-led__r { font-size: 13px; color: var(--text-primary); font-weight: 400; }
+.b5-pay__foot { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-2) var(--space-3); }
+.b5-pay__foot .rv-tag { flex: none; height: 24px; padding: 0 10px; font-size: 12px; }
+.b5-pay__lnk { position: relative; z-index: 1; min-height: 44px; display: inline-flex; align-items: center; gap: 4px; font-size: 13px; line-height: 20px; }
+.b5-led__who { font-size: 12px; font-weight: 300; color: var(--text-muted); margin-inline-end: auto; }
+.b5-led__ic { width: 36px; height: 36px; flex: none; }
+.b5-led .rv-btn { position: relative; z-index: 1; min-height: 44px; }
+
+
+/* §۱۲۶ ADM-09 (۳۱ اکتبر، بازنگری D10-176): رادیوی «خدمات / پرداخت‌ها»، کارت موجودی و عکس سیاه‌وسفید حساب غیرفعال */
+.b5-mode { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); padding: 6px var(--space-1) 2px; border-radius: var(--radius-lg); }
+.b5-mode button { min-height: 52px; display: flex; align-items: center; justify-content: center; gap: var(--space-2); border: 0; border-radius: var(--radius-md); font: inherit; font-size: 15px; line-height: 22px; font-weight: 300; color: var(--text-muted); background: rgba(20, 16, 14, .05); box-shadow: inset 0 2px 5px rgba(20, 16, 14, .12); cursor: pointer; transition: transform .15s, box-shadow .15s; }
+.b5-mode button[aria-checked="true"] { background: #fff; color: var(--text-primary); font-weight: 500; transform: translateY(-4px); box-shadow: 0 1px 2px rgba(20, 16, 14, .10), 0 4px 8px rgba(20, 16, 14, .10), 0 10px 20px rgba(20, 16, 14, .12); }
+.b5-mode button[aria-checked="false"] i { opacity: .6; }
+.b5-balc { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-lg); }
+.b5-balc__ic { flex: none; width: 44px; height: 44px; display: grid; place-items: center; border-radius: var(--radius-md); background: var(--bg-inverse-raised, #2a2420); color: var(--text-inverse, #fff); }
+.b5-balc__l { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b5-balc__v { font-family: var(--font-numeric-regular); font-size: 24px; line-height: 32px; color: var(--text-primary); white-space: nowrap; }
+.b5-balc__v small { margin-inline-start: 4px; font-family: var(--font-sans); font-size: 12px; font-weight: 300; color: var(--text-muted); }
+.b5-balc .rv-btn { flex: none; min-height: 44px; }
+.b3-pf.is-off .b3-pf__ph img { filter: grayscale(1); opacity: .75; }
+
+/* §۱۲۷ ADM-09 (۳۱ اکتبر، D10-177): برگهٔ «تغییر موجودی» — خلاصهٔ موجودی بعد از تغییر */
+.b5-after { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background: rgba(20, 16, 14, .04); font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b5-after b { font-family: var(--font-numeric-regular); font-size: 18px; line-height: 26px; font-weight: 400; color: var(--text-primary); white-space: nowrap; }
+.b5-after small { margin-inline-start: 4px; font-family: var(--font-sans); font-size: 12px; font-weight: 300; color: var(--text-muted); }
+.b2-sheet [aria-disabled="true"] { opacity: .5; }
+
+/* §۱۲۸ (۱ نوامبر ۲۰۲۶، بازبینی دسته ۵ طبق D10-63 تا D10-67): رادیوی ردیفی آرایشگر و گزینه‌ها (b5-rr) بدون دایره، بالاآمده / فرورفته؛ ریل chip رادیویی */
+.b5-rg { display: flex; flex-direction: column; gap: var(--space-3); padding-top: 6px; }
+.rv-final .rv-option.b5-rr { min-height: 56px; border: 0; background: var(--bg-surface-muted); box-shadow: var(--b6-sunk); color: var(--text-secondary); transition: transform var(--duration-slow) var(--ease-spring), box-shadow var(--duration-base) var(--ease-standard), background var(--duration-base) var(--ease-standard); }
+.rv-final .rv-option.b5-rr[aria-checked="true"] { position: relative; z-index: 2; background: var(--bg-surface); color: var(--text-primary); font-weight: 600; box-shadow: var(--b6-lift); transform: translateY(-4px); }
+.rv-final .rv-option.b5-rr[aria-checked="false"] .rv-avatar { opacity: .85; filter: saturate(.7); }
+.rv-final .rv-option.b5-rr[aria-disabled="true"] { background: transparent; box-shadow: inset 0 0 0 1px var(--line-hairline); color: var(--text-muted); }
+.rv-final .rv-option.b5-rr .rv-radio { display: none; }
+.b5-rr__n { flex: none; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+@media (prefers-reduced-motion: no-preference) { .rv-final .rv-option.b5-rr[aria-checked="true"] { animation: b2-rise var(--duration-slow) var(--ease-spring) both; } }
+.f-chiprail.b3-rg { flex-wrap: nowrap; padding-block: 8px 4px; }
+.rv-final .rv-btn[aria-disabled="true"] { opacity: .5; cursor: not-allowed; }

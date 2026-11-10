@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>STY-08 — برنامه کاری — ویرایش یک روز</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px;">
+  <div aria-hidden="true" inert="">
+  <header class="f-bar-in">
+    <a href="#more" class="rv-icon-btn" aria-label="بازگشت"><i class="ri ri-arrow-right"></i></a>
+    <h1>برنامه کاری</h1>
+    <span aria-hidden="true"></span>
+  </header>
+  <main class="f-enter" style="padding: var(--space-2) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <p class="b4-lead">ساعت‌هایی که مشتری‌ها می‌توانند با شما رزرو کنند.</p>
+    <div class="rv-seg rv-glass b4-seg-full" role="tablist" aria-label="برنامه کاری"><button type="button" id="tab-0" role="tab" aria-selected="true" aria-controls="p-sch">هفتگی</button><button type="button" id="tab-1" role="tab" aria-selected="false" aria-controls="p-sch">استثناها</button><button type="button" id="tab-2" role="tab" aria-selected="false" aria-controls="p-sch">تعطیلات</button></div>
+    <section aria-labelledby="wk-h" id="p-sch" role="tabpanel" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <!-- خلاصه هفته: نگاه یک‌جا به کل هفته؛ هر ستون یک روز -->
+      <div class="rv-card rv-glass b4-wsum">
+        <div class="b4-wsum__stats">
+          <div><b>۶</b><small>روز کاری</small></div>
+          <div><b>۶۳</b><small>ساعت در هفته</small></div>
+          
+        </div>
+        
+      </div>
+      <div class="f-head" style="margin-top: var(--space-2);"><h2 id="wk-h" class="f-h">الگوی هفتگی</h2><span class="rv-caption rv-muted">هر هفته تکرار می‌شود</span></div>
+      
+      <!-- هر روز یک کارت جدا: حرف روز، بازه‌ها به شکل قرص، نوار ۰۷:۰۰ تا ۲۱:۰۰ با فاصله استراحت خط‌چین؛ لمس، برگه ویرایش همان روز -->
+      <div class="b4-wk2l">
+        <div class="b4-wk2" role="group" aria-label="شنبه، ۰۸:۰۰ تا ۱۹:۰۰، ویرایش">
+          <div class="b4-wk2__b"><span class="b4-wk2__top"><span class="b4-wk2__d">شنبه</span><span class="b4-wk2__m">۱۱ ساعت</span></span><span class="b4-wk2__ps"><span class="b4-wk2__p">۰۸:۰۰<i>تا</i>۱۹:۰۰</span></span></div>
+          <a href="#day" class="b4-wk2__go" aria-label="ویرایش شنبه"><i class="ri ri-sm ri-chevron-left" aria-hidden="true"></i></a>
+          <span class="b4-wk2__bar" aria-hidden="true"><i class="is-on" style="inset-inline-start: 7.1%; width: 78.6%;"></i></span>
+        </div>
+        <div class="b4-wk2 is-today" role="group" aria-label="یکشنبه، ۰۸:۰۰ تا ۱۹:۰۰، ویرایش">
+          <div class="b4-wk2__b"><span class="b4-wk2__top"><span class="b4-wk2__d">یکشنبه</span><span class="b4-wk2__m">امروز، ۱۱ ساعت</span></span><span class="b4-wk2__ps"><span class="b4-wk2__p">۰۸:۰۰<i>تا</i>۱۹:۰۰</span></span></div>
+          <a href="#day" class="b4-wk2__go" aria-label="ویرایش یکشنبه"><i class="ri ri-sm ri-chevron-left" aria-hidden="true"></i></a>
+          <span class="b4-wk2__bar" aria-hidden="true"><i class="is-on" style="inset-inline-start: 7.1%; width: 78.6%;"></i></span>
+        </div>
+        <div class="b4-wk2 is-edit" role="group" aria-label="دوشنبه، ۰۸:۰۰ تا ۱۹:۰۰، ویرایش">
+          <div class="b4-wk2__b"><span class="b4-wk2__top"><span class="b4-wk2__d">دوشنبه</span><span class="b4-wk2__m">۱۱ ساعت</span></span><span class="b4-wk2__ps"><span class="b4-wk2__p">۰۸:۰۰<i>تا</i>۱۹:۰۰</span></span></div>
+          <a href="#day" class="b4-wk2__go" aria-label="ویرایش دوشنبه"><i class="ri ri-sm ri-chevron-left" aria-hidden="true"></i></a>
+          <span class="b4-wk2__bar" aria-hidden="true"><i class="is-on" style="inset-inline-start: 7.1%; width: 78.6%;"></i></span>
+        </div>
+        <div class="b4-wk2" role="group" aria-label="سه‌شنبه، ۰۸:۰۰ تا ۱۹:۰۰، ویرایش">
+          <div class="b4-wk2__b"><span class="b4-wk2__top"><span class="b4-wk2__d">سه‌شنبه</span><span class="b4-wk2__m">۱۱ ساعت</span></span><span class="b4-wk2__ps"><span class="b4-wk2__p">۰۸:۰۰<i>تا</i>۱۹:۰۰</span></span></div>
+          <a href="#day" class="b4-wk2__go" aria-label="ویرایش سه‌شنبه"><i class="ri ri-sm ri-chevron-left" aria-hidden="true"></i></a>
+          <span class="b4-wk2__bar" aria-hidden="true"><i class="is-on" style="inset-inline-start: 7.1%; width: 78.6%;"></i></span>
+        </div>
+        <div class="b4-wk2" role="group" aria-label="چهارشنبه، ۰۸:۰۰ تا ۱۹:۰۰، ویرایش">
+          <div class="b4-wk2__b"><span class="b4-wk2__top"><span class="b4-wk2__d">چهارشنبه</span><span class="b4-wk2__m">۱۱ ساعت</span></span><span class="b4-wk2__ps"><span class="b4-wk2__p">۰۸:۰۰<i>تا</i>۱۹:۰۰</span></span></div>
+          <a href="#day" class="b4-wk2__go" aria-label="ویرایش چهارشنبه"><i class="ri ri-sm ri-chevron-left" aria-hidden="true"></i></a>
+          <span class="b4-wk2__bar" aria-hidden="true"><i class="is-on" style="inset-inline-start: 7.1%; width: 78.6%;"></i></span>
+        </div>
+        <div class="b4-wk2" role="group" aria-label="پنج‌شنبه، ۰۸:۰۰ تا ۱۳:۰۰ و ۱۶:۰۰ تا ۱۹:۰۰، ویرایش">
+          <div class="b4-wk2__b"><span class="b4-wk2__top"><span class="b4-wk2__d">پنج‌شنبه</span><span class="b4-wk2__m">۸ ساعت</span></span></div>
+          <a href="#day" class="b4-wk2__go" aria-label="ویرایش پنج‌شنبه"><i class="ri ri-sm ri-chevron-left" aria-hidden="true"></i></a>
+          <span class="b4-wk2__trk" role="group" aria-label="بازه‌ها؛ برای دیدن ساعت هر بازه آیکنش را بزنید">
+            <span class="b4-wk2__it" style="inset-inline-start: 25%;"><span class="b4-wk2__p is-on" aria-live="polite">۰۸:۰۰<i>تا</i>۱۳:۰۰</span></span>
+            <span class="b4-wk2__it" style="inset-inline-start: 75%;"><button type="button" class="b4-wk2__ic" aria-pressed="false" aria-label="بازه دوم، نمایش ساعت"><i class="ri ri-sm ri-clock"></i></button></span>
+          </span>
+          <span class="b4-wk2__bar" aria-hidden="true"><i class="is-on" style="inset-inline-start: 7.1%; width: 35.8%;"></i><i style="inset-inline-start: 64.3%; width: 21.4%;"></i><b class="b4-wk2__gap" style="inset-inline-start: 42.9%; width: 21.4%;"></b></span>
+        </div>
+        <div class="b4-wk2 is-off" role="group" aria-label="جمعه، تعطیل، ویرایش">
+          <div class="b4-wk2__b"><span class="b4-wk2__top"><span class="b4-wk2__d">جمعه</span><span class="b4-wk2__m">روز استراحت</span></span><span class="b4-wk2__ps"><span class="b4-wk2__off">تعطیل</span></span></div>
+          <a href="#day" class="b4-wk2__go" aria-label="ویرایش جمعه"><i class="ri ri-sm ri-chevron-left" aria-hidden="true"></i></a>
+          <span class="b4-wk2__bar" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
+    <p class="b4-hint" style="margin-top: calc(var(--space-2) * -1);"><i class="ri ri-info" aria-hidden="true"></i>برای تغییر یک تاریخ خاص، مرخصی یا بستن چند ساعت، از «استثناها» استفاده کنید. خدمت‌ها، روزهای ارائه هر خدمت و قیمت با مدیر سالن است.</p>
+  </main>
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری آرایشگر">
+    <a href="/stylist" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+    <a href="/stylist/calendar" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+    <a href="/stylist/requests" aria-label="درخواست‌ها، ۳ درخواست منتظر پاسخ"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۳</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+    <a href="/stylist/customers" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+    <a href="#more" aria-current="page" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+  </nav>
+  </div>
+  </div>
+  <div class="rv-scrim" aria-hidden="true"></div>
+  <section class="rv-sheet rv-glass-strong b2-sheet" role="dialog" aria-modal="true" aria-labelledby="dy-t">
+    <span class="b2-grip" aria-hidden="true"></span>
+    <div class="b2-sheet__head">
+      <span class="rv-tile"><i class="ri ri-calendar-clock"></i></span>
+      <div class="rv-grow"><h2 id="dy-t" class="b2-sheet__t">ساعت کاری دوشنبه‌ها</h2><p class="b2-sheet__d">برای همه دوشنبه‌های آینده</p></div>
+      <button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="بستن برگه"><i class="ri ri-x"></i></button>
+    </div>
+    <label class="rv-card rv-glass b4-swrow"><div class="rv-grow"><div class="b4-swrow__t">روز کاری</div><div class="b4-swrow__d">خاموش: دوشنبه‌ها تعطیل می‌شود</div></div><input type="checkbox" class="rv-switch" checked="" aria-label="دوشنبه روز کاری است"></label>
+    <!-- چند بازه در یک روز؛ فیلد تغییرکرده قاب جوهری دارد -->
+    <div class="b4-rng"><button type="button" class="b4-rr is-chg" aria-expanded="false"><span class="b4-rr__l">بازه ۱</span><span class="b4-rr__v">۰۸:۰۰ تا ۱۴:۰۰</span><i class="ri ri-chevron-down" aria-hidden="true"></i></button><button type="button" class="b4-rr is-chg is-open" aria-expanded="true"><span class="b4-rr__l">بازه ۲</span><span class="b4-rr__v">۱۵:۰۰ تا ۱۷:۰۰</span><i class="ri ri-chevron-down" aria-hidden="true"></i></button><div class="rv-card rv-glass b4-whl" style="--cols:2"><div class="b4-whl__hd" aria-hidden="true"><span>از</span><span>تا</span></div><div class="b4-whl__bd"><div class="b4-whl__c" role="listbox" aria-label="از"><span role="option">۱۴:۰۰</span><span role="option">۱۴:۳۰</span><span role="option" aria-selected="true" class="is-sel">۱۵:۰۰</span><span role="option">۱۵:۳۰</span><span role="option">۱۶:۰۰</span></div><div class="b4-whl__c" role="listbox" aria-label="تا"><span role="option">۱۶:۰۰</span><span role="option">۱۶:۳۰</span><span role="option" aria-selected="true" class="is-sel">۱۷:۰۰</span><span role="option">۱۷:۳۰</span><span role="option">۱۸:۰۰</span></div><span class="b4-whl__ar" aria-hidden="true"><i class="ri ri-arrow-left"></i></span></div><div class="b4-whl__ft"><span>مدت <b>۲ ساعت</b></span><button type="button" class="b4-whl__del"><i class="ri ri-trash" aria-hidden="true"></i>حذف بازه</button></div></div><button type="button" class="b4-addr"><i class="ri ri-plus"></i>افزودن بازه</button></div>
+    <!-- اثر همین حالا حساب می‌شود؛ چون نوبتی بیرون می‌ماند، دکمه به پیش‌نمایش می‌رود -->
+    
+    <div class="b2-sheet__acts"><button type="button" class="rv-btn rv-btn--primary">ادامه و پیش‌نمایش اثر</button><button type="button" class="rv-btn rv-btn--secondary">انصراف</button></div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

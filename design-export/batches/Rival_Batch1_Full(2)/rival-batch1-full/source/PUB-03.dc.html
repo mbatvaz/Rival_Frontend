@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>PUB-03 — قوانین رزرو — پیش‌فرض</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 3022px;">
+  <!-- نوار بالای صفحه عمومی: بازگشت به خانه، عنوان، ورود -->
+  <header class="f-bar-in">
+    <a href="/" class="rv-icon-btn" aria-label="بازگشت به خانه"><i class="ri ri-arrow-right"></i></a>
+    <h1>قوانین رزرو</h1>
+    <a href="/login" class="rv-btn rv-btn--secondary rv-btn--sm rv-btn--pill f-pub-login">ورود</a>
+  </header>
+
+  <main style="padding: var(--space-2) var(--space-4) 0; display: flex; flex-direction: column; gap: var(--space-12);">
+    <!-- سرآغاز: دو قاعده‌ای که پیش از پرداخت باید دیده شود -->
+    <section style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <div style="padding: 0 var(--space-1);">
+        <h2 style="margin: 0; font-size: 22px; line-height: 34px; font-weight: 600;">پیش از پرداخت، این چند قاعده را بدانید</h2>
+        <p class="rv-body-sm rv-secondary" style="margin: var(--space-2) 0 0;">به زبان ساده: چطور رزرو می‌کنید، چه می‌پردازید، و اگر برنامه‌تان عوض شد چه می‌شود.</p>
+      </div>
+      <div class="rv-card rv-card--inverse rv-card--lg" style="border-radius: var(--radius-xl); display: flex; flex-direction: column; gap: var(--space-4);">
+        <div class="rv-row" style="align-items: flex-start; gap: var(--space-3);"><i class="ri ri-check-circle" style="margin-top: 2px; color: var(--text-inverse);"></i><div><div style="font-size: 15px; line-height: 24px; font-weight: 600;">پرداخت یعنی پذیرش این قوانین</div><div style="font-size: 13px; line-height: 22px; font-weight: 300; color: var(--text-inverse-muted);">پیوند همین صفحه پیش از هر پرداخت کنار دکمه پرداخت هست.</div></div></div>
+        <div class="rv-row" style="align-items: flex-start; gap: var(--space-3);"><i class="ri ri-receipt" style="margin-top: 2px; color: var(--text-inverse);"></i><div><div style="font-size: 15px; line-height: 24px; font-weight: 600;">مبلغ آنلاین، هزینه رزرو است</div><div style="font-size: 13px; line-height: 22px; font-weight: 300; color: var(--text-inverse-muted);">نه قیمت کامل خدمت.</div></div></div>
+      </div>
+      <nav class="f-toc" aria-label="بخش‌های این صفحه">
+        <a class="rv-chip" href="#book">رزرو</a><a class="rv-chip" href="#pay">پرداخت</a><a class="rv-chip" href="#cancel">لغو و جابه‌جایی</a><a class="rv-chip" href="#salon">تغییر از طرف سالن</a>
+      </nav>
+    </section>
+
+    <!-- ۱. رزرو -->
+    <section id="book" aria-labelledby="f-r1">
+      <h2 id="f-r1" class="f-rule-h"><span>۱</span>رزرو</h2>
+      <ol class="rv-card rv-glass" style="list-style: none; margin: 0; padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-5);">
+        <li class="f-way"><span class="rv-tile"><i class="ri ri-clock"></i></span><div><div class="f-way__t">زمان را خودتان انتخاب می‌کنید</div><div class="f-way__k">بیشتر خدمت‌ها</div><div class="f-way__d">خدمت، آرایشگر و یکی از زمان‌های آزاد را انتخاب می‌کنید. آن زمان ۵ دقیقه برایتان نگه داشته می‌شود تا پرداخت کنید.</div></div></li>
+        <li class="f-way"><span class="rv-tile"><i class="ri ri-send"></i></span><div><div class="f-way__t">آرایشگر زمان را پیشنهاد می‌دهد</div><div class="f-way__k">خدمت‌هایی که زمانشان باید هماهنگ شود</div><div class="f-way__d">یک بازه دلخواه می‌دهید. آرایشگر تا ۷ روز زمان دقیق و مبلغ رزرو را می‌فرستد. از آن لحظه ۳ ساعت فرصت پرداخت دارید.</div></div></li>
+        <li class="f-way"><span class="rv-tile"><i class="ri ri-layers"></i></span><div><div class="f-way__t">مدیر سالن هماهنگ می‌کند</div><div class="f-way__k">خدمت‌های چندمرحله‌ای</div><div class="f-way__d">آرایشگر و زمان را انتخاب نمی‌کنید. مدیر سالن تا ۷ روز برای هر مرحله آرایشگر، زمان و مبلغ را می‌فرستد. ۳ ساعت فرصت دارید کل آن را با هم بپردازید یا لغو کنید.</div></div></li>
+      </ol>
+      <ul class="f-bul" style="margin-top: var(--space-4); padding: 0 var(--space-1);">
+        <li><i class="ri ri-sm ri-calendar"></i><span>رزرو تا <b>یک ماه</b> آینده باز است؛ رزرو دوره‌ای برای خدمت‌هایی که زمانشان را خودتان انتخاب می‌کنید تا <b>۶ ماه</b>.</span></li>
+        <li><i class="ri ri-sm ri-hourglass"></i><span>اگر درخواستی تا ۷ روز پاسخ نگیرد، «رد شده» می‌شود و اگر پاسخ در ۳ ساعت پرداخت نشود، «منقضی شده».</span></li>
+      </ul>
+    </section>
+
+    <!-- ۲. پرداخت -->
+    <section id="pay" aria-labelledby="f-r2">
+      <h2 id="f-r2" class="f-rule-h"><span>۲</span>پرداخت</h2>
+      <ul class="f-bul" style="padding: 0 var(--space-1);">
+        <li><i class="ri ri-sm ri-wallet"></i><span><b>اعتبار شما اول و خودکار</b> مصرف می‌شود و فقط باقی‌مانده از درگاه پرداخت می‌شود.</span></li>
+        <li><i class="ri ri-sm ri-refresh"></i><span>تا بانک پرداخت را تأیید کند «در حال بررسی پرداخت» می‌بینید. <b>دوباره پرداخت نکنید</b>؛ نتیجه را همان‌جا خبر می‌دهیم.</span></li>
+        <li><i class="ri ri-sm ri-lock"></i><span>اعتبار قابل برداشت یا انتقال نیست و فقط در رزروهای بعدی مصرف می‌شود.</span></li>
+        <li><i class="ri ri-sm ri-tag"></i><span>مبلغ هر نوبت هنگام رزرو ثبت می‌شود و تغییر قیمت‌های بعدی روی آن اثری ندارد.</span></li>
+      </ul>
+    </section>
+
+    <!-- ۳. لغو و جابه‌جایی: سه پنجره زمانی با نوار rv-policy -->
+    <section id="cancel" aria-labelledby="f-r3" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <h2 id="f-r3" class="f-rule-h" style="margin-bottom: 0;"><span>۳</span>لغو و جابه‌جایی نوبت</h2>
+      <p class="rv-body-sm rv-secondary" style="margin: 0 var(--space-1);">همه چیز به این بستگی دارد که چقدر به شروع نوبت مانده است.</p>
+      <div style="padding: var(--space-2) var(--space-1) var(--space-1);" aria-hidden="true">
+        <div class="rv-policy"><span></span><span></span><span></span></div>
+        <div class="rv-policy-l"><b>بیش از ۲۴ ساعت</b><b>۲۴ تا ۳ ساعت</b><b>کمتر از ۳</b></div>
+      </div>
+      <article class="rv-card rv-glass f-win" aria-label="بیش از ۲۴ ساعت مانده">
+        <div class="f-win__h"><span class="f-win__t">بیش از ۲۴ ساعت مانده</span><span class="rv-tag is-accent"><i class="ri ri-coins"></i>بازگشت هزینه</span></div>
+        <div class="rv-policy" aria-hidden="true"><span class="is-on"></span><span></span><span></span></div>
+        <dl>
+          <div><dt>لغو</dt><dd class="is-gain"><i class="ri ri-sm ri-coins"></i><span>کل هزینه رزرو به اعتبار شما برمی‌گردد.</span></dd></div>
+          <div><dt>جابه‌جایی</dt><dd class="is-keep"><i class="ri ri-sm ri-check"></i><span>یک بار مجاز است و حق بازگشت هزینه می‌ماند.</span></dd></div>
+        </dl>
+      </article>
+      <article class="rv-card rv-glass f-win" aria-label="۲۴ تا ۳ ساعت مانده">
+        <div class="f-win__h"><span class="f-win__t">۲۴ تا ۳ ساعت مانده</span></div>
+        <div class="rv-policy" aria-hidden="true"><span></span><span class="is-on"></span><span></span></div>
+        <dl>
+          <div><dt>لغو</dt><dd class="is-loss"><i class="ri ri-sm ri-minus"></i><span>مجاز است، ولی مبلغی برنمی‌گردد.</span></dd></div>
+          <div><dt>جابه‌جایی</dt><dd class="is-keep"><i class="ri ri-sm ri-alert"></i><span>یک بار مجاز است، ولی حق بازگشت هزینه این نوبت برای همیشه از بین می‌رود.</span></dd></div>
+        </dl>
+      </article>
+      <article class="rv-card rv-glass f-win" aria-label="کمتر از ۳ ساعت مانده">
+        <div class="f-win__h"><span class="f-win__t">کمتر از ۳ ساعت مانده</span></div>
+        <div class="rv-policy" aria-hidden="true"><span></span><span></span><span class="is-on"></span></div>
+        <dl>
+          <div><dt>لغو</dt><dd class="is-loss"><i class="ri ri-sm ri-minus"></i><span>تا پیش از شروع مجاز است، ولی مبلغی برنمی‌گردد.</span></dd></div>
+          <div><dt>جابه‌جایی</dt><dd class="is-no"><i class="ri ri-sm ri-ban"></i><span>ممکن نیست.</span></dd></div>
+        </dl>
+      </article>
+      <ul class="f-bul" style="margin-top: var(--space-2); padding: 0 var(--space-1);">
+        <li><i class="ri ri-sm ri-ban"></i><span>بعد از شروع نوبت، لغو و جابه‌جایی ممکن نیست.</span></li>
+        <li><i class="ri ri-sm ri-repeat"></i><span>جابه‌جایی فقط برای نوبتی است که زمانش را خودتان انتخاب کرده‌اید، و <b>فقط یک بار</b>. نوبتی که آرایشگر زمانش را پیشنهاد داده جابه‌جا نمی‌شود، ولی لغوش طبق همین جدول ممکن است.</span></li>
+        <li><i class="ri ri-sm ri-x-circle"></i><span>اگر نیایید و نوبت را لغو نکرده باشید، «عدم حضور» ثبت می‌شود و هزینه رزرو برنمی‌گردد.</span></li>
+        <li><i class="ri ri-sm ri-clock"></i><span>این ساعت‌ها هنگام رزرو برای هر نوبت ثبت می‌شوند؛ تغییرات بعدی سالن روی نوبت شما اثری ندارد.</span></li>
+      </ul>
+    </section>
+
+    <!-- ۴. تغییر از طرف سالن -->
+    <section id="salon" aria-labelledby="f-r4">
+      <h2 id="f-r4" class="f-rule-h"><span>۴</span>وقتی سالن نوبت را تغییر می‌دهد</h2>
+      <div class="rv-list rv-glass">
+        <div class="rv-item" style="align-items: flex-start;"><span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-calendar-x"></i></span><div class="rv-grow"><div style="font-size: 15px; line-height: 24px; font-weight: 600;">لغو از طرف سالن</div><div style="font-size: 13px; line-height: 22px; font-weight: 400; color: var(--text-secondary);">کل هزینه رزرو به اعتبار شما برمی‌گردد.</div></div></div>
+        <div class="rv-item" style="align-items: flex-start;"><span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-calendar-clock"></i></span><div class="rv-grow"><div style="font-size: 15px; line-height: 24px; font-weight: 600;">جابه‌جایی از طرف سالن</div><div style="font-size: 13px; line-height: 22px; font-weight: 400; color: var(--text-secondary);">سهم جابه‌جایی شما مصرف نمی‌شود و یک «حق جبرانی» می‌گیرید: یک بار نوبت را جابه‌جا کنید، یا آن را با بازگشت کامل هزینه لغو کنید.</div></div></div>
+      </div>
+    </section>
+
+    <!-- پرسش: تماس با سالن -->
+    <section class="rv-row" style="gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-lg); box-shadow: inset 0 0 0 1px var(--line-hairline);">
+      <div class="rv-grow"><div style="font-size: 15px; line-height: 24px; font-weight: 600;">سؤالی مانده؟</div><div class="f-t3" style="font-size: 13px; line-height: 22px;">با سالن تماس بگیرید.</div></div>
+      <a class="rv-btn rv-btn--secondary" href="tel:"><i class="ri ri-phone"></i>تماس</a>
+    </section>
+  </main>
+
+  <!-- پای صفحه عمومی: همان فوتر خانه -->
+  <footer class="f-pubfoot" style="margin-top: auto;">
+    <div class="rv-between">
+      <span class="rv-mark-ink" role="img" aria-label="ریوال" style="height: 24px; color: var(--text-muted);"></span>
+      <nav class="rv-row" aria-label="پیوندهای پایین صفحه" style="gap: var(--space-6);"><a class="rv-link" href="/">خانه</a><a class="rv-link" href="/portfolio">نمونه‌کارها</a><a class="rv-link" href="/booking-rules">قوانین رزرو</a></nav>
+    </div>
+    <div style="margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--line-hairline); display: flex; flex-direction: column; align-items: center; gap: var(--space-2); text-align: center;">
+      <span class="rv-caption rv-muted">تمام حقوق این وب‌سایت برای سالن ریوال محفوظ است.</span>
+      <a href="#" class="rv-row rv-caption rv-muted" style="gap: 6px; text-decoration: none; min-height: 44px;">توسعه‌یافته توسط<span style="font-weight: 400; color: var(--text-secondary);">ودان</span><img src="/_blob/c14b1a8859659282316990bd890f14a9" alt="" style="width: 20px; height: 20px; object-fit: contain;"></a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":3022}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

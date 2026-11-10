@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>STY-06 — جزئیات نوبت — جزء بستهٔ درخواستی</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1140px;">
+  <header class="f-bar-in">
+    <a href="/stylist/appointments" class="rv-icon-btn" aria-label="بازگشت به نوبت‌ها"><i class="ri ri-arrow-right"></i></a>
+    <h1>جزئیات نوبت</h1>
+    <span aria-hidden="true"></span>
+  </header>
+  <main style="padding: var(--space-1) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-6);">
+    <!-- سر صفحه همان الگوی جزئیات درخواست (STY-04): تصویر خدمت، وضعیت، کد، زمان با مدت (بدون ساعت پایان، D10-61)، کارت مشتری با پیامک و تماس -->
+    <article class="b3-rqh" aria-label="نوبت فیشیال بهراد شریفی،  سه‌شنبه ۲۸ مهر ساعت ۱۴:۰۰">
+      <div class="b3-rqh__media" style="height: 160px;">
+        <img src="/_blob/d1b75c21393c9d05ad0948b7f02e5b5c" alt="" style="object-position: center 40%;">
+        <div class="b3-rqh__tags"><span class="rv-tag is-ink"><i class="ri ri-check-circle"></i>رزرو شده</span></div>
+      </div>
+      <div class="b3-rqh__panel rv-glass-strong b4-hpanel">
+        <div class="rv-row" style="align-items: baseline; width: 100%;"><h2 style="margin: 0; font-size: 22px; line-height: 34px; font-weight: 600;">فیشیال</h2><bdi dir="ltr" class="b3-rq__s" style="margin-right: auto;">#BK-48312</bdi></div>
+        <div class="rv-bk-hero__when">
+          <div class="rv-bk-hero__date"><b>۲۸</b><span>سه‌شنبه</span><small>مهر</small></div>
+          <span class="rv-bk-hero__sep" aria-hidden="true"></span>
+          <div class="rv-bk-hero__time"><b>۱۴:۰۰</b><small>۴۵ دقیقه<span class="rv-sep" aria-hidden="true"></span>۲ روز دیگر</small></div>
+        </div>
+        <div class="b4-cust">
+          <span class="rv-avatar">ب</span>
+          <div class="rv-grow" style="min-width: 0;">
+            <a href="/stylist/customers/1071" class="f-stretch b4-cust__n">بهراد شریفی</a>
+            <span class="b4-cust__p">۰۹۱۴ ۴۷۲ ۶۱۰۳</span>
+          </div>
+          <button type="button" class="rv-icon-btn" aria-haspopup="dialog" aria-label="پیامک به بهراد شریفی"><i class="ri ri-sms"></i></button>
+          <a href="tel:09144726103" class="rv-icon-btn" aria-label="تماس با بهراد شریفی"><i class="ri ri-phone"></i></a>
+        </div>
+      </div>
+    </article>
+    <!-- پرداخت: فقط وضعیت عملیاتی و هزینه رزرو ثبت‌شده؛ بدون شناسه درگاه و بدون تفکیک اعتبار و درگاه -->
+    <section aria-labelledby="d-pay" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <div class="f-head" style="margin-bottom: 0;"><h2 id="d-pay" class="f-h">پرداخت</h2><span class="rv-caption rv-muted">ثبت ۲۱ مهر، ۰۹:۴۸</span></div>
+      <div class="rv-card rv-glass" style="padding: var(--space-2) var(--space-4) var(--space-3);">
+        <div class="rv-kv"><span>هزینه رزرو ثبت‌شده</span><b>۱۲۰٬۰۰۰ تومان</b></div>
+        <div class="rv-kv"><span>وضعیت پرداخت</span><b><span class="b4-ok"><i class="ri ri-sm ri-check" aria-hidden="true"></i>پرداخت شده</span></b></div>
+        <div class="rv-kv"><span>نوع رزرو</span><b>جزء بستهٔ درخواستی</b></div>
+      </div>
+    </section>
+    <!-- اقدام‌های سالن: پیامد هر کدام پیش از لمس دیده می‌شود؛ جابه‌جایی جوهری، لغو danger-soft -->
+    <section aria-labelledby="d-act" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <div class="f-head" style="margin-bottom: 0;"><h2 id="d-act" class="f-h">اگر نمی‌توانید این نوبت را انجام دهید</h2></div>
+      <div class="rv-card rv-glass" style="padding: var(--space-4);">
+        <ul class="b2-facts">
+          <li><i class="ri ri-repeat"></i><span><b class="b4-fb">جابه‌جایی:</b> سهم جابه‌جایی مشتری مصرف نمی‌شود و یک حق جبرانی برای او ساخته می‌شود.</span></li>
+          <li><i class="ri ri-layers"></i><span><b class="b4-fb">این نوبت مستقل است:</b> جابه‌جایی یا لغوش بقیهٔ اجزای بسته را تغییر نمی‌دهد.</span></li>
+          <li><i class="ri ri-coins"></i><span><b class="b4-fb">لغو:</b> کل هزینه رزرو همین جزء، به اعتبار مشتری برمی‌گردد.</span></li>
+        </ul>
+      </div>
+      <div class="b3-acts">
+        <div><a href="/stylist/appointments/BK-48312/reschedule" class="rv-btn rv-btn--primary"><i class="ri ri-sm ri-repeat"></i>جابه‌جایی</a></div>
+        <div><button type="button" class="rv-btn rv-btn--danger-soft" aria-haspopup="dialog">لغو نوبت</button></div>
+      </div>
+      <p class="b3-why"><i class="ri ri-info"></i>آرایشگر نوبت عوض نمی‌شود؛ برای آرایشگر دیگر، این نوبت لغو و رزرو تازه ساخته می‌شود.</p>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1140}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

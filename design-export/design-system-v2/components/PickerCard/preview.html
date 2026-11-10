@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rival — PickerCard</title><link rel="stylesheet" href="../../css/tokens.css"><link rel="stylesheet" href="../../css/rival.css"><style>body{margin:0}</style></head>
+<body>
+<!-- @dsCard width=900 group="Selection" height=640 subtitle="One picker card for services AND stylists — same photo frame, glass pin (the deciding fact), check, smoked plate, ink ring when chosen" -->
+<div class="rv rv-final rv-pad" dir="rtl" lang="fa"><div class="rv-stack-lg">
+  <section>
+    <div class="rv-section-head"><h3>خدمت را انتخاب کنید</h3><div class="rv-row" style="gap:6px"><button class="rv-chip" aria-pressed="true">همه</button><button class="rv-chip">مو</button><button class="rv-chip">ریش</button><button class="rv-chip">پوست</button></div></div>
+    <div class="rv-rail" role="radiogroup" aria-label="خدمت" data-g="s">
+      <button class="rv-pick" role="radio" aria-checked="true"><img src="../../assets/photos/services/service-1.webp" alt=""><span class="rv-pick__pin rv-tag rv-tag--glass">۱۸۰٬۰۰۰ تومان</span><span class="rv-pick__check"><i class="ri ri-sm ri-check"></i></span><span class="rv-pick__plate rv-smoke"><span class="rv-pick__t">اصلاح سر و صورت</span><span class="rv-pick__m">۳۰ دقیقه<span class="rv-sep" aria-hidden="true"></span>مو و ریش</span></span></button>
+      <button class="rv-pick" role="radio" aria-checked="false"><img src="../../assets/photos/services/service-2.webp" alt=""><span class="rv-pick__pin rv-tag rv-tag--glass">۱۲۰٬۰۰۰ تومان</span><span class="rv-pick__check"><i class="ri ri-sm ri-check"></i></span><span class="rv-pick__plate rv-smoke"><span class="rv-pick__t">اصلاح ریش</span><span class="rv-pick__m">۳۰ دقیقه<span class="rv-sep" aria-hidden="true"></span>ریش</span></span></button>
+      <button class="rv-pick" role="radio" aria-checked="false"><img src="../../assets/photos/services/service-3.webp" alt=""><span class="rv-pick__pin rv-tag rv-tag--glass">پیشنهادی</span><span class="rv-pick__check"><i class="ri ri-sm ri-check"></i></span><span class="rv-pick__plate rv-smoke"><span class="rv-pick__t">فیشیال</span><span class="rv-pick__m">زمان و مبلغ با آرایشگر</span></span></button>
+      <button class="rv-pick" role="radio" aria-checked="false"><img src="../../assets/photos/services/service-4.webp" alt=""><span class="rv-pick__pin rv-tag rv-tag--glass"><i class="ri ri-layers"></i>درخواستی</span><span class="rv-pick__check"><i class="ri ri-sm ri-check"></i></span><span class="rv-pick__plate rv-smoke"><span class="rv-pick__t">دامادی</span><span class="rv-pick__m">چند خدمت، برنامه با مدیر</span></span></button>
+    </div>
+  </section>
+  <section>
+    <div class="rv-section-head"><h3>آرایشگر را انتخاب کنید</h3><span class="rv-caption rv-muted">برای «اصلاح سر و صورت»</span></div>
+    <div class="rv-rail" role="radiogroup" aria-label="آرایشگر" data-g="p">
+      <button class="rv-pick" role="radio" aria-checked="true" style="--focus:center 18%"><img src="../../assets/photos/stylists/stylist-2.webp" alt=""><span class="rv-pick__pin rv-tag rv-tag--glass">امروز ۳ زمان</span><span class="rv-pick__check"><i class="ri ri-sm ri-check"></i></span><span class="rv-pick__plate rv-smoke"><span class="rv-pick__t">طاها</span><span class="rv-pick__m">فید و فرم ریش</span></span></button>
+      <button class="rv-pick" role="radio" aria-checked="false" style="--focus:center 18%"><img src="../../assets/photos/stylists/stylist-1.webp" alt=""><span class="rv-pick__pin rv-tag rv-tag--glass">از فردا</span><span class="rv-pick__check"><i class="ri ri-sm ri-check"></i></span><span class="rv-pick__plate rv-smoke"><span class="rv-pick__t">مهدی</span><span class="rv-pick__m">کوتاهی کلاسیک</span></span></button>
+      <button class="rv-pick" role="radio" aria-checked="false" style="--focus:center 18%"><img src="../../assets/photos/stylists/stylist-3.webp" alt=""><span class="rv-pick__pin rv-tag rv-tag--glass">از ۲۰ مهر</span><span class="rv-pick__check"><i class="ri ri-sm ri-check"></i></span><span class="rv-pick__plate rv-smoke"><span class="rv-pick__t">آرین</span><span class="rv-pick__m">استایل و حالت‌دهی</span></span></button>
+      <button class="rv-pick" role="radio" aria-checked="false" aria-disabled="true" style="--focus:center 18%"><img src="../../assets/photos/stylists/stylist-1.webp" alt=""><span class="rv-pick__pin rv-tag rv-tag--glass">پر است</span><span class="rv-pick__plate rv-smoke"><span class="rv-pick__t">سینا</span><span class="rv-pick__m">تا یک ماه زمان آزاد ندارد</span></span></button>
+    </div>
+  </section>
+</div></div>
+<script>document.querySelectorAll('.rv-rail').forEach(function(r){r.querySelectorAll('.rv-pick:not([aria-disabled])').forEach(function(c){c.addEventListener('click',function(){r.querySelectorAll('.rv-pick').forEach(function(x){x.setAttribute('aria-checked','false')});c.setAttribute('aria-checked','true');});});});
+document.querySelectorAll('.rv-chip').forEach(function(c){c.addEventListener('click',function(){c.parentNode.querySelectorAll('.rv-chip').forEach(function(x){x.setAttribute('aria-pressed','false')});c.setAttribute('aria-pressed','true');});});</script>
+
+</body></html>

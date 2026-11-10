@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>AUTH-02 — تکمیل حساب — خطای فیلد</title>
+<link rel="stylesheet" href="../css/ds/rival/tokens.css">
+<link rel="stylesheet" href="../css/ds/rival/components/bundle.css">
+<link rel="stylesheet" href="../css/rv-fixes.css">
+<link rel="stylesheet" href="../css/rv-final.css">
+<style>body{margin:0;background:#e9e9ec}.rv-board{margin:0 auto;box-shadow:0 0 0 1px rgba(0,0,0,.08)}</style>
+</head>
+<body>
+
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px; display: flex; flex-direction: column;">
+  <!-- نوار بالا: فقط بازگشت به خانه -->
+  <div class="f-auth-top"></div>
+
+  <!-- سرآغاز: لوگوی ریوال، عنوان و یک خط -->
+  <div class="f-auth-hero">
+    <a href="/" class="f-auth-mark" aria-label="ریوال — خانه"><span class="rv-logo-ink" role="img" aria-label="Rival" style="height: 32px; color: var(--text-primary);"></span></a>
+    <h1 class="f-auth__t">خوش آمدید</h1>
+    <p class="f-auth__d">فقط نامتان را بنویسید تا آرایشگر بداند نوبت برای کیست.</p>
+  </div>
+
+  <main class="f-auth">
+    <section class="rv-card rv-glass-strong rv-card--lg f-auth__card">
+      <!-- فقط وقتی کاربر از دکمه رزرو آمده -->
+      <div class="f-auth-ret"><i class="ri ri-calendar-plus"></i><span>بعد از این مرحله به <b>رزرو نوبت</b> برمی‌گردید.</span></div>
+      <div class="f-verified"><i class="ri ri-sm ri-check-circle"></i><span>شماره <b class="rv-ltr">۰۹۱۴ ۳۲۱ ۴۵۶۷</b> تأیید شد</span></div>
+      <div class="rv-field">
+        <label for="f-fn">نام</label>
+        <div class="rv-input"><i class="ri ri-user"></i><input id="f-fn" autocomplete="given-name" value="علی"></div>
+      </div>
+      <div class="rv-field">
+        <label for="f-ln">نام خانوادگی</label>
+        <div class="rv-input is-invalid" aria-invalid="true"><i class="ri ri-user"></i><input id="f-ln" autocomplete="family-name" aria-describedby="f-ln-e"></div>
+        <span class="rv-help is-error" id="f-ln-e"><i class="ri ri-sm ri-alert"></i>نام خانوادگی را بنویسید.</span>
+      </div>
+      <button class="rv-btn rv-btn--primary rv-btn--block" type="submit">ادامه رزرو<i class="ri ri-arrow-left"></i></button>
+    </section>
+  </main>
+
+  <!-- پای صفحه ورود: فقط حقوق و سازنده، مثل پای صفحات عمومی -->
+  <footer class="f-auth-foot">
+    <span class="rv-caption rv-muted">تمام حقوق این وب‌سایت برای سالن ریوال محفوظ است.</span>
+    <a href="#" class="rv-row rv-caption rv-muted" style="gap: 6px; text-decoration: none; min-height: 44px;">توسعه‌یافته توسط<span style="font-weight: 400; color: var(--text-secondary);">ودان</span><img src="../assets/c14b1a8859659282316990bd890f14a9.png" alt="" style="width: 20px; height: 20px; object-fit: contain;"></a>
+  </footer>
+</div>
+
+</body>
+</html>

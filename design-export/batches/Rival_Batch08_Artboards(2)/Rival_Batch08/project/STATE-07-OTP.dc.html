@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>STATE-07 — سرویس بیرونی — کد ورود ارسال نشد (AUTH-01)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+<link rel="stylesheet" href="rv-b6.css">
+<link rel="stylesheet" href="rv-b7.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px; display: flex; flex-direction: column;">
+  <div class="f-auth-top"><a href="/" class="rv-icon-btn" aria-label="بازگشت به خانه"><i class="ri ri-arrow-right"></i></a></div>
+  <div class="f-auth-hero">
+    <h1 class="f-auth__t">ورود یا ثبت‌نام</h1>
+    <p class="f-auth__d">با شمارهٔ موبایل وارد شوید.</p>
+  </div>
+  <main class="f-auth">
+    <!-- STATE-07 پیامک ورود: خطا کنار همان فرم؛ شماره پاک نمی‌شود؛ روش‌های جایگزین سر جایشان؛ تن warning -->
+    <section class="rv-card rv-glass-strong rv-card--lg f-auth__card">
+      <div class="rv-field">
+        <label for="f-ph">شماره موبایل</label>
+        <div class="rv-input"><i class="ri ri-smartphone"></i><input id="f-ph" class="rv-ltr" value="۰۹۱۴ ۳۲۱ ۴۵۶۷"></div>
+      </div>
+      <div class="rv-notice is-warning" role="alert">
+        <i class="ri ri-sms"></i>
+        <div class="rv-grow"><div class="rv-notice__t">کد ورود ارسال نشد</div><div class="rv-notice__d">سرویس پیامک موقتاً پاسخ نمی‌دهد. چند لحظه بعد دوباره بزنید، یا اگر Passkey یا رمز دارید با آن وارد شوید.</div></div>
+      </div>
+      <button class="rv-btn rv-btn--primary rv-btn--block" type="submit"><i class="ri ri-refresh"></i>ارسال دوباره کد</button>
+    </section>
+  </main>
+  <div class="f-auth-alts">
+    <button class="rv-btn rv-btn--glass rv-glass rv-btn--block" type="button"><i class="ri ri-fingerprint"></i>ورود با Passkey</button>
+    <button class="rv-btn rv-btn--glass rv-glass rv-btn--block" type="button"><i class="ri ri-key"></i>ورود با رمز عبور</button>
+  </div>
+  <footer class="f-auth-foot">
+    <span class="rv-caption rv-muted">تمام حقوق این وب‌سایت برای سالن ریوال محفوظ است.</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

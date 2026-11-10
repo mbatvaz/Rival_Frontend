@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>STY-07 — رزرو دستی — ۴. تأیید</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px;">
+  <header class="f-bar-in">
+    <a href="#step-3" class="rv-icon-btn" aria-label="بازگشت به مرحله قبل"><i class="ri ri-arrow-right"></i></a>
+    <h1>رزرو دستی</h1>
+    <a href="/stylist" class="rv-icon-btn" aria-label="بستن رزرو دستی"><i class="ri ri-x"></i></a>
+  </header>
+  <main style="padding: var(--space-2) var(--space-4) 140px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <!-- نشانگر مرحله: چهار گام؛ گام جاری پررنگ -->
+    <nav class="b4-steps" aria-label="مرحله ۴ از ۴، تأیید"><ol><li class="is-done"><span>مشتری</span></li><li class="is-done"><span>خدمت</span></li><li class="is-done"><span>زمان</span></li><li class="is-on" aria-current="step"><span>تأیید</span></li></ol></nav>
+    <section aria-labelledby="f-h" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <h2 id="f-h" class="f-h" style="margin: 0;">بررسی و ثبت</h2>
+      <!-- همان کارت خلاصهٔ گام زمان، به‌اضافهٔ روز و ساعت -->
+      <div class="rv-card rv-glass b4-mctx2"><img src="/_blob/25dd67dc1f5d0e444ac88c31345ce3c5" alt=""><div class="b4-mctx2__t"><div><b class="b4-mctx2__svc">اصلاح سر و صورت</b><span class="b4-mctx2__when">دوشنبه ۴ آبان<span class="rv-sep" aria-hidden="true"></span><b>۱۷:۰۰</b></span></div><div class="b4-mctx2__who"><span class="rv-avatar"><img src="/_blob/81f810e4fcf2d32f78569d3761695c66" alt=""></span><div class="rv-grow" style="min-width: 0;"><b>سامان نوری</b><bdi class="rv-ltr">۰۹۱۴ ۳۹۰ ۱۲۵۸</bdi></div></div></div></div>
+      <!-- رزرو دستی: هیچ مبلغی گرفته نمی‌شود؛ مبلغ مرجع فقط نمایش (BR-OPS-06) -->
+      <div class="rv-card rv-glass" style="padding: var(--space-2) var(--space-4) var(--space-3);">
+        <div class="rv-kv"><span>هزینه رزرو مرجع</span><b>۱۲۰٬۰۰۰ تومان</b></div>
+        <div class="rv-kv"><span>دریافت از مشتری</span><b class="b4-nofee">گرفته نمی‌شود</b></div>
+      </div>
+      <ul class="b2-facts">
+        <li><i class="ri ri-wallet"></i><span>هزینه رزرو از مشتری گرفته نمی‌شود؛ نه از اعتبار و نه از درگاه.</span></li>
+        <li><i class="ri ri-sms"></i><span>پیامک تأیید نوبت برای سامان نوری فرستاده می‌شود.</span></li>
+        <li><i class="ri ri-repeat"></i><span>مشتری مثل هر نوبت قطعی می‌تواند طبق قواعد لغو یا جابه‌جا کند.</span></li>
+      </ul>
+    </section>
+  </main>
+  <div class="rv-actionbar rv-glass-strong b2-bar">
+    <div class="b2-bar__sum"><span class="b2-bar__t">دوشنبه ۴ آبان</span><span class="b2-bar__s">۱۷:۰۰</span></div>
+    <button type="button" class="rv-btn rv-btn--primary">ثبت رزرو</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

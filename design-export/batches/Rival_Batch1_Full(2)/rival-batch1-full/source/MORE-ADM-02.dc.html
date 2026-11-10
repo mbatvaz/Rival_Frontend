@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>MORE-ADM — کشوی بیشتر مدیر کل — اسکرول تا پایین</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px;">
+  <!-- نوار بالا: داشبورد مدیر — لوگو، امروز و تاریخ، مرکز اقدام، زنگ -->
+  <header class="rv-topbar">
+    <img src="/_blob/d003b26b75c464191dc22968d2b70b59" alt="Rival" style="height: 20px; width: auto;">
+    <span aria-hidden="true" style="width: 1px; height: 20px; background: var(--line-strong);"></span>
+    <h1 style="margin: 0; font-size: 15px; line-height: 24px; font-weight: 600;">یکشنبه <span style="font-weight: 300; color: var(--text-secondary);">۱۹ مهر</span></h1>
+    <span class="rv-grow"></span>
+    <a href="/admin/action-center" class="rv-icon-btn" aria-label="مرکز اقدام، ۳ مورد باز"><i class="ri ri-pending"></i><span class="rv-count is-plum">۳</span></a>
+    <a href="/admin/notifications" class="rv-icon-btn" aria-label="اعلان‌ها، ۲ خوانده‌نشده"><i class="ri ri-bell"></i><span class="rv-dot is-ink"></span></a>
+  </header>
+
+  <main style="padding: var(--space-2) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-6);">
+    <!-- آمار امروز خود مدیر، برنامه کاری و رزرو دستی: مثل داشبورد آرایشگر -->
+    <section aria-label="امروز و اقدام‌های سریع" style="display: grid; grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-2);">
+      <div class="rv-card rv-glass f-donut" role="img" aria-label="از ۶ نوبت امروز شما: ۲ انجام شده، ۱ عدم حضور، ۳ مانده">
+        <span class="f-gauge">
+          <svg viewBox="0 0 120 64" aria-hidden="true"><path class="trk" pathLength="6" d="M10 60 A50 50 0 0 1 110 60"></path><path class="val" pathLength="6" d="M10 60 A50 50 0 0 1 110 60" style="stroke-dasharray: 2 6;"></path><path class="val is-ns" pathLength="6" d="M10 60 A50 50 0 0 1 110 60" style="stroke-dasharray: 1 6; stroke-dashoffset: -2;"></path></svg>
+          <span class="f-gauge__c"><b>۲</b><small>از ۶ نوبت</small></span>
+        </span>
+      </div>
+      <a href="/admin/my-schedule" class="rv-card rv-glass f-act" aria-label="برنامه کاری" style="color: inherit;">
+        <span class="f-act__ic"><i class="ri ri-clock"></i></span>
+        <span class="f-act__l">برنامه کاری</span>
+      </a>
+      <a href="/admin/manual-booking" class="rv-card rv-card--inverse f-act">
+        <span class="f-act__ic"><i class="ri ri-calendar-plus"></i></span>
+        <span class="f-act__l">رزرو دستی</span>
+      </a>
+    </section>
+
+    <!-- پیش‌نمایش کوتاه مرکز اقدام: مخصوص مدیر؛ جزئیات در صفحه مستقل -->
+    <a href="/admin/action-center" class="rv-card rv-glass f-acp" style="color: inherit; text-decoration: none;">
+      <span class="rv-tile rv-tile--sm is-plum"><i class="ri ri-sm ri-pending"></i></span>
+      <span class="rv-grow" style="min-width: 0;">
+        <span style="display: block; font-size: 15px; line-height: 22px; font-weight: 600;">۳ مورد منتظر اقدام شما</span>
+        <span class="f-t3" style="display: block; font-size: 12px; line-height: 18px;">۲ درخواست رزرو<span class="rv-sep" aria-hidden="true"></span>۱ پرداخت در حال بررسی</span>
+      </span>
+      <i class="ri ri-sm ri-chevron-left rv-chev" aria-hidden="true"></i>
+    </a>
+
+    <!-- نوبت جاری خود مدیر -->
+    <article class="rv-card rv-card--inverse rv-card--lg" aria-label="نوبت جاری" style="border-radius: var(--radius-xl); display: flex; flex-direction: column; gap: var(--space-4);">
+      <div class="rv-row">
+        <span class="rv-avatar rv-avatar--lg" style="box-shadow: 0 0 0 2px var(--bg-inverse-raised);"><img src="/_blob/79929513347b228deb811bd4c90b3de1" alt=""></span>
+        <div class="rv-grow">
+          <div class="rv-row" style="gap: 6px; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-inverse-muted);"><span class="rv-tag__dot" style="width: 6px; height: 6px; border-radius: 50%; background: var(--text-inverse);"></span>نوبت جاری<span class="rv-sep" aria-hidden="true"></span>۱۱:۳۰ تا ۱۲:۰۰</div>
+          <div style="font-size: 18px; line-height: 28px; font-weight: 600;">حسین جعفری</div>
+          <div style="font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-inverse-muted);">اصلاح ریش</div>
+        </div>
+      </div>
+      <div class="rv-row" style="padding: var(--space-2) var(--space-2) var(--space-2) var(--space-3); border-radius: var(--radius-md); background: var(--bg-inverse-raised);">
+        <i class="ri ri-sm ri-smartphone" style="color: var(--text-inverse-muted);"></i>
+        <span class="rv-grow f-num" style="font-size: 16px; line-height: 24px; font-weight: 400; text-align: right;">۰۹۱۴ ۵۲۰ ۷۱۶۳</span>
+        <a href="sms:" class="rv-icon-btn" aria-label="پیام به حسین جعفری" style="background: transparent; color: var(--text-inverse); box-shadow: inset 0 0 0 1px var(--chrome-700);"><i class="ri ri-sms"></i></a>
+        <a href="tel:" class="rv-icon-btn" aria-label="تماس با حسین جعفری" style="background: transparent; color: var(--text-inverse); box-shadow: inset 0 0 0 1px var(--chrome-700);"><i class="ri ri-phone"></i></a>
+      </div>
+      <div class="rv-row" style="gap: var(--space-2);">
+        <a href="/admin/appointments/48311" class="rv-btn rv-btn--light rv-grow">جزئیات نوبت</a>
+      </div>
+    </article>
+
+    <!-- ادامه روز خود مدیر؛ برنامه دیگران از تقویم و انتخاب آرایشگر -->
+    <section aria-labelledby="f-adm-next">
+      <div class="f-head"><h2 id="f-adm-next" class="f-h">ادامه روز</h2><a class="rv-link" href="/admin/calendar">تقویم<i class="ri ri-sm ri-chevron-left"></i></a></div>
+      <ol class="f-tl">
+        <li>
+          <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۱۲:۰۰</b></span>
+          <a href="/admin/manual-booking" class="rv-tl__b is-free" style="text-decoration: none; min-height: 48px; font-weight: 300;"><i class="ri ri-sm ri-plus"></i>۱ ساعت آزاد<span class="rv-sep" aria-hidden="true"></span>رزرو دستی</a>
+        </li>
+        <li>
+          <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۱۳:۰۰</b></span>
+          <div class="rv-tl__b rv-glass f-tile" style="align-items: flex-start;">
+            <span class="rv-avatar rv-avatar--sm">ک</span>
+            <div class="rv-grow"><a href="/admin/appointments/48312" class="f-stretch" style="display: block; font-size: 15px; line-height: 22px; font-weight: 600; color: inherit; text-decoration: none;">کاوه احمدی</a><div class="f-t3" style="font-size: 12px; line-height: 18px;">اصلاح سر و صورت<span class="rv-sep" aria-hidden="true"></span>تا ۱۴:۰۰</div></div>
+          </div>
+        </li>
+        <li>
+          <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۱۴:۰۰</b></span>
+          <div class="rv-tl__b is-block"><span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-lock"></i></span><div class="rv-grow"><div style="font-size: 15px; line-height: 22px; font-weight: 600; color: var(--text-primary);">جلسه با تأمین‌کننده</div><div class="f-t3" style="font-size: 12px; line-height: 18px;">مسدود شخصی<span class="rv-sep" aria-hidden="true"></span>تا ۱۵:۰۰</div></div></div>
+        </li>
+        <li>
+          <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۱۵:۰۰</b></span>
+          <div class="rv-tl__b rv-glass f-tile" style="align-items: flex-start;">
+            <span class="rv-avatar rv-avatar--sm"><img src="/_blob/71f7a01d44eed42263b9e2f20deb4813" alt=""></span>
+            <div class="rv-grow"><a href="/admin/appointments/48313" class="f-stretch" style="display: block; font-size: 15px; line-height: 22px; font-weight: 600; color: inherit; text-decoration: none;">سامان نوری</a><div class="f-t3" style="font-size: 12px; line-height: 18px;">اصلاح سر<span class="rv-sep" aria-hidden="true"></span>تا ۱۵:۳۰</div></div>
+          </div>
+        </li>
+        <li>
+          <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۱۵:۳۰</b></span>
+          <a href="/admin/manual-booking" class="rv-tl__b is-free" style="text-decoration: none; min-height: 48px; font-weight: 300;"><i class="ri ri-sm ri-plus"></i>۲ ساعت آزاد<span class="rv-sep" aria-hidden="true"></span>رزرو دستی</a>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <!-- نوار پایین کارکنان (آرایشگر و مدیر کل یکسان) -->
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری مدیر کل">
+      <a href="/admin" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+      <a href="/admin/calendar" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+      <a href="/admin/requests" aria-label="درخواست‌ها، ۴ درخواست باز"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۴</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/admin/customers" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+      <a href="#more" aria-current="page" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+  </div>
+
+  <!-- کشوی «بیشتر» مدیر کل: از چپ، ۸۵٪ عرض، گروه‌بندی‌شده -->
+  <div class="rv-scrim" aria-hidden="true"></div>
+  <aside class="f-drawer rv-glass-strong" role="dialog" aria-modal="true" aria-label="منوی بیشتر">
+    <div class="f-drawer__head">
+      <span class="rv-avatar"><img src="/_blob/fa92ccd797f1260b3410b3afeb82e4a0" alt=""></span>
+      <div class="rv-grow" style="min-width: 0;">
+        <div class="f-drawer__name">طاها</div>
+        <div class="f-drawer__role">مدیر کل</div>
+      </div>
+      <button class="rv-icon-btn rv-icon-btn--plain" type="button" aria-label="بستن منو"><i class="ri ri-x"></i></button>
+    </div>
+    <!-- حالت اسکرول‌شده تا پایین: نمایش ایستا با چسباندن محتوا به پایین -->
+    <nav class="f-drawer__body f-drawer__body--fade is-end" aria-label="منوی بیشتر">
+      <div class="f-drawer__grp" role="group" aria-label="کار روزانه">
+        <div class="f-drawer__lbl">کار روزانه</div>
+        <a class="rv-item" href="/admin/appointments">
+          <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-list"></i></span>
+          <span class="rv-grow">نوبت‌ها</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev"></i>
+        </a>
+        <a class="rv-item" href="/admin/manual-booking">
+          <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-calendar-plus"></i></span>
+          <span class="rv-grow">رزرو دستی</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev"></i>
+        </a>
+        <a class="rv-item" href="/admin/my-schedule">
+          <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-clock"></i></span>
+          <span class="rv-grow">برنامه کاری من</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev"></i>
+        </a>
+        <a class="rv-item" href="/admin/action-center" aria-label="مرکز اقدام، ۳ مورد باز">
+          <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-pending"></i></span>
+          <span class="rv-grow">مرکز اقدام</span>
+          <span class="f-drawer__cnt">۳</span><i class="ri ri-sm ri-chevron-left rv-chev"></i>
+        </a>
+        <a class="rv-item" href="/admin/notifications" aria-label="اعلان‌ها، ۲ خوانده‌نشده">
+          <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-bell"></i></span>
+          <span class="rv-grow">اعلان‌ها</span>
+          <span class="rv-dot is-ink" style="position: static;" aria-hidden="true"></span><i class="ri ri-sm ri-chevron-left rv-chev"></i>
+        </a>
+      </div>
+      <div class="f-drawer__grp" role="group" aria-label="مدیریت سالن">
+        <div class="f-drawer__lbl">مدیریت سالن</div>
+        <a class="rv-item" href="/admin/stylists">
+          <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-stylist"></i></span>
+          <span class="rv-grow">آرایشگران</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev"></i>
+        </a>
+        <a class="rv-item" href="/admin/services">
+          <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-scissors"></i></span>
+          <span class="rv-grow">خدمات</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev"></i>
+        </a>
+        <a class="rv-item" href="/admin/pricing">
+          <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-tag"></i></span>
+          <span class="rv-grow">قیمت‌گذاری</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev"></i>
+        </a>
+        <a class="rv-item" href="/admin/schedules">
+          <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-calendar-range"></i></span>
+          <span class="rv-grow">برنامه‌ها و تعطیلات</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev"></i>
+        </a>
+      </div>
+      <div class="f-drawer__grp" role="group" aria-label="مالی">
+        <div class="f-drawer__lbl">مالی</div>
+        <a class="rv-item" href="/admin/payments">
+          <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-receipt"></i></span>
+          <span class="rv-grow">پرداخت‌ها و تطبیق</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev"></i>
+        </a>
+      </div>
+      <div class="f-drawer__grp" role="group" aria-label="محتوا و ارتباط">
+        <div class="f-drawer__lbl">محتوا و ارتباط</div>
+        <a class="rv-item" href="/admin/portfolio">
+          <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-images"></i></span>
+          <span class="rv-grow">نمونه‌کارها</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev"></i>
+        </a>
+        <a class="rv-item" href="/admin/sms">
+          <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-sms"></i></span>
+          <span class="rv-grow">پیامک</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev"></i>
+        </a>
+      </div>
+      <div class="f-drawer__grp" role="group" aria-label="تنظیمات">
+        <div class="f-drawer__lbl">تنظیمات</div>
+        <a class="rv-item" href="/admin/settings">
+          <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-settings"></i></span>
+          <span class="rv-grow">تنظیمات عمومی</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev"></i>
+        </a>
+        <a class="rv-item" href="/admin/booking-rules">
+          <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-shield"></i></span>
+          <span class="rv-grow">قواعد رزرو</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev"></i>
+        </a>
+      </div>
+      <div class="f-drawer__grp" role="group" aria-label="حساب">
+        <div class="f-drawer__lbl">حساب</div>
+        <a class="rv-item" href="/admin/profile">
+          <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-user"></i></span>
+          <span class="rv-grow">پروفایل و روش‌های ورود</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev"></i>
+        </a>
+      </div>
+      <div class="f-drawer__grp" role="group" aria-label="سالن">
+        <div class="f-drawer__lbl">سالن</div>
+        <a class="rv-item" href="/">
+          <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-home"></i></span>
+          <span class="rv-grow">صفحه اصلی سایت</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev"></i>
+        </a>
+        <a class="rv-item" href="/portfolio">
+          <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-image"></i></span>
+          <span class="rv-grow">صفحه نمونه‌کارها</span>
+          <i class="ri ri-sm ri-chevron-left rv-chev"></i>
+        </a>
+      </div>
+    </nav>
+    <div class="f-drawer__foot">
+        <button class="rv-item" type="button">
+          <span class="rv-tile rv-tile--sm is-danger"><i class="ri ri-sm ri-logout"></i></span>
+          <span class="rv-grow">خروج از حساب</span>
+        </button>
+      <div class="f-drawer__sign"><span class="rv-mark-ink" aria-hidden="true" style="height: 14px; color: var(--text-muted);"></span>سالن مردانه طاها، اردبیل</div>
+    </div>
+  </aside>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

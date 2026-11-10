@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-11 — جزئیات آرایشگر — حذف، تکمیل با خطا</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+<link rel="stylesheet" href="rv-b6.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1020px;">
+  <header class="f-bar-in">
+    <span aria-hidden="true"></span>
+    <h1>حذف آرایشگر</h1>
+    <a href="/admin/stylists" class="rv-icon-btn" aria-label="بستن"><i class="ri ri-x"></i></a>
+  </header>
+  <main class="f-enter" style="padding: var(--space-2) var(--space-4) var(--space-8); display: flex; flex-direction: column; gap: var(--space-5);">
+    <!-- [مدیر] PartialSuccess حذف نرم (همان b4-ps ADM-09-PS): آرایشگر حذف شد، یک لغو انجام نشد -->
+    <div class="rv-card rv-glass b4-ps" role="status">
+      <div class="rv-gauge" aria-label="۶ از ۷ مورد انجام شد"><svg viewBox="0 0 168 168" aria-hidden="true"><circle class="trk" cx="84" cy="84" r="74"></circle><circle class="val is-success" cx="84" cy="84" r="74" stroke-dasharray="465" stroke-dashoffset="66"></circle></svg><div class="rv-gauge__c"><b>۶/۷</b><span>انجام شد</span></div></div>
+      <span class="rv-tag is-warning"><i class="ri ri-alert"></i>تکمیل با خطا</span>
+      <h2 class="b4-ps__t">امیر حذف شد</h2>
+      <p class="b4-ps__d">۶ مورد انجام شد. ۱ نوبت لغو نشد و هنوز سر جایش است.</p>
+    </div>
+
+    <section aria-labelledby="ps-f">
+      <div class="b4-psh"><span class="rv-tag is-danger"><i class="ri ri-x"></i><span id="ps-f">لغو نشد</span></span><span class="rv-caption rv-muted">۱ مورد</span></div>
+      <div class="rv-list rv-glass b4-psl">
+        <div class="rv-item"><span class="rv-avatar rv-avatar--sm"><img src="/_blob/d85a4e02a1c85de704056b87d2cb1038" alt=""></span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">فیشیال<span class="rv-sep" aria-hidden="true"></span>۵ آبان، ۱۱:۰۰</div><div class="rv-item__s">پرداخت این نوبت در حال بررسی است و تا روشن شدن وضعیت قفل است.</div><span class="rv-tag is-info" style="margin-top: var(--space-2);"><i class="ri ri-refresh"></i>در حال بررسی</span></div></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="ps-s">
+      <div class="b4-psh"><span class="rv-tag is-success"><i class="ri ri-check"></i><span id="ps-s">انجام شد</span></span><span class="rv-caption rv-muted">۶ مورد</span></div>
+      <div class="rv-list rv-glass b4-psl">
+        <div class="rv-item"><span class="rv-tile rv-tile--sm is-neutral" aria-hidden="true"><i class="ri ri-calendar"></i></span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">۳ نوبت لغو شد</div><div class="rv-item__s">۵۴۰٬۰۰۰ تومان به اعتبار مشتریان برگشت</div></div></div>
+        <div class="rv-item"><span class="rv-tile rv-tile--sm is-neutral" aria-hidden="true"><i class="ri ri-inbox"></i></span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">۲ درخواست بسته شد</div><div class="rv-item__s">به صاحب‌هایشان پیامک رفت</div></div></div>
+        <div class="rv-item"><span class="rv-tile rv-tile--sm is-neutral" aria-hidden="true"><i class="ri ri-layers"></i></span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">۱ پیش‌نویس چندخدمتی نامعتبر شد</div><div class="rv-item__s">تا انتخاب آرایشگر جایگزین</div></div></div>
+      </div>
+    </section>
+
+    <p class="b4-hint"><i class="ri ri-info" aria-hidden="true"></i>اگر تلاش دوباره هم نشد، نتیجه نهایی در مرکز اعلان به شما گزارش می‌شود.</p>
+    <div class="b4-acts"><button type="button" class="rv-btn rv-btn--primary rv-btn--block"><i class="ri ri-refresh"></i>تلاش دوباره ۱ مورد</button><a href="/admin/stylists" class="rv-btn rv-btn--secondary rv-btn--block">بازگشت به آرایشگران</a></div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1020}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

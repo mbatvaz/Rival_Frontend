@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>STY-01 — داشبورد — روز بدون نوبت</title>
+<link rel="stylesheet" href="../css/ds/rival/tokens.css">
+<link rel="stylesheet" href="../css/ds/rival/components/bundle.css">
+<link rel="stylesheet" href="../css/rv-fixes.css">
+<link rel="stylesheet" href="../css/rv-final.css">
+<link rel="stylesheet" href="../css/rv-b2.css">
+<link rel="stylesheet" href="../css/rv-b3.css">
+<link rel="stylesheet" href="../css/rv-b4.css">
+<style>body{margin:0;background:#e9e9ec}.rv-board{margin:0 auto;box-shadow:0 0 0 1px rgba(0,0,0,.08)}</style>
+</head>
+<body>
+
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1330px;">
+
+  <!-- نوار بالای داشبورد کارکنان (D10-21): لوگو، روز و تاریخ، زنگ -->
+  <header class="rv-topbar">
+    <img src="../assets/d003b26b75c464191dc22968d2b70b59.png" alt="Rival" style="height: 20px; width: auto;">
+    <span aria-hidden="true" style="width: 1px; height: 20px; background: var(--line-strong);"></span>
+    <h1 style="margin: 0; font-size: 15px; line-height: 24px; font-weight: 600;">یکشنبه <span style="font-weight: 300; color: var(--text-secondary);">۲۶ مهر</span></h1>
+    <span class="rv-grow"></span>
+    <a href="/stylist/notifications" class="rv-icon-btn" aria-label="اعلان‌ها، ۱ خوانده‌نشده"><i class="ri ri-bell"></i><span class="rv-dot is-ink"></span></a>
+  </header>
+
+  <main class="f-enter" style="padding: var(--space-2) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-6);">
+
+    <!-- ردیف سه‌تایی مرجع زبان (نمودار روز، برنامه کاری، رزرو دستی) -->
+    <section aria-label="امروز و اقدام‌های سریع" style="display: grid; grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-2);">
+      <div class="rv-card rv-glass f-donut" role="img" aria-label="امروز نوبتی ندارید">
+        <span class="f-gauge">
+          <svg viewBox="0 0 120 64" aria-hidden="true"><path class="trk" pathLength="7" d="M10 60 A50 50 0 0 1 110 60"></path><path class="val" pathLength="7" d="M10 60 A50 50 0 0 1 110 60" style="stroke-dasharray: 0 7;"></path></svg>
+          <span class="f-gauge__c"><b>۰</b><small>نوبت امروز</small></span>
+        </span>
+      </div>
+      <a href="/stylist/schedule" class="rv-card rv-glass f-act" style="color: inherit;">
+        <span class="f-act__ic"><i class="ri ri-clock"></i></span>
+        <span class="f-act__l">برنامه کاری</span>
+      </a>
+      <a href="/stylist/manual-booking" class="rv-card rv-card--inverse f-act">
+        <span class="f-act__ic"><i class="ri ri-calendar-plus"></i></span>
+        <span class="f-act__l">رزرو دستی</span>
+      </a>
+    </section>
+
+    <!-- روز بدون نوبت: جای کارت نوبت جاری و برنامه امروز؛ نوبت بعدی روزهای آینده برای جهت‌یابی -->
+    <section class="rv-card rv-glass b3-empty b4-noday" aria-labelledby="e-t">
+      <span class="b3-empty__ic" aria-hidden="true"><i class="ri ri-lg ri-calendar"></i></span>
+      <h2 id="e-t" class="b3-empty__t">امروز نوبتی ندارید</h2>
+      <p class="b3-empty__d">ساعت کاری امروز شما ۰۸:۰۰ تا ۱۹:۰۰ است و همه آن آزاد است. مشتری حضوری یا تلفنی را با «رزرو دستی» ثبت کنید.</p>
+      <a href="/stylist/appointments/BK-48311" class="b4-next">
+        <span class="b4-next__b"><span class="b4-next__l">نوبت بعدی شما</span><span class="b4-next__v">دوشنبه ۲۷ مهر، ۰۹:۳۰</span><span class="b4-next__s">کاوه احمدی<span class="rv-sep" aria-hidden="true"></span>اصلاح سر<span class="rv-sep" aria-hidden="true"></span>۳۰ دقیقه</span></span>
+        <i class="ri ri-sm ri-chevron-left" aria-hidden="true"></i>
+      </a>
+      <a href="/stylist/calendar" class="rv-btn rv-btn--secondary rv-btn--block">باز کردن تقویم</a>
+    </section>
+
+    <!-- ۴. درخواست‌های پیشنهادی نزدیک مهلت ۷ روزه (D10-60 پیشنهادی: warning برای «منتظر شما») -->
+    <section aria-labelledby="a-rq">
+      <div class="f-head"><h2 id="a-rq" class="f-h">منتظر پاسخ شما</h2><a class="rv-link" href="/stylist/requests">همه<i class="ri ri-sm ri-chevron-left"></i></a></div>
+      <div class="b4-rqks">
+        <div class="b4-rqk is-soon">
+          <article class="b2-c2 b4-rqk__c" aria-label="درخواست فیشیال از بهراد شریفی، ۶ ساعت و ۵۰ دقیقه تا رد خودکار">
+            <div class="b4-rqk__main">
+              <img class="b2-c2__img" src="../assets/292fb613ec51d2bbc0968df4b1c1a315.png" alt="" style="object-position: center 40%;">
+              <a href="/stylist/requests/RQ-2221" class="b2-c2__hit" aria-label="فیشیال، بهراد شریفی"></a>
+              <div class="b2-c2__txt">
+                <span class="b2-c1__s b4-rqk__t">فیشیال</span>
+                <span class="b4-rqk__who"><span class="rv-avatar">ب</span><span>بهراد شریفی</span></span>
+                <span class="b4-rqk__pref">ترجیح: یکشنبه ۳ آبان، صبح</span>
+              </div>
+            </div>
+            <div class="b4-rqk__due" role="timer">
+              <div class="b4-rqk__row"><span><i class="ri ri-sm ri-hourglass" aria-hidden="true"></i>۶ ساعت و ۵۰ دقیقه تا رد خودکار</span><small>امروز ۱۸:۳۰</small></div>
+              <div class="b4-rqk__bar" aria-hidden="true"><i style="width: 4%;"></i></div>
+            </div>
+          </article>
+        </div>
+        <div class="b4-rqk">
+          <article class="b2-c2 b4-rqk__c" aria-label="درخواست رنگ ریش از رضا کریمی، ۲ روز و ۸ ساعت تا رد خودکار">
+            <div class="b4-rqk__main">
+              <img class="b2-c2__img" src="../assets/a594ff45171e1ef6a113b85a7c7017ed.png" alt="" style="object-position: center 30%;">
+              <a href="/stylist/requests/RQ-2215" class="b2-c2__hit" aria-label="رنگ ریش، رضا کریمی"></a>
+              <div class="b2-c2__txt">
+                <span class="b2-c1__s b4-rqk__t">رنگ ریش</span>
+                <span class="b4-rqk__who"><span class="rv-avatar"><img src="../assets/79929513347b228deb811bd4c90b3de1.png" alt=""></span><span>رضا کریمی</span></span>
+                <span class="b4-rqk__pref">ترجیح: دوشنبه ۴ آبان، عصر</span>
+              </div>
+            </div>
+            <div class="b4-rqk__due" role="timer">
+              <div class="b4-rqk__row"><span><i class="ri ri-sm ri-hourglass" aria-hidden="true"></i>۲ روز و ۸ ساعت تا رد خودکار</span><small>سه‌شنبه ۲۸ مهر ۲۰:۱۰</small></div>
+              <div class="b4-rqk__bar" aria-hidden="true"><i style="width: 33%;"></i></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- اطلاعیه عمومی: آخرین بخش (D10-14) -->
+    <section aria-labelledby="a-ann">
+      <div class="f-head" style="margin-bottom: 0;"><h2 id="a-ann" class="f-h">اطلاعیه‌های سالن</h2></div>
+      <ul class="f-ann">
+        <li>
+          <span class="f-ann__ic"><i class="ri ri-sm ri-clock"></i></span>
+          <div class="rv-grow"><div style="font-size: 14px; line-height: 22px; font-weight: 600;">پنج‌شنبه‌ها تا ساعت ۲۰:۰۰ باز هستیم</div><div class="f-t3" style="font-size: 13px; line-height: 22px;">از اول آبان، یک ساعت بیشتر برای نوبت‌های عصر.</div><div class="rv-caption rv-muted" style="margin-top: 2px;">۱۸ مهر</div></div>
+          <button class="f-x" type="button" aria-label="بستن این اطلاعیه"><i class="ri ri-sm ri-x"></i></button>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- نوار پایین کارکنان (SHELL-STY) -->
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری آرایشگر">
+      <a href="/stylist" aria-current="page" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+      <a href="/stylist/calendar" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+      <a href="/stylist/requests" aria-label="درخواست‌ها، ۳ درخواست منتظر پاسخ"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۳</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/stylist/customers" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+      <a href="#more" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+  </div>
+</div>
+
+</body>
+</html>

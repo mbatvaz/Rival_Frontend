@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>STY-08 — برنامه کاری — ثبت پذیرش در تعطیل</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1080px;">
+  <div aria-hidden="true" inert>
+  <header class="f-bar-in">
+    <a href="#more" class="rv-icon-btn" aria-label="بازگشت"><i class="ri ri-arrow-right"></i></a>
+    <h1>برنامه کاری</h1>
+    <span aria-hidden="true"></span>
+  </header>
+  <main class="f-enter" style="padding: var(--space-2) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <p class="b4-lead">در تعطیل رسمی پیش‌فرض بسته‌اید. اگر می‌خواهید آن روز کار کنید، پذیرش ثبت کنید.</p>
+    <div class="rv-seg rv-glass b4-seg-full" role="tablist" aria-label="برنامه کاری"><button type="button" id="tab-0" role="tab" aria-selected="false" aria-controls="p-sch">هفتگی</button><button type="button" id="tab-1" role="tab" aria-selected="false" aria-controls="p-sch">استثناها</button><button type="button" id="tab-2" role="tab" aria-selected="true" aria-controls="p-sch">تعطیلات</button></div>
+    <section aria-labelledby="hl-h" id="p-sch" role="tabpanel">
+      <div class="f-head"><h2 id="hl-h" class="f-h">تعطیلات رسمی پیش رو</h2></div>
+      <div class="b4-xcs"><article class="rv-card rv-glass b4-xc is-hol" aria-label="سه‌شنبه ۵ آبان، پذیرش از ۱۰:۰۰ تا ۱۶:۰۰"><a href="#" class="b4-xc__hit" aria-label="سه‌شنبه ۵ آبان، پذیرش از ۱۰:۰۰ تا ۱۶:۰۰"></a><div class="b4-xc__txt"><span class="b2-c2__when"><b class="b2-c1__t">۵</b><span class="b2-c1__d">آبان، سه‌شنبه</span></span><span class="b4-xc__tm"><span class="b4-k">از</span>۱۰:۰۰<i class="b4-k">تا</i>۱۶:۰۰</span><span class="b4-xc__m">۳ نوبت ثبت شده</span><span class="rv-tag is-success"><i class="ri ri-check"></i>پذیرش در تعطیل</span></div><div class="b4-xc__art"><span class="b4-xd is-ok" aria-hidden="true"><b>۶</b><small>ساعت</small></span></div></article><article class="rv-card rv-glass b4-xc is-hol" aria-label="یکشنبه ۲۴ آبان، تعطیل رسمی، بسته"><a href="#" class="b4-xc__hit" aria-label="یکشنبه ۲۴ آبان، تعطیل رسمی، بسته"></a><div class="b4-xc__txt"><span class="b2-c2__when"><b class="b2-c1__t">۲۴</b><span class="b2-c1__d">آبان، یکشنبه</span></span><span class="b4-xc__m">تعطیل رسمی؛ مشتری‌ها این روز با شما رزرو نمی‌کنند</span></div><div class="b4-xc__art"><span class="b4-xd is-shut" aria-hidden="true"><b>بسته</b></span></div><div class="b4-rqk__due"><div class="b4-rqk__row is-lock"><span><i class="ri ri-sm ri-lock" aria-hidden="true"></i>پیش‌فرض بسته</span><button type="button" class="rv-btn rv-btn--secondary rv-btn--sm" aria-haspopup="dialog" aria-label="پذیرش در یکشنبه ۲۴ آبان">پذیرش در این روز</button></div></div></article><article class="rv-card rv-glass b4-xc is-hol" aria-label="سه‌شنبه ۱۷ آذر، تعطیل رسمی، بسته"><a href="#" class="b4-xc__hit" aria-label="سه‌شنبه ۱۷ آذر، تعطیل رسمی، بسته"></a><div class="b4-xc__txt"><span class="b2-c2__when"><b class="b2-c1__t">۱۷</b><span class="b2-c1__d">آذر، سه‌شنبه</span></span><span class="b4-xc__m">تعطیل رسمی؛ مشتری‌ها این روز با شما رزرو نمی‌کنند</span></div><div class="b4-xc__art"><span class="b4-xd is-shut" aria-hidden="true"><b>بسته</b></span></div><div class="b4-rqk__due"><div class="b4-rqk__row is-lock"><span><i class="ri ri-sm ri-lock" aria-hidden="true"></i>پیش‌فرض بسته</span><button type="button" class="rv-btn rv-btn--secondary rv-btn--sm" aria-haspopup="dialog" aria-label="پذیرش در سه‌شنبه ۱۷ آذر">پذیرش در این روز</button></div></div></article></div>
+    </section>
+    <p class="b4-hint" style="margin-top: calc(var(--space-2) * -1);"><i class="ri ri-info" aria-hidden="true"></i>فهرست تعطیلات را سالن نگه می‌دارد. حذف پذیرشی که نوبت دارد، اول پیامدها را نشان می‌دهد.</p>
+  </main>
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری آرایشگر">
+    <a href="/stylist" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+    <a href="/stylist/calendar" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+    <a href="/stylist/requests" aria-label="درخواست‌ها، ۳ درخواست منتظر پاسخ"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۳</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+    <a href="/stylist/customers" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+    <a href="#more" aria-current="page" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+  </nav>
+  </div>
+  </div>
+  <div class="rv-scrim" aria-hidden="true"></div>
+  <section class="rv-sheet rv-glass-strong b2-sheet" role="dialog" aria-modal="true" aria-labelledby="ha-t">
+    <span class="b2-grip" aria-hidden="true"></span>
+    <div class="b2-sheet__head">
+      <span class="rv-tile is-success"><i class="ri ri-calendar-clock"></i></span>
+      <div class="rv-grow"><h2 id="ha-t" class="b2-sheet__t">پذیرش در یکشنبه ۲۴ آبان</h2><p class="b2-sheet__d">تعطیل رسمی؛ پیش‌فرض بسته</p></div>
+      <button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="بستن برگه"><i class="ri ri-x"></i></button>
+    </div>
+    <div class="b4-rng"><span class="rv-label">ساعت‌های پذیرش</span><div class="rv-card rv-glass b4-whl" style="--cols:2"><div class="b4-whl__hd" aria-hidden="true"><span>از</span><span>تا</span></div><div class="b4-whl__bd"><div class="b4-whl__c" role="listbox" aria-label="از"><span role="option">۰۷:۰۰</span><span role="option">۰۷:۳۰</span><span role="option" aria-selected="true" class="is-sel">۰۸:۰۰</span><span role="option">۰۸:۳۰</span><span role="option">۰۹:۰۰</span></div><div class="b4-whl__c" role="listbox" aria-label="تا"><span role="option">۱۸:۰۰</span><span role="option">۱۸:۳۰</span><span role="option" aria-selected="true" class="is-sel">۱۹:۰۰</span><span role="option">۱۹:۳۰</span><span role="option">۲۰:۰۰</span></div><span class="b4-whl__ar" aria-hidden="true"><i class="ri ri-arrow-left"></i></span></div><div class="b4-whl__ft"><span>مدت</span><b>۱۱ ساعت</b></div></div><button type="button" class="b4-addr"><i class="ri ri-plus"></i>افزودن بازه</button><div class="rv-help" style="margin: 0;">از ساعت‌های همیشگی یکشنبه پر شد؛ پایان از نیم ساعت بعد از شروع است.</div></div>
+    <ul class="b2-facts">
+      <li><i class="ri ri-calendar"></i><span>مشتری‌ها فقط در همین ساعت‌ها با شما رزرو می‌کنند.</span></li>
+      <li><i class="ri ri-check"></i><span>در تقویم، این روز برچسب «پذیرش در تعطیل» می‌گیرد.</span></li>
+    </ul>
+    <div class="b2-sheet__acts"><button type="button" class="rv-btn rv-btn--primary">ثبت پذیرش</button><button type="button" class="rv-btn rv-btn--secondary">انصراف</button></div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1080}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

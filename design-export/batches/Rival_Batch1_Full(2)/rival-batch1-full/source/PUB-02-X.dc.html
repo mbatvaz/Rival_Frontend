@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>PUB-02 — نمونه‌کارها — خطا</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px; display: flex; flex-direction: column;">
+  <!-- نوار بالای صفحه عمومی: بازگشت به خانه، عنوان، ورود -->
+  <header class="f-bar-in">
+    <a href="/" class="rv-icon-btn" aria-label="بازگشت به خانه"><i class="ri ri-arrow-right"></i></a>
+    <h1>نمونه‌کارها</h1>
+    <a href="/login" class="rv-link f-pub-login">ورود</a>
+  </header>
+
+  <main style="padding: 0 var(--space-4); display: flex; flex-direction: column; gap: var(--space-4);">
+    <p class="rv-body-sm rv-secondary" style="margin: 0;">کار واقعی آرایشگران سالن طاها. روی هر نمونه‌کار بزنید تا همه تصویرها و توضیحش را ببینید.</p>
+    <!-- فیلتر chip: خدمت و آرایشگر؛ هر ردیف داخل خودش اسکرول می‌شود -->
+    <div style="display: flex; flex-direction: column; gap: var(--space-1);">
+      <div class="f-flt" role="group" aria-label="فیلتر خدمت"><span class="f-flt__l">خدمت</span><div class="f-chiprail"><button class="rv-chip" type="button" aria-pressed="true">همه خدمات</button><button class="rv-chip" type="button" aria-pressed="false">اصلاح سر</button><button class="rv-chip" type="button" aria-pressed="false">اصلاح ریش</button><button class="rv-chip" type="button" aria-pressed="false">اصلاح سر و صورت</button><button class="rv-chip" type="button" aria-pressed="false">فیشیال</button></div></div>
+      <div class="f-flt" role="group" aria-label="فیلتر آرایشگر"><span class="f-flt__l">آرایشگر</span><div class="f-chiprail"><button class="rv-chip" type="button" aria-pressed="true">همه آرایشگران</button><button class="rv-chip" type="button" aria-pressed="false"><span class="rv-avatar"><img src="/_blob/fa92ccd797f1260b3410b3afeb82e4a0" alt=""></span>طاها</button><button class="rv-chip" type="button" aria-pressed="false"><span class="rv-avatar"><img src="/_blob/0f3b137d6cfa6cf07f7a1976f20b81fb" alt=""></span>امیر</button><button class="rv-chip" type="button" aria-pressed="false"><span class="rv-avatar">س</span>سینا</button><button class="rv-chip" type="button" aria-pressed="false"><span class="rv-avatar">م</span>مهدی</button></div></div>
+    </div>
+    <!-- خطا: بدون جزئیات فنی، با قدم بعد -->
+    <div class="rv-notice is-danger" role="alert" style="margin-top: var(--space-4);">
+      <i class="ri ri-alert"></i>
+      <div class="rv-grow">
+        <div class="rv-notice__t">نمونه‌کارها بارگذاری نشد</div>
+        <div class="rv-notice__d">اتصال اینترنت را بررسی کنید و دوباره تلاش کنید. فیلترهای شما سر جایشان می‌مانند.</div>
+        <button class="rv-btn rv-btn--secondary rv-btn--sm" type="button" style="margin-top: var(--space-3);"><i class="ri ri-refresh"></i>تلاش دوباره</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- پای صفحه عمومی: همان فوتر خانه -->
+  <footer class="f-pubfoot" style="margin-top: auto;">
+    <div class="rv-between">
+      <span class="rv-mark-ink" role="img" aria-label="ریوال" style="height: 24px; color: var(--text-muted);"></span>
+      <nav class="rv-row" aria-label="پیوندهای پایین صفحه" style="gap: var(--space-4);"><a class="rv-link" href="/">خانه</a><a class="rv-link" href="/portfolio">نمونه‌کارها</a><a class="rv-link" href="/booking-rules">قوانین رزرو</a></nav>
+    </div>
+    <div style="margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--line-hairline); display: flex; flex-direction: column; align-items: center; gap: var(--space-2); text-align: center;">
+      <span class="rv-caption rv-muted">تمام حقوق این وب‌سایت برای سالن ریوال محفوظ است.</span>
+      <a href="#" class="rv-row rv-caption rv-muted" style="gap: 6px; text-decoration: none; min-height: 44px;">توسعه‌یافته توسط<span style="font-weight: 400; color: var(--text-secondary);">ودان</span><img src="/_blob/c14b1a8859659282316990bd890f14a9" alt="" style="width: 20px; height: 20px; object-fit: contain;"></a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

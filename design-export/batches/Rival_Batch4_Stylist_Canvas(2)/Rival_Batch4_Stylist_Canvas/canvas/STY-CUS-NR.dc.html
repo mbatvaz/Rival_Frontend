@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>STY-CUS — مشتریان من — نتیجه خالی</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px;">
+  <header class="rv-topbar">
+    <h1 class="rv-topbar__title" style="margin: 0;">مشتری‌ها</h1>
+    <span class="rv-grow"></span>
+    <a href="/stylist/notifications" class="rv-icon-btn" aria-label="اعلان‌ها، ۱ خوانده‌نشده"><i class="ri ri-bell"></i><span class="rv-dot is-ink"></span></a>
+  </header>
+
+  <main class="f-enter" style="padding: var(--space-2) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-4);">
+    <label class="rv-input rv-input--search" style="height: 48px;"><i class="ri ri-search"></i><input placeholder="نام یا شماره موبایل" aria-label="جست‌وجوی مشتری" value="۰۹۱۲ ۴۸۰"><button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="پاک کردن جست‌وجو" style="margin-inline-end: -10px;"><i class="ri ri-sm ri-x"></i></button></label>
+    <div class="b3-tools"><span class="b3-tools__sum">نتیجه جست‌وجو<span class="rv-sep" aria-hidden="true"></span><b>۰ مشتری</b></span></div>
+    <!-- نتیجه خالی: جست‌وجو فقط مشتریان خود آرایشگر را می‌گردد؛ مشتری تازه فقط از رزرو دستی ساخته می‌شود -->
+    <div class="b3-empty" role="status">
+      <span class="b3-empty__ic" aria-hidden="true"><i class="ri ri-search"></i></span>
+      <h2 class="b3-empty__t">مشتری‌ای با این شماره ندارید</h2>
+      <p class="b3-empty__d">اینجا فقط کسانی هستند که با شما نوبت یا درخواست داشته‌اند. برای مشتری تازه، رزرو دستی را با همین شماره شروع کنید.</p>
+      <a href="/stylist/manual-booking?phone=0912480" class="rv-btn rv-btn--secondary"><i class="ri ri-sm ri-calendar-plus"></i>رزرو دستی با این شماره</a>
+    </div>
+  </main>
+
+  <!-- نوار پایین کارکنان (SHELL-STY) -->
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری آرایشگر">
+      <a href="/stylist" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+      <a href="/stylist/calendar" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+      <a href="/stylist/requests" aria-label="درخواست‌ها، ۳ درخواست منتظر پاسخ"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۳</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/stylist/customers" aria-current="page" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+      <a href="#more" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

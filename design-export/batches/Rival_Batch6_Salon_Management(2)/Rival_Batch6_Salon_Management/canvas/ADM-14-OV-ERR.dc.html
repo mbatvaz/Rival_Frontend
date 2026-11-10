@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-14 — برگه ویرایش بازه ویژه، خطای هم‌پوشانی</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+<link rel="stylesheet" href="rv-b6.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 2040px;">
+  <div aria-hidden="true" inert style="position: absolute; inset: 0; overflow: hidden;">
+  <header class="f-bar-in">
+    <a href="#more" class="rv-icon-btn" aria-label="بازگشت"><i class="ri ri-arrow-right"></i></a>
+    <h1>قیمت‌گذاری</h1>
+    <a href="/admin/action-center" class="rv-icon-btn" aria-label="مرکز اقدام، ۳ مورد باز"><i class="ri ri-pending"></i><span class="rv-count is-plum">۳</span></a>
+  </header>
+  <main style="padding: var(--space-2) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <!-- ۱. مبلغ پایه: اولین چیز صفحه -->
+    <section id="p-base" aria-labelledby="h-base">
+      <div class="b6-base is-hero rv-card rv-glass-strong">
+        <div class="rv-grow">
+          <h2 id="h-base" class="b6-base__k">مبلغ پایه</h2>
+          <b class="b6-base__v">۶۰٬۰۰۰<small>تومان</small></b>
+          <span class="b6-base__d">برای هر زمانی که بازه ویژه ندارد</span>
+        </div>
+        <button type="button" class="rv-btn rv-btn--secondary rv-btn--sm" style="min-height: 44px;" aria-haspopup="dialog"><i class="ri ri-sm ri-edit"></i>ویرایش</button>
+      </div>
+    </section>
+    <!-- سیستم محاسبه: نمونه محاسبه خودِ فرمول است -->
+    <section class="b6-fx rv-glass-strong" aria-labelledby="fx-t">
+      <p id="fx-t" class="b6-fx__lbl">هزینه رزرو = مبلغ پایه × ضریب خدمت × ضریب آرایشگر</p>
+      <div class="b6-fx__eq">
+        <a href="#p-base" class="b6-fx__term" aria-label="مبلغ پایه این زمان ۹۰٬۰۰۰ تومان، از بازه ویژه"><small>مبلغ پایه</small><b>۹۰٬۰۰۰</b><em>بازه ویژه</em></a>
+        <span class="b6-fx__x" aria-hidden="true">×</span>
+        <a href="#p-svc" class="b6-fx__term" aria-label="ضریب فیشیال ۳"><small>ضریب خدمت</small><b>۳</b><em>فیشیال</em></a>
+        <span class="b6-fx__x" aria-hidden="true">×</span>
+        <a href="#p-sty" class="b6-fx__term" aria-label="ضریب طاها ۱٫۲"><small>ضریب آرایشگر</small><b>۱٫۲</b><em>طاها</em></a>
+      </div>
+      <div class="b6-fx__res">
+        <span>هزینه رزرو</span>
+        <b class="b6-fx__tot">۳۲۴٬۰۰۰<small>تومان</small></b>
+      </div>
+      <div class="b6-fx__for" role="group" aria-label="نمونه محاسبه برای">
+        <button type="button" class="b6-pick" aria-haspopup="dialog"><span><small>خدمت</small><b>فیشیال</b></span><i class="ri ri-chevron-down" aria-hidden="true"></i></button>
+        <button type="button" class="b6-pick" aria-haspopup="dialog"><span><small>آرایشگر</small><b>طاها</b></span><i class="ri ri-chevron-down" aria-hidden="true"></i></button>
+        <button type="button" class="b6-pick" aria-haspopup="dialog"><span><small>زمان نوبت</small><b>پنج‌شنبه ۲۷ اسفند، ۱۷:۰۰</b></span><i class="ri ri-chevron-down" aria-hidden="true"></i></button>
+      </div>
+    </section>
+    <div class="rv-notice" role="note" style="margin-top: calc(var(--space-2) * -1);">
+      <i class="ri ri-info" aria-hidden="true"></i>
+      <div class="rv-notice__t">تغییرات فقط روی رزروهای تازه اثر دارد؛ نوبت‌ها و پرداخت‌های ثبت‌شده تغییر نمی‌کنند.</div>
+    </div>
+    <div class="rv-seg rv-glass b4-seg-full b6-seg4" role="tablist" aria-label="ضریب‌ها و بازه‌های ویژه" style="margin-bottom: calc(var(--space-2) * -1);"><button type="button" id="t-svc" role="tab" aria-selected="false" aria-controls="p-svc">ضریب خدمت</button><button type="button" id="t-sty" role="tab" aria-selected="false" aria-controls="p-sty">ضریب آرایشگر</button><button type="button" id="t-ovr" role="tab" aria-selected="true" aria-controls="p-ovr">بازه‌های ویژه</button></div>
+    <div class="b6-pg" id="pg" style="overflow: visible;">
+      <section id="p-ovr" class="b6-pg__p" role="tabpanel" aria-labelledby="t-ovr">
+        <div class="b6-tls">
+          <a href="#ovr-1" class="b3-lift b6-tl b6-tl--rng rv-card rv-glass" aria-haspopup="dialog" aria-label="دوشنبه ۳۰ آذر، از ۱۴:۰۰ تا ۱۹:۰۰، مبلغ پایه ۸۰٬۰۰۰ تومان"><span class="b6-tl__t">دوشنبه ۳۰ آذر</span><span class="b6-tl__sub">از ۱۴:۰۰ تا ۱۹:۰۰</span><span class="b6-tl__amt">۸۰٬۰۰۰<small>تومان</small></span></a>
+          <a href="#ovr-2" class="b6-tl b6-tl--rng rv-card rv-glass" aria-haspopup="dialog" aria-label="۲۳ تا ۲۹ اسفند، از ۰۸:۰۰ روز اول تا ۱۹:۰۰ روز آخر، مبلغ پایه ۹۰٬۰۰۰ تومان"><span class="b6-tl__t">۲۳ تا ۲۹ اسفند</span><span class="b6-tl__sub">از ۰۸:۰۰ روز اول تا ۱۹:۰۰ روز آخر</span><span class="b6-tl__amt">۹۰٬۰۰۰<small>تومان</small></span></a>
+        </div>
+        <button type="button" class="b4-addrow" aria-haspopup="dialog"><i class="ri ri-plus" aria-hidden="true"></i>افزودن بازه ویژه</button>
+        <p class="b4-hint"><i class="ri ri-info" aria-hidden="true"></i>در این بازه‌ها مبلغ دیگری جای مبلغ پایه می‌نشیند. ملاک، زمان اجرای نوبت است و دو بازه نمی‌توانند یک زمان را پوشش دهند.</p>
+      </section>
+    </div>
+  </main>
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری مدیر کل">
+      <a href="/admin" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+      <a href="/admin/calendar" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+      <a href="/admin/requests" aria-label="درخواست‌ها، ۴ درخواست منتظر پاسخ شما"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۴</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/admin/customers" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+      <a href="#more" aria-current="page" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+  </div>
+  </div>
+  <div class="rv-scrim" aria-hidden="true"></div>
+  <section class="rv-sheet rv-glass-strong b2-sheet" role="dialog" aria-modal="true" aria-labelledby="ov-t">
+    <span class="b2-grip" aria-hidden="true"></span>
+    <div class="b2-sheet__head">
+      <span class="rv-tile is-neutral"><i class="ri ri-calendar"></i></span>
+      <div class="rv-grow"><h2 id="ov-t" class="b2-sheet__t">ویرایش بازهٔ ویژه</h2><p class="b2-sheet__d">دوشنبه ۳۰ آذر</p></div>
+      <button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="بستن برگه"><i class="ri ri-x"></i></button>
+    </div>
+    <div class="rv-field"><span class="rv-label">بازهٔ اجرای نوبت</span>
+    <div class="rv-cal rv-glass b4-scal b6-cal" style="padding: var(--space-3) var(--space-2); border-radius: var(--radius-lg);"><div class="rv-cal__head" style="padding: 0 var(--space-2);"><b>اسفند ۱۴۰۵</b><span class="rv-row" style="gap: 0;"><button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="ماه قبل"><i class="ri ri-chevron-right"></i></button><button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="ماه بعد"><i class="ri ri-chevron-left"></i></button></span></div><div class="rv-cal__grid" role="grid" aria-label="بازهٔ ویژه، اسفند ۱۴۰۵"><span class="rv-cal__dow">ش</span><span class="rv-cal__dow">ی</span><span class="rv-cal__dow">د</span><span class="rv-cal__dow">س</span><span class="rv-cal__dow">چ</span><span class="rv-cal__dow">پ</span><span class="rv-cal__dow">ج</span><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="1 اسفند"><i>۱</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="2 اسفند"><i>۲</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="3 اسفند"><i>۳</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="4 اسفند"><i>۴</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="5 اسفند"><i>۵</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="6 اسفند"><i>۶</i></button><button type="button" class="rv-day is-holiday" role="gridcell" aria-selected="false" aria-label="7 اسفند"><i>۷</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="8 اسفند"><i>۸</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="9 اسفند"><i>۹</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="10 اسفند"><i>۱۰</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="11 اسفند"><i>۱۱</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="12 اسفند"><i>۱۲</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="13 اسفند"><i>۱۳</i></button><button type="button" class="rv-day is-holiday" role="gridcell" aria-selected="false" aria-label="14 اسفند"><i>۱۴</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="15 اسفند"><i>۱۵</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="16 اسفند"><i>۱۶</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="17 اسفند"><i>۱۷</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="18 اسفند"><i>۱۸</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="19 اسفند"><i>۱۹</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="20 اسفند"><i>۲۰</i></button><button type="button" class="rv-day is-holiday" role="gridcell" aria-selected="false" aria-label="21 اسفند"><i>۲۱</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="22 اسفند"><i>۲۲</i></button><button type="button" class="rv-day is-gated" role="gridcell" aria-selected="false" aria-label="23 اسفند"><i>۲۳</i></button><button type="button" class="rv-day is-gated" role="gridcell" aria-selected="false" aria-label="24 اسفند"><i>۲۴</i></button><button type="button" class="rv-day is-gated" role="gridcell" aria-selected="false" aria-label="25 اسفند"><i>۲۵</i></button><button type="button" class="rv-day range-start is-gated" role="gridcell" aria-selected="true" aria-label="26 اسفند"><i>۲۶</i></button><button type="button" class="rv-day in-range is-gated" role="gridcell" aria-selected="false" aria-label="27 اسفند"><i>۲۷</i></button><button type="button" class="rv-day in-range is-holiday is-gated" role="gridcell" aria-selected="false" aria-label="28 اسفند"><i>۲۸</i></button><button type="button" class="rv-day range-end is-gated" role="gridcell" aria-selected="true" aria-label="29 اسفند"><i>۲۹</i></button></div></div><div class="b6-lgd"><span><i class="is-gated"></i>در بازهٔ ویژهٔ دیگر</span></div></div>
+    <div class="rv-field"><span class="rv-label">ساعت شروع و پایان</span>
+    <div class="rv-card rv-glass b4-whl" style="--cols:2"><div class="b4-whl__hd" aria-hidden="true"><span>شروع، ۲۶ اسفند</span><span>پایان، ۲۹ اسفند</span></div><div class="b4-whl__bd"><div class="b4-whl__c" role="listbox" aria-label="شروع، ۲۶ اسفند"><span role="option">۱۳:۰۰</span><span role="option">۱۳:۳۰</span><span role="option" aria-selected="true" class="is-sel">۱۴:۰۰</span><span role="option">۱۴:۳۰</span><span role="option">۱۵:۰۰</span></div><div class="b4-whl__c" role="listbox" aria-label="پایان، ۲۹ اسفند"><span role="option">۱۸:۰۰</span><span role="option">۱۸:۳۰</span><span role="option" aria-selected="true" class="is-sel">۱۹:۰۰</span><span role="option">۱۹:۳۰</span><span role="option">۲۰:۰۰</span></div><span class="b4-whl__ar" aria-hidden="true"><i class="ri ri-arrow-left"></i></span></div><div class="b4-whl__ft"><span>مدت</span><b>۴ روز</b></div></div></div>
+    <div id="rg-e" class="rv-help is-error"><i class="ri ri-sm ri-alert" aria-hidden="true"></i>۲۶ تا ۲۹ اسفند با بازهٔ «۲۳ تا ۲۹ اسفند» هم‌پوشانی دارد. بازه را کوتاه کنید یا آن بازه را تغییر دهید.</div>
+    <div class="rv-field"><label class="rv-label" for="ov-v">مبلغ پایهٔ این بازه</label><div class="rv-input"><input id="ov-v" inputmode="numeric" value="۸۰٬۰۰۰" autocomplete="off"><span class="rv-affix">تومان</span></div></div>
+    <button type="button" class="rv-btn rv-btn--danger-soft rv-btn--block"><i class="ri ri-sm ri-trash"></i>حذف این بازه</button>
+    <div class="b2-sheet__acts"><button type="button" class="rv-btn rv-btn--primary" disabled>ذخیره بازه</button><button type="button" class="rv-btn rv-btn--secondary">انصراف</button></div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":2040}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

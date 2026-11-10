@@ -1,0 +1,360 @@
+/* Rival — اجزای ترکیبی دسته ۶ (مدیریت سالن). فقط توکن؛ بعد از rv-b4.css بارگذاری می‌شود.
+   همه کلاس‌ها پیشوند b6- دارند و هر بخش شماره § دارد. */
+/* §۱ ADM-14 جهت الف: فرمول زنده (نمونه محاسبه = خود فرمول) */
+.b6-fx { padding: var(--space-5) var(--space-4) var(--space-4); border-radius: var(--radius-xl); display: flex; flex-direction: column; gap: var(--space-4); }
+.b6-fx__lbl { margin: 0; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b6-fx__eq { display: grid; grid-template-columns: minmax(0, 1fr) 16px minmax(0, 1fr) 16px minmax(0, 1fr); align-items: stretch; gap: var(--space-1); }
+.b6-fx__term { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 84px; padding: var(--space-2) 2px; border-radius: var(--radius-md); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-hairline); text-decoration: none; color: inherit; text-align: center; }
+.b6-fx__term small { font-size: 11px; line-height: 16px; font-weight: 400; color: var(--text-muted); }
+.b6-fx__term b { font-family: var(--font-numeric-regular); font-size: 18px; line-height: 26px; font-weight: 400; color: var(--text-primary); }
+.b6-fx__term em { font-style: normal; font-size: 11px; line-height: 16px; font-weight: 400; color: var(--text-secondary); }
+.b6-fx__x { align-self: center; text-align: center; font-family: var(--font-numeric-regular); font-size: 16px; color: var(--text-muted); }
+.b6-fx__res { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-3); padding-top: var(--space-3); border-top: 1px solid var(--line-hairline); }
+.b6-fx__res > span { font-size: 15px; line-height: 22px; font-weight: 600; color: var(--text-primary); padding-bottom: 6px; }
+.b6-fx__tot { font: var(--text-numeral-xl); color: var(--text-primary); white-space: nowrap; }
+.b6-fx__tot small { font-family: var(--font-sans); font-size: 14px; font-weight: 400; color: var(--text-secondary); margin-inline-start: 4px; }
+.b6-fx__for { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+.b6-fx__for .b6-pick:last-child { grid-column: 1 / -1; }
+/* §۲ انتخاب‌گر فشرده نمونه محاسبه (برچسب کوچک + مقدار + فلش)؛ برگه پایین انتخاب را باز می‌کند */
+.b6-pick { display: flex; align-items: center; gap: var(--space-2); min-height: 48px; padding: 4px var(--space-3); border: 0; border-radius: var(--radius-sm); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-control); color: var(--text-primary); font: inherit; text-align: start; cursor: pointer; }
+.b6-pick > span { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+.b6-pick small { font-size: 11px; line-height: 16px; font-weight: 300; color: var(--text-muted); }
+.b6-pick b { font-size: 14px; line-height: 20px; font-weight: 400; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.b6-pick > .ri { flex: none; width: 16px; height: 16px; color: var(--text-muted); }
+/* §۴ مبلغ پایه: عدد درشت با اقدام ویرایش */
+.b6-base { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-lg); }
+.b6-base__v { display: block; font: var(--text-numeral-xl); font-size: 34px; line-height: 42px; color: var(--text-primary); white-space: nowrap; }
+.b6-base__v small { font-family: var(--font-sans); font-size: 14px; font-weight: 400; color: var(--text-secondary); margin-inline-start: 4px; }
+.b6-base__d { display: block; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+/* §۵ ضریب: قرص «× n»؛ پیش‌فرض ۱ کم‌رنگ */
+.b6-x { flex: none; display: inline-flex; align-items: center; justify-content: center; min-width: 56px; height: 34px; padding: 0 var(--space-3); border-radius: var(--radius-pill); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-strong); font-family: var(--font-numeric-regular); font-size: 15px; line-height: 20px; color: var(--text-primary); white-space: nowrap; }
+.b6-x.is-def { background: transparent; box-shadow: inset 0 0 0 1px var(--line-hairline); color: var(--text-muted); }
+/* §۸ فرمول یک‌خطی با شماره بخش‌ها (ADM-14 جهت ب) */
+.b6-fl { display: flex; flex-wrap: wrap; align-items: center; gap: 6px var(--space-2); padding: var(--space-3) var(--space-4); border-radius: var(--radius-lg); font-size: 14px; line-height: 22px; font-weight: 400; color: var(--text-primary); }
+.b6-fl > b { font-weight: 600; }
+/* §۱۰ زبانه چهارتایی تمام‌عرض (ADM-15): برچسب‌ها در یک خط */
+.b4-seg-full.b6-seg4 button { padding-inline: 4px; font-size: 13px; white-space: nowrap; }
+/* §۱۱ BookableFrom: کارت قاعده؛ جدا از بستن شخصی آرایشگر (calendar-clock، نه timer). سر کارت: برگ تقویم + متن + وضعیت */
+.b6-bf { position: relative; display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-4); border-radius: var(--radius-lg); }
+.b6-bf__hit { position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.b6-bf__hd { display: flex; align-items: center; gap: var(--space-3); }
+.b6-bf__hd .rv-tag { flex: none; white-space: nowrap; }
+/* §۱۲ نشان خدمت (قرص سفید کوچک، نه برچسب وضعیت) */
+.b6-svs { display: flex; flex-wrap: wrap; gap: 6px; }
+.b6-sv { display: inline-flex; align-items: center; gap: 4px; height: 26px; padding: 0 10px; border-radius: var(--radius-pill); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-hairline); font-size: 12px; line-height: 18px; font-weight: 400; color: var(--text-primary); }
+/* §۱۳ فهرست «آرایشگر ← خدمت‌ها» در کارت: یک ردیف آرایشگر با خدمت‌هایش در جعبه‌های کوچک؛ زیرش ردیف «و n آرایشگر دیگر» که با لمس بقیه را باز می‌کند */
+.b6-who { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid var(--line-hairline); }
+.b6-who__r { box-sizing: border-box; display: flex; align-items: center; gap: var(--space-3); min-height: 78px; padding: 11px 0; }
+.b6-who__r + .b6-who__r { border-top: 1px solid var(--line-hairline); }
+.b6-who__r > div { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.b6-who__n { font-size: 14px; line-height: 22px; font-weight: 600; color: var(--text-primary); }
+.b6-who__r .rv-avatar { flex: none; }
+.b6-who__tg { position: relative; z-index: 2; display: flex; align-items: center; gap: var(--space-3); box-sizing: border-box; width: 100%; min-height: 78px; padding: 0; border: 0; border-top: 1px solid var(--line-hairline); background: transparent; color: var(--text-secondary); font: inherit; font-size: 14px; line-height: 22px; font-weight: 400; text-align: start; cursor: pointer; }
+.b6-who__tg > span:not(.b6-avs) { flex: 1 1 auto; }
+.b6-who__tg .ri { flex: none; width: 16px; height: 16px; color: var(--text-muted); transition: transform var(--duration-base) var(--ease-standard); }
+.b6-who__tg[aria-expanded="true"] .ri { transform: rotate(180deg); }
+.b6-bf.is-done .b6-who__n { color: var(--text-secondary); }
+@media (prefers-reduced-motion: reduce) { .b6-who__tg .ri { transition: none; } }
+.b6-avs { display: flex; flex: none; }
+.b6-avs .rv-avatar { box-shadow: 0 0 0 2px var(--bg-surface); }
+.b6-avs .rv-avatar + .rv-avatar { margin-inline-start: -10px; }
+.b6-bfp__hd { display: flex; align-items: flex-start; gap: var(--space-3); }
+.b6-bfp__t { margin: 0; font-size: 17px; line-height: 28px; font-weight: 600; }
+/* §۱۶ تقویم تاریخ‌های هدف: روز هنوز بسته = هاشور با لبه؛ روز تعطیل سالن قرمز */
+.b6-cal { padding: var(--space-3) var(--space-2); border-radius: var(--radius-lg); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-hairline); }
+.b6-cal .rv-cal__head { padding: 0 var(--space-2); }
+.b6-cal .rv-day { cursor: default; }
+.b6-cal .rv-day.is-gated > i { background: var(--bg-surface-muted); color: var(--text-muted); box-shadow: var(--b6-sunk); }
+.b6-cal .rv-day.is-gated[aria-selected="true"] > i { background: var(--bg-inverse); color: var(--text-inverse); box-shadow: none; }
+.b6-lgd { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); padding: var(--space-2) var(--space-2) 0; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b6-lgd span { display: inline-flex; align-items: center; gap: 6px; }
+.b6-lgd i { width: 14px; height: 14px; border-radius: 4px; }
+.b6-lgd i.is-gated { background: var(--bg-surface-muted); box-shadow: var(--b6-sunk); }
+.b6-lgd i.is-off { background: var(--danger-bg); box-shadow: inset 0 0 0 1px var(--danger-line); }
+/* §۱۸ کاشی ضریب (دو ستون): نام، مبلغ حاصل با پایه فعلی و قرص ضریب */
+.b6-tls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+.b6-tl { display: flex; flex-direction: column; gap: var(--space-2); min-height: 88px; padding: var(--space-3); border-radius: var(--radius-md); text-decoration: none; color: inherit; }
+.b6-tl__t { display: flex; align-items: center; gap: var(--space-2); font-size: 14px; line-height: 22px; font-weight: 600; color: var(--text-primary); }
+.b6-tl__r { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-top: auto; }
+.b6-tl__r small { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b6-tl .b6-x { min-width: 52px; height: 32px; padding: 0 var(--space-2); font-size: 14px; }
+/* §۱۹ مبلغ پایه در جایگاه اول صفحه (قهرمان) و مبلغ ردیف بازه ویژه */
+.b6-base.is-hero { padding: var(--space-5) var(--space-4); border-radius: var(--radius-xl); }
+.b6-base.is-hero .b6-base__v { font-size: 44px; line-height: 52px; }
+.b6-base__k { display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-2); font-size: 14px; line-height: 20px; font-weight: 600; color: var(--text-primary); }
+/* §۲۰ زمان باز شدن رزرو: یک قرص یک‌خطی (به‌جای برگ تقویم)؛ روز تعطیل قرمز با کلمه «تعطیل» */
+.b6-op { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; max-width: 100%; height: 32px; padding: 0 var(--space-3); border-radius: var(--radius-pill); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-strong); font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); white-space: nowrap; }
+.b6-op .ri { flex: none; width: 16px; height: 16px; color: var(--text-muted); }
+.b6-op b { font-weight: 600; color: var(--text-primary); }
+.b6-op em { font-style: normal; font-weight: 600; }
+.b6-op.is-hol { background: var(--danger-bg); box-shadow: inset 0 0 0 1px var(--danger-line); color: var(--danger-fg); }
+.b6-op.is-hol .ri,
+.b6-op.is-hol b { color: var(--danger-fg); }
+.b6-bf.is-done .b6-op:not(.is-hol) b { color: var(--text-secondary); }
+/* §۲۱ خط زمان قاعده: اکنون ← باز شدن رزرو ← بازه انتخابی؛ بالای هر پاره مدت آن (راست = زودتر)
+   --w سهم پاره انتظار، --t پهنای بازه انتخابی */
+.b6-gate { --w: 1; --t: 32%; display: flex; flex-direction: column; gap: 2px; }
+.b6-gate__d,
+.b6-gate__trk { display: flex; align-items: center; }
+.b6-gate__d { height: 20px; font-size: 12px; line-height: 18px; font-weight: 400; color: var(--text-secondary); }
+.b6-gate__d > span { text-align: center; white-space: nowrap; }
+.b6-gate__d .is-sp10 { flex: none; width: 10px; }
+.b6-gate__d .is-sp28 { flex: none; width: 28px; }
+.b6-gate__d .is-w { flex: var(--w) 1 0; margin-inline: 4px; }
+.b6-gate__d .is-r { flex: 1 1 0; margin-inline: 4px; }
+.b6-gate__d .is-t { flex: 0 0 var(--t); color: var(--text-primary); font-weight: 600; }
+.b6-gate__trk { height: 28px; }
+.b6-gate__now { flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--text-primary); }
+.b6-gate__wait { flex: var(--w) 1 0; height: 6px; margin-inline: 4px; border-radius: 3px; background: repeating-linear-gradient(-45deg, var(--chrome-500) 0 3px, var(--bg-plaster) 3px 6px); }
+.b6-gate__pin { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--bg-surface); box-shadow: inset 0 0 0 1.5px var(--text-primary); color: var(--text-primary); }
+.b6-gate__pin .ri { width: 15px; height: 15px; }
+.b6-gate__run { flex: 1 1 0; height: 2px; margin-inline: 4px; background: var(--line-strong); }
+.b6-gate__tgt { flex: 0 0 var(--t); height: 12px; border-radius: 6px; background: var(--text-primary); }
+/* §۲۲ راهنمای خط زمان: یک ردیف نشانه + نام، روی پس‌زمینه (بدون کارت)، یک‌بار بالای صفحه */
+.b6-lgn { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); padding: 0 var(--space-1); font-size: 12px; line-height: 18px; font-weight: 400; color: var(--text-secondary); }
+.b6-lgn > span { display: inline-flex; align-items: center; gap: 6px; }
+.b6-lgn .b6-gate__now { width: 8px; height: 8px; }
+.b6-lgn .b6-gate__wait { flex: none; width: 22px; margin: 0; }
+.b6-lgn .b6-gate__tgt { flex: none; width: 22px; height: 8px; }
+.b6-lgn .b6-gate__pin { width: 22px; height: 22px; }
+.b6-lgn .b6-gate__pin .ri { width: 13px; height: 13px; }
+/* §۲۳ صفحه‌های افقی تب‌ها (ADM-14): با کشیدن افقی بین تب‌ها جابه‌جا می‌شود، تب بالا همگام است */
+.b6-pg { display: flex; align-items: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; gap: var(--space-3); padding-block: var(--space-2); margin-block: calc(var(--space-2) * -1); }
+.b6-pg::-webkit-scrollbar { display: none; }
+.b6-pg__p { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; display: flex; flex-direction: column; gap: var(--space-3); }
+.b6-tl--rng { min-height: 0; }
+.b6-tl__amt { font-family: var(--font-numeric-regular); font-size: 16px; line-height: 24px; color: var(--text-primary); }
+.b6-tl__amt small { font-family: var(--font-sans); font-size: 11px; font-weight: 300; color: var(--text-muted); margin-inline-start: 4px; }
+.b6-tl__sub { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+@media (prefers-reduced-motion: reduce) { .b6-pg { scroll-behavior: auto; } }
+/* §۲۴ پشته عکس آرایشگرها در ردیف «همه» و «و n آرایشگر دیگر» */
+.b6-avs { display: flex; flex: none; }
+.b6-avs .rv-avatar { box-shadow: 0 0 0 2px var(--bg-surface); }
+.b6-avs .rv-avatar + .rv-avatar { margin-inline-start: -8px; }
+/* §۲۵ کادر بازه انتخابی در سر کارت: «از ← تا» با روز درشت و ماه زیرش (محور اصلی کارت) */
+.b6-rg { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); padding: var(--space-2) var(--space-4); border-radius: var(--radius-md); background: var(--bg-surface-muted); box-shadow: inset 0 0 0 1px var(--line-strong); }
+.b6-rg__c { display: grid; grid-template-columns: auto auto; grid-template-areas: "k d" "k m"; column-gap: var(--space-2); align-items: center; }
+.b6-rg__c small { grid-area: k; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b6-rg__c b { grid-area: d; font-family: var(--font-numeric-regular); font-size: 22px; line-height: 26px; font-weight: 400; color: var(--text-primary); }
+.b6-rg__c em { grid-area: m; font-style: normal; font-size: 12px; line-height: 16px; font-weight: 400; color: var(--text-secondary); }
+.b6-rg > .ri { flex: none; width: 18px; height: 18px; color: var(--text-muted); }
+.b6-bf.is-done .b6-rg__c b { color: var(--text-secondary); }
+/* §۲۶ ADM-10-NEW: قاب خالی عکس آرایشگر (پیش از بارگذاری) */
+.b6-ph { width: 100%; height: 100%; display: grid; place-items: center; background: var(--bg-surface-muted); color: var(--text-muted); }
+.b6-ph .ri { width: 40px; height: 40px; font-size: 40px; }
+/* §۲۸ نتیجه موفق ساخت: برچسب وضعیت و «قدم بعدی» زیر پیام */
+.b6-nx { align-self: stretch; margin-top: var(--space-4); text-align: start; }
+.b6-nx .rv-item { min-height: 64px; }
+/* §۲۹ ADM-11 زبانهٔ خدمت‌ها: کاشی‌های دوستونهٔ فشرده (نام + نوع و مدت) */
+.b6-sg { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-2); }
+.b6-sg__i { display: flex; flex-direction: column; gap: 2px; padding: var(--space-3); border-radius: var(--radius-md); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-hairline); }
+.b6-sg__t { font-size: 14px; line-height: 22px; font-weight: 600; color: var(--text-primary); }
+.b6-sg__s { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+/* §۳۰ ADM-11 زبانهٔ برنامه: هر روز هفته یک ردیف با نوار زمانی (راست = زودتر)؛ محور ۰۸ تا ۲۰ */
+.b6-ws { display: flex; flex-direction: column; padding: var(--space-3) var(--space-4); }
+.b6-ws__ax,
+.b6-ws__r { display: grid; grid-template-columns: 56px minmax(0, 1fr); column-gap: var(--space-3); align-items: center; }
+.b6-ws__ax > div { display: flex; justify-content: space-between; font-family: var(--font-numeric-regular); font-size: 11px; line-height: 16px; color: var(--text-muted); padding-bottom: 6px; }
+.b6-ws__r { min-height: 58px; border-top: 1px solid var(--line-hairline); }
+.b6-ws__d { font-size: 14px; line-height: 22px; font-weight: 600; color: var(--text-primary); }
+.b6-ws__c { display: flex; flex-direction: column; gap: 4px; }
+.b6-ws__trk { position: relative; height: 12px; border-radius: 6px; background: var(--bg-surface-muted); box-shadow: inset 0 0 0 1px var(--line-hairline); }
+.b6-ws__bar { position: absolute; inset-block: 0; border-radius: 6px; background: var(--bg-inverse); }
+.b6-ws__t { font-family: var(--font-numeric-regular); font-size: 12px; line-height: 18px; color: var(--text-secondary); }
+.b6-ws__r.is-off .b6-ws__d,
+.b6-ws__r.is-off .b6-ws__t { color: var(--text-muted); }
+.b6-ws__r.is-off .b6-ws__t { font-family: var(--font-sans); }
+/* §۳۱ برگهٔ نگاشت: کارت خدمت با تصویر چپ و محو سفید از راست (مثل b2-c2)؛ انتخاب = لبهٔ سیاه */
+.b6-pc.b2-c2 { min-height: 104px; cursor: pointer; }
+.b6-pc .b2-c2__txt { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: var(--space-3) var(--space-4); }
+.b6-pc__t { font-size: 15px; line-height: 24px; font-weight: 600; color: var(--text-primary); }
+.b6-pc__s { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b6-pc .rv-tag { margin-top: var(--space-1); }
+.b2-c2.b6-pc.is-on::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 2px var(--text-primary); z-index: 2; pointer-events: none; background: none; width: auto; }
+/* §۳۲ سرگروه در پیش‌نمایش اثر: نام گروه + شمار */
+.b6-gh { display: flex; align-items: center; justify-content: space-between; margin: var(--space-1) var(--space-1) calc(var(--space-2) * -1); font-size: 13px; line-height: 20px; font-weight: 600; color: var(--text-primary); }
+.b6-gh span { font-weight: 300; color: var(--text-muted); }
+/* §۳۳ ADM-12 فهرست خدمات و ADM-13 نگاشت آرایشگر: کارت پیوندی b6-pc، سطر شمار، قاب خالی تصویر با حرف اول */
+a.b6-pc { display: block; text-decoration: none; color: inherit; }
+.b6-pc__m { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b2-c2__img.b6-ph { display: grid; place-items: center; width: 42%; height: 100%; font-size: 34px; line-height: 1; font-weight: 600; color: var(--text-muted); }
+/* §۳۵ اجزای خدمت چندخدمتی: ردیف مرتب با شماره ترتیب، تصویر کوچک، نام و نوع؛ جزء حذف‌شده کم‌رنگ */
+.b6-cm .rv-item { min-height: 72px; gap: var(--space-3); }
+.b6-cm__n { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-numeric-regular); font-size: 14px; line-height: 1; color: var(--text-inverse); background: var(--bg-inverse); }
+.b6-cm__img { flex: none; width: 48px; height: 48px; border-radius: var(--radius-md); object-fit: cover; }
+.b6-cm .rv-item.is-gone .b6-cm__n { background: var(--chrome-300); color: var(--text-secondary); }
+.b6-cm .rv-item.is-gone .b6-cm__img { filter: grayscale(1); opacity: .6; }
+.b6-cm .rv-item.is-gone .rv-item__t { color: var(--text-muted); text-decoration: line-through; }
+/* §۳۶ ADM-13 سرکارت خدمت: تصویر مربع گرد به‌جای عکس گرد؛ توضیح کوتاه ته کارت وضعیت */
+.b6-sh .b3-pf__ph { border-radius: var(--radius-lg); width: 84px; height: 84px; }
+/* §۳۷ ADM-12-NEW تصویر خدمت: قاب مستطیلی پیش‌نمایش + دکمه‌ها */
+.b6-up { display: flex; align-items: center; gap: var(--space-4); }
+.b6-up__ph { flex: none; width: 156px; height: 120px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 0 0 3px var(--bg-surface), var(--shadow-sm); }
+.b6-up__ph > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.b6-up__ph .b6-ph .ri { width: 40px; height: 40px; font-size: 40px; }
+.b6-up__a { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2); }
+.b6-pc.is-off .b2-c2__img { filter: grayscale(1); opacity: .7; }
+.b4-step__b:disabled { opacity: .4; cursor: default; }
+/* §۳۹ ADM-12-NEW انتخاب نوع: سه مستطیل کنار هم؛ انتخاب فقط با لبهٔ سیاه (بدون دایره و تیک) — جایگزین §۳۴ */
+.b6-tc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); }
+.b6-tc .rv-option { flex-direction: column; align-items: flex-start; justify-content: center; gap: 2px; min-height: 84px; padding: var(--space-3); }
+.b6-tc .rv-option b { font-size: 15px; line-height: 24px; font-weight: 600; color: var(--text-primary); }
+.b6-tc .rv-option small { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+/* §۴۰ انتخاب‌گر غلتکی مدت (درون‌صفحه): پنج ردیف دیده می‌شود، ردیف وسط انتخاب‌شده و پررنگ؛ گام ۳۰ دقیقه */
+.b6-wh { position: relative; height: 180px; overflow: hidden; display: flex; flex-direction: column; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 28%, #000 72%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0, #000 28%, #000 72%, transparent 100%); }
+.b6-wh::before { content: ""; position: absolute; inset-inline: 0; top: 72px; height: 36px; border-radius: var(--radius-md); background: var(--bg-surface-muted); box-shadow: inset 0 0 0 1px var(--line-strong); }
+.b6-wh__i { position: relative; flex: none; height: 36px; display: grid; place-items: center; font-size: 15px; line-height: 36px; font-weight: 300; color: var(--text-muted); }
+.b6-wh__i.is-1 { color: var(--text-secondary); }
+.b6-wh__i.is-0 { font-size: 18px; font-weight: 600; color: var(--text-primary); }
+.b6-ds__c { display: grid; place-items: center; height: 32px; border-radius: var(--radius-pill); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-strong); font-family: var(--font-numeric-regular); font-size: 12px; line-height: 1; color: var(--text-primary); white-space: nowrap; }
+/* §۴۲ برگهٔ الگوی ارائه: نوار روزها + شبکهٔ ساعت‌های خالی (ساعت شروع نوبت، گام ۳۰ دقیقه) */
+.b6-dp { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+.b6-dp button { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: var(--space-2) 0; border: 0; border-radius: var(--radius-md); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-hairline); font: inherit; color: var(--text-primary); cursor: pointer; }
+.b6-dp button b { font-size: 14px; line-height: 22px; font-weight: 600; }
+.b6-dp button small { font-family: var(--font-numeric-regular); font-size: 11px; line-height: 16px; color: var(--text-muted); }
+.b6-dp button:disabled { background: var(--bg-surface-muted); color: var(--text-muted); cursor: default; }
+.b6-sg4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-2); }
+.b6-sc { display: grid; place-items: center; height: 44px; border: 0; border-radius: var(--radius-md); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-strong); font-family: var(--font-numeric-regular); font-size: 14px; line-height: 1; color: var(--text-primary); cursor: pointer; }
+.b6-sc:disabled { background: var(--bg-surface-muted); color: var(--text-muted); box-shadow: none; cursor: default; }
+.b6-lg { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b6-lg > span { display: inline-flex; align-items: center; gap: 6px; }
+.b6-lg i { width: 14px; height: 14px; border-radius: 4px; background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-strong); }
+.b6-lg i.is-on { background: var(--bg-inverse); box-shadow: none; }
+.b6-lg i.is-off { background: var(--bg-surface-muted); box-shadow: none; }
+/* §۴۳ برگهٔ نگاشت: شبکهٔ دوستونه؛ تصویر کامل بالای کارت، متن زیر آن؛ انتخاب = لبهٔ سیاه — جایگزین §۳۱ */
+.b6-gc { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); align-items: stretch; }
+.b6-gcard { position: relative; overflow: hidden; display: flex; flex-direction: column; border-radius: var(--radius-lg); background: var(--bg-surface); box-shadow: var(--shadow-sm); cursor: pointer; }
+.b6-gcard__img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+.b6-gcard__img.is-wide { aspect-ratio: 4 / 3; }
+.b6-gcard__ph { display: grid; place-items: center; width: 100%; aspect-ratio: 1 / 1; background: var(--bg-surface-muted); font-size: 44px; line-height: 1; font-weight: 600; color: var(--text-muted); }
+.b6-gcard__txt { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: var(--space-3); }
+.b6-gcard.is-on::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 2px var(--text-primary); pointer-events: none; z-index: 2; }
+.b6-gcard .rv-tag { margin-top: var(--space-1); }
+/* §۴۴ برگهٔ انتخاب اجزای بسته (برگهٔ پایین): ردیف فشردهٔ خدمت با تصویر کوچک؛ انتخاب = لبهٔ سیاه + شمارهٔ ترتیب */
+.b6-pk { display: flex; flex-direction: column; gap: var(--space-2); }
+.b6-pk__r { position: relative; display: flex; align-items: center; gap: var(--space-3); min-height: 60px; padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); background: var(--bg-surface); box-shadow: inset 0 0 0 1px var(--line-hairline); cursor: pointer; }
+.b6-pk__r.is-on { box-shadow: inset 0 0 0 2px var(--text-primary); }
+.b6-pk__r img { flex: none; width: 44px; height: 44px; border-radius: var(--radius-md); object-fit: cover; }
+.b6-pk__r .b6-cm__n { margin-inline-start: auto; }
+/* §۴۵ ردیف «نمایش n مورد دیگر» ته گروه پیش‌نمایش اثر (دو مورد نزدیک اول، بقیه با لمس) */
+.b6-ex { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; min-height: 48px; border: 0; background: transparent; font: inherit; font-size: 14px; font-weight: 600; color: var(--text-primary); cursor: pointer; }
+/* §۴۶ جداکنندهٔ نازک بین اجزای بسته */
+.b6-cm .rv-item + .rv-item { border-top: 1px solid var(--line-hairline); }
+/* §۴۷ انتخاب‌شده «بالا آمده» است، انتخاب‌نشده «فرو رفته»: کارت انتخاب‌شده سفید، بدون لبهٔ سیاه، با سایهٔ چندلایه و چهار پیکسل بالاتر؛
+   انتخاب‌نشده‌ها مات‌تر و کم‌رنگ‌تر (پس‌زمینهٔ خاکستری، سایهٔ درونی، تصویر کم‌رنگ) تا تفاوت بدون لبه خوانده شود */
+:root { --b6-lift: 0 1px 2px rgba(18, 20, 23, 0.10), 0 10px 20px rgba(18, 20, 23, 0.16), 0 24px 40px rgba(18, 20, 23, 0.12); --b6-sunk: inset 0 1px 3px rgba(18, 20, 23, 0.10), inset 0 0 0 1px var(--line-hairline); }
+.b6-gcard,
+.b6-pk__r,
+.b6-tc .rv-option,
+.b6-dp button { transition: transform var(--duration-fast, 150ms) var(--ease-standard, ease), box-shadow var(--duration-fast, 150ms) var(--ease-standard, ease); }
+.b6-gcard[aria-checked="false"],
+.b6-pk__r[aria-checked="false"],
+.b6-tc .rv-option[aria-checked="false"] { background: var(--bg-surface-muted); box-shadow: var(--b6-sunk); }
+.b6-gcard[aria-checked="false"] .b6-gcard__img,
+.b6-gcard[aria-checked="false"] .b6-gcard__ph,
+.b6-pk__r[aria-checked="false"] img { opacity: .62; filter: saturate(.55); }
+.b6-gcard[aria-checked="false"] .b6-pc__t,
+.b6-pk__r[aria-checked="false"] .rv-item__t,
+.b6-tc .rv-option[aria-checked="false"] b { color: var(--text-secondary); font-weight: 400; }
+.b6-gcard.is-on,
+.b6-pk__r.is-on,
+.b6-tc .rv-option[aria-checked="true"] { background: var(--bg-surface); border-color: transparent; box-shadow: var(--b6-lift); transform: translateY(-4px); z-index: 2; }
+.b6-gcard.is-on::after { content: none; }
+.b6-gcard.is-on .b6-pc__t,
+.b6-pk__r.is-on .rv-item__t,
+.b6-tc .rv-option[aria-checked="true"] b { font-weight: 600; color: var(--text-primary); }
+.b6-dp button { background: var(--bg-surface-muted); box-shadow: var(--b6-sunk); }
+.b6-dp button[aria-checked="true"] { background: var(--bg-surface); box-shadow: var(--b6-lift); transform: translateY(-4px); font-weight: 600; }
+.b6-dp button:disabled { box-shadow: none; }
+/* §۴۸ ADM-11 تب برنامه: ساعت هر بازه زیر خود نوار فعال؛ روز می‌تواند دو بازه داشته باشد */
+.b6-ws__lb { position: relative; height: 18px; }
+.b6-ws__lb .b6-ws__t { position: absolute; top: 0; white-space: nowrap; transform: translateX(50%); }
+/* §۴۹ ADM-13 تب الگوی ارائه: روزها کشویی؛ فقط یک روز باز است */
+.b6-ac { display: flex; flex-direction: column; padding: 0 var(--space-4); }
+.b6-ac__r { border-top: 1px solid var(--line-hairline); }
+.b6-ac__r:first-child { border-top: 0; }
+.b6-ac__h { display: flex; align-items: center; gap: var(--space-2); width: 100%; min-height: 56px; padding: 0; border: 0; background: transparent; font: inherit; color: var(--text-primary); text-align: start; cursor: pointer; }
+.b6-ac__h b { flex: 1; font-size: 14px; line-height: 22px; font-weight: 600; }
+.b6-ac__h span { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b6-ac__h .ri { color: var(--text-muted); transition: transform var(--duration-fast, 150ms); }
+.b6-ac__r.is-open .b6-ac__h .ri { transform: rotate(180deg); color: var(--text-primary); }
+.b6-ac__r.is-off .b6-ac__h { cursor: default; }
+.b6-ac__r.is-off .b6-ac__h b { color: var(--text-muted); }
+.b6-ac__g { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); padding-bottom: var(--space-3); }
+/* §۵۰ «اختیاری» کنار برچسب تصویر؛ دکمه‌های تصویر کل ارتفاع قاب را پر می‌کنند */
+.b6-opt { margin-inline-start: var(--space-2); font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b6-up__a { align-self: stretch; justify-content: stretch; align-items: stretch; flex: 1; min-width: 0; }
+.b6-up__a .rv-btn { flex: 1; min-height: 56px; justify-content: center; }
+/* §۵۱ ADM-14: سرکارت (مبلغ پایه، کاشی) روی صفحهٔ تیره می‌ماند؛ برگهٔ ضریب و بازه */
+.rv-final .b6-base.b3-lift,
+.rv-final .b6-tl.b3-lift { background: var(--bg-surface); -webkit-backdrop-filter: none; backdrop-filter: none; border-radius: var(--radius-lg); }
+.rv-final .b6-tl.b3-lift { border-radius: var(--radius-md); }
+.b6-fs { display: flex; justify-content: center; padding: var(--space-2) 0; }
+.b6-fs .b4-step__row { gap: var(--space-4); }
+.b6-fs .b4-step__row b { min-width: 120px; text-align: center; font-family: var(--font-numeric-regular); font-size: 34px; line-height: 44px; font-weight: 400; }
+.b6-fr { display: flex; flex-direction: column; gap: 2px; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background: var(--bg-surface-muted); box-shadow: inset 0 0 0 1px var(--line-hairline); }
+.b6-fr__e { font-family: var(--font-numeric-regular); font-size: 13px; line-height: 20px; color: var(--text-secondary); }
+.b6-fr__t { font-family: var(--font-numeric-regular); font-size: 22px; line-height: 32px; color: var(--text-primary); }
+.b6-fr__t small { font-family: var(--font-sans); font-size: 13px; color: var(--text-secondary); margin-inline-start: 4px; }
+.b6-fl { display: flex; flex-direction: column; gap: var(--space-2); }
+.b6-fl .rv-input input { font-family: var(--font-numeric); font-size: 18px; }
+.b6-or { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+.b6-or .b6-pick { width: 100%; }
+.b6-pick.is-invalid { box-shadow: inset 0 0 0 1.5px var(--danger-line, var(--danger-fg)); }
+/* ===== §52 ADM-15: راهنمای اولویت قواعد، کارت آرایشگر ===== */
+.b6-pr { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border-radius: var(--radius-lg); }
+.b6-pr__hd { display: flex; align-items: center; gap: var(--space-3); }
+.b6-pr__t { margin: 0; font-size: 15px; line-height: 24px; font-weight: 600; }
+.b6-pr__d { margin: 0; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b6-pr__l { list-style: none; margin: 0; padding: 0; counter-reset: pr; display: flex; flex-direction: column; }
+.b6-pr__l li { counter-increment: pr; display: flex; align-items: center; gap: var(--space-3); min-height: 48px; border-top: 1px solid var(--line-hairline); font-size: 14px; line-height: 22px; color: var(--text-primary); }
+.b6-pr__l li:first-child { border-top: 0; }
+.b6-pr__l li::before { content: counter(pr, persian); flex: none; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; line-height: 1; font-weight: 600; background: var(--bg-plaster); color: var(--text-secondary); }
+.b6-pr__l li:first-child::before { background: var(--bg-inverse); color: var(--text-inverse); }
+.b6-pr__l li > span:first-child { flex: 1; }
+.b6-bc { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-lg); }
+.b6-bc--btn { width: 100%; box-sizing: border-box; border: 0; font: inherit; color: inherit; text-align: start; cursor: pointer; }
+.b6-bc--btn > .ri { flex: none; width: 16px; height: 16px; color: var(--text-muted); }
+.b6-bc__l { display: block; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.b6-pick--full { width: 100%; box-sizing: border-box; text-align: start; cursor: pointer; }
+.b6-sm { display: flex; flex-direction: column; padding: 0 var(--space-4); border-radius: var(--radius-lg); }
+.b6-sm__r { display: flex; align-items: center; gap: var(--space-3); min-height: 60px; padding: var(--space-2) 0; border: 0; border-top: 1px solid var(--line-hairline); background: transparent; font: inherit; font-size: 14px; line-height: 22px; font-weight: 300; color: var(--text-secondary); text-align: start; cursor: pointer; }
+.b6-sm__r:first-child { border-top: 0; }
+.b6-sm__r > span:last-child { flex: 1; min-width: 0; }
+.b6-sm__r b { font-weight: 600; color: var(--text-primary); }
+.b6-sm__r.is-on { color: var(--text-primary); }
+/* ===== §53 ADM-15: گزینهٔ انتخاب، کارت سه‌قسمتی تاریخ، روز آغاز رزرو ===== */
+.b4-xc > .b6-who { grid-column: 1 / -1; padding: 0 var(--space-4); }
+.b6-sel { display: flex; align-items: flex-start; gap: var(--space-3); width: 100%; box-sizing: border-box; padding: var(--space-4); border: 0; font: inherit; color: inherit; text-align: start; cursor: pointer; }
+.b6-sel > .ri { flex: none; width: 16px; height: 16px; margin-top: 4px; color: var(--text-muted); }
+.b6-sel__h { display: flex; align-items: center; gap: var(--space-2); }
+.b6-sel__h b { font-size: 15px; line-height: 24px; font-weight: 600; color: var(--text-primary); }
+.b6-sel__v { display: flex; align-items: center; gap: var(--space-2); margin-top: var(--space-2); font-size: 14px; line-height: 22px; color: var(--text-secondary); }
+.b6-tri { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: var(--space-1); border-radius: var(--radius-lg); }
+.b6-tri__c { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; min-height: 92px; padding: var(--space-3); border-radius: var(--radius-md); }
+.b6-tri__c + .b6-tri__c { box-shadow: inset 1px 0 0 var(--line-hairline); }
+.b6-tri__c.is-on { background: var(--bg-surface); box-shadow: var(--b6-lift); transform: translateY(-3px); }
+.b6-tri__c.is-bad { box-shadow: inset 0 0 0 1.5px var(--danger-line, var(--danger-fg)); }
+.b6-tri__l { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b6-tri__l .ri { color: var(--text-muted); }
+.b6-tri__n { margin-top: auto; font-family: var(--font-numeric-regular); font-size: 28px; line-height: 32px; font-weight: 400; color: var(--text-primary); }
+.b6-tri__m { font-size: 13px; line-height: 20px; color: var(--text-primary); }
+.b6-tri__m small { display: block; font-size: 11px; line-height: 16px; font-weight: 300; color: var(--text-muted); }
+.b6-tri__e { margin-top: auto; font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-muted); }
+.b6-cal .rv-day.is-open > i { background: var(--bg-surface); color: var(--text-primary); font-weight: 600; box-shadow: inset 0 0 0 2px var(--text-primary); }
+.b6-cal .rv-day.is-open.is-holiday > i { color: var(--text-primary); }
+.b6-lgd i.is-open { background: var(--bg-surface); box-shadow: inset 0 0 0 2px var(--text-primary); }
+.b6-lgd i.is-rng { background: var(--bg-inverse); }
+
+/* ===== §54 بازبینی ۱ نوامبر (هم‌سو با D10-41 تا D10-43، D10-63، D10-152): بدون خط‌خوردگی در تقویم و غلتک؛ نوبت‌های الگو به اندازهٔ مدت خدمت؛ رادیوی بالاآمده / فرورفته ===== */
+.rv-final .rv-day.is-holiday > i, .rv-final .rv-day.is-gated > i, .rv-final .b4-cal .rv-day.is-full > i, .rv-final .b4-hc.is-busy b, .rv-final .b4-hc.is-block b, .rv-final .b4-whl__c span.is-dis { text-decoration: none; }
+.b6-sg3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3) var(--space-2); padding-top: 6px; }
+.b6-sc { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; height: 56px; border: 0; border-radius: var(--radius-md); background: var(--bg-surface-muted); box-shadow: var(--b6-sunk); color: var(--text-secondary); cursor: pointer; transition: transform var(--duration-slow) var(--ease-spring), box-shadow var(--duration-base) var(--ease-standard), background var(--duration-base) var(--ease-standard); }
+.b6-sc b { font-family: var(--font-numeric-regular); font-size: 15px; line-height: 20px; font-weight: 400; }
+.b6-sc small { font-family: var(--font-numeric-regular); font-size: 11px; line-height: 16px; font-weight: 300; color: var(--text-muted); }
+.b6-sc[aria-checked="true"] { position: relative; z-index: 2; background: var(--bg-surface); color: var(--text-primary); box-shadow: var(--b6-lift); transform: translateY(-4px); }
+.b6-sc[aria-checked="true"] b { font-weight: 600; }
+.b6-lg i.is-on { background: var(--bg-surface); box-shadow: var(--b6-lift); }
+.b6-lg i:not(.is-on) { background: var(--bg-surface-muted); box-shadow: var(--b6-sunk); }
+.b6-dp { padding-top: 6px; }
+@media (prefers-reduced-motion: no-preference) { .b6-sc[aria-checked="true"], .b6-dp button[aria-checked="true"] { animation: b2-rise var(--duration-slow) var(--ease-spring) both; } }

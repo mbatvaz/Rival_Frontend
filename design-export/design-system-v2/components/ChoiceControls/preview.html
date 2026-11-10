@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rival — ChoiceControls</title><link rel="stylesheet" href="../../css/tokens.css"><link rel="stylesheet" href="../../css/rival.css"><style>body{margin:0}</style></head>
+<body>
+<!-- @dsCard width=900 group="Inputs" height=430 subtitle="Flat white option rows with a plain tile and an ink ring when chosen, plus checkbox, radio, switch and stepper" -->
+<div class="rv rv-final rv-pad" dir="rtl" lang="fa"><div class="rv-grid-2">
+  <div class="rv-stack" role="radiogroup" aria-label="روش ورود">
+    <span class="rv-overline">روش ورود ترجیحی</span>
+    <label class="rv-option" aria-checked="true"><span class="rv-tile"><i class="ri ri-sms"></i></span><span class="rv-grow"><span class="rv-title" style="display:block">کد پیامکی</span><span class="rv-caption rv-muted">روش اصلی؛ همیشه در دسترس</span></span><input class="rv-radio" type="radio" name="p" checked></label>
+    <label class="rv-option" aria-checked="false"><span class="rv-tile"><i class="ri ri-fingerprint"></i></span><span class="rv-grow"><span class="rv-title" style="display:block">Passkey</span><span class="rv-caption rv-muted">اثر انگشت یا قفل صفحه همین گوشی</span></span><input class="rv-radio" type="radio" name="p"></label>
+    <label class="rv-option" aria-checked="false" style="opacity:.55;cursor:not-allowed"><span class="rv-tile"><i class="ri ri-key"></i></span><span class="rv-grow"><span class="rv-title" style="display:block">رمز عبور</span><span class="rv-caption rv-muted">هنوز رمزی تعیین نکرده‌اید</span></span><input class="rv-radio" type="radio" name="p" disabled></label>
+  </div>
+  <div class="rv-stack">
+    <span class="rv-overline">تنظیمات</span>
+    <div class="rv-list rv-glass">
+      <label class="rv-item"><span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-sms"></i></span><span class="rv-grow rv-item__t">یادآوری پیامکی پیش از نوبت</span><input class="rv-switch" type="checkbox" checked></label>
+      <label class="rv-item"><span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-bell-ring"></i></span><span class="rv-grow rv-item__t">اعلان آزاد شدن زمان</span><input class="rv-switch" type="checkbox"></label>
+    </div>
+    <label class="rv-row" style="gap:10px"><input class="rv-check" type="checkbox" checked><span class="rv-body-sm">قوانین رزرو را خواندم؛ پرداخت به‌منزله پذیرش است.</span></label>
+    <label class="rv-row" style="gap:10px"><input class="rv-check" type="checkbox"><span class="rv-body-sm">برای همه رخدادهای این رزرو دوره‌ای اعمال شود</span></label>
+    <div class="rv-between"><span class="rv-body-sm">تعداد رخداد دوره‌ای</span><span class="rv-stepper rv-glass"><button aria-label="کمتر"><i class="ri ri-sm ri-minus"></i></button><b>۶</b><button aria-label="بیشتر"><i class="ri ri-sm ri-plus"></i></button></span></div>
+  </div>
+</div></div>
+<script>document.querySelectorAll('.rv-option').forEach(function(o){o.addEventListener('click',function(){if(o.querySelector('input').disabled)return;document.querySelectorAll('.rv-option').forEach(function(x){x.setAttribute('aria-checked','false')});o.setAttribute('aria-checked','true');});});</script>
+
+</body></html>

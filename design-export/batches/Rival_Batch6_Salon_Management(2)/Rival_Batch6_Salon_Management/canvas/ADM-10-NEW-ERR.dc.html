@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-10-NEW — افزودن آرایشگر — خطای فیلد</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+<link rel="stylesheet" href="rv-b6.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 770px;">
+  <header class="f-bar-in">
+    <span aria-hidden="true"></span>
+    <h1>آرایشگر تازه</h1>
+    <a href="/admin/stylists" class="rv-icon-btn" aria-label="بستن"><i class="ri ri-x"></i></a>
+  </header>
+  <main class="f-enter" style="padding: var(--space-2) var(--space-4) 150px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <!-- [مدیر] عکس اختیاری (همان b3-pf-edit ویرایش مشتری)؛ بدون عکس، حرف اول نام نشان داده می‌شود -->
+    <div class="b3-pf-edit">
+      <span class="b3-pf__ph b3-pf__ph--lg"><span class="b6-ph" aria-hidden="true"><i class="ri ri-user"></i></span></span>
+      <div class="rv-row" style="gap: var(--space-2);"><button type="button" class="rv-btn rv-btn--secondary rv-btn--sm"><i class="ri ri-sm ri-upload"></i>افزودن عکس</button></div>
+    </div>
+    <div class="b4-2col">
+      <div class="rv-field"><label class="rv-label" for="n-fn">نام</label><div class="rv-input"><input id="n-fn" value="کیان" autocomplete="off"></div></div>
+      <div class="rv-field"><label class="rv-label" for="n-ln">نام خانوادگی</label><div class="rv-input"><input id="n-ln" value="پارسا" autocomplete="off"></div></div>
+    </div>
+    <div class="rv-field"><label class="rv-label" for="n-ph">شماره موبایل</label><div class="rv-input b4-ph is-invalid"><input id="n-ph" inputmode="tel" dir="ltr" value="۰۹۱۴ ۶۶۲ ۱۰" aria-describedby="n-h" aria-invalid="true"></div><div id="n-h" class="rv-help is-error"><i class="ri ri-sm ri-alert" aria-hidden="true"></i>شماره کامل نیست؛ ۱۱ رقم و با ۰۹ شروع می‌شود.</div></div>
+    <!-- [مدیر] نگاشت اولیهٔ اختیاری: همان برگهٔ نگاشت ADM-11-MAP (از همین ردیف باز می‌شود) -->
+    <section aria-labelledby="n-sv" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <div class="f-head" style="margin-bottom: 0;"><h2 id="n-sv" class="f-h">خدمت‌ها</h2><span class="rv-caption rv-muted">اختیاری</span></div>
+      <div class="rv-card rv-glass b4-kvcard">
+        <a href="#s-map" role="button" aria-haspopup="dialog" class="rv-kv" style="color: inherit; text-decoration: none; min-height: 44px; align-items: center;"><span>خدمت‌هایی که انجام می‌دهد</span><b style="color: var(--text-muted);">انتخاب نشده<i class="ri ri-sm ri-chevron-left" aria-hidden="true" style="margin-inline-start: 4px; vertical-align: -3px; color: var(--text-muted);"></i></b></a>
+      </div>
+    </section>
+    <ul class="b2-facts">
+      <li><i class="ri ri-sms"></i><span>ورود اول آرایشگر با کد پیامکی همین شماره است.</span></li>
+      <li><i class="ri ri-ban"></i><span>آرایشگر تازه فوراً فعال است، ولی تا خدمت و برنامه کاری نداشته باشد رزرو نمی‌گیرد.</span></li>
+    </ul>
+  </main>
+  <div class="rv-actionbar rv-glass-strong b2-bar">
+    <div class="b2-bar__sum"><span class="b2-bar__t b2-bar__t--bad"><i class="ri ri-alert"></i>شماره کامل نیست</span><span class="b2-bar__s">کیان پارسا</span></div>
+    <button type="button" class="rv-btn rv-btn--primary" disabled>ثبت آرایشگر</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":770}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

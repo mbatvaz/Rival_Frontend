@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>STY-02 — تقویم من — روز بدون نوبت</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px;">
+
+  <header class="rv-topbar">
+    <h1 class="rv-topbar__title" style="margin: 0;">تقویم</h1>
+    <span class="rv-grow"></span>
+    <a href="/stylist/notifications" class="rv-icon-btn" aria-label="اعلان‌ها، ۱ خوانده‌نشده"><i class="ri ri-bell"></i><span class="rv-dot is-ink"></span></a>
+  </header>
+
+  <main style="padding: 0 var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-4);">
+
+    <div class="rv-week rv-glass">
+      <div class="rv-week__head">
+        <button type="button" class="b4-month" aria-haspopup="dialog" aria-label="مهر ۱۴۰۵، باز کردن تقویم ماهانه">مهر ۱۴۰۵<i class="ri ri-chevron-down"></i></button>
+        <span class="rv-grow"></span>
+        <button class="rv-icon-btn rv-icon-btn--plain" type="button" disabled="" aria-label="هفته قبل" style="color: var(--text-disabled);"><i class="ri ri-chevron-right"></i></button>
+        <button class="rv-icon-btn rv-icon-btn--plain" type="button" aria-label="هفته بعد"><i class="ri ri-chevron-left"></i></button>
+      </div>
+      <div class="rv-week__grid" role="tablist" aria-label="هفته ۲۵ مهر تا ۱ آبان">
+        <span class="rv-week__ind" style="--i: 5;" aria-hidden="true"></span>
+        <button type="button" class="rv-wd is-past is-off" role="tab" aria-selected="false" aria-disabled="true" aria-label="شنبه ۲۵ مهر، گذشته"><small>ش</small><b>۲۵</b></button>
+        <button type="button" class="rv-wd is-today" role="tab" aria-selected="false" aria-label="یکشنبه ۲۶ مهر، امروز، ۴ نوبت پیش رو"><small>ی</small><b>۲۶</b></button>
+        <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="دوشنبه ۲۷ مهر، ۷ نوبت"><small>د</small><b>۲۷</b></button>
+        <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="سه‌شنبه ۲۸ مهر، ۳ نوبت"><small>س</small><b>۲۸</b></button>
+        <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="چهارشنبه ۲۹ مهر، ۵ نوبت"><small>چ</small><b>۲۹</b></button>
+        <button type="button" class="rv-wd" role="tab" aria-selected="true" aria-label="پنج‌شنبه ۳۰ مهر، بدون نوبت"><small>پ</small><b>۳۰</b></button>
+        <button type="button" class="rv-wd is-off is-hol" role="tab" aria-selected="false" aria-disabled="true" aria-label="جمعه ۱ آبان، سالن تعطیل است"><small>ج</small><b>۱</b></button>
+      </div>
+      <div class="rv-week__foot"><span>بدون نوبت، ۱۲ ساعت آزاد</span><a class="rv-link" href="/stylist/appointments">سابقه نوبت‌ها</a></div>
+    </div>
+
+    <!-- روز بدون نوبت: یک خط توضیح و کل ساعت کاری به‌صورت یک زمان آزاد با همان دو اقدام -->
+    <div class="b4-dayhead"><h2 class="f-h">پنج‌شنبه ۳۰ مهر</h2></div>
+
+    <div class="b4-dayempty rv-glass">
+      <span class="b4-dayempty__ic" aria-hidden="true"><i class="ri ri-calendar"></i></span>
+      <div class="rv-grow"><div class="b4-dayempty__t">نوبتی برای این روز ندارید</div><div class="b4-dayempty__d">ساعت کاری شما ۰۸:۰۰ تا ۲۰:۰۰ است و همه آن آزاد است.</div></div>
+    </div>
+
+    <ol class="f-tl" aria-label="برنامه پنج‌شنبه ۳۰ مهر">
+      <li>
+        <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۰۸:۰۰</b></span>
+        <div class="rv-tl__b is-free b4-free b4-free--day">
+          <a href="/stylist/manual-booking?date=1405-07-30&amp;at=08:00" class="b4-free__book"><i class="ri ri-sm ri-plus"></i>رزرو دستی</a>
+          <button type="button" class="b4-free__lock" aria-haspopup="dialog" aria-label="بستن زمان آزاد ۰۸:۰۰، ۱۲ ساعت"><i class="ri ri-lock"></i>بستن</button>
+        </div>
+      </li>
+      <li class="b4-end">
+        <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۲۰:۰۰</b></span>
+        <div class="b4-end__l">پایان ساعت کاری</div>
+      </li>
+    </ol>
+
+  </main>
+
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری آرایشگر">
+      <a href="/stylist" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+      <a href="/stylist/calendar" aria-current="page" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+      <a href="/stylist/requests" aria-label="درخواست‌ها، ۳ درخواست منتظر پاسخ"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۳</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/stylist/customers" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+      <a href="#more" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

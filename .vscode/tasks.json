@@ -1,0 +1,60 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Rival: Install Dependencies",
+      "type": "shell",
+      "command": "npm install",
+      "problemMatcher": []
+    },
+    {
+      "label": "Rival: Install Playwright Chromium",
+      "type": "shell",
+      "command": "npx playwright install chromium",
+      "problemMatcher": []
+    },
+    {
+      "label": "Rival: Build Static Preview",
+      "type": "npm",
+      "script": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Rival: Start Local Preview",
+      "type": "npm",
+      "script": "preview:server",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Rival: Build + Preview",
+      "dependsOn": ["Rival: Build Static Preview", "Rival: Start Local Preview"],
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    },
+    {
+      "label": "Rival: Structure Lint",
+      "type": "npm",
+      "script": "lint:structure",
+      "problemMatcher": []
+    },
+    {
+      "label": "Rival: JavaScript + CSS Lint",
+      "type": "shell",
+      "command": "npm run lint:js && npm run lint:css",
+      "problemMatcher": []
+    },
+    {
+      "label": "Rival: Visual Tests",
+      "type": "npm",
+      "script": "test:visual",
+      "problemMatcher": []
+    },
+    {
+      "label": "Rival: Accessibility Tests",
+      "type": "npm",
+      "script": "test:a11y",
+      "problemMatcher": []
+    }
+  ]
+}

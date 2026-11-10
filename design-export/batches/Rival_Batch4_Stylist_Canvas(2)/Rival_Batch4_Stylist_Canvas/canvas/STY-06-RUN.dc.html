@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>STY-06 — جزئیات نوبت — در حال انجام</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 950px;">
+  <header class="f-bar-in">
+    <a href="/stylist/appointments" class="rv-icon-btn" aria-label="بازگشت به نوبت‌ها"><i class="ri ri-arrow-right"></i></a>
+    <h1>جزئیات نوبت</h1>
+    <span aria-hidden="true"></span>
+  </header>
+  <main style="padding: var(--space-1) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-6);">
+    <!-- در حال انجام: پیشرفت زمانی در سر صفحه؛ بدون «ثبت انجام شد» (تکمیل خودکار است) و بدون «عدم حضور» تا پایان نوبت -->
+    <article class="b3-rqh" aria-label="نوبت اصلاح سر و صورت رضا کریمی، یکشنبه ۲۶ مهر، امروز ساعت ۱۱:۰۰">
+      <div class="b3-rqh__media" style="height: 160px;">
+        <img src="/_blob/3d2706a58e1e77c6d7b58e4103baea41" alt="" style="object-position: center 30%;">
+        <div class="b3-rqh__tags"><span class="rv-tag is-live"><i class="ri ri-scissors"></i>در حال انجام</span></div>
+      </div>
+      <div class="b3-rqh__panel rv-glass-strong b4-hpanel">
+        <div class="rv-row" style="align-items: baseline; width: 100%;"><h2 style="margin: 0; font-size: 22px; line-height: 34px; font-weight: 600;">اصلاح سر و صورت</h2><bdi dir="ltr" class="b3-rq__s" style="margin-right: auto;">#BK-48302</bdi></div>
+        <div class="rv-bk-hero__when">
+          <div class="rv-bk-hero__date"><b>۲۶</b><span>یکشنبه</span><small>امروز</small></div>
+          <span class="rv-bk-hero__sep" aria-hidden="true"></span>
+          <div class="rv-bk-hero__time"><b>۱۱:۰۰</b><div class="b3-run" role="progressbar" aria-label="۴۰ دقیقه از ۱ ساعت گذشته" aria-valuemin="0" aria-valuemax="60" aria-valuenow="40"><div class="f-bar__track" aria-hidden="true"><i style="width: 67%;"></i></div><span class="b3-run__t">۱ ساعت<span class="rv-sep" aria-hidden="true"></span>۲۰ دقیقه مانده</span></div></div>
+        </div>
+        <div class="b4-cust">
+          <span class="rv-avatar"><img src="/_blob/4ef1bad64b3243b7c25d21b44540c637" alt=""></span>
+          <div class="rv-grow" style="min-width: 0;">
+            <a href="/stylist/customers/1042" class="f-stretch b4-cust__n">رضا کریمی</a>
+            <span class="b4-cust__p">۰۹۱۴ ۲۷۱ ۳۸۴۰</span>
+          </div>
+          <button type="button" class="rv-icon-btn" aria-haspopup="dialog" aria-label="پیامک به رضا کریمی"><i class="ri ri-sms"></i></button>
+          <a href="tel:09142713840" class="rv-icon-btn" aria-label="تماس با رضا کریمی"><i class="ri ri-phone"></i></a>
+        </div>
+      </div>
+    </article>
+    <!-- پرداخت: فقط وضعیت عملیاتی و هزینه رزرو ثبت‌شده؛ بدون شناسه درگاه و بدون تفکیک اعتبار و درگاه -->
+    <section aria-labelledby="d-pay" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <div class="f-head" style="margin-bottom: 0;"><h2 id="d-pay" class="f-h">پرداخت</h2><span class="rv-caption rv-muted">ثبت ۲۴ مهر، ۱۰:۰۵</span></div>
+      <div class="rv-card rv-glass" style="padding: var(--space-2) var(--space-4) var(--space-3);">
+        <div class="rv-kv"><span>هزینه رزرو مرجع</span><b>۹۰٬۰۰۰ تومان</b></div>
+        <div class="rv-kv"><span>وضعیت پرداخت</span><b><span class="b4-muted">اخذ نشد</span></b></div>
+        <div class="rv-kv"><span>نوع رزرو</span><b>رزرو دستی، توسط شما</b></div>
+      </div>
+    </section>
+    <section aria-labelledby="d-act" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <div class="f-head" style="margin-bottom: 0;"><h2 id="d-act" class="f-h">اقدام‌ها</h2></div>
+      <div class="b3-acts">
+        <div><button type="button" class="rv-btn rv-btn--primary" aria-disabled="true" aria-describedby="why-run"><i class="ri ri-sm ri-lock"></i>جابه‌جایی</button></div>
+        <div><button type="button" class="rv-btn rv-btn--danger-soft" aria-disabled="true" aria-describedby="why-run"><i class="ri ri-sm ri-lock"></i>لغو نوبت</button></div>
+      </div>
+      <p class="b3-why" id="why-run"><i class="ri ri-lock"></i>نوبت شروع شده است؛ لغو و جابه‌جایی ممکن نیست. بعد از پایان، ساعت ۱۲:۰۰، «انجام شده» خودکار ثبت می‌شود و تا ۲۳:۵۹ امروز می‌توانید «عدم حضور» ثبت کنید.</p>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":950}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

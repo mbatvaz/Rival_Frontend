@@ -1,0 +1,96 @@
+/* Rival — دسته ۷ — اجزای تازه (فقط توکن؛ بعد از rv-b6.css بارگذاری می‌شود)
+   پیشوند همه کلاس‌ها b7- است. شماره بخش‌ها (§) برای ارجاع در فایل تحویل ۰۷.
+   کلاس‌های جهت‌های ردشده بخش ۱ (b7-xrow، b7-sys، b7-pub) پاک شدند. */
+
+/* §1 — نوار سهم پرداخت (ADM-16): سهم اعتبار و سهم درگاه از یک مبلغ */
+.b7-split{display:flex;flex-direction:column;gap:var(--space-2)}
+.b7-split__bar{display:flex;height:8px;border-radius:var(--radius-pill);overflow:hidden;background:var(--bg-plaster,#e9eaec);gap:2px}
+.b7-split__bar i{display:block;height:100%}
+.b7-split__bar .is-cr{background:var(--accent-500)}
+.b7-split__bar .is-gw{background:var(--chrome-500,#8a8f96)}
+.b7-split__rows{display:flex;flex-direction:column}
+.b7-split__row{display:flex;align-items:center;gap:var(--space-2);min-height:36px;font-size:14px;line-height:22px}
+.b7-split__row + .b7-split__row{border-top:1px solid var(--line-hairline,rgba(18,20,23,.08))}
+.b7-split__key{width:8px;height:8px;border-radius:50%;flex:none}
+.b7-split__key.is-cr{background:var(--accent-500)}
+.b7-split__key.is-gw{background:var(--chrome-500,#8a8f96)}
+.b7-split__row span{flex:1;font-weight:300;color:var(--text-secondary)}
+.b7-split__row b{font-family:var(--font-numeric);font-weight:400}
+.b7-split__row.is-total span{color:var(--text-primary);font-weight:400}
+.b7-split__row.is-total b{font-weight:600}
+
+/* §2 — نتیجه تأیید درگاه (ADM-16): یک خط زمانی سه‌قدمی کوتاه */
+.b7-gw{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.b7-gw li{position:relative;display:flex;gap:var(--space-3);padding-block:6px;font-size:13px;line-height:20px}
+.b7-gw li::before{content:"";position:absolute;inset-inline-start:7px;top:22px;bottom:-6px;width:1px;background:var(--line-hairline,rgba(18,20,23,.12))}
+.b7-gw li:last-child::before{display:none}
+.b7-gw__n{width:15px;height:15px;border-radius:50%;flex:none;margin-top:3px;background:var(--bg-surface,#fff);border:1.5px solid var(--chrome-300,#c4c7cc)}
+.b7-gw li.is-ok .b7-gw__n{border-color:var(--success-solid);background:var(--success-solid)}
+.b7-gw li.is-q .b7-gw__n{border-color:var(--info-solid);background:var(--info-bg)}
+.b7-gw__t{flex:1;font-weight:400}
+.b7-gw__t small{display:block;font-size:12px;font-weight:300;color:var(--text-muted)}
+.b7-gw time{font-family:var(--font-numeric);font-size:12px;color:var(--text-muted);font-weight:300}
+
+/* §3 گزینه‌های انحصاری تطبیق (ADM-16): ردیف b6-pk__r دسته ۶ (§۴۷) بدون دایرهٔ انتخاب؛ انتخاب‌شده بالا آمده با سایهٔ چندلایه، انتخاب‌نشده فرورفته */
+.b7-pk { gap: var(--space-3); padding-block: var(--space-1); }
+.b7-pk .b6-pk__r { width: 100%; box-sizing: border-box; margin: 0; border: 0; font: inherit; color: inherit; text-align: start; min-height: 72px; padding: var(--space-3) var(--space-4); }
+.b7-pk .b6-pk__r .rv-tile { flex: none; }
+.b7-pk .b6-pk__r .rv-item__s { margin-top: 2px; }
+
+/* §4 فهرست اعلان‌های منتشرشده (ADM-NOT): خط جداکنندهٔ کوتاه و کم‌رنگ وسط‌چین بین ردیف‌ها (مثل ردیف نوبت مدیر) */
+.b7-publ > .rv-item { padding-block: var(--space-4); }
+.b7-publ > .rv-item + .rv-item { position: relative; border-top: 0; }
+.b7-publ > .rv-item + .rv-item::before { content: ""; position: absolute; top: 0; left: 50%; width: 120px; height: 1px; margin-left: -60px; background: var(--line-strong); opacity: .6; }
+
+/* §5 — جای‌نگهدار تصویر (نمونه‌کار، عکس طاها، نقشه): کاشی خنثی با آیکون؛ جای <img> را می‌گیرد */
+.b7-ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--text-muted);background:linear-gradient(145deg,var(--bg-plaster,#e9eaec),var(--bg-card-raised,#f5f5f6))}
+.b7-th{position:relative;display:block;flex:none;width:44px;height:44px;border-radius:var(--radius-md,12px);overflow:hidden}
+
+/* §6 — آکاردئون بخش‌بندی صفحهٔ تنظیماتی (ADM-21، ADM-24): هم‌زمان یک بخش باز */
+.b7-acc{display:flex;flex-direction:column;gap:var(--space-3)}
+.b7-acc__i{padding:0;overflow:hidden}
+.b7-acc__h{display:flex;align-items:center;gap:var(--space-3);width:100%;min-height:64px;padding:var(--space-3) var(--space-4);background:none;border:0;font:inherit;color:inherit;text-align:start;cursor:pointer}
+.b7-acc__t{display:block;font-size:15px;line-height:24px}
+.b7-acc__s{display:block;font-size:13px;line-height:20px;font-weight:300;color:var(--text-muted)}
+.b7-acc__h > .ri-chevron-down{flex:none;transition:transform var(--dur-base,200ms) var(--ease-standard,ease)}
+.b7-acc__i.is-open .b7-acc__h > .ri-chevron-down{transform:rotate(180deg)}
+.b7-acc__b{display:flex;flex-direction:column;padding:0 var(--space-4) var(--space-2);border-top:1px solid var(--line-hairline,rgba(18,20,23,.08))}
+
+/* §7 — ردیف فیلد درون آکاردئون؛ لمس آن برگهٔ ویرایش فیلد را باز می‌کند */
+.b7-fr{display:flex;align-items:center;gap:var(--space-3);width:100%;min-height:56px;padding:var(--space-2) 0;background:none;border:0;font:inherit;color:inherit;text-align:start;cursor:pointer}
+.b7-fr + .b7-fr,.b7-fr + .b7-map,.b7-map + .b7-fr{border-top:1px solid var(--line-hairline,rgba(18,20,23,.08))}
+.b7-fr__k{display:block;font-size:13px;line-height:20px;font-weight:300;color:var(--text-muted)}
+.b7-fr__v{display:block;font-size:15px;line-height:24px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.b7-fr__s{display:block;font-size:13px;line-height:20px;font-weight:300;color:var(--text-secondary)}
+.b7-fr__n{font-family:var(--font-numeric);font-weight:400;font-size:17px;white-space:nowrap}
+.b7-fr__n small{font-size:13px;font-weight:300;color:var(--text-muted);margin-inline-start:4px}
+.b7-fr.is-link{cursor:default}
+.b7-map{position:relative;height:104px;border-radius:var(--radius-md,12px);overflow:hidden;margin:var(--space-1) 0 var(--space-2)}
+
+/* §8 — خطای فیلد در برگه */
+.b7-inv{box-shadow:inset 0 0 0 1.5px var(--danger-fg)}
+.b7-err{display:flex;gap:var(--space-2);align-items:flex-start;margin-top:var(--space-2);font-size:13px;line-height:20px;color:var(--danger-fg)}
+
+/* §9 — قاب‌های بدون عکس درست نمایش داده شوند: والد نسبی می‌شود؛ حرف اول نام برای پروفایل؛ تصویر شاخص ۱۶:۹ */
+.b3-pf__ph:has(> .b7-ph),.b6-up__ph:has(> .b7-ph),.b4-up:has(> .b7-ph){position:relative;overflow:hidden}
+.b7-ph--ini{font-size:24px;line-height:1;font-weight:600;color:var(--text-primary)}
+.b7-hero{position:relative;aspect-ratio:16/9;border-radius:var(--radius-md,12px);overflow:hidden;margin:var(--space-2) 0}
+
+/* §10 — دو فیلد کنار هم در برگه: ستون‌ها حق کوچک شدن دارند و ورودی از کادر بیرون نمی‌زند */
+.b7-g2 > .rv-field{min-width:0}
+.b7-g2 .rv-input{min-width:0}
+.b7-g2 input{min-width:0;width:100%}
+
+/* §11 — بازه‌های لغو و جابه‌جایی (ADM-24): فهرست سه‌بازه‌ای زمان مانده تا نوبت */
+.b7-zn{display:flex;flex-direction:column;padding:var(--space-4)}
+.b7-zn__ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.b7-zn__r{display:flex;flex-direction:column;gap:var(--space-1);padding:var(--space-3) 0}
+.b7-zn__r + .b7-zn__r{border-top:1px solid var(--line-hairline,rgba(18,20,23,.08))}
+.b7-zn__t{display:flex;align-items:center;justify-content:space-between;gap:var(--space-2)}
+.b7-zn__t b{font-weight:400;font-size:15px;line-height:24px}
+.b7-zn__l{display:flex;gap:var(--space-2);align-items:flex-start;margin:0;font-size:13px;line-height:20px;font-weight:300;color:var(--text-secondary)}
+.b7-zn__l .ri{flex:none;margin-top:2px;color:var(--text-muted)}
+
+/* §12 — عکس واقعی در قاب‌های جای‌نگهدار: تمام‌قاب و برش مرکز */
+.b7-hero > img,.b7-th > img,.b3-pf__ph > img,.b6-up__ph > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.b3-pf__ph:has(> img),.b6-up__ph:has(> img){position:relative;overflow:hidden}

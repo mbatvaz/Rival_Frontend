@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rival — Overlays</title><link rel="stylesheet" href="../../css/tokens.css"><link rel="stylesheet" href="../../css/rival.css"><style>body{margin:0}</style></head>
+<body>
+<!-- @dsCard width=900 group="Feedback" height=2900 subtitle="Every confirm, delete or question is a bottom sheet in liquid glass (consequence, safer option, sign-out, passkey removal); the More drawer opens from the left; the action menu; the centred dialog is kept only as a deprecated reference" -->
+<div class="rv rv-final rv-pad" dir="rtl" lang="fa"><div class="rv-stack-lg">
+  <div class="rv-grid-2">
+    <div class="rv-stack" style="gap:8px">
+      <div class="rv-frame">
+        <div class="rv-scrim"></div>
+        <div class="rv-sheet rv-glass-strong" role="dialog" aria-modal="true" aria-labelledby="ov-c">
+          <div class="rv-grabber"></div>
+          <div class="rv-row" style="margin-bottom:12px"><span class="rv-tile is-rose"><i class="ri ri-calendar-x"></i></span><div id="ov-c" class="rv-h-md">لغو این نوبت؟</div></div>
+          <div class="rv-policy"><span class="is-on"></span><span></span><span></span></div>
+          <div class="rv-policy-l"><b>تا شنبه، ۱۴:۰۰</b><span>تا شروع، یکشنبه ۱۴:۰۰</span><span>بعد از شروع</span></div>
+          <div class="rv-notice is-accent" style="margin:14px 0 16px"><i class="ri ri-wallet"></i><div><div class="rv-notice__t">۱۸۰٬۰۰۰ تومان به اعتبار شما برمی‌گردد</div><div class="rv-notice__d">اگر تا شنبه ساعت ۱۴:۰۰ لغو کنید.</div></div></div>
+          <div class="rv-grid-2" style="gap:8px"><button class="rv-btn rv-btn--secondary">جابه‌جایی</button><button class="rv-btn rv-btn--danger">لغو نوبت</button></div>
+        </div>
+      </div>
+      <span class="rv-caption rv-muted">برگه پیامد — عنوان پرسشی، اثر مالی پیش از لمس، گزینه کم‌خطر کنار عمل خطرناک. مهلت با ساعت واقعی همان نوبت، نه عدد ثابت.</span>
+    </div>
+    <div class="rv-stack" style="gap:8px">
+      <div class="rv-frame">
+        <div class="rv-scrim"></div>
+        <div class="rv-sheet rv-glass-strong" role="dialog" aria-modal="true" aria-labelledby="ov-d">
+          <div class="rv-grabber"></div>
+          <div class="rv-row" style="margin-bottom:8px"><span class="rv-tile is-danger"><i class="ri ri-trash"></i></span><div id="ov-d" class="rv-h-md">حذف دائمی این نمونه‌کار؟</div></div>
+          <p class="rv-body-sm rv-secondary" style="margin:0 0 14px">تصویرها و سابقه این نمونه‌کار برای همیشه پاک می‌شوند و برنمی‌گردند.</p>
+          <label class="rv-option" aria-checked="false" style="margin-bottom:14px"><span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-eye-off"></i></span><span class="rv-grow"><span class="rv-label" style="display:block">فقط مخفی شود</span><span class="rv-caption rv-muted">از صفحه عمومی برداشته می‌شود و قابل برگشت است</span></span></label>
+          <div class="rv-grid-2" style="gap:8px"><button class="rv-btn rv-btn--secondary">انصراف</button><button class="rv-btn rv-btn--danger">حذف دائمی</button></div>
+        </div>
+      </div>
+      <span class="rv-caption rv-muted">حذف — همیشه برگه پایین؛ گزینه کم‌خطرتر پیش از دکمه قرمز (D10-105).</span>
+    </div>
+    <div class="rv-stack" style="gap:8px">
+      <div class="rv-frame">
+        <div class="rv-scrim"></div>
+        <div class="rv-sheet rv-glass-strong" role="dialog" aria-modal="true" aria-labelledby="ov-l">
+          <div class="rv-grabber"></div>
+          <div class="rv-row" style="margin-bottom:8px"><span class="rv-tile is-danger"><i class="ri ri-logout"></i></span><div id="ov-l" class="rv-h-md">از حساب خارج می‌شوید؟</div></div>
+          <p class="rv-body-sm rv-secondary" style="margin:0 0 16px">نوبت‌ها و درخواست‌های شما سر جایشان می‌مانند. برای ورود دوباره کد پیامکی می‌گیرید.</p>
+          <div class="rv-grid-2" style="gap:8px"><button class="rv-btn rv-btn--secondary">انصراف</button><button class="rv-btn rv-btn--danger">خروج</button></div>
+        </div>
+      </div>
+      <span class="rv-caption rv-muted">تأیید خروج از حساب — برگه پایین، نه پنجره وسط صفحه (D10-108).</span>
+    </div>
+  </div>
+  <div class="rv-grid-2">
+    <div class="rv-stack" style="gap:8px">
+      <div class="rv-frame">
+        <div class="rv-scrim"></div>
+        <aside class="f-drawer rv-glass-strong" role="dialog" aria-modal="true" aria-label="منوی بیشتر">
+          <div class="f-drawer__head">
+            <span class="rv-avatar"><img src="../../assets/photos/stylists/stylist-2.webp" alt=""></span>
+            <div class="rv-grow" style="min-width:0"><div class="f-drawer__name">رضا کریمی</div><div class="f-drawer__role">مشتری<span class="rv-sep" aria-hidden="true"></span><span class="rv-ltr">۰۹۱۴ ۲۷۱ ۳۸۴۰</span></div></div>
+            <button class="rv-icon-btn rv-icon-btn--plain" type="button" aria-label="بستن منو"><i class="ri ri-x"></i></button>
+          </div>
+          <nav class="f-drawer__body f-drawer__body--fade" aria-label="منوی بیشتر">
+            <div class="f-drawer__grp" role="group">
+              <a class="rv-item" href="#"><span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-user"></i></span><span class="rv-grow">پروفایل و روش‌های ورود</span><i class="ri ri-sm ri-chevron-left rv-chev"></i></a>
+              <a class="rv-item" href="#"><span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-bell-ring"></i></span><span class="rv-grow">اعلان آزادشدن زمان</span><span class="f-drawer__meta">۱ فعال</span><i class="ri ri-sm ri-chevron-left rv-chev"></i></a>
+              <a class="rv-item" href="#"><span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-repeat"></i></span><span class="rv-grow">رزرو دوره‌ای</span><i class="ri ri-sm ri-chevron-left rv-chev"></i></a>
+              <a class="rv-item" href="#" aria-label="اعلان‌ها، ۲ خوانده‌نشده"><span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-bell"></i></span><span class="rv-grow">اعلان‌ها</span><span class="rv-dot is-ink" style="position:static" aria-hidden="true"></span><i class="ri ri-sm ri-chevron-left rv-chev"></i></a>
+            </div>
+            <div class="f-drawer__grp" role="group" aria-label="سالن">
+              <div class="f-drawer__lbl">سالن</div>
+              <a class="rv-item" href="#"><span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-images"></i></span><span class="rv-grow">نمونه‌کارها</span><i class="ri ri-sm ri-chevron-left rv-chev"></i></a>
+              <a class="rv-item" href="#"><span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-shield"></i></span><span class="rv-grow">قوانین رزرو</span><i class="ri ri-sm ri-chevron-left rv-chev"></i></a>
+            </div>
+          </nav>
+          <div class="f-drawer__foot"><button class="rv-item" type="button"><span class="rv-tile rv-tile--sm is-danger"><i class="ri ri-sm ri-logout"></i></span><span class="rv-grow">خروج از حساب</span></button></div>
+        </aside>
+      </div>
+      <span class="rv-caption rv-muted">کشوی «بیشتر» (<span class="rv-ltr">MoreDrawer</span>) — از چپ، ۸۵٪ عرض؛ تنها جای نمایش هویت کاربر؛ «خروج از حساب» در پای ثابت.</span>
+    </div>
+    <div class="rv-stack" style="gap:8px">
+      <div class="rv-frame">
+        <div class="rv-scrim"></div>
+        <div class="rv-sheet rv-glass-strong" role="dialog" aria-modal="true" aria-labelledby="ov-p">
+          <div class="rv-grabber"></div>
+          <div class="rv-row" style="margin-bottom:8px"><span class="rv-tile is-danger"><i class="ri ri-fingerprint"></i></span><div id="ov-p" class="rv-h-md">این Passkey حذف شود؟</div></div>
+          <p class="rv-body-sm rv-secondary" style="margin:0 0 16px">دیگر نمی‌توانید با این دستگاه بدون کد وارد شوید. ورود با کد پیامکی همیشه در دسترس است.</p>
+          <div class="rv-grid-2" style="gap:8px"><button class="rv-btn rv-btn--secondary">انصراف</button><button class="rv-btn rv-btn--danger">حذف</button></div>
+        </div>
+      </div>
+      <span class="rv-caption rv-muted">حذف Passkey — برگه پایین؛ ردیف دستگاه بالای پرده می‌ماند (D10-57، D10-107، D10-108).</span>
+    </div>
+    <div class="rv-stack" style="gap:8px">
+      <div class="rv-frame" style="padding:20px">
+        <div class="rv-between"><span class="rv-h-md">جزئیات نوبت</span><button class="rv-icon-btn" aria-label="بیشتر" aria-expanded="true"><i class="ri ri-more"></i></button></div>
+        <div class="rv-menu rv-glass-strong" style="position:absolute;top:72px;left:20px;animation:rv-rise var(--duration-base) var(--ease-standard) both">
+          <button><i class="ri ri-sms"></i>ارسال پیامک</button>
+          <button><i class="ri ri-phone"></i>تماس با مشتری</button>
+          <hr>
+          <button class="is-danger"><i class="ri ri-calendar-x"></i>لغو نوبت…</button>
+        </div>
+        <div style="position:absolute;bottom:24px;inset-inline:20px" class="rv-stack">
+          <span class="rv-overline">راهنمای کوچک</span>
+          <div><span class="rv-tooltip">۲ نوبت قطعی در این بازه است</span></div>
+          <span class="rv-caption rv-muted">منو و راهنما شیشه‌ای یا جوهری‌اند و هرگز سایه رنگی ندارند.</span>
+        </div>
+      </div>
+      <span class="rv-caption rv-muted">منوی اقدام‌های همان صفحه؛ عمل اثرگذار از منو به برگه پیامد می‌رود.</span>
+    </div>
+  </div>
+  <div class="rv-grid-2">
+    <div class="rv-stack" style="gap:8px">
+      <span class="rv-overline">منسوخ — فقط برای سابقه</span>
+      <div class="rv-frame" style="height:400px;filter:grayscale(1);opacity:.7">
+        <div class="rv-scrim"></div>
+        <div class="rv-dialog rv-glass-strong" aria-hidden="true">
+          <span class="rv-tile rv-tile--lg is-danger" style="margin:0 auto 14px"><i class="ri ri-lg ri-trash"></i></span>
+          <div class="rv-h-md">پنجره وسط صفحه</div>
+          <p class="rv-body-sm rv-secondary" style="margin:6px 0 16px"><span class="rv-ltr">.rv-dialog</span> حذف نمی‌شود، ولی در طرح تازه به کار نمی‌رود.</p>
+          <div class="rv-stack" style="gap:8px"><button class="rv-btn rv-btn--secondary rv-btn--block" tabindex="-1">به‌جایش برگه پایین</button></div>
+        </div>
+      </div>
+      <span class="rv-caption rv-muted">دیالوگ وسط صفحه منسوخ است (D10-108)؛ همین محتوا در برگه پایین می‌آید.</span>
+    </div>
+  </div>
+</div></div>
+
+</body></html>

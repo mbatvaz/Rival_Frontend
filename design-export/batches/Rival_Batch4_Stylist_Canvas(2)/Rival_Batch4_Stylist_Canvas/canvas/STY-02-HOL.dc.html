@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>STY-02 — تقویم من — تعطیل رسمی، بدون پذیرش</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px;">
+
+  <header class="rv-topbar">
+    <h1 class="rv-topbar__title" style="margin: 0;">تقویم</h1>
+    <span class="rv-grow"></span>
+    <a href="/stylist/notifications" class="rv-icon-btn" aria-label="اعلان‌ها، ۱ خوانده‌نشده"><i class="ri ri-bell"></i><span class="rv-dot is-ink"></span></a>
+  </header>
+
+  <main style="padding: 0 var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-4);">
+
+    <div class="rv-week rv-glass">
+      <div class="rv-week__head">
+        <button type="button" class="b4-month" aria-haspopup="dialog" aria-label="آبان ۱۴۰۵، باز کردن تقویم ماهانه">آبان ۱۴۰۵<i class="ri ri-chevron-down"></i></button>
+        <span class="rv-grow"></span>
+        <button class="rv-icon-btn rv-icon-btn--plain" type="button" aria-label="هفته قبل"><i class="ri ri-chevron-right"></i></button>
+        <button class="rv-icon-btn rv-icon-btn--plain" type="button" aria-label="هفته بعد"><i class="ri ri-chevron-left"></i></button>
+      </div>
+      <div class="rv-week__grid" role="tablist" aria-label="هفته ۲ تا ۸ آبان">
+        <span class="rv-week__ind" style="--i: 3;" aria-hidden="true"></span>
+        <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="شنبه ۲ آبان، ۶ نوبت"><small>ش</small><b>۲</b></button>
+        <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="یکشنبه ۳ آبان، ۷ نوبت"><small>ی</small><b>۳</b></button>
+        <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="دوشنبه ۴ آبان، ۵ نوبت"><small>د</small><b>۴</b></button>
+        <button type="button" class="rv-wd is-hol" role="tab" aria-selected="true" aria-label="سه‌شنبه ۵ آبان، تعطیل رسمی"><small>س</small><b>۵</b></button>
+        <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="چهارشنبه ۶ آبان، ۴ نوبت"><small>چ</small><b>۶</b></button>
+        <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="پنج‌شنبه ۷ آبان، ۳ نوبت"><small>پ</small><b>۷</b></button>
+        <button type="button" class="rv-wd is-off is-hol" role="tab" aria-selected="false" aria-disabled="true" aria-label="جمعه ۸ آبان، سالن تعطیل است"><small>ج</small><b>۸</b></button>
+      </div>
+      <div class="rv-week__foot"><span>تعطیل رسمی؛ رزرو تازه بسته است</span><a class="rv-link" href="/stylist/appointments">سابقه نوبت‌ها</a></div>
+    </div>
+
+    <!-- تعطیل رسمی آینده، بدون پذیرش: پیش‌فرض بسته؛ راه پذیرش همین‌جا دیده می‌شود (ثبت در برنامه کاری، STY-08) -->
+    <div class="b4-dayhead"><h2 class="f-h">سه‌شنبه ۵ آبان</h2><span class="rv-tag is-danger"><i class="ri ri-calendar-x"></i>تعطیل رسمی</span></div>
+
+    <section class="rv-card rv-glass b3-empty b4-noday" aria-labelledby="h-t">
+      <span class="b3-empty__ic" aria-hidden="true"><i class="ri ri-lg ri-calendar-x"></i></span>
+      <h3 id="h-t" class="b3-empty__t">سالن در این روز تعطیل است</h3>
+      <p class="b3-empty__d">در تعطیل رسمی رزرو تازه بسته است. اگر این روز کار می‌کنید، برای همین تاریخ «پذیرش» ثبت کنید تا مشتری‌ها در ساعت‌های کاری شما رزرو کنند.</p>
+      <a href="/stylist/schedule?holiday=1405-08-05" class="rv-btn rv-btn--secondary rv-btn--block"><i class="ri ri-calendar-plus"></i>پذیرش در این روز</a>
+    </section>
+    <p class="b4-hint"><i class="ri ri-info" aria-hidden="true"></i>پذیرش فقط برای همین تاریخ ثبت می‌شود و برنامه هفتگی شما تغییر نمی‌کند.</p>
+
+  </main>
+
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری آرایشگر">
+      <a href="/stylist" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+      <a href="/stylist/calendar" aria-current="page" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+      <a href="/stylist/requests" aria-label="درخواست‌ها، ۳ درخواست منتظر پاسخ"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۳</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/stylist/customers" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+      <a href="#more" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

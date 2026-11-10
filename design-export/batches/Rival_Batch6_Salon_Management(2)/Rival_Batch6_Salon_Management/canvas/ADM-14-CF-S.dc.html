@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-14 — برگه ضریب خدمت ثابت</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+<link rel="stylesheet" href="rv-b6.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1280px;">
+  <div aria-hidden="true" inert style="position: absolute; inset: 0; overflow: hidden;">
+  <header class="f-bar-in">
+    <a href="#more" class="rv-icon-btn" aria-label="بازگشت"><i class="ri ri-arrow-right"></i></a>
+    <h1>قیمت‌گذاری</h1>
+    <a href="/admin/action-center" class="rv-icon-btn" aria-label="مرکز اقدام، ۳ مورد باز"><i class="ri ri-pending"></i><span class="rv-count is-plum">۳</span></a>
+  </header>
+  <main style="padding: var(--space-2) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <!-- ۱. مبلغ پایه: اولین چیز صفحه -->
+    <section id="p-base" aria-labelledby="h-base">
+      <div class="b6-base is-hero rv-card rv-glass-strong">
+        <div class="rv-grow">
+          <h2 id="h-base" class="b6-base__k">مبلغ پایه</h2>
+          <b class="b6-base__v">۶۰٬۰۰۰<small>تومان</small></b>
+          <span class="b6-base__d">برای هر زمانی که بازه ویژه ندارد</span>
+        </div>
+        <button type="button" class="rv-btn rv-btn--secondary rv-btn--sm" style="min-height: 44px;" aria-haspopup="dialog"><i class="ri ri-sm ri-edit"></i>ویرایش</button>
+      </div>
+    </section>
+    <!-- سیستم محاسبه: نمونه محاسبه خودِ فرمول است -->
+    <section class="b6-fx rv-glass-strong" aria-labelledby="fx-t">
+      <p id="fx-t" class="b6-fx__lbl">هزینه رزرو = مبلغ پایه × ضریب خدمت × ضریب آرایشگر</p>
+      <div class="b6-fx__eq">
+        <a href="#p-base" class="b6-fx__term" aria-label="مبلغ پایه این زمان ۹۰٬۰۰۰ تومان، از بازه ویژه"><small>مبلغ پایه</small><b>۹۰٬۰۰۰</b><em>بازه ویژه</em></a>
+        <span class="b6-fx__x" aria-hidden="true">×</span>
+        <a href="#p-svc" class="b6-fx__term" aria-label="ضریب فیشیال ۳"><small>ضریب خدمت</small><b>۳</b><em>فیشیال</em></a>
+        <span class="b6-fx__x" aria-hidden="true">×</span>
+        <a href="#p-sty" class="b6-fx__term" aria-label="ضریب طاها ۱٫۲"><small>ضریب آرایشگر</small><b>۱٫۲</b><em>طاها</em></a>
+      </div>
+      <div class="b6-fx__res">
+        <span>هزینه رزرو</span>
+        <b class="b6-fx__tot">۳۲۴٬۰۰۰<small>تومان</small></b>
+      </div>
+      <div class="b6-fx__for" role="group" aria-label="نمونه محاسبه برای">
+        <button type="button" class="b6-pick" aria-haspopup="dialog"><span><small>خدمت</small><b>فیشیال</b></span><i class="ri ri-chevron-down" aria-hidden="true"></i></button>
+        <button type="button" class="b6-pick" aria-haspopup="dialog"><span><small>آرایشگر</small><b>طاها</b></span><i class="ri ri-chevron-down" aria-hidden="true"></i></button>
+        <button type="button" class="b6-pick" aria-haspopup="dialog"><span><small>زمان نوبت</small><b>پنج‌شنبه ۲۷ اسفند، ۱۷:۰۰</b></span><i class="ri ri-chevron-down" aria-hidden="true"></i></button>
+      </div>
+    </section>
+    <div class="rv-notice" role="note" style="margin-top: calc(var(--space-2) * -1);">
+      <i class="ri ri-info" aria-hidden="true"></i>
+      <div class="rv-notice__t">تغییرات فقط روی رزروهای تازه اثر دارد؛ نوبت‌ها و پرداخت‌های ثبت‌شده تغییر نمی‌کنند.</div>
+    </div>
+    <div class="rv-seg rv-glass b4-seg-full b6-seg4" role="tablist" aria-label="ضریب‌ها و بازه‌های ویژه" style="margin-bottom: calc(var(--space-2) * -1);"><button type="button" id="t-svc" role="tab" aria-selected="true" aria-controls="p-svc">ضریب خدمت</button><button type="button" id="t-sty" role="tab" aria-selected="false" aria-controls="p-sty">ضریب آرایشگر</button><button type="button" id="t-ovr" role="tab" aria-selected="false" aria-controls="p-ovr">بازه‌های ویژه</button></div>
+    <div class="b6-pg" id="pg" style="overflow: visible;">
+      <section id="p-svc" class="b6-pg__p" role="tabpanel" aria-labelledby="t-svc">
+        <div class="b6-tls">
+          <a href="#cf-s1" class="b3-lift b6-tl rv-card rv-glass" aria-haspopup="dialog" aria-label="اصلاح سر، ضریب ۱٫۵"><span class="b6-tl__t">اصلاح سر</span><span class="b6-tl__r"><small>۹۰٬۰۰۰ تومان</small><span class="b6-x">× ۱٫۵</span></span></a>
+          <a href="#cf-s2" class="b6-tl rv-card rv-glass" aria-haspopup="dialog" aria-label="اصلاح سر و صورت، ضریب ۲"><span class="b6-tl__t">اصلاح سر و صورت</span><span class="b6-tl__r"><small>۱۲۰٬۰۰۰ تومان</small><span class="b6-x">× ۲</span></span></a>
+          <a href="#cf-s3" class="b6-tl rv-card rv-glass" aria-haspopup="dialog" aria-label="فیشیال، ضریب ۳"><span class="b6-tl__t">فیشیال</span><span class="b6-tl__r"><small>۱۸۰٬۰۰۰ تومان</small><span class="b6-x">× ۳</span></span></a>
+          <a href="#cf-s4" class="b6-tl rv-card rv-glass" aria-haspopup="dialog" aria-label="رنگ ریش، ضریب ۱"><span class="b6-tl__t">رنگ ریش</span><span class="b6-tl__r"><small>پیشنهاد ۶۰٬۰۰۰</small><span class="b6-x is-def">× ۱</span></span></a>
+          <a href="#cf-s5" class="b6-tl rv-card rv-glass" aria-haspopup="dialog" aria-label="گریم داماد، ضریب ۲"><span class="b6-tl__t">گریم داماد</span><span class="b6-tl__r"><small>پیشنهاد ۱۲۰٬۰۰۰</small><span class="b6-x">× ۲</span></span></a>
+        </div>
+        <p class="b4-hint"><i class="ri ri-info" aria-hidden="true"></i>مبلغ هر کاشی با مبلغ پایه فعلی است. درخواست چندخدمتی ضریب جدا ندارد؛ هر بخش آن با ضریب خدمت و آرایشگر خودش حساب می‌شود.</p>
+      </section>
+    </div>
+  </main>
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری مدیر کل">
+      <a href="/admin" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+      <a href="/admin/calendar" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+      <a href="/admin/requests" aria-label="درخواست‌ها، ۴ درخواست منتظر پاسخ شما"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۴</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/admin/customers" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+      <a href="#more" aria-current="page" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+  </div>
+  </div>
+  <div class="rv-scrim" aria-hidden="true"></div>
+  <section class="rv-sheet rv-glass-strong b2-sheet" role="dialog" aria-modal="true" aria-labelledby="cs-t">
+    <span class="b2-grip" aria-hidden="true"></span>
+    <div class="b2-sheet__head">
+      <span class="rv-tile is-neutral"><i class="ri ri-scissors"></i></span>
+      <div class="rv-grow"><h2 id="cs-t" class="b2-sheet__t">ضریب اصلاح سر</h2><p class="b2-sheet__d">خدمت ثابت</p></div>
+      <button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="بستن برگه"><i class="ri ri-x"></i></button>
+    </div>
+    <!-- [مدیر] ضریب خدمت (گام ۰٫۱، بیشتر از صفر)؛ پیش‌فرض ۱ است -->
+    <div class="b6-fs b4-step"><div class="b4-step__row"><button type="button" class="b4-step__b" aria-label="۰٫۱ کمتر"><i class="ri ri-minus"></i></button><b>× ۱٫۵</b><button type="button" class="b4-step__b" aria-label="۰٫۱ بیشتر"><i class="ri ri-plus"></i></button></div></div>
+    <div class="b6-fr"><span class="b6-fr__e">مبلغ پایه ۶۰٬۰۰۰ × ضریب خدمت ۱٫۵</span><span class="b6-fr__t">۹۰٬۰۰۰<small>تومان</small></span></div>
+    <p class="b4-hint" style="margin: 0;"><i class="ri ri-info" aria-hidden="true"></i>مبلغ بالا برای آرایشگری با ضریب ۱ است؛ ضریب هر آرایشگر جدا ضرب می‌شود. فقط رزروهای تازه را عوض می‌کند.</p>
+    <div class="b2-sheet__acts"><button type="button" class="rv-btn rv-btn--primary">ذخیره ضریب</button><button type="button" class="rv-btn rv-btn--secondary">انصراف</button></div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1280}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

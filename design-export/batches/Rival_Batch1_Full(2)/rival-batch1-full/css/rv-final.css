@@ -1,0 +1,480 @@
+/* Rival — زبان نهایی (دسته ۱). بعد از tokens.css، bundle.css و rv-fixes.css بارگذاری می‌شود. فقط توکن.
+   ۱. فقط عرض معمولی یکان‌بخ (تصمیم مالک): خانواده‌های Expanded و Semi Expanded کنار گذاشته می‌شوند. */
+.rv.rv-final {
+  --font-display: var(--font-sans);
+  --font-display-regular: var(--font-sans);
+  --font-numeric: var(--font-sans);
+  --font-numeric-regular: var(--font-sans);
+}
+
+/* ۲. دیسک نمونه‌کار: شش کارت روی یک مدار؛ کارت جلو بزرگ و واضح، بقیه کوچک و محو.
+   حالت ایستا (و reduced-motion) از style هر کارت می‌آید؛ چرخش فقط وقتی حرکت مجاز است. */
+.fx-disc { position: relative; height: 372px; margin: 0 calc(var(--space-4) * -1); }
+.fx-disc__item { position: absolute; top: 8px; left: 50%; width: 260px; height: 350px; margin: 0 0 0 -130px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-md); background: var(--bg-plaster); transform-origin: 50% 100%; }
+.fx-disc__item > img { width: 100%; height: 100%; object-fit: cover; }
+@media (prefers-reduced-motion: no-preference) {
+  .fx-disc__item { animation: fx-disc 18s var(--ease-standard) infinite; }
+}
+@keyframes fx-disc {
+  0%, 12.5%        { transform: translate(0, 0) scale(1);            filter: blur(0);   opacity: 1;   z-index: 6; }
+  16.667%, 29.167% { transform: translate(195px, 14px) scale(.78);   filter: blur(2px); opacity: .9;  z-index: 4; }
+  33.333%, 45.833% { transform: translate(128px, -4px) scale(.58);   filter: blur(4px); opacity: .55; z-index: 2; }
+  50%, 62.5%       { transform: translate(0, -12px) scale(.48);      filter: blur(5px); opacity: .35; z-index: 1; }
+  66.667%, 79.167% { transform: translate(-128px, -4px) scale(.58);  filter: blur(4px); opacity: .55; z-index: 2; }
+  83.333%, 95.833% { transform: translate(-195px, 14px) scale(.78);  filter: blur(2px); opacity: .9;  z-index: 4; }
+  100%             { transform: translate(0, 0) scale(1);            filter: blur(0);   opacity: 1;   z-index: 6; }
+}
+
+/* ۳. مراحل رزرو: خط پیشرفت از قدم ۱ تا ۳ پر می‌شود و دایره‌ها به‌ترتیب جوهری می‌شوند */
+.fx-steps__fill { position: absolute; height: 2px; background: var(--text-primary); transform-origin: right center; transform: scaleX(0); }
+@media (prefers-reduced-motion: no-preference) {
+  .fx-steps__fill { animation: fx-steps-fill 7s var(--ease-standard) infinite; }
+  .fx-steps__dot--2 { animation: fx-dot-2 7s linear infinite; }
+  .fx-steps__dot--3 { animation: fx-dot-3 7s linear infinite; }
+}
+@keyframes fx-steps-fill { 0%, 12% { transform: scaleX(0); } 42%, 52% { transform: scaleX(.5); } 82%, 94% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
+/* دایره از لحظه رسیدن نوار به لبه‌اش، در حدود ۰٫۵ ثانیه نرم جوهری می‌شود؛ در پایان چرخه هم نرم برمی‌گردد */
+@keyframes fx-dot-2 { 0%, 39% { background: var(--bg-surface); color: var(--text-primary); } 46%, 94% { background: var(--bg-inverse); color: var(--text-inverse); } 100% { background: var(--bg-surface); color: var(--text-primary); } }
+@keyframes fx-dot-3 { 0%, 79% { background: var(--bg-surface); color: var(--text-primary); } 86%, 94% { background: var(--bg-inverse); color: var(--text-inverse); } 100% { background: var(--bg-surface); color: var(--text-primary); } }
+
+/* ۴. ریل افقی کارت‌ها (نوبت‌ها، پرداخت‌ها، روزهای مدیر): کارت کامل + لبه کارت بعدی */
+/* پدینگ عمودی بزرگ تا سایه نرم کارت‌ها داخل ظرف اسکرول بریده نشود (لبه صاف)، و حاشیه منفی همان فاصله را جبران می‌کند */
+.fx-rail { display: flex; gap: var(--space-3); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: calc(var(--space-6) * -1) calc(var(--space-4) * -1) calc(var(--space-6) * -1); padding: var(--space-6) var(--space-4) var(--space-8); }
+.fx-rail::-webkit-scrollbar { display: none; }
+.fx-rail > * { flex: 0 0 auto; scroll-snap-align: center; }
+.fx-pager { display: flex; justify-content: center; gap: 6px; }
+.fx-pager > i { width: 6px; height: 6px; border-radius: 3px; background: var(--chrome-300); transition: width var(--duration-base) var(--ease-spring); }
+.fx-pager > i.is-on { width: 18px; background: var(--text-primary); }
+
+/* ۵. دونقطه شمارش معکوس */
+@media (prefers-reduced-motion: no-preference) { .fx-tick { animation: rv-breathe 1s steps(2, end) infinite; } }
+
+/* ۶. سلسله‌مراتب وزن (تصمیم مالک): کلیدی ۶۰۰، عادی ۴۰۰، فرعی ۳۰۰. دو متن با ارزش متفاوت هم‌وزن نمی‌شوند. */
+.rv-final .f-t1 { font-weight: 600; }
+.rv-final .f-t2 { font-weight: 400; }
+.rv-final .f-t3 { font-weight: 300; color: var(--text-secondary); }
+.rv-final .f-h { margin: 0; font-size: 17px; line-height: 28px; font-weight: 600; }
+.rv-final .f-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin: 0 var(--space-1) var(--space-3); }
+.rv-final .f-num { direction: ltr; unicode-bidi: isolate; }
+
+/* ۷. دکمه بستن اعلان (۴۴px) */
+.f-x { width: 44px; height: 44px; margin: -10px -10px -10px -12px; flex: none; display: grid; place-items: center; border: 0; background: transparent; color: var(--text-muted); border-radius: 50%; cursor: pointer; }
+.f-x:hover { background: var(--glass-shade); color: var(--text-primary); }
+
+/* ۸. اعلان شخصی: بالاترین نقطه، زیر نوار بالا */
+.f-pnote { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-lg); box-shadow: inset 0 0 0 1px var(--glass-edge), var(--shadow-sm); }
+@media (prefers-reduced-motion: no-preference) { .f-pnote { animation: rv-pop var(--duration-slow) var(--ease-spring) both; } }
+
+/* ۹. اطلاعیه‌های عمومی: بدون قاب، آیکن کنار، خط بین موارد */
+.f-ann { list-style: none; margin: 0; padding: 0; }
+.f-ann > li { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4) var(--space-1); }
+.f-ann > li + li { border-top: 1px solid var(--line-hairline); }
+.f-ann__ic { width: 36px; height: 36px; flex: none; border-radius: 11px; display: grid; place-items: center; background: var(--bg-surface); box-shadow: var(--shadow-hairline); color: var(--text-secondary); }
+
+/* ۱۰. پنجره شمارش معکوس داخل کارت نوبت */
+.f-count { flex: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: var(--space-3) var(--space-2); border-radius: var(--radius-lg); background: var(--bg-plaster); box-shadow: inset 0 1px 2px var(--glass-shade); min-width: 108px; }
+.f-count__row { display: flex; align-items: baseline; gap: 4px; }
+
+/* ۱۱. خط زمانی عمودی (ادامه روز) */
+.f-tl { list-style: none; margin: 0; padding: 0; position: relative; }
+.f-tl::before { content: ""; position: absolute; top: 22px; bottom: 22px; inset-inline-start: 27px; width: 2px; background: repeating-linear-gradient(180deg, var(--chrome-300) 0 4px, transparent 4px 8px); }
+.f-tl > li { position: relative; display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: var(--space-3); align-items: start; }
+.f-tl > li + li { margin-top: var(--space-3); }
+.f-tl__t { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 0; border-radius: var(--radius-md); background: var(--bg-canvas); }
+
+/* ۱۲. داخل سالن: باز شدن کولاژ با رسیدن اسکرول. سه عکس روی هم و کمی چرخیده در وسط شروع می‌کنند
+   و همراه با اسکرول به جای خود باز می‌شوند. فقط با حرکت مجاز و مرورگرهای دارای scroll-timeline؛ در بقیه حالت نهایی ایستا دیده می‌شود. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .fx-hall > img { animation: fx-hall-open linear both; animation-timeline: view(); animation-range: entry 15% cover 45%; }
+    .fx-hall__a { --fx-from: 40px 60px; --fx-rot: -6deg; }
+    .fx-hall__b { --fx-from: -110px 90px; --fx-rot: 8deg; }
+    .fx-hall__c { --fx-from: -60px -90px; --fx-rot: -3deg; }
+  }
+}
+@keyframes fx-hall-open {
+  from { translate: var(--fx-from); rotate: var(--fx-rot); scale: .82; opacity: 0; }
+  35%  { opacity: 1; }
+  to   { translate: 0 0; rotate: 0deg; scale: 1; opacity: 1; }
+}
+
+/* ۱۳. شمارش معکوس نوبت: زیر ساعت شروع، بدون قاب؛ سه عدد روز : ساعت : دقیقه و یک «فتیله» که از زمان رزرو تا شروع نوبت پر می‌شود */
+.f-cd { margin-top: var(--space-3); }
+.f-cd__row { display: flex; align-items: flex-end; gap: var(--space-2); }
+.f-cd__lbl { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); padding-bottom: 2px; }
+.f-cd__cell { display: flex; flex-direction: column; align-items: center; min-width: 34px; }
+.f-cd__cell b { font-size: 22px; line-height: 28px; font-weight: 400; }
+.f-cd__cell small { font-size: 11px; line-height: 14px; font-weight: 300; color: var(--text-muted); }
+.f-cd__sep { font-size: 18px; line-height: 28px; font-weight: 300; color: var(--chrome-500); align-self: flex-start; }
+@media (prefers-reduced-motion: no-preference) { .f-cd__sep { animation: rv-breathe 2s var(--ease-standard) infinite; } }
+.f-cd__fuse { position: relative; height: 3px; margin-top: var(--space-2); border-radius: 2px; background: var(--chrome-300); }
+.f-cd__fuse > i { position: absolute; inset-block: 0; inset-inline-start: 0; border-radius: 2px; background: var(--text-primary); }
+.f-cd__fuse > i::after { content: ""; position: absolute; inset-inline-end: -4px; top: -3px; width: 9px; height: 9px; border-radius: 50%; background: var(--text-primary); box-shadow: 0 0 0 3px var(--bg-surface); }
+
+/* ۱۴. سر کارت نوبت: خط زنده «مانده» بالای کارت، ساعت شروع درشت، برگ تقویم برای روز */
+.f-apt__eyebrow { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill); background: var(--bg-surface-muted); box-shadow: inset 0 0 0 1px var(--line-hairline); font-size: 12px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.f-apt__eyebrow b { font-weight: 400; color: var(--text-primary); }
+.f-apt__live { flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--text-primary); }
+@media (prefers-reduced-motion: no-preference) { .f-apt__live { animation: rv-pulse 2s var(--ease-standard) infinite; } }
+.f-apt__main { display: flex; align-items: center; justify-content: flex-start; gap: var(--space-4); margin-top: var(--space-4); }
+.f-apt__time { font-size: 56px; line-height: 60px; font-weight: 300; }
+.f-apt__span { margin-top: var(--space-1); font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.f-apt__span b { font-weight: 400; color: var(--text-primary); }
+.f-leaf { flex: none; width: 72px; border-radius: var(--radius-md); overflow: hidden; text-align: center; background: var(--bg-surface); box-shadow: var(--shadow-sm), inset 0 0 0 1px var(--line-hairline); }
+.f-leaf__top { position: relative; display: block; background: var(--bg-inverse); color: var(--text-inverse); font-size: 11px; line-height: 24px; font-weight: 400; }
+.f-leaf__top::before, .f-leaf__top::after { content: ""; position: absolute; top: 10px; width: 4px; height: 4px; border-radius: 50%; background: var(--text-inverse-muted); }
+.f-leaf__top::before { inset-inline-start: 6px; }
+.f-leaf__top::after { inset-inline-end: 6px; }
+.f-leaf__d { display: block; padding-top: var(--space-1); font-size: 30px; line-height: 34px; font-weight: 600; }
+.f-leaf__m { display: block; padding-bottom: var(--space-2); font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+
+/* ۱۵. زمان باقی‌مانده پرداخت: نوار خطی بالای مبلغ، کنار آن متن شمارش */
+.f-bar { display: flex; align-items: center; gap: var(--space-3); padding-bottom: var(--space-3); }
+.f-bar__track { position: relative; flex: 1; height: 6px; border-radius: 3px; background: var(--chrome-300); overflow: hidden; }
+.f-bar__track > i { position: absolute; inset-block: 0; inset-inline-start: 0; border-radius: 3px; background: var(--warning-solid); }
+.f-bar__txt { flex: none; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); white-space: nowrap; }
+.f-bar__txt b { font-weight: 400; color: var(--text-primary); font-size: 14px; direction: ltr; unicode-bidi: isolate; }
+
+/* شریط شمارش معکوس زیر ساعت و برگ تقویم */
+.f-apt__strip { display: flex; align-items: center; gap: var(--space-2); margin-top: var(--space-4); padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); background: var(--bg-surface-muted); box-shadow: inset 0 0 0 1px var(--line-hairline); font-size: 12px; line-height: 20px; white-space: nowrap; font-weight: 300; color: var(--text-secondary); }
+.f-apt__strip b { font-weight: 400; color: var(--text-primary); }
+
+/* ۱۶. «کی» در کارت نوبت: سرخط تاریخ + شمارش زنده، سپس بازه شروع تا پایان با مدت روی خط */
+.f-when { display: flex; flex-direction: column; gap: var(--space-4); }
+.f-when__head { display: flex; align-items: center; gap: var(--space-3); }
+.f-when__date { font-size: 16px; line-height: 24px; font-weight: 600; }
+.f-when__cd { display: flex; align-items: center; gap: var(--space-2); font-size: 12px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.f-when__cd b { font-weight: 400; color: var(--text-primary); }
+.f-when__span { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-lg); background: var(--bg-surface-muted); box-shadow: inset 0 0 0 1px var(--line-hairline); }
+.f-when__end { display: flex; flex-direction: column; align-items: flex-start; flex: none; }
+.f-when__end.is-end { align-items: flex-end; }
+.f-when__t { font-size: 28px; line-height: 36px; font-weight: 400; }
+.f-when__end.is-end .f-when__t { font-weight: 300; color: var(--text-secondary); }
+.f-when__l { font-size: 11px; line-height: 16px; font-weight: 300; color: var(--text-muted); }
+.f-when__line { position: relative; flex: 1; height: 20px; display: grid; place-items: center; }
+.f-when__line::before { content: ""; position: absolute; inset-inline: 0; top: 50%; border-top: 1px dashed var(--line-strong); }
+.f-when__line::after { content: ""; position: absolute; inset-inline-start: -2px; top: calc(50% - 3px); width: 6px; height: 6px; border-radius: 50%; background: var(--text-primary); }
+.f-when__line > span { position: relative; padding: 0 var(--space-2); background: var(--bg-surface-muted); font-size: 11px; line-height: 20px; font-weight: 400; color: var(--text-secondary); white-space: nowrap; }
+.f-when__line > i { position: absolute; inset-inline-end: -2px; top: calc(50% - 3px); width: 6px; height: 6px; border-radius: 50%; box-shadow: inset 0 0 0 1px var(--text-secondary); background: var(--bg-surface-muted); }
+
+/* ۱۷. سر کارت نوبت: ساعت مراجعه درشت، کنارش تاریخ و زیر آن شمارش ثانیه:دقیقه:ساعت:روز؛ یک خط جداکننده تا بخش پایین */
+.f-top { display: flex; align-items: center; gap: var(--space-3); }
+.f-top__time { flex: none; font-size: 56px; line-height: 64px; font-weight: 300; }
+.f-top__date { font-size: 14px; line-height: 22px; font-weight: 600; white-space: nowrap; }
+.f-cdn { display: flex; align-items: flex-start; gap: var(--space-1); margin-top: var(--space-1); }
+.f-cdn__c { display: flex; flex-direction: column; align-items: center; min-width: 20px; }
+.f-cdn__c b { font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.f-cdn__c small { font-size: 11px; line-height: 14px; font-weight: 300; color: var(--text-muted); }
+.f-cdn__sep { font-size: 12px; line-height: 20px; font-weight: 300; color: var(--chrome-500); }
+.f-top__rule { height: 1px; background: var(--line-hairline); }
+.f-top__side { flex: 1; min-width: 0; }
+
+/* ۱۸. نمودار روز آرایشگر: شش نوبت، هر کدام یک قطعه؛ انجام‌شده جوهری، جاری حلقه‌ای، مانده کمرنگ */
+.f-prog { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); }
+.f-prog__t { font-size: 15px; line-height: 24px; font-weight: 300; }
+.f-prog__t b { font-size: 28px; line-height: 32px; font-weight: 400; }
+.f-prog__bar { display: flex; gap: var(--space-1); }
+.f-prog__bar > i { flex: 1; height: 12px; border-radius: 6px; background: var(--chrome-300); }
+.f-prog__bar > i.is-done { background: var(--text-primary); }
+.f-prog__bar > i.is-ns { background: var(--danger-solid); }
+.f-prog__bar > i.is-now { background: var(--bg-surface); box-shadow: inset 0 0 0 2px var(--text-primary); }
+@media (prefers-reduced-motion: no-preference) { .f-prog__bar > i.is-now { animation: f-blink 2s var(--ease-standard) infinite; } }
+.f-prog__lg { display: flex; justify-content: space-between; gap: var(--space-2); font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.f-prog__lg span { display: inline-flex; align-items: center; gap: var(--space-1); white-space: nowrap; }
+.f-prog__lg b { font-weight: 400; font-size: 14px; color: var(--text-primary); }
+.f-prog__lg i { width: 8px; height: 8px; border-radius: 50%; background: var(--chrome-300); }
+.f-prog__lg i.is-done { background: var(--text-primary); }
+.f-prog__lg i.is-ns { background: var(--danger-solid); }
+@keyframes f-blink { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
+
+/* ۱۹. ردیف سه‌تایی بالای داشبورد آرایشگر: نمودار دایره‌ای، درخواست‌ها، رزرو دستی */
+.f-donut, .f-act { min-height: 112px; padding: var(--space-3) var(--space-2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-2); text-decoration: none; text-align: center; }
+.f-donut__ring { position: relative; width: 72px; height: 72px; display: grid; place-items: center; }
+.f-donut__ring svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.f-donut__ring .trk { fill: none; stroke: var(--chrome-300); stroke-width: 9; }
+.f-donut__ring .val { fill: none; stroke: var(--text-primary); stroke-width: 9; }
+.f-donut__c { position: relative; display: flex; flex-direction: column; align-items: center; }
+.f-donut__c b { font-size: 22px; line-height: 24px; font-weight: 400; }
+.f-donut__c small { font-size: 11px; line-height: 14px; font-weight: 300; color: var(--text-muted); }
+.f-act__ic { position: relative; width: 40px; height: 40px; display: grid; place-items: center; }
+.f-act__n { position: absolute; top: -4px; inset-inline-start: -6px; min-width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; color: var(--text-inverse); font-size: 12px; line-height: 20px; font-weight: 400; box-shadow: 0 0 0 2px var(--bg-surface); }
+.f-act__l { font-size: 13px; line-height: 20px; font-weight: 600; white-space: nowrap; }
+.f-donut__ring .val.is-ns { stroke: var(--danger-solid); }
+
+/* ۲۰. نمودار نیم‌دایره و راهنمای رنگ‌ها؛ عدم حضور نارنجی (نه قرمز) */
+.f-donut { padding: var(--space-3) var(--space-3) var(--space-3); gap: var(--space-3); }
+.f-gauge { position: relative; width: 120px; height: 64px; }
+.f-gauge svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.f-gauge .trk, .f-gauge .val { fill: none; stroke-width: 12; }
+.f-gauge .trk { stroke: var(--chrome-300); }
+.f-gauge .val { stroke: var(--text-primary); }
+.f-gauge .val.is-ns { stroke: var(--warning-solid); }
+.f-gauge__c { position: absolute; inset-inline: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; }
+.f-gauge__c b { font-size: 26px; line-height: 28px; font-weight: 400; }
+.f-gauge__c small { font-size: 11px; line-height: 14px; font-weight: 300; color: var(--text-muted); }
+.f-gauge__lg { align-self: stretch; margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 2px; text-align: start; }
+.f-gauge__lg li { display: flex; align-items: center; gap: var(--space-2); font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.f-gauge__lg li b { margin-inline-start: auto; font-weight: 400; color: var(--text-primary); }
+.f-gauge__lg i { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--chrome-300); }
+.f-gauge__lg i.is-done { background: var(--text-primary); }
+.f-gauge__lg i.is-ns { background: var(--warning-solid); }
+.f-donut { justify-content: center; }
+.f-gauge { width: 136px; height: 72px; }
+
+/* ۲۱. کل کاشی نوبت در خط زمانی یک دکمه است (پیوند کشیده)؛ دکمه تماس جدا و بالاتر می‌ماند */
+.f-tile { position: relative; align-items: center !important; }
+.f-stretch::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.f-tile .rv-icon-btn { position: relative; z-index: 1; }
+.f-stretch:focus-visible { outline: none; }
+.f-stretch:focus-visible::after { box-shadow: var(--shadow-focus); }
+
+/* ۲۲. ردیف‌های نوبت مدیر: فاصله بیشتر بین نوبت‌ها و جداکننده کوتاه، کمرنگ و وسط‌چین */
+.rv-list > a.rv-item + a.rv-item { border-top: 0; position: relative; }
+.rv-list > a.rv-item + a.rv-item::before { content: ""; position: absolute; top: 0; left: 50%; width: 120px; height: 1px; margin-left: -60px; background: var(--line-strong); opacity: .6; }
+.rv-list > a.rv-item[style*="min-height: 68px"] { padding-block: var(--space-5); }
+
+/* ۲۳. پوسته (دسته ۱، بخش ۲): نوار بالای صفحه داخلی، کشوی «بیشتر» از چپ، دیالوگ خروج */
+/* نوار بالای صفحه داخلی/جزئیات: بازگشت راست، عنوان وسط، اقدام چپ (یا جای خالی هم‌اندازه برای تقارن) */
+.f-bar-in { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4); min-height: 60px; }
+.f-bar-in h1 { margin: 0; text-align: center; font-size: 16px; line-height: 26px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.f-bar-in__sub { display: block; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+/* کشو: ۸۵٪ عرض، از لبه چپ؛ گوشه‌های لبه داخلی (سمت راست کشو) radius-xl */
+.f-drawer { position: absolute; top: 0; bottom: 0; left: 0; width: 85%; display: flex; flex-direction: column; border-radius: 0 var(--radius-xl) var(--radius-xl) 0; border-left: 0; box-shadow: var(--shadow-glass), var(--shadow-md); animation: f-drawer-in var(--duration-base) var(--ease-spring) both; }
+@keyframes f-drawer-in { from { transform: translateX(-100%); } to { transform: none; } }
+.f-drawer__head { flex: none; display: flex; align-items: center; gap: var(--space-3); padding: var(--space-6) var(--space-4) var(--space-4) var(--space-3); }
+.f-drawer__head .rv-avatar { width: 56px; height: 56px; }
+.f-drawer__name { font-size: 18px; line-height: 28px; font-weight: 600; }
+.f-drawer__role { display: flex; align-items: center; gap: var(--space-2); font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.f-drawer__body { flex: 1; min-height: 0; overflow-y: auto; padding: 0 var(--space-2) var(--space-2); display: flex; flex-direction: column; gap: var(--space-3); }
+.f-drawer__grp { display: flex; flex-direction: column; }
+.f-drawer__grp + .f-drawer__grp { padding-top: var(--space-3); border-top: 1px solid var(--line-hairline); }
+.f-drawer__lbl { padding: 0 var(--space-3) var(--space-1); font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.f-drawer .rv-item { min-height: 52px; padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); gap: var(--space-3); font-size: 15px; line-height: 24px; font-weight: 400; }
+.f-drawer .rv-item .rv-chev { color: var(--text-muted); }
+.f-drawer .rv-item[aria-current="page"] { background: var(--bg-surface); box-shadow: var(--shadow-hairline); }
+.f-drawer__meta { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+/* ردیف ناممکن: پنهان نمی‌شود؛ قفل + یک خط دلیل (D10-05) */
+.f-drawer .rv-item.is-off { color: var(--text-muted); cursor: not-allowed; align-items: flex-start; }
+.f-drawer .rv-item.is-off .rv-tile { opacity: .55; }
+.f-drawer__why { display: block; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.f-drawer__foot { flex: none; padding: var(--space-2) var(--space-2) var(--space-5); border-top: 1px solid var(--line-hairline); }
+.f-drawer__foot .rv-item { color: var(--danger-fg); }
+.f-drawer__sign { display: flex; align-items: center; justify-content: center; gap: var(--space-2); margin-top: var(--space-3); font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+/* دیالوگ خروج: دو دکمه هم‌عرض؛ گزینه کم‌خطر کنار گزینه خطرناک */
+.f-dlg__acts { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); margin-top: var(--space-5); }
+@media (prefers-reduced-motion: reduce) { .f-drawer { animation: none; } }
+/* لایه‌ها: نوار پایین بالای محتوا؛ scrim و کشو بالای نوار پایین؛ دیالوگ بالای کشو */
+.rv-final > .rv-dock { z-index: 10; }
+.rv-final > .rv-scrim { z-index: 20; }
+.rv-final > .f-drawer { z-index: 21; }
+.rv-final > .f-drawer ~ .rv-scrim { z-index: 30; }
+.rv-final > .rv-dialog { z-index: 31; }
+/* کشو تمام‌قد است و روی کارت جوهری هم می‌نشیند؛ دو لایه glass-fill-strong تا متن ردیف‌ها روی هر زمینه‌ای خوانا بماند */
+.f-drawer.rv-glass-strong { background: linear-gradient(var(--glass-fill-strong), var(--glass-fill-strong)), var(--glass-fill-strong); }
+
+/* 24 — نمودار نیم‌دایره داشبورد آرایشگر: رسم تدریجی (فقط وقتی حرکت مجاز است) */
+@keyframes f-gauge-done { from { stroke-dasharray: 0 6; } to { stroke-dasharray: 2 6; } }
+@keyframes f-gauge-ns { from { stroke-dasharray: 0 6; } to { stroke-dasharray: 1 6; } }
+@keyframes f-gauge-num { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .f-gauge .val { animation: f-gauge-done var(--dur-slow, 900ms) var(--ease-out, cubic-bezier(.22,1,.36,1)) .2s backwards; }
+  .f-gauge .val.is-ns { animation-name: f-gauge-ns; animation-delay: 1s; animation-duration: 500ms; }
+  .f-gauge__c b { animation: f-gauge-num 500ms var(--ease-out, cubic-bezier(.22,1,.36,1)) .5s backwards; }
+}
+
+/* 25 — ورود تدریجی کارت‌ها هنگام باز شدن داشبورد: به ترتیب از چپ به راست */
+@keyframes f-enter-l { from { opacity: 0; transform: translateX(-28px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .f-enter > :nth-child(1) { animation: f-enter-l 520ms var(--ease-out, cubic-bezier(.22,1,.36,1)) 0s backwards; }
+  .f-enter > :nth-child(2) > :nth-child(3) { animation: f-enter-l 520ms var(--ease-out, cubic-bezier(.22,1,.36,1)) .08s backwards; }
+  .f-enter > :nth-child(2) > :nth-child(2) { animation: f-enter-l 520ms var(--ease-out, cubic-bezier(.22,1,.36,1)) .16s backwards; }
+  .f-enter > :nth-child(2) > :nth-child(1) { animation: f-enter-l 520ms var(--ease-out, cubic-bezier(.22,1,.36,1)) .24s backwards; }
+  .f-enter > :nth-child(3) { animation: f-enter-l 520ms var(--ease-out, cubic-bezier(.22,1,.36,1)) .34s backwards; }
+  .f-enter > :nth-child(4) { animation: f-enter-l 520ms var(--ease-out, cubic-bezier(.22,1,.36,1)) .44s backwards; }
+  .f-enter > :nth-child(5) { animation: f-enter-l 520ms var(--ease-out, cubic-bezier(.22,1,.36,1)) .54s backwards; }
+  .f-enter > :nth-child(6) { animation: f-enter-l 520ms var(--ease-out, cubic-bezier(.22,1,.36,1)) .64s backwards; }
+  /* نمودار بعد از ورود کارتش رسم شود */
+  .f-enter .f-gauge .val { animation-delay: .7s; }
+  .f-enter .f-gauge .val.is-ns { animation-delay: 1.5s; }
+  .f-enter .f-gauge__c b { animation-delay: .9s; }
+}
+
+/* 26 — برگه روی scrim: شیشه دو لایه، تا تیرگی زیرش از میان آن خاکستری دیده نشود (مثل کشو) */
+.rv-final .rv-sheet.rv-glass-strong { background: linear-gradient(var(--glass-fill-strong), var(--glass-fill-strong)), var(--glass-fill-strong); }
+.rv-final > .rv-scrim ~ .rv-sheet { z-index: 21; }
+
+/* 27 — قدم اول رزرو (الگوی دو نمونه مالک): ریل «رزرو دوباره» و چرخ‌فلک خدمات */
+.f-quick__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+.f-quick__card { position: relative; padding: var(--space-2); display: flex; flex-direction: column; gap: 2px; color: inherit; text-decoration: none; }
+.f-quick__media { position: relative; display: block; margin-bottom: var(--space-2); }
+.f-quick__media > img { display: block; width: 100%; height: 104px; object-fit: cover; border-radius: var(--radius-md); }
+.f-quick__sty { position: absolute; inset-inline-end: var(--space-2); bottom: -12px; box-shadow: 0 0 0 2px var(--bg-surface); }
+.f-quick__tag { position: absolute; top: calc(var(--space-2) + 6px); inset-inline-start: calc(var(--space-2) + 6px); display: inline-flex; align-items: center; gap: 4px; padding: 0 8px; min-height: 22px; border-radius: 999px; background: var(--bg-surface); box-shadow: var(--shadow-hairline); font-size: 12px; line-height: 18px; font-weight: 400; color: var(--text-secondary); }
+.f-quick__t { font-size: 15px; line-height: 22px; font-weight: 600; color: var(--text-primary); }
+.f-quick__s { display: flex; align-items: center; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.f-quick__row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
+.f-quick__txt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.f-quick__arrow { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; background: var(--bg-surface); box-shadow: var(--shadow-hairline); color: var(--text-primary); }
+.f-car { display: flex; align-items: center; justify-content: center; gap: var(--space-3); margin: 0 calc(var(--space-4) * -1); padding: var(--space-2) 0; }
+.f-svc { position: relative; flex: none; width: 216px; height: 300px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-md); cursor: pointer; }
+.f-svc.is-side { width: 176px; height: 252px; opacity: .92; }
+.f-svc > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.f-svc__pill { position: absolute; inset-inline: var(--space-3); bottom: var(--space-3); display: flex; flex-direction: column; align-items: center; padding: var(--space-2) var(--space-3); border-radius: var(--radius-lg); text-align: center; }
+.f-svc__pill b { font-size: 15px; line-height: 22px; font-weight: 600; color: var(--text-primary); }
+.f-svc__pill span { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.f-svc.is-side .f-svc__pill { inset-inline: var(--space-2); bottom: var(--space-2); }
+.f-pager { display: flex; justify-content: center; gap: 6px; margin-top: var(--space-4); }
+.f-pager i { width: 8px; height: 4px; border-radius: 2px; background: var(--chrome-300); }
+.f-pager i.is-on { width: 28px; background: var(--text-primary); }
+
+/* §28 — پوسته مدیر کل: Scope، منوی انتخاب آرایشگر، پیش‌نمایش مرکز اقدام، نشان کشو */
+.f-scope { display: flex; flex-direction: column; gap: var(--space-1); }
+.f-scope__lbl { padding: 0 var(--space-2); font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.f-who { display: inline-flex; align-items: center; height: 22px; padding: 0 8px; border-radius: var(--radius-pill); background: var(--bg-surface); box-shadow: var(--shadow-hairline); font-size: 12px; line-height: 18px; font-weight: 400; color: var(--text-primary); }
+.f-acp { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3); min-height: 64px; }
+.f-scope-veil { position: absolute; inset: 0; z-index: 19; background: transparent; }
+.f-scope-menu { position: absolute; z-index: 20; top: 134px; inset-inline: calc(var(--space-4) + 70px); min-width: 0; box-shadow: var(--shadow-glass), var(--shadow-md); transform-origin: top center; }
+.f-scope-menu button { height: 52px; font-size: 15px; font-weight: 400; color: var(--text-primary); }
+.f-scope-menu__lbl { padding: var(--space-2) var(--space-3) var(--space-1); font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.f-scope-menu__n { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+@media (prefers-reduced-motion: no-preference) {
+  .f-scope-menu { animation: f-scope-pop var(--duration-base) var(--ease-spring) both; }
+  @keyframes f-scope-pop { from { opacity: 0; transform: translateY(-6px) scale(.97); } to { opacity: 1; transform: none; } }
+}
+.f-drawer__cnt { min-width: 22px; height: 22px; padding: 0 6px; border-radius: var(--radius-pill); display: inline-grid; place-items: center; background: var(--plum-solid); color: var(--text-inverse); font-size: 12px; line-height: 22px; font-weight: 400; }
+.f-drawer__body--fade { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 40px), transparent); }
+.f-drawer__body--fade.is-end { justify-content: flex-end; -webkit-mask-image: linear-gradient(to top, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(to top, #000 calc(100% - 40px), transparent); }
+
+/* ===== §29 Monthly calendar (admin calendar page; replaces the week strip there) ===== */
+.f-mcal { padding: var(--space-2) var(--space-2) var(--space-2); }
+.f-mcal .rv-cal__head { margin-bottom: 0; }
+.f-mcal .rv-cal__grid { gap: 0; }
+.f-mcal .rv-cal__dow { line-height: 24px; }
+.f-mcal .rv-day { height: 44px; }
+.f-mcal .rv-day > i { width: 36px; height: 36px; border-radius: var(--radius-md); }
+.f-mcal .rv-day.is-today::after { content: none; }
+.f-mcal .rv-day.is-today > i { box-shadow: inset 0 0 0 1.5px var(--text-primary); }
+.f-mcal .rv-day[aria-selected="true"] > i { background: var(--bg-inverse); color: var(--text-inverse); box-shadow: none; }
+.f-mcal .rv-day.is-load > i::after { content: ""; position: absolute; bottom: 3px; width: 4px; height: 4px; border-radius: 50%; background: var(--text-muted); }
+.f-mcal .rv-day[aria-selected="true"].is-load > i::after { background: var(--text-inverse); }
+.f-mcal .rv-icon-btn[disabled] { color: var(--text-disabled); cursor: not-allowed; }
+.f-mcal .rv-week__foot { margin-top: var(--space-1); }
+
+/* ===== §30 «همه سالن»: فهرست بدون ریل زمان (چند آرایشگر هم‌زمان)؛ ساعت داخل کارت ===== */
+.f-all { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.f-all__t { flex: none; width: 52px; display: flex; flex-direction: column; align-items: center; gap: 2px; padding-inline-end: var(--space-3); border-inline-end: 1px solid var(--line); }
+.f-all__t b { font-family: var(--font-numeric-regular); font-size: 16px; line-height: 22px; font-weight: 400; }
+.f-all__t small { font-size: 11px; line-height: 16px; font-weight: 300; color: var(--text-muted); white-space: nowrap; }
+.f-all__t.is-live b { font-weight: 600; }
+
+/* ===== §31 Public site (part 4): inner public bar, filters, portfolio grid, viewer, booking rules ===== */
+.f-bar-in:has(.f-pub-login) { grid-template-columns: 76px minmax(0, 1fr) 76px; }
+.f-pub-login { justify-self: end; min-height: 44px; padding: 0 var(--space-4); font-size: 14px; color: var(--text-primary); background: var(--glass-fill); -webkit-backdrop-filter: blur(var(--blur-glass)); backdrop-filter: blur(var(--blur-glass)); box-shadow: inset 0 0 0 1px var(--glass-edge), var(--shadow-sm); }
+.f-flt { display: grid; grid-template-columns: 52px minmax(0, 1fr); align-items: center; }
+.f-flt__l { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.f-chiprail { display: flex; gap: var(--space-2); overflow-x: auto; scrollbar-width: none; padding: 4px var(--space-4) 4px 0; margin-inline-end: calc(var(--space-4) * -1); }
+.f-chiprail::-webkit-scrollbar { display: none; }
+.f-chiprail > .rv-chip { flex: none; }
+.f-chiprail .rv-avatar { width: 22px; height: 22px; margin-inline-start: -8px; box-shadow: none; }
+.f-pf { position: relative; margin: 0; min-height: 0; padding: 8px; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+.f-pf .rv-hero__panel { padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); }
+.f-pf__t { display: block; font-size: 14px; line-height: 22px; font-weight: 600; color: var(--text-primary); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.f-pf__t::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.f-pf__t:focus-visible { outline: none; }
+.f-pf__t:focus-visible::after { box-shadow: var(--shadow-focus); }
+.f-pf__s { display: block; font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.f-pf .rv-hero__top { top: 14px; inset-inline: 14px; }
+.f-pf--lead { border-radius: var(--radius-xl); }
+.f-pf--lead .f-pf__t { font-size: 17px; line-height: 28px; }
+.f-pf--lead .rv-hero__panel { padding: var(--space-3) var(--space-4); border-radius: var(--radius-lg); }
+.f-pf-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-3); align-items: start; }
+.f-pf-col { display: flex; flex-direction: column; gap: var(--space-3); }
+.f-pf-col + .f-pf-col { padding-top: var(--space-8); }
+@media (prefers-reduced-motion: no-preference) {
+  .f-pf { transition: transform var(--duration-fast) var(--ease-standard); }
+  .f-pf:active { transform: scale(.98); }
+}
+.f-res { display: flex; align-items: center; justify-content: space-between; min-height: 44px; }
+.f-res b { font-size: 15px; line-height: 24px; font-weight: 600; }
+/* viewer: full-height sheet over the gallery */
+.f-viewer { inset: 44px 0 0 0 !important; padding: var(--space-2) 0 var(--space-6) !important; display: flex; flex-direction: column; gap: var(--space-4); }
+.f-viewer__grab { width: 40px; height: 4px; border-radius: 2px; background: var(--chrome-300); margin: 0 auto; }
+.f-viewer__head { display: flex; align-items: center; gap: var(--space-2); padding: 0 var(--space-4); }
+.f-viewer__rail { display: flex; gap: var(--space-3); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 0 var(--space-4); }
+.f-viewer__rail::-webkit-scrollbar { display: none; }
+.f-viewer__rail > figure { position: relative; flex: 0 0 312px; height: 390px; margin: 0; border-radius: var(--radius-xl); overflow: hidden; scroll-snap-align: center; box-shadow: var(--shadow-md); }
+.f-viewer__rail > figure > img { width: 100%; height: 100%; object-fit: cover; }
+.f-viewer__rail > figure > .rv-tag { position: absolute; top: var(--space-3); inset-inline-start: var(--space-3); }
+.f-viewer__body { padding: 0 var(--space-5); display: flex; flex-direction: column; gap: var(--space-3); }
+/* booking rules */
+.f-toc { display: flex; gap: var(--space-2); overflow-x: auto; scrollbar-width: none; padding: 4px var(--space-4); margin: 0 calc(var(--space-4) * -1); }
+.f-toc::-webkit-scrollbar { display: none; }
+.f-toc > a { flex: none; text-decoration: none; }
+.f-rule-h { display: flex; align-items: baseline; gap: var(--space-2); margin: 0 0 var(--space-3); font-size: 18px; line-height: 30px; font-weight: 600; }
+.f-rule-h > span { font-size: 15px; line-height: 24px; font-weight: 300; color: var(--text-muted); }
+.f-way { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: var(--space-3); align-items: start; }
+.f-way__t { font-size: 15px; line-height: 24px; font-weight: 600; }
+.f-way__k { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-muted); }
+.f-way__d { font-size: 13px; line-height: 22px; font-weight: 400; color: var(--text-secondary); margin-top: 2px; }
+.f-win { padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-3); }
+.f-win__h { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
+.f-win__t { font-size: 15px; line-height: 24px; font-weight: 600; }
+.f-win dl { margin: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.f-win dl > div { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: var(--space-2); align-items: start; }
+.f-win dt { font-size: 13px; line-height: 22px; font-weight: 300; color: var(--text-muted); }
+.f-win dd { margin: 0; display: flex; gap: 6px; align-items: flex-start; font-size: 14px; line-height: 22px; font-weight: 400; }
+.f-win dd > .ri { flex: none; margin-top: 3px; }
+.f-win dd.is-gain > .ri { color: var(--accent-fg); }
+.f-win dd.is-keep > .ri { color: var(--text-primary); }
+.f-win dd.is-loss > .ri { color: var(--text-muted); }
+.f-win dd.is-no { color: var(--text-secondary); }
+.f-win dd.is-no > .ri { color: var(--danger-fg); }
+.f-bul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-3); }
+.f-bul > li { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: var(--space-2); font-size: 14px; line-height: 24px; font-weight: 400; color: var(--text-secondary); }
+.f-bul > li > .ri { margin-top: 4px; color: var(--text-primary); }
+.f-bul b { font-weight: 400; color: var(--text-primary); }
+/* public footer */
+.f-pubfoot { padding: var(--space-8) var(--space-5) var(--space-6); }
+.f-pf:not(.f-pf--lead) .f-pf__t { white-space: normal; overflow: visible; }
+/* §32 sign-in (AUTH-01, AUTH-02, SYS-ACC-01) */
+.f-auth-top { display: flex; justify-content: flex-start; box-sizing: border-box; height: calc(var(--size-touch) + var(--space-5)); padding: var(--space-5) var(--space-4) 0; }
+.f-auth-hero { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-2); padding: var(--space-3) var(--space-6) var(--space-6); }
+.f-auth-mark { display: inline-flex; align-items: center; min-height: 44px; margin: var(--space-4) 0 var(--space-4); text-decoration: none; }
+.f-auth__t { margin: 0; font-size: 20px; line-height: 32px; font-weight: 600; }
+.f-auth__d { margin: 0; font-size: 13px; line-height: 22px; font-weight: 400; color: var(--text-muted); }
+.f-auth { padding: 0 var(--space-4); }
+.f-auth__card { display: flex; flex-direction: column; gap: var(--space-4); border-radius: var(--radius-xl); }
+.f-auth-alts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); padding: var(--space-4) var(--space-4) 0; }
+.f-auth-alts > :only-child { grid-column: 1 / -1; }
+.f-auth-alts .rv-btn { padding-inline: var(--space-3); white-space: nowrap; }
+.f-auth__hint { margin: var(--space-4) var(--space-4) 0; text-align: center; font-size: 12px; line-height: 18px; color: var(--text-muted); }
+.f-auth .rv-input input.rv-ltr { text-align: right; }
+.f-auth-ret { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); background: var(--bg-surface-muted); font-size: 13px; line-height: 22px; color: var(--text-secondary); }
+.f-auth-ret > .ri { flex: none; color: var(--text-primary); }
+.f-auth-ret b { font-weight: 600; color: var(--text-primary); }
+.f-or { display: flex; align-items: center; gap: var(--space-3); font-size: 12px; line-height: 18px; color: var(--text-muted); }
+.f-or::before, .f-or::after { content: ""; flex: 1; border-top: 1px solid var(--line-hairline); }
+.f-edit { flex: none; display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; }
+.f-otp { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); }
+.f-otp > .rv-label { align-self: flex-start; font-size: 13px; line-height: 20px; color: var(--text-secondary); }
+.f-resend b { font-weight: 600; color: var(--text-primary); }
+.f-resend-btn { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; border: 0; background: none; padding: 0; font: inherit; font-size: 13px; cursor: pointer; }
+.f-eye { flex: none; width: 44px; height: 44px; margin-inline-end: calc(var(--space-3) * -1); }
+.f-verified { display: flex; align-items: center; gap: 6px; font-size: 13px; line-height: 22px; color: var(--text-secondary); }
+.f-verified > .ri { color: var(--success-fg); }
+.f-verified b { font-weight: 400; color: var(--text-primary); }
+.f-auth-foot { margin-top: auto; padding: var(--space-8) var(--space-5) var(--space-6); display: flex; flex-direction: column; align-items: center; gap: var(--space-2); text-align: center; }
+.f-auth .rv-notice__t b { font-weight: 600; }
+
+/* ۳۳. بازبینی پایانی دسته ۱ — هدف لمسی لوگوی بالای صفحه‌های عمومی */
+.rv-topbar > a[aria-label="ریوال — خانه"] { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* ۳۴. بازطراحی بر پایه دسته ۸ — برگه تأیید خروج (D10-108) و برچسب وضعیت در کشو */
+.f-lo__h { display: flex; align-items: flex-start; gap: var(--space-3); margin-top: var(--space-2); }
+.f-lo__h h2 { margin: 0; font-size: 18px; line-height: 28px; font-weight: 600; }
+.f-lo__h p { margin: var(--space-1) 0 0; font-size: 14px; line-height: 24px; }
+.f-drawer__tag { height: 22px; padding: 0 var(--space-2); margin-inline-start: var(--space-1); }
+
+/* ۳۵. برگه خروج روی کشو: برگه بالای scrim دوم؛ scrim دوم سبک‌تر تا صفحه سیاه نشود */
+.rv-final > .f-drawer ~ .rv-scrim { background: rgba(18, 20, 23, 0.16); }
+.rv-final > .f-drawer ~ .rv-scrim ~ .rv-sheet { z-index: 31; }

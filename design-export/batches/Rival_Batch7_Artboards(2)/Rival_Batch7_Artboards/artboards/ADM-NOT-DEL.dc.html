@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-NOT — منتشرشده — برگه حذف اعلان</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+<link rel="stylesheet" href="rv-b6.css">
+<link rel="stylesheet" href="rv-b7.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 960px;">
+  <div aria-hidden="true" inert style="position: absolute; inset: 0; overflow: hidden;">
+  <header class="f-bar-in">
+    <a href="#more" class="rv-icon-btn" aria-label="بازگشت"><i class="ri ri-arrow-right"></i></a>
+    <h1>اعلان‌ها</h1>
+    <a href="/admin/notifications/new" class="rv-icon-btn" aria-label="اعلان تازه"><i class="ri ri-plus"></i></a>
+  </header>
+  <main class="f-enter" style="padding: var(--space-2) var(--space-4) 128px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <div class="rv-seg rv-glass b4-seg-full" role="tablist" aria-label="اعلان‌ها"><button type="button" id="tab-in" role="tab" aria-selected="false" aria-controls="p-nt">دریافتی<span class="b4-n" aria-label="۳ خوانده‌نشده">۳</span></button><button type="button" id="tab-pub" role="tab" aria-selected="true" aria-controls="p-nt">منتشرشده<span class="b4-n" aria-label="۸ اعلان">۸</span></button></div>
+    <section id="p-nt" role="tabpanel" aria-labelledby="tab-pub" style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <div class="b3-tools"><span class="b3-tools__sum"><b>۸</b> اعلان عمومی منتشرشده</span><a href="/admin/notifications/new" class="rv-btn rv-btn--secondary rv-btn--sm"><i class="ri ri-sm ri-plus"></i>اعلان تازه</a></div>
+      <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+      <div class="rv-list rv-glass b7-publ">
+        <div class="rv-item" style="align-items: flex-start;">
+          <span class="rv-tile rv-tile--sm is-ink" aria-hidden="true"><i class="ri ri-sm ri-calendar-clock"></i></span>
+          <div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">از ۱ آذر شنبه‌ها از ساعت ۱۰:۰۰ باز هستیم</div><div class="rv-item__s">برای همه کاربران<span class="rv-sep" aria-hidden="true"></span>۲ آبان</div><div style="margin-top: var(--space-2);"><span class="rv-tag is-warning"><i class="ri ri-alert"></i>اهمیت بسیار بالا</span></div></div>
+          <button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-haspopup="dialog" aria-label="گزینه‌های اعلان از ۱ آذر شنبه‌ها از ساعت ۱۰:۰۰ باز هستیم" style="flex: none; margin-inline-end: calc(var(--space-2) * -1); color: var(--text-muted);"><i class="ri ri-more"></i></button>
+        </div>
+      </div>
+      <div class="rv-list rv-glass b7-publ b3-lift">
+        <div class="rv-item" style="align-items: flex-start;">
+          <span class="rv-tile rv-tile--sm is-rose" aria-hidden="true"><i class="ri ri-sm ri-calendar-x"></i></span>
+          <div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">تعطیلی سالن در ۱۳ آبان</div><div class="rv-item__s">برای همه کاربران<span class="rv-sep" aria-hidden="true"></span>۲۶ مهر</div><div style="margin-top: var(--space-2);"><span class="rv-tag is-warning"><i class="ri ri-alert"></i>اهمیت بسیار بالا</span></div></div>
+          <button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-haspopup="dialog" aria-label="گزینه‌های اعلان تعطیلی سالن در ۱۳ آبان" style="flex: none; margin-inline-end: calc(var(--space-2) * -1); color: var(--text-muted);"><i class="ri ri-more"></i></button>
+        </div>
+      </div>
+      <div class="rv-list rv-glass b7-publ">
+        <div class="rv-item" style="align-items: flex-start;">
+          <span class="rv-tile rv-tile--sm" aria-hidden="true"><i class="ri ri-sm ri-clock"></i></span>
+          <div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">پنج‌شنبه‌ها تا ساعت ۲۰:۰۰ باز هستیم</div><div class="rv-item__s">برای همه کاربران<span class="rv-sep" aria-hidden="true"></span>۱۸ مهر</div><div style="margin-top: var(--space-2);"><span class="rv-tag is-outline">اهمیت عادی</span></div></div>
+          <button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-haspopup="dialog" aria-label="گزینه‌های اعلان پنج‌شنبه‌ها تا ساعت ۲۰:۰۰ باز هستیم" style="flex: none; margin-inline-end: calc(var(--space-2) * -1); color: var(--text-muted);"><i class="ri ri-more"></i></button>
+        </div>
+      </div>
+      </div>
+    </section>
+  </main>
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری مدیر کل">
+      <a href="/admin" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+      <a href="/admin/calendar" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+      <a href="/admin/requests" aria-label="درخواست‌ها، ۴ درخواست منتظر پاسخ شما"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۴</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/admin/customers" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+      <a href="#more" aria-current="page" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+  </div>
+  </div>
+  <div class="rv-scrim" aria-hidden="true"></div>
+  <section class="rv-sheet rv-glass-strong b2-sheet" role="dialog" aria-modal="true" aria-labelledby="dl-t" style="display: flex; flex-direction: column; gap: var(--space-4);">
+    <span class="b2-grip" aria-hidden="true"></span>
+    <div class="b2-sheet__head">
+      <span class="rv-tile is-rose"><i class="ri ri-trash"></i></span>
+      <div class="rv-grow"><h2 id="dl-t" class="b2-sheet__t">این اعلان حذف شود؟</h2><p class="b2-sheet__d">اعلان عمومی منتشرشده</p></div>
+      <button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="بستن برگه"><i class="ri ri-x"></i></button>
+    </div>
+    <div class="b3-eff"><span class="rv-tile rv-tile--sm is-neutral" aria-hidden="true"><i class="ri ri-sm ri-users"></i></span><div class="rv-grow"><div class="b3-eff__t">از مرکز اعلان و داشبورد همهٔ کاربران برداشته می‌شود</div><p class="b3-eff__d">حتی کسانی که قبلاً آن را خوانده‌اند دیگر نمی‌بینند.</p></div></div>
+    <ul class="b2-facts" style="margin: 0;">
+      <li><i class="ri ri-alert"></i><span>حذف برگشت ندارد؛ برای تغییر متن، به‌جای حذف «ویرایش» را بزنید.</span></li>
+    </ul>
+    <div class="b2-sheet__acts"><button type="button" class="rv-btn rv-btn--danger">حذف اعلان</button><button type="button" class="rv-btn rv-btn--secondary">انصراف</button></div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":960}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

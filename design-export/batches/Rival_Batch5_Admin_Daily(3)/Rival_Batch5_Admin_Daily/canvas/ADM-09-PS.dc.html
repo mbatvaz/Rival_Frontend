@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-09 — جزئیات مشتری — حذف حساب، تکمیل با خطا</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 970px;">
+  <header class="f-bar-in">
+    <span aria-hidden="true"></span>
+    <h1>حذف حساب</h1>
+    <a href="/admin/customers" class="rv-icon-btn" aria-label="بستن"><i class="ri ri-x"></i></a>
+  </header>
+  <main class="f-enter" style="padding: var(--space-2) var(--space-4) var(--space-8); display: flex; flex-direction: column; gap: var(--space-5);">
+    <!-- [مدیر] PartialSuccess حذف نرم (همان b4-ps در STY-08-PS): حساب حذف شد، یک لغو انجام نشد -->
+    <div class="rv-card rv-glass b4-ps" role="status">
+      <div class="rv-gauge" aria-label="۲ از ۳ مورد لغو شد"><svg viewBox="0 0 168 168" aria-hidden="true"><circle class="trk" cx="84" cy="84" r="74"></circle><circle class="val is-success" cx="84" cy="84" r="74" stroke-dasharray="465" stroke-dashoffset="155"></circle></svg><div class="rv-gauge__c"><b>۲/۳</b><span>لغو شد</span></div></div>
+      <span class="rv-tag is-warning"><i class="ri ri-alert"></i>تکمیل با خطا</span>
+      <h2 class="b4-ps__t">حساب سامان نوری حذف شد</h2>
+      <p class="b4-ps__d">۲ مورد لغو شد. ۱ نوبت لغو نشد و هنوز سر جایش است.</p>
+    </div>
+
+    <section aria-labelledby="ps-f">
+      <div class="b4-psh"><span class="rv-tag is-danger"><i class="ri ri-x"></i><span id="ps-f">لغو نشد</span></span><span class="rv-caption rv-muted">۱ مورد</span></div>
+      <div class="rv-list rv-glass b4-psl">
+        <div class="rv-item"><span class="rv-avatar rv-avatar--sm"><img src="/_blob/93897ddccfdc06e25d8a145ba1b7e82e" alt=""></span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">فیشیال<span class="rv-sep" aria-hidden="true"></span>۵ آبان، ۱۱:۰۰</div><div class="rv-item__s">پرداخت این نوبت در حال بررسی است و تا روشن شدن وضعیت قفل است.</div><span class="rv-tag is-info" style="margin-top: var(--space-2);"><i class="ri ri-refresh"></i>در حال بررسی</span></div></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="ps-s">
+      <div class="b4-psh"><span class="rv-tag is-success"><i class="ri ri-check"></i><span id="ps-s">لغو شد</span></span><span class="rv-caption rv-muted">۲ مورد</span></div>
+      <div class="rv-list rv-glass b4-psl">
+        <div class="rv-item"><span class="rv-avatar rv-avatar--sm"><img src="/_blob/4182f513f8e3ef17e28dbca296c38a83" alt=""></span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">اصلاح سر و صورت<span class="rv-sep" aria-hidden="true"></span>امروز، ۱۶:۰۰</div><div class="rv-item__s">زمان امیر آزاد شد</div></div></div>
+        <div class="rv-item"><span class="rv-avatar rv-avatar--sm"><img src="/_blob/7ebf6fbc14eee9166ac8bda217dfa55e" alt=""></span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">درخواست رنگ ریش</div><div class="rv-item__s">از صندوق امیر برداشته شد</div></div></div>
+      </div>
+    </section>
+
+    <p class="b4-hint"><i class="ri ri-info" aria-hidden="true"></i>اگر تلاش دوباره هم نشد، نتیجه نهایی در مرکز اعلان به شما گزارش می‌شود.</p>
+    <div class="b4-acts"><button type="button" class="rv-btn rv-btn--primary rv-btn--block"><i class="ri ri-refresh"></i>تلاش دوباره ۱ مورد</button><a href="/admin/customers" class="rv-btn rv-btn--secondary rv-btn--block">بازگشت به مشتری‌ها</a></div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":970}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

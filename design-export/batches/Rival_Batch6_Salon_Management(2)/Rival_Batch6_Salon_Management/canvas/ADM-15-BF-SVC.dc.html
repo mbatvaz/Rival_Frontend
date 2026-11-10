@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-15 — برگه انتخاب خدمت‌ها</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+<link rel="stylesheet" href="rv-b6.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 950px;">
+  <div aria-hidden="true" inert style="position: absolute; inset: 0; overflow: hidden;">
+  <header class="f-bar-in">
+    <span aria-hidden="true"></span>
+    <h1>قاعدهٔ باز شدن رزرو</h1>
+    <a href="#tab-bf" class="rv-icon-btn" aria-label="بستن"><i class="ri ri-x"></i></a>
+  </header>
+  <main class="f-enter" style="padding: var(--space-2) var(--space-4) 140px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <!-- [مدیر] BookableFrom: خدمت و آرایشگر از برگهٔ انتخاب؛ یک تقویم برای روز آغاز رزرو (تکی) و بازهٔ هدف (دو روز)، کارت سه‌قسمتی زیرش، سپس ساعت؛ آیکون calendar-clock (جدا از timer در آزاد شدن خودکار) -->
+    <section aria-labelledby="bf-s" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <div class="f-head" style="margin-bottom: 0;"><h2 id="bf-s" class="f-h">شامل کدام‌ها؟</h2></div>
+      <button type="button" class="rv-card rv-glass b6-sel b3-lift" aria-haspopup="dialog" aria-label="خدمت‌ها، ۲ انتخاب"><span class="rv-tile is-neutral" aria-hidden="true"><i class="ri ri-scissors"></i></span><span class="rv-grow" style="min-width: 0;"><span class="b6-sel__h"><b>خدمت‌ها</b><span class="rv-tag">۲ انتخاب</span></span><span class="b6-svs" style="margin-top: var(--space-2);"><span class="b6-sv">فیشیال</span><span class="b6-sv">اصلاح سر و صورت</span></span></span><i class="ri ri-chevron-down" aria-hidden="true"></i></button>
+      <button type="button" class="rv-card rv-glass b6-sel" aria-haspopup="dialog" aria-label="آرایشگران، ۲ انتخاب"><span class="rv-tile is-neutral" aria-hidden="true"><i class="ri ri-users"></i></span><span class="rv-grow" style="min-width: 0;"><span class="b6-sel__h"><b>آرایشگران</b><span class="rv-tag">۲ انتخاب</span></span><span class="b6-sel__v"><span class="b6-avs" aria-hidden="true"><span class="rv-avatar rv-avatar--xs"><img src="/_blob/92858d17f7588a28f873f9e48c4fa8ba" alt=""></span><span class="rv-avatar rv-avatar--xs"><img src="/_blob/9783e86f458ebcebd2fc5b4666e66be1" alt=""></span></span><span>طاها، سینا</span></span></span><i class="ri ri-chevron-down" aria-hidden="true"></i></button>
+    </section>
+    <section aria-labelledby="bf-d" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <div class="f-head" style="margin-bottom: 0;"><h2 id="bf-d" class="f-h">تاریخ‌ها</h2><span class="rv-caption rv-muted">یک تقویم، سه روز</span></div>
+      <div class="rv-cal rv-glass b4-scal b6-cal" style="padding: var(--space-3) var(--space-2); border-radius: var(--radius-lg);"><div class="rv-cal__head" style="padding: 0 var(--space-2);"><b>آذر ۱۴۰۵</b><span class="rv-row" style="gap: 0;"><button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="ماه قبل"><i class="ri ri-chevron-right"></i></button><button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="ماه بعد"><i class="ri ri-chevron-left"></i></button></span></div><div class="rv-cal__grid" role="grid" aria-label="تاریخ‌های قاعده، آذر ۱۴۰۵"><span class="rv-cal__dow">ش</span><span class="rv-cal__dow">ی</span><span class="rv-cal__dow">د</span><span class="rv-cal__dow">س</span><span class="rv-cal__dow">چ</span><span class="rv-cal__dow">پ</span><span class="rv-cal__dow">ج</span><span class="rv-day is-empty" aria-hidden="true"></span><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="1 آذر"><i>۱</i></button><button type="button" class="rv-day is-open" role="gridcell" aria-selected="true" aria-label="2 آذر، روز آغاز رزرو"><i>۲</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="3 آذر"><i>۳</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="4 آذر"><i>۴</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="5 آذر"><i>۵</i></button><button type="button" class="rv-day is-holiday" role="gridcell" aria-selected="false" aria-label="6 آذر"><i>۶</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="7 آذر"><i>۷</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="8 آذر"><i>۸</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="9 آذر"><i>۹</i></button><button type="button" class="rv-day range-start" role="gridcell" aria-selected="true" aria-label="10 آذر"><i>۱۰</i></button><button type="button" class="rv-day in-range" role="gridcell" aria-selected="false" aria-label="11 آذر"><i>۱۱</i></button><button type="button" class="rv-day in-range" role="gridcell" aria-selected="false" aria-label="12 آذر"><i>۱۲</i></button><button type="button" class="rv-day in-range is-holiday" role="gridcell" aria-selected="false" aria-label="13 آذر"><i>۱۳</i></button><button type="button" class="rv-day in-range" role="gridcell" aria-selected="false" aria-label="14 آذر"><i>۱۴</i></button><button type="button" class="rv-day in-range" role="gridcell" aria-selected="false" aria-label="15 آذر"><i>۱۵</i></button><button type="button" class="rv-day in-range" role="gridcell" aria-selected="false" aria-label="16 آذر"><i>۱۶</i></button><button type="button" class="rv-day in-range" role="gridcell" aria-selected="false" aria-label="17 آذر"><i>۱۷</i></button><button type="button" class="rv-day in-range" role="gridcell" aria-selected="false" aria-label="18 آذر"><i>۱۸</i></button><button type="button" class="rv-day in-range" role="gridcell" aria-selected="false" aria-label="19 آذر"><i>۱۹</i></button><button type="button" class="rv-day in-range is-holiday" role="gridcell" aria-selected="false" aria-label="20 آذر"><i>۲۰</i></button><button type="button" class="rv-day in-range" role="gridcell" aria-selected="false" aria-label="21 آذر"><i>۲۱</i></button><button type="button" class="rv-day in-range" role="gridcell" aria-selected="false" aria-label="22 آذر"><i>۲۲</i></button><button type="button" class="rv-day in-range" role="gridcell" aria-selected="false" aria-label="23 آذر"><i>۲۳</i></button><button type="button" class="rv-day range-end" role="gridcell" aria-selected="true" aria-label="24 آذر"><i>۲۴</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="25 آذر"><i>۲۵</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="26 آذر"><i>۲۶</i></button><button type="button" class="rv-day is-holiday" role="gridcell" aria-selected="false" aria-label="27 آذر"><i>۲۷</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="28 آذر"><i>۲۸</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="29 آذر"><i>۲۹</i></button><button type="button" class="rv-day" role="gridcell" aria-selected="false" aria-label="30 آذر"><i>۳۰</i></button></div></div>
+      <div class="b6-lgd"><span><i class="is-open"></i>روز آغاز رزرو</span><span><i class="is-rng"></i>بازهٔ هدف</span></div>
+      <div class="rv-card rv-glass b6-tri" role="group" aria-label="تاریخ‌های قاعده"><div class="b6-tri__c is-on"><span class="b6-tri__l"><i class="ri ri-sm ri-calendar-clock" aria-hidden="true"></i>آغاز رزرو</span><b class="b6-tri__n">۲</b><span class="b6-tri__m">آذر<small>دوشنبه</small></span></div><div class="b6-tri__c"><span class="b6-tri__l"><i class="ri ri-sm ri-calendar" aria-hidden="true"></i>شروع بازه</span><b class="b6-tri__n">۱۰</b><span class="b6-tri__m">آذر<small>سه‌شنبه</small></span></div><div class="b6-tri__c"><span class="b6-tri__l"><i class="ri ri-sm ri-calendar" aria-hidden="true"></i>پایان بازه</span><b class="b6-tri__n">۲۴</b><span class="b6-tri__m">آذر<small>سه‌شنبه</small></span></div></div>
+      <p class="b4-hint" style="margin: 0;"><i class="ri ri-info" aria-hidden="true"></i>ساعتی را بزنید که رزرو در روز آغاز باز می‌شود.</p>
+      
+      <div class="rv-field"><span class="rv-label">ساعت آغاز رزرو</span><div class="rv-card rv-glass b4-whl" style="--cols:1"><div class="b4-whl__hd" aria-hidden="true"><span>ساعت آغاز رزرو</span></div><div class="b4-whl__bd"><div class="b4-whl__c" role="listbox" aria-label="ساعت آغاز رزرو"><span role="option">۰۸:۰۰</span><span role="option">۰۹:۰۰</span><span role="option" aria-selected="true" class="is-sel">۱۰:۰۰</span><span role="option">۱۱:۰۰</span><span role="option">۱۲:۰۰</span></div></div><div class="b4-whl__ft"><span>رزرو باز می‌شود</span><b>دوشنبه ۲ آذر، ۱۰:۰۰</b></div></div></div>
+      <ul class="b2-facts">
+        <li><i class="ri ri-calendar-clock"></i><span>تا این زمان، مشتری نمی‌تواند این خدمت‌ها را برای این تاریخ‌ها رزرو کند.</span></li>
+        <li><i class="ri ri-check-circle"></i><span>نوبت‌های قطعی موجود لغو نمی‌شود.</span></li>
+      </ul>
+    </section>
+  </main>
+  <div class="rv-actionbar rv-glass-strong b2-bar">
+    <div class="b2-bar__sum"><span class="b2-bar__t">۲ خدمت، ۲ آرایشگر</span><span class="b2-bar__s">۱۰ تا ۲۴ آذر</span></div>
+    <button type="button" class="rv-btn rv-btn--primary">ثبت قاعده</button>
+  </div>
+  </div>
+  <div class="rv-scrim" aria-hidden="true"></div>
+  <section class="rv-sheet rv-glass-strong b2-sheet" role="dialog" aria-modal="true" aria-labelledby="sv-t">
+    <span class="b2-grip" aria-hidden="true"></span>
+    <div class="b2-sheet__head">
+      <span class="rv-tile is-neutral"><i class="ri ri-scissors"></i></span>
+      <div class="rv-grow"><h2 id="sv-t" class="b2-sheet__t">خدمت‌ها</h2><p class="b2-sheet__d">یک یا چند خدمت</p></div>
+      <button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="بستن برگه"><i class="ri ri-x"></i></button>
+    </div>
+    <label class="rv-input rv-input--search" style="height: 48px;"><i class="ri ri-search"></i><input placeholder="جست‌وجوی خدمت" aria-label="جست‌وجوی خدمت"></label>
+    <div class="b6-pk" role="group" aria-label="خدمت‌ها"><div class="b6-pk__r" role="checkbox" aria-checked="false" tabindex="0"><img src="/_blob/1272e1983ea1826fe92e05b4637584d7" alt=""><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">اصلاح سر</div><div class="rv-item__s">ثابت</div></div></div><div class="b6-pk__r is-on" role="checkbox" aria-checked="true" tabindex="0"><img src="/_blob/1986af33543b3eadc29f1cff0528c135" alt=""><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">اصلاح سر و صورت</div><div class="rv-item__s">ثابت</div></div></div><div class="b6-pk__r" role="checkbox" aria-checked="false" tabindex="0"><img src="/_blob/8a8eb19c5d8d350ff62ee1a4c4e22b2c" alt=""><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">اصلاح ریش</div><div class="rv-item__s">ثابت</div></div></div><div class="b6-pk__r is-on" role="checkbox" aria-checked="true" tabindex="0"><img src="/_blob/ef2e28428e2d12fe714918a8cb323f25" alt=""><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">فیشیال</div><div class="rv-item__s">ثابت</div></div></div><div class="b6-pk__r" role="checkbox" aria-checked="false" tabindex="0"><img src="/_blob/8a8eb19c5d8d350ff62ee1a4c4e22b2c" alt=""><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">رنگ ریش</div><div class="rv-item__s">پیشنهادی</div></div></div><div class="b6-pk__r" role="checkbox" aria-checked="false" tabindex="0"><img src="/_blob/1272e1983ea1826fe92e05b4637584d7" alt=""><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">رنگ مو</div><div class="rv-item__s">پیشنهادی</div></div></div><div class="b6-pk__r" role="checkbox" aria-checked="false" tabindex="0"><img src="/_blob/1272e1983ea1826fe92e05b4637584d7" alt=""><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">گریم داماد</div><div class="rv-item__s">پیشنهادی</div></div></div></div>
+    <div class="b2-sheet__acts"><button type="button" class="rv-btn rv-btn--primary">تأیید ۲ خدمت</button><button type="button" class="rv-btn rv-btn--secondary">انصراف</button></div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":950}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

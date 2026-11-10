@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>STY-08 — برنامه کاری — تکمیل با خطا</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1040px;">
+  <header class="f-bar-in">
+    <span aria-hidden="true"></span>
+    <h1>برنامه کاری</h1>
+    <a href="/stylist/schedule" class="rv-icon-btn" aria-label="بستن"><i class="ri ri-x"></i></a>
+  </header>
+  <main class="f-enter" style="padding: var(--space-2) var(--space-4) var(--space-8); display: flex; flex-direction: column; gap: var(--space-5);">
+    <!-- PartialSuccess: هر لغو جداست؛ موفق‌ها برنمی‌گردند و فقط ناموفق دوباره تلاش می‌شود -->
+    <div class="rv-card rv-glass b4-ps" role="status">
+      <div class="rv-gauge" aria-label="۳ از ۴ مورد موفق"><svg viewBox="0 0 168 168" aria-hidden="true"><circle class="trk" cx="84" cy="84" r="74"></circle><circle class="val is-success" cx="84" cy="84" r="74" stroke-dasharray="465" stroke-dashoffset="116"></circle></svg><div class="rv-gauge__c"><b>۳/۴</b><span>لغو شد</span></div></div>
+      <span class="rv-tag is-warning"><i class="ri ri-alert"></i>تکمیل با خطا</span>
+      <h2 class="b4-ps__t">ساعت کاری دوشنبه‌ها ذخیره شد</h2>
+      <p class="b4-ps__d">۳ نوبت لغو شد. ۱ نوبت لغو نشد و هنوز سر جایش است، بیرون از ساعت کاری تازه شما.</p>
+    </div>
+
+    <section aria-labelledby="ps-f">
+      <div class="b4-psh"><span class="rv-tag is-danger"><i class="ri ri-x"></i><span id="ps-f">لغو نشد</span></span><span class="rv-caption rv-muted">۱ مورد</span></div>
+      <div class="rv-list rv-glass b4-psl">
+        <div class="rv-item"><span class="rv-avatar rv-avatar--sm"><img src="/_blob/4ef1bad64b3243b7c25d21b44540c637" alt=""></span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">رضا کریمی<span class="rv-sep" aria-hidden="true"></span>۲۷ مهر، ۱۸:۰۰</div><div class="rv-item__s">پرداخت این نوبت در حال بررسی است و تا روشن شدن وضعیت قفل است.</div><span class="rv-tag is-info" style="margin-top: var(--space-2);"><i class="ri ri-refresh"></i>در حال بررسی</span></div></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="ps-s">
+      <div class="b4-psh"><span class="rv-tag is-success"><i class="ri ri-check"></i><span id="ps-s">لغو شد</span></span><span class="rv-caption rv-muted">۳ مورد</span></div>
+      <div class="rv-list rv-glass b4-psl">
+        <div class="rv-item"><span class="rv-avatar rv-avatar--sm"><img src="/_blob/25dd67dc1f5d0e444ac88c31345ce3c5" alt=""></span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">حسین جعفری<span class="rv-sep" aria-hidden="true"></span>۴ آبان، ۱۴:۰۰</div><div class="rv-item__s">۸۰٬۰۰۰ تومان به اعتبارش برگشت</div></div></div>
+        <div class="rv-item"><span class="rv-avatar rv-avatar--sm"><img src="/_blob/81f810e4fcf2d32f78569d3761695c66" alt=""></span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">سامان نوری<span class="rv-sep" aria-hidden="true"></span>۴ آبان، ۱۷:۰۰</div><div class="rv-item__s">رزرو دستی بود؛ هزینه‌ای برای برگشت نداشت</div></div></div>
+        <div class="rv-item"><span class="rv-avatar rv-avatar--sm">ن</span><div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">نیما باقری<span class="rv-sep" aria-hidden="true"></span>۱۱ آبان، ۱۷:۳۰</div><div class="rv-item__s">۱۲۰٬۰۰۰ تومان به اعتبارش برگشت</div></div></div>
+      </div>
+    </section>
+
+    <p class="b4-hint"><i class="ri ri-info" aria-hidden="true"></i>به مشتری‌های لغوشده پیامک رفت. اگر تلاش دوباره هم نشد، نتیجه نهایی در مرکز اعلان به شما گزارش می‌شود.</p>
+    <div class="b4-acts"><button type="button" class="rv-btn rv-btn--primary rv-btn--block"><i class="ri ri-refresh"></i>تلاش دوباره ۱ مورد</button><a href="/stylist/schedule" class="rv-btn rv-btn--secondary rv-btn--block">بازگشت به برنامه کاری</a></div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1040}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { min-width: 320px; scroll-behavior: smooth; }
+  body { margin: 0; direction: rtl; font-family: var(--font-sans, "Yekan Bakh", sans-serif); }
+  img, svg { display: block; max-width: 100%; }
+  button, input, select, textarea { font: inherit; }
+}

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-02 — تقویم سالن — Scope یک آرایشگر («امیر»)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1280px;">
+
+  <header class="rv-topbar">
+    <h1 class="rv-topbar__title" style="margin: 0;">تقویم</h1>
+    <span class="rv-grow"></span>
+    <a href="/admin/action-center" class="rv-icon-btn" aria-label="مرکز اقدام، ۳ مورد باز"><i class="ri ri-pending"></i><span class="rv-count is-plum">۳</span></a>
+    <a href="/admin/notifications" class="rv-icon-btn" aria-label="اعلان‌ها، ۱ خوانده‌نشده"><i class="ri ri-bell"></i><span class="rv-dot is-ink"></span></a>
+  </header>
+
+  <main style="padding: 0 var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-4);">
+
+    <!-- [مدیر] Scope زیر نوار بالا (f-scope + rv-seg، SHELL-ADM)؛ فقط داده را عوض می‌کند، نه نقش را -->
+    <div class="f-scope">
+      <span class="f-scope__lbl">نمایش برنامه</span>
+      <div class="rv-seg rv-glass" role="tablist" aria-label="دامنه نمایش" style="display: flex;">
+        <button role="tab" aria-selected="false" style="flex: 1; justify-content: center;"><i class="ri ri-sm ri-user"></i>من</button>
+        <button role="tab" aria-selected="true" aria-haspopup="dialog" aria-expanded="false" style="flex: 1; justify-content: center;">امیر<i class="ri ri-sm ri-chevron-down"></i></button>
+      </div>
+    </div>
+
+    <!-- تقویم جهت ب (WeekStrip با کپسول)، بدون سوییچ روز/هفته/ماه؛ لمس نام ماه، تقویم ماهانه را باز می‌کند -->
+    <div class="rv-week rv-glass">
+      <div class="rv-week__head">
+        <button type="button" class="b4-month" aria-haspopup="dialog" aria-label="مهر ۱۴۰۵، باز کردن تقویم ماهانه">مهر ۱۴۰۵<i class="ri ri-chevron-down"></i></button>
+        <span class="rv-grow"></span>
+        <button class="rv-icon-btn rv-icon-btn--plain" type="button" disabled="" aria-label="هفته قبل" style="color: var(--text-disabled);"><i class="ri ri-chevron-right"></i></button>
+        <button class="rv-icon-btn rv-icon-btn--plain" type="button" aria-label="هفته بعد"><i class="ri ri-chevron-left"></i></button>
+      </div>
+      <div class="rv-week__grid" role="tablist" aria-label="هفته ۲۵ مهر تا ۱ آبان">
+        <span class="rv-week__ind" style="--i: 1;" aria-hidden="true"></span>
+        <button type="button" class="rv-wd is-past is-off" role="tab" aria-selected="false" aria-disabled="true" aria-label="شنبه ۲۵ مهر، گذشته"><small>ش</small><b>۲۵</b></button>
+        <button type="button" class="rv-wd is-today" role="tab" aria-selected="true" aria-label="یکشنبه ۲۶ مهر، امروز، ۴ نوبت پیش رو"><small>ی</small><b>۲۶</b></button>
+        <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="دوشنبه ۲۷ مهر، ۷ نوبت"><small>د</small><b>۲۷</b></button>
+        <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="سه‌شنبه ۲۸ مهر، ۳ نوبت"><small>س</small><b>۲۸</b></button>
+        <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="چهارشنبه ۲۹ مهر، ۵ نوبت"><small>چ</small><b>۲۹</b></button>
+        <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="پنج‌شنبه ۳۰ مهر، ۲ نوبت"><small>پ</small><b>۳۰</b></button>
+        <button type="button" class="rv-wd is-off is-hol" role="tab" aria-selected="false" aria-disabled="true" aria-label="جمعه ۱ آبان، سالن تعطیل است"><small>ج</small><b>۱</b></button>
+      </div>
+      <div class="rv-week__foot"><span>۴ نوبت پیش رو برای امیر، ۲ ساعت آزاد</span><a class="rv-link" href="/admin/appointments">سابقه نوبت‌ها</a></div>
+    </div>
+
+    <!-- سر روز با دسترسی سریع «بستن زمان» (برای هر بازه دلخواه) -->
+    <div class="b4-dayhead">
+      <h2 class="f-h">برنامه امیر، امروز یکشنبه ۲۶ مهر</h2>
+      
+    </div>
+
+    <!-- برنامه روز با کارت‌های جهت الف؛ هر زمان آزاد دو اقدام دارد: رزرو دستی و بستن -->
+    <ol class="f-tl" aria-label="برنامه امیر، یکشنبه ۲۶ مهر">
+      <li>
+        <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۱۱:۰۰</b><small class="rv-caption rv-muted">اکنون</small></span>
+        <div class="rv-tl__b rv-glass f-tile is-now">
+          <span class="rv-avatar rv-avatar--sm"><img src="/_blob/8b4db4f0bb515d0663b480815b96a0f8" alt=""></span>
+          <div class="rv-grow" style="min-width: 0;"><a href="/admin/appointments/BK-48302" class="f-stretch" style="display: block; font-size: 15px; line-height: 22px; font-weight: 600; color: inherit; text-decoration: none;">پویا صادقی</a><div class="f-t3" style="font-size: 12px; line-height: 18px;">اصلاح سر و صورت<span class="rv-sep" aria-hidden="true"></span>۲۰ دقیقه مانده</div></div>
+          <a href="tel:" class="rv-icon-btn" aria-label="تماس با پویا صادقی"><i class="ri ri-sm ri-phone"></i></a>
+        </div>
+      </li>
+      <li>
+        <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۱۲:۰۰</b></span>
+        <div class="rv-tl__b is-free b4-free">
+          <a href="/admin/manual-booking?stylist=amir&amp;date=1405-07-26&amp;at=12:00" class="b4-free__book"><i class="ri ri-sm ri-plus"></i>رزرو دستی</a>
+          <button type="button" class="b4-free__lock" aria-haspopup="dialog" aria-label="بستن زمان آزاد امیر ۱۲:۰۰، ۱ ساعت"><i class="ri ri-lock"></i>بستن</button>
+        </div>
+      </li>
+      <li>
+        <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۱۳:۰۰</b></span>
+        <div class="rv-tl__b rv-glass f-tile">
+          <span class="rv-avatar rv-avatar--sm">ک</span>
+          <div class="rv-grow" style="min-width: 0;"><a href="/admin/appointments/BK-48303" class="f-stretch" style="display: block; font-size: 15px; line-height: 22px; font-weight: 600; color: inherit; text-decoration: none;">کاوه احمدی</a><div class="f-t3" style="font-size: 12px; line-height: 18px;">اصلاح سر<span class="rv-sep" aria-hidden="true"></span>۳۰ دقیقه</div></div>
+          <a href="tel:" class="rv-icon-btn" aria-label="تماس با کاوه احمدی"><i class="ri ri-sm ri-phone"></i></a>
+        </div>
+      </li>
+      <li>
+        <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۱۳:۳۰</b></span>
+        <div class="rv-tl__b is-block"><span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-lock"></i></span><div class="rv-grow"><div style="font-size: 15px; line-height: 22px; font-weight: 600; color: var(--text-primary);">استراحت</div><div class="f-t3" style="font-size: 12px; line-height: 18px;">بستن شخصی<span class="rv-sep" aria-hidden="true"></span>۱ ساعت</div></div></div>
+      </li>
+      <li>
+        <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۱۴:۳۰</b></span>
+        <div class="rv-tl__b rv-glass f-tile">
+          <span class="rv-avatar rv-avatar--sm"><img src="/_blob/4182f513f8e3ef17e28dbca296c38a83" alt=""></span>
+          <div class="rv-grow" style="min-width: 0;"><a href="/admin/appointments/BK-48304" class="f-stretch" style="display: block; font-size: 15px; line-height: 22px; font-weight: 600; color: inherit; text-decoration: none;">علی محمدی</a><div class="f-t3" style="font-size: 12px; line-height: 18px;">اصلاح سر<span class="rv-sep" aria-hidden="true"></span>۳۰ دقیقه</div></div>
+          <a href="tel:" class="rv-icon-btn" aria-label="تماس با علی محمدی"><i class="ri ri-sm ri-phone"></i></a>
+        </div>
+      </li>
+      <li>
+        <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۱۵:۰۰</b></span>
+        <div class="rv-tl__b f-tile" style="border: 1.5px dashed var(--warning-line); background: var(--warning-bg);">
+          <span class="rv-avatar rv-avatar--sm">آ</span>
+          <div class="rv-grow" style="min-width: 0;">
+            <a href="/admin/requests/RQ-2209" class="f-stretch" style="display: block; font-size: 15px; line-height: 22px; font-weight: 600; color: inherit; text-decoration: none;">آرمان رحیمی</a>
+            <div class="f-t3" style="font-size: 12px; line-height: 18px;">فیشیال<span class="rv-sep" aria-hidden="true"></span>۱ ساعت</div>
+            <div class="rv-row" style="gap: 4px; margin-top: 4px; font-size: 12px; line-height: 18px; font-weight: 400; color: var(--warning-fg);"><i class="ri ri-sm ri-hourglass"></i>پاسخ امیر در نگه‌داشت؛ پرداخت تا ۱۴:۱۰</div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۱۶:۰۰</b></span>
+        <div class="rv-tl__b rv-glass f-tile">
+          <span class="rv-avatar rv-avatar--sm"><img src="/_blob/073e8bab91cfbb056ea68d266d51cbe7" alt=""></span>
+          <div class="rv-grow" style="min-width: 0;"><a href="/admin/appointments/BK-48306" class="f-stretch" style="display: block; font-size: 15px; line-height: 22px; font-weight: 600; color: inherit; text-decoration: none;">نیما یوسفی</a><div class="f-t3" style="font-size: 12px; line-height: 18px;">اصلاح سر و صورت<span class="rv-sep" aria-hidden="true"></span>۱ ساعت</div></div>
+          <a href="tel:" class="rv-icon-btn" aria-label="تماس با نیما یوسفی"><i class="ri ri-sm ri-phone"></i></a>
+        </div>
+      </li>
+      <li>
+        <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۱۷:۰۰</b></span>
+        <div class="rv-tl__b is-free b4-free">
+          <a href="/admin/manual-booking?stylist=amir&amp;date=1405-07-26&amp;at=17:00" class="b4-free__book"><i class="ri ri-sm ri-plus"></i>رزرو دستی</a>
+          <button type="button" class="b4-free__lock" aria-haspopup="dialog" aria-label="بستن زمان آزاد امیر ۱۷:۰۰، ۳۰ دقیقه"><i class="ri ri-lock"></i>بستن</button>
+        </div>
+      </li>
+      <li>
+        <span class="f-tl__t"><b style="font-size: 14px; line-height: 20px; font-weight: 400;">۱۷:۳۰</b></span>
+        <div class="rv-tl__b is-block"><span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-lock"></i></span><div class="rv-grow"><div style="font-size: 15px; line-height: 22px; font-weight: 600; color: var(--text-primary);">جلسه آموزشی</div><div class="f-t3" style="font-size: 12px; line-height: 18px;">بستن شخصی<span class="rv-sep" aria-hidden="true"></span>۱ ساعت و ۳۰ دقیقه</div><div class="b4-rel"><i class="ri ri-timer"></i>آزاد برای رزرو از ۱۵:۰۰ امروز</div></div></div>
+      </li>
+    </ol>
+  </main>
+
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری مدیر کل">
+      <a href="/admin" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+      <a href="/admin/calendar" aria-current="page" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+      <a href="/admin/requests" aria-label="درخواست‌ها، ۴ درخواست منتظر پاسخ"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۴</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/admin/customers" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+      <a href="#more" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1280}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rival — WeekStrip</title><link rel="stylesheet" href="../../css/tokens.css"><link rel="stylesheet" href="../../css/rival.css"><style>body{margin:0}</style></head>
+<body>
+<!-- @dsCard width=900 group="Calendar" height=520 subtitle="Week strip v2 — a glass panel of seven equal days, an ink capsule that glides to the chosen day, three-step load bars, accent dot for today" -->
+<div class="rv rv-final rv-pad" dir="rtl" lang="fa"><div class="rv-grid-2">
+  <div class="rv-stack">
+    <div class="rv-week rv-glass" id="wk">
+      <div class="rv-week__head"><button class="rv-week__month rv-btn rv-btn--ghost rv-btn--sm" style="padding:0 8px">مهر ۱۴۰۵<i class="ri ri-sm ri-chevron-down"></i></button><span class="rv-grow"></span><button class="rv-chip">امروز</button><button class="rv-icon-btn rv-icon-btn--plain" aria-label="هفته قبل"><i class="ri ri-chevron-right"></i></button><button class="rv-icon-btn rv-icon-btn--plain" aria-label="هفته بعد"><i class="ri ri-chevron-left"></i></button></div>
+      <div class="rv-week__grid" role="tablist" style="--i:5"><span class="rv-week__ind" aria-hidden="true"></span><button class="rv-wd is-past" role="tab" aria-selected="false" aria-label="ش ۱۱ مهر"><small>ش</small><b>۱۱</b><span class="rv-load"><i class="on"></i><i class="on"></i><i class="on"></i></span></button><button class="rv-wd is-past" role="tab" aria-selected="false" aria-label="ی ۱۲ مهر"><small>ی</small><b>۱۲</b><span class="rv-load"><i class="on"></i><i class="on"></i><i></i></span></button><button class="rv-wd is-past" role="tab" aria-selected="false" aria-label="د ۱۳ مهر"><small>د</small><b>۱۳</b><span class="rv-load"><i class="on"></i><i class="on"></i><i class="on"></i></span></button><button class="rv-wd is-past" role="tab" aria-selected="false" aria-label="س ۱۴ مهر"><small>س</small><b>۱۴</b><span class="rv-load"><i class="on"></i><i></i><i></i></span></button><button class="rv-wd is-past" role="tab" aria-selected="false" aria-label="چ ۱۵ مهر"><small>چ</small><b>۱۵</b><span class="rv-load"><i class="on"></i><i class="on"></i><i></i></span></button><button class="rv-wd is-today" role="tab" aria-selected="true" aria-label="پ ۱۶ مهر"><small>پ</small><b>۱۶</b><span class="rv-load"><i class="on"></i><i class="on"></i><i></i></span></button><button class="rv-wd is-off" role="tab" aria-selected="false" aria-label="ج ۱۷ مهر"><small>ج</small><b>۱۷</b><span class="rv-load"><i></i><i></i><i></i></span></button></div>
+      <div class="rv-week__foot"><span id="sum">پنج‌شنبه ۱۶ مهر<span class="rv-sep" aria-hidden="true"></span>۶ نوبت<span class="rv-sep" aria-hidden="true"></span>۲ زمان آزاد</span><a class="rv-link" href="#">تقویم ماه</a></div>
+    </div>
+    <div class="rv-legend"><span><i style="width:8px;height:3px;border-radius:2px;background:var(--chrome-700)"></i>بار روز (کم، متوسط، پر)</span><span><i style="width:6px;height:6px;border-radius:50%;background:var(--accent-500)"></i>امروز</span><span style="text-decoration:line-through">تعطیل</span></div>
+    <span class="rv-caption rv-muted">روی روزها بزنید؛ کپسول تیره با حرکت فنری جابه‌جا می‌شود.</span>
+    <span class="rv-overline" style="margin-top:8px">تعطیل رسمی در نوار هفته</span>
+    <div class="rv-week rv-glass">
+      <div class="rv-week__grid" role="tablist" style="--i:1"><span class="rv-week__ind" aria-hidden="true"></span><button class="rv-wd" role="tab" aria-selected="false" aria-label="شنبه ۲ آبان"><small>ش</small><b>۲</b></button><button class="rv-wd" role="tab" aria-selected="true" aria-label="یکشنبه ۳ آبان"><small>ی</small><b>۳</b></button><button class="rv-wd" role="tab" aria-selected="false" aria-label="دوشنبه ۴ آبان"><small>د</small><b>۴</b></button><button class="rv-wd is-hol" role="tab" aria-selected="false" aria-label="سه‌شنبه ۵ آبان، تعطیل رسمی"><small>س</small><b>۵</b></button><button class="rv-wd" role="tab" aria-selected="false" aria-label="چهارشنبه ۶ آبان"><small>چ</small><b>۶</b></button><button class="rv-wd" role="tab" aria-selected="false" aria-label="پنج‌شنبه ۷ آبان"><small>پ</small><b>۷</b></button><button class="rv-wd is-off" role="tab" aria-selected="false" aria-label="جمعه ۸ آبان، سالن تعطیل است"><small>ج</small><b>۸</b></button></div>
+      <div class="rv-week__foot"><span>سه‌شنبه ۵ آبان<span class="rv-sep" aria-hidden="true"></span>تعطیل رسمی، بدون پذیرش</span></div>
+    </div>
+    <span class="rv-caption rv-muted"><span class="rv-ltr">.rv-wd.is-hol</span> — عدد و حرف روز قرمز؛ برچسب «تعطیل رسمی» یا «پذیرش در تعطیل» زیر نوار (D10-67، D10-97).</span>
+  </div>
+  <div class="rv-stack">
+    <span class="rv-overline">زیر نوار: برنامه همان روز</span>
+    <div class="rv-list rv-glass">
+      <div class="rv-item"><span class="rv-item__time">۱۰:۰۰</span><span class="rv-avatar"><img src="../../assets/photos/customers/customer-1.webp" alt=""></span><div class="rv-grow"><div class="rv-item__t">رضا کریمی</div><div class="rv-item__s">اصلاح سر و صورت</div></div><span class="rv-tag is-success"><i class="ri ri-check"></i>انجام شده</span></div>
+      <div class="rv-item"><span class="rv-item__time">۱۱:۳۰</span><span class="rv-avatar"><img src="../../assets/photos/customers/customer-2.webp" alt=""></span><div class="rv-grow"><div class="rv-item__t">امیر حسینی</div><div class="rv-item__s">اصلاح ریش</div></div><span class="rv-tag is-ink is-live"><span class="rv-tag__dot"></span>اکنون</span></div>
+      <div class="rv-item"><span class="rv-item__time">۱۳:۰۰</span><span class="rv-avatar"><img src="../../assets/photos/customers/customer-3.webp" alt=""></span><div class="rv-grow"><div class="rv-item__t">سامان نوری</div><div class="rv-item__s">فیشیال</div></div><span class="rv-tag is-ink"><i class="ri ri-calendar"></i>رزرو شده</span></div>
+    </div>
+  </div>
+</div></div>
+<script>(function(){var g=document.querySelector('.rv-week__grid'),fa='۰۱۲۳۴۵۶۷۸۹',names=['شنبه','یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنج‌شنبه','جمعه'],loads=[7,5,8,3,6,6,0],f=function(n){return String(n).replace(/\d/g,function(d){return fa[d]})};
+g.querySelectorAll('.rv-wd').forEach(function(b,i){b.addEventListener('click',function(){if(b.classList.contains('is-off'))return;g.style.setProperty('--i',i);g.querySelectorAll('.rv-wd').forEach(function(x){x.setAttribute('aria-selected','false')});b.setAttribute('aria-selected','true');document.getElementById('sum').textContent=names[i]+' '+b.querySelector('b').textContent+' مهر — '+f(loads[i])+' نوبت';});});})();</script>
+</body></html>

@@ -1,0 +1,47 @@
+/* §۱۲۲ دکمه شیشه‌ای عمومی (هم‌خانواده دکمه بازگشت) */
+.rv-btn.is-glass { background: var(--glass-fill); color: var(--text-primary); -webkit-backdrop-filter: blur(var(--blur-glass)); backdrop-filter: blur(var(--blur-glass)); box-shadow: inset 0 0 0 1px var(--glass-edge), var(--shadow-sm); border: 0; }
+
+/* §۱۲۳ بازبینی پایانی: پیوند متنی روی <button> ظاهر پیش‌فرض مرورگر نگیرد */
+button.rv-link { -webkit-appearance: none; appearance: none; background: none; border: 0; padding: 0; font-family: inherit; cursor: pointer; }
+
+/* §۱۲۴ زبانه‌های سه‌تایی درخواست‌ها (STY-03): دکمه فیلتر فقط نماد، تا برچسب‌ها در یک خط بمانند */
+.b4-fcard.is-icon .b4-fcard__b { width: 40px; padding: 0; justify-content: center; }
+.b4-seg-full.is-3 button { padding-inline: var(--space-3); gap: 4px; white-space: nowrap; }
+
+/* §۱۲۵ ADM-09 (۳۱ اکتبر): حالت «پرداخت‌ها»، ردیف پرداخت و دفتر اعتبار؛ انتخاب‌گر حالت و کارت موجودی در پایین (D10-176) */
+.b5-pay, .b5-led { position: relative; display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-3) var(--space-4); }
+.b5-pay + .b5-pay, .b5-led + .b5-led { border-top: 1px solid var(--line-hairline); }
+.b5-pay__top { display: flex; align-items: flex-start; gap: var(--space-3); }
+.b5-pay__t { font-size: 15px; line-height: 22px; font-weight: 600; }
+.b5-pay__s { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b5-pay__amt, .b5-led__amt { flex: none; text-align: left; font-family: var(--font-numeric-regular); font-size: 15px; line-height: 22px; white-space: nowrap; color: var(--text-primary); }
+.b5-pay__amt small, .b5-led__amt small { display: block; font-family: var(--font-sans); font-size: 11px; line-height: 14px; font-weight: 300; color: var(--text-muted); }
+.b5-led__amt.is-pos { color: var(--success-fg); }
+.b5-pay__split, .b5-led__r { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b5-led__r { font-size: 13px; color: var(--text-primary); font-weight: 400; }
+.b5-pay__foot { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-2) var(--space-3); }
+.b5-pay__foot .rv-tag { flex: none; height: 24px; padding: 0 10px; font-size: 12px; }
+.b5-pay__lnk { position: relative; z-index: 1; min-height: 44px; display: inline-flex; align-items: center; gap: 4px; font-size: 13px; line-height: 20px; }
+.b5-led__who { font-size: 12px; font-weight: 300; color: var(--text-muted); margin-inline-end: auto; }
+.b5-led__ic { width: 36px; height: 36px; flex: none; }
+.b5-led .rv-btn { position: relative; z-index: 1; min-height: 44px; }
+
+
+/* §۱۲۶ ADM-09 (۳۱ اکتبر، بازنگری D10-176): رادیوی «خدمات / پرداخت‌ها»، کارت موجودی و عکس سیاه‌وسفید حساب غیرفعال */
+.b5-mode { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); padding: 6px var(--space-1) 2px; border-radius: var(--radius-lg); }
+.b5-mode button { min-height: 52px; display: flex; align-items: center; justify-content: center; gap: var(--space-2); border: 0; border-radius: var(--radius-md); font: inherit; font-size: 15px; line-height: 22px; font-weight: 300; color: var(--text-muted); background: rgba(20, 16, 14, .05); box-shadow: inset 0 2px 5px rgba(20, 16, 14, .12); cursor: pointer; transition: transform .15s, box-shadow .15s; }
+.b5-mode button[aria-checked="true"] { background: #fff; color: var(--text-primary); font-weight: 500; transform: translateY(-4px); box-shadow: 0 1px 2px rgba(20, 16, 14, .10), 0 4px 8px rgba(20, 16, 14, .10), 0 10px 20px rgba(20, 16, 14, .12); }
+.b5-mode button[aria-checked="false"] i { opacity: .6; }
+.b5-balc { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-lg); }
+.b5-balc__ic { flex: none; width: 44px; height: 44px; display: grid; place-items: center; border-radius: var(--radius-md); background: var(--bg-inverse-raised, #2a2420); color: var(--text-inverse, #fff); }
+.b5-balc__l { font-size: 12px; line-height: 18px; font-weight: 300; color: var(--text-secondary); }
+.b5-balc__v { font-family: var(--font-numeric-regular); font-size: 24px; line-height: 32px; color: var(--text-primary); white-space: nowrap; }
+.b5-balc__v small { margin-inline-start: 4px; font-family: var(--font-sans); font-size: 12px; font-weight: 300; color: var(--text-muted); }
+.b5-balc .rv-btn { flex: none; min-height: 44px; }
+.b3-pf.is-off .b3-pf__ph img { filter: grayscale(1); opacity: .75; }
+
+/* §۱۲۷ ADM-09 (۳۱ اکتبر، D10-177): برگهٔ «تغییر موجودی» — خلاصهٔ موجودی بعد از تغییر */
+.b5-after { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); background: rgba(20, 16, 14, .04); font-size: 13px; line-height: 20px; font-weight: 300; color: var(--text-secondary); }
+.b5-after b { font-family: var(--font-numeric-regular); font-size: 18px; line-height: 26px; font-weight: 400; color: var(--text-primary); white-space: nowrap; }
+.b5-after small { margin-inline-start: 4px; font-family: var(--font-sans); font-size: 12px; font-weight: 300; color: var(--text-muted); }
+.b2-sheet [aria-disabled="true"] { opacity: .5; }

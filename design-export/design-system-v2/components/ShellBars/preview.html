@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rival — ShellBars</title><link rel="stylesheet" href="../../css/tokens.css"><link rel="stylesheet" href="../../css/rival.css"><style>body{margin:0}</style></head>
+<body>
+<!-- @dsCard width=900 group="Navigation" height=800 subtitle="نوار صفحه داخلی، عمومی، Scope و مرکز اقدام" -->
+<div class="rv rv-final rv-pad" dir="rtl" lang="fa"><div style="display:grid;grid-template-columns:repeat(2,390px);gap:28px 40px;justify-content:center;align-items:start">
+<div class="rv-stack" style="gap:8px;min-width:0"><span class="rv-overline">نوار صفحه داخلی — InnerTopBar</span><div style="width: 390px; max-width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-hairline); background: var(--rv-page); overflow: hidden;">
+<!-- نوار بالای صفحه داخلی: بازگشت، عنوان، (اقدام) -->
+<header class="f-bar-in">
+<a aria-label="بازگشت" class="rv-icon-btn" href="#"><i class="ri ri-arrow-right"></i></a>
+<h1>اعلان‌ها</h1>
+<span aria-hidden="true"></span>
+</header>
+</div><span class="rv-caption rv-muted">بازگشت، عنوان، جای خالی هم‌وزن برای وسط ماندن عنوان</span></div><div class="rv-stack" style="gap:8px;min-width:0"><span class="rv-overline">نوار جزئیات با شناسه و اقدام</span><div style="width: 390px; max-width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-hairline); background: var(--rv-page); overflow: hidden;">
+<!-- نوار بالای صفحه داخلی: بازگشت، عنوان، (اقدام) -->
+<header class="f-bar-in">
+<a aria-label="بازگشت" class="rv-icon-btn" href="#"><i class="ri ri-arrow-right"></i></a>
+<h1>جزئیات نوبت<span class="f-bar-in__sub f-num">RV-48271</span></h1>
+<button aria-label="اقدام‌های بیشتر" class="rv-icon-btn" type="button"><i class="ri ri-more"></i></button>
+</header>
+</div><span class="rv-caption rv-muted">زیرعنوان f-bar-in__sub؛ شناسه با f-num</span></div><div class="rv-stack" style="gap:8px;min-width:0"><span class="rv-overline">نوار جریان رزرو</span><div style="width: 390px; max-width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-hairline); background: var(--rv-page); overflow: hidden;">
+<!-- نوار بالای صفحه داخلی: بازگشت، عنوان، (اقدام) -->
+<header class="f-bar-in">
+<a aria-label="بازگشت" class="rv-icon-btn" href="#"><i class="ri ri-arrow-right"></i></a>
+<h1>رزرو نوبت<span class="f-bar-in__sub">قدم ۱ از ۳</span></h1>
+<span aria-hidden="true"></span>
+</header>
+</div><span class="rv-caption rv-muted">قدم فعلی در زیرعنوان؛ نوار پایین در این صفحه‌ها نیست</span></div><div class="rv-stack" style="gap:8px;min-width:0"><span class="rv-overline">نوار صفحه عمومی — PublicTopBar</span><div style="width: 390px; max-width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-hairline); background: var(--rv-page); overflow: hidden;">
+<!-- نوار بالای صفحه عمومی: بازگشت به خانه، عنوان، ورود -->
+<header class="f-bar-in">
+<a aria-label="بازگشت به خانه" class="rv-icon-btn" href="/"><i class="ri ri-arrow-right"></i></a>
+<h1>نمونه‌کارها</h1>
+<a class="rv-btn rv-btn--secondary rv-btn--sm rv-btn--pill f-pub-login" href="/login">ورود</a>
+</header>
+</div><span class="rv-caption rv-muted">ورود با دکمه ثانویه کوچک کپسولی</span></div><div class="rv-stack" style="gap:8px;min-width:0"><span class="rv-overline">Scope دوبخشی — ScopeBar</span><div class="rv rv-final rv-board" dir="rtl" style="padding:16px;border-radius:24px;background:var(--rv-page);box-shadow:var(--shadow-hairline);"><main style="display:flex;flex-direction:column;gap:16px;padding:0"><div class="rv-stack" style="gap:6px"><span class="rv-caption rv-muted">برنامه‌های</span><div class="rv-seg rv-glass" role="tablist" aria-label="دامنه" style="display:flex"><button role="tab" aria-selected="true" style="flex:1;justify-content:center"><i class="ri ri-sm ri-user"></i>من</button><button role="tab" aria-selected="false" style="flex:1;justify-content:center">آرایشگر<i class="ri ri-sm ri-chevron-down"></i></button></div></div></main></div><span class="rv-caption rv-muted">بالاترین جزء زیر نوار بالا (D10-131)؛ فقط «من / آرایشگر ▾»، بدون «همه سالن» (D10-112)</span></div><div class="rv-stack" style="gap:8px;min-width:0"><span class="rv-overline">فهرست انتخاب آرایشگر — ScopeMenu</span><div class="rv rv-final rv-board" dir="rtl" style="padding:16px;border-radius:24px;background:var(--rv-page);box-shadow:var(--shadow-hairline);"><main style="display:flex;flex-direction:column;gap:16px;padding:0"><div aria-label="انتخاب آرایشگر" class="rv-menu rv-glass-strong f-scope-menu" style="position:static;animation:none" role="listbox">
+<div class="f-scope-menu__lbl">برنامه کدام آرایشگر؟</div>
+<button aria-selected="false" role="option"><span class="rv-avatar rv-avatar--sm"><img alt="" src="../../assets/photos/stylists/stylist-1.webp"/></span><span class="rv-grow">امیر</span><span class="f-scope-menu__n">۵ نوبت امروز</span></button>
+<button aria-selected="false" role="option"><span class="rv-avatar rv-avatar--sm">س</span><span class="rv-grow">سینا</span><span class="f-scope-menu__n">۴ نوبت امروز</span></button>
+<button aria-selected="false" role="option"><span class="rv-avatar rv-avatar--sm">م</span><span class="rv-grow">مهدی</span><span class="f-scope-menu__n">۴ نوبت امروز</span></button>
+</div></main></div><span class="rv-caption rv-muted">listbox با عکس و شمار نوبت امروز؛ بعد از انتخاب، برچسب بخش دوم نام آرایشگر می‌شود</span></div><div class="rv-stack" style="gap:8px;min-width:0"><span class="rv-overline">برچسب آرایشگر جاری — StylistChip</span><div class="rv rv-final rv-board" dir="rtl" style="padding:16px;border-radius:24px;background:var(--rv-page);box-shadow:var(--shadow-hairline);"><main style="display:flex;flex-direction:column;gap:16px;padding:0"><div class="rv-row" style="gap:8px">برنامه‌های <span class="f-who">امیر</span></div></main></div><span class="rv-caption rv-muted">وقتی مدیر برنامه یک آرایشگر را می‌بیند</span></div><div class="rv-stack" style="gap:8px;min-width:0"><span class="rv-overline">مرکز اقدام کوتاه — ActionCenterPeek</span><div class="rv rv-final rv-board" dir="rtl" style="padding:16px;border-radius:24px;background:var(--rv-page);box-shadow:var(--shadow-hairline);"><main style="display:flex;flex-direction:column;gap:16px;padding:0"><a class="rv-card rv-glass f-acp" href="/admin/action-center" style="color: inherit; text-decoration: none;">
+<span class="rv-tile rv-tile--sm is-plum"><i class="ri ri-sm ri-pending"></i></span>
+<span class="rv-grow" style="min-width: 0;">
+<span style="display: block; font-size: 15px; line-height: 22px; font-weight: 600;">۳ مورد منتظر اقدام شما</span>
+<span class="f-t3" style="display: block; font-size: 12px; line-height: 18px;">۲ درخواست رزرو<span aria-hidden="true" class="rv-sep"></span>۱ پرداخت در حال بررسی</span>
+</span>
+<i aria-hidden="true" class="ri ri-sm ri-chevron-left rv-chev"></i>
+</a></main></div><span class="rv-caption rv-muted">فقط مدیر؛ کاشی بنفش = مورد باز (D10-04)</span></div>
+</div></div>
+
+</body></html>

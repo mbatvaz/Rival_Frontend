@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>BK-ALERT01 — برگه اعلان آزادشدن زمان — Default</title>
+
+<link rel="stylesheet" href="../assets/ds/rival/tokens.css">
+<link rel="stylesheet" href="../assets/ds/rival/components/bundle.css">
+<link rel="stylesheet" href="../assets/rv-fixes.css">
+<link rel="stylesheet" href="../assets/rv-final.css">
+<link rel="stylesheet" href="../assets/rv-b2.css">
+</head>
+<body style="margin:0;background:#E7E8EB;display:flex;justify-content:center">
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px;">
+  <header class="f-bar-in">
+    <a href="/customer/book/stylist" class="rv-icon-btn" aria-label="بازگشت به انتخاب آرایشگر"><i class="ri ri-arrow-right"></i></a>
+    <h1>انتخاب زمان<span class="f-bar-in__sub">قدم ۳ از ۳</span></h1>
+    <span aria-hidden="true"></span>
+  </header>
+
+  <main style="padding: var(--space-2) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <div class="rv-progress" role="progressbar" aria-label="قدم ۳ از ۳" aria-valuemin="1" aria-valuemax="3" aria-valuenow="3" style="margin: 0 var(--space-1);"><i style="width: 100%;"></i></div>
+
+    <!-- خدمت و آرایشگر انتخاب‌شده؛ عکس‌ها بزرگ‌تر -->
+    <div class="b2-ctx b2-ctx--lg rv-glass">
+      <span class="b2-ctx__media"><img src="../assets/img/9115564573058efd89988f589f50b4ee.png" alt="" style="object-position: center 35%;"></span>
+      <div class="rv-grow"><div class="b2-ctx__t">اصلاح سر و صورت</div><div class="b2-ctx__s"><span class="rv-avatar"><img src="../assets/img/b7faac4034c06ba5781923a5e4432418.png" alt=""></span>با امیر</div></div>
+    </div>
+
+    <!-- زودترین زمان‌ها: یک لمس تا انتخاب -->
+    <section aria-labelledby="f-soon">
+      <div class="f-head" style="margin-bottom: var(--space-1);"><h2 id="f-soon" class="f-h">زودترین زمان‌های آزاد</h2></div>
+      <div class="b2-soon" role="list">
+        <button type="button" role="listitem" class="b2-soon__c rv-glass" aria-label="امروز سه‌شنبه ۲۱ مهر، ساعت ۱۸:۰۰"><span class="b2-soon__l">امروز</span><span class="b2-soon__t">۱۸:۰۰</span><span class="b2-soon__d">سه‌شنبه ۲۱ مهر</span></button>
+        <button type="button" role="listitem" class="b2-soon__c rv-glass" aria-label="فردا چهارشنبه ۲۲ مهر، ساعت ۰۹:۳۰"><span class="b2-soon__l">فردا</span><span class="b2-soon__t">۰۹:۳۰</span><span class="b2-soon__d">چهارشنبه ۲۲ مهر</span></button>
+        <button type="button" role="listitem" class="b2-soon__c rv-glass" aria-label="پس‌فردا پنج‌شنبه ۲۳ مهر، ساعت ۰۹:۰۰"><span class="b2-soon__l">پس‌فردا</span><span class="b2-soon__t">۰۹:۰۰</span><span class="b2-soon__d">پنج‌شنبه ۲۳ مهر</span></button>
+      </div>
+    </section>
+
+    <!-- روز و ساعت دلخواه: نوار روزها افقی تا پایان افق یک‌ماهه اسکرول می‌شود؛ همه زمان‌های روز یک‌جا -->
+    <section aria-labelledby="f-day" style="display: flex; flex-direction: column; gap: var(--space-3); margin-top: calc(var(--space-2) * -1);">
+      <div class="f-head" style="margin-bottom: 0;"><h2 id="f-day" class="f-h">روز و ساعت دلخواه</h2></div>
+      <div class="rv-week rv-glass b2-days">
+        <div class="b2-days__row" role="tablist" aria-label="روزهای قابل رزرو، تا یک ماه آینده">
+          <button type="button" class="rv-wd is-today" role="tab" aria-selected="false" aria-label="سه‌شنبه ۲۱ مهر، امروز"><small>س</small><b>۲۱</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="چهارشنبه ۲۲ مهر"><small>چ</small><b>۲۲</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="true" aria-label="پنج‌شنبه ۲۳ مهر"><small>پ</small><b>۲۳</b></button>
+          <button type="button" class="rv-wd is-off" role="tab" aria-selected="false" aria-disabled="true" aria-label="جمعه ۲۴ مهر، سالن تعطیل است"><small>ج</small><b>۲۴</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="شنبه ۲۵ مهر"><small>ش</small><b>۲۵</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="یکشنبه ۲۶ مهر"><small>ی</small><b>۲۶</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="دوشنبه ۲۷ مهر"><small>د</small><b>۲۷</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="سه‌شنبه ۲۸ مهر"><small>س</small><b>۲۸</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="چهارشنبه ۲۹ مهر"><small>چ</small><b>۲۹</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="پنج‌شنبه ۳۰ مهر"><small>پ</small><b>۳۰</b></button>
+          <span class="b2-days__m" aria-hidden="true">آبان</span>
+          <button type="button" class="rv-wd is-off" role="tab" aria-selected="false" aria-disabled="true" aria-label="جمعه ۱ آبان، سالن تعطیل است"><small>ج</small><b>۱</b></button>
+          <button type="button" class="rv-wd" role="tab" aria-selected="false" aria-label="شنبه ۲ آبان"><small>ش</small><b>۲</b></button>
+        </div>
+      </div>
+      <div class="b2-slots4" role="group" aria-label="زمان‌های آزاد پنج‌شنبه ۲۳ مهر">
+        <button type="button" class="rv-slot" aria-pressed="false">۰۹:۰۰</button>
+        <button type="button" class="rv-slot" aria-pressed="false">۰۹:۳۰</button>
+        <button type="button" class="rv-slot" aria-pressed="false">۱۱:۰۰</button>
+        <button type="button" class="rv-slot" aria-pressed="false">۱۳:۳۰</button>
+        <button type="button" class="rv-slot" aria-pressed="false">۱۴:۰۰</button>
+        <button type="button" class="rv-slot" aria-pressed="true">۱۶:۰۰</button>
+        <button type="button" class="rv-slot" aria-pressed="false">۱۶:۳۰</button>
+        <button type="button" class="rv-slot" aria-pressed="false">۱۸:۰۰</button>
+      </div>
+    </section>
+
+    <!-- زمان مناسب نیست: اعلان آزادشدن زمان (برگه BK-ALERT01) -->
+    <a href="#alert" class="b2-alert" aria-haspopup="dialog" style="position: absolute; inset-inline: var(--space-4); bottom: 98px;">
+      <span class="rv-tile rv-tile--sm"><i class="ri ri-sm ri-bell-ring"></i></span>
+      <span class="rv-grow"><span class="b2-alert__t" style="display: block;">زمان مناسبی نیست؟</span><span class="b2-alert__d">با آزاد شدن زمانی از امیر، پیامک بگیرید.</span></span>
+      <i class="ri ri-sm ri-chevron-left rv-chev" aria-hidden="true"></i>
+    </a>
+  </main>
+
+  <!-- نوار اقدام: زمان انتخاب‌شده، بدون مبلغ (تصمیم مالک) -->
+  <div class="rv-actionbar rv-glass-strong b2-bar">
+    <div class="b2-bar__sum"><span class="b2-bar__t">پنج‌شنبه ۲۳ مهر، ۱۶:۰۰</span><span class="b2-bar__s">با امیر</span></div>
+    <a href="/customer/book/checkout" class="rv-btn rv-btn--primary">ادامه</a>
+  </div>
+  <!-- برگه پایین BK-ALERT01 روی صفحه زمان‌های آزاد -->
+  <div class="rv-scrim" aria-hidden="true"></div>
+  <section class="rv-sheet rv-glass-strong b2-sheet" role="dialog" aria-modal="true" aria-labelledby="al-t">
+    <span class="b2-grip" aria-hidden="true"></span>
+    <div class="b2-sheet__head">
+      <span class="rv-tile is-ink"><i class="ri ri-bell-ring"></i></span>
+      <div class="rv-grow"><h2 id="al-t" class="b2-sheet__t">خبرم کنید</h2><p class="b2-sheet__d">وقتی زمانی آزاد شد، پیامک می‌گیرید.</p></div>
+      <button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="بستن"><i class="ri ri-x"></i></button>
+    </div>
+        <div class="b2-ctx rv-glass">
+          <span class="b2-ctx__media"><img src="../assets/img/9115564573058efd89988f589f50b4ee.png" alt="" style="object-position: center 35%;"></span>
+          <div class="rv-grow"><div class="b2-ctx__t">اصلاح سر و صورت</div><div class="b2-ctx__s"><span class="rv-avatar"><img src="../assets/img/b7faac4034c06ba5781923a5e4432418.png" alt=""></span>با امیر</div></div>
+        </div>
+        <ul class="b2-facts">
+          <li><i class="ri ri-sms"></i><span>فقط یک پیامک، در اولین آزاد شدن زمانی از امیر برای این خدمت.</span></li>
+          <li><i class="ri ri-timer"></i><span>این اعلان ۶ روز اعتبار دارد، تا دوشنبه ۲۷ مهر.</span></li>
+          <li><i class="ri ri-info"></i><span>زمانی برایتان نگه داشته نمی‌شود و اولویتی ندارید؛ بعد از پیامک باید خودتان رزرو کنید.</span></li>
+        </ul>
+    <div class="b2-sheet__acts"><button type="button" class="rv-btn rv-btn--primary">ثبت اعلان</button><button type="button" class="rv-btn rv-btn--secondary">انصراف</button></div>
+  </section>
+</div>
+</x-dc>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>STY-CUS-D — جزئیات مشتری من — برگه پیامک</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px;">
+  <header class="f-bar-in">
+    <a href="/stylist/customers" class="rv-icon-btn" aria-label="بازگشت به مشتری‌ها"><i class="ri ri-arrow-right"></i></a>
+    <h1>مشتری</h1>
+    <span aria-hidden="true"></span>
+  </header>
+  <div aria-hidden="true" inert>
+  <div style="padding: var(--space-1) var(--space-4) 0; display: flex; flex-direction: column; gap: var(--space-6);">
+    <!-- کارت مشتری: فقط نام و شماره (LTR)؛ بدون اعتبار، وضعیت حساب، ویرایش یا سابقه نزد آرایشگران دیگر (D10-01) -->
+    <section class="b3-pf rv-glass-strong b4-cpf b3-lift" aria-label="سامان نوری">
+      <span class="b3-pf__ph"><img src="/_blob/81f810e4fcf2d32f78569d3761695c66" alt=""></span>
+      <div class="rv-grow" style="min-width: 0;">
+        <div class="b3-pf__n">سامان نوری</div>
+        <div class="b3-pf__s"><bdi class="rv-ltr">۰۹۱۴ ۳۹۰ ۱۲۵۸</bdi></div>
+        <div class="b4-cpf__since">۶ نوبت با شما، از مرداد ۱۴۰۵</div>
+      </div>
+      <a href="tel:09143901258" class="rv-icon-btn" aria-label="تماس با سامان نوری"><i class="ri ri-phone"></i></a>
+    </section>
+    <div class="b3-acts" style="visibility: hidden;">
+      <a href="/stylist/manual-booking?customer=1063" class="rv-btn rv-btn--primary"><i class="ri ri-sm ri-calendar-plus"></i>رزرو دستی برای او</a>
+      <button type="button" class="rv-btn rv-btn--secondary" aria-haspopup="dialog"><i class="ri ri-sm ri-sms"></i>ارسال پیامک</button>
+    </div>
+  </div>
+  </div>
+
+  <div class="rv-scrim" aria-hidden="true"></div>
+  <!-- برگه پیامک: فقط برای همین مشتری؛ شماره دلخواه وارد نمی‌شود. کارت مشتری بالای پرده (D10-59)، پس نام و شماره در برگه تکرار نمی‌شوند -->
+  <section class="rv-sheet rv-glass-strong b2-sheet" role="dialog" aria-modal="true" aria-labelledby="sm-t">
+    <span class="b2-grip" aria-hidden="true"></span>
+    <div class="b2-sheet__head">
+      <span class="rv-tile is-ink"><i class="ri ri-sms"></i></span>
+      <div class="rv-grow"><h2 id="sm-t" class="b2-sheet__t">ارسال پیامک</h2><p class="b2-sheet__d">به شماره همین مشتری فرستاده می‌شود.</p></div>
+      <button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="بستن برگه"><i class="ri ri-x"></i></button>
+    </div>
+
+    <fieldset class="b3-fs">
+      <legend class="rv-label">متن آماده</legend>
+      <div class="rv-row rv-wrap b4-rg" role="radiogroup" aria-label="متن آماده" style="gap: var(--space-2);"><button class="rv-chip" type="button" role="radio" aria-checked="true">یادآوری نوبت امروز</button><button class="rv-chip" type="button" role="radio" aria-checked="false">چند دقیقه تأخیر دارم</button><button class="rv-chip" type="button" role="radio" aria-checked="false">لطفاً تماس بگیرید</button></div>
+    </fieldset>
+
+    <div class="rv-field">
+      <label class="rv-label" for="sm-in">متن پیامک</label>
+      <div class="rv-input b4-ta"><textarea id="sm-in" rows="4" aria-describedby="sm-h">سلام آقای نوری، یادآوری نوبت امروز شما ساعت ۱۶:۰۰ در آرایشگاه طاها. منتظرتان هستیم. امیر</textarea></div>
+      <div id="sm-h" class="rv-help b4-ta__h"><span>پیامک با نام سالن فرستاده می‌شود.</span><span><bdi>۹۲</bdi> نویسه<span class="rv-sep" aria-hidden="true"></span>۲ پیامک</span></div>
+    </div>
+
+    <div class="b2-sheet__acts"><button type="button" class="rv-btn rv-btn--primary">ارسال پیامک</button><button type="button" class="rv-btn rv-btn--secondary">انصراف</button></div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

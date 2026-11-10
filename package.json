@@ -1,0 +1,30 @@
+{
+  "name": "rival-frontend-reference",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static-first, Razor-compatible frontend reference for Rival",
+  "engines": { "node": ">=20.11" },
+  "scripts": {
+    "build": "node tools/build-static.mjs",
+    "preview:server": "node tools/serve-static.mjs",
+    "dev": "npm run build && npm run preview:server",
+    "lint:structure": "node tools/lint-structure.mjs",
+    "lint:js": "eslint src/wwwroot/js tools tests playwright.config.mjs",
+    "lint:css": "stylelint \"src/wwwroot/css/**/*.css\"",
+    "lint": "npm run lint:structure && npm run lint:js && npm run lint:css",
+    "test:smoke": "npm run build && playwright test --grep @smoke",
+    "test:visual": "npm run build && playwright test --grep @visual",
+    "test:a11y": "npm run build && playwright test --grep @a11y",
+    "test": "npm run build && playwright test",
+    "export:lookup": "node tools/export-lookup.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.3",
+    "@playwright/test": "^1.56.1",
+    "@eslint/js": "^9.39.0",
+    "eslint": "^9.39.0",
+    "nunjucks": "^3.2.4",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard": "^39.0.0"
+  }
+}

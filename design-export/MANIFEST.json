@@ -1,0 +1,3800 @@
+{
+  "schemaVersion": 1,
+  "generatedFor": "Rival Codex Starter Pack",
+  "sourceManifest": "docs/source-manifest.json",
+  "canonicalPageInventory": "docs/PAGE_INVENTORY.md",
+  "designExportRoot": "design-export/batches/",
+  "designSystemRoot": "design-export/design-system-v2/",
+  "notes": [
+    "All paths are relative to the package root and preserve the original exported folder names.",
+    "Source exports are read-only evidence. They are not copied into the production app as runtime CSS/HTML.",
+    "preferredSourceHtml is populated only when an exact Page-ID HTML source is unambiguous; otherwise inspect the full candidate list and handoff.",
+    "artboardSelector is null unless an explicit selector is confirmed; do not guess selectors.",
+    "Only files in explicit previews/screenshots folders are recorded as screenshots. Pixel dimensions are recorded; CSS viewport/device scale is not inferred."
+  ],
+  "batches": [
+    {
+      "batch": 1,
+      "name": "Rival_Batch1_Full(2)",
+      "root": "design-export/batches/Rival_Batch1_Full(2)",
+      "fileCount": 136,
+      "htmlCount": 101,
+      "imageCount": 19,
+      "cssFiles": [
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/css/ds/rival/components/bundle.css",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/css/ds/rival/tokens.css",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/css/rv-b2.css",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/css/rv-b3.css",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/css/rv-b4.css",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/css/rv-final.css",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/css/rv-fixes.css"
+      ],
+      "jsFiles": [],
+      "jsonEvidence": [
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/canvas.json"
+      ],
+      "assetDirectories": [
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/assets"
+      ]
+    },
+    {
+      "batch": 2,
+      "name": "Rival_Batch2_Full(2)",
+      "root": "design-export/batches/Rival_Batch2_Full(2)",
+      "fileCount": 109,
+      "htmlCount": 45,
+      "imageCount": 53,
+      "cssFiles": [
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/assets/ds/rival/components/bundle.css",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/assets/ds/rival/tokens.css",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/assets/rv-b2.css",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/assets/rv-final.css",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/assets/rv-fixes.css"
+      ],
+      "jsFiles": [],
+      "jsonEvidence": [
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/docs/canvas.json"
+      ],
+      "assetDirectories": [
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/assets/img",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots"
+      ]
+    },
+    {
+      "batch": 3,
+      "name": "Rival_Batch3_Customer_Panel_HTML(2)",
+      "root": "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)",
+      "fileCount": 153,
+      "htmlCount": 129,
+      "imageCount": 11,
+      "cssFiles": [
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/ds/rival/components/bundle.css",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/ds/rival/tokens.css",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/rv-b2.css",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/rv-b3.css",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/rv-final.css",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/rv-fixes.css"
+      ],
+      "jsFiles": [],
+      "jsonEvidence": [
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/canvas.json"
+      ],
+      "assetDirectories": [
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/assets"
+      ]
+    },
+    {
+      "batch": 4,
+      "name": "Rival_Batch4_Stylist_Canvas(2)",
+      "root": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)",
+      "fileCount": 223,
+      "htmlCount": 105,
+      "imageCount": 104,
+      "cssFiles": [
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/ds/rival/components/bundle.css",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/ds/rival/tokens.css",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/rv-b2.css",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/rv-b3.css",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/rv-b4.css",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/rv-final.css",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/rv-fixes.css"
+      ],
+      "jsFiles": [],
+      "jsonEvidence": [
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/canvas.json"
+      ],
+      "assetDirectories": [
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews"
+      ]
+    },
+    {
+      "batch": 5,
+      "name": "Rival_Batch5_Admin_Daily(3)",
+      "root": "design-export/batches/Rival_Batch5_Admin_Daily(3)",
+      "fileCount": 126,
+      "htmlCount": 56,
+      "imageCount": 54,
+      "cssFiles": [
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ds/rival/components/bundle.css",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ds/rival/tokens.css",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/rv-b2.css",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/rv-b3.css",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/rv-b4.css",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/rv-final.css",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/rv-fixes.css"
+      ],
+      "jsFiles": [],
+      "jsonEvidence": [
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/canvas.json"
+      ],
+      "assetDirectories": [
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews"
+      ]
+    },
+    {
+      "batch": 6,
+      "name": "Rival_Batch6_Salon_Management(2)",
+      "root": "design-export/batches/Rival_Batch6_Salon_Management(2)",
+      "fileCount": 139,
+      "htmlCount": 60,
+      "imageCount": 60,
+      "cssFiles": [
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ds/rival/components/bundle.css",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ds/rival/tokens.css",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/rv-b2.css",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/rv-b3.css",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/rv-b4.css",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/rv-b6.css",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/rv-final.css",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/rv-fixes.css"
+      ],
+      "jsFiles": [],
+      "jsonEvidence": [
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/canvas.json"
+      ],
+      "assetDirectories": [
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews"
+      ]
+    },
+    {
+      "batch": 7,
+      "name": "Rival_Batch7_Artboards(2)",
+      "root": "design-export/batches/Rival_Batch7_Artboards(2)",
+      "fileCount": 59,
+      "htmlCount": 44,
+      "imageCount": 10,
+      "cssFiles": [
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/css/rv-b7.css"
+      ],
+      "jsFiles": [],
+      "jsonEvidence": [
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/canvas.json"
+      ],
+      "assetDirectories": [
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/images"
+      ]
+    },
+    {
+      "batch": 8,
+      "name": "Rival_Batch08_Artboards(2)",
+      "root": "design-export/batches/Rival_Batch08_Artboards(2)",
+      "fileCount": 45,
+      "htmlCount": 31,
+      "imageCount": 10,
+      "cssFiles": [],
+      "jsFiles": [],
+      "jsonEvidence": [
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/canvas.json"
+      ],
+      "assetDirectories": [
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/assets/_blob"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "id": "PUB-01",
+      "routeTemplate": "/",
+      "previewPath": "/",
+      "role": "Public",
+      "status": "Fully Designed",
+      "source": "Batch 1",
+      "primaryBatch": 1,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/PUB-01-IN.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/PUB-01.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/PUB-01-IN.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/PUB-01.html"
+      ],
+      "preferredSourceHtml": "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/PUB-01.html",
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "PUB-02",
+      "routeTemplate": "/portfolio",
+      "previewPath": "/portfolio/",
+      "role": "Public",
+      "status": "Fully Designed",
+      "source": "Batch 1",
+      "primaryBatch": 1,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/PUB-02-E.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/PUB-02-F.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/PUB-02-L.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/PUB-02-V.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/PUB-02-X.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/PUB-02.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/PUB-02-E.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/PUB-02-F.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/PUB-02-L.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/PUB-02-V.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/PUB-02-X.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/PUB-02.html"
+      ],
+      "preferredSourceHtml": "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/PUB-02.html",
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "PUB-03",
+      "routeTemplate": "/booking-rules",
+      "previewPath": "/booking-rules/",
+      "role": "Public",
+      "status": "Fully Designed",
+      "source": "Batch 1",
+      "primaryBatch": 1,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/PUB-03.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/PUB-03.html"
+      ],
+      "preferredSourceHtml": "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/PUB-03.html",
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "AUTH-01",
+      "routeTemplate": "/login",
+      "previewPath": "/login/",
+      "role": "All",
+      "status": "Fully Designed + canvas sync required",
+      "source": "Batch 1",
+      "primaryBatch": 1,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/AUTH-01-B.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/AUTH-01-L.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/AUTH-01-O.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/AUTH-01-P.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/AUTH-01-W.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/AUTH-01.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/AUTH-01-B.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/AUTH-01-L.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/AUTH-01-O.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/AUTH-01-P.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/AUTH-01-W.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/AUTH-01.html"
+      ],
+      "preferredSourceHtml": "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/AUTH-01.html",
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "AUTH-02",
+      "routeTemplate": "post-OTP step",
+      "previewPath": "/_preview/context/auth-02/",
+      "role": "New user",
+      "status": "Fully Designed",
+      "source": "Batch 1",
+      "primaryBatch": 1,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/AUTH-02-E.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/AUTH-02.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/AUTH-02-E.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/AUTH-02.html"
+      ],
+      "preferredSourceHtml": "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/AUTH-02.html",
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "SYS-ACC-01",
+      "routeTemplate": "/account-unavailable",
+      "previewPath": "/account-unavailable/",
+      "role": "All",
+      "status": "Fully Designed",
+      "source": "Batch 1",
+      "primaryBatch": 1,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/SYS-ACC-01.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/SYS-ACC-01.html"
+      ],
+      "preferredSourceHtml": "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/SYS-ACC-01.html",
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "CUS-01",
+      "routeTemplate": "/customer",
+      "previewPath": "/customer/",
+      "role": "Customer",
+      "status": "Fully Designed / reused final ref",
+      "source": "Batch 3",
+      "primaryBatch": 3,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-01-A.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-01-EMPTY.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-01-INACTIVE.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-01-A.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-01-EMPTY.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-01-INACTIVE.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/CUS-01-A.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/CUS-01-EMPTY.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/CUS-01-A.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/CUS-01-EMPTY.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "CUS-02",
+      "routeTemplate": "/customer/book",
+      "previewPath": "/customer/book/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 2",
+      "primaryBatch": 2,
+      "sourceHtml": null,
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "composed-from-related-flow",
+      "relatedPageIds": [
+        "BK-01",
+        "BK-02",
+        "BK-F01",
+        "BK-F02",
+        "BK-P01",
+        "BK-R01"
+      ]
+    },
+    {
+      "id": "CUS-03",
+      "routeTemplate": "/customer/appointments",
+      "previewPath": "/customer/appointments/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 3",
+      "primaryBatch": 3,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-03-EMPTY.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-03-FILTER-PAST.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-03-FILTER.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-03-NORESULT.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-03-PAST.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-03.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-03-EMPTY.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-03-FILTER-PAST.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-03-FILTER.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-03-NORESULT.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-03-PAST.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-03.html"
+      ],
+      "preferredSourceHtml": "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-03.html",
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "CUS-04",
+      "routeTemplate": "/customer/appointments/{id}",
+      "previewPath": "/customer/appointments/demo/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 3",
+      "primaryBatch": 3,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-CAN-COMP.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-CAN-DONE.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-CAN-GT24.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-CAN-LT24.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-CAN-LT3.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-CAN-PROP.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-COMP.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-DONE.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-INACTIVE.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-LT24.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-LT3.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-NOSHOW.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-PKG.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-PROP.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-RSC-COMP.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-RSC-CONFIRM.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-RSC-DONE-LT24.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-RSC-DONE.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-RSC-USED-NR.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-RSC-USED.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-RSC-WARN.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-RSC.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-SCXL.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04-STARTED.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-04.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-CAN-COMP.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-CAN-DONE.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-CAN-GT24.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-CAN-LT24.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-CAN-LT3.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-CAN-PROP.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-COMP.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-DONE.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-INACTIVE.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-LT24.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-LT3.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-NOSHOW.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-PKG.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-PROP.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-RSC-COMP.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-RSC-CONFIRM.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-RSC-DONE-LT24.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-RSC-DONE.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-RSC-USED-NR.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-RSC-USED.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-RSC-WARN.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-RSC.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-SCXL.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04-STARTED.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04.html"
+      ],
+      "preferredSourceHtml": "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-04.html",
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "CUS-05",
+      "routeTemplate": "/customer/requests",
+      "previewPath": "/customer/requests/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 3",
+      "primaryBatch": 3,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-05-DONE.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-05-EMPTY.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-05-FILTER.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-05-WAIT.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-05.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-05-DONE.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-05-EMPTY.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-05-FILTER.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-05-WAIT.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-05.html"
+      ],
+      "preferredSourceHtml": "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-05.html",
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "CUS-06",
+      "routeTemplate": "/customer/requests/{id}",
+      "previewPath": "/customer/requests/demo/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 3 + Batch 2 payment reuse",
+      "primaryBatch": 3,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-06-B.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-06-BOOKED.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-06-CAN-PAY.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-06-CAN-REVIEW.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-06-CXL.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-06-EXP.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-06-INACTIVE.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-06-P-PAY.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-06-P-REVIEW.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-06-R-REVIEW.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-06-REJ.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-06-B.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-06-BOOKED.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-06-CAN-PAY.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-06-CAN-REVIEW.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-06-CXL.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-06-EXP.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-06-INACTIVE.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-06-P-PAY.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-06-P-REVIEW.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-06-R-REVIEW.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-06-REJ.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "CUS-07",
+      "routeTemplate": "embedded balance",
+      "previewPath": "/_preview/context/cus-07/",
+      "role": "Customer",
+      "status": "Implied / no route",
+      "source": "Batch 3, DS",
+      "primaryBatch": 3,
+      "sourceHtml": null,
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "implied-no-independent-artboard",
+      "relatedPageIds": null
+    },
+    {
+      "id": "CUS-08",
+      "routeTemplate": "/customer/availability-alerts",
+      "previewPath": "/customer/availability-alerts/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 3",
+      "primaryBatch": 3,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-08-ADD-DUP.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-08-ADD.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-08-CAN.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-08.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-08-ADD-DUP.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-08-ADD.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-08-CAN.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-08.html"
+      ],
+      "preferredSourceHtml": "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-08.html",
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "CUS-09",
+      "routeTemplate": "/customer/notifications",
+      "previewPath": "/customer/notifications/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 3",
+      "primaryBatch": 3,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-09-EMPTY.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-09-READ.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-09.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-09-EMPTY.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-09-READ.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-09.html"
+      ],
+      "preferredSourceHtml": "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-09.html",
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "CUS-10",
+      "routeTemplate": "/customer/profile",
+      "previewPath": "/customer/profile/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 3",
+      "primaryBatch": 3,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-10-EDIT.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-10-PASS.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-10-PH1.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-10-PH2.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-10-PK-DEL.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/CUS-10.dc.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-10-EDIT.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-10-PASS.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-10-PH1.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-10-PH2.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-10-PK-DEL.html",
+        "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-10.html"
+      ],
+      "preferredSourceHtml": "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/CUS-10.html",
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "BK-01",
+      "routeTemplate": "booking step: service",
+      "previewPath": "/_preview/context/bk-01/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 2",
+      "primaryBatch": 2,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-01-A.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-01-EMPTY.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-01-INACTIVE.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-01-LOAD.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-01-A.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-01-LOAD.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-01-INACTIVE.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-01-EMPTY.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "BK-02",
+      "routeTemplate": "booking step: stylist",
+      "previewPath": "/_preview/context/bk-02/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 2",
+      "primaryBatch": 2,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-02-DEF.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-02-EMPTY.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-02-EMPTY.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-02-DEF.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "BK-F01",
+      "routeTemplate": "booking step: fixed availability",
+      "previewPath": "/_preview/context/bk-f01/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 2",
+      "primaryBatch": 2,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-F01-CLOSED.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-F01-CONFLICT.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-F01-D.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-F01-NONE.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-F01-NOTYET.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-F01-SMS.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-F01-TAKEN.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-F01-SMS.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-F01-CONFLICT.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-F01-D.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-F01-TAKEN.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-F01-CLOSED.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-F01-NONE.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-F01-NOTYET.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "BK-F02",
+      "routeTemplate": "booking step: fixed summary/payment",
+      "previewPath": "/_preview/context/bk-f02/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 2",
+      "primaryBatch": 2,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-F02-A.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-F02-EXPIRED.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-F02-FULL.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-F02-LT1.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-F02-NOCREDIT.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-F02-FULL.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-F02-NOCREDIT.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-F02-LT1.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-F02-EXPIRED.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-F02-A.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "BK-P01",
+      "routeTemplate": "booking step: proposed request",
+      "previewPath": "/_preview/context/bk-p01/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 2",
+      "primaryBatch": 2,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-P01-DEF.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-P01-RANGE.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-P01-RANGE.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-P01-DEF.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "BK-R01",
+      "routeTemplate": "booking step: requested request",
+      "previewPath": "/_preview/context/bk-r01/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 2",
+      "primaryBatch": 2,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-R01-DEF.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-R01-DEF.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "BK-REQ01",
+      "routeTemplate": "request result",
+      "previewPath": "/_preview/context/bk-req01/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 2",
+      "primaryBatch": 2,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-REQ01-P.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-REQ01-R.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-REQ01-R.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-REQ01-P.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "BK-REC01",
+      "routeTemplate": "recurring fixed booking",
+      "previewPath": "/_preview/context/bk-rec01/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 2",
+      "primaryBatch": 2,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-REC01-BAD.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-REC01-DA.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-REC01-DB.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-REC01-DC.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-REC01-EDIT.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-REC01-LIST.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-REC01-LT3.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-REC01-NEW.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-REC01-PAY.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-REC01-SHEET.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-REC01-V1.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-REC01-V2.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-REC01-V2.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-REC01-PAY.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-REC01-EDIT.png",
+          "pixelDimensions": [
+            780,
+            2000
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-REC01-DB.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-REC01-BAD.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-REC01-V1.png",
+          "pixelDimensions": [
+            780,
+            2360
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-REC01-DC.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-REC01-NEW.png",
+          "pixelDimensions": [
+            780,
+            2920
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-REC01-SHEET.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-REC01-LT3.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-REC01-LIST.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-REC01-DA.png",
+          "pixelDimensions": [
+            780,
+            2000
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "BK-ALERT01",
+      "routeTemplate": "availability alert sheet",
+      "previewPath": "/_preview/context/bk-alert01/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 2/3",
+      "primaryBatch": 2,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-ALERT01-DEF.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-ALERT01-DONE.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/BK-ALERT01-DUP.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-ALERT01-DUP.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-ALERT01-DONE.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/BK-ALERT01-DEF.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "PAY-RES",
+      "routeTemplate": "payment return/result",
+      "previewPath": "/_preview/context/pay-res/",
+      "role": "Customer",
+      "status": "Fully Designed",
+      "source": "Batch 2",
+      "primaryBatch": 2,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/PAY-RES-CHECK.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/PAY-RES-FAIL.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/PAY-RES-LOST.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/PAY-RES-OK.html",
+        "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/pages/PAY-RES-REVIEW.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/PAY-RES-REVIEW.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/PAY-RES-OK.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/PAY-RES-CHECK.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/PAY-RES-FAIL.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/screenshots/PAY-RES-LOST.png",
+          "pixelDimensions": [
+            780,
+            1688
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STY-01",
+      "routeTemplate": "/stylist",
+      "previewPath": "/stylist/",
+      "role": "Stylist/OwnerAdmin scope=me",
+      "status": "Fully Designed",
+      "source": "Batch 4",
+      "primaryBatch": 4,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-01-E.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-01-M.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-01-M2.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-01-NS.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-01-NS2.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-01-OFF.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/STY-01-E.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/STY-01-M.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/STY-01-E.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/STY-01-M.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-01-M.dc.html.png",
+          "pixelDimensions": [
+            390,
+            2140
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-01-NS2.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1790
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-01-M2.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1790
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-01-NS.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-01-OFF.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1710
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-01-E.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1330
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STY-02",
+      "routeTemplate": "/stylist/calendar",
+      "previewPath": "/stylist/calendar/",
+      "role": "Stylist",
+      "status": "Fully Designed",
+      "source": "Batch 4",
+      "primaryBatch": 4,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-02-BLK.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-02-BLKD.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-02-E.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-02-HOL.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-02-HOLA.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-02-M.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-02-MON.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-02-M.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1190
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-02-MON.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-02-HOL.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-02-BLK.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-02-E.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-02-HOLA.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1090
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-02-BLKD.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STY-03",
+      "routeTemplate": "/stylist/requests",
+      "previewPath": "/stylist/requests/",
+      "role": "Stylist",
+      "status": "Fully Designed",
+      "source": "Batch 4",
+      "primaryBatch": 4,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-03-CL.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-03-E.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-03-FILTER-CL.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-03-FILTER-W.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-03-FILTER.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-03-M.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-03-W.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-03-FILTER.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-03-FILTER-CL.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-03-CL.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-03-M.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1000
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-03-E.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-03-W.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-03-FILTER-W.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STY-04",
+      "routeTemplate": "request response",
+      "previewPath": "/_preview/context/sty-04/",
+      "role": "Stylist",
+      "status": "Fully Designed",
+      "source": "Batch 4",
+      "primaryBatch": 4,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-04-C.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-04-CAN.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-04-M.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-04-R.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-04-S.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-04-T1B.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-04-TK.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-04-W.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-04-TK.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1850
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-04-CAN.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-04-M.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1760
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-04-C.dc.html.png",
+          "pixelDimensions": [
+            390,
+            960
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-04-T1B.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1760
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-04-R.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-04-S.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1050
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-04-W.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1500
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STY-05",
+      "routeTemplate": "/stylist/appointments",
+      "previewPath": "/stylist/appointments/",
+      "role": "Stylist",
+      "status": "Fully Designed",
+      "source": "Batch 4",
+      "primaryBatch": 4,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-05-E.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-05-FILTER-UP.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-05-FILTER.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-05-M.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-05-NR.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-05-PAST.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-05-PAST.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1120
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-05-M.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1240
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-05-E.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-05-FILTER.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-05-NR.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-05-FILTER-UP.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STY-06",
+      "routeTemplate": "/stylist/appointments/{id}",
+      "previewPath": "/stylist/appointments/demo/",
+      "role": "Stylist",
+      "status": "Fully Designed",
+      "source": "Batch 4",
+      "primaryBatch": 4,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-CAN-EDIT.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-CAN.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-CXL.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-DONE.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-M.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-NS.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-NSD.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-PAST.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-PROP-CAN.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-PROP.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-REQ.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-RSC-CONF.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-RSC-DONE.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-RSC-ERR.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-RSC-P-CONF.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-RSC-P-DONE.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-RSC-P-ERR.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-RSC-P.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-RSC.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-RUN.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-06-SMS.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-SMS.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-RSC-ERR.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1220
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-RUN.dc.html.png",
+          "pixelDimensions": [
+            390,
+            950
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-CXL.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-DONE.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-CAN.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-M.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1080
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-PROP-CAN.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-PAST.dc.html.png",
+          "pixelDimensions": [
+            390,
+            950
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-RSC-P-DONE.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1130
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-CAN-EDIT.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-NS.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-REQ.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1140
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-RSC-DONE.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1130
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-PROP.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1080
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-NSD.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-RSC-P-ERR.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1320
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-RSC-P-CONF.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-RSC-CONF.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-RSC.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1070
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-06-RSC-P.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1180
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STY-07",
+      "routeTemplate": "/stylist/manual-booking",
+      "previewPath": "/stylist/manual-booking/",
+      "role": "Stylist",
+      "status": "Fully Designed",
+      "source": "Batch 4",
+      "primaryBatch": 4,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-07-C.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-07-CA.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-07-CN.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-07-CONF.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-07-ERR.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-07-O.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-07-OFF.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-07-OK.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-07-S.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-07-T.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-07-TP.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-07-CONF.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-07-CN.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-07-T.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1160
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-07-OK.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-07-CA.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-07-S.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-07-ERR.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1290
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-07-C.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-07-TP.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1260
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-07-O.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1160
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-07-OFF.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STY-08",
+      "routeTemplate": "/stylist/schedule",
+      "previewPath": "/stylist/schedule/",
+      "role": "Stylist",
+      "status": "Fully Designed",
+      "source": "Batch 4",
+      "primaryBatch": 4,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-BLK-N.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-BLK.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-DATE.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-DAY-OFF.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-DAY.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-DEL-A.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-DEL.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-EX-BLK.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-EX-OFF.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-EX.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-HOL.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-HOLA.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-M.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-OFF-H.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-OFF.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-PRE.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-PS.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-08-STALE.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-HOLA.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1080
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-EX-OFF.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-OFF-H.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1070
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-M.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1320
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-DATE.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1010
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-DAY.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-DEL-A.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-HOL.dc.html.png",
+          "pixelDimensions": [
+            390,
+            940
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-EX-BLK.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1140
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-OFF.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1250
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-PRE.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-DAY-OFF.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-EX.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-PS.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1040
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-BLK.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1520
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-STALE.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-DEL.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-08-BLK-N.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1260
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STY-09",
+      "routeTemplate": "/stylist/portfolio",
+      "previewPath": "/stylist/portfolio/",
+      "role": "Stylist",
+      "status": "Fully Designed",
+      "source": "Batch 4",
+      "primaryBatch": 4,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-09-DEL.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-09-E.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-09-EDIT-H.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-09-EDIT.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-09-M.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-09-NEW.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-09-EDIT-H.dc.html.png",
+          "pixelDimensions": [
+            390,
+            930
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-09-EDIT.dc.html.png",
+          "pixelDimensions": [
+            390,
+            930
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-09-E.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-09-M.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1010
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-09-NEW.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-09-DEL.dc.html.png",
+          "pixelDimensions": [
+            390,
+            930
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STY-10",
+      "routeTemplate": "/stylist/notifications",
+      "previewPath": "/stylist/notifications/",
+      "role": "Stylist",
+      "status": "Fully Designed",
+      "source": "Batch 4",
+      "primaryBatch": 4,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-10-E.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-10-M.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-10-READ.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-10-READ.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1200
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-10-E.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-10-M.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1200
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STY-11",
+      "routeTemplate": "/stylist/profile",
+      "previewPath": "/stylist/profile/",
+      "role": "Stylist",
+      "status": "Fully Designed",
+      "source": "Batch 4",
+      "primaryBatch": 4,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-11-EDIT.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-11-M.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-11-PASS.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-11-PK-DEL.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-11-EDIT.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1380
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-11-PASS.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1380
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-11-PK-DEL.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1380
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-11-M.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1380
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STY-CUS",
+      "routeTemplate": "/stylist/customers` + detail",
+      "previewPath": "/stylist/customers` + detail/",
+      "role": "Stylist",
+      "status": "Fully Designed",
+      "source": "Batch 4",
+      "primaryBatch": 4,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-CUS-D-PAST.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-CUS-D-RQ.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-CUS-D.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-CUS-E.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-CUS-M.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-CUS-NR.dc.html",
+        "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/STY-CUS-SMS.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-CUS-NR.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-CUS-SMS.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-CUS-M.dc.html.png",
+          "pixelDimensions": [
+            390,
+            1130
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-CUS-D.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-CUS-E.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-CUS-D-RQ.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/previews/STY-CUS-D-PAST.dc.html.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-01",
+      "routeTemplate": "/admin",
+      "previewPath": "/admin/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 5",
+      "primaryBatch": 5,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-01-ANS.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-01-E.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-01-M.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-01-ANS.png",
+          "pixelDimensions": [
+            390,
+            2480
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-01-E.png",
+          "pixelDimensions": [
+            390,
+            1480
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-01-M.png",
+          "pixelDimensions": [
+            390,
+            2300
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-02",
+      "routeTemplate": "/admin/calendar",
+      "previewPath": "/admin/calendar/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 5",
+      "primaryBatch": 5,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-02-BLK.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-02-M.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-02-MENU.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-02-ONE.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-02-ONE.png",
+          "pixelDimensions": [
+            390,
+            1280
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-02-MENU.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-02-BLK.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-02-M.png",
+          "pixelDimensions": [
+            390,
+            1280
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-03",
+      "routeTemplate": "/admin/requests",
+      "previewPath": "/admin/requests/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 5",
+      "primaryBatch": 5,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-03-CL-AM.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-03-CL.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-03-F.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-03-M.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-03-PROP.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-03-WAIT-AM.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-03-WAIT.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-03-CL.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-03-CL-AM.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-03-PROP.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-03-WAIT-AM.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-03-M.png",
+          "pixelDimensions": [
+            390,
+            1230
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-03-WAIT.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-03-F.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-04",
+      "routeTemplate": "/admin/requests/{id}",
+      "previewPath": "/admin/requests/demo/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 5",
+      "primaryBatch": 5,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-04-P-V.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-04-R-CXA.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-04-R-CXL.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-04-R-DONE.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-04-R-ERR.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-04-R-FEE.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-04-R-M.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-04-R-REJ.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-04-R-S.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-04-R-STY.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-04-R-TIME.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-04-R-CXA.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-04-R-ERR.png",
+          "pixelDimensions": [
+            390,
+            1620
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-04-R-DONE.png",
+          "pixelDimensions": [
+            390,
+            1320
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-04-R-TIME.png",
+          "pixelDimensions": [
+            390,
+            1000
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-04-R-STY.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-04-R-M.png",
+          "pixelDimensions": [
+            390,
+            1340
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-04-R-REJ.png",
+          "pixelDimensions": [
+            390,
+            1560
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-04-R-S.png",
+          "pixelDimensions": [
+            390,
+            1560
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-04-P-V.png",
+          "pixelDimensions": [
+            390,
+            1670
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-04-R-CXL.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-04-R-FEE.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-05",
+      "routeTemplate": "/admin/appointments",
+      "previewPath": "/admin/appointments/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 5",
+      "primaryBatch": 5,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-05-M.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/ADM-05-M.dc.html",
+        "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/ADM-05-M.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-05-M.png",
+          "pixelDimensions": [
+            390,
+            1370
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-06",
+      "routeTemplate": "/admin/appointments/{id}",
+      "previewPath": "/admin/appointments/demo/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 5",
+      "primaryBatch": 5,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-06-CHG.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-06-M.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-06-MSG.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-06-REC.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-06-MSG.png",
+          "pixelDimensions": [
+            390,
+            1060
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-06-M.png",
+          "pixelDimensions": [
+            390,
+            1220
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-06-CHG.png",
+          "pixelDimensions": [
+            390,
+            940
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-06-REC.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-07",
+      "routeTemplate": "/admin/manual-booking",
+      "previewPath": "/admin/manual-booking/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 5",
+      "primaryBatch": 5,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-07-C.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-07-CONF.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-07-ERR.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-07-PRE.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-07-S.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-07-STY.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-07-STY.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-07-S.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-07-ERR.png",
+          "pixelDimensions": [
+            390,
+            1320
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-07-CONF.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-07-PRE.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-07-C.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-08",
+      "routeTemplate": "/admin/customers",
+      "previewPath": "/admin/customers/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 5",
+      "primaryBatch": 5,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-08-F.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-08-M.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-08-M.png",
+          "pixelDimensions": [
+            390,
+            1160
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-08-F.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-09",
+      "routeTemplate": "/admin/customers/{id}",
+      "previewPath": "/admin/customers/demo/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed + payment mode",
+      "source": "Batch 5",
+      "primaryBatch": 5,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-09-ADJ-ERR.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-09-ADJ.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-09-DEL.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-09-EDIT.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-09-INACT.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-09-M-PAST.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-09-M-PAY-E.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-09-M-PAY-LED.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-09-M-PAY.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-09-M-RQ.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-09-M.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-09-OFF.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-09-PS.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-09-REV.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-09-DEL.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-09-M-RQ.png",
+          "pixelDimensions": [
+            390,
+            908
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-09-M-PAY-LED.png",
+          "pixelDimensions": [
+            390,
+            1444
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-09-M-PAST.png",
+          "pixelDimensions": [
+            390,
+            1034
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-09-EDIT.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-09-ADJ.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-09-M-PAY-E.png",
+          "pixelDimensions": [
+            390,
+            918
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-09-INACT.png",
+          "pixelDimensions": [
+            390,
+            856
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-09-M.png",
+          "pixelDimensions": [
+            390,
+            818
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-09-PS.png",
+          "pixelDimensions": [
+            390,
+            970
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-09-OFF.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-09-ADJ-ERR.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-09-M-PAY.png",
+          "pixelDimensions": [
+            390,
+            1520
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-10",
+      "routeTemplate": "/admin/stylists",
+      "previewPath": "/admin/stylists/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 6",
+      "primaryBatch": 6,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-10-M.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-10-NEW-ERR.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-10-NEW-M.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-10-NEW-OK.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-10-OFF.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-10-NEW-M.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-10-NEW-OK.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-10-NEW-ERR.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-10-M.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-10-OFF.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-11",
+      "routeTemplate": "/admin/stylists/{id}",
+      "previewPath": "/admin/stylists/demo/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 6",
+      "primaryBatch": 6,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-11-DEL.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-11-EDIT.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-11-EX.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-11-INACT.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-11-M.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-11-MAP-RM.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-11-MAP.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-11-OFF.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-11-PS.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-11-SCH.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-11-M.png",
+          "pixelDimensions": [
+            390,
+            1030
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-11-DEL.png",
+          "pixelDimensions": [
+            390,
+            1020
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-11-EDIT.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-11-MAP-RM.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-11-SCH.png",
+          "pixelDimensions": [
+            390,
+            1260
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-11-PS.png",
+          "pixelDimensions": [
+            390,
+            1020
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-11-MAP.png",
+          "pixelDimensions": [
+            390,
+            1345
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-11-EX.png",
+          "pixelDimensions": [
+            390,
+            1010
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-11-INACT.png",
+          "pixelDimensions": [
+            390,
+            1000
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-11-OFF.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-12",
+      "routeTemplate": "/admin/services",
+      "previewPath": "/admin/services/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 6",
+      "primaryBatch": 6,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-12-M.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-12-NEW-C.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-12-NEW-CMP.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-12-NEW-ERR.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-12-NEW-M.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-12-NEW-OK.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-12-OFF.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-12-NEW-M.png",
+          "pixelDimensions": [
+            390,
+            1180
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-12-NEW-CMP.png",
+          "pixelDimensions": [
+            390,
+            1100
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-12-NEW-C.png",
+          "pixelDimensions": [
+            390,
+            1075
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-12-OFF.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-12-NEW-OK.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-12-NEW-ERR.png",
+          "pixelDimensions": [
+            390,
+            1205
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-12-M.png",
+          "pixelDimensions": [
+            390,
+            1290
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-13",
+      "routeTemplate": "/admin/services/{id}",
+      "previewPath": "/admin/services/demo/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 6",
+      "primaryBatch": 6,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-13-C-OFF.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-13-C.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-13-DEL.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-13-EDIT.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-13-F-PAT.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-13-F.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-13-MAP-RM.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-13-MAP.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-13-OFF.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-13-P.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-13-PATE.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-13-DEL.png",
+          "pixelDimensions": [
+            390,
+            1080
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-13-MAP-RM.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-13-C-OFF.png",
+          "pixelDimensions": [
+            390,
+            1105
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-13-MAP.png",
+          "pixelDimensions": [
+            390,
+            1260
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-13-EDIT.png",
+          "pixelDimensions": [
+            390,
+            1045
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-13-F-PAT.png",
+          "pixelDimensions": [
+            390,
+            1380
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-13-C.png",
+          "pixelDimensions": [
+            390,
+            930
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-13-P.png",
+          "pixelDimensions": [
+            390,
+            970
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-13-PATE.png",
+          "pixelDimensions": [
+            390,
+            990
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-13-OFF.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-13-F.png",
+          "pixelDimensions": [
+            390,
+            1010
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-14",
+      "routeTemplate": "/admin/pricing",
+      "previewPath": "/admin/pricing/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 6",
+      "primaryBatch": 6,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-14-A.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-14-BASE.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-14-CF-A.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-14-CF-P.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-14-CF-S.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-14-OV-DEL.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-14-OV-ERR.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-14-OV-NEW.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-14-OVR.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-14-PK.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-14-STY.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-14-PK.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-14-CF-S.png",
+          "pixelDimensions": [
+            390,
+            1280
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-14-OV-DEL.png",
+          "pixelDimensions": [
+            390,
+            1260
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-14-STY.png",
+          "pixelDimensions": [
+            390,
+            1100
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-14-OV-ERR.png",
+          "pixelDimensions": [
+            390,
+            2040
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-14-CF-P.png",
+          "pixelDimensions": [
+            390,
+            1490
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-14-CF-A.png",
+          "pixelDimensions": [
+            390,
+            1260
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-14-OV-NEW.png",
+          "pixelDimensions": [
+            390,
+            1290
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-14-BASE.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-14-A.png",
+          "pixelDimensions": [
+            390,
+            1240
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-14-OVR.png",
+          "pixelDimensions": [
+            390,
+            1130
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-15",
+      "routeTemplate": "/admin/schedules",
+      "previewPath": "/admin/schedules/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 6",
+      "primaryBatch": 6,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-15-BF-A.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-15-BF-DEL.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-15-BF-ERR.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-15-BF-NEW.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-15-BF-STEP1.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-15-BF-STY.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-15-BF-SVC.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-15-HOL-NEW.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-15-HOL.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-15-PRE.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-15-SAL-DAY.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-15-SAL.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-15-STY-EX.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-15-STY-PK.dc.html",
+        "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/ADM-15-STY.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-15-BF-NEW.png",
+          "pixelDimensions": [
+            390,
+            1455
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-15-PRE.png",
+          "pixelDimensions": [
+            390,
+            1305
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-15-HOL.png",
+          "pixelDimensions": [
+            390,
+            1170
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-15-STY.png",
+          "pixelDimensions": [
+            390,
+            1413
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-15-BF-SVC.png",
+          "pixelDimensions": [
+            390,
+            950
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-15-HOL-NEW.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-15-SAL-DAY.png",
+          "pixelDimensions": [
+            390,
+            1475
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-15-BF-DEL.png",
+          "pixelDimensions": [
+            390,
+            995
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-15-STY-PK.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-15-SAL.png",
+          "pixelDimensions": [
+            390,
+            1645
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-15-STY-EX.png",
+          "pixelDimensions": [
+            390,
+            1308
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-15-BF-A.png",
+          "pixelDimensions": [
+            390,
+            1525
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-15-BF-STEP1.png",
+          "pixelDimensions": [
+            390,
+            1145
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-15-BF-STY.png",
+          "pixelDimensions": [
+            390,
+            900
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/previews/ADM-15-BF-ERR.png",
+          "pixelDimensions": [
+            390,
+            1485
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-16",
+      "routeTemplate": "/admin/payments",
+      "previewPath": "/admin/payments/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 7",
+      "primaryBatch": 7,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-16-A.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-16-DONE.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-16-E.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-16-F.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-16-FS.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-16-NO.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-16-OK0.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-16-OK1.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-16-OK2.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-16-RV.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-AC",
+      "routeTemplate": "/admin/action-center",
+      "previewPath": "/admin/action-center/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed; one added route",
+      "source": "Batch 5/8 IA",
+      "primaryBatch": 5,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-AC-E.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-AC-F.dc.html",
+        "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/ADM-AC-M.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": [
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-AC-F.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-AC-E.png",
+          "pixelDimensions": [
+            390,
+            844
+          ]
+        },
+        {
+          "path": "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/previews/ADM-AC-M.png",
+          "pixelDimensions": [
+            390,
+            1060
+          ]
+        }
+      ],
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-NOT",
+      "routeTemplate": "/admin/notifications",
+      "previewPath": "/admin/notifications/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed; replaces ADM-22",
+      "source": "Batch 7",
+      "primaryBatch": 7,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-NOT-A.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-NOT-ACT.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-NOT-DEL.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-NOT-NEW-P.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-NOT-NEW.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-NOT-PRE.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-NOT-PUB-E.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-NOT-PUB.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-NOT-RCP.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-20",
+      "routeTemplate": "/admin/portfolio",
+      "previewPath": "/admin/portfolio/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 7",
+      "primaryBatch": 7,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-20-A.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-20-DEL.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-20-E.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-20-FS.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-20-NEW.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-21",
+      "routeTemplate": "/admin/settings",
+      "previewPath": "/admin/settings/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 7",
+      "primaryBatch": 7,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-21-A.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-21-B.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-21-ERR.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-21-F-HRS.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-21-F-IMG.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-21-F.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-23",
+      "routeTemplate": "/admin/sms",
+      "previewPath": "/admin/sms/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 7",
+      "primaryBatch": 7,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-23-CONF.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-23-M.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-23-PICK.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-23-PS.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-23-RES.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-24",
+      "routeTemplate": "/admin/settings/booking",
+      "previewPath": "/admin/settings/booking/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 7",
+      "primaryBatch": 7,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-24-A.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-24-B.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-24-ERR.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-24-F.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "ADM-25",
+      "routeTemplate": "/admin/profile",
+      "previewPath": "/admin/profile/",
+      "role": "OwnerAdmin",
+      "status": "Fully Designed",
+      "source": "Batch 7",
+      "primaryBatch": 7,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-25-A.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-25-EDIT.dc.html",
+        "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/ADM-25-PK-DEL.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STATE-01",
+      "routeTemplate": "Shared context (no independent product route)",
+      "previewPath": "/_preview/context/state-01/",
+      "role": "Shared",
+      "status": "Shared pattern / state context",
+      "source": "Batch 8",
+      "primaryBatch": 8,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-01-ADM.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-01-CUS.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-01-STY.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STATE-02",
+      "routeTemplate": "Shared context (no independent product route)",
+      "previewPath": "/_preview/context/state-02/",
+      "role": "Shared",
+      "status": "Shared pattern / state context",
+      "source": "Batch 8",
+      "primaryBatch": 8,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-02-CUS.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-02-STY.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STATE-03",
+      "routeTemplate": "Shared context (no independent product route)",
+      "previewPath": "/_preview/context/state-03/",
+      "role": "Shared",
+      "status": "Shared pattern / state context",
+      "source": "Batch 8",
+      "primaryBatch": 8,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-03-EXP.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-03-REJ.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STATE-04",
+      "routeTemplate": "Shared context (no independent product route)",
+      "previewPath": "/_preview/context/state-04/",
+      "role": "Shared",
+      "status": "Shared pattern / state context",
+      "source": "Batch 2 / Batch 8",
+      "primaryBatch": 8,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-04.dc.html"
+      ],
+      "preferredSourceHtml": "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-04.dc.html",
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STATE-05",
+      "routeTemplate": "Shared context (no independent product route)",
+      "previewPath": "/_preview/context/state-05/",
+      "role": "Shared",
+      "status": "Shared pattern / state context",
+      "source": "Batch 2 / Batch 8",
+      "primaryBatch": 8,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-05.dc.html"
+      ],
+      "preferredSourceHtml": "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-05.dc.html",
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STATE-06",
+      "routeTemplate": "Shared context (no independent product route)",
+      "previewPath": "/_preview/context/state-06/",
+      "role": "Shared",
+      "status": "Shared pattern / state context",
+      "source": "Batch 2 / Batch 8",
+      "primaryBatch": 8,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-06-DONE.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-06-LOST.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STATE-07",
+      "routeTemplate": "Shared context (no independent product route)",
+      "previewPath": "/_preview/context/state-07/",
+      "role": "Shared",
+      "status": "Shared pattern / state context",
+      "source": "Batch 8",
+      "primaryBatch": 8,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-07-GW.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-07-MAP.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-07-OTP.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-07-SMS.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "STATE-08",
+      "routeTemplate": "Shared context (no independent product route)",
+      "previewPath": "/_preview/context/state-08/",
+      "role": "Shared",
+      "status": "Shared pattern / state context",
+      "source": "Batch 8",
+      "primaryBatch": 8,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-08.dc.html"
+      ],
+      "preferredSourceHtml": "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/STATE-08.dc.html",
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "SYS-SESSION",
+      "routeTemplate": "Shared context (no independent product route)",
+      "previewPath": "/_preview/context/sys-session/",
+      "role": "Shared",
+      "status": "Shared pattern / state context",
+      "source": "Batch 8",
+      "primaryBatch": 8,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/SYS-SESSION-A.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/SYS-SESSION-BACK.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/SYS-SESSION-OTP.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "SYS-RO",
+      "routeTemplate": "Shared context (no independent product route)",
+      "previewPath": "/_preview/context/sys-ro/",
+      "role": "Shared",
+      "status": "Shared pattern / state context",
+      "source": "Batch 8",
+      "primaryBatch": 8,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/SYS-RO-CUS.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/SYS-RO-STY.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "SYS-OFFLINE",
+      "routeTemplate": "Shared context (no independent product route)",
+      "previewPath": "/_preview/context/sys-offline/",
+      "role": "Shared",
+      "status": "Shared pattern / state context",
+      "source": "Batch 8",
+      "primaryBatch": 8,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/SYS-OFFLINE-FULL.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/SYS-OFFLINE-RETRY.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/SYS-OFFLINE-TOAST.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    },
+    {
+      "id": "KIT-01",
+      "routeTemplate": "Shared context (no independent product route)",
+      "previewPath": "/_preview/context/kit-01/",
+      "role": "Shared",
+      "status": "Shared pattern / state context",
+      "source": "Batch 8",
+      "primaryBatch": 8,
+      "sourceHtml": [
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/KIT-01-A.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/KIT-01-B.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/KIT-01-C.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/KIT-01-D.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/KIT-01-E.dc.html",
+        "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/KIT-01-F.dc.html"
+      ],
+      "preferredSourceHtml": null,
+      "artboardSelector": null,
+      "screenshots": null,
+      "mappingStatus": "mapped",
+      "relatedPageIds": null
+    }
+  ],
+  "sharedHtmlNotMatchedToCanonicalPageIds": [
+    "design-export/batches/Rival_Batch08_Artboards(2)/Rival_Batch08/project/Main.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/index.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/F-ADM-05-F.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/F-ADM-05-R.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/F-ADM-05.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/F-CUS-01-E.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/F-CUS-01.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/F-PUB-01.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/F-STY-01.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/F-sheet.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/MORE-ADM-01.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/MORE-ADM-02.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/MORE-ADM-03.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/MORE-CUS-01.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/MORE-CUS-02.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/MORE-CUS-03.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/MORE-STY-01.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/MORE-STY-02.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/MORE-STY-03.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/Main.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/SHELL-ADM-01.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/SHELL-ADM-02.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/SHELL-ADM-03.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/SHELL-ADM-04.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/SHELL-ADM-05.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/SHELL-CUS-01.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/SHELL-CUS-02.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/SHELL-KIT.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/SHELL-STY-01.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/F-ADM-05-F.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/F-ADM-05-R.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/F-ADM-05.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/F-CUS-01-E.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/F-CUS-01.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/F-PUB-01.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/F-STY-01.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/F-sheet.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/MORE-ADM-01.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/MORE-ADM-02.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/MORE-ADM-03.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/MORE-CUS-01.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/MORE-CUS-02.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/MORE-CUS-03.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/MORE-STY-01.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/MORE-STY-02.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/MORE-STY-03.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/Main.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/SHELL-ADM-01.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/SHELL-ADM-02.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/SHELL-ADM-03.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/SHELL-ADM-04.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/SHELL-ADM-05.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/SHELL-CUS-01.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/SHELL-CUS-02.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/SHELL-KIT.dc.html",
+    "design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/source/SHELL-STY-01.dc.html",
+    "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/index.html",
+    "design-export/batches/Rival_Batch2_Full(2)/rival-batch2-full/notes/Main_notes.html",
+    "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/Main.html",
+    "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/index.html",
+    "design-export/batches/Rival_Batch3_Customer_Panel_HTML(2)/Rival_Batch3_Customer_Panel_HTML/source/Main.dc.html",
+    "design-export/batches/Rival_Batch4_Stylist_Canvas(2)/Rival_Batch4_Stylist_Canvas/canvas/Main.dc.html",
+    "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/Main.dc.html",
+    "design-export/batches/Rival_Batch5_Admin_Daily(3)/Rival_Batch5_Admin_Daily/canvas/_index.html",
+    "design-export/batches/Rival_Batch6_Salon_Management(2)/Rival_Batch6_Salon_Management/canvas/Main.dc.html",
+    "design-export/batches/Rival_Batch7_Artboards(2)/Rival_Batch7_Artboards/artboards/Main.dc.html"
+  ]
+}

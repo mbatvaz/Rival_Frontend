@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-03 — درخواست‌ها — برگه فیلتر</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px;">
+  <div aria-hidden="true" inert style="position: absolute; inset: 0; overflow: hidden;">
+  <header class="rv-topbar">
+    <h1 class="rv-topbar__title" style="margin: 0;">درخواست‌ها</h1>
+    <span class="rv-grow"></span>
+    <a href="/admin/action-center" class="rv-icon-btn" aria-label="مرکز اقدام، ۳ مورد باز"><i class="ri ri-pending"></i><span class="rv-count is-plum">۳</span></a>
+    <a href="/admin/notifications" class="rv-icon-btn" aria-label="اعلان‌ها، ۱ خوانده‌نشده"><i class="ri ri-bell"></i><span class="rv-dot is-ink"></span></a>
+  </header>
+
+  <main class="f-enter" style="padding: var(--space-2) var(--space-4) 120px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <!-- [مدیر] Scope دوبخشی (D10-112) فقط در نوع «پیشنهادی» -->
+    <div class="f-scope">
+      <span class="f-scope__lbl">درخواست‌های</span>
+      <div class="rv-seg rv-glass" role="tablist" aria-label="دامنه نمایش" style="display: flex;">
+        <button role="tab" aria-selected="true" style="flex: 1; justify-content: center;"><i class="ri ri-sm ri-user"></i>من</button>
+        <button role="tab" aria-selected="false" aria-haspopup="dialog" aria-expanded="false" style="flex: 1; justify-content: center;">آرایشگر<i class="ri ri-sm ri-chevron-down"></i></button>
+      </div>
+    </div>
+    <div class="b4-tabrow">
+      <div class="rv-seg rv-glass b4-seg-full is-3" role="tablist" aria-label="وضعیت درخواست‌ها">
+        <button type="button" id="tab-open" role="tab" aria-selected="true" aria-controls="p-open">باز<span class="b4-n" aria-label="۴ درخواست">۴</span></button>
+        <button type="button" id="tab-wait" role="tab" aria-selected="false" aria-controls="p-wait">در انتظار<span class="b4-n" aria-label="۲ درخواست">۲</span></button>
+        <button type="button" id="tab-closed" role="tab" aria-selected="false" aria-controls="p-closed">بسته‌شده<span class="b4-n" aria-label="۳ درخواست">۳</span></button>
+      </div>
+      <div class="rv-card rv-glass b4-fcard is-icon"><button type="button" class="rv-btn rv-btn--ghost rv-btn--sm b4-fcard__b" aria-haspopup="dialog" aria-label="فیلتر درخواست‌ها"><i class="ri ri-sm ri-filter"></i></button></div>
+    </div>
+    <div id="p-open" role="tabpanel" aria-labelledby="tab-open" style="display: flex; flex-direction: column; gap: var(--space-5);">
+    <section aria-labelledby="q-c">
+      <div class="f-head"><h2 id="q-c" class="f-h">درخواست چندخدمتی</h2><span class="rv-caption rv-muted">نزدیک‌ترین مهلت اول</span></div>
+      <div class="b4-rqks">
+        <div class="b4-rqk">
+          <article class="b2-c2 b4-rqk__c" aria-label="پکیج دامادی از آرمان رحیمی">
+            <div class="b4-rqk__main">
+              <img class="b2-c2__img" src="/_blob/9ee5de07d16413b2d5e3cd9776e3a9b5" alt="" style="object-position: center 40%;">
+              <a href="/admin/requests/RQ-2231" class="b2-c2__hit" aria-label="پکیج دامادی، آرمان رحیمی"></a>
+              <div class="b2-c2__txt">
+                <span class="b2-c1__s b4-rqk__t">پکیج دامادی</span>
+                <span class="b4-rqk__who"><span class="rv-avatar">آ</span><span>آرمان رحیمی</span></span>
+              </div>
+            </div>
+            <div class="b4-rqk__due" role="timer">
+              <div class="b4-rqk__row"><span><i class="ri ri-sm ri-hourglass" aria-hidden="true"></i>۱ روز و ۴ ساعت تا رد خودکار</span><small>دوشنبه ۲۷ مهر ۱۵:۴۰</small></div>
+              <div class="b4-rqk__bar" aria-hidden="true"><i style="width: 17%;"></i></div>
+            </div>
+          </article>
+        </div>
+        <div class="b4-rqk">
+          <article class="b2-c2 b4-rqk__c" aria-label="اصلاح و رنگ کامل از کاوه احمدی">
+            <div class="b4-rqk__main">
+              <img class="b2-c2__img" src="/_blob/4182f513f8e3ef17e28dbca296c38a83" alt="" style="object-position: center 30%;">
+              <a href="/admin/requests/RQ-2236" class="b2-c2__hit" aria-label="اصلاح و رنگ کامل، کاوه احمدی"></a>
+              <div class="b2-c2__txt">
+                <span class="b2-c1__s b4-rqk__t">اصلاح و رنگ کامل</span>
+                <span class="b4-rqk__who"><span class="rv-avatar">ک</span><span>کاوه احمدی</span></span>
+              </div>
+            </div>
+            <div class="b4-rqk__due" role="timer">
+              <div class="b4-rqk__row"><span><i class="ri ri-sm ri-hourglass" aria-hidden="true"></i>۵ روز تا رد خودکار</span><small>جمعه ۱ آبان ۱۱:۲۰</small></div>
+              <div class="b4-rqk__bar" aria-hidden="true"><i style="width: 71%;"></i></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section aria-labelledby="q-p">
+      <div class="f-head"><h2 id="q-p" class="f-h">پیشنهادی من</h2><span class="rv-caption rv-muted">نزدیک‌ترین مهلت اول</span></div>
+      <div class="b4-rqks">
+        <div class="b4-rqk is-soon">
+          <article class="b2-c2 b4-rqk__c" aria-label="فیشیال از بهراد شریفی">
+            <div class="b4-rqk__main">
+              <img class="b2-c2__img" src="/_blob/93897ddccfdc06e25d8a145ba1b7e82e" alt="" style="object-position: center 40%;">
+              <a href="/admin/requests/RQ-2221" class="b2-c2__hit" aria-label="فیشیال، بهراد شریفی"></a>
+              <div class="b2-c2__txt">
+                <span class="b2-c1__s b4-rqk__t">فیشیال</span>
+                <span class="b4-rqk__who"><span class="rv-avatar">ب</span><span>بهراد شریفی</span></span>
+                <span class="b4-rqk__pref">ترجیح: یکشنبه ۳ آبان، صبح</span>
+              </div>
+            </div>
+            <div class="b4-rqk__due" role="timer">
+              <div class="b4-rqk__row"><span><i class="ri ri-sm ri-hourglass" aria-hidden="true"></i>۶ ساعت و ۵۰ دقیقه تا رد خودکار</span><small>امروز ۱۸:۳۰</small></div>
+              <div class="b4-rqk__bar" aria-hidden="true"><i style="width: 4%;"></i></div>
+            </div>
+          </article>
+        </div>
+        <div class="b4-rqk">
+          <article class="b2-c2 b4-rqk__c" aria-label="رنگ ریش از رضا کریمی">
+            <div class="b4-rqk__main">
+              <img class="b2-c2__img" src="/_blob/4182f513f8e3ef17e28dbca296c38a83" alt="" style="object-position: center 30%;">
+              <a href="/admin/requests/RQ-2215" class="b2-c2__hit" aria-label="رنگ ریش، رضا کریمی"></a>
+              <div class="b2-c2__txt">
+                <span class="b2-c1__s b4-rqk__t">رنگ ریش</span>
+                <span class="b4-rqk__who"><span class="rv-avatar"><img src="/_blob/8b4db4f0bb515d0663b480815b96a0f8" alt=""></span><span>رضا کریمی</span></span>
+                <span class="b4-rqk__pref">ترجیح: دوشنبه ۴ آبان، عصر</span>
+              </div>
+            </div>
+            <div class="b4-rqk__due" role="timer">
+              <div class="b4-rqk__row"><span><i class="ri ri-sm ri-hourglass" aria-hidden="true"></i>۲ روز و ۸ ساعت تا رد خودکار</span><small>سه‌شنبه ۲۸ مهر ۲۰:۱۰</small></div>
+              <div class="b4-rqk__bar" aria-hidden="true"><i style="width: 33%;"></i></div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <p class="b4-hint" style="margin-top: var(--space-3);"><i class="ri ri-info" aria-hidden="true"></i>اگر تا پایان مهلت پاسخ ندهید، درخواست خودکار رد می‌شود و به مشتری خبر داده می‌شود.</p>
+    </section>
+    </div>
+  </main>
+
+  <!-- نوار پایین کارکنان (SHELL-STY) -->
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری مدیر کل">
+      <a href="/admin" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+      <a href="/admin/calendar" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+      <a href="/admin/requests" aria-current="page" aria-label="درخواست‌ها، ۴ درخواست منتظر پاسخ شما"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۴</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/admin/customers" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+      <a href="#more" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+  </div>
+  </div>
+  <div class="rv-scrim" aria-hidden="true"></div>
+  <!-- [مدیر] برگه فیلتر درخواست‌ها: نوع درخواست (همه / پیشنهادی / چندخدمتی)، خدمت، جست‌وجوی مشتری؛ وضعیت با زبانه‌ها و آرایشگر با Scope انتخاب می‌شود، پس در برگه نیست -->
+  <section class="rv-sheet rv-glass-strong" role="dialog" aria-modal="true" aria-labelledby="flt-t" style="padding-bottom: 0; display: flex; flex-direction: column;">
+    <div class="rv-grabber"></div>
+    <div class="rv-between" style="margin-bottom: var(--space-2);">
+      <h2 id="flt-t" class="rv-h-md" style="margin: 0;">فیلتر درخواست‌ها</h2>
+      <button class="rv-btn rv-btn--ghost rv-btn--sm" type="button">پاک کردن همه</button>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: var(--space-5); padding-bottom: var(--space-4);">
+      <label class="rv-input rv-input--search" style="height: 48px;"><i class="ri ri-search"></i><input placeholder="نام مشتری یا کد درخواست" aria-label="جست‌وجوی درخواست"></label>
+      <fieldset style="border: 0; margin: 0; padding: 0;">
+        <legend class="rv-label" style="padding: 0; margin-bottom: var(--space-2);">نوع درخواست</legend>
+        <div class="b3-rg" role="radiogroup" aria-label="نوع درخواست"><button class="rv-chip" type="button" role="radio" aria-checked="false">همه</button><button class="rv-chip" type="button" role="radio" aria-checked="false">پیشنهادی</button><button class="rv-chip" type="button" role="radio" aria-checked="true">چندخدمتی</button></div>
+      </fieldset>
+      <fieldset style="border: 0; margin: 0; padding: 0;">
+        <legend class="rv-label" style="padding: 0; margin-bottom: var(--space-2);">خدمت</legend>
+        <div class="b3-rg" role="radiogroup" aria-label="خدمت"><button class="rv-chip" type="button" role="radio" aria-checked="true">همه</button><button class="rv-chip" type="button" role="radio" aria-checked="false">اصلاح سر</button><button class="rv-chip" type="button" role="radio" aria-checked="false">فیشیال</button><button class="rv-chip" type="button" role="radio" aria-checked="false">رنگ ریش</button><button class="rv-chip" type="button" role="radio" aria-checked="false">پکیج</button></div>
+      </fieldset>
+    </div>
+    <div class="rv-actionbar" style="margin: 0 calc(var(--space-5) * -1); box-shadow: none; border-top: 1px solid var(--line-hairline); border-radius: 0; padding-bottom: var(--space-6);">
+      <button class="rv-btn rv-btn--primary rv-btn--block" type="button">نمایش ۲ درخواست</button>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

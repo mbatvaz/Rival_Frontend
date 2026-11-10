@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rival — Segmented</title><link rel="stylesheet" href="../../css/tokens.css"><link rel="stylesheet" href="../../css/rival.css"><style>body{margin:0}</style></head>
+<body>
+<!-- @dsCard width=900 group="Actions" height=300 subtitle="Glass segmented control (incl. the admin scope switch), tabs with counts, glass filter chips" -->
+<div class="rv rv-final rv-pad" dir="rtl" lang="fa"><div class="rv-stack-lg">
+  <div class="rv-row rv-wrap" style="gap:16px">
+    <div class="rv-seg rv-glass" role="tablist" aria-label="دامنه"><button aria-selected="true"><i class="ri ri-sm ri-user"></i>من</button><button><i class="ri ri-sm ri-stylist"></i>آرایشگر</button><button><i class="ri ri-sm ri-users"></i>همه سالن</button></div>
+    <div class="rv-seg rv-glass" role="tablist"><button>روز</button><button aria-selected="true">هفته</button><button>ماه</button></div>
+    <div class="rv-seg rv-glass" role="tablist"><button aria-selected="true" aria-label="درخواست‌ها، ۲ منتظر پاسخ">درخواست‌ها <span class="rv-n is-plum">۲</span></button><button>نوبت‌ها</button></div>
+  </div>
+  <div class="rv-tabs" role="tablist"><button aria-selected="true">پیش رو <span class="rv-n">۳</span></button><button>گذشته <span class="rv-n">۱۲</span></button><button>لغو شده</button></div>
+  <div class="rv-row rv-wrap" style="gap:8px"><button class="rv-chip"><i class="ri ri-filter"></i>فیلتر</button><button class="rv-chip" aria-pressed="true">در انتظار پرداخت<i class="ri ri-x"></i></button><button class="rv-chip">مهر ۱۴۰۵</button><button class="rv-chip">آرایشگر</button><button class="rv-chip">خدمت</button></div>
+</div></div>
+<script>document.querySelectorAll('.rv-seg,.rv-tabs').forEach(function(g){g.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){g.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-selected','false')});b.setAttribute('aria-selected','true');});});});
+document.querySelectorAll('.rv-chip').forEach(function(c){c.addEventListener('click',function(){c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')==='true'?'false':'true');});});</script>
+
+</body></html>

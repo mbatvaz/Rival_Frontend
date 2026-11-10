@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>STATE-03 — درخواست منقضی — بی‌پاسخ ماند (رد شده)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+<link rel="stylesheet" href="rv-b6.css">
+<link rel="stylesheet" href="rv-b7.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px;">
+  <header class="f-bar-in">
+    <span aria-hidden="true"></span>
+    <h1>درخواست</h1>
+    <span aria-hidden="true"></span>
+  </header>
+  <main style="padding: var(--space-2) var(--space-4) 128px; display: flex; flex-direction: column;">
+    <!-- STATE-03 نسخهٔ بی‌پاسخ: در نمای مشتری «رد شده» است (D10-52: neutral)؛ بدون عدد ثابت ۷ روز، با تاریخ واقعی -->
+    <section class="b2-res" aria-labelledby="st-t">
+      <span class="rv-tile rv-tile--xl"><i class="ri ri-xl ri-clock"></i></span>
+      <span class="rv-tag"><i class="ri ri-x-circle"></i>رد شده</span>
+      <h2 id="st-t" class="b2-res__t">به این درخواست پاسخی داده نشد</h2>
+      <p class="b2-res__d">درخواست اصلاح و رنگ کامل با امیر تا یکشنبه ۱۰ آبان بی‌پاسخ ماند و بسته شد. مبلغی پرداخت نشده بود و چیزی از اعتبار شما کم نشد.</p>
+      <span class="b2-code">کد پیگیری <b class="rv-ltr">#RQ-2219</b></span>
+      <a href="/customer/book?service=color-full" class="rv-btn rv-btn--primary rv-btn--block b2-res__act">ثبت درخواست تازه</a>
+    </section>
+  </main>
+  <div class="rv-dock rv-dock--book">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری مشتری">
+      <a href="/customer" aria-label="خانه"><span class="rv-nav__ic"><i class="ri ri-home"></i></span><span class="rv-nav__l">خانه</span></a>
+      <a href="/customer/requests" aria-label="درخواست‌ها"><span class="rv-nav__ic"><i class="ri ri-inbox"></i></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/customer/appointments" aria-label="نوبت‌ها"><span class="rv-nav__ic"><i class="ri ri-scissors"></i></span><span class="rv-nav__l">نوبت‌ها</span></a>
+      <a href="#more" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+    <a href="/customer/book" class="rv-dock__book" aria-label="رزرو نوبت"><i class="ri ri-calendar-plus"></i><span>رزرو</span></a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

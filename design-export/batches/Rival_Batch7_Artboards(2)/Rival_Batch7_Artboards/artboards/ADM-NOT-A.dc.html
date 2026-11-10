@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-NOT — مرکز اعلان مدیر — Default (مفهوم تأییدشده)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+<link rel="stylesheet" href="rv-b6.css">
+<link rel="stylesheet" href="rv-b7.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1400px;">
+  <header class="f-bar-in">
+    <a href="#more" class="rv-icon-btn" aria-label="بازگشت"><i class="ri ri-arrow-right"></i></a>
+    <h1>اعلان‌ها</h1>
+    <!-- [b7] ساخت اعلان دستی: صفحهٔ کامل با «بستن» و نوار اقدام (D10-96، D10-104) -->
+    <a href="/admin/notifications/new" class="rv-icon-btn" aria-label="اعلان تازه"><i class="ri ri-plus"></i></a>
+  </header>
+  <main class="f-enter" style="padding: var(--space-2) var(--space-4) 128px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <!-- [b7] جهت الف: دو زبانه؛ «دریافتی» همان مرکز اعلان STY-10 است، «منتشرشده» اعلان‌های عمومی مدیر با ویرایش -->
+    <div class="rv-seg rv-glass b4-seg-full" role="tablist" aria-label="اعلان‌ها"><button type="button" id="tab-in" role="tab" aria-selected="true" aria-controls="p-in">دریافتی<span class="b4-n" aria-label="۳ خوانده‌نشده">۳</span></button><button type="button" id="tab-pub" role="tab" aria-selected="false" aria-controls="p-in">منتشرشده<span class="b4-n" aria-label="۸ اعلان">۸</span></button></div>
+
+    <section id="p-in" role="tabpanel" aria-labelledby="tab-in" style="display: flex; flex-direction: column; gap: var(--space-5);">
+      <div class="b3-tools">
+        <span class="b3-tools__sum"><b>۳</b> خوانده‌نشده</span>
+        <button type="button" class="rv-btn rv-btn--ghost rv-btn--sm"><i class="ri ri-sm ri-check"></i>همه خوانده شد</button>
+      </div>
+      <div>
+        <h2 class="b3-mlbl">امروز</h2>
+        <div class="rv-list rv-glass">
+          <!-- عملیاتی: فقط اطلاع؛ کل ردیف تنها پیوند به منبع؛ بدون «حل شد» یا «تلاش دوباره» -->
+          <div class="rv-item b3-nt">
+            <a class="b3-nt__hit" href="/admin/stylists/amir" aria-label="حذف امیر با یک خطا انجام شد، خوانده‌نشده"></a><span class="rv-tile rv-tile--sm is-warning" aria-hidden="true"><i class="ri ri-sm ri-alert"></i></span>
+            <div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">حذف امیر با یک خطا انجام شد</div><div class="rv-item__s">۶ مورد انجام شد؛ ۱ نوبت لغو نشد و سر جایش است.</div><div class="b3-nt__meta"><span>امروز، ۱۱:۵۰</span><span class="rv-tag is-neutral"><i class="ri ri-info"></i>سیستم</span></div></div>
+            <span class="rv-dot is-ink b3-nt__dot" aria-hidden="true"></span><button type="button" class="rv-btn rv-btn--ghost rv-btn--sm b3-nt__read">خواندم</button>
+          </div>
+          <div class="rv-item b3-nt">
+            <a class="b3-nt__hit" href="/admin/requests/RQ-2231" aria-label="درخواست تازه پکیج دامادی از آرمان رحیمی، خوانده‌نشده"></a><span class="rv-tile rv-tile--sm is-plum" aria-hidden="true"><i class="ri ri-sm ri-inbox"></i></span>
+            <div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">درخواست تازه پکیج دامادی از آرمان رحیمی</div><div class="rv-item__s">درخواست چندخدمتی؛ در مرکز اقدام منتظر شماست.</div><div class="b3-nt__meta"><span>امروز، ۱۰:۲۰</span></div></div>
+            <span class="rv-dot is-ink b3-nt__dot" aria-hidden="true"></span><button type="button" class="rv-btn rv-btn--ghost rv-btn--sm b3-nt__read">خواندم</button>
+          </div>
+          <div class="rv-item b3-nt">
+            <a class="b3-nt__hit" href="/admin/sms" aria-label="ارسال پیامک با تأخیر انجام می‌شود، خوانده‌نشده"></a><span class="rv-tile rv-tile--sm is-warning" aria-hidden="true"><i class="ri ri-sm ri-sms"></i></span>
+            <div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">ارسال پیامک با تأخیر انجام می‌شود</div><div class="rv-item__s">سرویس پیامک از ۰۹:۱۵ کند پاسخ می‌دهد؛ پیام‌ها در صف می‌مانند و خودکار ارسال می‌شوند.</div><div class="b3-nt__meta"><span>امروز، ۰۹:۲۰</span><span class="rv-tag is-neutral"><i class="ri ri-info"></i>سیستم</span></div></div>
+            <span class="rv-dot is-ink b3-nt__dot" aria-hidden="true"></span><button type="button" class="rv-btn rv-btn--ghost rv-btn--sm b3-nt__read">خواندم</button>
+          </div>
+        </div>
+        <h2 class="b3-mlbl" style="margin-top: var(--space-5);">این هفته</h2>
+        <div class="rv-list rv-glass">
+          <div class="rv-item b3-nt is-read">
+            <a class="b3-nt__hit" href="/admin/sms/batch/SB-118" aria-label="پیامک یادآوری به ۲ مشتری نرسید"></a><span class="rv-tile rv-tile--sm is-danger" aria-hidden="true"><i class="ri ri-sm ri-x"></i></span>
+            <div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">پیامک یادآوری به ۲ مشتری نرسید</div><div class="rv-item__s">پس از ۴ تلاش، ارسال برای این دو شماره ناموفق ماند.</div><div class="b3-nt__meta"><span>شنبه ۲ آبان، ۰۸:۰۵</span><span class="rv-tag is-neutral"><i class="ri ri-info"></i>سیستم</span></div></div>
+            <i class="ri ri-sm ri-chevron-left rv-chev" aria-hidden="true" style="flex: none; color: var(--text-muted);"></i>
+          </div>
+          <div class="rv-item b3-nt is-read">
+            <a class="b3-nt__hit" href="/admin/appointments/BK-48390" aria-label="رضا کریمی نوبتش را لغو کرد"></a><span class="rv-tile rv-tile--sm is-rose" aria-hidden="true"><i class="ri ri-sm ri-calendar-x"></i></span>
+            <div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">رضا کریمی نوبتش را لغو کرد</div><div class="rv-item__s">سه‌شنبه ۵ آبان، ۱۵:۳۰، اصلاح سر با سینا. زمان دوباره آزاد است.</div><div class="b3-nt__meta"><span>جمعه ۱ آبان، ۱۸:۲۰</span></div></div>
+            <i class="ri ri-sm ri-chevron-left rv-chev" aria-hidden="true" style="flex: none; color: var(--text-muted);"></i>
+          </div>
+          <div class="rv-item b3-nt is-read">
+            <a class="b3-nt__hit" href="/admin/appointments/BK-48305" aria-label="کاوه احمدی پرداخت کرد؛ نوبت رزرو شد"></a><span class="rv-tile rv-tile--sm is-ink" aria-hidden="true"><i class="ri ri-sm ri-check-circle"></i></span>
+            <div class="rv-grow" style="min-width: 0;"><div class="rv-item__t">کاوه احمدی پرداخت کرد؛ نوبت رزرو شد</div><div class="rv-item__s">اصلاح و رنگ کامل با شما، دوشنبه ۴ آبان، ۱۱:۰۰.</div><div class="b3-nt__meta"><span>پنج‌شنبه ۳۰ مهر، ۱۴:۱۰</span></div></div>
+            <i class="ri ri-sm ri-chevron-left rv-chev" aria-hidden="true" style="flex: none; color: var(--text-muted);"></i>
+          </div>
+        </div>
+      </div>
+      <div class="b3-more">
+        <span class="rv-caption rv-muted">۶ از ۲۱ اعلان</span>
+        <button type="button" class="rv-btn rv-btn--secondary rv-btn--block">نمایش اعلان‌های قدیمی‌تر</button>
+      </div>
+      <!-- تمایز از مرکز اقدام (ADM-AC): اینجا فقط اطلاع است -->
+      <p class="b4-hint" style="margin: 0;"><i class="ri ri-info" aria-hidden="true"></i>اعلان فقط خبر می‌دهد و با خواندن کنار می‌رود. کارهایی که اقدام شما را لازم دارند در <a href="/admin/action-center">مرکز اقدام</a> هستند.</p>
+    </section>
+  </main>
+  <div class="rv-dock">
+    <nav class="rv-nav rv-glass-strong" aria-label="ناوبری مدیر کل">
+      <a href="/admin" aria-label="داشبورد"><span class="rv-nav__ic"><i class="ri ri-grid"></i></span><span class="rv-nav__l">داشبورد</span></a>
+      <a href="/admin/calendar" aria-label="تقویم"><span class="rv-nav__ic"><i class="ri ri-calendar"></i></span><span class="rv-nav__l">تقویم</span></a>
+      <a href="/admin/requests" aria-label="درخواست‌ها، ۴ درخواست منتظر پاسخ شما"><span class="rv-nav__ic"><i class="ri ri-inbox"></i><b class="rv-nav__badge is-plum">۴</b></span><span class="rv-nav__l">درخواست‌ها</span></a>
+      <a href="/admin/customers" aria-label="مشتری‌ها"><span class="rv-nav__ic"><i class="ri ri-users"></i></span><span class="rv-nav__l">مشتری‌ها</span></a>
+      <a href="#more" aria-current="page" aria-label="بیشتر"><span class="rv-nav__ic"><i class="ri ri-menu"></i></span><span class="rv-nav__l">بیشتر</span></a>
+    </nav>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1400}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

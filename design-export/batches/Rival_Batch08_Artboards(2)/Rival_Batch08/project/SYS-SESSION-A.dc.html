@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>SYS-SESSION — نشست منقضی وسط جریان — Default</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+<link rel="stylesheet" href="rv-b6.css">
+<link rel="stylesheet" href="rv-b7.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1000px; display: flex; flex-direction: column;">
+  <div class="f-auth-top"><a href="/" class="rv-icon-btn" aria-label="بازگشت به خانه"><i class="ri ri-arrow-right"></i></a></div>
+  <div class="f-auth-hero">
+    <!-- SYS-SESSION: neutral؛ ورود دوباره و بازگشت به همان نقطه؛ هیچ اثری تکرار نمی‌شود -->
+    <span class="rv-tile rv-tile--xl" aria-hidden="true"><i class="ri ri-xl ri-timer"></i></span>
+    <h1 class="f-auth__t">نشست شما تمام شد</h1>
+    <p class="f-auth__d">برای امنیت حساب، بعد از مدتی بی‌فعالیتی از حساب خارج شدید. اطلاعاتی که وارد کرده بودید پاک نشده است.</p>
+  </div>
+  <main class="f-auth"><section class="rv-card rv-glass-strong rv-card--lg f-auth__card"><div class="f-auth-ret"><i class="ri ri-calendar-plus"></i><span>بعد از ورود به <b>تأیید و پرداخت</b> برمی‌گردید.</span></div>
+      <div class="rv-field">
+        <label for="f-ph">شماره موبایل</label>
+        <div class="rv-input is-readonly"><i class="ri ri-smartphone"></i><input id="f-ph" class="rv-ltr" value="۰۹۱۴ ۳۲۱ ۴۵۶۷" readonly=""><a class="rv-link f-edit" href="#">ویرایش</a></div>
+      </div>
+      <div class="rv-notice is-info" role="status"><i class="ri ri-shield"></i><div class="rv-grow"><div class="rv-notice__t">کاری دوباره انجام نمی‌شود</div><div class="rv-notice__d">پرداختی که در جریان بود تکرار نمی‌شود. اگر انجام شده باشد، بعد از ورود نتیجه‌اش را می‌بینید.</div></div></div>
+      <button class="rv-btn rv-btn--primary rv-btn--block" type="submit">دریافت کد ورود</button></section></main>
+  <div class="f-auth-alts">
+    <button class="rv-btn rv-btn--glass rv-glass rv-btn--block" type="button"><i class="ri ri-fingerprint"></i>ورود با Passkey</button>
+    <button class="rv-btn rv-btn--glass rv-glass rv-btn--block" type="button"><i class="ri ri-key"></i>ورود با رمز عبور</button>
+  </div>
+  <footer class="f-auth-foot"><span class="rv-caption rv-muted">تمام حقوق این وب‌سایت برای سالن ریوال محفوظ است.</span></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

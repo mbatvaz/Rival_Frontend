@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>PAY-RES — نتیجه پرداخت — زمان از دست رفت</title>
+
+<link rel="stylesheet" href="../assets/ds/rival/tokens.css">
+<link rel="stylesheet" href="../assets/ds/rival/components/bundle.css">
+<link rel="stylesheet" href="../assets/rv-fixes.css">
+<link rel="stylesheet" href="../assets/rv-final.css">
+<link rel="stylesheet" href="../assets/rv-b2.css">
+</head>
+<body style="margin:0;background:#E7E8EB;display:flex;justify-content:center">
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 844px;">
+  <header class="f-bar-in">
+    <span aria-hidden="true"></span>
+    <h1>نتیجه پرداخت</h1>
+    <span aria-hidden="true"></span>
+  </header>
+
+  <main style="padding: var(--space-2) var(--space-4) var(--space-6); display: flex; flex-direction: column;">
+    <!-- STATE-06: نیازمند اقدام کاربر → warning؛ نوبت ساخته نشد، مبلغ بعد از بررسی به اعتبار برمی‌گردد -->
+    <section class="b2-res" aria-labelledby="res-t">
+      <span class="rv-tile rv-tile--xl is-warning"><i class="ri ri-xl ri-calendar-x"></i></span>
+      <span class="rv-tag is-warning"><i class="ri ri-calendar-x"></i>نوبت ساخته نشد</span>
+      <h2 id="res-t" class="b2-res__t">این زمان از دست رفت</h2>
+      <p class="b2-res__d">پرداخت شما انجام شد، اما ۱۶:۰۰ پنج‌شنبه ۲۳ مهر پیش از تأیید بانک پر شده بود و نوبتی ساخته نشد. ۱۸۰٬۰۰۰ تومان (۹۰٬۰۰۰ از درگاه و ۹۰٬۰۰۰ از اعتبار) بعد از بررسی به اعتبار شما برمی‌گردد.</p>
+      <span class="b2-code">کد پیگیری <b class="rv-ltr">#PAY-7Q42K</b></span>
+      <div class="b2-res__acts"><a href="/customer/book/times" class="rv-btn rv-btn--primary">انتخاب زمان دیگر</a><a href="/customer" class="rv-btn rv-btn--secondary">بازگشت به خانه</a></div>
+    </section>
+  </main>
+</div>
+</x-dc>
+
+</body>
+</html>

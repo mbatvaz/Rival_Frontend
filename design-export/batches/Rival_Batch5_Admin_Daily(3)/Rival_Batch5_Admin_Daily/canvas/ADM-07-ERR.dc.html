@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ADM-07 — رزرو دستی — خطای تداخل (غیرقابل رد)</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/rival/tokens.css">
+<link rel="stylesheet" href="ds/rival/components/bundle.css">
+<link rel="stylesheet" href="rv-fixes.css">
+<link rel="stylesheet" href="rv-final.css">
+<link rel="stylesheet" href="rv-b2.css">
+<link rel="stylesheet" href="rv-b3.css">
+<link rel="stylesheet" href="rv-b4.css">
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0}</style></helmet>
+<div class="rv rv-board rv-final" dir="rtl" lang="fa" style="width: 390px; height: 1320px;">
+  <header class="f-bar-in">
+    <a href="#step-3" class="rv-icon-btn" aria-label="بازگشت به مرحله قبل"><i class="ri ri-arrow-right"></i></a>
+    <h1>رزرو دستی</h1>
+    <a href="/admin" class="rv-icon-btn" aria-label="بستن رزرو دستی"><i class="ri ri-x"></i></a>
+  </header>
+  <main style="padding: var(--space-2) var(--space-4) 140px; display: flex; flex-direction: column; gap: var(--space-5);">
+    <!-- نشانگر مرحله: چهار گام؛ گام جاری پررنگ -->
+    <nav class="b4-steps" aria-label="مرحله ۴ از ۵، زمان"><ol style="grid-template-columns: repeat(5, minmax(0, 1fr));"><li class="is-done"><span>آرایشگر</span></li><li class="is-done"><span>مشتری</span></li><li class="is-done"><span>خدمت</span></li><li class="is-on" aria-current="step"><span>زمان</span></li><li><span>تأیید</span></li></ol></nav>
+    <!-- خلاصهٔ انتخاب‌ها در یک کارت؛ بازگشت با دکمهٔ بالا -->
+    <div class="rv-card rv-glass b4-mctx2"><img src="/_blob/4182f513f8e3ef17e28dbca296c38a83" alt=""><div class="b4-mctx2__t"><div><b class="b4-mctx2__svc">اصلاح سر و صورت</b><span class="b4-mctx2__when">با امیر</span></div><div class="b4-mctx2__who"><span class="rv-avatar"><img src="/_blob/073e8bab91cfbb056ea68d266d51cbe7" alt=""></span><div class="rv-grow" style="min-width: 0;"><b>سامان نوری</b><bdi class="rv-ltr">۰۹۱۴ ۳۹۰ ۱۲۵۸</bdi></div></div></div></div>
+    <section aria-labelledby="r-day" style="display: flex; flex-direction: column; gap: var(--space-5);">
+      <div class="f-head" style="margin-bottom: 0;"><h2 id="r-day" class="f-h">روز و ساعت</h2></div>
+      <div class="rv-cal rv-glass b4-cal">
+        <div class="rv-cal__head" style="padding: 0 var(--space-2);"><b>آبان ۱۴۰۵</b><span class="rv-row" style="gap: 0;"><button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="ماه قبل"><i class="ri ri-chevron-right"></i></button><button type="button" class="rv-icon-btn rv-icon-btn--plain" aria-label="ماه بعد"><i class="ri ri-chevron-left"></i></button></span></div>
+        <div class="rv-cal__grid" role="grid" aria-label="تقویم آبان ۱۴۰۵">
+          <span class="rv-cal__dow">ش</span><span class="rv-cal__dow">ی</span><span class="rv-cal__dow">د</span><span class="rv-cal__dow">س</span><span class="rv-cal__dow">چ</span><span class="rv-cal__dow">پ</span><span class="rv-cal__dow">ج</span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <button type="button" class="rv-day is-holiday" role="gridcell" aria-selected="false" aria-disabled="true" aria-label="جمعه ۱ آبان، سالن تعطیل است"><i>۱</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="شنبه ۲ آبان، امیر زمان آزاد دارد"><i>۲</i></button>
+          <button type="button" class="rv-day is-full" role="gridcell" aria-selected="false" aria-disabled="true" aria-label="یکشنبه ۳ آبان، امیر زمان آزادی ندارد"><i>۳</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="true" aria-label="دوشنبه ۴ آبان، امیر زمان آزاد دارد"><i>۴</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="سه‌شنبه ۵ آبان، امیر زمان آزاد دارد"><i>۵</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="چهارشنبه ۶ آبان، امیر زمان آزاد دارد"><i>۶</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="پنج‌شنبه ۷ آبان، امیر زمان آزاد دارد"><i>۷</i></button>
+          <button type="button" class="rv-day is-holiday" role="gridcell" aria-selected="false" aria-disabled="true" aria-label="جمعه ۸ آبان، سالن تعطیل است"><i>۸</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="شنبه ۹ آبان، امیر زمان آزاد دارد"><i>۹</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="یکشنبه ۱۰ آبان، امیر زمان آزاد دارد"><i>۱۰</i></button>
+          <button type="button" class="rv-day is-full" role="gridcell" aria-selected="false" aria-disabled="true" aria-label="دوشنبه ۱۱ آبان، امیر زمان آزادی ندارد"><i>۱۱</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="سه‌شنبه ۱۲ آبان، امیر زمان آزاد دارد"><i>۱۲</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="چهارشنبه ۱۳ آبان، امیر زمان آزاد دارد"><i>۱۳</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="پنج‌شنبه ۱۴ آبان، امیر زمان آزاد دارد"><i>۱۴</i></button>
+          <button type="button" class="rv-day is-holiday" role="gridcell" aria-selected="false" aria-disabled="true" aria-label="جمعه ۱۵ آبان، سالن تعطیل است"><i>۱۵</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="شنبه ۱۶ آبان، امیر زمان آزاد دارد"><i>۱۶</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="یکشنبه ۱۷ آبان، امیر زمان آزاد دارد"><i>۱۷</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="دوشنبه ۱۸ آبان، امیر زمان آزاد دارد"><i>۱۸</i></button>
+          <button type="button" class="rv-day is-full" role="gridcell" aria-selected="false" aria-disabled="true" aria-label="سه‌شنبه ۱۹ آبان، امیر زمان آزادی ندارد"><i>۱۹</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="چهارشنبه ۲۰ آبان، امیر زمان آزاد دارد"><i>۲۰</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="پنج‌شنبه ۲۱ آبان، امیر زمان آزاد دارد"><i>۲۱</i></button>
+          <button type="button" class="rv-day is-holiday" role="gridcell" aria-selected="false" aria-disabled="true" aria-label="جمعه ۲۲ آبان، سالن تعطیل است"><i>۲۲</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="شنبه ۲۳ آبان، امیر زمان آزاد دارد"><i>۲۳</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="یکشنبه ۲۴ آبان، امیر زمان آزاد دارد"><i>۲۴</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="دوشنبه ۲۵ آبان، امیر زمان آزاد دارد"><i>۲۵</i></button>
+          <button type="button" class="rv-day is-open" role="gridcell" aria-selected="false" aria-label="سه‌شنبه ۲۶ آبان، امیر زمان آزاد دارد"><i>۲۶</i></button>
+          <button type="button" class="rv-day is-past" role="gridcell" aria-selected="false" aria-disabled="true" aria-label="چهارشنبه ۲۷ آبان، بیرون از افق ۳۰ روزه"><i>۲۷</i></button>
+          <button type="button" class="rv-day is-past" role="gridcell" aria-selected="false" aria-disabled="true" aria-label="پنج‌شنبه ۲۸ آبان، بیرون از افق ۳۰ روزه"><i>۲۸</i></button>
+          <button type="button" class="rv-day is-holiday" role="gridcell" aria-selected="false" aria-disabled="true" aria-label="جمعه ۲۹ آبان، سالن تعطیل است"><i>۲۹</i></button>
+          <button type="button" class="rv-day is-past" role="gridcell" aria-selected="false" aria-disabled="true" aria-label="شنبه ۳۰ آبان، بیرون از افق ۳۰ روزه"><i>۳۰</i></button>
+        </div>
+      </div>
+
+      <div class="rv-notice is-danger" role="alert">
+        <i class="ri ri-alert" aria-hidden="true"></i>
+        <div class="rv-grow">
+          <div class="rv-notice__t">سامان نوری در این ساعت نوبت دیگری دارد</div>
+          <div class="rv-notice__d">ساعت ۱۷:۰۰ دوشنبه ۴ آبان با نوبت دیگر همین مشتری تداخل دارد. این تداخل هرگز رد نمی‌شود؛ ساعت دیگری انتخاب کنید.</div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+        <div class="f-head" style="margin-bottom: 0;"><h3 class="f-h" style="font-size: 15px; line-height: 24px;">ساعت، دوشنبه ۴ آبان</h3><span class="rv-caption rv-muted">مدت ۱ ساعت</span></div>
+        <div class="b2-slots4 b4-starts-grid" role="radiogroup" aria-label="ساعت‌های آزاد امیر در دوشنبه ۴ آبان">
+          <button type="button" class="rv-slot" role="radio" aria-checked="false">۰۹:۰۰</button>
+          <button type="button" class="rv-slot" role="radio" aria-checked="false">۰۹:۳۰</button>
+          <button type="button" class="rv-slot" role="radio" aria-checked="false">۱۰:۳۰</button>
+          <button type="button" class="rv-slot" disabled role="radio" aria-checked="false">۱۱:۳۰</button>
+          <button type="button" class="rv-slot" role="radio" aria-checked="false">۱۲:۰۰</button>
+          <button type="button" class="rv-slot" disabled role="radio" aria-checked="false">۱۳:۰۰</button>
+          <button type="button" class="rv-slot" role="radio" aria-checked="false">۱۴:۰۰</button>
+          <button type="button" class="rv-slot" role="radio" aria-checked="false">۱۵:۳۰</button>
+          <button type="button" class="rv-slot" role="radio" aria-checked="false">۱۶:۳۰</button>
+          <button type="button" class="rv-slot" disabled role="radio" aria-checked="false">۱۷:۰۰</button>
+          <button type="button" class="rv-slot" role="radio" aria-checked="false">۱۸:۰۰</button>
+          <button type="button" class="rv-slot" role="radio" aria-checked="false">۱۹:۳۰</button>
+        </div>
+        <p class="b3-why"><i class="ri ri-shield"></i>ساعت‌های خط‌خورده با نوبت یا بستن شخصی امیر تداخل دارند و باز نمی‌شوند.</p>
+      </div>
+      <button type="button" class="rv-btn rv-btn--ghost rv-btn--block b4-ovr-open"><i class="ri ri-sm ri-key"></i>زمان بیرون از قواعد عادی</button>
+    </section>
+  </main>
+  <div class="rv-actionbar rv-glass-strong b2-bar">
+    <div class="b2-bar__sum"><span class="b2-bar__t">دوشنبه ۴ آبان</span><span class="b2-bar__s">ساعتی انتخاب نشده</span></div>
+    <button type="button" class="rv-btn rv-btn--primary" disabled>ادامه</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1320}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
