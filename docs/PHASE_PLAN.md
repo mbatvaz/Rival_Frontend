@@ -35,3 +35,7 @@ This is the canonical dependency plan. It preserves the nine owner-defined imple
 ## Execution workflow
 
 Use serialized Workflow B. One phase at a time; each phase ends with a review gate and owner approval. Parallel work is allowed only inside a phase after shared contracts are frozen. Any change to tokens, shared components, navigation, or shell triggers its reuse regression list.
+
+## Current owner gate — 2026-11-10
+
+Phase 02 is explicitly accepted. Its closeout work is complete. The owner explicitly withheld authorization to begin Phase 03; acceptance of dependencies does not assign it. Do not start Phase 03 or any later implementation without a new explicit instruction.

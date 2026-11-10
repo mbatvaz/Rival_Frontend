@@ -28,7 +28,8 @@ export function directoryModel(registry, basePath) {
       ...page, href: withBase(basePath, page.previewPath),
       phaseNumber: Number(page.phase.replace('Phase ', '')),
       variants: (page.variants ?? []).map(variant => ({ ...variant, href: withBase(basePath, page.previewPath) + variant.query })),
-      implementationLabel: page.template ? 'قالب موجود؛ نیازمند تأیید فاز' : 'هنوز پیاده‌سازی نشده'
+      implementationLabel: !page.template ? 'هنوز پیاده‌سازی نشده' : page.implementationStatus === 'accepted'
+        ? 'پیاده‌سازی تأییدشده' : 'قالب موجود؛ نیازمند تأیید فاز'
     });
   }
   return { count: registry.pages.length, groups: [...groups].map(([name, pages]) => ({ name, pages })) };

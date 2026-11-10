@@ -27,15 +27,19 @@ PUB, AUTH, SHELL, MORE, DS
 Create a page-specific desktop composition. Public and customer layouts must not be forced into a staff sidebar; staff/admin workspaces may use a right-side primary navigation rail. Write and obtain review of desktop layout briefs before implementing each page at >=1024px.
 
 ## Acceptance checklist
-- [ ] Shared shell is implemented once and driven by role/navigation data.
-- [ ] Desktop layout is reviewed as a distinct composition, not a scaled mobile canvas.
-- [ ] OTP, lock-all-methods, accessibility, and 390/768/1280 checks pass.
-- [ ] IDs are traceable through `docs/TRACEABILITY.md`; do not put infrastructure-only IDs in `PAGE_INVENTORY.md`.
-- [ ] No stale route is introduced (`/admin/reports`, `/admin/wallets*`, `/admin/announcements`, `/admin/transactions` are forbidden unless an owner-approved route inventory change says otherwise).
-- [ ] No business rule that requires server verification is implemented client-only.
-- [ ] Destructive/impact actions use the shared bottom-sheet + impact-preview pattern.
-- [ ] Shared-component regression is run after any shared component change.
-- [ ] Update `PROGRESS.md`, `docs/PAGE_INVENTORY.md` status, `docs/DISCREPANCIES.md`, `docs/OPEN_QUESTIONS.md`, and traceability.
+- [x] Shared shell is implemented once and driven by role/navigation data.
+- [x] Desktop layout is reviewed as a distinct composition, not a scaled mobile canvas.
+- [x] OTP, lock-all-methods, accessibility, and 390/768/1280 checks pass.
+- [x] IDs are traceable through `docs/TRACEABILITY.md`; do not put infrastructure-only IDs in `PAGE_INVENTORY.md`.
+- [x] No stale route is introduced (`/admin/reports`, `/admin/wallets*`, `/admin/announcements`, `/admin/transactions` are forbidden unless an owner-approved route inventory change says otherwise).
+- [x] No business rule that requires server verification is implemented client-only.
+- [x] Destructive/impact actions use the shared bottom-sheet + impact-preview pattern.
+- [x] Shared-component regression is run after any shared component change.
+- [x] Update `PROGRESS.md`, `docs/PAGE_INVENTORY.md` status, `docs/DISCREPANCIES.md`, `docs/OPEN_QUESTIONS.md`, and traceability.
 
 ## Handoff
 Report changed files, IDs/states covered, tests run and results, screenshots, unresolved OQ/DEC references, desktop briefs requiring owner review, and the exact next phase gate. Stop and wait for owner approval.
+
+## Accepted implementation — 2026-11-10
+
+The owner explicitly accepted Phase 02 after three review rounds. Approved UI overrides and current truth are in DEC-034..041 and docs-work/PHASE_02_CLOSEOUT_FA.md. The checklist applies to the static reference: actual authentication/security enforcement remains backend-owned. No destructive domain action was introduced; logout retains confirmation. The owner authorized closeout only and explicitly prohibited starting Phase 03 until a new instruction.

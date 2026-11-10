@@ -19,9 +19,13 @@ Shared shell, role navigation, purpose-designed desktop shell, bottom sheets, pu
 - Node/npm are local build/test tools only; cPanel receives static `dist/` files.
 
 ## Done when
-- [ ] Shared shell is implemented once and driven by role/navigation data.
-- [ ] Desktop layout is reviewed as a distinct composition, not a scaled mobile canvas.
-- [ ] OTP, lock-all-methods, accessibility, and 390/768/1280 checks pass.
+- [x] Shared shell is implemented once and driven by role/navigation data.
+- [x] Desktop layout is reviewed as a distinct composition, not a scaled mobile canvas.
+- [x] OTP, lock-all-methods, accessibility, and 390/768/1280 checks pass.
 - 390/768/1280 checks, axe, keyboard, structure and no-dead-end checks pass.
 - `PROGRESS.md`, `DISCREPANCIES.md`, and traceability are updated.
 - The agent stops for owner review.
+
+## Accepted implementation — 2026-11-10
+
+The owner explicitly accepted Phase 02 after three review rounds. Approved UI overrides and current truth are in DEC-034..041 and docs-work/PHASE_02_CLOSEOUT_FA.md. The checklist applies to the static reference: actual authentication/security enforcement remains backend-owned. No destructive domain action was introduced; logout retains confirmation. The owner authorized closeout only and explicitly prohibited starting Phase 03 until a new instruction.

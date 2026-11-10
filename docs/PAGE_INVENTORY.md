@@ -89,9 +89,9 @@
 
 ## Page status summary
 
-- **Implementation status (2026-11-10):** Phase 01 accepted. Phase 02 is implemented and awaiting owner review: PUB-01, PUB-02, PUB-03, AUTH-01, AUTH-02 and SYS-ACC-01. Shared role shells are implemented, while the other 67 registry contexts retain explicit placeholders for their owning phases. `Fully Designed` describes design-source coverage, not implementation acceptance. Desktop briefs for this phase were explicitly approved by the owner.
+- **Implementation status (2026-11-10):** Phase 01 accepted. Phase 02 is accepted by the owner (2026-11-10): PUB-01, PUB-02, PUB-03, AUTH-01, AUTH-02 and SYS-ACC-01. Shared role shells are implemented, while the other 67 registry contexts retain explicit placeholders for their owning phases. `Fully Designed` describes design-source coverage, not implementation acceptance. Desktop briefs for this phase were explicitly approved by the owner.
 
-### Phase 02 implemented states (owner acceptance pending)
+### Phase 02 implemented states (accepted by owner 2026-11-10)
 
 - PUB-01: signed-out / signed-in demo.
 - PUB-02: default, service/stylist filter, viewer, empty, loading, error/retry.
@@ -111,3 +111,5 @@ Phase 02 owner-review revision (2026-11-10): PUB-01..03 and AUTH-01/02 updated a
 Second owner review (2026-11-10): PUB-01 hero/visit/nav, PUB-02 desktop viewer and input rail/error, PUB-03 sticky contents, AUTH-01 timer/cells/password page corrected. Existing login context uses method=password; no registry route or phase ownership added. Latest report: docs-work/PHASE_02_REVIEW_02_FA.md.
 
 Third owner review: PUB-01 hero/typography/gallery and shared public desktop nav adjusted per four comments; same routes and implementation scope. See docs-work/PHASE_02_REVIEW_03_FA.md.
+
+Acceptance update (2026-11-10): owner accepted all Phase 02 work after the three review rounds. Previous pending-review notes are historical. Six implemented product pages are marked accepted; 67 future page contexts remain placeholders. Shared shells are accepted as components, not complete future role pages. Phase 03 is not authorized to start.

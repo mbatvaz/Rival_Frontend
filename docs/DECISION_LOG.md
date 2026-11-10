@@ -63,3 +63,9 @@
 | ID | Decision | Status | Implementation consequence |
 |---|---|---|---|
 | DEC-041 | Third home review: borderless black glass desktop nav; hero top corners square; desktop hero type hierarchy; third salon image 264×180 only on desktop. | Confirmed by four current owner comments | Reuse shared desktop nav and 1024px breakpoint; 1440px scales headline; gallery adapts its second column. Mobile geometry and canonical tokens remain unchanged. |
+
+## Phase 02 acceptance — 2026-11-10
+
+| ID | Decision | Status | Implementation consequence |
+|---|---|---|---|
+| DEC-042 | Owner explicitly accepts Phase 02 and authorizes its completion work only; Phase 03 must not start until a later explicit instruction. | Confirmed in current chat | Close checklists, mark accepted product contexts, consolidate handoff and final regression. Keep future route placeholders; do not implement or prepare Phase 03 product flows. |

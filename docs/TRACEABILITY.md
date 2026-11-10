@@ -32,7 +32,7 @@ Type styles map directly to `--<style-name>-size/line/weight`; token families re
 
 Infrastructure UI has no canonical product artboard; screenshots are review evidence, not pixel-match baselines. No product page is marked implemented. StatePage remains Phase 03; finance remains Phase 06; migration remains Phase 09.
 
-## Phase 02 implementation — 2026-11-10; owner acceptance pending
+## Phase 02 implementation — 2026-11-10; accepted by owner
 
 Source prefix below: `design-export/batches/Rival_Batch1_Full(2)/rival-batch1-full/pages/`.
 
@@ -76,3 +76,9 @@ Source exports remain read-only. The second-review screenshot directory is tests
 Second review validation: lint passed; 56 tests passed at each deployment path; root output restored. New review scenarios cover native touch swipe, mouse wheel/drag, sticky contents, balanced image/CTA bounds and password/SMS history.
 
 Third home review: owner comments/annotations 1–4 → public.css and home-desktop.css (DEC-041); existing review02 tests now verify nav alpha/blur/no border, square hero top, 36/54px title and 264×180 image. Relevant responsive/axe/review suites: 23 per deployment path; report PHASE_02_REVIEW_03_FA.md.
+
+## Phase 02 acceptance and closeout — 2026-11-10
+
+Explicit owner acceptance covers PUB-01..03, AUTH-01/02, SYS-ACC-01 and shared SHELL/MORE/primitives after DEC-034..041. Six implemented registry pages use implementationStatus=accepted with ownerAcceptedAt; the preview displays the accepted label. The 67 future contexts remain placeholders. Completion work is authorized, but Phase 03 is explicitly not assigned or started. Current handoff: docs-work/PHASE_02_CLOSEOUT_FA.md.
+
+Final accepted Phase 02 gate: npm run lint passed; npm test 56 passed; npm run test:subpath 56 passed; root output restored. docs-work/PHASE_02_CLOSEOUT_FA.md and PHASE_02_COMPONENT_GUIDE_FA.md are the current handoff.

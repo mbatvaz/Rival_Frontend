@@ -11,11 +11,19 @@
 - [x] Phase 02 assigned and started (2026-11-10).
 - [x] Phase 02 desktop layout briefs approved by owner (2026-11-10, current chat).
 - [x] Phase 02 implementation and automated checks completed (2026-11-10).
-- [ ] Phase 02 implementation accepted.
+- [x] Phase 02 implementation accepted by explicit owner instruction (2026-11-10).
+- [ ] Phase 03 assigned — requires a new explicit owner instruction; do not start.
 
 ## Current gate
 
-Phase 02 third home review completed: `docs-work/PHASE_02_REVIEW_03_FA.md`; earlier review reports remain historical. The owner explicitly approved all desktop briefs in this chat before desktop implementation. Phase 03 has not started and requires acceptance/assignment.
+Phase 02 is accepted. The owner authorized Phase 02 completion work only and explicitly withheld authorization to start Phase 03. Closeout and shared-component notes: `docs-work/PHASE_02_CLOSEOUT_FA.md`. Earlier reports describe historical review gates, superseded by this acceptance.
+
+## Phase 02 acceptance and closeout — 2026-11-10
+
+- Owner explicitly accepted Phase 02 and authorized completion work; Phase 03 remains unassigned and unstarted.
+- Six product contexts marked accepted in the registry and preview; shared shell acceptance is recorded separately because remaining role pages are placeholders owned by later phases.
+- Final checklist, shared-component reuse notes, approved visual overrides and remaining development content consolidated in the closeout report.
+- Final closeout gate: lint passed; 56 root tests and 56 subpath tests passed; root output restored. Mandatory Phase 02 completion work is closed.
 
 ## Phase 02 third home review — 2026-11-10
 

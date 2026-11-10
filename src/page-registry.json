@@ -15,13 +15,14 @@
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "صفحه اصلی",
       "phase": "Phase 02",
-      "implementationStatus": "ready-for-owner-review",
+      "implementationStatus": "accepted",
       "variants": [
         {
           "label": "واردشده",
           "query": "?state=signed-in"
         }
-      ]
+      ],
+      "ownerAcceptedAt": "2026-11-10"
     },
     {
       "id": "PUB-02",
@@ -36,7 +37,7 @@
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "نمونه‌کارها",
       "phase": "Phase 02",
-      "implementationStatus": "ready-for-owner-review",
+      "implementationStatus": "accepted",
       "variants": [
         {
           "label": "فیلتر",
@@ -58,7 +59,8 @@
           "label": "خطا",
           "query": "?state=error"
         }
-      ]
+      ],
+      "ownerAcceptedAt": "2026-11-10"
     },
     {
       "id": "PUB-03",
@@ -73,7 +75,8 @@
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "قوانین رزرو",
       "phase": "Phase 02",
-      "implementationStatus": "ready-for-owner-review"
+      "implementationStatus": "accepted",
+      "ownerAcceptedAt": "2026-11-10"
     },
     {
       "id": "AUTH-01",
@@ -88,7 +91,7 @@
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "ورود",
       "phase": "Phase 02",
-      "implementationStatus": "ready-for-owner-review",
+      "implementationStatus": "accepted",
       "variants": [
         {
           "label": "کد پیامکی",
@@ -126,7 +129,8 @@
           "label": "خطا",
           "query": "?state=error"
         }
-      ]
+      ],
+      "ownerAcceptedAt": "2026-11-10"
     },
     {
       "id": "AUTH-02",
@@ -141,7 +145,7 @@
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "تکمیل اطلاعات پس از ورود",
       "phase": "Phase 02",
-      "implementationStatus": "ready-for-owner-review",
+      "implementationStatus": "accepted",
       "variants": [
         {
           "label": "بازبینی تکمیل حساب",
@@ -151,7 +155,8 @@
           "label": "خطای نام خانوادگی",
           "query": "?state=field-error"
         }
-      ]
+      ],
+      "ownerAcceptedAt": "2026-11-10"
     },
     {
       "id": "SYS-ACC-01",
@@ -166,7 +171,8 @@
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "حساب در دسترس نیست",
       "phase": "Phase 02",
-      "implementationStatus": "ready-for-owner-review"
+      "implementationStatus": "accepted",
+      "ownerAcceptedAt": "2026-11-10"
     },
     {
       "id": "CUS-01",
