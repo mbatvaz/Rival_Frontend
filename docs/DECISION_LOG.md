@@ -57,3 +57,9 @@
 | DEC-038 | Password login is an independent full login view, with phone and password inputs and an SMS switch. | Confirmed by second-review comment 10 | Supersedes the password-sheet portion of DEC-034. Query route login/?method=password supports reload/back/forward and preserves return; shared lock/expiry rules stay intact. |
 | DEC-039 | Desktop hero grows by 20% of its previous width on each side; dark rounded navigation; shorter map aligns contact/CTA and salon images; error card half-width; sticky rules contents. | Confirmed by second-review comments 1–6 | Desktop briefs updated. Hero max 1612.8px with viewport gutters; layout remains responsive and mobile composition unchanged. |
 | DEC-040 | Remove the separate OTP validity countdown, center resend countdown/action, and use portrait OTP cells. | Confirmed by second-review comments 7–9 | One visible resend timer; 120-second code validity remains enforced in the adapter. Five centered cells are at most 52px wide and 64px high. |
+
+## Phase 02 third home review — 2026-11-10
+
+| ID | Decision | Status | Implementation consequence |
+|---|---|---|---|
+| DEC-041 | Third home review: borderless black glass desktop nav; hero top corners square; desktop hero type hierarchy; third salon image 264×180 only on desktop. | Confirmed by four current owner comments | Reuse shared desktop nav and 1024px breakpoint; 1440px scales headline; gallery adapts its second column. Mobile geometry and canonical tokens remain unchanged. |

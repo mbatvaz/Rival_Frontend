@@ -74,3 +74,5 @@ Full suites: 50 passed at root and 50 at /rival-demo/; after the final read-only
 Source exports remain read-only. The second-review screenshot directory is tests/screens/phase02-review02/{root,subpath}/. Phase 03 has not started.
 
 Second review validation: lint passed; 56 tests passed at each deployment path; root output restored. New review scenarios cover native touch swipe, mouse wheel/drag, sticky contents, balanced image/CTA bounds and password/SMS history.
+
+Third home review: owner comments/annotations 1–4 → public.css and home-desktop.css (DEC-041); existing review02 tests now verify nav alpha/blur/no border, square hero top, 36/54px title and 264×180 image. Relevant responsive/axe/review suites: 23 per deployment path; report PHASE_02_REVIEW_03_FA.md.

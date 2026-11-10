@@ -28,7 +28,11 @@ for (const width of [1280, 1920]) {
       return {
         photoBottom: Math.max(...[...document.querySelectorAll('.rv-hall img')].map(el => el.getBoundingClientRect().bottom)),
         cta: box('.rv-home-visit .rv-booking-cta'), map: box('.rv-visit'),
-        radius: nav.borderRadius, buttonRadius: button.borderRadius, background: nav.backgroundColor
+        radius: nav.borderRadius, buttonRadius: button.borderRadius, background: nav.backgroundColor,
+        border: nav.borderTopWidth, blur: nav.backdropFilter,
+        image: box('.rv-hall img:nth-child(3)'),
+        topRadius: getComputedStyle(document.querySelector('.rv-home-hero')).borderTopRightRadius,
+        titleSize: Number.parseFloat(getComputedStyle(document.querySelector('.rv-home-hero h1')).fontSize)
       };
     });
     expect(Math.abs(layout.photoBottom - layout.cta.bottom), JSON.stringify(layout)).toBeLessThan(2);
@@ -36,7 +40,13 @@ for (const width of [1280, 1920]) {
     expect(layout.map.height).toBeGreaterThan(220);
     expect(layout.cta.height).toBeLessThan(240);
     expect(layout.radius).toBe(layout.buttonRadius);
-    expect(layout.background).toBe('rgb(18, 20, 23)');
+    expect(layout.background).toContain('/ 0.78');
+    expect(layout.border).toBe('0px');
+    expect(layout.blur).toContain('blur(22px)');
+    expect(layout.topRadius).toBe('0px');
+    expect(layout.titleSize).toBe(width >= 1440 ? 54 : 36);
+    expect(layout.image.width).toBe(264);
+    expect(layout.image.height).toBe(180);
     await capture(page, 'PUB-01-balanced-' + width);
     await page.goto('portfolio/?state=error');
     await ready(page);

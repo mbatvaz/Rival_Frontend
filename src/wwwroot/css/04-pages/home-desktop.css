@@ -6,15 +6,29 @@
       margin-inline: auto;
       block-size: 640px;
       min-block-size: 640px;
-      border-radius: var(--radius-xl);
+      border-start-start-radius: 0;
+      border-start-end-radius: 0;
     }
     .rv-home-hero__photo { object-position: center; }
 
     .rv-home-hero__copy {
       inset-inline: var(--space-12);
       inset-block-end: var(--space-12);
-      max-inline-size: 540px;
+      max-inline-size: 640px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
     }
+
+    .rv-home-hero h1 {
+      font-size: var(--display-xl-size);
+      line-height: var(--display-xl-line);
+      margin: 0;
+    }
+    .rv-home-hero p { font-size: var(--body-lg-size); line-height: var(--body-lg-line); margin: 0; }
+    .rv-home-hero__action { gap: var(--space-6); }
+    .rv-home-hero__word { font-size: calc(var(--display-xl-size) * 3); line-height: 1.1; }
+    .rv-home-hero__action .rv-btn { font-size: var(--body-lg-size); min-block-size: 56px; padding-inline: var(--space-6); }
 
     .rv-home-hero::after {
       background: linear-gradient(270deg, var(--scrim-photo), transparent), linear-gradient(0deg, var(--bg-inverse), transparent 80%);
@@ -32,8 +46,15 @@
     .rv-home-visit__contact { min-inline-size: 0; display: flex; flex-direction: column; }
     .rv-home-visit__contact > section:first-child { flex: 1; display: flex; flex-direction: column; }
     .rv-home-visit .rv-visit { flex: 1; min-block-size: 160px; }
-    .rv-home-visit .rv-hall { flex: 1; }
+    .rv-home-visit .rv-hall { flex: 1; grid-template-columns: minmax(0, 1fr) 264px; }
+    .rv-home-visit .rv-hall img:first-child { block-size: 100%; }
+    .rv-home-visit .rv-hall img:nth-child(3) { inline-size: 264px; block-size: 180px; }
 
     .rv-home-visit .rv-booking-cta { margin-block-start: var(--space-5); }
+  }
+
+  @media (min-width: 1440px) {
+    .rv-home-hero__copy { inset-inline: calc(var(--space-8) * 2); inset-block-end: calc(var(--space-8) * 2); }
+    .rv-home-hero h1 { font-size: calc(var(--display-xl-size) * 1.5); line-height: calc(var(--display-xl-line) * 1.25); }
   }
 }

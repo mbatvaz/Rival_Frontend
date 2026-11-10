@@ -15,7 +15,13 @@
 
 ## Current gate
 
-Phase 02 second owner review completed: `docs-work/PHASE_02_REVIEW_02_FA.md` (supersedes conflicting presentation details in earlier reports). The owner explicitly approved all desktop briefs in this chat before desktop implementation. Phase 03 has not started and requires acceptance/assignment.
+Phase 02 third home review completed: `docs-work/PHASE_02_REVIEW_03_FA.md`; earlier review reports remain historical. The owner explicitly approved all desktop briefs in this chat before desktop implementation. Phase 03 has not started and requires acceptance/assignment.
+
+## Phase 02 third home review — 2026-11-10
+
+- Four home changes completed: shared borderless black glass desktop nav, square hero top corners, desktop headline/body/action scale and 264×180 third salon image. Mobile sizing remains unchanged.
+- lint passed; relevant responsive/axe/review suites: 23 passed per path. Current home screenshots reviewed under tests/screens/phase02-review02/{root,subpath}/.
+- DEC-041 and the PUB-01 desktop brief record responsive and token choices. Phase 02 acceptance is still pending.
 
 ## Phase 02 second owner-review corrections — 2026-11-10
 

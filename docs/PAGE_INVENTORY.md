@@ -109,3 +109,5 @@
 Phase 02 owner-review revision (2026-11-10): PUB-01..03 and AUTH-01/02 updated against the 20 comments and nine supplied images; shared Sheet/Glass/IconTile/fields/motion corrections also apply to existing shells and SYS-ACC-01. Acceptance remains pending. See `docs-work/PHASE_02_REVISIONS_FA.md`; no new route or Phase 03 page was introduced.
 
 Second owner review (2026-11-10): PUB-01 hero/visit/nav, PUB-02 desktop viewer and input rail/error, PUB-03 sticky contents, AUTH-01 timer/cells/password page corrected. Existing login context uses method=password; no registry route or phase ownership added. Latest report: docs-work/PHASE_02_REVIEW_02_FA.md.
+
+Third owner review: PUB-01 hero/typography/gallery and shared public desktop nav adjusted per four comments; same routes and implementation scope. See docs-work/PHASE_02_REVIEW_03_FA.md.
