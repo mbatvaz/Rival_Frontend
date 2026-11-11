@@ -1,0 +1,48 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "items": [
+      {
+        "id": "sample-1",
+        "service": "face-hair",
+        "stylist": "amir",
+        "date": "2026-10-15",
+        "time": "16:00",
+        "invalid": false
+      },
+      {
+        "id": "sample-2",
+        "service": "face-hair",
+        "stylist": "amir",
+        "date": "2026-11-05",
+        "time": "16:00",
+        "invalid": false
+      },
+      {
+        "id": "sample-3",
+        "service": "face-hair",
+        "stylist": "amir",
+        "date": "2026-11-26",
+        "time": "16:00",
+        "invalid": false
+      },
+      {
+        "id": "sample-4",
+        "service": "hair",
+        "stylist": "taha",
+        "date": "2026-12-17",
+        "time": "18:00",
+        "invalid": false
+      },
+      {
+        "id": "sample-5",
+        "service": "face-hair",
+        "stylist": "amir",
+        "date": "2027-01-07",
+        "time": "16:00",
+        "invalid": false
+      }
+    ]
+  }
+}

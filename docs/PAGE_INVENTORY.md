@@ -113,3 +113,5 @@ Second owner review (2026-11-10): PUB-01 hero/visit/nav, PUB-02 desktop viewer a
 Third owner review: PUB-01 hero/typography/gallery and shared public desktop nav adjusted per four comments; same routes and implementation scope. See docs-work/PHASE_02_REVIEW_03_FA.md.
 
 Acceptance update (2026-11-10): owner accepted all Phase 02 work after the three review rounds. Previous pending-review notes are historical. Six implemented product pages are marked accepted; 67 future page contexts remain placeholders. Shared shells are accepted as components, not complete future role pages. Phase 03 is not authorized to start.
+
+Phase 03 implementation (2026-11-11): CUS-02, BK-01/02, BK-F01/F02, BK-P01, BK-R01, BK-REQ01, BK-REC01, BK-ALERT01, PAY-RES and STATE-04..07 now have booking templates and linked preview variants. They remain in review. The canonical directory contains 21 product contexts and 52 future placeholders. Customer dashboard, appointments, requests and alert management destinations remain assigned to Phase 04.

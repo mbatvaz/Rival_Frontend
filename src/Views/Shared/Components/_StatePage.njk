@@ -1,0 +1,28 @@
+<section class="rv-state-page" data-rv-result-view="{{ statePage.key }}" aria-labelledby="rv-state-title-{{ statePage.key }}"{% if statePage.hidden %} hidden{% endif %}>
+  <div class="rv-state-page__intro">
+    <span class="rv-icon-tile rv-icon-tile--large rv-state-page__icon rv-state-page__icon--{{ statePage.tone }}"><span class="ri ri-{{ statePage.icon }}" aria-hidden="true"></span></span>
+    {% if statePage.badge %}<span class="rv-state-page__badge">{{ statePage.badge }}</span>{% endif %}
+    <h2 id="rv-state-title-{{ statePage.key }}">{{ statePage.title }}</h2>
+    <p class="rv-lead">{{ statePage.description }}</p>
+  </div>
+  {% if statePage.context or statePage.reference or statePage.lines.length %}
+  <div class="rv-state-page__receipt rv-panel">
+    {% if statePage.context %}
+    <div class="rv-state-page__context">
+      {% if statePage.context.image %}<img src="{{ statePage.context.image }}" alt="" data-rv-result-image>{% endif %}
+      <div><strong data-rv-result-service>{{ statePage.context.title }}</strong>
+      {% if statePage.context.subtitle %}<p class="rv-muted" data-rv-result-stylist>{{ statePage.context.subtitle }}</p>{% endif %}</div>
+    </div>
+    {% if statePage.context.showTime %}<p data-rv-result-time>{{ statePage.context.time }}</p>{% endif %}
+    {% endif %}
+    {% if statePage.lines.length %}
+    <dl class="rv-state-page__lines">{% for line in statePage.lines %}<div><dt>{{ line.label }}</dt><dd{% if line.field %} data-rv-result-{{ line.field }}{% endif %}>{{ line.value }}</dd></div>{% endfor %}</dl>
+    {% endif %}
+    {% if statePage.reference %}<p class="rv-state-page__code"><span>{{ statePage.reference.label }}</span><bdi data-rv-result-code>{{ statePage.reference.value }}</bdi></p>{% endif %}
+  </div>
+  {% endif %}
+  {% if statePage.notice %}<p class="rv-state-page__notice"><span class="ri ri-{{ statePage.notice.icon }}" aria-hidden="true"></span>{{ statePage.notice.text }}</p>{% endif %}
+  <div class="rv-actions rv-state-page__actions">
+    {% for action in statePage.actions %}<a class="rv-btn{% if not loop.first %} rv-btn--secondary{% endif %}" href="{{ action.href }}"{% if action.id %} data-rv-result-action="{{ action.id }}"{% endif %}>{{ action.label }}</a>{% endfor %}
+  </div>
+</section>

@@ -1,0 +1,42 @@
+{% extends "Shared/_Document.njk" %}
+{% block body %}
+<template data-rv-booking-links>{% for key, href in bookingUrls %}<a data-rv-route="{{ key }}" href="{{ href }}"></a>{% endfor %}</template>
+<div class="rv-booking{% if model.nav %} rv-booking--dock{% endif %}" data-rv-page data-rv="booking{% if shell %} shell{% endif %}" data-rv-booking-id="{{ page.id }}" data-rv-booking-kind="{{ model.kind }}">
+  <div class="rv-booking-mast">
+    <div class="rv-booking-mast__inner">
+      <a class="rv-booking-mast__logo" href="{{ productUrls.panel }}"><img src="{{ basePath }}img/rival-logo.png" alt="ریوال، حساب مشتری"></a>
+      {% if shell %}{% include "Shared/_RoleNav.njk" %}{% endif %}
+    </div>
+  </div>
+  <header class="rv-booking__top">
+    {% if model.back %}<a class="rv-icon-btn" href="{{ bookingUrls[model.back] }}" data-rv-booking-back aria-label="بازگشت"><span class="ri ri-arrow-right" aria-hidden="true"></span></a>{% endif %}
+    <div>
+      <h1>{% if bookingHeadings[model.kind] %}<span class="rv-booking-mobile-only">{{ model.title }}</span><span class="rv-booking-desktop-only">{{ bookingHeadings[model.kind].title }}</span>{% else %}{{ model.title }}{% endif %}</h1>
+      {% if model.step %}<p class="rv-muted rv-booking-mobile-only">قدم {{ model.step | faDigits }} از {{ model.total | faDigits }}</p>{% endif %}
+      {% if bookingHeadings[model.kind] %}<p class="rv-muted rv-booking-desktop-only">{{ bookingHeadings[model.kind].lead }}</p>{% endif %}
+    </div>
+  </header>
+  <main class="rv-booking__main" id="rv-main" tabindex="-1">
+    {% if model.step %}<progress class="rv-booking__progress" value="{{ model.step }}" max="{{ model.total }}" aria-label="پیشرفت رزرو"></progress>{% endif %}
+    <div class="rv-booking__demo"><span class="ri ri-info" aria-hidden="true"></span><span>پیش‌نمایش آزمایشی رزرو</span><a class="rv-text-link" href="{{ urls.directory }}">فهرست بازبینی</a></div>
+    {% if bookingSteps.length %}{% include "Booking/_Steps.njk" %}{% endif %}
+    <p class="rv-booking__notice rv-booking__notice--warning" data-rv-booking-error role="alert" hidden></p>
+    <div class="rv-booking__content" data-rv-booking-content>
+      {% if model.kind == 'services' or model.kind == 'stylists' %}{% include "Booking/_Choices.njk" %}{% endif %}
+      {% if model.kind == 'fixed' or model.kind == 'proposed' %}{% include "Booking/_Time.njk" %}{% endif %}
+      {% if model.kind == 'requested' %}{% include "Booking/_Requested.njk" %}{% endif %}
+      {% if model.kind == 'checkout' %}{% include "Booking/_Checkout.njk" %}{% endif %}
+      {% if model.kind == 'recurring' %}{% include "Booking/_Recurring.njk" %}{% endif %}
+      {% if model.kind == 'result' %}{% include "Booking/_Result.njk" %}{% endif %}
+      {% if model.kind == 'external' %}{% include "Booking/_External.njk" %}{% endif %}
+    </div>
+    <noscript><p>برای کار با پیش‌نمایش رزرو، JavaScript را فعال کنید.</p><a href="{{ productUrls.panel }}">بازگشت به حساب</a></noscript>
+  </main>
+</div>
+<div class="rv-sheet-layer" data-rv-sheet-layer hidden>
+  <button class="rv-sheet-scrim" type="button" data-rv-sheet-close aria-label="بستن برگه"></button>
+  {% if shell %}{% include "Shared/_MoreDrawer.njk" %}{% include "Shared/_LogoutSheet.njk" %}{% endif %}
+  {% if model.kind == 'fixed' %}{% include "Booking/_Alert.njk" %}{% endif %}
+  {% if model.kind == 'recurring' %}{% include "Booking/_RecurringSheet.njk" %}{% endif %}
+</div>
+{% endblock %}

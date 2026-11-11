@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "title": "نتیجه پرداخت",
+    "back": "",
+    "kind": "result",
+    "variants": {
+      "checking": {
+        "label": "در حال بررسی"
+      },
+      "review": {
+        "label": "در انتظار بررسی"
+      },
+      "failed": {
+        "label": "ناموفق"
+      },
+      "lost": {
+        "label": "زمان از دست رفت"
+      },
+      "success": {
+        "label": "موفق"
+      }
+    }
+  }
+}

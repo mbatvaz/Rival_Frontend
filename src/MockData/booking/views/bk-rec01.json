@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "title": "رزرو دوره‌ای",
+    "back": "BK-01",
+    "kind": "recurring",
+    "variants": {
+      "short": {
+        "label": "کمتر از سه نوبت"
+      },
+      "invalid": {
+        "label": "نوبت نامعتبر"
+      },
+      "new": {
+        "label": "برگه نوبت تازه"
+      },
+      "edit": {
+        "label": "برگه ویرایش"
+      },
+      "checkout": {
+        "label": "پرداخت گروهی"
+      }
+    }
+  }
+}

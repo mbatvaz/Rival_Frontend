@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "title": "زمان ترجیحی",
+    "back": "BK-02",
+    "kind": "proposed",
+    "step": 3,
+    "total": 3,
+    "variants": {
+      "range": {
+        "label": "روز انتخاب نشده"
+      }
+    }
+  }
+}

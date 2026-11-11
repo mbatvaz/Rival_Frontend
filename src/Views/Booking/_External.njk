@@ -1,0 +1,18 @@
+<section data-rv-external="gateway">
+  {% include "Booking/_Checkout.njk" %}
+</section>
+<section data-rv-external="sms" hidden>
+  {% include "Booking/_Result.njk" %}
+</section>
+<section class="rv-panel" data-rv-external="map" hidden aria-labelledby="rv-external-map">
+  <h2 id="rv-external-map">نشانی و تماس</h2>
+  <p>{{ bookingContact.address }}</p>
+  <p class="rv-booking__notice"><span class="ri ri-map-pin" aria-hidden="true"></span>نقشه در دسترس نیست.</p>
+  <div class="rv-actions"><a class="rv-btn rv-btn--secondary" href="{{ bookingContact.links.map }}">باز کردن در برنامه نقشه</a><a class="rv-btn" href="{{ urls.home }}">بازگشت به سایت</a></div>
+</section>
+<section class="rv-panel" data-rv-external="otp" hidden aria-labelledby="rv-external-otp">
+  <h2 id="rv-external-otp">ورود یا ثبت‌نام</h2>
+  <p class="rv-booking__notice rv-booking__notice--warning"><span class="ri ri-sms" aria-hidden="true"></span>کد ورود ارسال نشد. شماره را بررسی کنید و دوباره تلاش کنید.</p>
+  <div class="rv-field"><label for="rv-external-phone">شماره موبایل</label><div class="rv-input"><input id="rv-external-phone" type="tel" value="{{ bookingDemoPhone | faDigits }}" readonly></div></div>
+  <div class="rv-actions"><a class="rv-btn" href="{{ productUrls.login }}?state=error">ارسال دوباره کد</a><a class="rv-btn rv-btn--secondary" href="{{ productUrls.login }}?method=password">ورود با رمز عبور</a><a class="rv-btn rv-btn--secondary" href="{{ productUrls.login }}?state=passkey">ورود با Passkey</a></div>
+</section>

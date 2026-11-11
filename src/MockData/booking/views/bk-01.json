@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "title": "رزرو نوبت",
+    "back": "panel",
+    "kind": "services",
+    "step": 1,
+    "total": 3,
+    "nav": true,
+    "variants": {
+      "loading": {
+        "label": "در حال بارگذاری"
+      },
+      "empty": {
+        "label": "فهرست خالی"
+      },
+      "inactive": {
+        "label": "حساب غیرفعال"
+      }
+    }
+  }
+}

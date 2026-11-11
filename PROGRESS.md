@@ -12,11 +12,21 @@
 - [x] Phase 02 desktop layout briefs approved by owner (2026-11-10, current chat).
 - [x] Phase 02 implementation and automated checks completed (2026-11-10).
 - [x] Phase 02 implementation accepted by explicit owner instruction (2026-11-10).
-- [ ] Phase 03 assigned — requires a new explicit owner instruction; do not start.
+- [x] Phase 03 assigned by explicit owner instruction (2026-11-11).
+- [x] Phase 03 purpose-designed desktop revision approved by owner before desktop implementation (2026-11-11).
+- [x] Phase 03 mobile and approved desktop implementation; 74 root and 74 subpath tests passed (2026-11-11).
+- [ ] Phase 03 final implementation acceptance.
 
 ## Current gate
 
-Phase 02 is accepted. The owner authorized Phase 02 completion work only and explicitly withheld authorization to start Phase 03. Closeout and shared-component notes: `docs-work/PHASE_02_CLOSEOUT_FA.md`. Earlier reports describe historical review gates, superseded by this acceptance.
+Phase 03 was assigned after Phase 02 closeout. Its desktop briefs and six-view preview were revised and approved before desktop implementation. Phase 03 implementation is at owner review. Phase 04 requires separate authorization.
+
+## Phase 03 implementation review — 2026-11-11
+
+- 15 contexts and 38 states now use the booking views. Fixed, proposed, requested, recurring, alert, hold, and result workflows are connected with local demo data.
+- DEC-043 records the approved desktop revision. Calendar, time selection and sticky summary share one workspace; recurring items use aligned rows and month links. Mobile retains its rails and bottom sheets.
+- `npm run build` and `npm run lint` passed. Playwright passed 74 tests on each deployment path. Output restored to the root base path.
+- 83 Phase 03 screenshots per deployment mode are under `tests/screens/phase03/`. See `docs-work/PHASE_03_REPORT_FA.md` for scope, sources, results and review links.
 
 ## Phase 02 acceptance and closeout — 2026-11-10
 

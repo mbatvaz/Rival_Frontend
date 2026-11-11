@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "title": "نتیجه درخواست",
+    "back": "",
+    "kind": "result",
+    "variants": {
+      "proposed": {
+        "label": "نتیجه پیشنهادی"
+      },
+      "requested": {
+        "label": "نتیجه درخواستی"
+      }
+    }
+  }
+}

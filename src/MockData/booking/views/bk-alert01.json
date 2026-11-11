@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "title": "انتخاب زمان",
+    "back": "BK-02",
+    "kind": "fixed",
+    "step": 3,
+    "total": 3,
+    "variants": {
+      "done": {
+        "label": "ثبت اعلان"
+      },
+      "duplicate": {
+        "label": "اعلان تکراری"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "title": "تأیید و پرداخت",
+    "back": "BK-F01",
+    "kind": "checkout",
+    "variants": {
+      "expired": {
+        "label": "نگه‌داشت منقضی"
+      },
+      "low": {
+        "label": "کمتر از یک دقیقه"
+      },
+      "full-credit": {
+        "label": "تمام مبلغ از اعتبار"
+      },
+      "no-credit": {
+        "label": "بدون اعتبار"
+      },
+      "gateway": {
+        "label": "اختلال درگاه"
+      }
+    }
+  }
+}

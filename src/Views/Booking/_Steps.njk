@@ -1,0 +1,19 @@
+<nav class="rv-booking-steps" aria-label="مراحل رزرو" data-rv-steps>
+  <ol>
+    {% for step in bookingSteps %}
+    <li{% if step.active %} aria-current="step"{% endif %}>
+      {% if step.complete %}<a href="{{ bookingUrls[step.id] }}" data-rv-step-route="{{ step.id }}">{% else %}<span>{% endif %}
+      <span class="rv-booking-steps__icon"><span class="ri ri-{{ step.icon }}" aria-hidden="true"></span></span>{{ step.label }}
+      {% if step.complete %}</a>{% else %}</span>{% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+</nav>
+{% if model.kind == 'checkout' %}
+<nav class="rv-booking-steps" aria-label="مراحل رزرو دوره‌ای" data-rv-group-steps hidden>
+  <ol>
+    <li><a href="{{ bookingUrls['BK-REC01'] }}"><span class="rv-booking-steps__icon"><span class="ri ri-check" aria-hidden="true"></span></span>برنامهٔ دوره‌ای</a></li>
+    <li aria-current="step"><span><span class="rv-booking-steps__icon"><span class="ri ri-card" aria-hidden="true"></span></span>پرداخت گروهی</span></li>
+  </ol>
+</nav>
+{% endif %}

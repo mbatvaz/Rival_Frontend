@@ -1,0 +1,50 @@
+<div class="rv-booking-workspace rv-booking-choices">
+<div class="rv-booking-choice-context">
+{% if model.kind == 'services' %}
+<section data-rv-choices-quick aria-labelledby="rv-quick-title">
+  <h2 id="rv-quick-title">رزرو دوباره</h2>
+  <div class="rv-booking-quick">
+    {% for item in bookingQuick %}
+    <a class="rv-booking-quick__card rv-glass" href="{{ bookingUrls['BK-F01'] }}?service={{ item.service.id }}&amp;stylist={{ item.stylist.id }}">
+      <span class="rv-booking-quick__media"><img src="{{ basePath }}{{ item.service.image }}" alt=""><img src="{{ basePath }}{{ item.stylist.image }}" alt=""></span>
+      <strong>{{ item.service.name }}</strong><span class="rv-muted">{{ item.stylist.name }} · {{ item.service.duration }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+<a class="rv-booking-desktop-only rv-booking-rec-link rv-btn rv-btn--secondary" href="{{ bookingUrls['BK-REC01'] }}" data-rv-recurring-link><span class="ri ri-repeat" aria-hidden="true"></span>رزرو دوره‌ای</a>
+{% else %}
+<div class="rv-booking-desktop-only rv-booking-summary-head"><h2>رزرو شما</h2><span class="ri ri-receipt" aria-hidden="true"></span></div>
+{% include "Booking/_Context.njk" %}
+<a class="rv-booking-desktop-only rv-btn rv-btn--secondary" href="{{ bookingUrls['BK-01'] }}">تغییر خدمت</a>
+{% endif %}
+</div>
+<section aria-labelledby="rv-choice-title" data-rv-choices-section>
+  <div class="rv-section-head">
+    <h2 id="rv-choice-title">{% if model.kind == 'services' %}<span class="rv-booking-mobile-only">چه خدمتی می‌خواهید؟</span><span class="rv-booking-desktop-only">خدمات سالن</span>{% else %}<span class="rv-booking-mobile-only">با کدام آرایشگر؟</span><span class="rv-booking-desktop-only">آرایشگران این خدمت</span>{% endif %}</h2>
+    {% if model.kind == 'services' %}<a class="rv-booking-mobile-only" href="{{ bookingUrls['BK-REC01'] }}" data-rv-recurring-link><span class="ri ri-repeat" aria-hidden="true"></span>رزرو دوره‌ای</a>{% endif %}
+  </div>
+  <p class="rv-booking__notice rv-booking__notice--warning" data-rv-inactive hidden>رزرو برای حساب غیرفعال در دسترس نیست.</p>
+  <div class="rv-booking-rail" data-rv-choices-list tabindex="0" role="region" aria-labelledby="rv-choice-title">
+    {% if model.kind == 'services' %}
+    {% for service in bookingCatalog.services %}
+    <a class="rv-booking-choice" data-rv-service-choice="{{ service.id }}" href="{% if service.kind == 'requested' %}{{ bookingUrls['BK-R01'] }}{% else %}{{ bookingUrls['BK-02'] }}{% endif %}?service={{ service.id }}">
+      <img src="{{ basePath }}{{ service.image }}" alt=""><span class="rv-booking-choice__caption rv-glass rv-glass--strong"><strong>{{ service.name }}</strong><span>{{ service.duration }}</span><span class="rv-booking-desktop-only rv-muted">{% if service.kind == 'requested' %}هماهنگی با مدیر سالن{% else %}{% if service.kind == 'proposed' %}زمان پیشنهادی آرایشگر{% endif %}{% endif %}</span></span>
+    </a>
+    {% endfor %}
+    {% else %}
+    {% for stylist in bookingCatalog.stylists %}
+    <a class="rv-booking-choice" data-rv-stylist-choice="{{ stylist.id }}" href="{{ bookingUrls['BK-F01'] }}?service={{ bookingDefault.service.id }}&amp;stylist={{ stylist.id }}">
+      <img src="{{ basePath }}{{ stylist.image }}" alt=""><span class="rv-booking-choice__caption rv-glass rv-glass--strong"><strong>{{ stylist.name }}</strong></span>
+    </a>
+    {% endfor %}
+    {% endif %}
+  </div>
+  <div class="rv-booking-skeleton" data-rv-choices-loading role="status" hidden><span>در حال بارگذاری خدمت‌ها…</span><div aria-hidden="true"></div></div>
+  <div class="rv-panel rv-booking-empty" data-rv-choices-empty hidden>
+    <span class="rv-icon-tile rv-icon-tile--large"><span class="ri ri-calendar-x" aria-hidden="true"></span></span>
+    <h2>{% if model.kind == 'services' %}فعلاً خدمتی برای رزرو نیست{% else %}فعلاً آرایشگری برای این خدمت نیست{% endif %}</h2>
+    <a class="rv-btn rv-btn--secondary" href="{{ bookingUrls[model.back] }}">بازگشت</a>
+  </div>
+</section>
+</div>

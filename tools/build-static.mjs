@@ -30,7 +30,7 @@ const urls = {
 };
 let rendered = 0;
 for (const page of registry.pages) {
-  const product = await productContext(page, site.basePath);
+  const product = await productContext(page, site.basePath, registry.pages);
   const template = page.template ?? (product.shell ? 'Shared/Preview/_RolePlaceholder.njk' : 'Shared/Preview/_Placeholder.njk');
   if (page.template) inside(views, page.template);
   const fixture = page.mockData ? await readJson(inside(src, page.mockData)) : {};

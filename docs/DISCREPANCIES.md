@@ -55,3 +55,9 @@ New fixed geometries are evidence-based: 844px mobile hero; 720px desktop hero; 
 - **GAP-24 — third home review (resolved):** DEC-041 supersedes earlier solid/bordered nav and mobile-sized desktop hero copy. Dark glass is derived from existing bg-inverse using color-mix; canonical tokens stay immutable. The exact 264×180 desktop image uses a 264px gallery column, preserving mobile styles and equal-column bottoms.
 
 - **Phase 02 acceptance update — 2026-11-10:** Owner accepted the corrected implementation after GAP-22..24. These visual review items are closed; remaining source asset/content limitations are preserved as documented. Closeout changes only status, preview labels and handoff material; no new product flow or Phase 03 implementation.
+
+## Phase 03 — 2026-11-11
+
+- **GAP-25 — Desktop composition.** Batch 2 provides mobile artboards. The owner rejected the first desktop brief and approved a new task-oriented layout with a dedicated step trail, calendar and time workspace, and sticky summary (DEC-043). The approved preview and per-page briefs are under `docs-work/`.
+- **GAP-26 — Recurring alternatives.** The exported variant explorations are reconciled using D10-35 and the Phase 03 handoff. Monthly timeline, five-step add sheet, locked service/stylist during edit and group hold are implemented. External service examples and dates are fixed demo fixtures.
+- **GAP-27 — Linked customer destinations.** Home, request management, appointments and availability alert management already have canonical links. Their product screens are assigned to Phase 04. Phase 03 renders receipts and supports return to the booking flow and the review directory.

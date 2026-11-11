@@ -19,9 +19,11 @@ Fixed, Proposed, Requested, recurring, availability alerts, payment return, and 
 - Node/npm are local build/test tools only; cPanel receives static `dist/` files.
 
 ## Done when
-- [ ] Fixed/Proposed/Requested/recurring flows and hold states are covered.
-- [ ] StatePage base is reusable; STATE-04..07 are explicit variants.
-- [ ] Mock payment and booking results are visibly demo-only; no real transaction is implied.
+- [x] Fixed/Proposed/Requested/recurring flows and hold states are covered.
+- [x] StatePage base is reusable; STATE-04..07 are explicit variants.
+- [x] Mock payment and booking results are visibly demo-only; no real transaction is implied.
 - 390/768/1280 checks, axe, keyboard, structure and no-dead-end checks pass.
 - `PROGRESS.md`, `DISCREPANCIES.md`, and traceability are updated.
 - The agent stops for owner review.
+
+Implementation review: `docs-work/PHASE_03_REPORT_FA.md`. Owner acceptance is pending.

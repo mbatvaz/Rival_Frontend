@@ -1,0 +1,143 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "BK-REQ01": {
+      "proposed": {
+        "title": "درخواست آزمایشی شما ثبت شد",
+        "description": "آرایشگر تا ۷ روز پاسخ می‌دهد. پس از پاسخ، ۳ ساعت برای پرداخت فرصت دارید.",
+        "tone": "success",
+        "icon": "check",
+        "action": "requests",
+        "actionText": "مشاهده درخواست‌ها",
+        "track": true,
+        "details": true,
+        "home": true
+      },
+      "requested": {
+        "title": "درخواست آزمایشی شما ثبت شد",
+        "description": "مدیر سالن زمان و آرایشگر هر بخش را هماهنگ می‌کند و تا ۷ روز پاسخ می‌دهد.",
+        "details": "service",
+        "tone": "success",
+        "icon": "check",
+        "action": "requests",
+        "actionText": "مشاهده درخواست‌ها",
+        "track": true,
+        "home": true
+      }
+    },
+    "PAY-RES": {
+      "checking": {
+        "title": "در حال بررسی پرداخت آزمایشی",
+        "description": "نتیجهٔ پرداخت در حال بررسی است. از پرداخت دوباره خودداری کنید.",
+        "tone": "info",
+        "icon": "hourglass",
+        "action": "panel",
+        "actionText": "بازگشت به خانه"
+      },
+      "review": {
+        "title": "پرداخت در حال بررسی است",
+        "description": "نتیجه هنوز مشخص نیست. وضعیت را از حساب خود پیگیری کنید.",
+        "tone": "info",
+        "icon": "pending",
+        "action": "STATE-05",
+        "actionText": "مشاهده وضعیت",
+        "track": true,
+        "home": true
+      },
+      "success": {
+        "title": "نوبت آزمایشی شما ثبت شد",
+        "description": "نتیجهٔ آزمایشی رزرو و جزئیات آن در رسید آمده است.",
+        "tone": "success",
+        "icon": "check",
+        "action": "appointments",
+        "actionText": "مشاهده نوبت‌ها",
+        "track": true,
+        "details": true,
+        "receipt": true,
+        "home": true
+      },
+      "failed": {
+        "title": "پرداخت آزمایشی انجام نشد",
+        "description": "وضعیت زمان را دوباره بررسی کنید و سپس ادامه دهید.",
+        "tone": "neutral",
+        "icon": "x-circle",
+        "action": "BK-F01",
+        "actionText": "انتخاب دوباره زمان",
+        "track": true,
+        "home": true
+      },
+      "lost": {
+        "title": "این زمان از دست رفت",
+        "description": "زمان پیش از تأیید بانک پر شد. بررسی برای برگشت مبلغ به اعتبار ادامه دارد.",
+        "tone": "warning",
+        "icon": "clock-alert",
+        "action": "STATE-06",
+        "actionText": "پیگیری وضعیت",
+        "track": true,
+        "home": true
+      }
+    },
+    "STATE-04": {
+      "expired": {
+        "title": "زمان نگه‌داشت تمام شد",
+        "description": "برای ادامه، زمان‌های آزاد را دوباره بررسی کنید.",
+        "details": "context",
+        "tone": "neutral",
+        "icon": "hourglass",
+        "action": "BK-F01",
+        "actionText": "انتخاب دوباره زمان"
+      }
+    },
+    "STATE-05": {
+      "review": {
+        "title": "پرداخت شما در حال بررسی است",
+        "description": "نتیجهٔ پرداخت هنوز مشخص نیست. دوباره پرداخت نکنید.",
+        "tone": "info",
+        "icon": "pending",
+        "action": "panel",
+        "actionText": "بازگشت به خانه",
+        "track": true,
+        "badge": "در حال بررسی"
+      }
+    },
+    "STATE-06": {
+      "lost": {
+        "title": "این زمان از دست رفت",
+        "description": "نوبت ساخته نشد. نتیجهٔ بررسی برگشت مبلغ در حساب نمایش داده می‌شود.",
+        "tone": "warning",
+        "icon": "clock-alert",
+        "action": "panel",
+        "actionText": "بازگشت به خانه",
+        "track": true,
+        "badge": "در انتظار بررسی"
+      },
+      "returned": {
+        "title": "مبلغ به اعتبار شما برگشت",
+        "description": "در این نمونه، پس از بررسی کل مبلغ به اعتبار برگشته است و در رزرو بعدی مصرف می‌شود.",
+        "tone": "accent",
+        "icon": "wallet",
+        "action": "panel",
+        "actionText": "بازگشت به خانه",
+        "track": true,
+        "badge": "برگشت به اعتبار",
+        "amount": 180000
+      }
+    },
+    "STATE-07": {
+      "sms": {
+        "title": "نوبت آزمایشی شما ثبت شد",
+        "description": "جزئیات رزرو در رسید آزمایشی قابل مشاهده است.",
+        "tone": "success",
+        "icon": "check",
+        "action": "appointments",
+        "actionText": "مشاهده نوبت‌ها",
+        "track": true,
+        "details": true,
+        "receipt": true,
+        "home": true,
+        "sms": true
+      }
+    }
+  }
+}

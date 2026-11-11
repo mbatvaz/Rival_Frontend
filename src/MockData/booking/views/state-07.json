@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "title": "سرویس بیرونی",
+    "back": "",
+    "kind": "external",
+    "variants": {
+      "gateway": {
+        "label": "اختلال درگاه"
+      },
+      "sms": {
+        "label": "اختلال پیامک تأیید"
+      },
+      "map": {
+        "label": "اختلال نقشه"
+      },
+      "otp": {
+        "label": "اختلال ارسال کد"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "title": "انتخاب آرایشگر",
+    "back": "BK-01",
+    "kind": "stylists",
+    "step": 2,
+    "total": 3,
+    "nav": true,
+    "variants": {
+      "empty": {
+        "label": "بدون آرایشگر"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "title": "پرداخت",
+    "back": "",
+    "kind": "result",
+    "variants": {
+      "returned": {
+        "label": "برگشت به اعتبار"
+      }
+    }
+  }
+}

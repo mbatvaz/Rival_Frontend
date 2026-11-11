@@ -1,0 +1,138 @@
+@layer pages {
+  @media (min-width: 1024px) {
+    .rv-booking {
+      --booking-width: 1304px;
+      --booking-mast-height: 70px;
+
+      background: var(--bg-canvas);
+    }
+    .rv-booking--dock { padding-block-end: 0; }
+    .rv-booking-mobile-only { display: none; }
+    .rv-booking-desktop-only { display: revert; }
+
+    .rv-booking-mast {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 2;
+      background: var(--glass-fill-strong);
+      border-block-end: 1px solid var(--line-hairline);
+      backdrop-filter: blur(var(--blur-glass));
+    }
+
+    .rv-booking-mast__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-6);
+      min-block-size: var(--booking-mast-height);
+      max-inline-size: var(--booking-width);
+      margin-inline: auto;
+      padding-inline: var(--space-8);
+    }
+
+    .rv-booking-mast__logo {
+      display: grid;
+      align-items: center;
+      min-block-size: var(--size-touch);
+      inline-size: 112px;
+    }
+
+    .rv-booking-mast .rv-role-nav {
+      align-self: center;
+      flex-direction: row;
+      inline-size: auto;
+      padding: 0;
+      background: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+    .rv-booking-mast .rv-role-nav :is(a, button) { border-radius: var(--radius-xs); }
+    .rv-booking-mast .rv-role-nav .rv-role-nav__book { background: var(--bg-inverse); }
+
+    .rv-booking__top,
+    .rv-booking__main {
+      max-inline-size: var(--booking-width);
+      padding-inline: var(--space-8);
+    }
+    .rv-booking__top { text-align: start; padding-block: var(--space-8) var(--space-3); }
+    .rv-booking__top > a { inset-inline: auto var(--space-8); inset-block-start: var(--space-8); }
+    .rv-booking__top h1 { font-size: var(--display-xl-size); line-height: var(--display-xl-line); }
+
+    .rv-booking__top .rv-booking-mobile-only,
+    .rv-booking__progress { display: none; }
+    .rv-booking__main { padding-block-end: var(--space-12); }
+    .rv-booking__demo { margin-block-end: var(--space-3); }
+
+    .rv-booking-steps {
+      display: block;
+      margin-block-end: var(--space-6);
+      padding: var(--space-2) var(--space-3);
+      border: 1px solid var(--line-hairline);
+      border-radius: var(--radius-md);
+      background: var(--glass-fill-strong);
+    }
+
+    .rv-booking-steps ol {
+      display: grid;
+      grid-auto-columns: 1fr;
+      grid-auto-flow: column;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .rv-booking-steps li { position: relative; color: var(--text-muted); }
+
+    .rv-booking-steps li:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-end: var(--space-3);
+      inline-size: 22%;
+      block-size: 1px;
+      background: var(--line-strong);
+      pointer-events: none;
+    }
+
+    .rv-booking-steps li > * {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      min-block-size: var(--size-touch);
+      padding: var(--space-1) var(--space-2);
+    }
+
+    .rv-booking-steps__icon {
+      display: grid;
+      place-items: center;
+      inline-size: var(--space-8);
+      block-size: var(--space-8);
+      border-radius: var(--radius-pill);
+      background: var(--neutral-bg);
+    }
+    .rv-booking-steps a .rv-booking-steps__icon { background: var(--accent-bg); color: var(--accent-fg); }
+    .rv-booking-steps [aria-current] { color: var(--text-primary); font-weight: var(--heading-lg-weight); }
+    .rv-booking-steps [aria-current] .rv-booking-steps__icon { background: var(--bg-inverse); color: var(--text-inverse); }
+
+    .rv-booking-workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) clamp(255px, 25%, 320px);
+      align-items: start;
+      gap: var(--space-6);
+    }
+
+    .rv-booking-summary,
+    .rv-booking-choice-context {
+      display: grid;
+      gap: var(--space-4);
+      align-content: start;
+      position: sticky;
+      inset-block-start: calc(var(--booking-mast-height) + var(--space-4));
+      padding: var(--space-4);
+      border: 1px solid var(--glass-edge);
+      border-radius: var(--radius-xl);
+      background: var(--glass-fill-strong);
+      box-shadow: var(--shadow-md);
+    }
+
+  }
+}

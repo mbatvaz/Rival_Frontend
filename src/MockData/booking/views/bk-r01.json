@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "title": "درخواست خدمت",
+    "back": "BK-01",
+    "kind": "requested",
+    "step": 2,
+    "total": 2,
+    "variants": {}
+  }
+}

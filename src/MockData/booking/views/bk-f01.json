@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "title": "انتخاب زمان",
+    "back": "BK-02",
+    "kind": "fixed",
+    "step": 3,
+    "total": 3,
+    "variants": {
+      "closed": {
+        "label": "روز تعطیل"
+      },
+      "not-yet": {
+        "label": "تاریخ هنوز باز نشده"
+      },
+      "conflict": {
+        "label": "تداخل با نوبت"
+      },
+      "taken": {
+        "label": "زمان گرفته شد"
+      },
+      "none": {
+        "label": "بدون زمان"
+      },
+      "sms": {
+        "label": "ورود از پیامک"
+      }
+    }
+  }
+}

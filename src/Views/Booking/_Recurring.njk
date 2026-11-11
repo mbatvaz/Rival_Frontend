@@ -1,0 +1,34 @@
+<div class="rv-booking-workspace rv-booking-recurring">
+  <section class="rv-booking-recurring__plan" aria-labelledby="rv-rec-heading">
+    <div class="rv-booking-desktop-only rv-booking-summary-head">
+      <h2 id="rv-rec-heading">برنامهٔ نوبت‌ها</h2>
+      <button class="rv-btn rv-btn--secondary" type="button" data-rv-rec-add-desktop><span class="ri ri-plus" aria-hidden="true"></span>افزودن نوبت</button>
+    </div>
+    <nav class="rv-booking-desktop-only rv-booking-recurring__months" data-rv-rec-months aria-label="پرش به ماه"></nav>
+    <div class="rv-booking-desktop-only rv-booking-recurring__columns" aria-hidden="true"><span>تاریخ و ساعت</span><span>خدمت</span><span>آرایشگر</span><span>اقدام</span></div>
+    <ol class="rv-recurring-list" data-rv-rec-list></ol>
+    <p class="rv-booking__notice" data-rv-rec-empty hidden>نوبتی در فهرست نیست. برای شروع یک نوبت تازه اضافه کنید.</p>
+    <button class="rv-recurring-add rv-booking-mobile-only" type="button" data-rv-rec-add><span class="ri ri-plus" aria-hidden="true"></span>نوبت تازه</button>
+  </section>
+  <form class="rv-booking-summary" data-rv-booking-form action="{{ bookingUrls['BK-F02'] }}">
+    <div class="rv-booking-desktop-only rv-booking-summary-head"><h2>خلاصهٔ رزرو دوره‌ای</h2><span class="ri ri-receipt" aria-hidden="true"></span></div>
+    <div class="rv-booking-action rv-glass rv-glass--strong">
+      <div><strong data-rv-action-title></strong><p class="rv-muted" data-rv-action-sub></p></div>
+      <button class="rv-btn" data-rv-booking-submit type="submit" disabled>ادامه</button>
+    </div>
+  </form>
+</div>
+<template data-rv-rec-template>
+  <li class="rv-recurring-row">
+    <span class="rv-recurring-month" data-rv-rec-month></span>
+    <button type="button" class="rv-booking-context rv-glass" data-rv-rec-edit>
+      <img src="{{ basePath }}{{ bookingDefault.service.image }}" alt="" data-rv-rec-photo>
+      <span>
+        <strong><span data-rv-rec-date></span><span class="rv-booking-mobile-only"> · </span><bdi data-rv-rec-time></bdi></strong>
+        <strong data-rv-rec-service></strong><span class="rv-muted" data-rv-rec-stylist></span>
+        <span class="rv-booking-desktop-only rv-recurring-edit"><span class="ri ri-edit" aria-hidden="true"></span>ویرایش</span>
+        <span class="rv-recurring-invalid" data-rv-rec-invalid hidden>غیرقابل رزرو</span>
+      </span>
+    </button>
+  </li>
+</template>

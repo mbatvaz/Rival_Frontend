@@ -69,3 +69,9 @@
 | ID | Decision | Status | Implementation consequence |
 |---|---|---|---|
 | DEC-042 | Owner explicitly accepts Phase 02 and authorizes its completion work only; Phase 03 must not start until a later explicit instruction. | Confirmed in current chat | Close checklists, mark accepted product contexts, consolidate handoff and final regression. Keep future route placeholders; do not implement or prepare Phase 03 product flows. |
+
+## Phase 03 desktop composition — 2026-11-11
+
+| ID | Decision | Status | Implementation consequence |
+|---|---|---|---|
+| DEC-043 | Owner starts Phase 03 and approves the second desktop proposal after requesting a layout designed for desktop use with Design System v2. | Confirmed in current chat | Activate dedicated desktop composition at 1024px, with horizontal booking steps, monthly calendar and time workspace, sticky summary, monthly recurring rows and side-by-side result detail. Reuse the shared Sheet for alerts and editing. Phase acceptance is separate. |

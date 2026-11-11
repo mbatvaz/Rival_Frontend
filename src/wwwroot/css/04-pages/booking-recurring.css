@@ -1,0 +1,62 @@
+@layer pages {
+  .rv-recurring-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .rv-recurring-row {
+    display: grid;
+    grid-template-columns: calc(var(--size-touch) + var(--space-2)) minmax(0, 1fr);
+    align-items: start;
+    gap: var(--space-2);
+  }
+  .rv-recurring-month { font-size: var(--caption-size); text-align: center; padding-block-start: var(--space-4); }
+
+  .rv-recurring-row button {
+    padding: 0;
+    inline-size: 100%;
+    color: var(--text-primary);
+    font: inherit;
+    cursor: pointer;
+  }
+  .rv-recurring-row button[data-rv-invalid="true"] { border-color: var(--danger-solid); }
+  .rv-recurring-row strong { font-size: var(--heading-md-size); }
+  .rv-recurring-invalid { display: block; color: var(--danger-fg); }
+
+  .rv-recurring-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    inline-size: 100%;
+    min-block-size: var(--size-control);
+    margin-block-start: var(--space-4);
+    border: 1px dashed var(--line-control);
+    border-radius: var(--radius-lg);
+    background: transparent;
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+  .rv-recurring-choice > span { border-radius: var(--radius-lg); }
+
+  .rv-recurring-choice img {
+    inline-size: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+  }
+  .rv-recurring-row button:where([data-rv-invalid="true"]) img { filter: grayscale(1); }
+  .rv-booking-sheet .rv-booking-calendar { margin-inline: calc(var(--space-4) * -1); }
+
+  .rv-booking-calendar__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+  .rv-booking-calendar__grid { display: grid; grid-template-columns: repeat(7, minmax(var(--size-touch), 1fr)); text-align: center; }
+  .rv-booking-calendar__grid .rv-booking-day { border-radius: var(--radius-xs); box-shadow: none; }
+}

@@ -1,0 +1,68 @@
+<form class="rv-booking-form rv-booking-workspace rv-booking-time" data-rv-booking-form action="{% if model.kind == 'fixed' %}{{ bookingUrls['BK-F02'] }}{% else %}{{ bookingUrls['BK-REQ01'] }}{% endif %}">
+  <div class="rv-booking-detail">
+    {% if model.kind == 'fixed' %}
+    <p class="rv-booking__notice" data-rv-sms-entry hidden>این زمان از پیامک اعلان آمده است. زمان به محض رزرو شدن از فهرست حذف می‌شود.</p>
+    <section class="rv-booking-soon-panel" data-rv-soon aria-labelledby="rv-soon-title">
+      <h2 id="rv-soon-title">زودترین زمان‌های آزاد</h2>
+      <div class="rv-booking-soon">
+        {% for day in bookingCatalog.calendar.days %}
+        {% if day.label %}
+        <button type="button" class="rv-glass" data-rv-quick-date="{{ day.date }}" data-rv-quick-time="{{ day.times[0] }}">
+          <span class="rv-muted">{{ day.label }}</span><bdi>{{ day.times[0] | faDigits }}</bdi><span>{{ day.date | jalali }}</span>
+        </button>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+    <div class="rv-booking-availability" data-rv-availability>
+      <section class="rv-booking-date-picker" aria-labelledby="rv-day-title" data-rv-day-section>
+        <h2 id="rv-day-title">{% if model.kind == 'fixed' %}روز و ساعت دلخواه{% else %}کدام روز برایتان مناسب است؟{% endif %}</h2>
+        <div class="rv-booking-days rv-glass rv-booking-mobile-only" data-rv-days role="group" aria-label="روزهای قابل بررسی"></div>
+        <div class="rv-booking-desktop-only" data-rv-time-calendar>{% include "Booking/_Calendar.njk" %}</div>
+      </section>
+      <section class="rv-booking-time-picker" aria-label="{% if model.kind == 'fixed' %}ساعت‌های روز{% else %}بخش روز{% endif %}">
+        <h2 class="rv-booking-desktop-only" data-rv-picked-day>روز را انتخاب کنید</h2>
+        <p class="rv-booking__notice" data-rv-day-note hidden></p>
+        <fieldset class="rv-booking-picks" data-rv-picks>
+          <legend>{% if model.kind == 'fixed' %}ساعت شروع{% else %}چه زمانی از روز؟{% endif %}</legend>
+          <div class="rv-booking-picks__grid{% if model.kind == 'proposed' %} rv-booking-picks__grid--parts{% endif %}">
+            {% if model.kind == 'fixed' %}
+            {% for time in bookingCatalog.calendar.times %}
+            <label class="rv-booking-radio"><input type="radio" name="time" value="{{ time }}"><span><bdi>{{ time | faDigits }}</bdi></span></label>
+            {% endfor %}
+            {% else %}
+            {% for part in bookingCatalog.calendar.parts %}
+            <label class="rv-booking-radio"><input type="radio" name="part" value="{{ part }}"><span>{{ part }}</span></label>
+            {% endfor %}
+            {% endif %}
+          </div>
+        </fieldset>
+        {% if model.kind == 'fixed' %}
+        <p class="rv-booking__notice" role="status" data-rv-alert-done hidden>اعلان آزمایشی ثبت شد.</p>
+        <button class="rv-booking-alert-entry" type="button" data-rv-sheet-open="rv-booking-alert">
+          <span class="rv-icon-tile"><span class="ri ri-bell-ring" aria-hidden="true"></span></span>
+          <span><strong data-rv-alert-title>زمان مناسبی نیست؟</strong><span class="rv-muted" data-rv-alert-sub>با آزاد شدن زمان، خبر بگیرید.</span></span><span class="ri ri-chevron-left" aria-hidden="true"></span>
+        </button>
+        {% endif %}
+      </section>
+    </div>
+  </div>
+  <aside class="rv-booking-summary" aria-label="خلاصهٔ رزرو">
+    <div class="rv-booking-contextual">
+      <div class="rv-booking-desktop-only rv-booking-summary-head"><h2>رزرو شما</h2><span class="ri ri-receipt" aria-hidden="true"></span></div>
+      {% include "Booking/_Context.njk" %}
+      <div class="rv-booking-desktop-only rv-booking-summary-edits">
+        <a class="rv-text-link" href="{{ bookingUrls['BK-01'] }}" data-rv-step-route="BK-01">تغییر خدمت</a>
+        <a class="rv-text-link" href="{{ bookingUrls['BK-02'] }}" data-rv-step-route="BK-02">تغییر آرایشگر</a>
+      </div>
+      {% if model.kind == 'proposed' %}
+      <p class="rv-booking__notice"><span class="ri ri-info" aria-hidden="true"></span>این درخواست زمانی را قفل نمی‌کند. آرایشگر تا ۷ روز پاسخ می‌دهد و پاسخ او ۳ ساعت برای پرداخت نگه داشته می‌شود.</p>
+      {% endif %}
+    </div>
+    <div class="rv-booking-action rv-glass rv-glass--strong">
+      <div><strong data-rv-action-title>{% if model.kind == 'fixed' %}زمانی انتخاب نشده{% else %}روز و بخش روز را انتخاب کنید{% endif %}</strong><p class="rv-muted" data-rv-action-sub></p></div>
+      <button class="rv-btn" type="submit" data-rv-booking-submit disabled>{% if model.kind == 'fixed' %}ادامه{% else %}ثبت درخواست{% endif %}</button>
+    </div>
+  </aside>
+</form>

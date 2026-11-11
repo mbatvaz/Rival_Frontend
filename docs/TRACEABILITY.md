@@ -82,3 +82,16 @@ Third home review: owner comments/annotations 1–4 → public.css and home-desk
 Explicit owner acceptance covers PUB-01..03, AUTH-01/02, SYS-ACC-01 and shared SHELL/MORE/primitives after DEC-034..041. Six implemented registry pages use implementationStatus=accepted with ownerAcceptedAt; the preview displays the accepted label. The 67 future contexts remain placeholders. Completion work is authorized, but Phase 03 is explicitly not assigned or started. Current handoff: docs-work/PHASE_02_CLOSEOUT_FA.md.
 
 Final accepted Phase 02 gate: npm run lint passed; npm test 56 passed; npm run test:subpath 56 passed; root output restored. docs-work/PHASE_02_CLOSEOUT_FA.md and PHASE_02_COMPONENT_GUIDE_FA.md are the current handoff.
+
+## Phase 03 — 2026-11-11
+
+| Source | Product paths | Evidence |
+|---|---|---|
+| Batch 2 BK-01/02, BK-F01/F02, D10-24..26 | CUS-02 → service → stylist → fixed availability → hold → checkout | Booking views, booking catalog/hold fixtures, fixed and expiry smoke tests |
+| Batch 2 BK-P01/R01/REQ01, D10-34 | Preferred date and part-of-day, compound service request, persistent demo request receipt | Requested/proposed smoke test and receipt states |
+| Batch 2 BK-REC01, D10-35/39 | Recurrence calendar, edit/remove, minimum count, grouped checkout and single hold | Recurring smoke test and route variants |
+| Batch 2 BK-ALERT01, D10-37 | One demo alert per service/stylist, six days, duplicate and focus restoration | Availability alert smoke test |
+| Batch 2 PAY-RES and Batch 8 STATE-04..07, D10-191..194 | Result, expired hold, bank review, slot lost, service interruptions | Shared StatePage, context fixtures, visual and axe variants |
+| DEC-043, Design System v2 | Separate desktop workspace at 1024px; calendar and times together; document-sticky summaries; grouped rows; responsive results | Approved desktop briefs and prototype; desktop keyboard and breakpoint test |
+
+Keep `design-export/` and `docs/references/` as source evidence. Visuals and review notes are linked from `docs-work/PHASE_03_REPORT_FA.md`.

@@ -196,11 +196,26 @@
       "status": "Fully Designed",
       "source": "Batch 2",
       "primaryBatch": 2,
-      "template": null,
-      "mockData": null,
+      "template": "Booking/Index.njk",
+      "mockData": "MockData/booking/views/cus-02.json",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "ورود به فرایند رزرو",
-      "phase": "Phase 03"
+      "phase": "Phase 03",
+      "implementationStatus": "in-progress",
+      "variants": [
+        {
+          "label": "در حال بارگذاری",
+          "query": "?state=loading"
+        },
+        {
+          "label": "فهرست خالی",
+          "query": "?state=empty"
+        },
+        {
+          "label": "حساب غیرفعال",
+          "query": "?state=inactive"
+        }
+      ]
     },
     {
       "id": "CUS-03",
@@ -322,11 +337,26 @@
       "status": "Fully Designed",
       "source": "Batch 2",
       "primaryBatch": 2,
-      "template": null,
-      "mockData": null,
+      "template": "Booking/Index.njk",
+      "mockData": "MockData/booking/views/bk-01.json",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "انتخاب خدمت",
-      "phase": "Phase 03"
+      "phase": "Phase 03",
+      "implementationStatus": "in-progress",
+      "variants": [
+        {
+          "label": "در حال بارگذاری",
+          "query": "?state=loading"
+        },
+        {
+          "label": "فهرست خالی",
+          "query": "?state=empty"
+        },
+        {
+          "label": "حساب غیرفعال",
+          "query": "?state=inactive"
+        }
+      ]
     },
     {
       "id": "BK-02",
@@ -336,11 +366,18 @@
       "status": "Fully Designed",
       "source": "Batch 2",
       "primaryBatch": 2,
-      "template": null,
-      "mockData": null,
+      "template": "Booking/Index.njk",
+      "mockData": "MockData/booking/views/bk-02.json",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "انتخاب آرایشگر",
-      "phase": "Phase 03"
+      "phase": "Phase 03",
+      "implementationStatus": "in-progress",
+      "variants": [
+        {
+          "label": "بدون آرایشگر",
+          "query": "?state=empty"
+        }
+      ]
     },
     {
       "id": "BK-F01",
@@ -350,11 +387,38 @@
       "status": "Fully Designed",
       "source": "Batch 2",
       "primaryBatch": 2,
-      "template": null,
-      "mockData": null,
+      "template": "Booking/Index.njk",
+      "mockData": "MockData/booking/views/bk-f01.json",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "انتخاب زمان ثابت",
-      "phase": "Phase 03"
+      "phase": "Phase 03",
+      "implementationStatus": "in-progress",
+      "variants": [
+        {
+          "label": "روز تعطیل",
+          "query": "?state=closed"
+        },
+        {
+          "label": "تاریخ هنوز باز نشده",
+          "query": "?state=not-yet"
+        },
+        {
+          "label": "تداخل با نوبت",
+          "query": "?state=conflict"
+        },
+        {
+          "label": "زمان گرفته شد",
+          "query": "?state=taken"
+        },
+        {
+          "label": "بدون زمان",
+          "query": "?state=none"
+        },
+        {
+          "label": "ورود از پیامک",
+          "query": "?state=sms"
+        }
+      ]
     },
     {
       "id": "BK-F02",
@@ -364,11 +428,34 @@
       "status": "Fully Designed",
       "source": "Batch 2",
       "primaryBatch": 2,
-      "template": null,
-      "mockData": null,
+      "template": "Booking/Index.njk",
+      "mockData": "MockData/booking/views/bk-f02.json",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "خلاصه و پرداخت رزرو ثابت",
-      "phase": "Phase 03"
+      "phase": "Phase 03",
+      "implementationStatus": "in-progress",
+      "variants": [
+        {
+          "label": "نگه‌داشت منقضی",
+          "query": "?state=expired"
+        },
+        {
+          "label": "کمتر از یک دقیقه",
+          "query": "?state=low"
+        },
+        {
+          "label": "تمام مبلغ از اعتبار",
+          "query": "?state=full-credit"
+        },
+        {
+          "label": "بدون اعتبار",
+          "query": "?state=no-credit"
+        },
+        {
+          "label": "اختلال درگاه",
+          "query": "?state=gateway"
+        }
+      ]
     },
     {
       "id": "BK-P01",
@@ -378,11 +465,18 @@
       "status": "Fully Designed",
       "source": "Batch 2",
       "primaryBatch": 2,
-      "template": null,
-      "mockData": null,
+      "template": "Booking/Index.njk",
+      "mockData": "MockData/booking/views/bk-p01.json",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "درخواست زمان پیشنهادی",
-      "phase": "Phase 03"
+      "phase": "Phase 03",
+      "implementationStatus": "in-progress",
+      "variants": [
+        {
+          "label": "روز انتخاب نشده",
+          "query": "?state=range"
+        }
+      ]
     },
     {
       "id": "BK-R01",
@@ -392,11 +486,12 @@
       "status": "Fully Designed",
       "source": "Batch 2",
       "primaryBatch": 2,
-      "template": null,
-      "mockData": null,
+      "template": "Booking/Index.njk",
+      "mockData": "MockData/booking/views/bk-r01.json",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "درخواست خدمت درخواستی",
-      "phase": "Phase 03"
+      "phase": "Phase 03",
+      "implementationStatus": "in-progress"
     },
     {
       "id": "BK-REQ01",
@@ -406,11 +501,22 @@
       "status": "Fully Designed",
       "source": "Batch 2",
       "primaryBatch": 2,
-      "template": null,
-      "mockData": null,
+      "template": "Booking/Index.njk",
+      "mockData": "MockData/booking/views/bk-req01.json",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "نتیجه درخواست",
-      "phase": "Phase 03"
+      "phase": "Phase 03",
+      "implementationStatus": "in-progress",
+      "variants": [
+        {
+          "label": "نتیجه پیشنهادی",
+          "query": "?state=proposed"
+        },
+        {
+          "label": "نتیجه درخواستی",
+          "query": "?state=requested"
+        }
+      ]
     },
     {
       "id": "BK-REC01",
@@ -420,11 +526,34 @@
       "status": "Fully Designed",
       "source": "Batch 2",
       "primaryBatch": 2,
-      "template": null,
-      "mockData": null,
+      "template": "Booking/Index.njk",
+      "mockData": "MockData/booking/views/bk-rec01.json",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "رزرو دوره‌ای",
-      "phase": "Phase 03"
+      "phase": "Phase 03",
+      "implementationStatus": "in-progress",
+      "variants": [
+        {
+          "label": "کمتر از سه نوبت",
+          "query": "?state=short"
+        },
+        {
+          "label": "نوبت نامعتبر",
+          "query": "?state=invalid"
+        },
+        {
+          "label": "برگه نوبت تازه",
+          "query": "?state=new"
+        },
+        {
+          "label": "برگه ویرایش",
+          "query": "?state=edit"
+        },
+        {
+          "label": "پرداخت گروهی",
+          "query": "?state=checkout"
+        }
+      ]
     },
     {
       "id": "BK-ALERT01",
@@ -434,11 +563,22 @@
       "status": "Fully Designed",
       "source": "Batch 2/3",
       "primaryBatch": 2,
-      "template": null,
-      "mockData": null,
+      "template": "Booking/Index.njk",
+      "mockData": "MockData/booking/views/bk-alert01.json",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "اعلان آزاد شدن زمان",
-      "phase": "Phase 03"
+      "phase": "Phase 03",
+      "implementationStatus": "in-progress",
+      "variants": [
+        {
+          "label": "ثبت اعلان",
+          "query": "?state=done"
+        },
+        {
+          "label": "اعلان تکراری",
+          "query": "?state=duplicate"
+        }
+      ]
     },
     {
       "id": "PAY-RES",
@@ -448,11 +588,34 @@
       "status": "Fully Designed",
       "source": "Batch 2",
       "primaryBatch": 2,
-      "template": null,
-      "mockData": null,
+      "template": "Booking/Index.njk",
+      "mockData": "MockData/booking/views/pay-res.json",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "نتیجه بازگشت پرداخت",
-      "phase": "Phase 03"
+      "phase": "Phase 03",
+      "implementationStatus": "in-progress",
+      "variants": [
+        {
+          "label": "در حال بررسی",
+          "query": "?state=checking"
+        },
+        {
+          "label": "در انتظار بررسی",
+          "query": "?state=review"
+        },
+        {
+          "label": "ناموفق",
+          "query": "?state=failed"
+        },
+        {
+          "label": "زمان از دست رفت",
+          "query": "?state=lost"
+        },
+        {
+          "label": "موفق",
+          "query": "?state=success"
+        }
+      ]
     },
     {
       "id": "STY-01",
@@ -994,11 +1157,12 @@
       "status": "Shared pattern / state context",
       "source": "Batch 2 / Batch 8",
       "primaryBatch": 8,
-      "template": null,
-      "mockData": null,
+      "template": "Booking/Index.njk",
+      "mockData": "MockData/booking/views/state-04.json",
       "notes": "System state 04",
       "titleFa": "حالت سیستمی ۰۴ — نگه‌داشت منقضی",
-      "phase": "Phase 03"
+      "phase": "Phase 03",
+      "implementationStatus": "in-progress"
     },
     {
       "id": "STATE-05",
@@ -1008,11 +1172,12 @@
       "status": "Shared pattern / state context",
       "source": "Batch 2 / Batch 8",
       "primaryBatch": 8,
-      "template": null,
-      "mockData": null,
+      "template": "Booking/Index.njk",
+      "mockData": "MockData/booking/views/state-05.json",
       "notes": "System state 05",
       "titleFa": "حالت سیستمی ۰۵ — پرداخت در حال بررسی",
-      "phase": "Phase 03"
+      "phase": "Phase 03",
+      "implementationStatus": "in-progress"
     },
     {
       "id": "STATE-06",
@@ -1022,11 +1187,18 @@
       "status": "Shared pattern / state context",
       "source": "Batch 2 / Batch 8",
       "primaryBatch": 8,
-      "template": null,
-      "mockData": null,
+      "template": "Booking/Index.njk",
+      "mockData": "MockData/booking/views/state-06.json",
       "notes": "System state 06",
       "titleFa": "حالت سیستمی ۰۶ — زمان از دست رفت",
-      "phase": "Phase 03"
+      "phase": "Phase 03",
+      "implementationStatus": "in-progress",
+      "variants": [
+        {
+          "label": "برگشت به اعتبار",
+          "query": "?state=returned"
+        }
+      ]
     },
     {
       "id": "STATE-07",
@@ -1036,11 +1208,30 @@
       "status": "Shared pattern / state context",
       "source": "Batch 8",
       "primaryBatch": 8,
-      "template": null,
-      "mockData": null,
+      "template": "Booking/Index.njk",
+      "mockData": "MockData/booking/views/state-07.json",
       "notes": "System state 07",
       "titleFa": "حالت سیستمی ۰۷ — سرویس بیرونی",
-      "phase": "Phase 03"
+      "phase": "Phase 03",
+      "implementationStatus": "in-progress",
+      "variants": [
+        {
+          "label": "اختلال درگاه",
+          "query": "?state=gateway"
+        },
+        {
+          "label": "اختلال پیامک تأیید",
+          "query": "?state=sms"
+        },
+        {
+          "label": "اختلال نقشه",
+          "query": "?state=map"
+        },
+        {
+          "label": "اختلال ارسال کد",
+          "query": "?state=otp"
+        }
+      ]
     },
     {
       "id": "STATE-08",

@@ -33,3 +33,5 @@ Phase 02 review: phone is resolved, and sample social/map links are authorized f
 Second Phase 02 review: comments 4 and 10 explicitly resolve the portfolio desktop dialog position and password-page presentation (DEC-037/038). No new content or business question is required for these corrections. OQ-08 sample destinations remain authorized.
 
 Phase 02 acceptance (2026-11-10): the visual/implementation gate is closed by explicit owner approval (DEC-042). OQ-01..06 and final content in OQ-08 retain their documented defaults; acceptance does not resolve these unrelated business/content decisions. Phase 03 start remains explicitly withheld.
+
+Phase 03 update (2026-11-11): the owner approved the revised desktop proposal (DEC-043). The preview uses a fixed calendar fixture for holidays and availability. OQ-05 remains open for backend integration and OQ-08 retains the authorized sample map target. Phase 03 adds no real payment, booking, SMS or holiday-provider behavior.

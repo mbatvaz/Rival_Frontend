@@ -1,0 +1,12 @@
+<div class="rv-booking-context rv-glass" data-rv-booking-context>
+  <img src="{{ basePath }}{{ bookingDefault.service.image }}" alt="" data-rv-context-image>
+  <div>
+    <strong data-rv-context-service>{{ bookingDefault.service.name }}</strong>
+    <p class="rv-muted" data-rv-context-stylist{% if model.kind == 'stylists' or model.kind == 'requested' %} hidden{% endif %}>
+      <img src="{{ basePath }}{{ bookingDefault.stylist.image }}" alt="" data-rv-context-avatar>
+      <span data-rv-context-name>با {{ bookingDefault.stylist.name }}</span>
+    </p>
+    {% if model.kind == 'stylists' %}<p class="rv-muted">خدمت انتخاب‌شده</p>{% endif %}
+    {% if model.kind == 'requested' %}<p class="rv-muted">خدمت چندبخشی</p>{% endif %}
+  </div>
+</div>
