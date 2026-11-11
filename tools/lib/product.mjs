@@ -30,6 +30,7 @@ function statePages(fixtures, urls, catalog, defaults, asset) {
     const context = result.details ? {
       image: asset(defaults.service.image),
       title: defaults.service.name,
+      avatar: result.receipt && defaults.stylist ? asset(defaults.stylist.image) : '',
       subtitle: result.details !== 'service' && defaults.stylist ? 'با ' + defaults.stylist.name : '',
       showTime: result.details === true, time: ''
     } : null;

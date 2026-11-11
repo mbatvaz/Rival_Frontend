@@ -1,3 +1,5 @@
+import { enableDrag, observeCenter } from '../components/rail.js';
+
 const smooth = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
 export function init(rail) {
@@ -18,7 +20,6 @@ export function init(rail) {
     rail.scrollBy({ left: rect.left - frame.left - (frame.width - rect.width) / 2, behavior: smooth() });
   };
   let lastWheel = -Infinity;
-  let drag = null;
   rail.addEventListener('wheel', event => {
     if (!scrollable() || event.ctrlKey || Math.abs(event.deltaX) >= Math.abs(event.deltaY)) return;
     const current = nearest();
@@ -29,26 +30,29 @@ export function init(rail) {
     lastWheel = window.performance.now();
     go(target);
   }, { passive: false });
-  rail.addEventListener('pointerdown', event => {
-    if (event.pointerType === 'touch' || event.button !== 0 || !scrollable()) return;
-    drag = { x: event.clientX, scroll: rail.scrollLeft, id: event.pointerId };
-    rail.setPointerCapture(event.pointerId);
-    rail.classList.add('rv-viewer__rail--dragging');
-    event.preventDefault();
+  enableDrag(rail);
+  const dots = rail.parentElement.querySelectorAll('[data-rv-gallery-dot]');
+  observeCenter(rail, () => figures, item => {
+    dots.forEach((dot, index) => { dot.dataset.rvActive = String(figures[index] === item); });
   });
-  rail.addEventListener('pointermove', event => {
-    if (drag) rail.scrollLeft = drag.scroll - (event.clientX - drag.x);
+  const panel = rail.closest('.rv-viewer');
+  let touch;
+  panel.addEventListener('touchstart', event => {
+    touch = event.touches.length === 1 ? { x: event.touches[0].clientX, y: event.touches[0].clientY } : null;
+  }, { passive: true });
+  panel.addEventListener('touchmove', event => {
+    if (!touch || window.matchMedia('(min-width: 1024px), (prefers-reduced-motion: reduce)').matches) return;
+    const finger = event.touches[0];
+    const distance = finger.clientY - touch.y;
+    const scroller = document.scrollingElement;
+    const atEdge = distance > 0 ? scroller.scrollTop <= 0 : scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 1;
+    if (atEdge && Math.abs(distance) > Math.abs(finger.clientX - touch.x)) {
+      panel.style.setProperty('--rv-viewer-stretch', Math.min(10, Math.abs(distance) / 10) + 'px');
+    }
+  }, { passive: true });
+  for (const event of ['touchend', 'touchcancel']) panel.addEventListener(event, () => {
+    touch = null;
+    panel.style.removeProperty('--rv-viewer-stretch');
   });
-  const release = () => {
-    if (!drag) return;
-    if (rail.hasPointerCapture(drag.id)) rail.releasePointerCapture(drag.id);
-    drag = null;
-    rail.classList.remove('rv-viewer__rail--dragging');
-    go(nearest());
-  };
-  rail.addEventListener('pointerup', release);
-  rail.addEventListener('pointercancel', release);
-  rail.addEventListener('lostpointercapture', release);
-  rail.addEventListener('dragstart', event => event.preventDefault());
   new window.ResizeObserver(() => { rail.dataset.rvScrollable = String(scrollable()); }).observe(rail);
 }

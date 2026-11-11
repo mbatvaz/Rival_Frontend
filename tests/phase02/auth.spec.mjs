@@ -16,7 +16,6 @@ test('OTP is default; phone validation, Persian paste and safe return work @smok
   await submit(page).click();
   await expect(page.getByLabel('کد پیامک‌شده')).toBeFocused();
   await page.getByLabel('کد پیامک‌شده').fill('۱۲۳۴۵');
-  await submit(page).click();
   await expect(page).toHaveURL(new URL('customer/book/', baseURL).href);
 });
 
@@ -30,7 +29,6 @@ test('Resend waits 60 seconds, rotates code and invalidates old code @smoke', as
   await resend.click();
   await expect(page.locator('[data-rv-auth-demo]')).toContainText('۲۳۴۵۶');
   await page.getByLabel('کد پیامک‌شده').fill('12345');
-  await submit(page).click();
   await expect(page.locator('[data-rv-code-error]')).toContainText('درست نیست');
   await expect(resend).toBeDisabled();
 });
@@ -40,7 +38,6 @@ test('Code expires after 120 seconds and can be recovered through resend @smoke'
   await login(page, '?state=otp');
   await page.clock.fastForward(121000);
   await page.getByLabel('کد پیامک‌شده').fill('12345');
-  await submit(page).click();
   await expect(page.locator('[data-rv-code-error]')).toContainText('اعتبار کد تمام شده');
   await page.locator('[data-rv-resend]').click();
   await expect(page.locator('[data-rv-code-error]')).toBeEmpty();
@@ -52,10 +49,11 @@ test('Five failures lock every method for the same phone for 15 minutes, includi
   await login(page, '?state=otp');
   for (let i = 0; i < 5; i++) {
     await page.getByLabel('کد پیامک‌شده').fill('00000');
-    await submit(page).click();
     if (i < 4) await expect(page.locator('[data-rv-code-error]')).toContainText('درست نیست');
   }
   await expect(page.locator('[data-rv-auth-lock]')).toContainText('همهٔ روش‌های ورود');
+  await expect(page.locator('[data-rv-otp-stage]')).toBeHidden();
+  await expect(page.locator('[data-rv-phone]')).toBeDisabled();
   for (const method of await page.locator('[data-rv-method]').all()) await expect(method).toBeDisabled();
   await login(page);
   await page.getByLabel('شماره موبایل', { exact: true }).fill('09143214567');
@@ -85,7 +83,6 @@ test('New user completes names and external return destinations are rejected @sm
   await login(page, '?state=new&return=https%3A%2F%2Fevil.example%2F');
   await submit(page).click();
   await page.getByLabel('کد پیامک‌شده').fill('12345');
-  await submit(page).click();
   await expect(page).toHaveURL(/\/context\/auth-02\//);
   await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
   await page.getByRole('button', { name: 'ادامه', exact: true }).click();

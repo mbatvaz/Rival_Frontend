@@ -16,6 +16,7 @@
     background: var(--bg-surface);
     color: var(--text-primary);
     font-size: var(--numeral-md-size);
+    transition: border-color var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
   }
 
   .rv-otp input {
@@ -32,6 +33,10 @@
     border: 2px solid var(--danger-solid);
     background: var(--danger-bg);
     color: var(--danger-fg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rv-otp__cell { transition: none; }
   }
 
   @media (min-width: 360px) {

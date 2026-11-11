@@ -1,6 +1,7 @@
 import { localUrl } from '../../core/config.js';
 import { faDigits } from '../../core/format.js';
-import { dateLabel, get, money, persist, query, route, state, text, report, findHold, findRecord } from './shared.js';
+import { longDay } from './availability.js';
+import { get, money, persist, query, route, state, text, report, findHold, findRecord } from './shared.js';
 
 function paint(root, key, context, record, request) {
   const views = [...root.querySelectorAll('[data-rv-result-view]')];
@@ -14,10 +15,14 @@ function paint(root, key, context, record, request) {
   const photo = get(view, 'result-image');
   if (photo) photo.src = localUrl(service.image);
   text(view, 'result-service', record?.items.length > 1 ? 'رزرو دوره‌ای · ' + faDigits(record.items.length) + ' نوبت' : service.name);
-  if (stylist) text(view, 'result-stylist', 'با ' + stylist.name);
+  if (stylist) {
+    text(view, 'result-stylist', 'با ' + stylist.name);
+    const avatar = get(view, 'result-avatar');
+    if (avatar) avatar.src = localUrl(stylist.image);
+  }
   const date = first?.date ?? request?.date ?? query.get('date') ?? '2026-10-15';
   const part = first?.time ?? request?.part ?? query.get('part') ?? '16:00';
-  text(view, 'result-time', dateLabel(date) + ' · ' + faDigits(part));
+  text(view, 'result-time', /^\d{4}-\d{2}-\d{2}$/.test(date) ? longDay(date) + ' · ' + faDigits(part) : '');
   if (record) {
     text(view, 'result-code', 'BK-' + record.id.slice(0, 8).toUpperCase());
     text(view, 'result-credit', money(record.applied));

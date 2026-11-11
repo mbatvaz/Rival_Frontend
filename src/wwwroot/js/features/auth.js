@@ -68,12 +68,13 @@ export async function init() {
     get('code').setSelectionRange(caret, caret);
     fieldError(root, 'code', '');
     refresh();
+    if (view.stage === 'otp' && policy && get('code').value.length === policy.digits && !get('auth-submit').disabled) form.requestSubmit();
   });
   const edit = () => { view.stage = 'phone'; get('code').value = ''; refresh(); get('phone').focus(); };
   get('edit-phone').addEventListener('click', edit);
   initMethods(root, view, refresh, () => Boolean(policy));
   async function submit(resending = false) {
-    if (!policy || view.busy) return;
+    if (!policy || view.busy || account.lockedUntil > Date.now()) return;
     const phone = normalizePhone(get('phone').value);
     if (!validPhone(phone)) { fieldError(root, 'phone', 'شماره موبایل را درست بنویسید.'); get('phone').focus(); return; }
     view.busy = true;

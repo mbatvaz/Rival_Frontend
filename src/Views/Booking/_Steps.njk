@@ -3,7 +3,7 @@
     {% for step in bookingSteps %}
     <li{% if step.active %} aria-current="step"{% endif %}>
       {% if step.complete %}<a href="{{ bookingUrls[step.id] }}" data-rv-step-route="{{ step.id }}">{% else %}<span>{% endif %}
-      <span class="rv-booking-steps__icon"><span class="ri ri-{{ step.icon }}" aria-hidden="true"></span></span>{{ step.label }}
+      <span class="rv-booking-steps__icon"><span aria-hidden="true">{{ loop.index | faDigits }}</span></span>{{ step.label }}
       {% if step.complete %}</a>{% else %}</span>{% endif %}
     </li>
     {% endfor %}

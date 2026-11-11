@@ -26,7 +26,6 @@
   .rv-chip-rail .rv-chip { flex: 0 0 auto; }
   .rv-portfolio-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
   .rv-portfolio-column { display: flex; flex-direction: column; gap: var(--space-3); }
-  .rv-portfolio-column + .rv-portfolio-column { padding-block-start: var(--space-8); }
 
   .rv-portfolio-card {
     position: relative;

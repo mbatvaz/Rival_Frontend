@@ -243,3 +243,13 @@ Use `OPEN_QUESTIONS.md` for unresolved items. The desktop strategy in OQ-07 is r
 ## 12. Definition of done for every phase
 
 A phase is complete only when its IDs and states are traceable, its acceptance checklist passes, 390/768/1280 reviews are recorded, desktop briefs are owner-approved where applicable, axe and keyboard checks pass, no dead-end routes exist, shared-component regression passes, `PROGRESS.md`/`DISCREPANCIES.md`/`OPEN_QUESTIONS.md` are updated, and the agent stops for owner review. Never auto-start the next phase.
+
+## Owner mobile-device review rules
+
+- Treat owner comments marked mobile as observations from a physical Samsung Galaxy S20 FE. Reproduce in the browser at the reported width and record separately whether physical-device retesting occurred.
+- Keep compact labels and aligned card metadata on one line. Let flexible children shrink with `min-inline-size: 0`. Expose the full text via the associated detail view or an accessible reveal when it overflows. Preserve wrapping for prose and long status messages.
+- Give every horizontally scrolling rail native touch scrolling, pointer drag on desktop, and keyboard access. Reuse `components/rail.js` and suppress activation only after a drag crosses the movement threshold.
+- Use brief native CSS motion, primarily transform and opacity. Page entry, supported route exit, and overlay entry/exit must respect reduced motion. Bottom sheets animate from and back to the bottom edge, retaining background inertness and restoring scroll and focus after closing. Centered desktop gallery remains the approved desktop exception. The mobile gallery stays anchored to the viewport when the viewport can contain it. On short viewports, allow the document to scroll for access to the full gallery details.
+- Inputs keep real labels. On an empty resting field, show the label and example inside the field. On focus, show the label above and hide the example. Keep the focused field in the visual viewport when the keyboard opens. Animate invalid color/border without changing control dimensions. Read-only and segmented controls can use persistent labels.
+- Use a viewport-height layout for phone login and account states where content fits. Permit document scrolling with a keyboard, short screen, large text, or expanded messages.
+- When implementing the OwnerAdmin featured-image settings, provide separate uploads for portrait mobile and landscape desktop hero images. PUB-01 selects the source with `picture` at the existing 1024px desktop breakpoint. The current landscape demo uses the existing salon-wide photo.

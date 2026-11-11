@@ -16,7 +16,9 @@
         "description": "کناره‌ها با ماشین از صفر تا شماره دو محو شده‌اند و بالای سر با قیچی کوتاه و بافت‌دار شده تا بدون واکس هم فرم بگیرد.",
         "id": "work-1",
         "lead": true,
-        "column": "none"
+        "column": "none",
+        "avatar": "img/public/amir.png",
+        "date": "مهر ۱۴۰۵"
       },
       {
         "title": "فرم ریش با خط تیز",
@@ -29,7 +31,9 @@
         ],
         "description": "",
         "lead": false,
-        "column": "right"
+        "column": "right",
+        "avatar": "img/public/taha.png",
+        "date": ""
       },
       {
         "title": "حالت‌دهی موی متوسط",
@@ -42,7 +46,9 @@
         ],
         "description": "",
         "lead": false,
-        "column": "right"
+        "column": "right",
+        "avatar": "img/booking/sina.png",
+        "date": ""
       },
       {
         "title": "پاکسازی پوست صورت",
@@ -55,7 +61,9 @@
         ],
         "description": "",
         "lead": false,
-        "column": "right"
+        "column": "right",
+        "avatar": "img/booking/sina.png",
+        "date": ""
       },
       {
         "title": "اصلاح صورت با تیغ",
@@ -68,7 +76,9 @@
         ],
         "description": "",
         "lead": false,
-        "column": "left"
+        "column": "left",
+        "avatar": "",
+        "date": ""
       },
       {
         "title": "فید کم با بافت بالا",
@@ -81,7 +91,9 @@
         ],
         "description": "",
         "lead": false,
-        "column": "left"
+        "column": "left",
+        "avatar": "img/public/amir.png",
+        "date": ""
       },
       {
         "title": "ریش پرپشت فرم‌دار",
@@ -94,7 +106,9 @@
         ],
         "description": "",
         "lead": false,
-        "column": "left"
+        "column": "left",
+        "avatar": "img/public/taha.png",
+        "date": ""
       }
     ],
     "services": [

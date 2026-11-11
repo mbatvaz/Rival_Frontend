@@ -1,5 +1,5 @@
 import { api } from '../../core/api.js';
-import { persist } from './shared.js';
+import { demoId, persist } from './shared.js';
 
 export function snapshot(items, catalog, credit = catalog.credit) {
   const amount = items.reduce((sum, item) => sum + item.fee, 0);
@@ -13,7 +13,7 @@ export async function createHold(items, catalog, credit, seconds = catalog.holdS
   const key = JSON.stringify(quote);
   const active = Object.values(holds).find(hold => hold.key === key && hold.expiresAt > Date.now());
   if (active) return active;
-  const id = window.crypto.randomUUID();
+  const id = demoId();
   return persist('holds', id, { id, key, ...quote, expiresAt: Date.now() + seconds * 1000 });
 }
 

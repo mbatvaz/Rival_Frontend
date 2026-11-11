@@ -75,3 +75,10 @@
 | ID | Decision | Status | Implementation consequence |
 |---|---|---|---|
 | DEC-043 | Owner starts Phase 03 and approves the second desktop proposal after requesting a layout designed for desktop use with Design System v2. | Confirmed in current chat | Activate dedicated desktop composition at 1024px, with horizontal booking steps, monthly calendar and time workspace, sticky summary, monthly recurring rows and side-by-side result detail. Reuse the shared Sheet for alerts and editing. Phase acceptance is separate. |
+
+## Device review of phases 02 and 03
+
+| ID | Decision | Status | Implementation consequence |
+|---|---|---|---|
+| DEC-044 | Owner reported physical Galaxy S20 FE results and approved the annotated changes to public, auth and booking surfaces. | Owner instruction | Use the device-review rules in the project contract for present and future phases. The annotated booking menu and step placement supersede the earlier desktop brief where they differ. |
+| DEC-045 | Fixed booking shows Tehran today through 30 days ahead. | Owner instruction | Normal demo navigation rolls the availability window daily. Explicit artboard states keep their fixture dates so closed, pending and taken cases can be reviewed reliably. |

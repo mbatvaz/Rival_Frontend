@@ -10,7 +10,7 @@ export function setupTimeCalendar(root, days, selected, pick) {
   let current = selected;
   const render = () => monthGrid(shell, month, current, {
     ...bounds, canPick: date => dates.has(date),
-    closed: date => Boolean(dates.get(date)?.closed || dates.get(date)?.opens)
+    dayState: date => dates.get(date)?.closed ? 'closed' : dates.get(date)?.opens ? 'pending' : dates.has(date) ? 'available' : 'outside'
   }, pick);
 
   for (const button of shell.querySelectorAll('[data-rv-month-move]')) {

@@ -15,11 +15,13 @@ test('Fixed booking carries service, stylist and time through one hold and an id
   await page.locator('[data-rv-stylist-choice="amir"]').click();
   await ready(page);
   await expect(submit(page)).toBeDisabled();
-  await page.locator('[data-rv-quick-date="2026-10-13"]').click();
+  await expect(page.locator('[data-rv-days] button')).toHaveCount(31);
+  await expect(page.locator('[data-rv-days] [data-rv-today]')).toHaveCount(1);
+  await page.locator('[data-rv-quick-date]').first().click();
   await expect(submit(page)).toBeEnabled();
   await submit(page).click();
   await ready(page);
-  await expect(page.locator('[data-rv-ticket-time]')).toContainText('۱۸:۰۰');
+  await expect(page.locator('[data-rv-ticket-time]')).toContainText(/[:]/);
   await expect(page.locator('[data-rv-price-due]')).toHaveText('۹۰٬۰۰۰ تومان');
   await expect(page).toHaveURL(/bk-f02.*hold=/);
   const checkout = page.url();

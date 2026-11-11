@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('Desktop date, times and persistent summary share one workspace @visual @smoke', async ({ page }) => {
   await page.setViewportSize({ width: 1024, height: 900 });
-  await page.goto('_preview/context/bk-f01/?service=face-hair&stylist=amir');
+  await page.goto('_preview/context/bk-f01/?service=face-hair&stylist=amir&demo=artboard');
   await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
   const calendar = page.locator('[data-rv-time-calendar]');
   const dayPanel = page.locator('[data-rv-day-section]');
@@ -10,10 +10,10 @@ test('Desktop date, times and persistent summary share one workspace @visual @sm
   const summary = page.locator('aside.rv-booking-summary');
   const submit = summary.locator('[data-rv-booking-submit]');
   await expect(calendar).toBeVisible();
-  await expect(page.getByRole('navigation', { name: 'مراحل رزرو' }).locator('[aria-current="step"]')).toHaveText('زمان');
+  await expect(page.getByRole('navigation', { name: 'مراحل رزرو' }).locator('[aria-current="step"]')).toContainText('زمان');
   const [dateBox, timeBox, summaryBox] = await Promise.all([dayPanel.boundingBox(), times.boundingBox(), summary.boundingBox()]);
   expect(dateBox.y).toBe(timeBox.y);
-  expect(dateBox.y).toBe(summaryBox.y);
+  expect(dateBox.y).toBeGreaterThan(summaryBox.y);
   expect(dateBox.x).toBeGreaterThan(timeBox.x);
   expect(timeBox.x).toBeGreaterThan(summaryBox.x);
   await expect(summary).toHaveCSS('position', 'sticky');

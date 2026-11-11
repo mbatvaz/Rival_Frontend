@@ -1,5 +1,7 @@
 export function init(root) {
   const cards = [...root.querySelectorAll('[data-rv-carousel-card]')];
+  const captions = [...root.querySelectorAll('[data-rv-carousel-caption]')];
+  const dots = [...root.querySelectorAll('[data-rv-carousel-dot]')];
   const button = root.querySelector('[data-rv-carousel-pause]');
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   let paused = reduced.matches;
@@ -9,7 +11,8 @@ export function init(root) {
       const position = (index - current + cards.length) % cards.length;
       card.dataset.rvPosition = String(position);
       card.setAttribute('aria-hidden', String(position !== 0));
-      card.querySelector('a').hidden = position !== 0;
+      captions[index].hidden = position !== 0;
+      dots[index].dataset.rvActive = String(position === 0);
     });
     button.textContent = paused ? 'ادامه حرکت' : 'توقف حرکت';
     button.setAttribute('aria-pressed', String(paused));

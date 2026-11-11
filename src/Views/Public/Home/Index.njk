@@ -1,7 +1,7 @@
 {% extends "Shared/_PublicLayout.njk" %}
 {% block content %}
   <section class="rv-home-hero">
-    <img class="rv-home-hero__photo" src="{{ basePath }}{{ model.hero }}" alt="سالن ریوال؛ صندلی چرمی و کروم روبه‌روی دیوار گچی">
+    <picture><source media="(min-width: 1024px)" srcset="{{ basePath }}{{ model.heroDesktop }}"><img class="rv-home-hero__photo" src="{{ basePath }}{{ model.hero }}" alt="فضای داخلی سالن ریوال"></picture>
     <div class="rv-home-hero__copy">
       <p>سالن مردانه طاها · اردبیل</p>
       <h1>آراسته دیده شوید،<br>مطمئن قدم بردارید.</h1>

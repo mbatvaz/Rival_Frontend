@@ -1,7 +1,8 @@
 @layer pages {
   .rv-home-hero {
     position: relative;
-    min-block-size: 844px;
+    min-block-size: min(400px, 100svh);
+    block-size: calc(100svh - var(--space-8));
     color: var(--text-inverse);
     background: var(--bg-inverse);
     border-end-start-radius: var(--radius-xl);
@@ -76,7 +77,7 @@
     color: var(--text-inverse);
     margin: 0 auto var(--space-2);
   }
-  .rv-home-steps h3 { font-size: var(--label-size); font-weight: var(--label-weight); }
+  .rv-home-steps h3 { font-size: var(--label-size); font-weight: var(--label-weight); margin: 0; }
   .rv-home-steps p { font-size: var(--caption-size); line-height: var(--caption-line); }
   .rv-home-visit { display: grid; gap: var(--space-8); }
 
@@ -93,7 +94,8 @@
     border-radius: var(--radius-lg);
     object-fit: cover;
   }
-  .rv-hall img:first-child { grid-row: span 2; }
+  .rv-hall img:first-child { grid-row: span 2; block-size: 100%; }
+  .rv-hall img:nth-child(3) { aspect-ratio: 1.47; block-size: auto; }
 
   .rv-visit-card {
     min-block-size: 300px;

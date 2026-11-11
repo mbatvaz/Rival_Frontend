@@ -3,6 +3,7 @@
   "demo": true,
   "data": {
     "hero": "img/public/hero.jpg",
+    "heroDesktop": "img/public/hall-wide.png",
     "address": "اردبیل، خیابان ولیعصر، پلاک ۱۲۴",
     "hours": "۰۸:۰۰ تا ۱۹:۰۰",
     "intro": "ریوال سالن مردانه طاها در اردبیل است. هر نوبت زمان مشخص خودش را دارد؛ وقتی می‌رسید، صندلی و آرایشگرتان آماده‌اند و لازم نیست منتظر بمانید.",
@@ -21,27 +22,39 @@
     "featured": [
       {
         "title": "فید کوتاه کلاسیک",
-        "image": "img/public/classic.png"
+        "image": "img/public/classic.png",
+        "service": "اصلاح سر",
+        "stylist": "امیر"
       },
       {
         "title": "پاکسازی پوست صورت",
-        "image": "img/public/facial.png"
+        "image": "img/public/facial.png",
+        "service": "فیشیال",
+        "stylist": "سینا"
       },
       {
         "title": "اصلاح صورت با تیغ",
-        "image": "img/public/shave.png"
+        "image": "img/public/shave.png",
+        "service": "اصلاح سر و صورت",
+        "stylist": "مهدی"
       },
       {
         "title": "فرم ریش با خط تیز",
-        "image": "img/public/beard-line.png"
+        "image": "img/public/beard-line.png",
+        "service": "اصلاح ریش",
+        "stylist": "طاها"
       },
       {
         "title": "حالت‌دهی موی متوسط",
-        "image": "img/public/medium.png"
+        "image": "img/public/medium.png",
+        "service": "اصلاح سر",
+        "stylist": "سینا"
       },
       {
         "title": "فید کم با بافت بالا",
-        "image": "img/public/fade.png"
+        "image": "img/public/fade.png",
+        "service": "اصلاح سر",
+        "stylist": "امیر"
       }
     ],
     "phone": "09141452321",

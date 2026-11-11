@@ -21,6 +21,13 @@
 
 Phase 03 was assigned after Phase 02 closeout. Its desktop briefs and six-view preview were revised and approved before desktop implementation. Phase 03 implementation is at owner review. Phase 04 requires separate authorization.
 
+## Phase 02–03 physical-device feedback
+
+- Applied the owner's Galaxy S20 FE observations and desktop annotations to public pages, auth, and booking. DEC-044/045 record the reusable rules and the 30-day Tehran calendar window.
+- The booking menu, step placement, service and stylist rails, availability, checkout, and result layouts follow the revised references. Mobile gallery entry/exit and horizontal drag use shared components.
+- The desktop hero uses the existing landscape salon photo. The two-image OwnerAdmin upload requirement is recorded for the settings phase.
+- See `docs-work/DEVICE_REVIEW_FA.md` for verification and the review entry points.
+
 ## Phase 03 implementation review — 2026-11-11
 
 - 15 contexts and 38 states now use the booking views. Fixed, proposed, requested, recurring, alert, hold, and result workflows are connected with local demo data.

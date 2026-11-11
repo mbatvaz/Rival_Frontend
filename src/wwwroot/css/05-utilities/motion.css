@@ -7,21 +7,33 @@
   .rv-auth-link { text-decoration: none; }
   * { scrollbar-width: none; }
   ::-webkit-scrollbar { display: none; }
+  [data-rv-dragging] { scroll-snap-type: none; user-select: none; cursor: grabbing; }
 
   [data-rv-page] > main {
-    animation: rv-page-enter 380ms var(--ease-standard) both;
+    animation: rv-page-enter 380ms var(--ease-standard) backwards;
   }
   .rv-sheet { animation: rv-sheet-enter 320ms var(--ease-standard) both; }
   .rv-sheet-scrim { animation: rv-fade-enter 240ms var(--ease-standard) both; }
 
+  .rv-sheet[data-rv-closing] { animation-name: rv-sheet-exit; }
+  [data-rv-closing] > .rv-sheet-scrim { animation-name: rv-fade-exit; }
+
+  @keyframes rv-sheet-exit {
+    to { transform: translateY(100%); }
+  }
+
+  @keyframes rv-fade-exit {
+    to { opacity: 0; }
+  }
+
   @keyframes rv-page-enter {
     from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
+    to { opacity: 1; transform: none; }
   }
 
   @keyframes rv-sheet-enter {
-    from { opacity: 0; transform: translateY(32px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { transform: translateY(100%); }
+    to { opacity: 1; transform: none; }
   }
 
   @keyframes rv-fade-enter {
@@ -29,9 +41,14 @@
     to { opacity: 1; }
   }
 
+  ::view-transition-old(root) { animation: rv-fade-exit 180ms var(--ease-standard) both; }
+  ::view-transition-new(root) { animation: rv-fade-enter 220ms var(--ease-standard) both; }
+
   @media (prefers-reduced-motion: reduce) {
     @view-transition { navigation: none; }
 
+    ::view-transition-old(root),
+    ::view-transition-new(root),
     [data-rv-page] > main,
     .rv-sheet,
     .rv-sheet-scrim { animation: none; }

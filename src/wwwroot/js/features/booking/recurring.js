@@ -1,7 +1,7 @@
 import { api } from '../../core/api.js';
 import { localUrl } from '../../core/config.js';
 import { faDigits } from '../../core/format.js';
-import { dateLabel, get, route, state, text, visible, bindForm } from './shared.js';
+import { demoId, dateLabel, get, route, state, text, visible, bindForm } from './shared.js';
 import { bookingItem, createHold } from './holds.js';
 import { availableTimes, monthKey, monthLabel } from './calendar.js';
 import { setupEditor } from './recurring-edit.js';
@@ -23,7 +23,7 @@ export async function initRecurring(root, { catalog }) {
   const editor = setupEditor(catalog, async (draft, dates) => {
     const remaining = items.filter(item => item.id !== draft.id);
     const additions = dates.map(date => ({
-      id: draft.id ?? window.crypto.randomUUID(), service: draft.service, stylist: draft.stylist,
+      id: draft.id ?? demoId(), service: draft.service, stylist: draft.stylist,
       date, time: draft.time, invalid: !availableTimes(catalog.calendar, date).includes(draft.time)
         || remaining.some(item => item.date === date && item.time === draft.time)
     }));

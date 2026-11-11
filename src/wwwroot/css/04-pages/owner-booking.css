@@ -1,0 +1,123 @@
+@layer pages {
+  .rv-booking-day[data-rv-day-state="closed"] { color: var(--danger-fg); background: var(--danger-bg); }
+  .rv-booking-day[data-rv-day-state="pending"] { color: var(--text-secondary); background: var(--warning-bg); }
+  .rv-booking-day[data-rv-today] { border-color: var(--accent-500); }
+  .rv-booking-day[aria-pressed="true"] { outline: 2px solid var(--focus-ring); outline-offset: 1px; }
+  .rv-booking-time-picker [data-rv-day-note] { text-align: center; }
+  .rv-booking-time-picker [data-rv-tone="danger"] { color: var(--danger-fg); background: var(--danger-bg); border-color: var(--danger-line); }
+
+  .rv-quick-skeleton > div {
+    min-block-size: 88px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(110deg, var(--chrome-100) 30%, var(--bg-surface) 50%, var(--chrome-100) 70%);
+    background-size: 250% 100%;
+    animation: rv-booking-sweep 1.6s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rv-quick-skeleton > div { animation: none; }
+  }
+
+  @media not all and (min-width: 1024px) {
+    .rv-booking-days .rv-booking-day > span:first-child { font-size: var(--caption-size); }
+
+    .rv-booking--dock .rv-role-nav {
+      isolation: isolate;
+      padding: 0;
+      gap: var(--space-2);
+      box-shadow: none;
+      background: none;
+      backdrop-filter: none;
+    }
+
+    .rv-booking--dock .rv-role-nav::before {
+      content: "";
+      position: absolute;
+      inset-block: 0;
+      inset-inline: 0 21%;
+      z-index: -1;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--glass-edge);
+      background: var(--glass-fill-strong);
+      backdrop-filter: blur(var(--blur-glass));
+      box-shadow: var(--shadow-glass);
+    }
+
+    .rv-booking--dock .rv-role-nav > :not(.rv-role-nav__book) > span:last-child {
+      position: absolute;
+      clip-path: inset(50%);
+    }
+
+    .rv-booking--dock .rv-role-nav .rv-role-nav__book {
+      flex-direction: row;
+      min-block-size: 60px;
+      border: 2px solid var(--bg-surface);
+      outline: 2px solid var(--bg-inverse);
+    }
+
+    .rv-booking-rail {
+      padding-inline: max(0px, calc((100% + var(--space-4) * 2 - clamp(160px, 55vw, 270px)) / 2));
+      scroll-padding-inline: 0;
+      padding-block: var(--space-6) var(--space-12);
+      align-items: center;
+    }
+
+    .rv-booking-rail .rv-booking-choice {
+      flex-basis: clamp(160px, 55vw, 270px);
+      transform: scale(.86);
+      transition: transform var(--duration-fast) var(--ease-standard);
+    }
+
+    .rv-booking-rail .rv-booking-choice[data-rv-centered="true"] { transform: scale(1); }
+    .rv-booking-rail .rv-booking-choice__caption { border-radius: var(--radius-pill); }
+
+    .rv-booking-rail .rv-booking-choice__caption > * {
+      max-inline-size: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .rv-booking-days {
+      --day-width: 52px;
+
+      padding: var(--space-3) calc((100% - var(--day-width)) / 2);
+      scroll-padding-inline: 0;
+    }
+
+    .rv-booking-days .rv-booking-day {
+      display: grid;
+      flex: 0 0 var(--day-width);
+      min-block-size: 70px;
+      align-content: center;
+      justify-items: center;
+      line-height: 1.25;
+    }
+
+    .rv-booking-days .rv-booking-day strong { font-size: var(--heading-lg-size); }
+
+    .rv-booking-time,
+    .rv-booking-checkout { padding-block-end: 92px; }
+
+    .rv-booking-time .rv-booking-action,
+    .rv-booking-checkout .rv-booking-action {
+      position: fixed;
+      inset: auto 0 0;
+      margin: 0 auto;
+      max-inline-size: 720px;
+      padding-block-end: max(var(--space-3), env(safe-area-inset-bottom));
+    }
+
+    .rv-booking-time .rv-booking-action > button,
+    .rv-booking-checkout .rv-booking-action > :is(button, a) {
+      inline-size: 40%;
+      min-inline-size: 112px;
+      padding-inline: var(--space-2);
+      white-space: nowrap;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rv-booking-rail .rv-booking-choice { transition: none; }
+  }
+}

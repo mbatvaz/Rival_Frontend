@@ -41,7 +41,7 @@ export function availableTimes(calendar, date) {
   return calendar.days.find(day => day.date === date)?.times ?? calendar.recurringTimes;
 }
 
-export function monthGrid(root, month, selected, { start, end, canPick, closed }, select) {
+export function monthGrid(root, month, selected, { start, end, canPick, dayState }, select) {
   const grid = get(root, 'month-grid');
   const first = plusDays(month, 1 - parts(month).day);
   const offset = (instant(first).getUTCDay() + 1) % 7;
@@ -60,7 +60,7 @@ export function monthGrid(root, month, selected, { start, end, canPick, closed }
     day.textContent = faDay(date);
     day.disabled = !canPick(date);
     day.dataset.rvDate = date;
-    if (closed?.(date)) day.dataset.rvClosed = 'true';
+    if (dayState) day.dataset.rvDayState = dayState(date);
     day.setAttribute('aria-label', dayName(date) + ' ' + dateLabel(date));
     day.setAttribute('aria-pressed', String(selected === date));
     day.addEventListener('click', () => select(current));

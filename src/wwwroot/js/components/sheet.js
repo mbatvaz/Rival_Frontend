@@ -1,13 +1,14 @@
 let current = null;
 const stack = [];
 let originalScroll = 0;
+let closingSheet = false;
 const focusable = panel => [...panel.querySelectorAll('a[href],button,input,select,textarea,[tabindex]')]
   .filter(el => !el.disabled && el.tabIndex >= 0 && !el.closest('[hidden]'));
 
 export function openSheet(id, opener = document.activeElement) {
   const panel = document.getElementById(id);
   const layer = document.querySelector('[data-rv-sheet-layer]');
-  if (!panel || !layer) return;
+  if (!panel || !layer || closingSheet) return;
   if (!current) {
     originalScroll = window.scrollY;
     const page = document.querySelector('[data-rv-page]');
@@ -24,12 +25,20 @@ export function openSheet(id, opener = document.activeElement) {
   layer.hidden = false;
   panel.hidden = false;
   window.scrollTo(0, 0);
-  (focusable(panel)[0] ?? panel).focus();
+  (focusable(panel)[0] ?? panel).focus({ preventScroll: true });
 }
 
-export function closeSheet() {
-  if (!current) return;
+export async function closeSheet() {
+  if (!current || closingSheet) return;
   const closing = current;
+  closingSheet = true;
+  const layer = closing.panel.parentElement;
+  if (!stack.length) layer.dataset.rvClosing = 'true';
+  closing.panel.dataset.rvClosing = 'true';
+  await Promise.allSettled(closing.panel.getAnimations().map(animation => animation.finished));
+  delete layer.dataset.rvClosing;
+  delete closing.panel.dataset.rvClosing;
+  closingSheet = false;
   closing.panel.hidden = true;
   current = stack.pop() ?? null;
   if (current) {

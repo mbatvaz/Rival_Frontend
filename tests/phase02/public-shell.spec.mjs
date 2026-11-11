@@ -12,7 +12,7 @@ test('Portfolio filtering, empty recovery, error retry and gallery sheet work @s
   const opener = page.getByRole('button', { name: 'فید کوتاه کلاسیک', exact: true });
   await opener.click();
   await expect(page.getByRole('dialog', { name: 'فید کوتاه کلاسیک' })).toBeVisible();
-  await expect(page.getByRole('dialog').locator('img')).toHaveCount(3);
+  await expect(page.getByRole('dialog').locator('.rv-viewer__rail img')).toHaveCount(3);
   await page.keyboard.press('Escape');
   await expect(opener).toBeFocused();
   await page.goto('portfolio/?state=error');
@@ -62,7 +62,7 @@ test('Home orbital carousel advances, pauses and respects reduced motion @smoke'
   await page.clock.install({ time: new Date('2026-11-10T08:00:00Z') });
   await page.goto('');
   await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
-  const active = () => page.locator('[data-rv-carousel-card][data-rv-position="0"]');
+  const active = () => page.locator('[data-rv-carousel-caption]:visible');
   await expect(active()).toContainText('فید کوتاه کلاسیک');
   await page.clock.fastForward(3100);
   await expect(active()).toContainText('پاکسازی پوست صورت');

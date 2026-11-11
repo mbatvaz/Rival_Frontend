@@ -1,7 +1,7 @@
 <nav class="rv-role-nav" aria-label="ناوبری اصلی {{ shell.label }}">
   {% for item in shell.primary %}
-    <a href="{{ item.href }}" {% if item.active %}aria-current="page"{% endif %}><span class="ri ri-{{ item.icon }}" aria-hidden="true"></span><span>{{ item.title }}</span></a>
+    <a href="{{ item.href }}" {% if item.active %}aria-current="page"{% endif %}><span class="ri ri-{% if shell.book and item.icon == 'send' %}inbox{% else %}{% if shell.book and item.icon == 'calendar' %}scissors{% else %}{{ item.icon }}{% endif %}{% endif %}" aria-hidden="true"></span><span>{{ item.title }}</span></a>
   {% endfor %}
-  <button type="button" data-rv-sheet-open="rv-more"><span class="ri ri-more" aria-hidden="true"></span>بیشتر</button>
+  <button type="button" data-rv-sheet-open="rv-more"><span class="ri ri-menu" aria-hidden="true"></span><span>بیشتر</span></button>
   {% if shell.book %}<a class="rv-role-nav__book" href="{{ shell.book.href }}"><span class="ri ri-calendar-plus" aria-hidden="true"></span>رزرو</a>{% endif %}
 </nav>

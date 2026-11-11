@@ -29,11 +29,12 @@
     "PAY-RES": {
       "checking": {
         "title": "در حال بررسی پرداخت آزمایشی",
-        "description": "نتیجهٔ پرداخت در حال بررسی است. از پرداخت دوباره خودداری کنید.",
+        "description": "نتیجه را از بانک می‌گیریم. چند ثانیه صبر کنید و این صفحه را نبندید.",
         "tone": "info",
-        "icon": "hourglass",
+        "icon": "refresh",
         "action": "panel",
-        "actionText": "بازگشت به خانه"
+        "actionText": "بازگشت به خانه",
+        "badge": "در حال بررسی"
       },
       "review": {
         "title": "پرداخت در حال بررسی است",
@@ -47,11 +48,11 @@
       },
       "success": {
         "title": "نوبت آزمایشی شما ثبت شد",
-        "description": "نتیجهٔ آزمایشی رزرو و جزئیات آن در رسید آمده است.",
+        "description": "جزئیات نوبت و مبلغ آزمایشی در رسید آمده است.",
         "tone": "success",
         "icon": "check",
         "action": "appointments",
-        "actionText": "مشاهده نوبت‌ها",
+        "actionText": "مشاهده نوبت",
         "track": true,
         "details": true,
         "receipt": true,
@@ -59,13 +60,14 @@
       },
       "failed": {
         "title": "پرداخت آزمایشی انجام نشد",
-        "description": "وضعیت زمان را دوباره بررسی کنید و سپس ادامه دهید.",
-        "tone": "neutral",
+        "description": "نوبتی ثبت نشد و اعتبار نگه‌داشته‌شده به حسابتان برگشت. زمان آزاد دوباره بررسی می‌شود.",
+        "tone": "danger",
         "icon": "x-circle",
         "action": "BK-F01",
-        "actionText": "انتخاب دوباره زمان",
-        "track": true,
-        "home": true
+        "actionText": "تلاش دوباره",
+        "track": false,
+        "home": true,
+        "badge": "ناموفق"
       },
       "lost": {
         "title": "این زمان از دست رفت",

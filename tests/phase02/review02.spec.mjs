@@ -87,8 +87,10 @@ test('Mobile gallery stays bottom attached and swipes between images @visual', a
     await page.goto('portfolio/?state=viewer');
     await ready(page);
     const dialog = page.getByRole('dialog');
-    const rect = await dialog.boundingBox();
-    expect(Math.abs(rect.y + rect.height - 844)).toBeLessThan(2);
+    await expect.poll(async () => {
+      const rect = await dialog.boundingBox();
+      return Math.abs(rect.y + rect.height - 844);
+    }).toBeLessThan(2);
     const rail = dialog.locator('.rv-viewer__rail');
     const box = await rail.boundingBox();
     const session = await context.newCDPSession(page);
@@ -137,4 +139,19 @@ test('Password is a full login view with SMS navigation, history and portrait OT
   const resend = await page.locator('[data-rv-resend]').boundingBox();
   expect(resend.x + resend.width / 2).toBeCloseTo(timer.x + timer.width / 2);
   await capture(page, 'AUTH-01-centered-resend');
+});
+
+test('An overflowing portfolio filter rail drags without activating a filter @visual', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('portfolio/');
+  await ready(page);
+  const rail = page.locator('.rv-chip-rail').first();
+  const box = await rail.boundingBox();
+  const url = page.url();
+  await page.mouse.move(box.x + 40, box.y + box.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(box.x + box.width - 20, box.y + box.height / 2, { steps: 8 });
+  await page.mouse.up();
+  await expect.poll(() => rail.evaluate(el => el.scrollLeft)).toBeLessThan(-20);
+  await expect(page).toHaveURL(url);
 });

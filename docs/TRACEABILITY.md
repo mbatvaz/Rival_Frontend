@@ -95,3 +95,9 @@ Final accepted Phase 02 gate: npm run lint passed; npm test 56 passed; npm run t
 | DEC-043, Design System v2 | Separate desktop workspace at 1024px; calendar and times together; document-sticky summaries; grouped rows; responsive results | Approved desktop briefs and prototype; desktop keyboard and breakpoint test |
 
 Keep `design-export/` and `docs/references/` as source evidence. Visuals and review notes are linked from `docs-work/PHASE_03_REPORT_FA.md`.
+
+## Mobile device review amendments
+
+- DEC-044 applies the owner references for PUB-01/02, AUTH-01/02, SYS-ACC-01, CUS-02, BK-01/02, BK-F01/F02 and PAY-RES. BK-02 uses the existing Batch 2 BK-02-DEF and BK-02-EMPTY exports for the mobile views.
+- DEC-045 maps the 30-day rule to the Tehran date window and the shared Persian calendar. Demo scenarios retain the source sample day labels. The calendar exposes distinct available, selected, closed, pending and out-of-window states.
+- ADM-21 featured-image editing must accept landscape and portrait files. Reference PUB-01 and its two image fixture fields when that phase starts.

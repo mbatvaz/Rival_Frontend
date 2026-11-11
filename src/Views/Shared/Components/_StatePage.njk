@@ -9,7 +9,7 @@
   <div class="rv-state-page__receipt rv-panel">
     {% if statePage.context %}
     <div class="rv-state-page__context">
-      {% if statePage.context.image %}<img src="{{ statePage.context.image }}" alt="" data-rv-result-image>{% endif %}
+      {% if statePage.context.image %}<span class="rv-state-page__photo"><img src="{{ statePage.context.image }}" alt="" data-rv-result-image>{% if statePage.context.avatar %}<img src="{{ statePage.context.avatar }}" alt="" data-rv-result-avatar>{% endif %}</span>{% endif %}
       <div><strong data-rv-result-service>{{ statePage.context.title }}</strong>
       {% if statePage.context.subtitle %}<p class="rv-muted" data-rv-result-stylist>{{ statePage.context.subtitle }}</p>{% endif %}</div>
     </div>
