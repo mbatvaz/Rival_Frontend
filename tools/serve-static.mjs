@@ -64,7 +64,7 @@ function shutdown() {
 }
 process.on('message', message => { if (message === 'shutdown') shutdown(); });
 process.on('disconnect', shutdown);
-server.listen(port, '127.0.0.1', () => {
+server.listen(port, '0.0.0.0', () => {
   console.log('Rival preview: http://localhost:' + port + basePath + '_preview/');
   process.send?.({ ready: true });
 });
