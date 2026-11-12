@@ -1,9 +1,10 @@
 <form class="rv-booking-form rv-booking-workspace rv-booking-time" data-rv-booking-form action="{% if model.kind == 'fixed' %}{{ bookingUrls['BK-F02'] }}{% else %}{{ bookingUrls['BK-REQ01'] }}{% endif %}">
+  <div class="rv-booking-step-row">{% include "Booking/_Steps.njk" %}</div>
   <div class="rv-booking-detail">
     {% if model.kind == 'fixed' %}
     <p class="rv-booking__notice" data-rv-sms-entry hidden>این زمان از پیامک اعلان آمده است. زمان به محض رزرو شدن از فهرست حذف می‌شود.</p>
     <section class="rv-booking-soon-panel" data-rv-soon aria-labelledby="rv-soon-title">
-      <h2 id="rv-soon-title">زودترین زمان‌های آزاد</h2>
+      <h2 id="rv-soon-title">نزدیک‌ترین زمان</h2>
       <div class="rv-booking-soon" role="radiogroup" aria-labelledby="rv-soon-title">
         {% for day in bookingCatalog.calendar.days %}
         {% if day.label %}
@@ -14,6 +15,14 @@
         {% endif %}
         {% endfor %}
       </div>
+    </section>
+    {% endif %}
+    {% if model.kind == 'fixed' %}
+    <section class="rv-booking-empty rv-time-empty" data-rv-no-availability hidden>
+      <span class="rv-icon-tile rv-icon-tile--large"><span class="ri ri-calendar-x" aria-hidden="true"></span></span>
+      <h2 data-rv-no-availability-title></h2>
+      <p class="rv-muted" data-rv-no-availability-detail></p>
+      <a class="rv-btn rv-btn--secondary" href="{{ bookingUrls['BK-02'] }}" data-rv-step-route="BK-02"><span class="ri ri-users" aria-hidden="true"></span>انتخاب آرایشگر دیگر</a>
     </section>
     {% endif %}
     <div class="rv-booking-availability" data-rv-availability>
@@ -43,7 +52,10 @@
           <strong data-rv-day-heading></strong><p class="rv-muted" data-rv-day-description></p>
         </div>
         {% if model.kind == 'fixed' %}
-        <p class="rv-booking__notice" role="status" data-rv-alert-done hidden>اعلان آزمایشی ثبت شد.</p>
+        <div class="rv-glass rv-alert-toast" role="status" data-rv-alert-done hidden>
+          <span class="rv-icon-tile rv-state-page__icon--success"><span class="ri ri-check" aria-hidden="true"></span></span>
+          <div><strong>اعلان ثبت شد</strong><p class="rv-muted">بعد از پیامک خودتان رزرو کنید. زمانی برایتان نگه داشته نمی‌شود.</p></div>
+        </div>
         <button class="rv-booking-alert-entry" type="button" data-rv-sheet-open="rv-booking-alert">
           <span class="rv-icon-tile"><span class="ri ri-bell-ring" aria-hidden="true"></span></span>
           <span><strong data-rv-alert-title>زمان مناسبی نیست؟</strong><span class="rv-muted" data-rv-alert-sub>با آزاد شدن زمان، خبر بگیرید.</span></span><span class="ri ri-chevron-left" aria-hidden="true"></span>
@@ -56,17 +68,15 @@
     <div class="rv-booking-contextual">
 
       {% include "Booking/_Context.njk" %}
-      <div class="rv-booking-desktop-only rv-booking-summary-edits">
-        <a class="rv-text-link" href="{{ bookingUrls['BK-01'] }}" data-rv-step-route="BK-01">تغییر خدمت</a>
-        <a class="rv-text-link" href="{{ bookingUrls['BK-02'] }}" data-rv-step-route="BK-02">تغییر آرایشگر</a>
-      </div>
+
       {% if model.kind == 'proposed' %}
-      <p class="rv-booking__notice"><span class="ri ri-info" aria-hidden="true"></span>این درخواست زمانی را قفل نمی‌کند. آرایشگر تا ۷ روز پاسخ می‌دهد و پاسخ او ۳ ساعت برای پرداخت نگه داشته می‌شود.</p>
+      <p class="rv-booking__notice rv-booking-explainer"><span class="ri ri-info" aria-hidden="true"></span>این درخواست زمانی را قفل نمی‌کند. آرایشگر تا ۷ روز پاسخ می‌دهد و پاسخ او ۳ ساعت برای پرداخت نگه داشته می‌شود.</p>
       {% endif %}
     </div>
     <div class="rv-booking-action rv-glass rv-glass--strong">
       <p class="rv-booking-conflict" data-rv-selection-warning role="status" hidden></p>
       <div><strong data-rv-action-title>{% if model.kind == 'fixed' %}زمانی انتخاب نشده{% else %}روز و بخش روز را انتخاب کنید{% endif %}</strong><p class="rv-muted" data-rv-action-sub></p></div>
+      <div data-rv-empty-alert></div>
       <button class="rv-btn" type="submit" data-rv-booking-submit disabled>{% if model.kind == 'fixed' %}ادامه{% else %}ثبت درخواست{% endif %}</button>
     </div>
     <div data-rv-desktop-alert></div>

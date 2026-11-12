@@ -1,0 +1,110 @@
+@layer pages {
+  .rv-booking-explainer { font-size: var(--body-sm-size); font-weight: 300; }
+  .rv-booking-choice__caption > :last-child:not(strong) { font-weight: 300; }
+  .rv-booking-step-row > .rv-booking-steps { margin: 0; }
+  .rv-booking-steps li > * { white-space: nowrap; }
+  .rv-booking-steps ol > :last-child > * { justify-content: flex-end; }
+  .rv-booking-steps ol > :only-child > * { justify-content: center; }
+  .rv-booking-steps li > * .rv-booking-steps__icon { flex: none; }
+
+  .rv-booking-time [data-rv-action-sub]:empty,
+  [data-rv-empty-alert]:empty,
+  [data-rv-desktop-alert]:empty { display: none; }
+
+  .rv-time-empty { max-inline-size: 460px; margin-inline: auto; }
+  .rv-booking-time [data-rv-empty-alert] .rv-btn { justify-content: center; color: var(--text-inverse); background: var(--bg-inverse); }
+  [data-rv-empty-alert] .rv-icon-tile { background: none; box-shadow: none; color: inherit; }
+
+  [data-rv-empty-alert] .rv-muted,
+  [data-rv-empty-alert] .ri-chevron-left { display: none; }
+
+  .rv-booking-requested .rv-booking-package .rv-booking-choice { overflow: visible; }
+  .rv-booking-package .rv-booking-choice > img { border-radius: inherit; }
+
+  .rv-package-plus {
+    position: absolute;
+    z-index: 2;
+    inset-inline-end: -19px;
+    inset-block-start: calc(50% - 15px);
+    inline-size: 30px;
+    block-size: 30px;
+  }
+
+  @media not all and (min-width: 1024px) {
+    .rv-booking-step-row { display: none; }
+
+    .rv-booking[data-rv-booking-kind="services"] .rv-booking-steps:not([hidden]) {
+      display: grid;
+      justify-content: center;
+      margin-block-end: var(--space-3);
+    }
+
+    .rv-booking[data-rv-booking-kind="services"] .rv-booking-steps ol { list-style: none; padding: 0; margin: 0; }
+    .rv-booking[data-rv-booking-kind="services"] .rv-booking-steps li > span { display: flex; align-items: center; gap: var(--space-2); }
+
+    .rv-booking[data-rv-booking-kind="services"] .rv-booking-steps__icon {
+      display: grid;
+      place-items: center;
+      inline-size: 24px;
+      block-size: 24px;
+      border-radius: var(--radius-pill);
+      background: var(--bg-inverse);
+      color: var(--text-inverse);
+    }
+
+    .rv-booking-requested { padding-block-end: 92px; }
+    .rv-booking-requested .rv-booking-contextual { order: -1; }
+
+    .rv-booking-requested .rv-booking-action {
+      position: fixed;
+      inset: auto 0 0;
+      max-inline-size: 720px;
+      margin: 0 auto;
+      padding-block-end: max(var(--space-3), env(safe-area-inset-bottom));
+    }
+
+    .rv-booking-time [data-rv-empty-alert] .rv-btn { margin: 0; padding: var(--space-2); gap: var(--space-1); }
+  }
+
+  @media (min-width: 1024px) {
+    .rv-booking-workspace:where(:has(> .rv-booking-step-row)) { grid-template-rows: min-content auto; }
+    .rv-booking__main .rv-booking-workspace > .rv-booking-step-row { grid-area: 1 / 1; display: block; }
+    .rv-booking-workspace:where(:has(> .rv-booking-step-row)) > :is(.rv-booking-detail, .rv-booking-checkout__ticket) { grid-area: 2 / 1; }
+    .rv-booking-workspace:where(:has(> .rv-booking-step-row)) > .rv-booking-summary { grid-area: 1 / 2 / span 2; }
+
+    .rv-booking-time > .rv-booking-summary,
+    .rv-booking-requested > .rv-booking-summary {
+      padding: 0;
+      border: 0;
+      background: none;
+      box-shadow: none;
+    }
+
+    .rv-booking-time .rv-booking-summary > .rv-booking-action,
+    .rv-booking-requested .rv-booking-summary > .rv-booking-action {
+      padding: var(--space-4);
+      border: 1px solid var(--glass-edge);
+      border-radius: var(--radius-xl);
+      background: var(--glass-fill-strong);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .rv-booking-time .rv-booking-summary .rv-booking-context { min-block-size: 84px; }
+
+    .rv-booking-time .rv-booking-summary .rv-booking-context > img,
+    .rv-booking-requested .rv-booking-summary .rv-booking-context > img { block-size: 88px; }
+
+    .rv-booking-requested .rv-booking-summary .rv-booking-context { grid-template-columns: minmax(0, 1fr) 42%; min-block-size: 84px; background: var(--glass-fill-strong); }
+
+    .rv-booking-requested .rv-booking-summary .rv-booking-context > img {
+      grid-column: 2;
+      border-radius: 0;
+      mask-image: linear-gradient(to left, transparent, var(--bg-inverse) 66%);
+    }
+
+    .rv-booking-requested .rv-booking-summary .rv-booking-context > div { grid-column: 1; padding: var(--space-3); }
+    .rv-booking__top { align-items: center; }
+    .rv-booking__top h1 { min-block-size: 0; line-height: 1.25; }
+    .rv-booking__top:has(p.rv-booking-desktop-only) > a { align-self: start; }
+  }
+}

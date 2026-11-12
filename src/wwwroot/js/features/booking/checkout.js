@@ -1,8 +1,9 @@
 import { localUrl } from '../../core/config.js';
 import { faDigits } from '../../core/format.js';
 import { longDay } from './availability.js';
-import { demoId, dateLabel, get, money, persist, query, route, state, text, visible, bindForm, findHold } from './shared.js';
+import { demoId, get, money, persist, query, route, state, text, visible, bindForm, findHold } from './shared.js';
 import { bookingItem, snapshot } from './holds.js';
+import { paintGroup } from './group-ticket.js';
 
 export async function initCheckout(root, { catalog, service, stylist }, scenario = state) {
   const id = query.get('hold');
@@ -33,23 +34,24 @@ export async function initCheckout(root, { catalog, service, stylist }, scenario
   const grouped = quote.items.length > 1;
   visible(root, 'steps', !grouped);
   visible(root, 'group-steps', grouped);
+  const progress = get(root, 'mobile-progress');
+  if (grouped && progress) {
+    progress.max = 2;
+    progress.value = 2;
+    text(root, 'mobile-step', 'قدم ۲ از ۲');
+  }
   const timeStep = root.querySelector('[data-rv-step-route="BK-F01"]');
   if (timeStep) timeStep.href = route('BK-F01', { service: first.service, stylist: first.stylist, date: first.date, time: first.time, demo: query.get('demo') });
   visible(root, 'ticket-heading', !grouped);
   visible(root, 'single-ticket', !grouped);
   visible(root, 'group-ticket', grouped);
-  if (grouped) get(root, 'group-items').replaceChildren(...quote.items.map(item => {
-    const row = document.createElement('li');
-    const name = catalog.services.find(service => service.id === item.service).name;
-    const barber = catalog.stylists.find(stylist => stylist.id === item.stylist).name;
-    row.textContent = name + ' · ' + barber + ' · ' + dateLabel(item.date) + ' · ' + faDigits(item.time) + ' · ' + money(item.fee);
-    return row;
-  }));
+  if (grouped) paintGroup(root, quote, catalog);
   text(root, 'price-total', money(quote.amount));
-  text(root, 'price-credit', money(quote.applied));
+  text(root, 'price-credit', '−' + money(quote.applied));
   visible(root, 'credit-row', quote.applied > 0);
   text(root, 'price-due', money(quote.due));
   text(root, 'action-title', money(quote.due || quote.applied));
+  if (quote.due) text(root, 'payment-label', 'پرداخت از درگاه');
   if (!quote.due) {
     text(root, 'payment-label', 'از اعتبار شما کم می‌شود');
     text(root, 'price-help', 'کل هزینهٔ رزرو از اعتبار شما کم می‌شود. این مبلغ هزینهٔ رزرو است.');

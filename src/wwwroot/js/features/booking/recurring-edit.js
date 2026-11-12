@@ -27,6 +27,8 @@ export function setupEditor(catalog, save) {
     text(sheet, 'rec-step-text', editing ? longDay(draft.date) + ' · ' + faDigits(draft.time) : 'خدمت، آرایشگر و زمان را انتخاب کنید. می‌توانید تکرارش کنید.');
     text(sheet, 'rec-day-number', editing ? '۱' : '۳');
     if (editing) paintContext(sheet, service, stylist);
+    const times = availableTimes(calendar, draft.date);
+    visible(sheet, 'rec-time-list', times.length > 0);
     for (const field of sheet.querySelectorAll('input[type="radio"]:not([data-rv-date])')) {
       const key = field.name.slice(4);
       field.checked = String(draft[key]) === field.value;
@@ -34,7 +36,10 @@ export function setupEditor(catalog, save) {
         field.closest('label').hidden = Boolean(service && !service.stylists.includes(field.value));
         field.disabled = !service;
       }
-      if (key === 'time') field.disabled = !availableTimes(calendar, draft.date).includes(field.value);
+      if (key === 'time') {
+        field.disabled = !times.includes(field.value);
+        field.closest('label').hidden = field.disabled;
+      }
     }
     const calendarKey = monthKey(month) + '/' + Boolean(stylist);
     if (calendarKey !== renderedCalendar) {
@@ -101,5 +106,6 @@ export function setupEditor(catalog, save) {
     visible(sheet, 'rec-error', false);
     render();
     openSheet(sheet.id, opener);
+    sheet.scrollTop = 0;
   };
 }

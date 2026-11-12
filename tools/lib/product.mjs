@@ -11,13 +11,14 @@ const desktopHeadings = {
   checkout: { title: 'رزرو را بررسی کنید', lead: 'جزئیات نوبت و مبلغ رزرو را پیش از پرداخت مرور کنید.' }
 };
 
-function desktopSteps(id) {
+function bookingSteps(id, proposed = id === 'BK-P01') {
   const active = { 'CUS-02': 0, 'BK-01': 0, 'BK-02': 1, 'BK-F01': 2, 'BK-ALERT01': 2, 'BK-F02': 3, 'BK-P01': 2, 'BK-R01': 1 }[id];
   if (active === undefined) return [];
   const services = ['BK-01', 'خدمت', 'scissors'];
   const stylist = ['BK-02', 'آرایشگر', 'user'];
-  const request = [id, 'درخواست', 'send'];
-  const steps = id === 'BK-P01' ? [services, stylist, request] : id === 'BK-R01' ? [services, request]
+  const request = [id, 'ارسال درخواست', 'send'];
+  const steps = active === 0 ? [services] : id === 'BK-R01' ? [services, request]
+    : proposed ? [services, stylist, ['BK-P01', 'زمان ترجیحی', 'calendar'], [id, 'ارسال درخواست', 'send']]
     : [services, stylist, ['BK-F01', 'زمان', 'calendar'], ['BK-F02', 'پرداخت', 'card']];
   return steps.map(([id, label, icon], index) => ({
     id, label, active: index === active, complete: index < active, icon: index < active ? 'check' : icon
@@ -30,20 +31,21 @@ function statePages(fixtures, urls, catalog, defaults, asset) {
     const context = result.details ? {
       image: asset(defaults.service.image),
       title: defaults.service.name,
-      avatar: result.receipt && defaults.stylist ? asset(defaults.stylist.image) : '',
+      avatar: defaults.stylist ? asset(defaults.stylist.image) : '',
       subtitle: result.details !== 'service' && defaults.stylist ? 'با ' + defaults.stylist.name : '',
-      showTime: result.details === true, time: ''
+      showTime: result.details === true && !result.inlineReference, time: ''
     } : null;
     const lines = result.receipt ? [
       { label: 'از اعتبار شما', field: 'credit', value: money(90000) },
       { label: 'پرداخت از درگاه', field: 'due', value: money(90000) }
     ] : [];
+    if (key === 'proposed') lines.push({ label: 'روز ترجیحی', field: 'preferred-date', value: '۲۵ مهر' }, { label: 'زمان از روز', field: 'preferred-part', value: 'صبح' });
     if (result.amount) lines.push({ label: 'مبلغ برگشتی به اعتبار', value: money(result.amount) });
-    const actions = [{ id: result.action, href: urls[result.action], label: result.actionText }];
-    if (result.home) actions.push({ href: urls.panel, label: 'بازگشت به خانه' });
+    const actions = [{ id: result.action, href: urls[result.action], label: result.actionText, secondary: result.secondaryOnly }];
+    if (result.home) actions.push({ href: urls.panel, label: 'بازگشت به خانه', secondary: true });
     return {
       ...result, key, context, lines, actions, hidden: index > 0,
-      reference: result.track ? { label: 'کد پیگیری آزمایشی', value: catalog.tracking } : null,
+      reference: result.track ? { label: 'کد پیگیری', value: result.referenceCode ?? catalog.tracking } : null,
       notice: result.sms ? { icon: 'info', text: 'پیامک تأیید ارسال نشد. جزئیات نوبت در حساب قابل مشاهده است.' } : null
     };
   });
@@ -76,7 +78,8 @@ export async function productContext(page, basePath, pages) {
     const bookingUrls = { ...urls, panel: route('/customer/'), alerts: route('/customer/availability-alerts/'),
       requests: route('/customer/requests/'), appointments: route('/customer/appointments/') };
     booking = {
-      bookingSteps: desktopSteps(page.id),
+      bookingSteps: bookingSteps(page.id),
+      bookingStepVariants: page.id === 'BK-02' ? [bookingSteps(page.id), bookingSteps(page.id, true)] : [bookingSteps(page.id)],
       bookingHeadings: desktopHeadings,
       bookingResults: statePages(results[page.id], bookingUrls, catalog, defaultSelection, asset => basePath + asset),
       bookingContact: ['STATE-07', 'BK-F02'].includes(page.id) ? (await readJson(path.join(src, 'MockData/public/home.json'))).data : null,

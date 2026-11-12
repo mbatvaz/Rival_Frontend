@@ -21,6 +21,10 @@ test('Desktop date, times and persistent summary share one workspace @visual @sm
   const quick = page.locator('[data-rv-quick-date]').first();
   await quick.check();
   await expect(quick).toBeChecked();
+  const suggestedDate = await quick.getAttribute('data-rv-quick-date');
+  const suggestedTime = await quick.getAttribute('data-rv-quick-time');
+  await expect(calendar.locator('[data-rv-date="' + suggestedDate + '"]')).toBeChecked();
+  await expect(times.locator('input[value="' + suggestedTime + '"]')).toBeChecked();
   await expect(submit).toBeEnabled();
 
 
@@ -56,14 +60,14 @@ test('Desktop date, times and persistent summary share one workspace @visual @sm
   await expect(page.getByRole('radio', { name: '۱۶:۰۰' })).toBeChecked();
 });
 
-test('Read-only availability and the conflict reason stay with their desktop controls @smoke', async ({ page }) => {
+test('Empty availability and the conflict reason stay with their desktop controls @smoke', async ({ page }) => {
   await page.setViewportSize({ width: 1920, height: 939 });
   await page.goto('_preview/context/bk-f01/?state=none');
   const calendar = page.locator('[data-rv-time-calendar]');
-  await expect(calendar.getByRole('radio').first()).toBeDisabled();
-  await expect(calendar.getByRole('radio').first()).toBeVisible();
+  await expect(calendar).toBeHidden();
+  await expect(page.locator('[data-rv-no-availability]')).toBeVisible();
   const summary = page.getByRole('complementary', { name: 'خلاصهٔ رزرو' });
-  await expect(summary.getByRole('button', { name: /زمان مناسبی نیست/ })).toBeVisible();
+  await expect(summary.getByRole('button', { name: 'خبرم کنید' })).toBeVisible();
 
   await page.goto('_preview/context/bk-f01/?state=conflict');
   await expect(summary.getByRole('status')).toContainText('تداخل دارد');

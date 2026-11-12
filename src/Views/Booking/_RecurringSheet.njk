@@ -21,17 +21,17 @@
         {% endfor %}
       </div>
     </fieldset>
-  </div>
-  <div class="rv-recurring-editor__when" data-rv-rec-step="3">
-    <h3><span data-rv-rec-day-number>۳</span> روز و ساعت</h3>
-    {% include "Booking/_Calendar.njk" %}
-    <fieldset class="rv-booking-picks">
-      <legend>ساعت شروع</legend>
-      <div class="rv-booking-picks__grid">
-        {% for time in bookingCatalog.calendar.times %}<label class="rv-booking-radio"><input type="radio" name="rec-time" value="{{ time }}"><span><bdi>{{ time | faDigits }}</bdi></span></label>{% endfor %}
-      </div>
-    </fieldset>
-    <p class="rv-muted" data-rv-rec-edit-tip hidden>فقط روز و ساعت همین نوبت تغییر می‌کند. برای تغییر خدمت یا آرایشگر، نوبت را حذف کنید و نوبت تازه‌ای بسازید.</p>
+    <div class="rv-recurring-editor__when" data-rv-rec-step="3">
+      <h3><span data-rv-rec-day-number>۳</span> روز و ساعت</h3>
+      {% include "Booking/_Calendar.njk" %}
+      <fieldset class="rv-booking-picks" data-rv-rec-time-list hidden>
+        <legend>ساعت شروع</legend>
+        <div class="rv-booking-picks__grid">
+          {% for time in bookingCatalog.calendar.times %}<label class="rv-booking-radio"><input type="radio" name="rec-time" value="{{ time }}"><span><bdi>{{ time | faDigits }}</bdi></span></label>{% endfor %}
+        </div>
+      </fieldset>
+      <p class="rv-muted" data-rv-rec-edit-tip hidden>فقط روز و ساعت همین نوبت تغییر می‌کند. برای تغییر خدمت یا آرایشگر، نوبت را حذف کنید و نوبت تازه‌ای بسازید.</p>
+    </div>
   </div>
   <div class="rv-recurring-editor__repeat">
     <fieldset class="rv-booking-picks" data-rv-rec-step="4">
@@ -51,7 +51,7 @@
         </div>
       </fieldset>
       <div class="rv-panel rv-recurring-preview" data-rv-rec-preview-panel hidden><strong data-rv-rec-preview-title></strong><p class="rv-muted" data-rv-rec-preview-caption></p><ul class="rv-booking-facts" data-rv-rec-preview></ul><p class="rv-muted">نوبت‌های غیرقابل رزرو در فهرست مشخص می‌شوند و پیش از پرداخت باید تغییر کنند.</p></div>
-  </div>
+    </div>
   </div>
   <p class="rv-booking__notice rv-booking__notice--warning" data-rv-rec-error role="alert" hidden></p>
   <div class="rv-booking__notice rv-booking__notice--warning" data-rv-rec-delete-note hidden>
@@ -60,6 +60,6 @@
   </div>
   <div class="rv-actions">
     <button class="rv-btn" type="button" data-rv-rec-next>ادامه</button>
-    <button class="rv-btn rv-btn--danger" type="button" data-rv-rec-delete hidden>حذف این نوبت</button>
+    <button class="rv-btn rv-btn--secondary rv-recurring-delete" type="button" data-rv-rec-delete hidden><span class="ri ri-trash" aria-hidden="true"></span>حذف این نوبت</button>
   </div>
 </section>

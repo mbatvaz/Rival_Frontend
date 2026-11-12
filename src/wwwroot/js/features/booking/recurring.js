@@ -18,6 +18,7 @@ export async function initRecurring(root, { catalog }) {
   const template = get(root, 'rec-template');
   const action = get(root, 'booking-submit');
   const add = get(root, 'rec-add');
+  const addRow = add.parentElement;
   const editor = setupEditor(catalog, async (draft, dates) => {
     const remaining = items.filter(item => item.id !== draft.id);
     const additions = dates.map(date => ({
@@ -38,9 +39,9 @@ export async function initRecurring(root, { catalog }) {
       const card = get(fragment, 'rec-edit');
       const current = monthKey(item.date);
       const monthBadge = get(fragment, 'rec-month');
-      if (current !== month) {
-        monthBadge.textContent = monthLabel(item.date).replace(/[۰-۹]/g, '').trim();
-      }
+      const monthName = monthLabel(item.date).replace(/[۰-۹]/g, '').trim();
+      if (current !== month) monthBadge.textContent = monthName;
+      text(fragment, 'rec-date-month', monthName);
       month = current;
       card.dataset.rvRecItemId = item.id;
       card.dataset.rvInvalid = String(Boolean(item.invalid));
@@ -54,7 +55,7 @@ export async function initRecurring(root, { catalog }) {
       visible(fragment, 'rec-invalid', item.invalid);
       card.addEventListener('click', () => editor({ ...item, index: index + 1 }, card));
       return fragment;
-    }));
+    }), addRow);
     const invalid = items.some(item => item.invalid);
     visible(root, 'rec-empty', !items.length);
     get(root, 'booking-form').dataset.rvRecInvalid = String(invalid);

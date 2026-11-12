@@ -20,15 +20,14 @@
   <header class="rv-booking__top">
     {% if model.back %}<a class="rv-icon-btn" href="{{ bookingUrls[model.back] }}" data-rv-booking-back aria-label="بازگشت"><span class="ri ri-arrow-right" aria-hidden="true"></span></a>{% endif %}
     <div>
-      <h1>{{ model.title }}</h1>
-      {% if model.step %}<p class="rv-muted rv-booking-mobile-only">قدم {{ model.step | faDigits }} از {{ model.total | faDigits }}</p>{% endif %}
+      <h1{% if model.kind == "checkout" %} data-rv-checkout-heading{% endif %}>{{ model.title }}</h1>
+      {% if model.step %}<p class="rv-muted rv-booking-mobile-only" data-rv-mobile-step{% if model.kind == "services" %} hidden{% endif %}>قدم {{ model.step | faDigits }} از {{ model.total | faDigits }}</p>{% endif %}
       {% if bookingHeadings[model.kind] and model.kind != 'services' %}<p class="rv-muted rv-booking-desktop-only">{{ bookingHeadings[model.kind].lead }}</p>{% endif %}
     </div>
   </header>
   <main class="rv-booking__main" id="rv-main" tabindex="-1">
-    {% if model.step %}<progress class="rv-booking__progress" value="{{ model.step }}" max="{{ model.total }}" aria-label="پیشرفت رزرو"></progress>{% endif %}
+    {% if model.step %}<progress class="rv-booking__progress" value="{{ model.step }}" max="{{ model.total }}" aria-label="پیشرفت رزرو" data-rv-mobile-progress{% if model.kind == "services" %} hidden{% endif %}></progress>{% endif %}
     <div class="rv-booking__demo"><span class="ri ri-info" aria-hidden="true"></span><span>پیش‌نمایش آزمایشی رزرو</span><a class="rv-text-link" href="{{ urls.directory }}">فهرست بازبینی</a></div>
-    {% if bookingSteps.length and model.kind != 'services' and model.kind != 'stylists' %}<div class="rv-booking-step-row">{% include "Booking/_Steps.njk" %}</div>{% endif %}
     <p class="rv-booking__notice rv-booking__notice--warning" data-rv-booking-error role="alert" hidden></p>
     <div class="rv-booking__content" data-rv-booking-content>
       {% if model.kind == 'services' or model.kind == 'stylists' %}{% include "Booking/_Choices.njk" %}{% endif %}

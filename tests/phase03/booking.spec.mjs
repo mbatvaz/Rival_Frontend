@@ -26,10 +26,10 @@ test('Fixed booking carries service, stylist and time through one hold and an id
   await expect(page).toHaveURL(/bk-f02.*hold=/);
   const checkout = page.url();
   await submit(page).click();
-  await expect(page.getByRole('heading', { name: 'نوبت آزمایشی شما ثبت شد' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'نوبت شما ثبت شد' })).toBeVisible();
   const reference = await page.locator('[data-rv-result-view="success"] [data-rv-result-code]').textContent();
   await go(page, checkout);
-  await expect(page.getByRole('heading', { name: 'نوبت آزمایشی شما ثبت شد' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'نوبت شما ثبت شد' })).toBeVisible();
   await expect(page.locator('[data-rv-result-view="success"] [data-rv-result-code]')).toHaveText(reference);
 });
 
@@ -57,7 +57,7 @@ test('Proposed selection and compound request reach distinct results without che
   const proposed = page.locator('[data-rv-result-view="proposed"]');
   await expect(proposed).toBeVisible();
   const tracking = proposed.locator('[data-rv-result-code]');
-  await expect(tracking).toHaveText(/^RQ-[A-F0-9]{8}$/);
+  await expect(tracking).toHaveText(/^#RQ-[A-F0-9]{8}$/);
   const reference = await tracking.textContent();
   await page.reload();
   await ready(page);
@@ -71,7 +71,7 @@ test('Proposed selection and compound request reach distinct results without che
   await ready(page);
   const requested = page.locator('[data-rv-result-view="requested"]');
   await expect(requested).toBeVisible();
-  await expect(requested.locator('[data-rv-result-service]')).toHaveText('پکیج دامادی');
+  await expect(requested.locator('.rv-state-page__receipt')).toHaveCount(0);
   await expect(requested.locator('[data-rv-result-code]')).not.toHaveText(reference);
 });
 

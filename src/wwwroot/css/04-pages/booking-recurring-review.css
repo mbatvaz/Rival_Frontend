@@ -14,6 +14,7 @@
     z-index: 1;
     justify-self: center;
     margin-block-start: var(--space-3);
+    min-inline-size: 43px;
     padding: var(--space-1) var(--space-2);
     border-radius: var(--radius-pill);
     background: var(--bg-inverse);
@@ -23,9 +24,15 @@
 
   .rv-recurring-date,
   .rv-recurring-person { display: flex; align-items: center; gap: var(--space-2); }
-  .rv-recurring-date { font-size: var(--caption-size); }
+  .rv-recurring-date { font-size: var(--caption-size); font-weight: 300; }
   .rv-recurring-date > strong { font-size: var(--heading-xl-size); }
-  .rv-recurring-date bdi { padding-inline-start: var(--space-2); border-inline-start: 1px solid var(--line-strong); }
+
+  .rv-recurring-date bdi {
+    padding-inline-start: var(--space-2);
+    border-inline-start: 1px solid var(--line-strong);
+    font-size: var(--body-sm-size);
+    font-weight: 400;
+  }
 
   .rv-recurring-person img {
     inline-size: 24px;
@@ -64,7 +71,7 @@
   }
 
   .rv-recurring-editor__stylists img { inline-size: 52px; block-size: 52px; border-radius: var(--radius-pill); }
-  .rv-recurring-editor input:not(:checked) + span img { opacity: .6; }
+  .rv-recurring-editor :where(input:not(:checked)) + span img { opacity: .6; }
   .rv-recurring-editor__stylists .rv-booking-picks__grid { display: flex; flex-wrap: wrap; }
   .rv-recurring-editor__stylists .rv-booking-radio > span { min-inline-size: 58px; background: none; box-shadow: none; }
   .rv-recurring-preview { margin-block-start: var(--space-3); }
@@ -85,19 +92,19 @@
   .rv-recurring-editor__repeat [data-rv-rec-step="4"] .rv-booking-picks__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .rv-recurring-editor__repeat .rv-booking-radio > span { font-size: var(--body-sm-size); }
 
-  @media not all and (min-width: 1024px) {
-    .rv-recurring-editor { position: relative; padding-block-start: var(--space-8); }
+  .rv-recurring-row .rv-booking-context { min-block-size: 84px; }
+  .rv-recurring-row .rv-booking-context > img { max-block-size: 96px; }
+  .rv-recurring-row .rv-booking-context > span { display: grid; gap: var(--space-1); padding: var(--space-2); }
+  .rv-recurring-row [data-rv-rec-service] { font-size: var(--body-sm-size); }
+  .rv-recurring-editor [data-rv-rec-locked] .rv-booking-context { min-block-size: 72px; }
+  .rv-recurring-editor [data-rv-rec-locked] .rv-booking-context > img { max-block-size: 78px; }
+  .rv-recurring-delete.rv-btn { color: var(--danger-fg); border: 1px solid var(--line-strong); background: var(--bg-surface); }
+  .rv-recurring-add { margin-block-start: 0; }
 
-    .rv-recurring-editor::before {
-      content: "";
-      position: absolute;
-      inset-block-start: var(--space-2);
-      inset-inline-start: calc(50% - 18px);
-      inline-size: 36px;
-      block-size: 4px;
-      border-radius: var(--radius-pill);
-      background: var(--line-strong);
-    }
+  @media not all and (min-width: 1024px) {
+    .rv-recurring-list .rv-recurring-row { grid-template-columns: 48px minmax(0, 1fr); }
+    .rv-recurring-list::before { inset-inline-start: 24px; }
+    .rv-booking-recurring .rv-booking-action .rv-btn { flex: 0 0 42%; }
 
     .rv-booking-recurring { padding-block-end: 96px; }
 
@@ -118,10 +125,16 @@
     }
 
     .rv-recurring-editor > :is(header, p, .rv-actions, [data-rv-rec-delete-note]) { grid-column: 1 / -1; }
-    .rv-recurring-editor__when { grid-area: 2 / 1 / span 2; }
-    .rv-recurring-editor__identity { grid-area: 2 / 2; }
-    .rv-recurring-editor__repeat { grid-area: 3 / 2; }
-    [data-rv-rec-mode="edit"] .rv-recurring-editor__when { grid-row-end: auto; }
+    .rv-recurring-editor[data-rv-rec-mode="edit"] { max-inline-size: 560px; }
+    .rv-recurring-editor__identity { grid-area: 2 / 1; }
+    .rv-recurring-editor__repeat { grid-area: 2 / 2; }
+    [data-rv-rec-mode="edit"] .rv-recurring-editor__identity { grid-column: 1 / -1; inline-size: min(100%, 480px); margin-inline: auto; }
+    .rv-recurring-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .rv-recurring-list::before,
+    .rv-recurring-list .rv-recurring-month { display: none; }
+    .rv-recurring-list .rv-recurring-row { grid-template-columns: minmax(0, 1fr); }
+    .rv-recurring-add-row { grid-column: 1 / -1; }
     .rv-recurring-editor .rv-booking-calendar { margin-inline: 0; }
   }
 }

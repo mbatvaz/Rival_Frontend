@@ -51,7 +51,7 @@ The latest owner instruction wins, then `docs/RIVAL_PROJECT_CONTRACT.md`, then c
 - No inline scripts/styles/event handlers. Use `data-rv` hooks and shared modules.
 - Use logical RTL CSS properties and min-width breakpoints.
 - All interactive hit targets >=44×44px even when the visible control is smaller.
-- No nested vertical scrolling. Horizontal rails/carousels are allowed only with design evidence.
+- No nested vertical scrolling except in the owner-approved mobile BK-REC01 editor, whose header stays visible. Horizontal rails/carousels are allowed only with design evidence.
 - All dialogs/pickers/confirmations are bottom sheets, never centered dialogs.
 - Desktop is a purpose-designed composition based on the mobile design language, not a scaled mobile screen. Write `docs-work/desktop-layouts/<PAGE-ID>.md` and obtain owner review before desktop implementation.
 - Run Playwright at 390, 768, and 1280; run axe and keyboard checks.

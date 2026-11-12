@@ -66,6 +66,12 @@ export function monthGrid(root, month, selected, { start, end, canPick, dayState
     input.dataset.rvDate = date;
     input.checked = selected === date;
     number.textContent = faDay(date);
+    if (day.dataset.rvDayState === 'pending') {
+      const lock = document.createElement('span');
+      lock.className = 'ri ri-lock';
+      lock.setAttribute('aria-hidden', 'true');
+      number.append(lock);
+    }
     input.setAttribute('aria-label', dayName(date) + ' ' + dateLabel(date));
     input.addEventListener('change', () => select(current));
     day.append(input, number);

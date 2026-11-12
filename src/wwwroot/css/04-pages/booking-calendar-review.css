@@ -6,7 +6,9 @@
     box-shadow: var(--shadow-sm);
   }
 
-  .rv-calendar-nav { display: flex; gap: var(--space-1); }
+  .rv-booking-calendar .rv-icon-btn { border: 0; background: transparent; box-shadow: none; }
+  .rv-booking-calendar__head > strong { text-align: center; }
+  .rv-calendar-day .ri { inline-size: 11px; block-size: 11px; }
   .rv-calendar-day { position: relative; display: grid; min-block-size: var(--size-touch); }
 
   .rv-calendar-day input {
@@ -20,7 +22,8 @@
 
   .rv-calendar-day > span {
     display: grid;
-    place-items: center;
+    place-content: center;
+    justify-items: center;
     margin: 2px;
     border-radius: var(--radius-sm);
     background: var(--bg-surface);
@@ -31,8 +34,17 @@
   .rv-calendar-day[data-rv-day-state="closed"] > span,
   .rv-calendar-day :disabled + span { background: none; box-shadow: none; color: var(--text-muted); }
   .rv-calendar-day[data-rv-day-state="closed"] > span { color: var(--danger-fg); }
-  .rv-calendar-day :checked + span { background: var(--bg-inverse); color: var(--text-inverse); }
-  .rv-calendar-day :focus-visible + span { outline: 2px solid var(--focus-ring); outline-offset: -2px; }
+
+  .rv-calendar-day :checked + span {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: -2px;
+    border-radius: var(--radius-pill);
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+    font-weight: 600;
+  }
+  .rv-calendar-day :focus-visible + span { outline: 2px solid var(--focus-ring); outline-offset: 0; }
 
   .rv-booking-conflict {
     padding: var(--space-2);
@@ -42,7 +54,6 @@
   }
 
   @media not all and (min-width: 1024px) {
-    .rv-booking-date-picker[data-rv-read-only="true"] { display: none; }
     .rv-day-strip { position: relative; }
 
     .rv-day-strip__frame {
@@ -87,18 +98,19 @@
 
     .rv-booking-date-picker h2,
     .rv-booking-soon-panel h2 { margin-block-end: var(--space-3); }
-    .rv-booking-availability[data-rv-no-times="true"] .rv-booking-time-picker { display: none; }
     .rv-booking-summary [data-rv-desktop-alert] button { inline-size: 100%; }
 
     .rv-booking-time .rv-booking-summary .rv-booking-context {
-      grid-template-columns: minmax(0, 1fr) 35%;
+      grid-template-columns: minmax(0, 1fr) 43%;
       background: var(--glass-fill-strong);
     }
 
     .rv-booking-time .rv-booking-summary .rv-booking-context > img {
       grid-column: 2;
       block-size: 100%;
-      mask-image: linear-gradient(to left, transparent, var(--bg-inverse) 55%);
+      max-block-size: 100%;
+      border-radius: 0;
+      mask-image: linear-gradient(to left, transparent, var(--bg-inverse) 66%);
     }
 
     .rv-booking-time .rv-booking-summary .rv-booking-context > div {

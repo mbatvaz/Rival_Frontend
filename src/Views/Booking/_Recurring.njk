@@ -1,9 +1,8 @@
 <div class="rv-booking-workspace rv-booking-recurring">
   <section class="rv-booking-recurring__plan" aria-labelledby="rv-rec-heading">
     <h2 class="rv-booking-visually-hidden" id="rv-rec-heading">برنامهٔ نوبت‌ها</h2>
-    <ol class="rv-recurring-list" data-rv-rec-list></ol>
+    <ol class="rv-recurring-list" data-rv-rec-list><li class="rv-recurring-add-row"><button class="rv-recurring-add" type="button" data-rv-rec-add><span class="ri ri-plus" aria-hidden="true"></span>نوبت تازه</button></li></ol>
     <p class="rv-booking__notice" data-rv-rec-empty hidden>نوبتی در فهرست نیست. برای شروع یک نوبت تازه اضافه کنید.</p>
-    <button class="rv-recurring-add" type="button" data-rv-rec-add><span class="ri ri-plus" aria-hidden="true"></span>نوبت تازه</button>
   </section>
   <form class="rv-booking-summary" data-rv-booking-form action="{{ bookingUrls['BK-F02'] }}">
     <div class="rv-booking-desktop-only rv-booking-summary-head"><h2>خلاصهٔ رزرو دوره‌ای</h2><span class="ri ri-receipt" aria-hidden="true"></span></div>
@@ -19,7 +18,7 @@
     <button type="button" class="rv-booking-context rv-glass" data-rv-rec-edit>
       <img src="{{ basePath }}{{ bookingDefault.service.image }}" alt="" data-rv-rec-photo>
       <span>
-        <span class="rv-recurring-date"><strong data-rv-rec-day></strong><span data-rv-rec-date></span><bdi data-rv-rec-time></bdi></span>
+        <span class="rv-recurring-date"><strong data-rv-rec-day></strong><span class="rv-booking-desktop-only" data-rv-rec-date-month></span><span data-rv-rec-date></span><bdi data-rv-rec-time></bdi></span>
         <strong data-rv-rec-service></strong><span class="rv-recurring-person"><img data-rv-rec-avatar src="{{ basePath }}{{ bookingDefault.stylist.image }}" alt=""><span class="rv-muted" data-rv-rec-stylist></span></span>
         <span class="rv-booking-desktop-only rv-recurring-edit"><span class="ri ri-edit" aria-hidden="true"></span>ویرایش</span>
         <span class="rv-recurring-invalid" data-rv-rec-invalid hidden>غیرقابل رزرو</span>

@@ -6,6 +6,8 @@
     position: relative;
     block-size: 416px;
     overflow: clip;
+    touch-action: pan-y pinch-zoom;
+    cursor: grab;
   }
 
   .rv-home-carousel__card {

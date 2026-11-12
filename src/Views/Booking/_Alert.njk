@@ -1,22 +1,24 @@
-<section class="rv-sheet rv-booking-sheet" id="rv-booking-alert" role="dialog" aria-modal="true" aria-labelledby="rv-alert-title" tabindex="-1" hidden>
+<section class="rv-sheet rv-booking-sheet rv-alert-sheet" id="rv-booking-alert" role="dialog" aria-modal="true" aria-labelledby="rv-alert-title" tabindex="-1" hidden>
   <header class="rv-sheet__header">
+    <span class="rv-icon-tile rv-alert-sheet__icon"><span class="ri ri-bell-ring" aria-hidden="true"></span></span>
     <div><h2 id="rv-alert-title">خبرم کنید</h2><p class="rv-muted">وقتی زمانی آزاد شد، پیامک می‌گیرید.</p></div>
     <button class="rv-icon-btn" type="button" data-rv-sheet-close aria-label="بستن اعلان"><span class="ri ri-x" aria-hidden="true"></span></button>
   </header>
   {% include "Booking/_Context.njk" %}
-  <div data-rv-alert-facts>
+  <div class="rv-booking-explainer" data-rv-alert-facts>
     <ul class="rv-booking-facts">
-      <li><span class="ri ri-sms" aria-hidden="true"></span>فقط یک پیامک برای اولین آزاد شدن زمان این خدمت و آرایشگر.</li>
+      <li><span class="ri ri-sms" aria-hidden="true"></span>فقط یک پیامک، در اولین آزاد شدن زمانی از این آرایشگر برای این خدمت.</li>
       <li><span class="ri ri-timer" aria-hidden="true"></span>این اعلان ۶ روز اعتبار دارد.</li>
-      <li><span class="ri ri-info" aria-hidden="true"></span>بعد از پیامک خودتان باید زمان را رزرو کنید.</li>
+      <li><span class="ri ri-info" aria-hidden="true"></span>زمانی برایتان نگه داشته نمی‌شود. بعد از پیامک خودتان رزرو کنید.</li>
     </ul>
-    <p class="rv-muted">ثبت در این پیش‌نمایش آزمایشی است.</p>
   </div>
-  <p class="rv-booking__notice" data-rv-alert-duplicate hidden>برای این خدمت و آرایشگر اعلان فعالی دارید.</p>
+  <div class="rv-alert-duplicate" data-rv-alert-duplicate hidden>
+    <span class="ri ri-bell" aria-hidden="true"></span><div><strong>این اعلان از قبل فعال است</strong><p data-rv-alert-duplicate-text></p></div>
+  </div>
   <p class="rv-booking__notice rv-booking__notice--warning" data-rv-alert-error role="alert" hidden></p>
   <div class="rv-actions">
     <button class="rv-btn" type="button" data-rv-alert-confirm>ثبت اعلان</button>
     <a class="rv-btn" href="{{ bookingUrls.alerts }}" data-rv-alert-view hidden>مشاهده اعلان‌ها</a>
-    <button class="rv-btn rv-btn--secondary" type="button" data-rv-sheet-close>بستن</button>
+    <button class="rv-btn rv-btn--secondary" type="button" data-rv-sheet-close><span data-rv-alert-close-label>انصراف</span></button>
   </div>
 </section>

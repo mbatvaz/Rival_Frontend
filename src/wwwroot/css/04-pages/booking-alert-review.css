@@ -1,0 +1,37 @@
+@layer pages {
+  .rv-alert-sheet__icon { background: var(--bg-inverse); color: var(--text-inverse); }
+  .rv-alert-sheet .rv-sheet__header > div { flex: 1; }
+
+  .rv-alert-duplicate {
+    display: flex;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    border: 1px solid var(--info-line);
+    border-radius: var(--radius-lg);
+    background: var(--info-bg);
+  }
+
+  .rv-alert-duplicate .ri { flex: none; color: var(--info-fg); }
+  .rv-alert-duplicate p { margin: var(--space-1) 0 0; font-weight: 300; color: var(--text-secondary); }
+
+  .rv-alert-toast {
+    z-index: 2;
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    place-self: center center;
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+    background: var(--bg-surface);
+    box-shadow: var(--shadow-md);
+  }
+
+  .rv-alert-toast p { margin: 0; }
+  .rv-booking-alert-entry[data-rv-alert-active="true"]:not(.rv-btn) { background: var(--accent-bg); border-color: var(--accent-line); }
+  .rv-booking-alert-entry[data-rv-alert-active="true"]:not(.rv-btn) .rv-icon-tile { color: var(--accent-fg); background: var(--accent-bg); }
+
+  @media not all and (min-width: 1024px) {
+    .rv-alert-toast { position: sticky; inset-block-start: var(--space-3); order: -2; }
+    .rv-alert-toast:not([hidden]) + .rv-booking-time { margin-block-start: calc(-1 * var(--space-5)); }
+  }
+}

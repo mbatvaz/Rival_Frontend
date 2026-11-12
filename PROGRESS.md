@@ -26,6 +26,11 @@ Phase 03 was assigned after Phase 02 closeout. Its desktop briefs and six-view p
 - Restored persistent field labels, added smooth keyboard avoidance, and documented the source-artboard comparison workflow (DEC-046/047).
 - Applied desktop menu and heading corrections, aligned selection steps, and used the Batch 2 time and checkout artboards for controls, states, and payment visual hierarchy. See `docs-work/REVIEW_2026-11-12_FA.md`.
 
+## Third booking review — 2026-11-12
+
+- Updated booking stages by service, linked suggested times to calendar and time choices, and adapted the recurring editor, alerts, payment breakdowns and result states to the owner review.
+- Added the recurring sheet's mobile scroll exception and lightweight, reduced-motion-aware icon animations. See `docs-work/REVIEW_2026-11-12_FA.md`.
+
 ## Second booking review — 2026-11-12
 
 - Reworked the recurring list, new appointment and edit sheets using the Batch 2 artboards. The shared month picker now uses native radios, and the mobile date strip selects the date in its fixed center frame.

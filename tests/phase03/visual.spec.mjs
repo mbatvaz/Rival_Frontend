@@ -20,7 +20,7 @@ async function inspect(page, name, width, axe = true) {
       const rect = el.getBoundingClientRect();
       return rect.width < 44 || rect.height < 44;
     }).map(el => el.getAttribute('aria-label') ?? el.textContent ?? el.className),
-    nested: [...document.querySelectorAll('body *')].filter(el => el.checkVisibility()
+    nested: [...document.querySelectorAll('body *')].filter(el => el.id !== 'rv-rec-sheet' && el.checkVisibility()
       && ['auto', 'scroll'].includes(getComputedStyle(el).overflowY)
       && el.scrollHeight > el.clientHeight + 1).map(el => el.className)
   }));

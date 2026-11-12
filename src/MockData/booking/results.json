@@ -4,51 +4,81 @@
   "data": {
     "BK-REQ01": {
       "proposed": {
-        "title": "درخواست آزمایشی شما ثبت شد",
-        "description": "آرایشگر تا ۷ روز پاسخ می‌دهد. پس از پاسخ، ۳ ساعت برای پرداخت فرصت دارید.",
-        "tone": "success",
-        "icon": "check",
+        "title": "درخواست شما ثبت شد",
+        "description": "تا ۷ روز به درخواست شما پاسخ داده می‌شود. با رسیدن پاسخ، پیامک می‌گیرید و ۳ ساعت فرصت پرداخت دارید.",
+        "tone": "plum",
+        "icon": "send",
         "action": "requests",
-        "actionText": "مشاهده درخواست‌ها",
+        "actionText": "مشاهده درخواست",
         "track": true,
         "details": true,
-        "home": true
+        "home": true,
+        "badge": "در انتظار بررسی",
+        "badgeIcon": "pending",
+        "inlineReference": true,
+        "referenceCode": "RQ-30517"
       },
       "requested": {
-        "title": "درخواست آزمایشی شما ثبت شد",
-        "description": "مدیر سالن زمان و آرایشگر هر بخش را هماهنگ می‌کند و تا ۷ روز پاسخ می‌دهد.",
-        "details": "service",
-        "tone": "success",
-        "icon": "check",
+        "title": "درخواست شما ثبت شد",
+        "description": "در انتظار هماهنگی مدیر سالن. پاسخ حداکثر تا ۷ روز می‌رسد و با پیامک خبر می‌دهیم.",
+        "tone": "plum",
+        "icon": "send",
         "action": "requests",
-        "actionText": "مشاهده درخواست‌ها",
+        "actionText": "مشاهده درخواست",
         "track": true,
-        "home": true
+        "home": true,
+        "badge": "در انتظار بررسی",
+        "badgeIcon": "pending",
+        "inlineReference": true,
+        "referenceCode": "RQ-30518"
       }
     },
     "PAY-RES": {
       "checking": {
-        "title": "در حال بررسی پرداخت آزمایشی",
+        "title": "در حال بررسی پرداخت",
         "description": "نتیجه را از بانک می‌گیریم. چند ثانیه صبر کنید و این صفحه را نبندید.",
         "tone": "info",
         "icon": "refresh",
         "action": "panel",
         "actionText": "بازگشت به خانه",
-        "badge": "در حال بررسی"
+        "badge": "در حال بررسی",
+        "badgeIcon": "pending",
+        "secondaryOnly": true
       },
       "review": {
         "title": "پرداخت در حال بررسی است",
-        "description": "نتیجه هنوز مشخص نیست. وضعیت را از حساب خود پیگیری کنید.",
+        "description": "",
         "tone": "info",
-        "icon": "pending",
+        "icon": "hourglass",
         "action": "STATE-05",
-        "actionText": "مشاهده وضعیت",
+        "actionText": "پیگیری در جزئیات",
         "track": true,
-        "home": true
+        "home": true,
+        "badge": "در حال بررسی",
+        "badgeIcon": "hourglass",
+        "inlineReference": true,
+        "referenceCode": "PAY-7Q42K",
+        "facts": [
+          {
+            "icon": "info",
+            "label": "چه شد؟",
+            "text": "نتیجهٔ پرداخت شما هنوز از بانک نرسیده است."
+          },
+          {
+            "icon": "shield",
+            "label": "اثر",
+            "text": "تا روشن شدن نتیجه، نوبتی ثبت نمی‌شود. پرداخت دوباره لازم نیست."
+          },
+          {
+            "icon": "sms",
+            "label": "قدم بعد",
+            "text": "نتیجه با پیامک اعلام می‌شود. وضعیت را در جزئیات پیگیری کنید."
+          }
+        ]
       },
       "success": {
-        "title": "نوبت آزمایشی شما ثبت شد",
-        "description": "جزئیات نوبت و مبلغ آزمایشی در رسید آمده است.",
+        "title": "نوبت شما ثبت شد",
+        "description": "پیامک تأیید هم برایتان ارسال می‌شود.",
         "tone": "success",
         "icon": "check",
         "action": "appointments",
@@ -59,25 +89,31 @@
         "home": true
       },
       "failed": {
-        "title": "پرداخت آزمایشی انجام نشد",
-        "description": "نوبتی ثبت نشد و اعتبار نگه‌داشته‌شده به حسابتان برگشت. زمان آزاد دوباره بررسی می‌شود.",
+        "title": "پرداخت انجام نشد",
+        "description": "نوبتی ثبت نشد و اعتبار نگه‌داشته‌شده به حساب شما برگشت. اگر مبلغی از کارت بانکی کم شده باشد، بانک آن را برمی‌گرداند.",
         "tone": "danger",
         "icon": "x-circle",
         "action": "BK-F01",
         "actionText": "تلاش دوباره",
         "track": false,
         "home": true,
-        "badge": "ناموفق"
+        "badge": "ناموفق",
+        "badgeIcon": "x-circle",
+        "followup": "آزاد بودن زمان دوباره بررسی می‌شود."
       },
       "lost": {
         "title": "این زمان از دست رفت",
         "description": "زمان پیش از تأیید بانک پر شد. بررسی برای برگشت مبلغ به اعتبار ادامه دارد.",
         "tone": "warning",
-        "icon": "clock-alert",
-        "action": "STATE-06",
-        "actionText": "پیگیری وضعیت",
+        "icon": "calendar-x",
+        "action": "BK-F01",
+        "actionText": "انتخاب زمان دیگر",
         "track": true,
-        "home": true
+        "home": true,
+        "badge": "نوبت ساخته نشد",
+        "badgeIcon": "calendar-x",
+        "inlineReference": true,
+        "referenceCode": "PAY-7Q42K"
       }
     },
     "STATE-04": {
@@ -94,13 +130,32 @@
     "STATE-05": {
       "review": {
         "title": "پرداخت شما در حال بررسی است",
-        "description": "نتیجهٔ پرداخت هنوز مشخص نیست. دوباره پرداخت نکنید.",
+        "description": "",
         "tone": "info",
-        "icon": "pending",
+        "icon": "hourglass",
         "action": "panel",
         "actionText": "بازگشت به خانه",
         "track": true,
-        "badge": "در حال بررسی"
+        "badge": "در حال بررسی",
+        "inlineReference": true,
+        "referenceCode": "PAY-7Q42K",
+        "facts": [
+          {
+            "icon": "info",
+            "label": "چه شد؟",
+            "text": "نتیجهٔ پرداخت شما هنوز از بانک نرسیده است."
+          },
+          {
+            "icon": "shield",
+            "label": "اثر",
+            "text": "تا روشن شدن نتیجه، نوبتی ثبت نمی‌شود. پرداخت دوباره لازم نیست."
+          },
+          {
+            "icon": "sms",
+            "label": "قدم بعد",
+            "text": "نتیجه با پیامک اعلام می‌شود. وضعیت را در جزئیات پیگیری کنید."
+          }
+        ]
       }
     },
     "STATE-06": {
@@ -108,11 +163,13 @@
         "title": "این زمان از دست رفت",
         "description": "نوبت ساخته نشد. نتیجهٔ بررسی برگشت مبلغ در حساب نمایش داده می‌شود.",
         "tone": "warning",
-        "icon": "clock-alert",
+        "icon": "calendar-x",
         "action": "panel",
         "actionText": "بازگشت به خانه",
         "track": true,
-        "badge": "در انتظار بررسی"
+        "badge": "در انتظار بررسی",
+        "inlineReference": true,
+        "referenceCode": "PAY-7Q42K"
       },
       "returned": {
         "title": "مبلغ به اعتبار شما برگشت",

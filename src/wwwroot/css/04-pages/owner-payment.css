@@ -68,62 +68,11 @@
     border: 2px solid var(--bg-surface);
   }
 
-  @media (min-width: 1024px) {
-    .rv-booking__main .rv-booking-checkout.rv-booking-workspace {
-      flex: none;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, .85fr);
-      padding: var(--space-5);
-      border-radius: var(--radius-xl);
-      background: var(--glass-fill-strong);
-      box-shadow: var(--shadow-md);
-    }
-
-    .rv-booking-checkout .rv-booking-checkout__ticket,
-    .rv-booking-checkout .rv-booking-summary {
-      position: static;
-      padding: 0;
-      border: 0;
-      background: none;
-      box-shadow: none;
-    }
-
-    .rv-booking-checkout .rv-booking-summary {
-      padding-inline-start: var(--space-5);
-      border-inline-start: 1px dashed var(--line-strong);
-    }
-
-    .rv-booking-checkout .rv-booking-ticket {
-      display: block;
-      padding: 0;
-      margin-block-start: var(--space-3);
-    }
-
-    .rv-booking-checkout .rv-booking-ticket > img {
-      inline-size: 100%;
-      block-size: auto;
-      aspect-ratio: 3 / 1;
-    }
-
-    .rv-booking-checkout .rv-booking-ticket__body { padding: var(--space-3) 0; }
-    .rv-booking-checkout .rv-ticket-stylist { justify-content: flex-start; }
-    .rv-booking-checkout .rv-ticket-avatar { order: -1; }
-    .rv-booking-checkout [data-rv-ticket-heading] { display: none; }
-  }
-
   @media not all and (min-width: 1024px) {
     .rv-booking-checkout__ticket { order: 0; }
     .rv-booking-checkout .rv-booking-hold { margin-block-end: var(--space-3); }
-    .rv-checkout-expired { order: -1; }
-    .rv-booking-checkout .rv-booking-ticket { border-end-start-radius: 0; border-end-end-radius: 0; }
+    .rv-checkout-expired { margin-block-end: var(--space-3); }
     .rv-booking-ticket__body h2 { padding-inline-end: 62px; }
-
-    .rv-booking-checkout .rv-booking-prices {
-      margin-block-start: calc(-1 * var(--space-5));
-      border-start-start-radius: 0;
-      border-start-end-radius: 0;
-      border-block-start: 1px dashed var(--line-strong);
-    }
-
     .rv-booking-checkout .rv-booking-ticket > img { block-size: auto; aspect-ratio: 3 / 1; }
 
     .rv-ticket-avatar {
@@ -133,7 +82,5 @@
       inline-size: 58px;
       block-size: 58px;
     }
-    .rv-booking[data-rv-booking-id="PAY-RES"] .rv-state-page { padding-block-start: var(--space-8); }
-    .rv-booking[data-rv-booking-id="PAY-RES"] .rv-state-page__receipt { margin-inline: var(--space-3); }
   }
 }

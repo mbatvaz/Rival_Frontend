@@ -24,11 +24,16 @@ export function initTime(root, context) {
   if (state === 'sms') selectedDay = '2026-10-15';
   const none = fixed && state === 'none';
   visible(root, 'soon', !none && state !== 'sms');
-  get(root, 'day-section').dataset.rvReadOnly = String(none);
+  visible(root, 'availability', !none);
+  visible(root, 'no-availability', none);
   visible(root, 'picked-day', !none);
-  get(root, 'availability').dataset.rvNoTimes = String(none);
   visible(root, 'sms-entry', fixed && state === 'sms');
-  if (none) text(root, 'action-title', stylist.name + ' تا یک ماه آینده زمان آزادی ندارد.');
+  if (none) {
+    text(root, 'action-title', 'زمانی آزاد نیست');
+    text(root, 'no-availability-title', stylist.name + ' تا یک ماه آینده زمان آزادی ندارد');
+    text(root, 'no-availability-detail', 'با آزاد شدن اولین زمان، پیامک می‌گیرید. پس از پیامک می‌توانید نوبت بگیرید.');
+    visible(form, 'booking-submit', false);
+  }
   let selection = '';
   let markDesktopDay;
   const quickChoices = [...root.querySelectorAll('[data-rv-quick-date]')];
@@ -48,10 +53,9 @@ export function initTime(root, context) {
     }
     selection = inputs.find(input => input.checked)?.value ?? '';
     quickChoices.forEach(input => { input.checked = input === quick && Boolean(selection); });
-    if (quick?.checked) inputs.forEach(input => { input.checked = false; });
     submit.disabled = !selection || none;
     if (!none) text(root, 'action-title', selection ? longDay(date) + (fixed ? '، ' + minuteLabel(selection) : '') : 'زمانی انتخاب نشده');
-    text(root, 'action-sub', selection ? fixed ? 'با ' + stylist.name : selection + '، بدون پرداخت' : fixed ? 'یک روز و ساعت آزاد انتخاب کنید' : 'روز و بخش روز را انتخاب کنید');
+    text(root, 'action-sub', none ? 'اعلان تا ۶ روز فعال می‌ماند' : selection ? fixed ? '' : selection + '، بدون پرداخت' : fixed ? 'یک روز و ساعت آزاد انتخاب کنید' : 'روز و بخش روز را انتخاب کنید');
     const buttons = [...get(root, 'days').querySelectorAll('[data-rv-day]')];
     buttons.forEach((button, index) => button.setAttribute('aria-pressed', String(days[index].date === date)));
     markDesktopDay?.(none ? '' : date);
@@ -72,7 +76,10 @@ export function initTime(root, context) {
   const origin = alert?.parentElement;
   const layout = () => {
     align();
-    if (alert) (desktop.matches ? get(root, 'desktop-alert') : origin).append(alertDone, alert);
+    if (!alert) return;
+    (none ? get(root, 'empty-alert') : desktop.matches ? get(root, 'desktop-alert') : origin).append(alert);
+    get(root, 'booking-content').prepend(alertDone);
+    if (none) alert.classList.add('rv-btn');
   };
   layout();
   desktop.addEventListener('change', layout);

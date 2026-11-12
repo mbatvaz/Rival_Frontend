@@ -38,7 +38,7 @@
       padding: 0;
     }
     .rv-booking-choice { aspect-ratio: 3 / 2; border-radius: var(--radius-lg); }
-    .rv-booking-choice__caption { justify-items: start; text-align: start; }
+    .rv-booking-choice__caption { justify-items: center; text-align: center; }
     .rv-booking-choice__caption span:empty { display: none; }
     .rv-booking-quick { grid-template-columns: 1fr; }
 

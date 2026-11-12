@@ -139,6 +139,8 @@ Do not add custom macros, arbitrary filters, dynamic template execution, or Nunj
 
 ## 5. Design System and visual fidelity
 
+Use Yekan Bakh weight 300 for supporting descriptions and metadata such as service duration. Animate large status icons with lightweight CSS and honor the reduced-motion preference.
+
 - Design System v2 is the visual authority. Use its approved tokens, component behavior, icon set, and Yekan Bakh typography.
 - Original batch HTML/CSS is evidence, not production code. Do not load the old batch bundles (`tokens.css`, `bundle.css`, `rv-fixes.css`, `rv-final.css`, `rv-b2.css`, `rv-b3.css`, `rv-b4.css`, `rv-b6.css`, `rv-b7.css`) together in the app. Rebuild approved patterns into the canonical layered CSS system.
 - Legacy class names are mapped to shared `rv-*` components. Record uncertain mappings in `docs/DISCREPANCIES.md`.
@@ -165,7 +167,7 @@ Desktop-specific rules:
 - Booking flows may use a main form/step column plus a contextual summary column when that summary exists in the approved mobile flow.
 - Before implementing any page at desktop width, write `docs-work/desktop-layouts/<PAGE-ID>.md` describing the desktop composition, columns, navigation, ordering, and which existing mobile components move. The owner reviews/approves the brief before desktop implementation.
 - All dialogs, pickers, and confirmations remain bottom sheets; no centered modal dialogs. On desktop, a sheet remains bottom-attached and centered with a maximum width of 560px.
-- Nested vertical scrolling is prohibited. Intentional horizontal rails/carousels with design evidence may scroll horizontally (including documented snap rails such as ADM-14). Do not introduce arbitrary horizontal scrolling for whole pages or tables.
+- Nested vertical scrolling is prohibited outside the owner-approved mobile BK-REC01 editor. Its sheet scrolls within the viewport and keeps the header visible. Intentional horizontal rails/carousels with design evidence may scroll horizontally (including documented snap rails such as ADM-14). Do not introduce arbitrary horizontal scrolling for whole pages or tables.
 
 ## 7. Accessibility and QA
 

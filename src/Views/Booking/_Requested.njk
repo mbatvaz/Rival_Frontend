@@ -1,16 +1,16 @@
 <form class="rv-booking-form rv-booking-workspace rv-booking-requested" data-rv-booking-form action="{{ bookingUrls['BK-REQ01'] }}">
+  <div class="rv-booking-step-row">{% include "Booking/_Steps.njk" %}</div>
   <section class="rv-booking-detail" aria-labelledby="rv-parts-title">
-    <div class="rv-booking-contextual">{% include "Booking/_Context.njk" %}</div>
     <h2 id="rv-parts-title">این پکیج شامل</h2>
     <ul class="rv-booking-package">
       {% for service in bookingPackage %}
-      <li class="rv-booking-choice"><img src="{{ basePath }}{{ service.image }}" alt=""><span class="rv-booking-choice__caption rv-glass rv-glass--strong">{{ service.name }}</span></li>
+      <li class="rv-booking-choice"><img src="{{ basePath }}{{ service.image }}" alt=""><span class="rv-booking-choice__caption rv-glass rv-glass--strong">{{ service.name }}</span>{% if not loop.last %}<span class="rv-package-plus rv-icon-tile" aria-hidden="true"><span class="ri ri-plus"></span></span>{% endif %}</li>
       {% endfor %}
     </ul>
   </section>
   <aside class="rv-booking-summary" aria-label="خلاصهٔ درخواست">
-    <div class="rv-booking-desktop-only rv-booking-summary-head"><h2>هماهنگی با سالن</h2><span class="ri ri-users" aria-hidden="true"></span></div>
-    <p class="rv-booking__notice"><span class="ri ri-users" aria-hidden="true"></span>مدیر سالن آرایشگر و زمان هر بخش را هماهنگ می‌کند و حداکثر تا ۷ روز پاسخ می‌دهد.</p>
+    <div class="rv-booking-contextual">{% include "Booking/_Context.njk" %}</div>
+    <p class="rv-booking-explainer rv-muted"><span class="ri ri-users" aria-hidden="true"></span>مدیر سالن آرایشگر و زمان هر بخش را هماهنگ می‌کند و حداکثر تا ۷ روز پاسخ می‌دهد.</p>
     <div class="rv-booking-action rv-glass rv-glass--strong">
       <div><strong data-rv-action-title>پکیج دامادی</strong><p class="rv-muted">بدون پرداخت در این مرحله</p></div>
       <button class="rv-btn" type="submit" data-rv-booking-submit>ثبت درخواست آزمایشی</button>

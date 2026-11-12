@@ -1,5 +1,6 @@
+import { faDigits } from '../../core/format.js';
 import { api } from '../../core/api.js';
-import { bindForm, get, paintContext, query, report, route, selection, submitRequest, visible } from './shared.js';
+import { bindForm, get, paintContext, query, report, route, selection, submitRequest, text, visible } from './shared.js';
 import { initChoices } from './choices.js';
 
 export async function init(root) {
@@ -9,6 +10,17 @@ export async function init(root) {
     const id = root.dataset.rvBookingId;
     const { service, stylist } = selection(catalog, kind === 'external' ? 'checkout' : kind);
     const context = { catalog, kind, id, service, stylist };
+    const steps = [...root.querySelectorAll('[data-rv-steps]')];
+    if (kind === 'stylists') steps.forEach(nav => { nav.hidden = nav.hasAttribute('data-rv-proposed-steps') !== (service.kind === 'proposed'); });
+    const activeSteps = steps.find(nav => !nav.hidden);
+    const step = get(root, 'mobile-progress');
+    if (activeSteps && step) {
+      const items = [...activeSteps.querySelectorAll('li')];
+      const index = items.findIndex(item => item.hasAttribute('aria-current')) + 1;
+      step.max = items.length;
+      step.value = index;
+      text(root, 'mobile-step', 'قدم ' + faDigits(index) + ' از ' + faDigits(items.length) + ' · ' + items[index - 1].firstElementChild.lastChild.textContent.trim());
+    }
     paintContext(document, service, stylist);
     const back = get(root, 'booking-back');
     for (const link of root.querySelectorAll('[data-rv-step-route]')) {

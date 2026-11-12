@@ -1,6 +1,7 @@
-<nav class="rv-booking-steps" aria-label="مراحل رزرو" data-rv-steps>
+{% for steps in bookingStepVariants %}
+<nav class="rv-booking-steps" aria-label="مراحل رزرو" data-rv-steps{% if not loop.first %} data-rv-proposed-steps hidden{% endif %}>
   <ol>
-    {% for step in bookingSteps %}
+    {% for step in steps %}
     <li{% if step.active %} aria-current="step"{% endif %}>
       {% if step.complete %}<a href="{{ bookingUrls[step.id] }}" data-rv-step-route="{{ step.id }}">{% else %}<span>{% endif %}
       <span class="rv-booking-steps__icon"><span aria-hidden="true">{{ loop.index | faDigits }}</span></span>{{ step.label }}
@@ -9,6 +10,7 @@
     {% endfor %}
   </ol>
 </nav>
+{% endfor %}
 {% if model.kind == 'checkout' %}
 <nav class="rv-booking-steps" aria-label="مراحل رزرو دوره‌ای" data-rv-group-steps hidden>
   <ol>

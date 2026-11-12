@@ -2,14 +2,17 @@
   .rv-booking-quick-time > span {
     padding: var(--space-3) var(--space-1);
     gap: var(--space-1);
+    justify-items: start;
+    text-align: start;
     border: 1px solid var(--glass-edge);
     border-radius: var(--radius-lg);
     background: var(--glass-fill-strong);
     box-shadow: var(--shadow-sm);
   }
 
-  .rv-booking-quick-time bdi { font-size: var(--heading-xl-size); font-weight: 300; }
-  .rv-booking-quick-time > span > :last-child { font-size: var(--caption-size); }
+  .rv-booking-quick-time .rv-muted { font-size: var(--caption-size); }
+  .rv-booking-quick-time bdi { font-size: var(--heading-xl-size); font-weight: 600; }
+  .rv-booking-quick-time > span > :last-child { font-size: var(--body-sm-size); font-weight: 600; }
   .rv-booking-quick-time :checked + span { border-color: var(--focus-ring); box-shadow: var(--shadow-md); }
 
   .rv-booking-day-note { padding: var(--space-4); }
@@ -47,6 +50,7 @@
     .rv-booking-time .rv-booking-context > img { max-block-size: 106px; }
     .rv-booking-days .rv-booking-day[data-rv-day-state] { background: none; box-shadow: none; }
     .rv-booking-days .rv-booking-day[aria-pressed="true"] { border: 2px solid var(--focus-ring); box-shadow: none; }
-    .rv-booking-days .rv-booking-day strong { font-weight: 300; }
+    .rv-booking-days .rv-booking-day strong { font-weight: 300; margin-block-start: var(--space-1); }
+    .rv-booking-days .rv-booking-day > .ri { inline-size: 11px; block-size: 11px; }
   }
 }

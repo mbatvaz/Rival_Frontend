@@ -10,8 +10,9 @@ function paint(root, key, context, record, request) {
   if (!view) return;
   const { catalog } = context;
   const first = record?.items?.[0];
-  const service = catalog.services.find(item => item.id === (first?.service ?? request?.service ?? query.get('service'))) ?? context.service;
-  const stylist = catalog.stylists.find(item => item.id === (first?.stylist ?? request?.stylist ?? query.get('stylist'))) ?? context.stylist;
+  const sampleService = key === 'proposed' ? 'facial' : key === 'requested' ? 'groom' : context.service.id;
+  const service = catalog.services.find(item => item.id === (first?.service ?? request?.service ?? query.get('service') ?? sampleService)) ?? context.service;
+  const stylist = catalog.stylists.find(item => item.id === (first?.stylist ?? request?.stylist ?? query.get('stylist'))) ?? catalog.stylists.find(item => item.id === service.stylists[0]) ?? context.stylist;
   const photo = get(view, 'result-image');
   if (photo) photo.src = localUrl(service.image);
   text(view, 'result-service', record?.items.length > 1 ? 'رزرو دوره‌ای · ' + faDigits(record.items.length) + ' نوبت' : service.name);
@@ -24,11 +25,15 @@ function paint(root, key, context, record, request) {
   const part = first?.time ?? request?.part ?? query.get('part') ?? '16:00';
   text(view, 'result-time', /^\d{4}-\d{2}-\d{2}$/.test(date) ? longDay(date) + ' · ' + faDigits(part) : '');
   if (record) {
-    text(view, 'result-code', 'BK-' + record.id.slice(0, 8).toUpperCase());
+    text(view, 'result-code', (['review', 'lost', 'returned'].includes(key) ? '#PAY-' : '#BK-') + record.id.slice(0, 8).toUpperCase());
     text(view, 'result-credit', money(record.applied));
     text(view, 'result-due', money(record.due));
   }
-  if (request) text(view, 'result-code', 'RQ-' + request.id.slice(0, 8).toUpperCase());
+  if (request) text(view, 'result-code', '#RQ-' + request.id.slice(0, 8).toUpperCase());
+  if (key === 'proposed' && (request?.date || query.get('date'))) {
+    text(view, 'result-preferred-date', longDay(date));
+    text(view, 'result-preferred-part', part);
+  }
   const action = get(view, 'result-action');
   if (record && ['STATE-05', 'STATE-06'].includes(action.dataset.rvResultAction)) {
     action.href = route(action.dataset.rvResultAction, { hold: record.id });

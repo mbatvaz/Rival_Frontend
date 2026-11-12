@@ -1,12 +1,14 @@
 import { api } from '../../core/api.js';
 import { closeSheet, openSheet } from '../../components/sheet.js';
-import { faDigits, jalali } from '../../core/format.js';
+import { faDigits } from '../../core/format.js';
+import { longDay } from './availability.js';
 import { get, persist, state, text, visible } from './shared.js';
 
 export async function initAlert(root, { service, stylist, catalog, open }) {
   const sheet = document.getElementById('rv-booking-alert');
   const trigger = get(root, 'sheet-open');
   const button = get(sheet, 'alert-confirm');
+  const empty = !get(root, 'no-availability').hidden;
   const key = service.id + ':' + stylist.id;
   const resource = 'booking/alerts';
   const expiry = () => Date.now() + catalog.alertDays * 86400000;
@@ -15,8 +17,12 @@ export async function initAlert(root, { service, stylist, catalog, open }) {
   if (open && ['done', 'duplicate'].includes(state)) current = { expiresAt: expiry() };
   const render = () => {
     const active = Boolean(current);
-    text(root, 'alert-title', active ? 'اعلان فعال است' : 'زمان مناسبی نیست؟');
-    text(root, 'alert-sub', active ? 'تا ' + jalali(current.expiresAt) : 'با آزاد شدن زمان، خبر بگیرید.');
+    text(root, 'alert-title', active ? 'اعلان فعال است' : empty ? 'خبرم کنید' : 'زمان مناسبی نیست؟');
+    const date = active ? longDay(new Date(current.expiresAt).toISOString().slice(0, 10)) : '';
+    trigger.dataset.rvAlertActive = String(active);
+    text(root, 'alert-sub', active ? 'تا ' + date + '، با اولین آزاد شدن زمان پیامک می‌گیرید.' : 'با آزاد شدن زمان، خبر بگیرید.');
+    text(sheet, 'alert-close-label', active ? 'بستن' : 'انصراف');
+    if (active) text(sheet, 'alert-duplicate-text', 'برای ' + service.name + ' با ' + stylist.name + ' تا ' + date + ' اعلان فعال دارید. برای هر خدمت و آرایشگر فقط یک اعلان فعال ممکن است.');
     visible(sheet, 'alert-duplicate', active);
     visible(sheet, 'alert-facts', !active);
     visible(sheet, 'alert-confirm', !active);
@@ -44,5 +50,5 @@ export async function initAlert(root, { service, stylist, catalog, open }) {
     } finally { button.disabled = false; }
   });
   const facts = get(sheet, 'alert-facts');
-  facts.querySelector('li:nth-child(2)').append(' تا ' + jalali(expiry()) + ' (' + faDigits(catalog.alertDays) + ' روز).');
+  facts.querySelector('li:nth-child(2)').lastChild.textContent = 'این اعلان ' + faDigits(catalog.alertDays) + ' روز اعتبار دارد، تا ' + longDay(new Date(expiry()).toISOString().slice(0, 10)) + '.';
 }

@@ -54,8 +54,8 @@
     background: var(--glass-fill-strong);
     box-shadow: var(--shadow-glass);
   }
-  .rv-muted { color: var(--text-secondary); font-size: var(--body-sm-size); }
-  .rv-lead { font-size: var(--body-lg-size); line-height: var(--body-lg-line); font-weight: var(--body-lg-weight); }
+  .rv-muted { color: var(--text-secondary); font-size: var(--body-sm-size); font-weight: 300; }
+  .rv-lead { font-size: var(--body-lg-size); line-height: var(--body-lg-line); font-weight: 300; }
   .rv-feedback { color: var(--text-secondary); }
   .rv-feedback:empty { display: none; }
   .rv-feedback--error { color: var(--danger-fg); }
