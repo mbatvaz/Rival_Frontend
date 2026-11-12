@@ -54,8 +54,7 @@
     .rv-booking-quick__media img:where(:last-child) { inline-size: var(--space-6); block-size: var(--space-6); }
     .rv-booking-rec-link { display: flex; }
 
-    .rv-booking-summary .rv-booking-context,
-    .rv-booking-choice-context .rv-booking-context {
+    .rv-booking-summary .rv-booking-context {
       grid-template-columns: 60px minmax(0, 1fr);
       gap: var(--space-3);
       min-block-size: 0;
@@ -65,16 +64,14 @@
       backdrop-filter: none;
     }
 
-    .rv-booking-summary .rv-booking-context > img,
-    .rv-booking-choice-context .rv-booking-context > img {
+    .rv-booking-summary .rv-booking-context > img {
       grid-column: 1;
       block-size: 60px;
       border-radius: var(--radius-sm);
       mask-image: none;
     }
 
-    .rv-booking-summary .rv-booking-context > div,
-    .rv-booking-choice-context .rv-booking-context > div { grid-column: 2; padding: 0; }
+    .rv-booking-summary .rv-booking-context > div { grid-column: 2; padding: 0; }
 
     .rv-booking-summary-edits {
       display: flex;
@@ -122,27 +119,6 @@
       gap: var(--space-1);
     }
     .rv-booking-time-picker .rv-booking-alert-entry { margin-block-start: var(--space-4); inline-size: 100%; }
-
-    .rv-booking-soon-panel {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-      padding: var(--space-3) var(--space-4);
-    }
-    .rv-booking-soon { display: flex; flex-wrap: wrap; }
-
-    .rv-booking-soon button {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      min-block-size: var(--size-touch);
-      border-radius: var(--radius-xs);
-      background: var(--bg-surface);
-      box-shadow: none;
-    }
-    .rv-booking-soon button bdi { font-size: var(--body-size); }
-    .rv-booking-soon button > :last-child { display: none; }
 
     .rv-booking-requested .rv-booking-package { margin: 0; }
   }

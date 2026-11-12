@@ -9,7 +9,6 @@
   }
   .rv-booking-hold progress::-webkit-progress-value { background: var(--warning-solid); }
   .rv-booking-hold progress::-moz-progress-bar { background: var(--warning-solid); }
-  .rv-booking-hold[data-rv-low="true"] { background: var(--warning-bg); }
 
   .rv-booking-ticket { border-radius: var(--radius-xl); overflow: clip; }
 
@@ -42,7 +41,7 @@
     gap: var(--space-2);
     margin: 0;
   }
-  .rv-booking-pay { background: var(--accent-500); }
+  .rv-booking-pay:enabled { background: var(--accent-500); }
 
   .rv-booking-group { margin: 0; padding-inline-start: var(--space-6); list-style-type: persian; }
   .rv-booking-group li { padding: var(--space-2); border-block-end: 1px solid var(--line-strong); }
@@ -80,7 +79,6 @@
     }
     .rv-booking-checkout__ticket:has([data-rv-group-ticket]:not([hidden])) .rv-booking-ticket-address { display: none; }
 
-    .rv-booking-checkout .rv-booking-hold { order: 0; background: var(--warning-bg); box-shadow: none; }
 
     .rv-booking-checkout .rv-booking-prices {
       padding: 0;
@@ -89,7 +87,6 @@
       box-shadow: none;
     }
     .rv-booking-checkout .rv-booking-rules.rv-booking-desktop-only { display: flex; flex-wrap: wrap; }
-    .rv-booking-checkout .rv-booking-pay { background: var(--bg-inverse); }
 
     .rv-booking-ticket__body { padding: 0; }
     .rv-booking-ticket > img { inline-size: 96px; block-size: 96px; border-radius: var(--radius-sm); }

@@ -2,41 +2,31 @@ export function init(root) {
   const cards = [...root.querySelectorAll('[data-rv-carousel-card]')];
   const captions = [...root.querySelectorAll('[data-rv-carousel-caption]')];
   const dots = [...root.querySelectorAll('[data-rv-carousel-dot]')];
-  const button = root.querySelector('[data-rv-carousel-pause]');
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let paused = reduced.matches;
   let current = 0;
-  function render() {
-    cards.forEach((card, index) => {
-      const position = (index - current + cards.length) % cards.length;
+  function show(index) {
+    current = (index + cards.length) % cards.length;
+    cards.forEach((card, i) => {
+      const position = (i - current + cards.length) % cards.length;
       card.dataset.rvPosition = String(position);
       card.setAttribute('aria-hidden', String(position !== 0));
-      captions[index].hidden = position !== 0;
-      dots[index].dataset.rvActive = String(position === 0);
+      captions[i].hidden = position !== 0;
+      dots[i].setAttribute('aria-pressed', String(position === 0));
     });
-    button.textContent = paused ? 'ادامه حرکت' : 'توقف حرکت';
-    button.setAttribute('aria-pressed', String(paused));
   }
-  function move(direction) {
-    current = (current + direction + cards.length) % cards.length;
-    render();
-  }
-  root.querySelector('[data-rv-carousel-prev]').addEventListener('click', () => { paused = true; move(-1); });
-  root.querySelector('[data-rv-carousel-next]').addEventListener('click', () => { paused = true; move(1); });
-  button.addEventListener('click', () => { paused = !paused; render(); });
-  root.addEventListener('focusin', event => {
-    if (event.target !== button) { paused = true; render(); }
+  dots.forEach((dot, index) => dot.addEventListener('click', () => show(index)));
+  root.addEventListener('keydown', event => {
+    if (!dots.includes(event.target) || !['ArrowRight', 'ArrowLeft'].includes(event.key)) return;
+    event.preventDefault();
+    show(current + (event.key === 'ArrowLeft' ? 1 : -1));
+    dots[current].focus();
   });
-  let start = null;
-  root.addEventListener('pointerdown', event => { start = event.clientX; });
-  root.addEventListener('pointerup', event => {
-    if (start !== null && Math.abs(event.clientX - start) > 44) {
-      paused = true;
-      move(event.clientX > start ? 1 : -1);
-    }
-    start = null;
+  const stage = root.querySelector('.rv-home-carousel__stage');
+  let start;
+  stage.addEventListener('pointerdown', event => { start = event.clientX; });
+  stage.addEventListener('pointercancel', () => { start = undefined; });
+  stage.addEventListener('pointerup', event => {
+    if (start !== undefined && Math.abs(event.clientX - start) > 44) show(current + (event.clientX > start ? 1 : -1));
+    start = undefined;
   });
-  reduced.addEventListener('change', () => { if (reduced.matches) { paused = true; render(); } });
-  window.setInterval(() => { if (!paused) move(1); }, Number(root.dataset.rvInterval));
-  render();
+  show(0);
 }

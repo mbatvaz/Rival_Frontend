@@ -46,13 +46,9 @@
     background: currentcolor;
     mask: url("../../icons/alert.svg") center / contain no-repeat;
   }
-  .rv-field--floating > label { transition: opacity var(--duration-fast) var(--ease-standard); }
-  .rv-field--floating:not(:focus-within):has(input:placeholder-shown) > label { opacity: 0; }
-  .rv-field--floating input:focus::placeholder { color: transparent; }
 
   @media (prefers-reduced-motion: reduce) {
-    .rv-input,
-    .rv-field--floating > label { transition: none; }
+    .rv-input { transition: none; }
   }
 
   .rv-field__error:empty { display: none; }

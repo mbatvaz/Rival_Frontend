@@ -10,6 +10,8 @@ test('OTP is default; phone validation, Persian paste and safe return work @smok
   await login(page, '?return=' + encodeURIComponent(new URL('customer/book/', baseURL).pathname));
   await expect(page.locator('[data-rv-password-stage]')).toBeHidden();
   await expect(page.locator('[data-rv-auth-return]')).toBeVisible();
+  await expect(page.locator('label[for="login-phone"]')).toHaveCSS('opacity', '1');
+  await expect(page.locator('[data-rv-phone]')).toHaveAttribute('placeholder', '۰۹۱۲ ۳۴۵ ۶۷۸۹');
   await submit(page).click();
   await expect(page.locator('[data-rv-phone]')).toHaveAttribute('aria-invalid', 'true');
   await page.getByLabel('شماره موبایل', { exact: true }).fill('۰۹۱۴۳۲۱۴۵۶۷');

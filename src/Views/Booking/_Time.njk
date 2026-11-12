@@ -4,12 +4,13 @@
     <p class="rv-booking__notice" data-rv-sms-entry hidden>این زمان از پیامک اعلان آمده است. زمان به محض رزرو شدن از فهرست حذف می‌شود.</p>
     <section class="rv-booking-soon-panel" data-rv-soon aria-labelledby="rv-soon-title">
       <h2 id="rv-soon-title">زودترین زمان‌های آزاد</h2>
-      <div class="rv-booking-soon">
+      <div class="rv-booking-soon" role="radiogroup" aria-labelledby="rv-soon-title">
         {% for day in bookingCatalog.calendar.days %}
         {% if day.label %}
-        <button type="button" class="rv-glass" data-rv-quick-date="{{ day.date }}" data-rv-quick-time="{{ day.times[0] }}">
-          <span class="rv-muted">{{ day.label }}</span><bdi>{{ day.times[0] | faDigits }}</bdi><span>{{ day.date | jalali }}</span>
-        </button>
+        <label class="rv-booking-radio rv-booking-quick-time">
+          <input type="radio" name="quick-time" value="{{ day.date }}" data-rv-quick-date="{{ day.date }}" data-rv-quick-time="{{ day.times[0] }}">
+          <span><span class="rv-muted">{{ day.label }}</span><bdi>{{ day.times[0] | faDigits }}</bdi><span>{{ day.date | jalali }}</span></span>
+        </label>
         {% endif %}
         {% endfor %}
       </div>
@@ -23,7 +24,6 @@
       </section>
       <section class="rv-booking-time-picker" aria-label="{% if model.kind == 'fixed' %}ساعت‌های روز{% else %}بخش روز{% endif %}">
         <h2 class="rv-booking-desktop-only" data-rv-picked-day>روز را انتخاب کنید</h2>
-        <p class="rv-booking__notice" data-rv-day-note hidden></p>
         <fieldset class="rv-booking-picks" data-rv-picks>
           <legend>{% if model.kind == 'fixed' %}ساعت شروع{% else %}چه زمانی از روز؟{% endif %}</legend>
           <div class="rv-booking-picks__grid{% if model.kind == 'proposed' %} rv-booking-picks__grid--parts{% endif %}">
@@ -38,6 +38,10 @@
             {% endif %}
           </div>
         </fieldset>
+        <div class="rv-booking__notice rv-booking-day-note" data-rv-day-note role="status" hidden>
+          <span class="rv-booking-day-note__badge" data-rv-day-badge hidden><span class="ri" aria-hidden="true" data-rv-day-icon></span><span data-rv-day-status></span></span>
+          <strong data-rv-day-heading></strong><p class="rv-muted" data-rv-day-description></p>
+        </div>
         {% if model.kind == 'fixed' %}
         <p class="rv-booking__notice" role="status" data-rv-alert-done hidden>اعلان آزمایشی ثبت شد.</p>
         <button class="rv-booking-alert-entry" type="button" data-rv-sheet-open="rv-booking-alert">

@@ -82,3 +82,10 @@
 |---|---|---|---|
 | DEC-044 | Owner reported physical Galaxy S20 FE results and approved the annotated changes to public, auth and booking surfaces. | Owner instruction | Use the device-review rules in the project contract for present and future phases. The annotated booking menu and step placement supersede the earlier desktop brief where they differ. |
 | DEC-045 | Fixed booking shows Tehran today through 30 days ahead. | Owner instruction | Normal demo navigation rolls the availability window daily. Explicit artboard states keep their fixture dates so closed, pending and taken cases can be reviewed reliably. |
+
+## Review corrections — 2026-11-12
+
+| ID | Decision | Status | Implementation consequence |
+|---|---|---|---|
+| DEC-046 | Field labels remain above inputs and placeholders show examples. Keyboard avoidance scrolls smoothly. | Owner instruction | Supersedes the floating-label portion of DEC-044. |
+| DEC-047 | Inspect the exact exported design and Design System states for each affected page, including variants. Adapt the same structure for desktop. | Owner instruction | Follow the design-evidence checklist in the project contract and record source paths in QA. |

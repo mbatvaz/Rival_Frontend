@@ -1,37 +1,9 @@
 import { observeCenter } from '../../components/rail.js';
 import { availability, longDay, updateQuick } from './availability.js';
-import { dayName, dateLabel, get, minuteLabel, query, route, state, text, visible, bindForm, centerInRail, submitRequest } from './shared.js';
+import { get, minuteLabel, query, route, state, text, visible, bindForm, centerInRail, submitRequest } from './shared.js';
 import { bookingItem, createHold } from './holds.js';
 import { setupTimeCalendar } from './time-calendar.js';
-
-const label = day => dayName(day) + ' ' + dateLabel(day);
-
-function populateDays(root, days, active, pick) {
-  const rail = get(root, 'days');
-  rail.replaceChildren(...days.map(day => {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'rv-booking-day';
-    const weekday = document.createElement('span');
-    const dayNumber = document.createElement('strong');
-    weekday.textContent = dayName(day.date).slice(0, 1);
-    dayNumber.textContent = dateLabel(day.date).split('/').at(-1);
-    button.append(weekday, dayNumber);
-    button.dataset.rvDay = day.date;
-    if (day === days[0]) button.dataset.rvToday = 'true';
-    button.setAttribute('aria-label', button.textContent + ' (' + label(day.date) + ')');
-    button.setAttribute('aria-pressed', String(day.date === active));
-    if (day.closed || day.opens) button.dataset.rvDayState = day.closed ? 'closed' : 'pending';
-    if (day.opens) {
-      const lock = document.createElement('span');
-      lock.className = 'ri ri-lock';
-      lock.setAttribute('aria-hidden', 'true');
-      button.append(lock);
-    }
-    button.addEventListener('click', () => { pick(day.date); centerInRail(rail, button); });
-    return button;
-  }));
-}
+import { populateDays, renderDayNote } from './time-day-strip.js';
 
 export function initTime(root, context) {
   const { catalog, service, stylist, kind, id } = context;
@@ -59,17 +31,13 @@ export function initTime(root, context) {
   if (none) text(root, 'action-title', stylist.name + ' تا یک ماه آینده زمان آزادی ندارد.');
   let selection = '';
   let markDesktopDay;
-  const pick = (date, value = '') => {
+  const quickChoices = [...root.querySelectorAll('[data-rv-quick-date]')];
+  const pick = (date, value = '', quick = null) => {
     selectedDay = date;
     const day = available(date);
     const conflict = fixed && state === 'conflict' && date === '2026-10-15';
     const taken = fixed && state === 'taken' && date === '2026-10-15';
-    const note = day?.closed ? longDay(date) + ' سالن تعطیل است. جمعه‌ها و روزهای تعطیل رسمی نوبت ندارند.'
-      : day?.opens ? 'زمان‌های این روز هنوز باز نشده‌اند. از ' + day.opens + ' می‌توانید رزرو کنید.'
-      : conflict ? 'ساعت ۱۶:۰۰ با نوبت دیگر شما تداخل دارد.' : taken ? 'ساعت ۱۶:۰۰ همین حالا گرفته شد.' : '';
-    text(root, 'day-note', note);
-    get(root, 'day-note').dataset.rvTone = conflict || taken ? 'danger' : 'neutral';
-    visible(root, 'day-note', Boolean(note));
+    renderDayNote(root, day, conflict, taken);
     visible(root, 'picks', !none && !day?.closed && !day?.opens);
     text(root, 'picked-day', date ? longDay(date) : 'روز را انتخاب کنید');
     for (const input of inputs) {
@@ -79,6 +47,8 @@ export function initTime(root, context) {
       input.checked = !input.disabled && input.value === value;
     }
     selection = inputs.find(input => input.checked)?.value ?? '';
+    quickChoices.forEach(input => { input.checked = input === quick && Boolean(selection); });
+    if (quick?.checked) inputs.forEach(input => { input.checked = false; });
     submit.disabled = !selection || none;
     if (!none) text(root, 'action-title', selection ? longDay(date) + (fixed ? '، ' + minuteLabel(selection) : '') : 'زمانی انتخاب نشده');
     text(root, 'action-sub', selection ? fixed ? 'با ' + stylist.name : selection + '، بدون پرداخت' : fixed ? 'یک روز و ساعت آزاد انتخاب کنید' : 'روز و بخش روز را انتخاب کنید');
@@ -101,8 +71,11 @@ export function initTime(root, context) {
   form.addEventListener('change', event => {
     if (event.target.name === field) pick(selectedDay, event.target.value);
   });
-  for (const button of root.querySelectorAll('[data-rv-quick-date]')) {
-    button.addEventListener('click', () => { pick(button.dataset.rvQuickDate, button.dataset.rvQuickTime); align(); });
+  for (const input of quickChoices) {
+    input.addEventListener('change', () => {
+      pick(input.dataset.rvQuickDate, input.dataset.rvQuickTime, input);
+      align();
+    });
   }
   bindForm(root, async () => {
     if (fixed) {

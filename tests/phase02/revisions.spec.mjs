@@ -20,7 +20,6 @@ test('Owner desktop composition fits the hero, aligns navigation and contains th
   await page.setViewportSize({ width: 1920, height: 940 });
   await page.goto('');
   await ready(page);
-  await page.getByRole('button', { name: 'توقف حرکت', exact: true }).click();
   const result = await page.evaluate(() => {
     const box = selector => document.querySelector(selector).getBoundingClientRect().toJSON();
     const hero = box('.rv-home-hero');

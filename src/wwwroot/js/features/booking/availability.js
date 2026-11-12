@@ -20,12 +20,13 @@ export function updateQuick(root, days, sample, minuteLabel) {
   const choices = sample ? days.filter(day => day.label) : days.filter(day => day.times.length);
   quick.forEach((button, index) => {
     const day = choices[index];
-    if (!day) { button.hidden = true; return; }
+    if (!day) { button.closest('label').hidden = true; button.disabled = true; return; }
+    button.value = day.date;
     button.dataset.rvQuickDate = day.date;
     button.dataset.rvQuickTime = day.times[0];
     const relative = day.date === days[0].date ? 'امروز' : day.date === days[1].date ? 'فردا' : day.date === days[2].date ? 'پس‌فردا' : 'زمان آزاد';
-    button.children[0].textContent = relative;
-    button.children[1].textContent = minuteLabel(day.times[0]);
-    button.children[2].textContent = longDay(day.date);
+    button.nextElementSibling.children[0].textContent = relative;
+    button.nextElementSibling.children[1].textContent = minuteLabel(day.times[0]);
+    button.nextElementSibling.children[2].textContent = longDay(day.date);
   });
 }

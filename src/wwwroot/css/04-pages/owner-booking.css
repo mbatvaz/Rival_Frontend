@@ -2,7 +2,6 @@
   .rv-booking-day[data-rv-day-state="closed"] { color: var(--danger-fg); background: var(--danger-bg); }
   .rv-booking-day[data-rv-day-state="pending"] { color: var(--text-secondary); background: var(--warning-bg); }
   .rv-booking-day[data-rv-today] { border-color: var(--accent-500); }
-  .rv-booking-day[aria-pressed="true"] { outline: 2px solid var(--focus-ring); outline-offset: 1px; }
   .rv-booking-time-picker [data-rv-day-note] { text-align: center; }
   .rv-booking-time-picker [data-rv-tone="danger"] { color: var(--danger-fg); background: var(--danger-bg); border-color: var(--danger-line); }
 
@@ -79,7 +78,7 @@
     }
 
     .rv-booking-days {
-      --day-width: 52px;
+      --day-width: 44px;
 
       padding: var(--space-3) calc((100% - var(--day-width)) / 2);
       scroll-padding-inline: 0;
@@ -92,6 +91,7 @@
       align-content: center;
       justify-items: center;
       line-height: 1.25;
+      border-radius: var(--radius-xl);
     }
 
     .rv-booking-days .rv-booking-day strong { font-size: var(--heading-lg-size); }

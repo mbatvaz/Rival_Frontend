@@ -4,14 +4,15 @@
 <div class="rv-booking{% if model.nav %} rv-booking--dock{% endif %}" data-rv-page data-rv="booking{% if shell %} shell{% endif %}" data-rv-booking-id="{{ page.id }}" data-rv-booking-kind="{{ model.kind }}">
   <div class="rv-booking-mast">
     <div class="rv-booking-mast__inner">
-      <a class="rv-booking-mast__logo" href="{{ productUrls.panel }}"><img src="{{ basePath }}img/rival-logo.png" alt="ریوال، حساب مشتری"></a>
+      {% if not shell %}<a class="rv-booking-mast__logo" href="{{ productUrls.panel }}"><img src="{{ basePath }}img/rival-logo.png" alt="ریوال، حساب مشتری"></a>{% endif %}
       {% if shell %}{% include "Shared/_RoleNav.njk" %}{% endif %}
     </div>
     {% if shell %}
     <nav class="rv-booking-desktop-only rv-booking-sidebar" aria-label="منوی مشتری">
+      <a class="rv-booking-mast__logo" href="{{ productUrls.panel }}"><img src="{{ basePath }}img/rival-logo.png" alt="ریوال، حساب مشتری"></a>
       {% for item in shell.primary %}<a href="{{ item.href }}"><span class="ri ri-{{ item.icon }}" aria-hidden="true"></span>{{ item.title }}</a>{% endfor %}
-      <a class="rv-btn" href="{{ shell.book.href }}"><span class="ri ri-calendar-plus" aria-hidden="true"></span>رزرو نوبت</a>
       {% for item in shell.more %}<a href="{{ item.href }}"><span class="ri ri-{{ item.icon }}" aria-hidden="true"></span>{{ item.title }}</a>{% endfor %}
+      <a class="rv-btn" href="{{ shell.book.href }}"><span class="ri ri-calendar-plus" aria-hidden="true"></span>رزرو نوبت</a>
       <button class="rv-btn rv-btn--danger" type="button" data-rv-sheet-open="rv-logout">خروج از حساب</button>
     </nav>
     {% endif %}
@@ -19,7 +20,7 @@
   <header class="rv-booking__top">
     {% if model.back %}<a class="rv-icon-btn" href="{{ bookingUrls[model.back] }}" data-rv-booking-back aria-label="بازگشت"><span class="ri ri-arrow-right" aria-hidden="true"></span></a>{% endif %}
     <div>
-      <h1>{% if model.kind == 'services' %}{{ model.title }}{% else %}{% if bookingHeadings[model.kind] %}<span class="rv-booking-mobile-only">{{ model.title }}</span><span class="rv-booking-desktop-only">{{ bookingHeadings[model.kind].title }}</span>{% else %}{{ model.title }}{% endif %}{% endif %}</h1>
+      <h1>{{ model.title }}</h1>
       {% if model.step %}<p class="rv-muted rv-booking-mobile-only">قدم {{ model.step | faDigits }} از {{ model.total | faDigits }}</p>{% endif %}
       {% if bookingHeadings[model.kind] and model.kind != 'services' %}<p class="rv-muted rv-booking-desktop-only">{{ bookingHeadings[model.kind].lead }}</p>{% endif %}
     </div>
@@ -29,7 +30,6 @@
     <div class="rv-booking__demo"><span class="ri ri-info" aria-hidden="true"></span><span>پیش‌نمایش آزمایشی رزرو</span><a class="rv-text-link" href="{{ urls.directory }}">فهرست بازبینی</a></div>
     {% if bookingSteps.length %}<div class="rv-booking-step-row">{% include "Booking/_Steps.njk" %}
       {% if model.kind == 'services' %}<a class="rv-booking-desktop-only rv-btn rv-btn--secondary" href="{{ bookingUrls['BK-REC01'] }}" data-rv-recurring-link><span class="ri ri-repeat" aria-hidden="true"></span>رزرو دوره‌ای</a>{% endif %}
-      {% if model.kind == 'stylists' %}<a class="rv-booking-desktop-only rv-btn rv-btn--secondary" href="{{ bookingUrls['BK-01'] }}">تغییر خدمت</a>{% endif %}
     </div>{% endif %}
     <p class="rv-booking__notice rv-booking__notice--warning" data-rv-booking-error role="alert" hidden></p>
     <div class="rv-booking__content" data-rv-booking-content>

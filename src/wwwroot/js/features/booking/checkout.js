@@ -27,8 +27,9 @@ export async function initCheckout(root, { catalog, service, stylist }, scenario
   get(root, 'ticket-image').src = localUrl(bookedService.image);
   get(root, 'ticket-avatar').src = localUrl(bookedStylist.image);
   text(root, 'ticket-service', quote.items.length > 1 ? 'رزرو دوره‌ای · ' + faDigits(quote.items.length) + ' نوبت' : bookedService.name);
-  text(root, 'ticket-stylist', quote.items.length > 1 ? 'یک پرداخت برای همهٔ نوبت‌ها' : 'با ' + bookedStylist.name);
-  text(root, 'ticket-time', longDay(first.date) + ' · ' + faDigits(first.time));
+  text(root, 'ticket-stylist', quote.items.length > 1 ? 'یک پرداخت برای همهٔ نوبت‌ها' : 'با ' + bookedStylist.name + ' | ' + bookedService.duration);
+  text(root, 'ticket-date', longDay(first.date));
+  text(root, 'ticket-time', faDigits(first.time));
   const grouped = quote.items.length > 1;
   visible(root, 'steps', !grouped);
   visible(root, 'group-steps', grouped);
@@ -48,7 +49,11 @@ export async function initCheckout(root, { catalog, service, stylist }, scenario
   text(root, 'price-credit', money(quote.applied));
   visible(root, 'credit-row', quote.applied > 0);
   text(root, 'price-due', money(quote.due));
-  text(root, 'action-title', money(quote.due));
+  text(root, 'action-title', money(quote.due || quote.applied));
+  if (!quote.due) {
+    text(root, 'payment-label', 'از اعتبار شما کم می‌شود');
+    text(root, 'price-help', 'کل هزینهٔ رزرو از اعتبار شما کم می‌شود. این مبلغ هزینهٔ رزرو است.');
+  }
   const retry = scenario === 'gateway';
   visible(root, 'gateway-note', retry);
   const submit = get(root, 'booking-submit');
@@ -68,12 +73,15 @@ export async function initCheckout(root, { catalog, service, stylist }, scenario
     const left = scenario === 'expired' ? 0 : Math.max(0, Math.ceil((quote.expiresAt - Date.now()) / 1000));
     text(root, 'hold-clock', faDigits(Math.floor(left / 60) + ':' + String(left % 60).padStart(2, '0')));
     get(root, 'hold-progress').value = left;
-    get(root, 'hold').dataset.rvLow = String(left < 60);
+    const low = left < 60;
+    get(root, 'hold').dataset.rvLow = String(low);
+    get(root, 'hold-icon').className = low ? 'ri ri-clock-alert' : 'ri ri-hourglass';
+    visible(root, 'hold-help', low);
     text(root, 'hold-label', left < 60 ? 'کمتر از ۱ دقیقه' : 'نگه‌داشت فعال');
     if (!left) expire();
+    return left > 0;
   };
-  clock();
-  const interval = window.setInterval(clock, 1000);
+  const interval = clock() ? window.setInterval(() => { if (!clock()) window.clearInterval(interval); }, 1000) : 0;
   window.addEventListener('pagehide', () => window.clearInterval(interval), { once: true });
   bindForm(root, async () => {
     if (Date.now() >= quote.expiresAt) { expire(); return; }

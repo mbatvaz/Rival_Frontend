@@ -18,6 +18,11 @@ test('Desktop date, times and persistent summary share one workspace @visual @sm
   expect(timeBox.x).toBeGreaterThan(summaryBox.x);
   await expect(summary).toHaveCSS('position', 'sticky');
   await expect(submit).toBeDisabled();
+  const quick = page.locator('[data-rv-quick-date]').first();
+  await quick.check();
+  await expect(quick).toBeChecked();
+  await expect(submit).toBeEnabled();
+
 
   const next = calendar.getByRole('button', { name: 'ماه بعد' });
   await next.focus();
@@ -30,6 +35,7 @@ test('Desktop date, times and persistent summary share one workspace @visual @sm
   await chosen.focus();
   await page.keyboard.press('Space');
   await expect(chosen).toBeChecked();
+  await expect(quick).not.toBeChecked();
   await expect(summary).toContainText('۱۶:۰۰');
 
   await page.setViewportSize({ width: 390, height: 844 });

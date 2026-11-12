@@ -58,21 +58,16 @@ test('Signed-in home points to the existing panel and public rules keep policy c
   await expect(page.locator('#salon')).toContainText('سهم جابه‌جایی شما مصرف نمی‌شود');
 });
 
-test('Home orbital carousel advances, pauses and respects reduced motion @smoke', async ({ page }) => {
-  await page.clock.install({ time: new Date('2026-11-10T08:00:00Z') });
-  await page.goto('');
-  await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
-  const active = () => page.locator('[data-rv-carousel-caption]:visible');
-  await expect(active()).toContainText('فید کوتاه کلاسیک');
-  await page.clock.fastForward(3100);
-  await expect(active()).toContainText('پاکسازی پوست صورت');
-  await page.getByRole('button', { name: 'توقف حرکت', exact: true }).click();
-  const pausedText = await active().textContent();
-  await page.clock.fastForward(6100);
-  expect(await active().textContent()).toBe(pausedText);
-  await page.getByRole('button', { name: 'نمونه‌کار بعدی' }).click();
-  await expect(active()).toContainText('اصلاح صورت با تیغ');
+test('Home carousel uses the design indicators and supports keyboard selection @smoke', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('');
-  await expect(page.getByRole('button', { name: 'ادامه حرکت', exact: true })).toBeVisible();
+  await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
+  const dots = page.getByRole('group', { name: 'انتخاب نمونه‌کار' });
+  const active = page.locator('[data-rv-carousel-caption]:visible');
+  await expect(active).toContainText('فید کوتاه کلاسیک');
+  await dots.getByRole('button', { name: 'پاکسازی پوست صورت' }).click();
+  await expect(active).toContainText('پاکسازی پوست صورت');
+  await page.keyboard.press('ArrowLeft');
+  await expect(active).toContainText('اصلاح صورت با تیغ');
+  await expect(page.getByRole('button', { name: 'ادامه حرکت', exact: true })).toHaveCount(0);
 });

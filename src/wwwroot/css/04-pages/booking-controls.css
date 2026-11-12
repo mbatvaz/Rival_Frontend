@@ -9,17 +9,6 @@
   .rv-booking-contextual .rv-booking__notice { margin: 0; }
   .rv-booking-soon { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); }
 
-  .rv-booking-soon button {
-    display: grid;
-    gap: var(--space-1);
-    padding: var(--space-2);
-    border-radius: var(--radius-lg);
-    color: var(--text-primary);
-    cursor: pointer;
-  }
-  .rv-booking-soon bdi { font-size: var(--heading-xl-size); }
-  .rv-booking-soon button > :last-child { font-size: var(--caption-size); }
-
   .rv-booking-days {
     display: flex;
     gap: var(--space-2);

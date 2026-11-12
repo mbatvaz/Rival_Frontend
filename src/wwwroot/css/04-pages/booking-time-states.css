@@ -1,0 +1,52 @@
+@layer pages {
+  .rv-booking-quick-time > span {
+    padding: var(--space-3) var(--space-1);
+    gap: var(--space-1);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-lg);
+    background: var(--glass-fill-strong);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rv-booking-quick-time bdi { font-size: var(--heading-xl-size); font-weight: 300; }
+  .rv-booking-quick-time > span > :last-child { font-size: var(--caption-size); }
+  .rv-booking-quick-time :checked + span { border-color: var(--focus-ring); box-shadow: var(--shadow-md); }
+
+  .rv-booking-day-note { padding: var(--space-4); }
+  .rv-booking-day-note p { margin-block: var(--space-1) 0; font-weight: 300; }
+  .rv-booking-day-note strong { display: block; }
+
+  .rv-booking-day-note__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-1) var(--space-2);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-pill);
+    margin-block-end: var(--space-2);
+    font-size: var(--caption-size);
+  }
+
+  .rv-booking-empty { padding-block: var(--space-5); }
+  .rv-booking-empty p { margin: 0; font-weight: 300; }
+  .rv-booking__top .rv-muted { font-weight: 300; }
+
+  @media (min-width: 1024px) {
+    .rv-booking-date-picker .rv-booking-day[data-rv-day-state="outside"] {
+      background: none;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .rv-booking-date-picker .rv-booking-day[data-rv-day-state="closed"]:not([aria-pressed="true"]),
+    .rv-booking-date-picker .rv-booking-day[data-rv-day-state="pending"]:not([aria-pressed="true"]) { background: none; box-shadow: none; }
+    .rv-booking-date-picker .rv-booking-day[aria-pressed="true"] { box-shadow: none; }
+  }
+
+  @media not all and (min-width: 1024px) {
+    .rv-booking-time .rv-booking-context > img { max-block-size: 106px; }
+    .rv-booking-days .rv-booking-day[data-rv-day-state] { background: none; box-shadow: none; }
+    .rv-booking-days .rv-booking-day[aria-pressed="true"] { border: 2px solid var(--focus-ring); box-shadow: none; }
+    .rv-booking-days .rv-booking-day strong { font-weight: 300; }
+  }
+}
