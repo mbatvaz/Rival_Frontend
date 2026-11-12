@@ -39,18 +39,43 @@
       font-size: var(--body-sm-size);
     }
 
-    .rv-booking__top { padding-inline: calc(var(--space-8) + var(--size-touch) + var(--space-3)) var(--space-4); }
-    .rv-booking__top > a { inset-inline: var(--space-8) auto; }
+    .rv-booking__top {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      padding-inline: var(--space-3);
+    }
 
-    .rv-booking[data-rv-booking-kind="stylists"] { --choice-side-width: clamp(295px, 29%, 375px); }
-    .rv-booking[data-rv-booking-kind="stylists"] .rv-booking-choices { grid-template-columns: minmax(0, 1fr) var(--choice-side-width); }
+    .rv-booking__top > a { position: static; }
+    .rv-booking__top h1 { min-block-size: var(--size-touch); line-height: var(--size-touch); }
 
-    .rv-booking:has(.rv-booking-choices) .rv-booking-step-row {
+    .rv-booking__main { --booking-summary-width: clamp(245px, 27%, 375px); padding-inline: var(--space-3); }
+
+    .rv-booking__main .rv-booking-workspace,
+    .rv-booking__main .rv-booking-step-row {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) var(--choice-side-width, clamp(255px, 25%, 320px));
+      grid-template-columns: minmax(0, 1fr) var(--booking-summary-width);
       align-items: start;
       gap: var(--space-6);
     }
+
+    .rv-booking-choice-context .rv-booking-rec-link {
+      justify-content: center;
+      align-items: center;
+      min-block-size: calc(var(--size-touch) + var(--space-2) * 2 + 2px);
+      white-space: nowrap;
+    }
+
+    .rv-booking-choice-context [data-rv-inactive] { margin-block-start: 0; }
+
+    .rv-booking-choices .rv-booking-rail,
+    .rv-booking-requested .rv-booking-package { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .rv-booking-choices .rv-booking-choice,
+    .rv-booking-requested .rv-booking-choice { aspect-ratio: 4 / 5; }
+
+    .rv-booking-choice-context .rv-booking-quick__card { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+    .rv-booking-choice-context .rv-booking-quick__media img:last-child { inline-size: 36%; block-size: 36%; }
 
     .rv-booking-steps li:not(:last-child)::after { content: none; }
 
@@ -81,19 +106,15 @@
       grid-template-columns: minmax(332px, 1.35fr) minmax(0, 1fr);
     }
 
-    .rv-booking__main { padding-inline: var(--space-3); }
-    .rv-booking-time.rv-booking-workspace { grid-template-columns: minmax(0, 1fr) 180px; gap: var(--space-3); }
+    .rv-booking__main:has(.rv-booking-time) { --booking-summary-width: 180px; }
 
     .rv-booking-date-picker,
     .rv-booking-time-picker { padding: var(--space-2); }
   }
 
   @media (min-width: 1240px) {
-    .rv-booking:has(.rv-booking-sidebar) { grid-template-columns: clamp(210px, 17vw, 245px) minmax(0, 1fr); }
+    .rv-booking:has(.rv-booking-sidebar) { grid-template-columns: clamp(245px, 18vw, 286px) minmax(0, 1fr); }
 
-    .rv-booking-time.rv-booking-workspace {
-      grid-template-columns: minmax(0, 1fr) clamp(245px, 26%, 340px);
-      gap: var(--space-5);
-    }
+    .rv-booking__main:has(.rv-booking-time) { --booking-summary-width: clamp(245px, 27%, 375px); }
   }
 }

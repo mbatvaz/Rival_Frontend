@@ -1,3 +1,4 @@
+import { monthKey, monthLabel } from './calendar.js';
 import { longDay } from './availability.js';
 import { dateLabel, dayName, get, centerInRail, text, visible } from './shared.js';
 
@@ -5,7 +6,7 @@ const label = day => dayName(day) + ' ' + dateLabel(day);
 
 export function populateDays(root, days, active, pick) {
   const rail = get(root, 'days');
-  rail.replaceChildren(...days.map(day => {
+  rail.replaceChildren(...days.flatMap((day, index) => {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'rv-booking-day';
@@ -25,8 +26,16 @@ export function populateDays(root, days, active, pick) {
       lock.setAttribute('aria-hidden', 'true');
       button.append(lock);
     }
-    button.addEventListener('click', () => { pick(day.date); centerInRail(rail, button); });
-    return button;
+    button.addEventListener('click', event => {
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      centerInRail(rail, button, reduced ? 'instant' : 'smooth');
+      if (!event.detail) pick(day.date);
+    });
+    if (!index || monthKey(days[index - 1].date) === monthKey(day.date)) return [button];
+    const divider = document.createElement('span');
+    divider.className = 'rv-day-strip__month';
+    divider.textContent = monthLabel(day.date).replace(/[۰-۹]/g, '').trim();
+    return [divider, button];
   }));
 }
 
@@ -52,5 +61,7 @@ export function renderDayNote(root, day, conflict, taken) {
   visible(root, 'day-badge', Boolean(badge));
   text(root, 'day-heading', heading);
   text(root, 'day-description', description);
-  visible(root, 'day-note', Boolean(heading));
+  visible(root, 'day-note', Boolean(heading) && !conflict && !taken);
+  text(root, 'selection-warning', conflict || taken ? heading : '');
+  visible(root, 'selection-warning', conflict || taken);
 }

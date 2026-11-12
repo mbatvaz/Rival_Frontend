@@ -1,9 +1,9 @@
-<div class="rv-home-carousel" data-rv="home-carousel" role="region" aria-roledescription="چرخ‌فلک" aria-label="نمونه‌کارهای منتخب">
+<div class="rv-home-carousel" data-rv="home-carousel" data-rv-interval="{{ model.carouselInterval }}" role="region" aria-roledescription="چرخ‌فلک" aria-label="نمونه‌کارهای منتخب">
   <div class="rv-home-carousel__stage">
     {% for work in model.featured %}<figure class="rv-home-carousel__card" data-rv-carousel-card data-rv-position="{{ loop.index0 }}" {% if not loop.first %}aria-hidden="true"{% endif %}><img src="{{ basePath }}{{ work.image }}" alt="{{ work.title }}" width="260" height="350" draggable="false"></figure>{% endfor %}
   </div>
   <div class="rv-carousel-caption">
     {% for work in model.featured %}<div data-rv-carousel-caption {% if not loop.first %}hidden{% endif %}><a href="{{ productUrls.portfolio }}">{{ work.title }}</a><p>{{ work.service }} <span aria-hidden="true">|</span> {{ work.stylist }}</p></div>{% endfor %}
-    <div class="rv-slide-dots rv-carousel-dots" role="group" aria-label="انتخاب نمونه‌کار">{% for work in model.featured %}<button type="button" data-rv-carousel-dot aria-label="{{ work.title }}" aria-pressed="{% if loop.first %}true{% else %}false{% endif %}"></button>{% endfor %}</div>
+    <div class="rv-slide-dots" aria-hidden="true">{% for work in model.featured %}<span data-rv-carousel-dot></span>{% endfor %}</div>
   </div>
 </div>

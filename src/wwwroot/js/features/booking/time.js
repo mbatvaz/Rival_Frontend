@@ -24,7 +24,7 @@ export function initTime(root, context) {
   if (state === 'sms') selectedDay = '2026-10-15';
   const none = fixed && state === 'none';
   visible(root, 'soon', !none && state !== 'sms');
-  visible(root, 'day-section', !none);
+  get(root, 'day-section').dataset.rvReadOnly = String(none);
   visible(root, 'picked-day', !none);
   get(root, 'availability').dataset.rvNoTimes = String(none);
   visible(root, 'sms-entry', fixed && state === 'sms');
@@ -52,22 +52,30 @@ export function initTime(root, context) {
     submit.disabled = !selection || none;
     if (!none) text(root, 'action-title', selection ? longDay(date) + (fixed ? '، ' + minuteLabel(selection) : '') : 'زمانی انتخاب نشده');
     text(root, 'action-sub', selection ? fixed ? 'با ' + stylist.name : selection + '، بدون پرداخت' : fixed ? 'یک روز و ساعت آزاد انتخاب کنید' : 'روز و بخش روز را انتخاب کنید');
-    const buttons = [...get(root, 'days').children];
+    const buttons = [...get(root, 'days').querySelectorAll('[data-rv-day]')];
     buttons.forEach((button, index) => button.setAttribute('aria-pressed', String(days[index].date === date)));
-    markDesktopDay?.(date);
+    markDesktopDay?.(none ? '' : date);
   };
   populateDays(root, days, selectedDay, pick);
-  markDesktopDay = setupTimeCalendar(root, days, selectedDay, pick);
+  markDesktopDay = setupTimeCalendar(root, days, none ? '' : selectedDay, pick, none);
   const preselect = !entry && !['range', 'conflict', 'taken', 'none'].includes(state);
   const previousTime = fixed && query.get('time');
   pick(selectedDay, previousTime || (preselect ? fixed ? '16:00' : 'صبح' : ''));
   const rail = get(root, 'days');
-  const align = () => centerInRail(rail, rail.children[days.findIndex(day => day.date === selectedDay)]);
-  observeCenter(rail, () => rail.children, item => {
-    if (item.dataset.rvDay !== selectedDay) pick(item.dataset.rvDay);
+  const align = () => centerInRail(rail, rail.querySelector('[data-rv-day="' + selectedDay + '"]'));
+  observeCenter(rail, () => rail.querySelectorAll('[data-rv-day]'), item => {
+    if (!none && item.dataset.rvDay !== selectedDay) pick(item.dataset.rvDay);
   });
-  align();
-  window.matchMedia('(min-width: 1024px)').addEventListener('change', align);
+  const desktop = window.matchMedia('(min-width: 1024px)');
+  const alert = root.querySelector('[data-rv-sheet-open="rv-booking-alert"]');
+  const alertDone = get(root, 'alert-done');
+  const origin = alert?.parentElement;
+  const layout = () => {
+    align();
+    if (alert) (desktop.matches ? get(root, 'desktop-alert') : origin).append(alertDone, alert);
+  };
+  layout();
+  desktop.addEventListener('change', layout);
   form.addEventListener('change', event => {
     if (event.target.name === field) pick(selectedDay, event.target.value);
   });

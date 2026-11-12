@@ -6,7 +6,6 @@
     position: relative;
     block-size: 416px;
     overflow: clip;
-    touch-action: pan-y;
   }
 
   .rv-home-carousel__card {
@@ -61,27 +60,6 @@
     opacity: 0.9;
     z-index: 4;
   }
-
-  .rv-carousel-dots button {
-    display: grid;
-    place-items: center;
-    min-inline-size: var(--size-touch);
-    min-block-size: var(--size-touch);
-    padding: 0;
-    border: 0;
-    border-radius: var(--radius-pill);
-    background: none;
-    cursor: pointer;
-  }
-
-  .rv-carousel-dots button::before {
-    content: "";
-    inline-size: 8px;
-    block-size: 8px;
-    border-radius: var(--radius-pill);
-    background: var(--chrome-300);
-  }
-  .rv-carousel-dots button[aria-pressed="true"]::before { inline-size: 24px; background: var(--bg-inverse); }
 
   @media (prefers-reduced-motion: reduce) {
     .rv-home-carousel__card { transition: none; }

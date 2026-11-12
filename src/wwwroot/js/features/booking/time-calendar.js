@@ -1,7 +1,7 @@
 import { adjacentMonth, monthGrid, monthKey } from './calendar.js';
 import { get } from './shared.js';
 
-export function setupTimeCalendar(root, days, selected, pick) {
+export function setupTimeCalendar(root, days, selected, pick, readOnly = false) {
   const shell = get(root, 'time-calendar');
   const grid = get(shell, 'month-grid');
   const dates = new Map(days.map(day => [day.date, day]));
@@ -9,7 +9,7 @@ export function setupTimeCalendar(root, days, selected, pick) {
   let month = selected || bounds.start;
   let current = selected;
   const render = () => monthGrid(shell, month, current, {
-    ...bounds, canPick: date => dates.has(date),
+    ...bounds, canPick: date => !readOnly && dates.has(date),
     dayState: date => dates.get(date)?.closed ? 'closed' : dates.get(date)?.opens ? 'pending' : dates.has(date) ? 'available' : 'outside'
   }, pick);
 
@@ -17,7 +17,7 @@ export function setupTimeCalendar(root, days, selected, pick) {
     button.addEventListener('click', () => {
       month = adjacentMonth(month, Number(button.dataset.rvMonthMove));
       render();
-      if (button.disabled) grid.querySelector('button:not([disabled])')?.focus();
+      if (button.disabled) grid.querySelector('input:not([disabled])')?.focus();
     });
   }
   render();
@@ -28,8 +28,8 @@ export function setupTimeCalendar(root, days, selected, pick) {
       render();
       return;
     }
-    for (const button of grid.querySelectorAll('button')) {
-      button.setAttribute('aria-pressed', String(button.dataset.rvDate === date));
+    for (const input of grid.querySelectorAll('input')) {
+      input.checked = input.value === date;
     }
   };
 }

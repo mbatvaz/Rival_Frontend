@@ -91,8 +91,7 @@
 
     .rv-booking-date-picker,
     .rv-booking-time-picker,
-    .rv-booking-soon-panel,
-    .rv-booking-recurring__plan {
+    .rv-booking-soon-panel {
       min-inline-size: 0;
       padding: var(--space-4);
       border: 1px solid var(--glass-edge);
@@ -111,7 +110,6 @@
     }
     .rv-booking-time-picker .rv-booking-radio > span { border-radius: var(--radius-xs); }
 
-    .rv-booking-date-picker .rv-booking-day[aria-pressed="true"],
     .rv-booking-time-picker .rv-booking-radio :checked + span { background: var(--bg-inverse); color: var(--text-inverse); }
 
     .rv-booking-time-picker .rv-booking-picks__grid:not(.rv-booking-picks__grid--parts) {

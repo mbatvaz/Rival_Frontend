@@ -19,7 +19,7 @@
     <div class="rv-booking-availability" data-rv-availability>
       <section class="rv-booking-date-picker" aria-labelledby="rv-day-title" data-rv-day-section>
         <h2 id="rv-day-title">{% if model.kind == 'fixed' %}روز و ساعت دلخواه{% else %}کدام روز برایتان مناسب است؟{% endif %}</h2>
-        <div class="rv-booking-days rv-glass rv-booking-mobile-only" data-rv-days role="group" aria-label="روزهای قابل بررسی"></div>
+        <div class="rv-booking-mobile-only rv-day-strip"><div class="rv-booking-days rv-glass" data-rv-days role="group" aria-label="روزهای قابل بررسی"></div><span class="rv-day-strip__frame" aria-hidden="true"></span></div>
         <div class="rv-booking-desktop-only" data-rv-time-calendar>{% include "Booking/_Calendar.njk" %}</div>
       </section>
       <section class="rv-booking-time-picker" aria-label="{% if model.kind == 'fixed' %}ساعت‌های روز{% else %}بخش روز{% endif %}">
@@ -54,7 +54,7 @@
   </div>
   <aside class="rv-booking-summary" aria-label="خلاصهٔ رزرو">
     <div class="rv-booking-contextual">
-      <div class="rv-booking-desktop-only rv-booking-summary-head"><h2>رزرو شما</h2><span class="ri ri-receipt" aria-hidden="true"></span></div>
+
       {% include "Booking/_Context.njk" %}
       <div class="rv-booking-desktop-only rv-booking-summary-edits">
         <a class="rv-text-link" href="{{ bookingUrls['BK-01'] }}" data-rv-step-route="BK-01">تغییر خدمت</a>
@@ -65,8 +65,10 @@
       {% endif %}
     </div>
     <div class="rv-booking-action rv-glass rv-glass--strong">
+      <p class="rv-booking-conflict" data-rv-selection-warning role="status" hidden></p>
       <div><strong data-rv-action-title>{% if model.kind == 'fixed' %}زمانی انتخاب نشده{% else %}روز و بخش روز را انتخاب کنید{% endif %}</strong><p class="rv-muted" data-rv-action-sub></p></div>
       <button class="rv-btn" type="submit" data-rv-booking-submit disabled>{% if model.kind == 'fixed' %}ادامه{% else %}ثبت درخواست{% endif %}</button>
     </div>
+    <div data-rv-desktop-alert></div>
   </aside>
 </form>

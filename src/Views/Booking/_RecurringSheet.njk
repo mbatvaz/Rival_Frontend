@@ -1,26 +1,29 @@
-<section class="rv-sheet rv-booking-sheet" id="rv-rec-sheet" role="dialog" aria-modal="true" aria-labelledby="rv-rec-sheet-title" tabindex="-1" hidden>
+<section class="rv-sheet rv-booking-sheet rv-recurring-editor" id="rv-rec-sheet" role="dialog" aria-modal="true" aria-labelledby="rv-rec-sheet-title" tabindex="-1" hidden>
   <header class="rv-sheet__header">
     <div><h2 id="rv-rec-sheet-title" data-rv-rec-title>نوبت تازه</h2><p class="rv-muted" data-rv-rec-step-text></p></div>
     <button class="rv-icon-btn" type="button" data-rv-sheet-close aria-label="بستن ویرایش نوبت"><span class="ri ri-x" aria-hidden="true"></span></button>
   </header>
-  <div data-rv-rec-locked hidden>{% include "Booking/_Context.njk" %}<p class="rv-muted"><span class="ri ri-lock" aria-hidden="true"></span>خدمت و آرایشگر</p></div>
-  <fieldset class="rv-booking-picks" data-rv-rec-step="1">
-    <legend>خدمت</legend>
-    <div class="rv-booking-picks__grid rv-booking-picks__grid--parts">
-      {% for service in bookingCatalog.services %}{% if service.kind == 'fixed' %}
-      <label class="rv-booking-radio rv-recurring-choice"><input type="radio" name="rec-service" value="{{ service.id }}"><span><img src="{{ basePath }}{{ service.image }}" alt="">{{ service.name }}</span></label>
-      {% endif %}{% endfor %}
-    </div>
-  </fieldset>
-  <fieldset class="rv-booking-picks" data-rv-rec-step="2" hidden>
-    <legend>آرایشگر</legend>
-    <div class="rv-booking-picks__grid rv-booking-picks__grid--parts">
-      {% for stylist in bookingCatalog.stylists %}
-      <label class="rv-booking-radio rv-recurring-choice"><input type="radio" name="rec-stylist" value="{{ stylist.id }}"><span><img src="{{ basePath }}{{ stylist.image }}" alt="">{{ stylist.name }}</span></label>
-      {% endfor %}
-    </div>
-  </fieldset>
-  <div data-rv-rec-step="3" hidden>
+  <div class="rv-recurring-editor__identity">
+    <div data-rv-rec-locked hidden>{% include "Booking/_Context.njk" %}<p class="rv-muted"><span class="ri ri-lock" aria-hidden="true"></span>خدمت و آرایشگر</p></div>
+    <fieldset class="rv-booking-picks" data-rv-rec-step="1">
+      <legend><span>۱</span> خدمت</legend>
+      <div class="rv-booking-picks__grid rv-booking-picks__grid--parts">
+        {% for service in bookingCatalog.services %}{% if service.kind == 'fixed' %}
+        <label class="rv-booking-radio rv-recurring-choice"><input type="radio" name="rec-service" value="{{ service.id }}"><span><img src="{{ basePath }}{{ service.image }}" alt="">{{ service.name }}</span></label>
+        {% endif %}{% endfor %}
+      </div>
+    </fieldset>
+    <fieldset class="rv-booking-picks rv-recurring-editor__stylists" data-rv-rec-step="2">
+      <legend><span>۲</span> آرایشگر</legend>
+      <div class="rv-booking-picks__grid rv-booking-picks__grid--parts">
+        {% for stylist in bookingCatalog.stylists %}
+        <label class="rv-booking-radio rv-recurring-choice"><input type="radio" name="rec-stylist" value="{{ stylist.id }}"><span><img src="{{ basePath }}{{ stylist.image }}" alt="">{{ stylist.name }}</span></label>
+        {% endfor %}
+      </div>
+    </fieldset>
+  </div>
+  <div class="rv-recurring-editor__when" data-rv-rec-step="3">
+    <h3><span data-rv-rec-day-number>۳</span> روز و ساعت</h3>
     {% include "Booking/_Calendar.njk" %}
     <fieldset class="rv-booking-picks">
       <legend>ساعت شروع</legend>
@@ -28,24 +31,27 @@
         {% for time in bookingCatalog.calendar.times %}<label class="rv-booking-radio"><input type="radio" name="rec-time" value="{{ time }}"><span><bdi>{{ time | faDigits }}</bdi></span></label>{% endfor %}
       </div>
     </fieldset>
+    <p class="rv-muted" data-rv-rec-edit-tip hidden>فقط روز و ساعت همین نوبت تغییر می‌کند. برای تغییر خدمت یا آرایشگر، نوبت را حذف کنید و نوبت تازه‌ای بسازید.</p>
   </div>
-  <fieldset class="rv-booking-picks" data-rv-rec-step="4" hidden>
-    <legend>تکرار</legend>
-    <div class="rv-booking-picks__grid rv-booking-picks__grid--parts">
-      <label class="rv-booking-radio"><input type="radio" name="rec-repeat" value="once"><span>یک بار</span></label>
-      <label class="rv-booking-radio"><input type="radio" name="rec-repeat" value="14"><span>هر ۲ هفته</span></label>
-      <label class="rv-booking-radio"><input type="radio" name="rec-repeat" value="21"><span>هر ۳ هفته</span></label>
-      <label class="rv-booking-radio"><input type="radio" name="rec-repeat" value="month"><span>ماهانه</span></label>
-    </div>
-  </fieldset>
-  <div data-rv-rec-step="5" hidden>
-    <fieldset class="rv-booking-picks" data-rv-rec-horizon>
-      <legend>تا کی؟</legend>
-      <div class="rv-booking-picks__grid">
-        {% for months in bookingMonths %}<label class="rv-booking-radio"><input type="radio" name="rec-months" value="{{ months }}"><span>{{ months | faDigits }} ماه</span></label>{% endfor %}
+  <div class="rv-recurring-editor__repeat">
+    <fieldset class="rv-booking-picks" data-rv-rec-step="4">
+      <legend><span>۴</span> تکرار</legend>
+      <div class="rv-booking-picks__grid rv-booking-picks__grid--parts">
+        <label class="rv-booking-radio"><input type="radio" name="rec-repeat" value="once"><span>یک بار</span></label>
+        <label class="rv-booking-radio"><input type="radio" name="rec-repeat" value="14"><span>هر ۲ هفته</span></label>
+        <label class="rv-booking-radio"><input type="radio" name="rec-repeat" value="21"><span>هر ۳ هفته</span></label>
+        <label class="rv-booking-radio"><input type="radio" name="rec-repeat" value="month"><span>ماهانه</span></label>
       </div>
     </fieldset>
-    <ul class="rv-booking-facts" data-rv-rec-preview></ul>
+    <div data-rv-rec-step="5">
+      <fieldset class="rv-booking-picks" data-rv-rec-horizon>
+        <legend><span>۵</span> تا کی؟</legend>
+        <div class="rv-booking-picks__grid">
+          {% for months in bookingMonths %}<label class="rv-booking-radio"><input type="radio" name="rec-months" value="{{ months }}"><span>{{ months | faDigits }} ماه</span></label>{% endfor %}
+        </div>
+      </fieldset>
+      <div class="rv-panel rv-recurring-preview" data-rv-rec-preview-panel hidden><strong data-rv-rec-preview-title></strong><p class="rv-muted" data-rv-rec-preview-caption></p><ul class="rv-booking-facts" data-rv-rec-preview></ul><p class="rv-muted">نوبت‌های غیرقابل رزرو در فهرست مشخص می‌شوند و پیش از پرداخت باید تغییر کنند.</p></div>
+  </div>
   </div>
   <p class="rv-booking__notice rv-booking__notice--warning" data-rv-rec-error role="alert" hidden></p>
   <div class="rv-booking__notice rv-booking__notice--warning" data-rv-rec-delete-note hidden>
@@ -54,7 +60,6 @@
   </div>
   <div class="rv-actions">
     <button class="rv-btn" type="button" data-rv-rec-next>ادامه</button>
-    <button class="rv-btn rv-btn--secondary" type="button" data-rv-rec-back>قدم قبل</button>
     <button class="rv-btn rv-btn--danger" type="button" data-rv-rec-delete hidden>حذف این نوبت</button>
   </div>
 </section>

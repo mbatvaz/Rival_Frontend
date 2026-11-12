@@ -29,8 +29,8 @@ test('Desktop date, times and persistent summary share one workspace @visual @sm
   await page.keyboard.press('Enter');
   await expect(calendar.locator('[data-rv-month-title]')).toContainText('آبان');
   await calendar.getByRole('button', { name: 'ماه قبل' }).click();
-  await calendar.locator('button[data-rv-date="2026-10-15"]').focus();
-  await page.keyboard.press('Enter');
+  await calendar.locator('input[data-rv-date="2026-10-15"]').focus();
+  await page.keyboard.press('Space');
   const chosen = times.getByRole('radio', { name: '۱۶:۰۰' });
   await chosen.focus();
   await page.keyboard.press('Space');
@@ -43,11 +43,32 @@ test('Desktop date, times and persistent summary share one workspace @visual @sm
   await expect(page.locator('[data-rv-days]')).toBeVisible();
   await expect(chosen).toBeChecked();
   await expect(submit).toBeEnabled();
-  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.setViewportSize({ width: 1920, height: 939 });
+  const quickBox = await page.locator('[data-rv-soon]').boundingBox();
+  const wideDate = await dayPanel.boundingBox();
+  expect(quickBox.x).toBeGreaterThan(wideDate.x);
+  expect(quickBox.y).toBe(wideDate.y);
   await submit.click();
   await expect(page).toHaveURL(/bk-f02.*hold=/);
   const edit = page.getByRole('navigation', { name: 'مراحل رزرو' }).getByRole('link', { name: 'زمان' });
   await expect(edit).toHaveAttribute('href', /date=2026-10-15.*time=16%3A00/);
   await edit.click();
   await expect(page.getByRole('radio', { name: '۱۶:۰۰' })).toBeChecked();
+});
+
+test('Read-only availability and the conflict reason stay with their desktop controls @smoke', async ({ page }) => {
+  await page.setViewportSize({ width: 1920, height: 939 });
+  await page.goto('_preview/context/bk-f01/?state=none');
+  const calendar = page.locator('[data-rv-time-calendar]');
+  await expect(calendar.getByRole('radio').first()).toBeDisabled();
+  await expect(calendar.getByRole('radio').first()).toBeVisible();
+  const summary = page.getByRole('complementary', { name: 'خلاصهٔ رزرو' });
+  await expect(summary.getByRole('button', { name: /زمان مناسبی نیست/ })).toBeVisible();
+
+  await page.goto('_preview/context/bk-f01/?state=conflict');
+  await expect(summary.getByRole('status')).toContainText('تداخل دارد');
+  await expect(summary.getByRole('button', { name: 'ادامه' })).toBeDisabled();
+  await page.setViewportSize({ width: 471, height: 627 });
+  await expect(summary.getByRole('status')).toBeInViewport();
+  await expect(page.locator('.rv-day-strip__frame')).toBeVisible();
 });

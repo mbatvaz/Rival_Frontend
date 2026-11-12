@@ -10,23 +10,12 @@ export function init(root) {
       card.dataset.rvPosition = String(position);
       card.setAttribute('aria-hidden', String(position !== 0));
       captions[i].hidden = position !== 0;
-      dots[i].setAttribute('aria-pressed', String(position === 0));
+      dots[i].dataset.rvActive = String(position === 0);
     });
   }
-  dots.forEach((dot, index) => dot.addEventListener('click', () => show(index)));
-  root.addEventListener('keydown', event => {
-    if (!dots.includes(event.target) || !['ArrowRight', 'ArrowLeft'].includes(event.key)) return;
-    event.preventDefault();
-    show(current + (event.key === 'ArrowLeft' ? 1 : -1));
-    dots[current].focus();
-  });
-  const stage = root.querySelector('.rv-home-carousel__stage');
-  let start;
-  stage.addEventListener('pointerdown', event => { start = event.clientX; });
-  stage.addEventListener('pointercancel', () => { start = undefined; });
-  stage.addEventListener('pointerup', event => {
-    if (start !== undefined && Math.abs(event.clientX - start) > 44) show(current + (event.clientX > start ? 1 : -1));
-    start = undefined;
-  });
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  window.setInterval(() => {
+    if (!reduced.matches && !document.hidden && !root.contains(document.activeElement)) show(current + 1);
+  }, Number(root.dataset.rvInterval));
   show(0);
 }

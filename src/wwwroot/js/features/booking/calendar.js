@@ -54,16 +54,21 @@ export function monthGrid(root, month, selected, { start, end, canPick, dayState
   const nodes = [...week, ...Array.from({ length: offset }, () => document.createElement('span'))];
   for (let date = first; monthKey(date) === monthKey(first); date = plusDays(date, 1)) {
     const current = date;
-    const day = document.createElement('button');
-    day.className = 'rv-booking-day';
-    day.type = 'button';
-    day.textContent = faDay(date);
-    day.disabled = !canPick(date);
-    day.dataset.rvDate = date;
-    if (dayState) day.dataset.rvDayState = dayState(date);
-    day.setAttribute('aria-label', dayName(date) + ' ' + dateLabel(date));
-    day.setAttribute('aria-pressed', String(selected === date));
-    day.addEventListener('click', () => select(current));
+    const day = document.createElement('label');
+    const input = document.createElement('input');
+    const number = document.createElement('span');
+    day.className = 'rv-calendar-day';
+    day.dataset.rvDayState = dayState?.(date) ?? (canPick(date) ? 'available' : 'outside');
+    input.type = 'radio';
+    input.name = root.closest('#rv-rec-sheet') ? 'rec-calendar-date' : 'booking-calendar-date';
+    input.value = date;
+    input.disabled = !canPick(date);
+    input.dataset.rvDate = date;
+    input.checked = selected === date;
+    number.textContent = faDay(date);
+    input.setAttribute('aria-label', dayName(date) + ' ' + dateLabel(date));
+    input.addEventListener('change', () => select(current));
+    day.append(input, number);
     nodes.push(day);
   }
   grid.replaceChildren(...nodes);

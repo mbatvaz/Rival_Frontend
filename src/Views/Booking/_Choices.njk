@@ -1,6 +1,7 @@
 <div class="rv-booking-workspace rv-booking-choices">
 <div class="rv-booking-choice-context">
 {% if model.kind == 'services' %}
+<a class="rv-booking-desktop-only rv-booking-rec-link rv-btn rv-btn--secondary" href="{{ bookingUrls['BK-REC01'] }}" data-rv-recurring-link><span class="ri ri-repeat" aria-hidden="true"></span>رزرو دوره‌ای</a>
 <section data-rv-choices-quick aria-labelledby="rv-quick-title">
   <h2 id="rv-quick-title">رزرو دوباره</h2>
   <div class="rv-booking-quick rv-quick-skeleton" data-rv-quick-loading hidden role="status" aria-label="در حال بارگذاری رزروهای قبلی"><div></div><div></div></div>
@@ -19,6 +20,7 @@
 {% endif %}
 </div>
 <section aria-labelledby="rv-choice-title" data-rv-choices-section>
+  {% include "Booking/_Steps.njk" %}
   <div class="rv-section-head">
     <h2 id="rv-choice-title">{% if model.kind == 'services' %}<span class="rv-booking-mobile-only">چه خدمتی می‌خواهید؟</span><span class="rv-booking-desktop-only">چه خدمتی می‌خواهید؟</span>{% else %}<span class="rv-booking-mobile-only">با کدام آرایشگر؟</span><span class="rv-booking-desktop-only">آرایشگران این خدمت</span>{% endif %}</h2>
     {% if model.kind == 'services' %}<a class="rv-booking-mobile-only" href="{{ bookingUrls['BK-REC01'] }}" data-rv-recurring-link><span class="ri ri-repeat" aria-hidden="true"></span>رزرو دوره‌ای</a>{% endif %}
@@ -41,9 +43,9 @@
   <div class="rv-slide-dots rv-booking-mobile-only" data-rv-choice-dots aria-hidden="true"></div>
   <div class="rv-booking-skeleton" data-rv-choices-loading role="status" hidden><span>در حال بارگذاری خدمت‌ها…</span><div aria-hidden="true"></div></div>
   <div class="rv-booking-empty" data-rv-choices-empty hidden>
-    <span class="rv-icon-tile rv-icon-tile--large"><span class="ri ri-{% if model.kind == 'stylists' %}users{% else %}calendar-x{% endif %}" aria-hidden="true"></span></span>
+    <span class="rv-icon-tile rv-icon-tile--large"><span class="ri ri-{% if model.kind == 'stylists' %}users{% else %}scissors{% endif %}" aria-hidden="true"></span></span>
     <h2>{% if model.kind == 'services' %}فعلاً خدمتی برای رزرو نیست{% else %}فعلاً آرایشگری برای این خدمت نیست{% endif %}</h2>
-    {% if model.kind == 'stylists' %}<p class="rv-muted">می‌توانید خدمت دیگری انتخاب کنید یا برای هماهنگی با سالن تماس بگیرید.</p><a class="rv-btn" href="{{ bookingUrls[model.back] }}">انتخاب خدمت دیگر</a><a class="rv-text-link" href="tel:09141452321"><span class="ri ri-phone" aria-hidden="true"></span>تماس با سالن</a>{% else %}<a class="rv-btn rv-btn--secondary" href="{{ bookingUrls[model.back] }}">بازگشت</a>{% endif %}
+    {% if model.kind == 'stylists' %}<p class="rv-muted">می‌توانید خدمت دیگری انتخاب کنید یا برای هماهنگی با سالن تماس بگیرید.</p><a class="rv-btn" href="{{ bookingUrls[model.back] }}">انتخاب خدمت دیگر</a><a class="rv-text-link" href="tel:09141452321"><span class="ri ri-phone" aria-hidden="true"></span>تماس با سالن</a>{% else %}<p class="rv-muted">سالن در حال به‌روزرسانی خدمات است. نوبت‌های قبلی شما سر جای خود هستند. برای هماهنگی می‌توانید با سالن تماس بگیرید.</p><a class="rv-btn rv-btn--secondary" href="tel:09141452321"><span class="ri ri-phone" aria-hidden="true"></span>تماس با سالن</a>{% endif %}
   </div>
 </section>
 </div>

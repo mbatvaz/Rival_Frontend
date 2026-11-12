@@ -63,6 +63,7 @@ export async function initCheckout(root, { catalog, service, stylist }, scenario
     submit.disabled = true;
     submit.hidden = true;
     visible(root, 'hold', false);
+    visible(root, 'gateway-note', false);
     visible(root, 'checkout-expired', true);
     visible(root, 'checkout-retry', true);
     get(root, 'checkout-retry').href = route(grouped ? 'BK-REC01' : 'BK-F01', { service: first.service, stylist: first.stylist });

@@ -1,0 +1,127 @@
+@layer pages {
+  .rv-recurring-list { position: relative; }
+
+  .rv-recurring-list::before {
+    content: "";
+    position: absolute;
+    inset-block: var(--space-4);
+    inset-inline-start: 25px;
+    inline-size: 1px;
+    background: var(--line-strong);
+  }
+
+  .rv-recurring-month {
+    z-index: 1;
+    justify-self: center;
+    margin-block-start: var(--space-3);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-pill);
+    background: var(--bg-inverse);
+    color: var(--text-inverse);
+  }
+  .rv-recurring-month:empty { visibility: hidden; }
+
+  .rv-recurring-date,
+  .rv-recurring-person { display: flex; align-items: center; gap: var(--space-2); }
+  .rv-recurring-date { font-size: var(--caption-size); }
+  .rv-recurring-date > strong { font-size: var(--heading-xl-size); }
+  .rv-recurring-date bdi { padding-inline-start: var(--space-2); border-inline-start: 1px solid var(--line-strong); }
+
+  .rv-recurring-person img {
+    inline-size: 24px;
+    block-size: 24px;
+    border-radius: var(--radius-pill);
+    object-fit: cover;
+  }
+
+  .rv-recurring-invalid {
+    inline-size: fit-content;
+    padding-inline: var(--space-2);
+    border-radius: var(--radius-pill);
+    background: var(--danger-bg);
+  }
+  [data-rv-rec-invalid="true"] [data-rv-action-title] { color: var(--danger-fg); }
+
+  :where(.rv-recurring-editor__identity fieldset:first-of-type) .rv-recurring-choice > span {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: var(--space-2);
+    padding: var(--space-2);
+    font-size: var(--body-sm-size);
+  }
+
+  :where(.rv-recurring-editor__identity fieldset:first-of-type) .rv-recurring-choice img { aspect-ratio: 1; }
+
+  .rv-recurring-editor legend > span,
+  .rv-recurring-editor__when h3 > span {
+    display: inline-grid;
+    place-items: center;
+    inline-size: 22px;
+    block-size: 22px;
+    border-radius: var(--radius-pill);
+    background: var(--bg-inverse);
+    color: var(--text-inverse);
+    font-size: var(--caption-size);
+  }
+
+  .rv-recurring-editor__stylists img { inline-size: 52px; block-size: 52px; border-radius: var(--radius-pill); }
+  .rv-recurring-editor input:not(:checked) + span img { opacity: .6; }
+  .rv-recurring-editor__stylists .rv-booking-picks__grid { display: flex; flex-wrap: wrap; }
+  .rv-recurring-editor__stylists .rv-booking-radio > span { min-inline-size: 58px; background: none; box-shadow: none; }
+  .rv-recurring-preview { margin-block-start: var(--space-3); }
+  .rv-recurring-preview ul { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+
+  .rv-recurring-preview li {
+    display: grid;
+    min-inline-size: var(--size-touch);
+    text-align: center;
+    margin: 0;
+    padding: var(--space-1) var(--space-2);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-sm);
+  }
+  .rv-recurring-preview li[data-rv-invalid="true"] { color: var(--danger-fg); background: var(--danger-bg); }
+  .rv-recurring-editor .rv-booking-calendar { padding-inline: 0; }
+  [data-rv-rec-mode="edit"] .rv-recurring-editor__repeat { display: none; }
+  .rv-recurring-editor__repeat [data-rv-rec-step="4"] .rv-booking-picks__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .rv-recurring-editor__repeat .rv-booking-radio > span { font-size: var(--body-sm-size); }
+
+  @media not all and (min-width: 1024px) {
+    .rv-recurring-editor { position: relative; padding-block-start: var(--space-8); }
+
+    .rv-recurring-editor::before {
+      content: "";
+      position: absolute;
+      inset-block-start: var(--space-2);
+      inset-inline-start: calc(50% - 18px);
+      inline-size: 36px;
+      block-size: 4px;
+      border-radius: var(--radius-pill);
+      background: var(--line-strong);
+    }
+
+    .rv-booking-recurring { padding-block-end: 96px; }
+
+    .rv-booking-recurring .rv-booking-action {
+      position: fixed;
+      inset: auto 0 0;
+      max-inline-size: 720px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .rv-recurring-editor {
+      max-inline-size: 860px;
+      grid-template-columns: minmax(300px, 1fr) minmax(0, 1fr);
+      align-items: start;
+      gap: var(--space-6);
+    }
+
+    .rv-recurring-editor > :is(header, p, .rv-actions, [data-rv-rec-delete-note]) { grid-column: 1 / -1; }
+    .rv-recurring-editor__when { grid-area: 2 / 1 / span 2; }
+    .rv-recurring-editor__identity { grid-area: 2 / 2; }
+    .rv-recurring-editor__repeat { grid-area: 3 / 2; }
+    [data-rv-rec-mode="edit"] .rv-recurring-editor__when { grid-row-end: auto; }
+    .rv-recurring-editor .rv-booking-calendar { margin-inline: 0; }
+  }
+}

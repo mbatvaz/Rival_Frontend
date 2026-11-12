@@ -50,11 +50,11 @@ export function paintContext(root, service, stylist) {
   }
 }
 
-export function centerInRail(rail, item) {
+export function centerInRail(rail, item, behavior = 'instant') {
   if (!item) return;
   const frame = rail.getBoundingClientRect();
   const card = item.getBoundingClientRect();
-  rail.scrollBy({ left: card.left + card.width / 2 - frame.left - frame.width / 2, behavior: 'instant' });
+  rail.scrollBy({ left: card.left + card.width / 2 - frame.left - frame.width / 2, behavior });
 }
 
 export async function findRecord(collection, id) {

@@ -1,14 +1,5 @@
 <form class="rv-booking-form rv-booking-workspace rv-booking-checkout" data-rv-booking-form action="{{ bookingUrls['PAY-RES'] }}">
   <div class="rv-booking-checkout__ticket">
-    <div class="rv-booking-desktop-only rv-booking-summary-head" data-rv-ticket-heading><h2>جزئیات نوبت</h2><span class="ri ri-calendar" aria-hidden="true"></span></div>
-    <div class="rv-booking-ticket rv-glass rv-glass--strong" data-rv-single-ticket>
-      <img src="{{ basePath }}{{ bookingDefault.service.image }}" alt="" data-rv-ticket-image>
-      <div class="rv-booking-ticket__body"><h2 data-rv-ticket-service>{{ bookingDefault.service.name }}</h2><div class="rv-ticket-stylist"><p class="rv-muted" data-rv-ticket-stylist>با {{ bookingDefault.stylist.name }}</p><img class="rv-ticket-avatar" src="{{ basePath }}{{ bookingDefault.stylist.image }}" alt="" data-rv-ticket-avatar></div><div class="rv-ticket-when"><strong data-rv-ticket-date></strong><bdi data-rv-ticket-time></bdi></div></div>
-    </div>
-    <div class="rv-booking-desktop-only rv-booking-ticket-address"><span class="ri ri-map-pin" aria-hidden="true"></span><span>{{ bookingContact.address }}</span></div>
-    <section class="rv-panel" data-rv-group-ticket hidden><h2>خلاصه رزرو دوره‌ای</h2><ol class="rv-booking-group" data-rv-group-items></ol></section>
-  </div>
-  <aside class="rv-booking-summary" aria-label="خلاصهٔ پرداخت">
     <section class="rv-panel rv-booking-hold" aria-label="زمان نگه‌داشت" data-rv-hold>
       <div class="rv-booking-hold__head">
         <span class="rv-booking-hold__badge"><span class="ri ri-hourglass" aria-hidden="true" data-rv-hold-icon></span><span data-rv-hold-label>نگه‌داشت فعال</span></span>
@@ -18,6 +9,16 @@
       <p class="rv-muted rv-booking-hold__help" data-rv-hold-help hidden>اگر زمان تمام شود، این زمان آزاد می‌شود و اعتبار به حساب شما برمی‌گردد.</p>
     </section>
     <section class="rv-booking__notice rv-checkout-expired" data-rv-checkout-expired hidden><h2>زمان نگه‌داشت تمام شد</h2><p>زمان و اعتبار آزاد شد. برای ادامه یک زمان دیگر انتخاب کنید.</p></section>
+
+    <div class="rv-booking-desktop-only rv-booking-summary-head" data-rv-ticket-heading><h2>جزئیات نوبت</h2><span class="ri ri-calendar" aria-hidden="true"></span></div>
+    <div class="rv-booking-ticket rv-glass rv-glass--strong" data-rv-single-ticket>
+      <img src="{{ basePath }}{{ bookingDefault.service.image }}" alt="" data-rv-ticket-image>
+      <div class="rv-booking-ticket__body"><h2 data-rv-ticket-service>{{ bookingDefault.service.name }}</h2><div class="rv-ticket-stylist"><p class="rv-muted" data-rv-ticket-stylist>با {{ bookingDefault.stylist.name }}</p><img class="rv-ticket-avatar" src="{{ basePath }}{{ bookingDefault.stylist.image }}" alt="" data-rv-ticket-avatar></div><div class="rv-ticket-when"><strong data-rv-ticket-date></strong><bdi data-rv-ticket-time></bdi></div></div>
+    </div>
+    <div class="rv-booking-desktop-only rv-booking-ticket-address"><span class="ri ri-map-pin" aria-hidden="true"></span><span>{{ bookingContact.address }}</span></div>
+    <section class="rv-panel" data-rv-group-ticket hidden><h2>خلاصه رزرو دوره‌ای</h2><ol class="rv-booking-group" data-rv-group-items></ol></section>
+  </div>
+  <aside class="rv-booking-summary" aria-label="خلاصهٔ پرداخت">
     <div class="rv-panel rv-booking-prices">
       <div class="rv-booking-desktop-only rv-booking-summary-head"><h2>هزینهٔ رزرو</h2><span class="ri ri-card" aria-hidden="true"></span></div>
       <dl><div><dt>هزینه رزرو</dt><dd data-rv-price-total></dd></div><div data-rv-credit-row><dt>از اعتبار شما</dt><dd data-rv-price-credit></dd></div><div><dt>مانده برای درگاه</dt><dd data-rv-price-due></dd></div></dl>

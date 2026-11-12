@@ -28,9 +28,7 @@
   <main class="rv-booking__main" id="rv-main" tabindex="-1">
     {% if model.step %}<progress class="rv-booking__progress" value="{{ model.step }}" max="{{ model.total }}" aria-label="پیشرفت رزرو"></progress>{% endif %}
     <div class="rv-booking__demo"><span class="ri ri-info" aria-hidden="true"></span><span>پیش‌نمایش آزمایشی رزرو</span><a class="rv-text-link" href="{{ urls.directory }}">فهرست بازبینی</a></div>
-    {% if bookingSteps.length %}<div class="rv-booking-step-row">{% include "Booking/_Steps.njk" %}
-      {% if model.kind == 'services' %}<a class="rv-booking-desktop-only rv-btn rv-btn--secondary" href="{{ bookingUrls['BK-REC01'] }}" data-rv-recurring-link><span class="ri ri-repeat" aria-hidden="true"></span>رزرو دوره‌ای</a>{% endif %}
-    </div>{% endif %}
+    {% if bookingSteps.length and model.kind != 'services' and model.kind != 'stylists' %}<div class="rv-booking-step-row">{% include "Booking/_Steps.njk" %}</div>{% endif %}
     <p class="rv-booking__notice rv-booking__notice--warning" data-rv-booking-error role="alert" hidden></p>
     <div class="rv-booking__content" data-rv-booking-content>
       {% if model.kind == 'services' or model.kind == 'stylists' %}{% include "Booking/_Choices.njk" %}{% endif %}

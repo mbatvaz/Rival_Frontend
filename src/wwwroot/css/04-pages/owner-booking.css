@@ -55,16 +55,17 @@
     }
 
     .rv-booking-rail {
-      padding-inline: max(0px, calc((100% + var(--space-4) * 2 - clamp(160px, 55vw, 270px)) / 2));
+      padding-inline: max(0px, calc((100% + var(--space-4) * 2 - clamp(165px, 59vw, 285px)) / 2));
       scroll-padding-inline: 0;
       padding-block: var(--space-6) var(--space-12);
       align-items: center;
+      gap: var(--space-2);
     }
 
     .rv-booking-rail .rv-booking-choice {
-      flex-basis: clamp(160px, 55vw, 270px);
-      transform: scale(.86);
-      transition: transform var(--duration-fast) var(--ease-standard);
+      flex-basis: clamp(165px, 59vw, 285px);
+      transform: scale(.92);
+      transition: transform 260ms var(--ease-standard);
     }
 
     .rv-booking-rail .rv-booking-choice[data-rv-centered="true"] { transform: scale(1); }
