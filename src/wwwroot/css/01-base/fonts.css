@@ -5,7 +5,7 @@
     src: url("../../fonts/YekanBakh-Light.woff2") format("woff2");
     font-weight: 300;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
   }
 
   @font-face {
@@ -13,7 +13,7 @@
     src: url("../../fonts/YekanBakh-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
   }
 
   @font-face {
@@ -21,6 +21,6 @@
     src: url("../../fonts/YekanBakh-SemiBold.woff2") format("woff2");
     font-weight: 600;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
   }
 }

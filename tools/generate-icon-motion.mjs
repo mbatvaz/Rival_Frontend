@@ -8,7 +8,7 @@ const jobs = [
   ['calendar-x', 'neutral'], ['images', 'neutral'], ['users', 'neutral'], ['scissors', 'neutral']
 ];
 const size = 56;
-const frames = 24;
+const frames = 30;
 const output = path.join(root, 'src/wwwroot/img/icon-motion');
 const tokens = await fs.readFile(path.join(root, 'src/wwwroot/css/00-tokens/color.css'), 'utf8');
 const word = value => [value & 255, value >> 8];
@@ -82,24 +82,53 @@ try {
     const svg = await fs.readFile(path.join(root, 'src/wwwroot/icons', icon + '.svg'), 'utf8');
     const color = tokens.match(new RegExp('--' + tone + '-fg: (#[A-F0-9]{6})'))[1];
     const images = await page.evaluate(async ({ svg, icon, size, frames }) => {
+      const artwork = new globalThis.DOMParser().parseFromString(svg, 'image/svg+xml').documentElement;
+      artwork.setAttribute('stroke', 'black');
       const source = new globalThis.Image();
-      source.src = 'data:image/svg+xml,' + encodeURIComponent(svg.replace('currentColor', 'black'));
-      await source.decode();
       const canvas = globalThis.document.createElement('canvas');
       canvas.width = canvas.height = size;
       const context = canvas.getContext('2d', { willReadFrequently: true });
       const images = [];
+      const ease = value => (1 - Math.cos(Math.PI * Math.max(0, Math.min(1, value)))) / 2;
       for (let index = 0; index < frames; index++) {
-        const angle = index / frames * Math.PI * 2;
-        const beat = (1 - Math.cos(angle)) / 2;
+        const t = index / frames;
+        const beat = ease(t / .22) * (1 - ease((t - .48) / .28));
+        const frame = artwork.cloneNode(true);
+        const parts = [...frame.children];
+        const move = (indices, transform) => indices.forEach(i => parts[i].setAttribute('transform', transform));
+        const draw = (indices, length) => indices.forEach(i => {
+          parts[i].setAttribute('pathLength', '1');
+          parts[i].setAttribute('stroke-dasharray', '1 1');
+          parts[i].setAttribute('stroke-dashoffset', String(1 - length));
+          parts[i].setAttribute('opacity', length === 0 ? '0' : '1');
+        });
+        if (icon === 'scissors') {
+          const snip = beat * (12 + 7 * Math.sin(t * Math.PI * 5));
+          move([0, 1, 4], 'rotate(' + snip + ' 12 12)');
+          move([2, 3], 'rotate(' + -snip + ' 12 12)');
+        } else if (icon === 'check') {
+          draw([0], ease(t / .35));
+          frame.setAttribute('opacity', String(1 - ease((t - .85) / .15)));
+        } else if (icon === 'calendar-x' || icon === 'x-circle') {
+          draw(icon === 'calendar-x' ? [4, 5] : [1, 2], ease(t / .24) * (1 - ease((t - .83) / .17)));
+        } else if (icon === 'wallet') {
+          move([0], 'translate(' + (-2.4 * beat) + ' 0)');
+          parts[0].setAttribute('stroke-width', String(1.75 + beat * .65));
+        } else if (icon === 'images') {
+          move([0], 'translate(' + (-1.4 * beat) + ' ' + (1.2 * beat) + ')');
+          move([1, 2, 3], 'rotate(' + (beat * 9) + ' 14 12)');
+        } else if (icon === 'users') {
+          move([2], 'translate(' + (beat * 1.6) + ' ' + (-beat * 1.8) + ')');
+          move([1], 'rotate(' + (-beat * 7) + ' 10 15)');
+        }
+        source.src = 'data:image/svg+xml,' + encodeURIComponent(new globalThis.XMLSerializer().serializeToString(frame));
+        await source.decode();
         context.clearRect(0, 0, size, size);
         context.save();
         context.translate(size / 2, size / 2);
-        if (icon === 'refresh') context.rotate(angle);
-        else if (icon === 'hourglass') context.rotate(Math.PI * beat);
-        else if (icon === 'send') context.translate(4 * beat, -5 * beat);
-        else if (icon === 'x-circle') context.rotate(Math.sin(angle * 2) * beat * .18);
-        else context.scale(1 + beat * .13, 1 + beat * .13);
+        if (icon === 'refresh') context.rotate(t * Math.PI * 2);
+        if (icon === 'hourglass') context.rotate(Math.PI * (ease((t - .22) / .26) + ease((t - .69) / .25)));
+        if (icon === 'send') context.translate(5 * beat, -6 * beat);
         context.drawImage(source, -20, -20, 40, 40);
         context.restore();
         const data = context.getImageData(0, 0, size, size).data;

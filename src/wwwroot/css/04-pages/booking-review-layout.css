@@ -92,12 +92,12 @@
       box-shadow: var(--shadow-sm);
     }
 
-    .rv-booking-time .rv-booking-summary .rv-booking-context { min-block-size: 84px; }
+    .rv-booking-time .rv-booking-summary .rv-booking-context { min-block-size: var(--booking-context-height); }
 
     .rv-booking-time .rv-booking-summary .rv-booking-context > img,
-    .rv-booking-requested .rv-booking-summary .rv-booking-context > img { block-size: 88px; }
+    .rv-booking-requested .rv-booking-summary .rv-booking-context > img { block-size: var(--booking-context-height); }
 
-    .rv-booking-requested .rv-booking-summary .rv-booking-context { grid-template-columns: minmax(0, 1fr) 42%; min-block-size: 84px; background: var(--glass-fill-strong); }
+    .rv-booking-requested .rv-booking-summary .rv-booking-context { grid-template-columns: minmax(0, 1fr) 42%; min-block-size: var(--booking-context-height); background: var(--glass-fill-strong); }
 
     .rv-booking-requested .rv-booking-summary .rv-booking-context > img {
       grid-column: 2;

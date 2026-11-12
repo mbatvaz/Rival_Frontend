@@ -14,7 +14,7 @@
     <section class="rv-home-about">
       <div><h2>سالنی که وقت شما را جدی می‌گیرد</h2><p class="rv-lead">{{ model.intro }}</p><figure class="rv-person"><img src="{{ basePath }}img/public/taha.png" alt="طاها" width="56" height="56"><figcaption>طاها بهرامی<br><span class="rv-muted">مدیر سالن و آرایشگر ارشد.</span></figcaption></figure></div>
     </section>
-    <section aria-labelledby="home-portfolio"><header class="rv-section-head"><h2 id="home-portfolio">نمونه‌کارها</h2><a href="{{ productUrls.portfolio }}">همه نمونه‌کارها<span class="ri ri-chevron-left" aria-hidden="true"></span></a></header>
+    <section class="rv-home-portfolio" aria-label="نمونه‌کارها"><header class="rv-section-head"><h2 id="home-portfolio">نمونه‌کارها</h2><a href="{{ productUrls.portfolio }}">همه نمونه‌کارها<span class="ri ri-chevron-left" aria-hidden="true"></span></a></header>
       {% include "Shared/Components/_HomeCarousel.njk" %}
     </section>
     </div>

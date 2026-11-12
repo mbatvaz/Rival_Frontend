@@ -1,14 +1,14 @@
 <form class="rv-booking-form rv-booking-workspace rv-booking-checkout" data-rv-booking-form action="{{ bookingUrls['PAY-RES'] }}">
   {% if bookingSteps.length %}<div class="rv-booking-step-row">{% include "Booking/_Steps.njk" %}</div>{% endif %}
   <div class="rv-booking-checkout__ticket">
-    <section class="rv-panel rv-booking-hold" aria-label="زمان نگه‌داشت" data-rv-hold>
+    <div data-rv-mobile-hold><section class="rv-panel rv-booking-hold" aria-label="زمان نگه‌داشت" data-rv-hold>
       <div class="rv-booking-hold__head">
         <span class="rv-booking-hold__badge"><span class="ri ri-hourglass" aria-hidden="true" data-rv-hold-icon></span><span data-rv-hold-label>نگه‌داشت فعال</span></span>
         <span class="rv-booking-hold__remaining"><bdi data-rv-hold-clock>۵:۰۰</bdi> تا آزاد شدن زمان</span>
       </div>
       <progress data-rv-hold-progress max="300" value="300" aria-label="مهلت باقی‌مانده"></progress>
       <p class="rv-muted rv-booking-hold__help" data-rv-hold-help hidden>اگر زمان تمام شود، این زمان آزاد می‌شود و اعتبار به حساب شما برمی‌گردد.</p>
-    </section>
+    </section></div>
     <section class="rv-booking__notice rv-checkout-expired" data-rv-checkout-expired hidden><h2>زمان نگه‌داشت تمام شد</h2><p>زمان و اعتبار آزاد شد. برای ادامه یک زمان دیگر انتخاب کنید.</p></section>
 
     <div class="rv-checkout-breakdown rv-panel">
@@ -21,12 +21,14 @@
         <section data-rv-group-ticket hidden aria-label="نوبت‌های رزرو دوره‌ای"><ol class="rv-booking-group" data-rv-group-items></ol></section>
       </div>
       <div class="rv-booking-prices">
+          <div data-rv-desktop-hold></div>
           <div class="rv-booking-desktop-only rv-booking-summary-head"><h2>هزینهٔ رزرو</h2><span class="ri ri-card" aria-hidden="true"></span></div>
           <dl><div><dt data-rv-total-label>هزینه رزرو</dt><dd data-rv-price-total></dd></div><div data-rv-credit-row><dt>از اعتبار شما</dt><dd data-rv-price-credit></dd></div><div><dt>مانده برای درگاه</dt><dd data-rv-price-due></dd></div></dl>
           <p class="rv-muted" data-rv-price-help>اعتبار موجود به‌صورت خودکار تا سقف هزینهٔ رزرو مصرف می‌شود. این مبلغ هزینهٔ رزرو است.</p>
+          <div data-rv-desktop-rules></div>
       </div>
     </div>
-    <p class="rv-booking-rules rv-muted"><span class="ri ri-shield" aria-hidden="true"></span>پرداخت یعنی پذیرش <a class="rv-text-link" href="{{ productUrls.rules }}">قوانین رزرو</a></p>
+    <div data-rv-mobile-rules><p class="rv-booking-rules rv-muted" data-rv-checkout-rules><span class="ri ri-shield" aria-hidden="true"></span>پرداخت یعنی پذیرش <a class="rv-text-link" href="{{ productUrls.rules }}">قوانین رزرو</a></p></div>
   </div>
   <aside class="rv-booking-summary" aria-label="خلاصهٔ پرداخت">
     <p class="rv-booking__notice rv-booking__notice--warning" data-rv-gateway-note hidden>درگاه پاسخ نداد. نگه‌داشت زمان تا پایان مهلت ادامه دارد.</p>

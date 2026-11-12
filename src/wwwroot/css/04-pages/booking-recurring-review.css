@@ -125,7 +125,7 @@
     }
 
     .rv-recurring-editor > :is(header, p, .rv-actions, [data-rv-rec-delete-note]) { grid-column: 1 / -1; }
-    .rv-recurring-editor[data-rv-rec-mode="edit"] { max-inline-size: 560px; }
+    .rv-recurring-editor[data-rv-rec-mode="edit"] { max-inline-size: 500px; }
     .rv-recurring-editor__identity { grid-area: 2 / 1; }
     .rv-recurring-editor__repeat { grid-area: 2 / 2; }
     [data-rv-rec-mode="edit"] .rv-recurring-editor__identity { grid-column: 1 / -1; inline-size: min(100%, 480px); margin-inline: auto; }
@@ -134,7 +134,7 @@
     .rv-recurring-list::before,
     .rv-recurring-list .rv-recurring-month { display: none; }
     .rv-recurring-list .rv-recurring-row { grid-template-columns: minmax(0, 1fr); }
-    .rv-recurring-add-row { grid-column: 1 / -1; }
+
     .rv-recurring-editor .rv-booking-calendar { margin-inline: 0; }
   }
 }

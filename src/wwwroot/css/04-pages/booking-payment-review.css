@@ -64,8 +64,6 @@
       box-shadow: none;
     }
 
-    .rv-booking-checkout .rv-booking-rules { justify-content: flex-end; }
-    .rv-booking-checkout .rv-booking-hold { inline-size: calc((100% - var(--space-4)) * 1.15 / 2.15); }
 
     .rv-booking-checkout .rv-booking-hold,
     .rv-checkout-expired { margin-block-end: var(--space-4); }

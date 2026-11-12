@@ -58,6 +58,15 @@ export async function initCheckout(root, { catalog, service, stylist }, scenario
   }
   const retry = scenario === 'gateway';
   visible(root, 'gateway-note', retry);
+  const desktop = window.matchMedia('(min-width: 1024px)');
+  const hold = get(root, 'hold');
+  const rules = get(root, 'checkout-rules');
+  const align = () => {
+    get(root, desktop.matches ? 'desktop-hold' : 'mobile-hold').append(hold);
+    get(root, desktop.matches ? 'desktop-rules' : 'mobile-rules').append(rules);
+  };
+  align();
+  desktop.addEventListener('change', align);
   const submit = get(root, 'booking-submit');
   submit.textContent = retry ? 'تلاش دوباره' : quote.due ? 'پرداخت از درگاه' : 'ثبت با اعتبار';
   submit.disabled = false;

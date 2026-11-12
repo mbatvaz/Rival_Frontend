@@ -29,7 +29,7 @@ export function init(root) {
     const y = event.clientY - gesture.y;
     gesture = null;
     if (Math.abs(x) < 28 || Math.abs(x) < Math.abs(y) * 1.3) return;
-    show(current + Math.sign(x));
+    show(current - Math.sign(x));
     nextTurn = Date.now() + Number(root.dataset.rvInterval);
   });
   stage.addEventListener('dragstart', event => event.preventDefault());

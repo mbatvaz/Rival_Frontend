@@ -68,7 +68,7 @@
       {% include "Booking/_Context.njk" %}
 
       {% if model.kind == 'proposed' %}
-      <p class="rv-booking__notice rv-booking-explainer"><span class="ri ri-info" aria-hidden="true"></span>این درخواست زمانی را قفل نمی‌کند. آرایشگر تا ۷ روز پاسخ می‌دهد و پاسخ او ۳ ساعت برای پرداخت نگه داشته می‌شود.</p>
+      <p class="rv-booking__notice rv-booking-explainer rv-booking-mobile-only"><span class="ri ri-info" aria-hidden="true"></span>این درخواست زمانی را قفل نمی‌کند. آرایشگر تا ۷ روز پاسخ می‌دهد و پاسخ او ۳ ساعت برای پرداخت نگه داشته می‌شود.</p>
       {% endif %}
     </div>
     <div class="rv-booking-action rv-glass rv-glass--strong">
@@ -76,7 +76,10 @@
       <div><strong data-rv-action-title>{% if model.kind == 'fixed' %}زمانی انتخاب نشده{% else %}روز و بخش روز را انتخاب کنید{% endif %}</strong><p class="rv-muted" data-rv-action-sub></p></div>
       <div data-rv-empty-alert></div>
       <button class="rv-btn" type="submit" data-rv-booking-submit disabled>{% if model.kind == 'fixed' %}ادامه{% else %}ثبت درخواست{% endif %}</button>
+      {% if model.kind == 'proposed' %}
+      <p class="rv-booking__notice rv-booking-explainer rv-booking-desktop-only"><span class="ri ri-info" aria-hidden="true"></span>این درخواست زمانی را قفل نمی‌کند. آرایشگر تا ۷ روز پاسخ می‌دهد و پاسخ او ۳ ساعت برای پرداخت نگه داشته می‌شود.</p>
+      {% endif %}
+      <div data-rv-desktop-alert></div>
     </div>
-    <div data-rv-desktop-alert></div>
   </aside>
 </form>
