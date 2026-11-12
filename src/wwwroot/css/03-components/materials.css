@@ -25,7 +25,14 @@
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md), inset 0 1px 0 var(--glass-edge);
   }
-  .rv-icon-tile--large .ri { inline-size: 28px; block-size: 28px; }
+  .rv-icon-motion img { display: block; inline-size: 40px; block-size: 40px; }
+
+  .rv-icon-tile--large .rv-icon-motion-static { display: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rv-icon-motion { display: none; }
+    .rv-icon-tile--large .rv-icon-motion-static { display: block; inline-size: 28px; block-size: 28px; }
+  }
   .rv-icon-row { display: flex; align-items: flex-start; gap: var(--space-3); }
   .rv-icon-row > div { min-inline-size: 0; }
 }

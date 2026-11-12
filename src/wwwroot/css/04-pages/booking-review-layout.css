@@ -3,8 +3,6 @@
   .rv-booking-choice__caption > :last-child:not(strong) { font-weight: 300; }
   .rv-booking-step-row > .rv-booking-steps { margin: 0; }
   .rv-booking-steps li > * { white-space: nowrap; }
-  .rv-booking-steps ol > :last-child > * { justify-content: flex-end; }
-  .rv-booking-steps ol > :only-child > * { justify-content: center; }
   .rv-booking-steps li > * .rv-booking-steps__icon { flex: none; }
 
   .rv-booking-time [data-rv-action-sub]:empty,
@@ -12,7 +10,7 @@
   [data-rv-desktop-alert]:empty { display: none; }
 
   .rv-time-empty { max-inline-size: 460px; margin-inline: auto; }
-  .rv-booking-time [data-rv-empty-alert] .rv-btn { justify-content: center; color: var(--text-inverse); background: var(--bg-inverse); }
+  .rv-booking-time [data-rv-empty-alert] .rv-btn:not([data-rv-alert-confirmed="true"]) { justify-content: center; color: var(--text-inverse); background: var(--bg-inverse); }
   [data-rv-empty-alert] .rv-icon-tile { background: none; box-shadow: none; color: inherit; }
 
   [data-rv-empty-alert] .rv-muted,
@@ -67,6 +65,11 @@
   }
 
   @media (min-width: 1024px) {
+    .rv-booking-steps ol { display: flex; flex-wrap: wrap; justify-content: center; }
+    .rv-booking-steps ol li:not(:last-child) > *::after { flex: 0 0 clamp(12px, 2.5vw, 40px); }
+
+    .rv-booking-requested .rv-booking-explainer { margin: 0; }
+
     .rv-booking-workspace:where(:has(> .rv-booking-step-row)) { grid-template-rows: min-content auto; }
     .rv-booking__main .rv-booking-workspace > .rv-booking-step-row { grid-area: 1 / 1; display: block; }
     .rv-booking-workspace:where(:has(> .rv-booking-step-row)) > :is(.rv-booking-detail, .rv-booking-checkout__ticket) { grid-area: 2 / 1; }

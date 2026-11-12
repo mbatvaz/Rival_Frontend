@@ -139,7 +139,7 @@ Do not add custom macros, arbitrary filters, dynamic template execution, or Nunj
 
 ## 5. Design System and visual fidelity
 
-Use Yekan Bakh weight 300 for supporting descriptions and metadata such as service duration. Animate large status icons with lightweight CSS and honor the reduced-motion preference.
+Use Yekan Bakh weight 300 for supporting descriptions and metadata such as service duration. Use looping GIFs derived from the local SVGs for large icons, with the static SVG for reduced motion.
 
 - Design System v2 is the visual authority. Use its approved tokens, component behavior, icon set, and Yekan Bakh typography.
 - Original batch HTML/CSS is evidence, not production code. Do not load the old batch bundles (`tokens.css`, `bundle.css`, `rv-fixes.css`, `rv-final.css`, `rv-b2.css`, `rv-b3.css`, `rv-b4.css`, `rv-b6.css`, `rv-b7.css`) together in the app. Rebuild approved patterns into the canonical layered CSS system.

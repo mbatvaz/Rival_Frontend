@@ -19,7 +19,7 @@
     {% endif %}
     {% if model.kind == 'fixed' %}
     <section class="rv-booking-empty rv-time-empty" data-rv-no-availability hidden>
-      <span class="rv-icon-tile rv-icon-tile--large"><span class="ri ri-calendar-x" aria-hidden="true"></span></span>
+      <span class="rv-icon-tile rv-icon-tile--large"><picture class="rv-icon-motion" aria-hidden="true"><source media="(prefers-reduced-motion: no-preference)" srcset="{{ basePath }}img/icon-motion/calendar-x-neutral.gif"><img src="{{ basePath }}icons/calendar-x.svg" alt="" width="40" height="40"></picture><span class="ri ri-calendar-x rv-icon-motion-static" aria-hidden="true"></span></span>
       <h2 data-rv-no-availability-title></h2>
       <p class="rv-muted" data-rv-no-availability-detail></p>
       <a class="rv-btn rv-btn--secondary" href="{{ bookingUrls['BK-02'] }}" data-rv-step-route="BK-02"><span class="ri ri-users" aria-hidden="true"></span>انتخاب آرایشگر دیگر</a>
@@ -52,13 +52,11 @@
           <strong data-rv-day-heading></strong><p class="rv-muted" data-rv-day-description></p>
         </div>
         {% if model.kind == 'fixed' %}
-        <div class="rv-glass rv-alert-toast" role="status" data-rv-alert-done hidden>
-          <span class="rv-icon-tile rv-state-page__icon--success"><span class="ri ri-check" aria-hidden="true"></span></span>
-          <div><strong>اعلان ثبت شد</strong><p class="rv-muted">بعد از پیامک خودتان رزرو کنید. زمانی برایتان نگه داشته نمی‌شود.</p></div>
-        </div>
         <button class="rv-booking-alert-entry" type="button" data-rv-sheet-open="rv-booking-alert">
-          <span class="rv-icon-tile"><span class="ri ri-bell-ring" aria-hidden="true"></span></span>
-          <span><strong data-rv-alert-title>زمان مناسبی نیست؟</strong><span class="rv-muted" data-rv-alert-sub>با آزاد شدن زمان، خبر بگیرید.</span></span><span class="ri ri-chevron-left" aria-hidden="true"></span>
+          <span class="rv-icon-tile" data-rv-alert-icon-tile><span class="ri ri-bell-ring" data-rv-alert-icon aria-hidden="true"></span></span>
+          <span data-rv-alert-details><strong data-rv-alert-title>زمان مناسبی نیست؟</strong><span class="rv-muted" data-rv-alert-sub>با آزاد شدن زمان، خبر بگیرید.</span></span>
+          <span class="rv-alert-confirmation" role="status" data-rv-alert-done hidden><strong>اعلان ثبت شد</strong><span class="rv-muted">بعد از پیامک خودتان رزرو کنید. زمانی برایتان نگه داشته نمی‌شود.</span></span>
+          <span class="ri ri-chevron-left" aria-hidden="true"></span>
         </button>
         {% endif %}
       </section>

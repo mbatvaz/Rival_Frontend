@@ -24,6 +24,9 @@
   .rv-booking-checkout .rv-booking-ticket__body { padding: var(--space-4); }
   .rv-booking-checkout .rv-ticket-stylist { justify-content: flex-start; }
   .rv-booking-checkout .rv-ticket-avatar { order: -1; }
+  .rv-booking-checkout .rv-ticket-when { font-size: var(--heading-lg-size); font-weight: 600; }
+  .rv-booking-hold .rv-booking-hold__badge { font-size: var(--caption-size); }
+  .rv-booking-hold__badge .ri { inline-size: 14px; block-size: 14px; }
 
   .rv-booking-group { padding: var(--space-3) var(--space-4) 0; list-style: none; }
 
@@ -60,6 +63,9 @@
       background: none;
       box-shadow: none;
     }
+
+    .rv-booking-checkout .rv-booking-rules { justify-content: flex-end; }
+    .rv-booking-checkout .rv-booking-hold { inline-size: calc((100% - var(--space-4)) * 1.15 / 2.15); }
 
     .rv-booking-checkout .rv-booking-hold,
     .rv-checkout-expired { margin-block-end: var(--space-4); }

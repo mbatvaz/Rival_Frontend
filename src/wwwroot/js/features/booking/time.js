@@ -72,13 +72,11 @@ export function initTime(root, context) {
   });
   const desktop = window.matchMedia('(min-width: 1024px)');
   const alert = root.querySelector('[data-rv-sheet-open="rv-booking-alert"]');
-  const alertDone = get(root, 'alert-done');
   const origin = alert?.parentElement;
   const layout = () => {
     align();
     if (!alert) return;
     (none ? get(root, 'empty-alert') : desktop.matches ? get(root, 'desktop-alert') : origin).append(alert);
-    get(root, 'booking-content').prepend(alertDone);
     if (none) alert.classList.add('rv-btn');
   };
   layout();

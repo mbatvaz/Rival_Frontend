@@ -6,7 +6,7 @@ import { get, persist, state, text, visible } from './shared.js';
 
 export async function initAlert(root, { service, stylist, catalog, open }) {
   const sheet = document.getElementById('rv-booking-alert');
-  const trigger = get(root, 'sheet-open');
+  const trigger = root.querySelector('[data-rv-sheet-open="rv-booking-alert"]');
   const button = get(sheet, 'alert-confirm');
   const empty = !get(root, 'no-availability').hidden;
   const key = service.id + ':' + stylist.id;
@@ -28,8 +28,15 @@ export async function initAlert(root, { service, stylist, catalog, open }) {
     visible(sheet, 'alert-confirm', !active);
     visible(sheet, 'alert-view', active);
   };
+  const showConfirmation = () => {
+    trigger.dataset.rvAlertConfirmed = 'true';
+    get(trigger, 'alert-icon').className = 'ri ri-check';
+    get(trigger, 'alert-icon-tile').classList.add('rv-state-page__icon--success');
+    visible(trigger, 'alert-details', false);
+    visible(trigger, 'alert-done', true);
+  };
   render();
-  visible(root, 'alert-done', open && state === 'done');
+  if (open && state === 'done') showConfirmation();
   if (open && state !== 'done') openSheet(sheet.id, trigger);
   button.addEventListener('click', async () => {
     if (button.disabled || current) return;
@@ -42,7 +49,7 @@ export async function initAlert(root, { service, stylist, catalog, open }) {
       render();
       if (!active) {
         closeSheet();
-        visible(root, 'alert-done', true);
+        showConfirmation();
       }
     } catch (error) {
       text(sheet, 'alert-error', error.message);

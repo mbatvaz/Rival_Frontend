@@ -43,38 +43,4 @@
     .rv-booking .rv-state-page__actions > :only-child { flex: 0 1 min(100%, 440px); }
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .rv-icon-tile--large .ri { animation: rv-icon-appear 530ms var(--ease-standard) both; }
-    .rv-state-page__icon .ri-refresh { animation: rv-icon-rotate 1.6s linear infinite; }
-    .rv-state-page__icon .ri-hourglass { animation: rv-icon-wait 900ms var(--ease-standard) both; }
-    .rv-state-page__icon .ri-send { animation: rv-icon-send 670ms var(--ease-standard) both; }
-    .rv-state-page__icon .ri-x-circle { animation: rv-icon-shake 440ms var(--ease-standard) both; }
-    .rv-alert-toast .ri-check { animation: rv-icon-appear 530ms var(--ease-standard) both; }
-  }
-
-  @keyframes rv-icon-appear {
-    0% { opacity: 0; transform: scale(.55); }
-    70% { opacity: 1; transform: scale(1.16); }
-    100% { opacity: 1; transform: scale(1); }
-  }
-
-  @keyframes rv-icon-rotate {
-    to { transform: rotate(1turn); }
-  }
-
-  @keyframes rv-icon-wait {
-    from { opacity: 0; transform: rotate(-.5turn); }
-    to { opacity: 1; transform: rotate(0turn); }
-  }
-
-  @keyframes rv-icon-send {
-    from { opacity: 0; transform: translate(-9px, 9px) scale(.8); }
-    to { opacity: 1; transform: translate(0, 0) scale(1); }
-  }
-
-  @keyframes rv-icon-shake {
-    25%, 75% { transform: translateX(-3px); }
-    50% { transform: translateX(3px); }
-    100% { transform: translateX(0); }
-  }
 }

@@ -69,17 +69,6 @@
       backdrop-filter: none;
     }
 
-    .rv-booking-checkout .rv-booking-ticket-address {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      padding-block-start: var(--space-3);
-      border-block-start: 1px solid var(--line-hairline);
-      color: var(--text-secondary);
-    }
-    .rv-booking-checkout__ticket:has([data-rv-group-ticket]:not([hidden])) .rv-booking-ticket-address { display: none; }
-
-
     .rv-booking-checkout .rv-booking-prices {
       padding: 0;
       background: none;

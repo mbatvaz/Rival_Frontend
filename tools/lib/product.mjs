@@ -82,7 +82,7 @@ export async function productContext(page, basePath, pages) {
       bookingStepVariants: page.id === 'BK-02' ? [bookingSteps(page.id), bookingSteps(page.id, true)] : [bookingSteps(page.id)],
       bookingHeadings: desktopHeadings,
       bookingResults: statePages(results[page.id], bookingUrls, catalog, defaultSelection, asset => basePath + asset),
-      bookingContact: ['STATE-07', 'BK-F02'].includes(page.id) ? (await readJson(path.join(src, 'MockData/public/home.json'))).data : null,
+      bookingContact: page.id === 'STATE-07' ? (await readJson(path.join(src, 'MockData/public/home.json'))).data : null,
       bookingDemoPhone: page.id === 'STATE-07' ? (await readJson(path.join(src, 'MockData/auth/policy.json'))).data.demoPhone : null,
       bookingCatalog: catalog,
       bookingMonths: [1, 2, 3, 6],

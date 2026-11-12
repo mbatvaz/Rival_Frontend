@@ -1,6 +1,6 @@
 <section class="rv-state-page rv-state-page--{{ statePage.tone }}" data-rv-result-view="{{ statePage.key }}" aria-labelledby="rv-state-title-{{ statePage.key }}"{% if statePage.hidden %} hidden{% endif %}>
   <div class="rv-state-page__intro">
-    <span class="rv-icon-tile rv-icon-tile--large rv-state-page__icon rv-state-page__icon--{{ statePage.tone }}"><span class="ri ri-{{ statePage.icon }}" aria-hidden="true"></span></span>
+    <span class="rv-icon-tile rv-icon-tile--large rv-state-page__icon rv-state-page__icon--{{ statePage.tone }}"><picture class="rv-icon-motion" aria-hidden="true"><source media="(prefers-reduced-motion: no-preference)" srcset="{{ basePath }}img/icon-motion/{{ statePage.icon }}-{{ statePage.tone }}.gif"><img src="{{ basePath }}icons/{{ statePage.icon }}.svg" alt="" width="40" height="40"></picture><span class="ri ri-{{ statePage.icon }} rv-icon-motion-static" aria-hidden="true"></span></span>
     {% if statePage.badge %}<span class="rv-state-page__badge">{% if statePage.badgeIcon %}<span class="ri ri-{{ statePage.badgeIcon }}" aria-hidden="true"></span>{% endif %}{{ statePage.badge }}</span>{% endif %}
     <h2 id="rv-state-title-{{ statePage.key }}">{{ statePage.title }}</h2>
     {% if statePage.description %}<p class="rv-lead">{{ statePage.description }}</p>{% endif %}
