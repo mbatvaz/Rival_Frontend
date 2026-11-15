@@ -49,9 +49,11 @@
     font: inherit;
     font-size: var(--caption-size);
     cursor: pointer;
+    transition: transform var(--duration-fast) var(--ease-standard);
   }
   .rv-role-nav [aria-current="page"] { background: var(--bg-inverse); color: var(--text-inverse); box-shadow: var(--shadow-sm); }
-  .rv-role-nav .rv-role-nav__book { background: var(--accent-500); color: var(--text-inverse); }
+  .rv-role-nav .rv-role-nav__book { background: var(--bg-inverse); color: var(--text-inverse); }
+  .rv-role-nav :is(a, button):active { transform: scale(0.98); }
   .rv-workspace .rv-demo { padding-block-end: var(--space-4); }
 
   @media (min-width: 768px) {

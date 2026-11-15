@@ -1,12 +1,37 @@
+# Local dependencies and tool caches
 node_modules/
-.npm-cache/
-.playwright-browsers/
-dist/
-playwright-report/
-test-results/
-tests/screens/**
-!tests/screens/.gitkeep
-.DS_Store
-Thumbs.db
+/.npm-cache/
+/.playwright-browsers/
+.eslintcache
+.stylelintcache
+
+# Generated static deployment output
+/dist/
+
+# Playwright reports, traces and generated screenshots
+/playwright-report/
+/test-results/
+/tests/screens/**
+!/tests/screens/.gitkeep
+
+# Local environment values; allow shareable templates
 .env
 .env.*
+!.env.example
+!.env.*.example
+!.env.sample
+!.env.template
+
+# Tool and server logs
+*.log
+
+# Atomic review-store temporary file; approvals.json is project data
+/preview-review/approvals.json.tmp
+
+# OS metadata and editor recovery files (shared .vscode config stays tracked)
+.DS_Store
+Thumbs.db
+Desktop.ini
+*~
+*.swp
+*.swo

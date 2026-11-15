@@ -2,6 +2,40 @@
 @layer pages {
   .rv-home-carousel { margin-inline: calc(var(--space-4) * -1); }
 
+  .rv-home-carousel__controls,
+  .rv-home-carousel__dots { display: flex; align-items: center; justify-content: center; }
+  .rv-home-carousel__controls { gap: var(--space-2); flex-wrap: wrap; margin-block: var(--space-3); }
+
+  .rv-home-carousel__dots button {
+    display: grid;
+    place-items: center;
+    min-inline-size: var(--size-touch);
+    min-block-size: var(--size-touch);
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .rv-home-carousel__dots span {
+    display: block;
+    inline-size: var(--space-2);
+    block-size: var(--space-2);
+    border-radius: var(--radius-pill);
+    background: var(--chrome-300);
+    transition: transform var(--duration-fast) var(--ease-standard);
+  }
+  .rv-home-carousel__dots [data-rv-active="true"] { background: var(--bg-inverse); transform: scaleX(3); }
+
+  .rv-home-carousel__toggle {
+    inline-size: var(--size-touch);
+    min-block-size: var(--size-touch);
+    padding: 0;
+    font-size: var(--body-sm-size);
+  }
+  [data-rv-carousel-caption]:not([hidden]) { animation: rv-fade-enter var(--duration-base) var(--ease-standard); }
+
   .rv-home-carousel__stage {
     position: relative;
     block-size: 416px;

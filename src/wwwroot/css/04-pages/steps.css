@@ -4,12 +4,12 @@
   .rv-home-steps__number {
     position: relative;
     z-index: 1;
-    background: var(--bg-plaster);
-    color: var(--text-primary);
-    animation: rv-step-circle 8s linear infinite;
+    background: var(--bg-inverse);
+    color: var(--text-inverse);
   }
-  .rv-home-steps li:nth-child(2) .rv-home-steps__number { animation-name: rv-step-two; }
-  .rv-home-steps li:nth-child(3) .rv-home-steps__number { animation-name: rv-step-three; }
+  .rv-home-steps[data-rv-steps-motion] .rv-home-steps__number { animation: rv-step-circle calc(var(--duration-deliberate) * 6) linear infinite; }
+  .rv-home-steps[data-rv-steps-motion] li:nth-child(2) .rv-home-steps__number { animation-name: rv-step-two; }
+  .rv-home-steps[data-rv-steps-motion] li:nth-child(3) .rv-home-steps__number { animation-name: rv-step-three; }
 
   .rv-home-steps li:not(:last-child)::before,
   .rv-home-steps li:not(:last-child)::after {
@@ -25,37 +25,38 @@
   .rv-home-steps li:not(:last-child)::after {
     background: var(--bg-inverse);
     transform-origin: right;
-    animation: rv-step-line 8s linear infinite;
+    transform: scaleX(1);
   }
-  .rv-home-steps li:nth-child(2)::after { animation-name: rv-step-line-two; }
+  .rv-home-steps[data-rv-steps-motion] li:not(:last-child)::after { animation: rv-step-line calc(var(--duration-deliberate) * 6) linear infinite; }
+  .rv-home-steps[data-rv-steps-motion] li:nth-child(2)::after { animation-name: rv-step-line-two; }
 
   @keyframes rv-step-circle {
-    0%, 5%, 94%, 100% { background: var(--bg-plaster); color: var(--text-primary); }
-    10%, 88% { background: var(--bg-inverse); color: var(--text-inverse); }
+    0%, 5% { background: var(--bg-plaster); color: var(--text-primary); }
+    10%, 100% { background: var(--bg-inverse); color: var(--text-inverse); }
   }
 
   @keyframes rv-step-two {
-    0%, 32%, 94%, 100% { background: var(--bg-plaster); color: var(--text-primary); }
-    38%, 88% { background: var(--bg-inverse); color: var(--text-inverse); }
+    0%, 32% { background: var(--bg-plaster); color: var(--text-primary); }
+    38%, 100% { background: var(--bg-inverse); color: var(--text-inverse); }
   }
 
   @keyframes rv-step-three {
-    0%, 60%, 94%, 100% { background: var(--bg-plaster); color: var(--text-primary); }
-    66%, 88% { background: var(--bg-inverse); color: var(--text-inverse); }
+    0%, 60% { background: var(--bg-plaster); color: var(--text-primary); }
+    66%, 100% { background: var(--bg-inverse); color: var(--text-inverse); }
   }
 
   @keyframes rv-step-line {
-    0%, 10%, 94%, 100% { transform: scaleX(0); }
-    32%, 88% { transform: scaleX(1); }
+    0%, 10% { transform: scaleX(0); }
+    32%, 100% { transform: scaleX(1); }
   }
 
   @keyframes rv-step-line-two {
-    0%, 38%, 94%, 100% { transform: scaleX(0); }
-    60%, 88% { transform: scaleX(1); }
+    0%, 38% { transform: scaleX(0); }
+    60%, 100% { transform: scaleX(1); }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .rv-home-steps__number { animation: none; background: var(--bg-inverse); color: var(--text-inverse); }
-    .rv-home-steps li:not(:last-child)::after { animation: none; transform: scaleX(1); }
+    .rv-home-steps[data-rv-steps-motion] .rv-home-steps__number { animation: none; }
+    .rv-home-steps[data-rv-steps-motion] li:not(:last-child)::after { animation: none; }
   }
 }

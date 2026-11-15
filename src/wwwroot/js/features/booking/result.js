@@ -22,7 +22,8 @@ function paint(root, key, context, record, request) {
     if (avatar) avatar.src = localUrl(stylist.image);
   }
   const date = first?.date ?? request?.date ?? query.get('date') ?? '2026-10-15';
-  const part = first?.time ?? request?.part ?? query.get('part') ?? '16:00';
+  const requestedPart = request?.part ?? query.get('part');
+  const part = key === 'proposed' ? catalog.calendar.parts.includes(requestedPart) ? requestedPart : '' : first?.time ?? '16:00';
   text(view, 'result-time', /^\d{4}-\d{2}-\d{2}$/.test(date) ? longDay(date) + ' · ' + faDigits(part) : '');
   if (record) {
     text(view, 'result-code', (['review', 'lost', 'returned'].includes(key) ? '#PAY-' : '#BK-') + record.id.slice(0, 8).toUpperCase());
@@ -32,7 +33,7 @@ function paint(root, key, context, record, request) {
   if (request) text(view, 'result-code', '#RQ-' + request.id.slice(0, 8).toUpperCase());
   if (key === 'proposed' && (request?.date || query.get('date'))) {
     text(view, 'result-preferred-date', longDay(date));
-    text(view, 'result-preferred-part', part);
+    text(view, 'result-preferred-part', part || 'انتخاب نشده');
   }
   const action = get(view, 'result-action');
   if (record && ['STATE-05', 'STATE-06'].includes(action.dataset.rvResultAction)) {
@@ -45,18 +46,21 @@ function paint(root, key, context, record, request) {
 
 export async function initResult(root, context) {
   const { id } = context;
+  if (id === 'STATE-05' || id === 'STATE-06') {
+    window.location.replace(route('PAY-RES', { state: id === 'STATE-05' ? 'checking' : state === 'returned' ? 'returned' : 'lost', hold: query.get('hold') }));
+    return;
+  }
   if (id === 'STATE-07') {
-    const variant = ['map', 'otp', 'sms'].includes(state) ? state : 'gateway';
-    for (const panel of root.querySelectorAll('[data-rv-external]')) panel.hidden = panel.dataset.rvExternal !== variant;
-    if (variant === 'gateway') await (await import('./checkout.js')).initCheckout(root, context, 'gateway');
-    if (variant === 'sms') paint(root, 'sms', context);
+    window.location.replace(route(state === 'sms' ? 'PAY-RES' : 'BK-F02', { state: state === 'sms' ? 'sms' : 'gateway', hold: query.get('hold') }));
     return;
   }
   const holdId = query.get('hold');
   const record = ['PAY-RES', 'STATE-05', 'STATE-06'].includes(id) ? await findHold(holdId) : null;
-  const fallback = { 'BK-REQ01': 'proposed', 'PAY-RES': 'checking', 'STATE-04': 'expired', 'STATE-05': 'review', 'STATE-06': 'lost' };
+  const fallback = { 'PAY-RES': 'checking', 'STATE-04': 'expired', 'STATE-05': 'review', 'STATE-06': 'lost' };
   const request = id === 'BK-REQ01' ? await findRecord('requests', query.get('request')) : null;
-  const key = (id === 'PAY-RES' ? record?.result ?? (holdId && 'review') : '') || request?.type || state || fallback[id];
+  const defaultResult = root.dataset.rvResultDefault || fallback[id];
+  let key = (id === 'PAY-RES' ? record?.result ?? (holdId && 'review') : '') || request?.type || state || defaultResult;
+  if (id === 'BK-REQ01' && !['requested', 'proposed'].includes(key)) key = defaultResult;
   paint(root, key, context, record, request);
   if (id !== 'PAY-RES' || record?.result !== 'checking') return;
   window.setTimeout(async () => {

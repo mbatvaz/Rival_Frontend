@@ -1,5 +1,70 @@
 # Discrepancies and Alignment Log
 
+## Phase 03 acceptance — 2026-11-15
+
+The owner accepted the implementation after the documented booking/device/layout/calendar review corrections (DEC-043..057) and authorized closeout only (DEC-058). [Final handoff](../docs-work/PHASE_03_CLOSEOUT_FA.md). GAP-25/26 composition and recurring alternatives are resolved by the accepted implementation and later explicit owner corrections. GAP-27 remains an intentional phase boundary: linked customer dashboards, appointment/request management and alert management are future placeholders, not completed screens. Original source gaps and unresolved OQ-01..06/OQ-08 remain; acceptance does not invent assets, real integrations or backend guarantees. Phase 04 is not started.
+
+## Resolved: mobile selected day differed from desktop
+
+The mobile-only black checked style and rectangular available days differed from the approved desktop white raised/inset pill treatment. DEC-057 removes the split style and shares all three calendar states plus focus. The parity test compares computed background, color, shadow, radius, weight and transform across seven widths. [Evidence](../docs-work/BOOKING_REVIEW_POLISH_2026-11-15.md).
+
+## Resolved: remaining shadow edge and over-broad desktop presentation
+
+32px was insufficient for the faint tail of the shared card shadow; reserve 64px paint space and compensate layout by -32px. Desktop-only payment amount layout had leaked into mobile and the result heading spanned the sidebar; restrict those rules and center within the content column. The returned badge opaque background covered icon shadow; make that surface transparent. [Record](../docs-work/BOOKING_REVIEW_POLISH_2026-11-15.md).
+
+## Resolved: mobile booking clipping and duplicated payment reviews
+
+Rail padding clipped card shadows and left dots too close to fixed navigation. Progress background looping reset visibly. Recurring-photo absolute positioning retained its grid area, compounding a 42% width to roughly 17.6% of the card. Corrected padding, a clipped transform shine, photo containing block, radio selection and requested alignment/radii. Duplicate review owners were removed while canonical states and legacy links remain. [Evidence](../docs-work/BOOKING_REVIEW_POLISH_2026-11-15.md).
+
+## Resolved: package-caption inherited the description weight
+
+The opt-in inner span for package service names matched the generic last-child description rule and inherited weight 300. Exact BK-R01 caption evidence requires 600 with 13px type and 18px line height. Restored these values through existing type tokens and explicit inheritance. Paired-page comparison found no further recent motion-induced typography/ordinary-spacing drift in 12 routes across 7 widths. [Audit](../docs-work/TEXT_LAYOUT_FINAL_AUDIT_2026-11-15.md).
+
+## Resolved: global single-line prose was an implementation error
+
+The generic tag scanner incorrectly applied card label behavior to ordinary paragraphs and headings. DEC-054 replaces it with explicit per-field opt-in hooks. Reloading the rebuilt pages restores their original multiline text styles; no broad stylesheet overrides or content rewrites remain on ordinary text. Other approved booking geometry changes are preserved. [Evidence](../docs-work/OVERFLOW_CARD_SCOPE_2026-11-15.md).
+
+## Booking image and calendar correction - 2026-11-15
+
+The prior desktop portrait override inflated context/ticket images; it is removed in favor of the compact horizontal context and short ticket photo. Time steps now belong to the detail column to avoid grid row growth from the summary. Calendar exit animations retain completed rows until replacement and reserve six weeks. Latest owner instruction explicitly replaces wrapping with overflow text motion, with static/manual reduced-motion access. [Evidence](../docs-work/BOOKING_LAYOUT_CORRECTIONS_2026-11-15.md).
+
+## Over-broad review revision invalidation
+
+The old scanner hashed every CSS import and conditional template include, and all variants derived their hash from the parent. A local edit could therefore stale unrelated approvals. DEC-052 narrows dependencies and gives variants independent hashes; automatic invalidation removes only the affected final approval while retaining its platform flags. Conservative shared-consumer dependencies remain explicit. [Evidence](../docs-work/PREVIEW_REVIEW_REPORT.md).
+
+## TextField focus / public spacing
+
+The prior TextField implementation added an offset outline around the base border, contrary to the exact TextField specification and current owner feedback. Focus now thickens the existing border to 2px ink, with fixed outer geometry and compensating padding; native input has no inner outline. Independent review search follows the same behavior. Caption padding is intentionally reduced; mobile rules links form a native horizontal rail per explicit owner instruction. [Evidence](../docs-work/OWNER_FEEDBACK_2026-11-14.md).
+
+## BK-REQ01 default and hidden proposal result
+
+The previous correction hid `?state=proposed` because runtime defaulted to Proposed, while the directory parent was named generic request result. That mapping obscured the business distinction. DEC-050 makes the timeless Requested receipt the static/runtime default and restores the distinct Proposed variant in the directory. No new business rule or phase acceptance is inferred. [Fix and sources](../docs-work/BK_REQ01_RESULT_CORRECTION.md).
+
+## Review persistence follow-up
+
+DEC-049 supersedes the original browser-only persistence limitation for the project's local preview. Manual approvals persist in a source JSON file and survive session closure/rebuild/browser changes. Plain static hosting exports the last built snapshot but cannot write repository files; fallback is identified in the UI. Product boundaries and phase gates are unchanged. [Evidence](../docs-work/PREVIEW_REVIEW_REPORT.md).
+
+## Owner element review - 2026-11-14
+
+Latest owner instructions supersede raised selection, one-shot home steps, landscape desktop image crops, fixed recurring header content, explanatory-card placement and visible demo banners. Portrait imagery and scrolling recurring header content are intentional changes; only its top handle remains sticky on mobile. Product simulation boundaries remain. [Sources/fixes and pending bottom-navigation clarification](../docs-work/OWNER_FEEDBACK_2026-11-14.md). Phase 03 remains unaccepted.
+
+Preview follow-up: oversized vertical approval controls were replaced by horizontal 44px controls. Page-only approvals now explicitly mean the default view; registered variants have independent records. Prior approvals are retained without being silently copied into states. See [follow-up evidence](../docs-work/PREVIEW_REVIEW_REPORT.md).
+
+## Independent preview workspace
+
+Owner-requested red/yellow/green statuses are independent from historical implementation acceptance. Red means no runtime template, not missing original artboards. Product warning/success palettes are orange/teal; preview-only yellow tokens and the existing green accent satisfy the explicit review colors without changing the canonical design export. Source-change invalidation, static build/focus polling and browser-local persistence limits are recorded in the [report](../docs-work/PREVIEW_REVIEW_REPORT.md).
+
+## Phase 01–02 refresh — 2026-11-14
+
+- Closed shared raw-duration debt C-05 using existing tokens; corrected the role-shell booking action from accent green to the canonical ink action in Design System v2 Navigation. No new color/token introduced.
+- Restored usable carousel keyboard/manual controls and explicit autoplay pause; retained image orbit and previous removal of arrow controls. Motion respects focus/hover/hidden/inert/reduced-motion conditions.
+- Cross-document transition opt-in produced InvalidStateError under the unsupported-API check; a single CSS-entry/Web-Animations-exit path now preserves ordinary navigation and passes that scenario. No global error suppression added.
+- Exact source comparisons, existing source-asset limitations and automated results are in the [refresh report](../docs-work/PHASE_01_02_REFRESH_FA.md). BK-01 desktop source/brief drift remains outside this two-phase task.
+
+## Infrastructure audit — 2026-11-14
+
+The [source conflict register](ai/DESIGN_SOURCE_CONFLICTS.md) records eight instruction/evidence issues. Existing owner decisions resolve centered desktop gallery and mobile recurring-editor scrolling; active guidance now reflects them. Raw motion durations and BK-01 desktop brief/runtime columns remain existing review items, not silently approved changes. Full scope/results/limits: [audit report](ai/AUDIT_REPORT.md).
+
 | ID | Finding | Resolution / handling | Status |
 |---|---|---|---|
 | GAP-01 | Old source docs mention Tailwind/Alpine/htmx; current owner-approved frontend contract rejects them. | Marked historical; root `AGENTS.md` and `RIVAL_PROJECT_CONTRACT.md` are authoritative. | Resolved |

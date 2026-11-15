@@ -7,3 +7,6 @@
 [پیش‌نمایش الگوی این صفحه](../PHASE_03_DESKTOP_PREVIEW.html#result) · [قواعد مشترک دسکتاپ](../PHASE_03_DESKTOP_REVIEW_FA.md)
 
 مرجع محصول `STATE-04 · D10-191`. آزمون در ۱۰۲۴ و ۱۴۴۰ پیکسل شامل حرکت صفحه‌کلید، ترتیب خواندن و حفظ اسکرول سند است.
+
+
+Owner element correction DEC-055: [review record](../BOOKING_REVIEW_POLISH_2026-11-15.md) controls long payment wrapping, centered state/payment headings, mobile rail/pager clearance and canonical payment-state ownership. This is scoped owner feedback, not a new phase acceptance.

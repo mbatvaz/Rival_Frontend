@@ -30,7 +30,7 @@ export async function applyPreview(root, policy, view) {
     account.failures = [];
     view.stage = 'phone';
   }
-  if (stateName === 'passkey') notice(root, 'در این نسخهٔ آزمایشی از کد پیامکی استفاده کنید.', 'info');
+  if (stateName === 'passkey') notice(root, 'از کد پیامکی استفاده کنید.', 'info');
   if (stateName === 'loading') view.busy = true;
   if (stateName === 'error' || stateName === 'loading') {
     notice(root, stateName === 'error' ? 'ارتباط برقرار نشد. دوباره تلاش کنید.' : 'لطفاً صبر کنید…', stateName === 'error' ? 'error' : 'info');

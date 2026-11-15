@@ -23,7 +23,7 @@ export const dayName = date => new Intl.DateTimeFormat('fa-IR', { weekday: 'long
 export function route(id, values = {}) {
   const links = document.querySelector('[data-rv-booking-links]').content;
   const path = [...links.querySelectorAll('[data-rv-route]')].find(link => link.dataset.rvRoute === id)?.getAttribute('href');
-  if (!path) throw new Error('مسیر رزرو آزمایشی پیدا نشد.');
+  if (!path) throw new Error('مسیر رزرو پیدا نشد.');
   const url = new URL(path, window.location.origin);
   for (const [key, value] of Object.entries(values)) if (value) url.searchParams.set(key, value);
   return url.pathname + url.search;
@@ -81,7 +81,7 @@ export async function submitRequest(details) {
 }
 
 export function report(root, error) {
-  text(root, 'booking-error', error.message || 'پیش‌نمایش در دسترس نیست. دوباره تلاش کنید.');
+  text(root, 'booking-error', error.message || 'اطلاعات در دسترس نیست. دوباره تلاش کنید.');
   visible(root, 'booking-error', true);
 }
 

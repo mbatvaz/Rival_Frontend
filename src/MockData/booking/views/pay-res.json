@@ -6,12 +6,6 @@
     "back": "",
     "kind": "result",
     "variants": {
-      "checking": {
-        "label": "در حال بررسی"
-      },
-      "review": {
-        "label": "در انتظار بررسی"
-      },
       "failed": {
         "label": "ناموفق"
       },
@@ -20,6 +14,12 @@
       },
       "success": {
         "label": "موفق"
+      },
+      "returned": {
+        "label": "برگشت به اعتبار"
+      },
+      "sms": {
+        "label": "اختلال پیامک تأیید"
       }
     }
   }

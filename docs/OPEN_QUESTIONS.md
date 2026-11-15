@@ -1,8 +1,20 @@
 # Open Questions / Decision Gates
 
+## Phase 03 acceptance — 2026-11-15
+
+The owner accepted Phase 03 and authorized closeout only (DEC-058). [Handoff](../docs-work/PHASE_03_CLOSEOUT_FA.md). Acceptance introduces no business/permission/money decision and does not close OQ-01..06, OQ-08 or the unresolved bottom-navigation wording below. Preserve their existing conservative defaults. Phase 04 remains unassigned and must not start.
+
 Questions below are genuinely unresolved in the supplied source material. Do not convert conservative defaults into owner-approved product rules.
 
 ## Still open
+
+Owner element review 2026-11-14: bottom navigation wording could describe missing navigation or request its absence. Clarification was requested; prior visibility is preserved pending the response. Other annotated corrections proceed independently. This changes no permission/money rule. [Review](../docs-work/OWNER_FEEDBACK_2026-11-14.md).
+
+Independent preview review (2026-11-14) adds no business or permission question. Its owner-controlled browser approvals do not resolve product OQs or change phase gates; storage/build limits are explicit in the [report](../docs-work/PREVIEW_REVIEW_REPORT.md).
+
+Phase 01–02 refresh (2026-11-14): no new business/permission/content question was invented or closed. Existing approved desktop briefs were reused; motion and accessibility corrections are submitted in the [refresh report](../docs-work/PHASE_01_02_REFRESH_FA.md). OQ-01..06 and OQ-08 retain their defaults. No approval of Phase 03 or assignment of Phase 04 is implied.
+
+Infrastructure audit 2026-11-14 adds no permission, money or content decision. Source/brief discrepancies are in the [conflict register](ai/DESIGN_SOURCE_CONFLICTS.md), including BK-01 column drift for the pending Phase 03 review. This does not reopen resolved OQ-07 or accept Phase 03.
 
 | ID | Question | Impact | Conservative implementation default |
 |---|---|---|---|

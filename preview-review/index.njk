@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-rv-base-path="{{ site.basePath }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>فهرست صفحات ریوال — میز بازبینی</title>
+  <link rel="icon" href="{{ site.basePath }}img/rival-mark.png">
+  <link rel="stylesheet" href="{{ site.basePath }}_preview/index.css">
+  <script type="module" src="{{ site.basePath }}_preview/review.js"></script>
+</head>
+<body>
+  <a class="rv-skip-link" href="#rv-main">رفتن به محتوای اصلی</a>
+  <main class="rv-review" id="rv-main" tabindex="-1">
+    <header class="rv-review__header">
+      <img src="{{ site.basePath }}img/rival-logo.png" alt="ریوال" width="150" height="50">
+      <p class="rv-review__eyebrow">میز بازبینی مستقل</p>
+      <h1>فهرست صفحات و مسیرهای پروژه</h1>
+      <p>{{ model.count | faDigits }} صفحه و {{ model.variantCount | faDigits }} زیرحالت؛ تأیید مستقل موبایل، دسکتاپ و نهایی.</p>
+      <a class="rv-btn rv-btn--secondary" href="{{ site.basePath }}">مشاهده مسیر صفحه اصلی<span class="ri ri-arrow-left" aria-hidden="true"></span></a>
+    </header>
+    <section class="rv-review__summary" aria-label="خلاصهٔ وضعیت پیش‌فرض صفحات">
+      <div><strong>{{ model.count | faDigits }}</strong><span>کل صفحات</span></div>
+      <div data-rv-count-tone="red"><strong data-rv-count="red">—</strong><span>هنوز طراحی نشده</span></div>
+      <div data-rv-count-tone="yellow"><strong data-rv-count="yellow">—</strong><span>در انتظار تأیید</span></div>
+      <div data-rv-count-tone="green"><strong data-rv-count="green">—</strong><span>تأیید نهایی</span></div>
+    </section>
+    <details class="rv-review__guide"><summary>راهنمای تأیید و نگهداری اطلاعات</summary>
+      <p>تأیید صفحه فقط برای حالت پیش‌فرض است؛ تأیید زیرحالت‌ها جداست و به یکدیگر تعمیم داده نمی‌شوند.</p>
+      <p>صفحهٔ طراحی‌نشده گزینهٔ تأیید ندارد. پس از تأیید موبایل و دسکتاپ، فقط گزینهٔ نهایی نمایش داده می‌شود؛ لغو تأیید نهایی هر دو تأیید را پاک می‌کند و بازبینی دوباره از موبایل و دسکتاپ شروع می‌شود.</p>
+      <p><span class="rv-review__dot" data-tone="red" aria-hidden="true"></span>قرمز: صفحهٔ اجرایی ندارد. <span class="rv-review__dot" data-tone="yellow" aria-hidden="true"></span>زرد: آمادهٔ بازبینی است. <span class="rv-review__dot" data-tone="green" aria-hidden="true"></span>سبز: نسخهٔ فعلی تأیید نهایی شده است.</p>
+      <p>در پیش‌نمایش محلی پروژه، تأییدها در فایل پروژه ذخیره می‌شوند و در مرورگرهای دیگر هم دیده می‌شوند. ذخیره موفق در پیام پایین اعلام می‌شود. این تأییدها وضعیت فازهای پروژه را تغییر نمی‌دهند؛ تغییر نسخه فقط تأیید نهایی همان صفحه یا زیرحالتِ متأثر را نیازمند بازبینی می‌کند؛ تأیید موبایل، دسکتاپ و موارد دیگر حفظ می‌شود.</p>
+      <p>بازیابی پشتیبان، اطلاعات همان صفحات را جایگزین می‌کند؛ تأییدهای بقیهٔ صفحات حفظ می‌شوند.</p>
+    </details>
+    <div class="rv-review__backup"><button class="rv-btn rv-btn--secondary" type="button" data-rv-export>دریافت پشتیبان</button><label class="rv-review__file">بازیابی پشتیبان<input type="file" accept=".json,application/json" data-rv-import></label></div>
+    <p class="rv-review__message" role="status" aria-live="polite" data-rv-review-message>در حال خواندن تأییدهای بازبینی…</p>
+    <form class="rv-review__filters" role="search" data-rv-review-filters>
+      <label>جست‌وجوی صفحه<input type="search" placeholder="نام صفحه یا شناسه، مثل PUB-01" data-rv-review-search></label>
+      <label>وضعیت صفحه<select data-rv-review-filter><option value="all">همهٔ صفحات</option><option value="red">طراحی نشده</option><option value="yellow">در انتظار تأیید</option><option value="green">تأیید نهایی</option></select></label>
+    </form>
+    <p class="rv-review__empty" data-rv-review-empty hidden>صفحه‌ای با این جست‌وجو و وضعیت پیدا نشد.</p>
+    <div class="rv-review__groups">
+      {% for group in model.groups %}<section class="rv-review__group"><h2>{{ group.name }}</h2><ul class="rv-review__list">
+        {% for entry in group.pages %}{% include "row.njk" %}{% endfor %}
+      </ul></section>{% endfor %}
+    </div>
+    <noscript><p>برای ثبت و نمایش تأییدهای دستی، JavaScript مرورگر را فعال کنید. پیوندهای صفحات همچنان در دسترس‌اند.</p></noscript>
+  </main>
+</body>
+</html>

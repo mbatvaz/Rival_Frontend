@@ -38,6 +38,10 @@ The full technology and architecture rules are in [`RIVAL_PROJECT_CONTRACT.md`](
 ## Responsive and accessibility
 
 - Mobile reference width 390; tablet 768–1023; desktop >=1024 with a purpose-designed desktop composition.
-- No nested vertical scroll. Horizontal scrolling is permitted only for documented horizontal rails/carousels.
+- No nested vertical scroll except the owner-approved mobile BK-REC01 editor with visible header. Horizontal scrolling is permitted only for documented horizontal rails/carousels.
 - All interactive hit targets >=44×44px, including visually smaller controls.
 - See `RIVAL_PROJECT_CONTRACT.md` for the complete desktop and accessibility contract.
+
+## Governance and evidence
+
+See the [component catalog](ai/COMPONENT_CATALOG.md), [source inventory](ai/DESIGN_EXPORT_INVENTORY.md), [conflicts](ai/DESIGN_SOURCE_CONFLICTS.md), [responsive procedure](ai/RESPONSIVE_DESIGN_CONTRACT.md) and [motion audit](ai/MOTION_SPEC.md). These link to the existing canonical sources; they do not authorize changing original exports. Token JSON has no dedicated breakpoint/container/z-index family; existing contract/approved brief values remain authoritative.

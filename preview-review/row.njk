@@ -1,0 +1,7 @@
+<li class="rv-review__row" data-rv-page-row data-rv-review-id="{{ entry.id }}" data-rv-review-title="{{ entry.titleFa }}" data-rv-revision="{{ entry.reviewRevision }}" data-rv-implemented="{{ entry.reviewImplemented }}" data-status="{% if entry.reviewImplemented %}yellow{% else %}red{% endif %}">
+  <a class="rv-review__link" href="{{ entry.href }}" data-rv-page-id="{{ entry.id }}"><span>{{ entry.titleFa }}</span></a>
+  <div class="rv-review__meta"><bdi dir="ltr">{{ entry.id | faDigits }}</bdi><span>فاز {{ entry.phaseNumber | faDigits }} · پیش‌فرض</span><span class="rv-review__sr" data-rv-review-status>{% if entry.reviewImplemented %}در انتظار تأیید{% else %}هنوز طراحی نشده{% endif %}</span></div>
+  <div class="rv-review__approvals" role="group" aria-label="تأییدهای پیش‌فرض {{ entry.titleFa }}">{% include "controls.njk" %}</div>
+  <p class="rv-review__sr" data-rv-review-reason hidden></p>
+  {% if entry.variants.length %}<details class="rv-review__variants"><summary>حالت‌ها · <span data-rv-variant-count>۰ از {{ entry.variants.length | faDigits }} نهایی</span></summary><ul>{% for variant in entry.variants %}{% include "variant.njk" %}{% endfor %}</ul></details>{% endif %}
+</li>

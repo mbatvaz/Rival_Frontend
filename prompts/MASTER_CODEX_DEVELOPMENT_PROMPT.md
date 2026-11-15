@@ -15,7 +15,9 @@ Use Native CSS, native JavaScript ES Modules, Design System v2 tokens, Yekan Bak
 
 Use design-export/MANIFEST.json to locate exact source files. Original design exports are read-only. Never invent missing assets, artboard selectors, business rules, permissions, or financial behavior.
 
-For desktop, create a page-specific layout brief based on the mobile design language; do not stretch the mobile artboard. Obtain owner review before implementing the desktop layout. Keep 44x44px hit targets, no nested vertical scrolling, and only evidence-backed horizontal rails.
+For desktop, create a page-specific layout brief based on the mobile design language; do not stretch the mobile artboard. Obtain owner review before implementation. Keep 44x44px hit targets; only the approved mobile BK-REC01 editor may scroll internally with visible header. Horizontal rails need evidence. DEC-037 permits the centered desktop PortfolioViewer; other dialogs stay bottom sheets.
+
+Use the [page workflow](../PROMPTS.md), [implementation procedure](../docs/ai/DESIGN_IMPLEMENTATION_CONTRACT.md) and [QA checklist](../docs/ai/QA_CHECKLIST.md) for exact state sources, responsive/motion records and inspectable comparison evidence. This master prompt does not authorize a new product phase.
 
 Start by producing a read-only plan and identifying unresolved owner questions. Then implement only the requested phase, run its full acceptance checklist, update progress/traceability/discrepancies/open questions, report exact test results, and stop for owner approval.
 ```

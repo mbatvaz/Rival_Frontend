@@ -15,3 +15,7 @@
 Rival_Phase_01_AI_Handoff.md; docs/RIVAL_PROJECT_CONTRACT.md; docs/DESIGN_SYSTEM_EXTRACTION.md; docs/PAGE_INVENTORY.md; docs/TRACEABILITY.md; design-export/MANIFEST.json.
 
 All original exports are read-only. Do not rely on legacy CSS class prefixes or old Tailwind/Alpine/htmx snippets as implementation instructions.
+
+## 2026-11-14 maintenance sources
+
+Use the [implementation procedure](../../docs/ai/DESIGN_IMPLEMENTATION_CONTRACT.md), [motion records](../../docs/ai/MOTION_SPEC.md), [QA checklist](../../docs/ai/QA_CHECKLIST.md) and [refresh report](../../docs-work/PHASE_01_02_REFRESH_FA.md). Original export/handoff evidence remains read-only; current owner-approved exceptions remain authoritative.

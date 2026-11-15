@@ -43,3 +43,7 @@ Report changed files, IDs/states covered, tests run and results, screenshots, un
 ## Accepted implementation — 2026-11-10
 
 The owner explicitly accepted Phase 02 after three review rounds. Approved UI overrides and current truth are in DEC-034..041 and docs-work/PHASE_02_CLOSEOUT_FA.md. The checklist applies to the static reference: actual authentication/security enforcement remains backend-owned. No destructive domain action was introduced; logout retains confirmation. The owner authorized closeout only and explicitly prohibited starting Phase 03 until a new instruction.
+
+## 2026-11-14 owner-requested refresh
+
+The owner authorized review and correction of accepted Phases 01?02 against the updated infrastructure, including appropriate motion. Existing desktop briefs remain approved. See the [refresh report](../../docs-work/PHASE_01_02_REFRESH_FA.md) for token-based timing, accessible carousel interaction, static/reduced-motion fallbacks and regression evidence. Corrections await owner review separately from historical Phase 02 acceptance. Do not start another product phase.

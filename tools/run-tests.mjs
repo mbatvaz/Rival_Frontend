@@ -4,7 +4,7 @@ import { root } from './lib/site.mjs';
 
 const subpath = process.argv.includes('--subpath');
 const env = {
-  ...process.env, RIVAL_BASE_PATH: subpath ? '/rival-demo/' : '/',
+  ...process.env, RIVAL_REVIEW_STORAGE: 'browser', RIVAL_BASE_PATH: subpath ? '/rival-demo/' : '/',
   PORT: process.env.RIVAL_TEST_PORT ?? (subpath ? '4184' : '4183'), RIVAL_TEST_SERVER_MANAGED: '1'
 };
 const run = (file, args = [], customEnv = env) => new Promise((resolve, reject) => {

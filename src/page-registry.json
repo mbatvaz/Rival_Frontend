@@ -201,7 +201,7 @@
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "ورود به فرایند رزرو",
       "phase": "Phase 03",
-      "implementationStatus": "in-progress",
+      "implementationStatus": "accepted",
       "variants": [
         {
           "label": "در حال بارگذاری",
@@ -215,7 +215,8 @@
           "label": "حساب غیرفعال",
           "query": "?state=inactive"
         }
-      ]
+      ],
+      "ownerAcceptedAt": "2026-11-15"
     },
     {
       "id": "CUS-03",
@@ -342,7 +343,7 @@
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "انتخاب خدمت",
       "phase": "Phase 03",
-      "implementationStatus": "in-progress",
+      "implementationStatus": "accepted",
       "variants": [
         {
           "label": "در حال بارگذاری",
@@ -356,7 +357,8 @@
           "label": "حساب غیرفعال",
           "query": "?state=inactive"
         }
-      ]
+      ],
+      "ownerAcceptedAt": "2026-11-15"
     },
     {
       "id": "BK-02",
@@ -371,13 +373,14 @@
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "انتخاب آرایشگر",
       "phase": "Phase 03",
-      "implementationStatus": "in-progress",
+      "implementationStatus": "accepted",
       "variants": [
         {
           "label": "بدون آرایشگر",
           "query": "?state=empty"
         }
-      ]
+      ],
+      "ownerAcceptedAt": "2026-11-15"
     },
     {
       "id": "BK-F01",
@@ -392,7 +395,7 @@
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "انتخاب زمان ثابت",
       "phase": "Phase 03",
-      "implementationStatus": "in-progress",
+      "implementationStatus": "accepted",
       "variants": [
         {
           "label": "روز تعطیل",
@@ -418,7 +421,8 @@
           "label": "ورود از پیامک",
           "query": "?state=sms"
         }
-      ]
+      ],
+      "ownerAcceptedAt": "2026-11-15"
     },
     {
       "id": "BK-F02",
@@ -433,7 +437,7 @@
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "خلاصه و پرداخت رزرو ثابت",
       "phase": "Phase 03",
-      "implementationStatus": "in-progress",
+      "implementationStatus": "accepted",
       "variants": [
         {
           "label": "نگه‌داشت منقضی",
@@ -455,7 +459,8 @@
           "label": "اختلال درگاه",
           "query": "?state=gateway"
         }
-      ]
+      ],
+      "ownerAcceptedAt": "2026-11-15"
     },
     {
       "id": "BK-P01",
@@ -470,13 +475,14 @@
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "درخواست زمان پیشنهادی",
       "phase": "Phase 03",
-      "implementationStatus": "in-progress",
+      "implementationStatus": "accepted",
       "variants": [
         {
           "label": "روز انتخاب نشده",
           "query": "?state=range"
         }
-      ]
+      ],
+      "ownerAcceptedAt": "2026-11-15"
     },
     {
       "id": "BK-R01",
@@ -491,7 +497,8 @@
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "درخواست خدمت درخواستی",
       "phase": "Phase 03",
-      "implementationStatus": "in-progress"
+      "implementationStatus": "accepted",
+      "ownerAcceptedAt": "2026-11-15"
     },
     {
       "id": "BK-REQ01",
@@ -503,20 +510,22 @@
       "primaryBatch": 2,
       "template": "Booking/Index.njk",
       "mockData": "MockData/booking/views/bk-req01.json",
+      "resultDefault": "requested",
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "نتیجه درخواست",
       "phase": "Phase 03",
-      "implementationStatus": "in-progress",
+      "implementationStatus": "accepted",
       "variants": [
         {
-          "label": "نتیجه پیشنهادی",
+          "label": "نتیجه پیشنهاد زمان",
           "query": "?state=proposed"
         },
         {
           "label": "نتیجه درخواستی",
           "query": "?state=requested"
         }
-      ]
+      ],
+      "ownerAcceptedAt": "2026-11-15"
     },
     {
       "id": "BK-REC01",
@@ -531,7 +540,7 @@
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "رزرو دوره‌ای",
       "phase": "Phase 03",
-      "implementationStatus": "in-progress",
+      "implementationStatus": "accepted",
       "variants": [
         {
           "label": "کمتر از سه نوبت",
@@ -553,7 +562,8 @@
           "label": "پرداخت گروهی",
           "query": "?state=checkout"
         }
-      ]
+      ],
+      "ownerAcceptedAt": "2026-11-15"
     },
     {
       "id": "BK-ALERT01",
@@ -568,7 +578,7 @@
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "اعلان آزاد شدن زمان",
       "phase": "Phase 03",
-      "implementationStatus": "in-progress",
+      "implementationStatus": "accepted",
       "variants": [
         {
           "label": "ثبت اعلان",
@@ -578,7 +588,8 @@
           "label": "اعلان تکراری",
           "query": "?state=duplicate"
         }
-      ]
+      ],
+      "ownerAcceptedAt": "2026-11-15"
     },
     {
       "id": "PAY-RES",
@@ -593,16 +604,8 @@
       "notes": "Implementation template is assigned during the relevant phase.",
       "titleFa": "نتیجه بازگشت پرداخت",
       "phase": "Phase 03",
-      "implementationStatus": "in-progress",
+      "implementationStatus": "accepted",
       "variants": [
-        {
-          "label": "در حال بررسی",
-          "query": "?state=checking"
-        },
-        {
-          "label": "در انتظار بررسی",
-          "query": "?state=review"
-        },
         {
           "label": "ناموفق",
           "query": "?state=failed"
@@ -614,8 +617,17 @@
         {
           "label": "موفق",
           "query": "?state=success"
+        },
+        {
+          "label": "برگشت به اعتبار",
+          "query": "?state=returned"
+        },
+        {
+          "label": "اختلال پیامک تأیید",
+          "query": "?state=sms"
         }
-      ]
+      ],
+      "ownerAcceptedAt": "2026-11-15"
     },
     {
       "id": "STY-01",
@@ -1162,7 +1174,8 @@
       "notes": "System state 04",
       "titleFa": "حالت سیستمی ۰۴ — نگه‌داشت منقضی",
       "phase": "Phase 03",
-      "implementationStatus": "in-progress"
+      "implementationStatus": "accepted",
+      "ownerAcceptedAt": "2026-11-15"
     },
     {
       "id": "STATE-05",
@@ -1177,7 +1190,8 @@
       "notes": "System state 05",
       "titleFa": "حالت سیستمی ۰۵ — پرداخت در حال بررسی",
       "phase": "Phase 03",
-      "implementationStatus": "in-progress"
+      "implementationStatus": "accepted",
+      "ownerAcceptedAt": "2026-11-15"
     },
     {
       "id": "STATE-06",
@@ -1192,13 +1206,9 @@
       "notes": "System state 06",
       "titleFa": "حالت سیستمی ۰۶ — زمان از دست رفت",
       "phase": "Phase 03",
-      "implementationStatus": "in-progress",
-      "variants": [
-        {
-          "label": "برگشت به اعتبار",
-          "query": "?state=returned"
-        }
-      ]
+      "implementationStatus": "accepted",
+      "variants": [],
+      "ownerAcceptedAt": "2026-11-15"
     },
     {
       "id": "STATE-07",
@@ -1213,25 +1223,9 @@
       "notes": "System state 07",
       "titleFa": "حالت سیستمی ۰۷ — سرویس بیرونی",
       "phase": "Phase 03",
-      "implementationStatus": "in-progress",
-      "variants": [
-        {
-          "label": "اختلال درگاه",
-          "query": "?state=gateway"
-        },
-        {
-          "label": "اختلال پیامک تأیید",
-          "query": "?state=sms"
-        },
-        {
-          "label": "اختلال نقشه",
-          "query": "?state=map"
-        },
-        {
-          "label": "اختلال ارسال کد",
-          "query": "?state=otp"
-        }
-      ]
+      "implementationStatus": "accepted",
+      "variants": [],
+      "ownerAcceptedAt": "2026-11-15"
     },
     {
       "id": "STATE-08",

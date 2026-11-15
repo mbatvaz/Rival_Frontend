@@ -7,7 +7,7 @@
     "kind": "result",
     "variants": {
       "proposed": {
-        "label": "نتیجه پیشنهادی"
+        "label": "نتیجه پیشنهاد زمان"
       },
       "requested": {
         "label": "نتیجه درخواستی"

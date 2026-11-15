@@ -3,7 +3,7 @@ const stack = [];
 let originalScroll = 0;
 let closingSheet = false;
 const focusable = panel => [...panel.querySelectorAll('a[href],button,input,select,textarea,[tabindex]')]
-  .filter(el => !el.disabled && el.tabIndex >= 0 && !el.closest('[hidden]'));
+  .filter(el => !el.disabled && el.tabIndex >= 0 && !el.closest('[hidden],[inert]') && el.getClientRects().length);
 
 export function openSheet(id, opener = document.activeElement) {
   const panel = document.getElementById(id);
@@ -35,7 +35,7 @@ export async function closeSheet() {
   const layer = closing.panel.parentElement;
   if (!stack.length) layer.dataset.rvClosing = 'true';
   closing.panel.dataset.rvClosing = 'true';
-  await Promise.allSettled(closing.panel.getAnimations().map(animation => animation.finished));
+  await Promise.allSettled((closing.panel.getAnimations?.() ?? []).map(animation => animation.finished));
   delete layer.dataset.rvClosing;
   delete closing.panel.dataset.rvClosing;
   closingSheet = false;

@@ -1,0 +1,31 @@
+@layer pages {
+  .rv-booking [data-rv-result-view="returned"] .rv-state-page__badge { background: transparent; }
+
+  @media not all and (min-width: 1024px) {
+    .rv-booking-package .rv-booking-choice { border-radius: var(--radius-lg); }
+
+    .rv-recurring-row .rv-booking-context > img {
+      grid-area: auto;
+      mask-image: linear-gradient(to right, var(--bg-inverse) 65%, transparent);
+    }
+
+  }
+
+  @media (min-width: 1024px) {
+    .rv-booking-checkout .rv-booking-action > div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: start;
+      gap: var(--space-1) var(--space-2);
+    }
+    .rv-booking-checkout [data-rv-payment-label] { flex: 0 0 auto; max-inline-size: 100%; text-align: right; }
+    .rv-booking-checkout [data-rv-action-title] { margin-inline-start: auto; text-align: left; white-space: nowrap; }
+    .rv-booking[data-rv-booking-id="PAY-RES"] > .rv-booking-mast { grid-column: 1; }
+    .rv-booking[data-rv-booking-id="PAY-RES"] > .rv-booking__top { grid-column: 2; grid-row: 1; }
+
+    .rv-booking[data-rv-booking-id="STATE-04"] > .rv-booking__top,
+    .rv-booking[data-rv-booking-id="PAY-RES"] > .rv-booking__top,
+    .rv-booking[data-rv-booking-id="STATE-05"] > .rv-booking__top { justify-content: center; text-align: center; }
+  }
+}

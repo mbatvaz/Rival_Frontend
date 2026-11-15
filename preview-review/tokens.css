@@ -1,0 +1,8 @@
+/* Owner-requested yellow, scoped to the independent review workspace only. */
+@layer tokens {
+  :root {
+    --rv-review-pending-mark: #C79B00;
+    --rv-review-pending-bg: #FFF8D8;
+    --rv-review-pending-fg: #705600;
+  }
+}

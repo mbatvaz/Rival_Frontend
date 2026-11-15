@@ -32,3 +32,9 @@
 اصلاح مصوب بازبینی مالک (نظرهای ۹ تا ۱۲): تصاویر بدون قاب و با سایه، متن شیشه‌ای، جزئیات در برگه روی صفحهٔ قابل‌مشاهده و دعوت رزرو با نصف عرض و در مرکز سطر.
 
 نظر ۵ بازبینی دوم: کادر خطای بارگیری دسکتاپ هم‌عرض دعوت رزرو و در مرکز سطر است.
+
+
+Owner element correction 2026-11-14 (DEC-048): the [review record](../OWNER_FEEDBACK_2026-11-14.md) supersedes affected image crops, explanatory copy placement, sidebar top spacing, selection/calendar motion and recurring-editor header behavior. Desktop photo cards use the same assets in portrait 4:5; mobile keeps its source composition. This records direct owner instructions, not a new phase acceptance.
+
+
+DEC-051: فاصله داخلی عنوان/مشخصات کارت در موبایل و دسکتاپ کمتر می‌شود؛ ابعاد تصویر، متن و ناحیه کلیک کامل کارت حفظ می‌شوند. [شواهد](../OWNER_FEEDBACK_2026-11-14.md).

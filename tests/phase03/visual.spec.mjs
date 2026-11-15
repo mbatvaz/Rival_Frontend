@@ -10,6 +10,9 @@ const pages = registry.pages.filter(page => page.phase === 'Phase 03');
 const target = 'tests/screens/phase03/' + (basePath === '/' ? 'root' : 'subpath');
 
 async function inspect(page, name, width, axe = true) {
+  const destination = name.startsWith('STATE-05') || name.startsWith('STATE-06') ? 'PAY-RES'
+    : name.startsWith('STATE-07') ? 'BK-F02' : null;
+  if (destination) await expect(page.locator('[data-rv-booking-id]')).toHaveAttribute('data-rv-booking-id', destination);
   await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
   await expect(page.locator('[data-rv-booking-error]')).toBeHidden();
   await page.evaluate(() => document.fonts.ready);

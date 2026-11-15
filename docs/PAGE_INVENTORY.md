@@ -1,5 +1,41 @@
 # Canonical Page Inventory
 
+## Current acceptance — 2026-11-15
+
+The owner accepted Phase 03 (DEC-058): CUS-02, BK-01/02, BK-F01/F02, BK-P01, BK-R01, BK-REQ01, BK-REC01, BK-ALERT01, PAY-RES and STATE-04..07, including their implemented variants. All 15 registry contexts now carry `implementationStatus=accepted` and `ownerAcceptedAt=2026-11-15`. Together with Phase 02 this is 21 accepted contexts; 52 future contexts remain placeholders. STATE-05/06/07 preserve compatibility URLs and route to their canonical payment/checkout owners; manual review controls remain independent. Earlier dated pending-review entries below are historical. [Closeout](../docs-work/PHASE_03_CLOSEOUT_FA.md). Phase 04 is unassigned and must not start.
+
+## Calendar selection follow-up
+
+BK-REC01 editor now shares selected/available/focus calendar styling with desktop. No route, fixture, phase or acceptance change. [Evidence](../docs-work/BOOKING_REVIEW_POLISH_2026-11-15.md).
+
+## Review follow-up: existing contexts only
+
+BK-01/BK-02, BK-F02 and PAY-RES receive the owner shadow/alignment clarification. No route, state or phase acceptance changes. [Evidence](../docs-work/BOOKING_REVIEW_POLISH_2026-11-15.md).
+
+## Owner review consolidation - 2026-11-15
+
+Independent review listing now has 69 parent rows and 45 states. STATE-05/06/07 are compatibility contexts, not separate review designs; PAY-RES contains returned-credit and SMS-confirmation failure. Map/OTP external designs were removed and gateway reuses BK-F02. All 73 registered static contexts remain reachable. [Details](../docs-work/BOOKING_REVIEW_POLISH_2026-11-15.md).
+
+## Text-layout regression review
+
+Owner final review covers current public/auth/booking consumers without adding routes or changing acceptance. BK-R01 package captions were corrected; ordinary text remains multiline. [Audit and evidence](../docs-work/TEXT_LAYOUT_FINAL_AUDIT_2026-11-15.md).
+
+## Compact-card text correction
+
+Existing service/stylist/appointment/portfolio card consumers explicitly opt into overflow motion; ordinary PUB-01/PUB-03 and booking receipt descriptions return to multiline layout. No route or acceptance changed. [Record](../docs-work/OVERFLOW_CARD_SCOPE_2026-11-15.md).
+
+Owner correction 2026-11-15: existing BK-01/BK-02 empty/default, BK-F01/BK-P01 and BK-F02 contexts use the [updated booking layout](../docs-work/BOOKING_LAYOUT_CORRECTIONS_2026-11-15.md). Shared overflowing text applies to current product consumers. No route, phase or acceptance status changed.
+
+Owner spacing/focus follow-up: PUB-02 caption density, PUB-03 mobile TOC and shared auth/profile TextField focus corrected without adding contexts, changing content rules or accepting a phase. [Evidence](../docs-work/OWNER_FEEDBACK_2026-11-14.md).
+
+Owner feedback 2026-11-14: CUS-02 remains a working alias of identical BK-01 service selection; only BK-01 is listed for review. BK-F01 SMS is omitted; BK-REQ01 default is requested (without time); its distinct proposed result is listed as a separate variant with preferred date and day-part. Canonical 73 contexts and phase acceptance remain unchanged. [Evidence](../docs-work/OWNER_FEEDBACK_2026-11-14.md).
+
+The independent `/_preview/` manual review statuses are documented in the [review report](../docs-work/PREVIEW_REVIEW_REPORT.md); they do not rewrite this product inventory or owner phase acceptance. No product route/context was added by the review UI.
+
+Phase 01–02 refresh (2026-11-14): PUB-01..03, AUTH-01/02, SYS-ACC-01 and shared shell were reviewed against current sources/approved briefs. Motion/accessibility corrections are recorded in the [refresh report](../docs-work/PHASE_01_02_REFRESH_FA.md). Routes and historical acceptance statuses remain; the incremental refresh awaits owner review. DS/RULE/ARCH remain traceability-only IDs.
+
+2026-11-14 maintenance: [generated source map](ai/DESIGN_SOURCE_MAP.md) indexes the existing 73 contexts and source candidates. No route, implementation status or acceptance changed. Infrastructure/tooling IDs remain in [TRACEABILITY](TRACEABILITY.md).
+
 `Artboard` با `Page/Context` یکی نیست. جدول زیر route/page contextهای canonical را نگه می‌دارد؛ variantها در ستون state و source mapping دنبال می‌شوند.
 
 ## Public / Auth

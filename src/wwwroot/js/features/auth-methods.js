@@ -29,7 +29,7 @@ export function initMethods(root, view, refresh, ready) {
     const method = event.target.closest('[data-rv-method]');
     if (!method || method.disabled || !ready()) return;
     if (method.dataset.rvMethod === 'passkey') {
-      notice(root, 'ورود با Passkey در نسخهٔ آزمایشی فعال نیست؛ از کد پیامکی استفاده کنید.', 'info');
+      notice(root, 'ورود با Passkey فعال نیست؛ از کد پیامکی استفاده کنید.', 'info');
       return;
     }
     const stage = method.dataset.rvMethod === 'password' ? 'password' : 'phone';

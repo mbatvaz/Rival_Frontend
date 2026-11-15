@@ -5,6 +5,5 @@
   <div class="rv-viewer__details">
     <h3>{{ item.title }}</h3><p class="rv-muted">{{ item.service }}{% if item.date %} <span aria-hidden="true">|</span> {{ item.date }}{% endif %}</p>
     <div class="rv-viewer__stylist">{% if item.avatar %}<img src="{{ basePath }}{{ item.avatar }}" alt="" width="48" height="48">{% else %}<span class="rv-icon-tile"><span class="ri ri-user" aria-hidden="true"></span></span>{% endif %}<div><strong>{{ item.stylist }}</strong><p class="rv-muted">آرایشگر</p></div></div>
-    {% if item.description %}<p>{{ item.description }}</p>{% endif %}
   </div>
 </section>

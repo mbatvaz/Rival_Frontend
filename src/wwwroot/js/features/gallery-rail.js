@@ -31,6 +31,7 @@ export function init(rail) {
     go(target);
   }, { passive: false });
   enableDrag(rail);
+  rail.addEventListener('rv:dragend', () => go(nearest()));
   const dots = rail.parentElement.querySelectorAll('[data-rv-gallery-dot]');
   observeCenter(rail, () => figures, item => {
     dots.forEach((dot, index) => { dot.dataset.rvActive = String(figures[index] === item); });

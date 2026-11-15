@@ -13,12 +13,12 @@
       {
         "title": "درخواست‌ها",
         "href": "/customer/requests/",
-        "icon": "send"
+        "icon": "inbox"
       },
       {
         "title": "نوبت‌ها",
         "href": "/customer/appointments/",
-        "icon": "calendar"
+        "icon": "scissors"
       }
     ],
     "book": {

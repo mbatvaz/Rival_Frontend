@@ -1,5 +1,6 @@
+import { playMotion } from './motion.js';
+
 export function initNavigationMotion() {
-  if (window.isSecureContext && 'CSSViewTransitionRule' in window) return;
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   let leaving = false;
   document.addEventListener('click', event => {
@@ -13,12 +14,12 @@ export function initNavigationMotion() {
     event.preventDefault();
     if (leaving) return;
     leaving = true;
-    page.animate([{ opacity: 1 }, { opacity: 0.35 }], { duration: 130, easing: 'ease-out', fill: 'forwards' })
-      .finished.then(() => window.location.assign(url.href), () => window.location.assign(url.href));
+    playMotion(page, [{ opacity: 1 }, { opacity: 0.35 }], 'duration-fast', 'ease-exit')
+      .then(() => window.location.assign(url.href));
   });
   window.addEventListener('pageshow', event => {
     if (!event.persisted) return;
     leaving = false;
-    document.querySelector('[data-rv-page] > main')?.getAnimations().forEach(animation => animation.cancel());
+    document.querySelector('[data-rv-page] > main')?.getAnimations?.().forEach(animation => animation.cancel());
   });
 }

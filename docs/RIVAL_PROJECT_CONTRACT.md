@@ -59,6 +59,8 @@ Never silently resolve a business-rule conflict. Use the conservative default in
 
 ### 3.3 Mock data and interactions
 
+Owner-requested infrastructure exception (2026-11-14, extended by direct owner instruction): `preview-review/` owns the independent directory review UI at `/_preview/` and `/pages.html`. Local preview persists manual approvals in `preview-review/approvals.json` through a narrowly scoped GET/POST local tooling endpoint; the static build exports a snapshot. Legacy browser records migrate only into missing project records. This is a development-only exception to the otherwise GET/HEAD static preview server, not a product API/backend or source of phase acceptance. Static hosting still needs no runtime and falls back explicitly to browser-local review writes. Product data remains exclusively behind `core/api.js`. No approval is automatically inferred from historical registry acceptance.
+
 - `src/MockData/` contains page fixtures and JSON response shapes.
 - The build copies the fixtures to `dist/mock-data/`.
 - The mock adapter resolves fixture URLs through the configured `basePath`.
@@ -166,7 +168,7 @@ Desktop-specific rules:
 - Stylist and OwnerAdmin workspaces may use a persistent right-side navigation rail (RTL) for primary work areas, with secondary destinations in a More menu. Reuse the exact mobile navigation destinations; do not create new routes.
 - Booking flows may use a main form/step column plus a contextual summary column when that summary exists in the approved mobile flow.
 - Before implementing any page at desktop width, write `docs-work/desktop-layouts/<PAGE-ID>.md` describing the desktop composition, columns, navigation, ordering, and which existing mobile components move. The owner reviews/approves the brief before desktop implementation.
-- All dialogs, pickers, and confirmations remain bottom sheets; no centered modal dialogs. On desktop, a sheet remains bottom-attached and centered with a maximum width of 560px.
+- Dialogs, pickers and confirmations remain bottom sheets. On desktop, a sheet remains bottom-attached and horizontally centered with a maximum width of 560px. DEC-037 is the explicit exception: PortfolioViewer is centered in the desktop viewport from 1024px and stays bottom-attached on mobile.
 - Nested vertical scrolling is prohibited outside the owner-approved mobile BK-REC01 editor. Its sheet scrolls within the viewport and keeps the header visible. Intentional horizontal rails/carousels with design evidence may scroll horizontally (including documented snap rails such as ADM-14). Do not introduce arbitrary horizontal scrolling for whole pages or tables.
 
 ## 7. Accessibility and QA
@@ -261,3 +263,8 @@ A phase is complete only when its IDs and states are traceable, its acceptance c
 - For each Page ID and state, locate the exact artboard in `design-export/MANIFEST.json`, open its screenshot and export HTML, and check the matching Design System component and handoff. Record the paths in the phase review notes.
 - Reproduce the mobile artboard’s hierarchy, grouping, control states, and spacing before adapting its layout for desktop. Use the same hierarchy and component states at desktop widths. Record justified responsive changes and resolve conflicts using the latest owner feedback.
 - Compare screenshots of the implemented default and affected states to their source artboards before submitting for owner review. Include the owner’s reported viewport when available.
+
+
+## Owner presentation correction - 2026-11-14 (DEC-048)
+
+The latest owner request removes demo/preview wording from product pages, retaining only default login code/password hints. This supersedes older visible-label presentation requirements only; operations remain local simulations behind core/api.js, with no live authentication, booking, messaging or payment service. In the mobile BK-REC01 editor, only the top handle stays sticky; title/description/close scroll with the sheet content. [Scope/evidence](../docs-work/OWNER_FEEDBACK_2026-11-14.md).

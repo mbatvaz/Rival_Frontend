@@ -109,7 +109,15 @@
     padding: 0;
     gap: var(--space-2);
   }
-  .rv-booking-package .rv-booking-choice__caption { inset-inline: var(--space-1); inset-block-end: var(--space-1); font-size: var(--caption-size); }
+
+  .rv-booking-package .rv-booking-choice__caption {
+    inset-inline: var(--space-1);
+    inset-block-end: var(--space-1);
+    font-size: var(--body-sm-size);
+    line-height: var(--caption-line);
+    font-weight: var(--heading-lg-weight);
+  }
+  .rv-booking-package .rv-booking-choice__caption > [data-rv-overflow-text] { font-weight: inherit; }
 
   .rv-booking-skeleton div {
     block-size: 280px;

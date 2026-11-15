@@ -4,8 +4,11 @@ import nunjucks from 'nunjucks';
 import { root, src, loadSite, readJson, withBase, inside, write } from './lib/site.mjs';
 import { faDigits, jalali } from './lib/format.mjs';
 import { prepareDesignSystem } from './lib/design-system.mjs';
-import { directoryModel, validateRegistry } from './lib/registry.mjs';
+import { validateRegistry } from './lib/registry.mjs';
 import { productContext } from './lib/product.mjs';
+import { revisionTracker } from './lib/review-revision.mjs';
+import { buildPreviewReview } from './lib/preview-review.mjs';
+import { variantReview } from './lib/review-entries.mjs';
 
 // ARCH / DEC-020: cPanel receives only the generated dist contents.
 const out = path.join(root, 'dist');
@@ -29,6 +32,8 @@ const urls = {
   logo: withBase(site.basePath, '/img/rival-logo.png'), favicon: withBase(site.basePath, '/img/rival-mark.png')
 };
 let rendered = 0;
+const revision = revisionTracker(src);
+const revisions = new Map();
 for (const page of registry.pages) {
   const product = await productContext(page, site.basePath, registry.pages);
   const template = page.template ?? (product.shell ? 'Shared/Preview/_RolePlaceholder.njk' : 'Shared/Preview/_Placeholder.njk');
@@ -41,13 +46,13 @@ for (const page of registry.pages) {
     title: page.titleFa + ' — ریوال'
   });
   await write(inside(out, page.previewPath.slice(1) + 'index.html'), html);
+  revisions.set(page.id, await revision(page, html, site.basePath));
+  for (const variant of page.variants ?? []) {
+    revisions.set(variantReview(page.id, '', variant.query).id, await revision(page, html, site.basePath, variant.query));
+  }
   if (page.template) rendered++;
 }
-const directory = env.render('Shared/Preview/_Directory.njk', {
-  site, urls, title: 'فهرست صفحات ریوال', model: directoryModel(registry, site.basePath)
-});
-await write(path.join(out, '_preview/index.html'), directory);
-await write(path.join(out, 'pages.html'), directory);
+await buildPreviewReview(out, site, registry, revisions);
 await fs.cp(path.join(src, 'wwwroot'), out, { recursive: true, filter: file => !file.endsWith('.gitkeep') });
 await fs.cp(path.join(src, 'MockData'), path.join(out, 'mock-data'), {
   recursive: true, filter: async file => (await fs.stat(file)).isDirectory() || path.extname(file) === '.json'

@@ -27,15 +27,15 @@ BK, PAY, STATE, RULE
 StatePage is created once here because the booking flows are its first use. Phase 08 must reuse/extend it and must not recreate the base. Static demo behavior must never claim real payment/booking completion.
 
 ## Acceptance checklist
-- [ ] Fixed/Proposed/Requested/recurring flows and hold states are covered.
-- [ ] StatePage base is reusable; STATE-04..07 are explicit variants.
-- [ ] Mock payment and booking results are visibly demo-only; no real transaction is implied.
-- [ ] IDs are traceable through `docs/TRACEABILITY.md`; do not put infrastructure-only IDs in `PAGE_INVENTORY.md`.
-- [ ] No stale route is introduced (`/admin/reports`, `/admin/wallets*`, `/admin/announcements`, `/admin/transactions` are forbidden unless an owner-approved route inventory change says otherwise).
-- [ ] No business rule that requires server verification is implemented client-only.
-- [ ] Destructive/impact actions use the shared bottom-sheet + impact-preview pattern.
-- [ ] Shared-component regression is run after any shared component change.
-- [ ] Update `PROGRESS.md`, `docs/PAGE_INVENTORY.md` status, `docs/DISCREPANCIES.md`, `docs/OPEN_QUESTIONS.md`, and traceability.
+- [x] Fixed/Proposed/Requested/recurring flows and hold states are covered.
+- [x] StatePage base is reusable; STATE-04..07 are explicit variants.
+- [x] Booking/payment are fixture/localStorage simulations only. DEC-048 supersedes the earlier visible demo-notice requirement; no real transaction is performed.
+- [x] IDs are traceable through `docs/TRACEABILITY.md`; do not put infrastructure-only IDs in `PAGE_INVENTORY.md`.
+- [x] No stale route is introduced (`/admin/reports`, `/admin/wallets*`, `/admin/announcements`, `/admin/transactions` are forbidden unless an owner-approved route inventory change says otherwise).
+- [x] Server security, authorization and financial verification remain backend responsibilities; current behavior is a static simulation.
+- [x] Destructive/impact actions use the shared bottom-sheet + impact-preview pattern.
+- [x] Shared-component regression is run after any shared component change.
+- [x] Update `PROGRESS.md`, `docs/PAGE_INVENTORY.md` status, `docs/DISCREPANCIES.md`, `docs/OPEN_QUESTIONS.md`, and traceability.
 
 ## Handoff
-Report changed files, IDs/states covered, tests run and results, screenshots, unresolved OQ/DEC references, desktop briefs requiring owner review, and the exact next phase gate. Stop and wait for owner approval.
+The owner accepted Phase 03 on 2026-11-15 and authorized closeout only (DEC-058). See the [closeout](../../docs-work/PHASE_03_CLOSEOUT_FA.md) for current results, component reuse and remaining source gaps. Phase 04 must not start without a later explicit assignment.

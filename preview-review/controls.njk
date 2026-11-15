@@ -1,0 +1,1 @@
+{% for control in model.reviewControls %}<button type="button" data-rv-approval="{{ control.action }}" aria-pressed="false" aria-label="{{ control.label }}" title="{{ control.label }}" hidden disabled><span class="ri ri-{{ control.icon }}" aria-hidden="true"></span><small hidden>تأیید نشده</small></button>{% endfor %}

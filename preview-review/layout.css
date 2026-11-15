@@ -1,0 +1,112 @@
+@layer layout {
+  .rv-review { max-inline-size: 1200px; margin-inline: auto; padding: var(--space-4); }
+  .rv-review__header { padding-block: var(--space-3); }
+  .rv-review__header img { inline-size: 100px; block-size: auto; margin-block-end: var(--space-1); }
+  .rv-review__header h1 { font-size: var(--heading-xl-size); line-height: var(--heading-xl-line); }
+  .rv-review__eyebrow { font-size: var(--caption-size); color: var(--text-secondary); margin-block-end: var(--space-1); }
+  .rv-review__summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+
+  .rv-review__summary > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-3);
+    border: 1px solid var(--line-hairline);
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+  }
+  .rv-review__summary strong { font-size: var(--body-lg-size); font-weight: 600; }
+  [data-rv-count-tone="red"] strong { color: var(--danger-fg); }
+  [data-rv-count-tone="yellow"] strong { color: var(--rv-review-pending-fg); }
+  [data-rv-count-tone="green"] strong { color: var(--accent-fg); }
+  .rv-review__guide { margin-block: var(--space-2); color: var(--text-secondary); }
+  .rv-review__guide summary { min-block-size: var(--size-touch); padding-block: var(--space-3); cursor: pointer; }
+  .rv-review__guide p { line-height: var(--body-line); }
+
+  .rv-review__backup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-block-end: var(--space-2);
+  }
+  .rv-review__backup .rv-btn { min-block-size: var(--size-touch); padding: var(--space-2) var(--space-3); }
+
+  .rv-review__file {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--size-touch);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface);
+    box-shadow: var(--shadow-hairline);
+    color: var(--text-primary);
+  }
+
+  .rv-review__file input {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .rv-review__file:focus-within { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+
+  .rv-review__message {
+    min-block-size: var(--size-touch);
+    padding: var(--space-2);
+    border-radius: var(--radius-sm);
+    background: var(--neutral-bg);
+  }
+  .rv-review__message[data-error="true"] { background: var(--danger-bg); color: var(--danger-fg); }
+  .rv-review__filters { display: grid; gap: var(--space-2); margin-block: var(--space-3); }
+  .rv-review__filters label { display: grid; gap: var(--space-1); min-inline-size: 0; }
+
+  .rv-review__filters :is(input, select) {
+    inline-size: 100%;
+    min-inline-size: 0;
+    min-block-size: var(--size-touch);
+    padding: var(--space-2);
+    border: 1px solid var(--line-control);
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    font: inherit;
+  }
+  .rv-review__groups { display: grid; gap: var(--space-5); align-items: start; }
+
+  .rv-review__filters input:focus {
+    border: 2px solid var(--focus-ring);
+    padding: calc(var(--space-2) - 1px);
+    outline: none;
+  }
+  .rv-review__group { min-inline-size: 0; }
+  .rv-review__group h2 { font-size: var(--heading-md-size); margin-block: var(--space-3); }
+
+  .rv-review__list {
+    display: grid;
+    gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .rv-review__empty {
+    padding: var(--space-6);
+    text-align: center;
+    background: var(--bg-surface);
+    border-radius: var(--radius-md);
+  }
+
+  @media (min-width: 768px) {
+    .rv-review { padding: var(--space-6); }
+    .rv-review__summary { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .rv-review__filters { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+    .rv-review__groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (min-width: 1024px) {
+    .rv-review__groups { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+}

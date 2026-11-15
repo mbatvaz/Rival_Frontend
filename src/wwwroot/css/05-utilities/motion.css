@@ -1,6 +1,4 @@
 @layer utilities {
-  @view-transition { navigation: auto; }
-
   a,
   a:hover,
   a:focus,
@@ -10,13 +8,13 @@
   [data-rv-dragging] { scroll-snap-type: none; user-select: none; cursor: grabbing; }
 
   [data-rv-page] > main {
-    animation: rv-page-enter 380ms var(--ease-standard) backwards;
+    animation: rv-page-enter var(--duration-slow) var(--ease-standard) backwards;
   }
-  .rv-sheet { animation: rv-sheet-enter 320ms var(--ease-standard) both; }
-  .rv-sheet-scrim { animation: rv-fade-enter 240ms var(--ease-standard) both; }
+  .rv-sheet { animation: rv-sheet-enter var(--duration-slow) var(--ease-standard) both; }
+  .rv-sheet-scrim { animation: rv-fade-enter var(--duration-base) var(--ease-standard) both; }
 
-  .rv-sheet[data-rv-closing] { animation-name: rv-sheet-exit; }
-  [data-rv-closing] > .rv-sheet-scrim { animation-name: rv-fade-exit; }
+  .rv-sheet[data-rv-closing] { animation: rv-sheet-exit var(--duration-base) var(--ease-exit) both; }
+  [data-rv-closing] > .rv-sheet-scrim { animation: rv-fade-exit var(--duration-fast) var(--ease-exit) both; }
 
   @keyframes rv-sheet-exit {
     to { transform: translateY(100%); }
@@ -27,7 +25,7 @@
   }
 
   @keyframes rv-page-enter {
-    from { opacity: 0; transform: translateY(12px); }
+    from { opacity: 0; transform: translateY(var(--space-3)); }
     to { opacity: 1; transform: none; }
   }
 
@@ -41,16 +39,25 @@
     to { opacity: 1; }
   }
 
-  ::view-transition-old(root) { animation: rv-fade-exit 180ms var(--ease-standard) both; }
-  ::view-transition-new(root) { animation: rv-fade-enter 220ms var(--ease-standard) both; }
+  @media (min-width: 1024px) {
+    .rv-viewer { animation-name: rv-viewer-enter; }
+    .rv-viewer[data-rv-closing] { animation-name: rv-viewer-exit; }
+  }
+
+  @keyframes rv-viewer-enter {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: none; }
+  }
+
+  @keyframes rv-viewer-exit {
+    to { opacity: 0; transform: scale(0.98); }
+  }
 
   @media (prefers-reduced-motion: reduce) {
-    @view-transition { navigation: none; }
-
-    ::view-transition-old(root),
-    ::view-transition-new(root),
     [data-rv-page] > main,
     .rv-sheet,
-    .rv-sheet-scrim { animation: none; }
+    .rv-sheet-scrim,
+    .rv-sheet[data-rv-closing],
+    [data-rv-closing] > .rv-sheet-scrim { animation: none; }
   }
 }

@@ -1,0 +1,5 @@
+<li class="rv-review__state" data-rv-review-id="{{ variant.reviewId }}" data-rv-parent-id="{{ entry.id }}" data-rv-review-title="{{ entry.titleFa }} — {{ variant.label }}" data-rv-variant-query="{{ variant.query }}" data-rv-revision="{{ variant.reviewRevision }}" data-rv-implemented="{{ entry.reviewImplemented }}" data-status="{% if entry.reviewImplemented %}yellow{% else %}red{% endif %}">
+  <div class="rv-review__state-head"><a href="{{ variant.href }}"><span>{{ variant.label }}</span></a><span class="rv-review__sr" data-rv-review-status>{% if entry.reviewImplemented %}در انتظار تأیید{% else %}هنوز طراحی نشده{% endif %}</span></div>
+  <div class="rv-review__approvals" role="group" aria-label="تأییدهای حالت {{ variant.label }} صفحه {{ entry.titleFa }}">{% include "controls.njk" %}</div>
+  <p class="rv-review__sr" data-rv-review-reason hidden></p>
+</li>

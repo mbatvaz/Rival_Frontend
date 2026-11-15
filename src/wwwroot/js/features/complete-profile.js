@@ -26,7 +26,7 @@ export async function init(root) {
       window.location.replace(basePath() + 'login/?state=new&return=' + encodeURIComponent(destination));
       return;
     }
-    root.querySelector('[data-rv-verified-phone]').textContent = 'شماره ' + faDigits(verified.phone) + ' تأیید شد (آزمایشی).';
+    root.querySelector('[data-rv-verified-phone]').textContent = 'شماره ' + faDigits(verified.phone) + ' تأیید شد.';
     root.querySelector('[data-rv-auth-return]').hidden = destination !== basePath() + 'customer/book/';
     if (query.get('state') === 'field-error') {
       root.querySelector('#last-error').textContent = 'نام خانوادگی را بنویسید.';

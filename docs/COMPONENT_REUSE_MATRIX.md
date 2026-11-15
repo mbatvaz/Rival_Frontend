@@ -1,5 +1,11 @@
 # Component Reuse Matrix
 
+Phase 03 acceptance (2026-11-15, DEC-058): the owner accepted the booking components and reusable StatePage base. [Closeout and reuse guidance](../docs-work/PHASE_03_CLOSEOUT_FA.md) identify single-source templates/modules and regression consumers. Future consumer pages are not implemented by this acceptance; Phase 04 remains unassigned.
+
+Independent review infrastructure: [preview-review/](../preview-review/) owns review rows, manual toggles, filtering, backup and revision notifications. It reuses local design tokens/fonts/icons, but no product behavior, role state or approval controller. Its controls do not become new product component/phase ownership. [Report](../docs-work/PREVIEW_REVIEW_REPORT.md).
+
+Phase 01–02 refresh (2026-11-14): [motion timing/cancellation](../src/wwwroot/js/components/motion.js) is shared by route exit; existing sheet/navigation owners remain single-source. DEC-048 removes the visible carousel pause control while retaining keyboard/indicators and hover/focus suspension; home-steps loops while visible. See [refresh report](../docs-work/PHASE_01_02_REFRESH_FA.md) and [motion contract](ai/MOTION_SPEC.md). Shared booking consumers receive regression coverage without changing Phase 03 page ownership.
+
 Design System v2 contains 51 component groups. The implementation should expose one canonical HTML/CSS/JS implementation per row below; page variants only configure data and state.
 
 | Layer | Canonical component | Used by | Source evidence |

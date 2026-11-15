@@ -8,7 +8,7 @@ async function walk(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true });
   return (await Promise.all(entries.map(e => e.isDirectory() ? walk(path.join(dir, e.name)) : path.join(dir, e.name)))).flat();
 }
-for (const file of await walk(src)) {
+for (const file of [...await walk(src), ...await walk(path.join(root, 'preview-review'))]) {
   const ext = path.extname(file).toLowerCase();
   if (!['.html', '.njk', '.css', '.js'].includes(ext)) continue;
   const text = await fs.readFile(file, 'utf8');
@@ -28,7 +28,8 @@ for (const file of await walk(src)) {
     : text;
   if (/overflow-y\s*:\s*(auto|scroll)/i.test(sheetBody)) fail('nested vertical scrolling');
   if (/\.(?:b[2-7]|f)-[a-z0-9_-]+/i.test(text)) fail('legacy batch class prefix');
-  if (ext === '.js' && !rel.endsWith('/core/api.js') && /\b(fetch|localStorage|sessionStorage)\b/.test(text)) {
+  if (ext === '.js' && !rel.endsWith('/core/api.js') && rel !== 'preview-review/storage.js'
+    && /\b(fetch|localStorage|sessionStorage)\b/.test(text)) {
     fail('data access outside core/api.js');
   }
   if (ext === '.njk') {
@@ -40,11 +41,15 @@ for (const file of await walk(src)) {
     if (/(?:href|src)="\/(?!\{)/.test(text)) fail('hard-coded root URL');
   }
   if (ext === '.css') {
-    if (!rel.includes('/00-tokens/') && /#[0-9a-f]{3,8}\b|\brgba?\(/i.test(text)) fail('raw color outside tokens');
+    if (!rel.includes('/00-tokens/') && rel !== 'preview-review/tokens.css'
+      && /#[0-9a-f]{3,8}\b|\brgba?\(/i.test(text)) fail('raw color outside tokens');
+    if (rel === 'preview-review/tokens.css' && !text.includes('@layer tokens')) fail('review colors must stay in tokens layer');
     if (/@media\s*\(\s*max-width/.test(text)) fail('use min-width breakpoints');
     for (const match of text.matchAll(/url\("([^"#]+)"\)/g)) {
       if (!match[1].startsWith('data:')) {
-        try { await fs.access(path.resolve(path.dirname(file), match[1])); }
+        const dependency = rel.startsWith('preview-review/') && match[1].startsWith('../css/')
+          ? path.join(src, 'wwwroot', match[1].slice(3)) : path.resolve(path.dirname(file), match[1]);
+        try { await fs.access(dependency); }
         catch { fail('missing CSS dependency: ' + match[1]); }
       }
     }

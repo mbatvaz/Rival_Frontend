@@ -1,0 +1,40 @@
+@layer utilities {
+  .rv-text-line {
+    display: block;
+    inline-size: 100%;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+    overflow: clip;
+    white-space: nowrap;
+    text-overflow: clip;
+    contain: inline-size;
+  }
+
+  .rv-text-line > .rv-text-line__content { display: inline-block; white-space: nowrap; }
+  .rv-text-line[data-rv-text-overflow="true"] { text-align: start; }
+  .rv-text-line:focus-visible { overflow-x: auto; }
+
+  .rv-text-line[data-rv-text-overflow="true"] > .rv-text-line__content {
+    animation: rv-overflow-text var(--rv-text-duration, 6s) linear infinite alternate;
+  }
+
+  .rv-text-line[data-rv-text-visible="false"] > .rv-text-line__content,
+  .rv-text-line:is(:hover, :focus-within) > .rv-text-line__content,
+  [data-rv-text-paused="true"] .rv-text-line > .rv-text-line__content { animation-play-state: paused; }
+
+  .rv-text-line:focus-visible > .rv-text-line__content { animation: none; }
+
+  @keyframes rv-overflow-text {
+    0%, 15% { transform: translateX(0); }
+    85%, 100% { transform: translateX(var(--rv-text-shift)); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rv-text-line { overflow-x: auto; }
+
+    .rv-text-line:disabled,
+    :disabled .rv-text-line { overflow: clip; }
+
+    .rv-text-line[data-rv-text-overflow="true"] > .rv-text-line__content { animation: none; }
+  }
+}

@@ -31,3 +31,5 @@ Create/update `docs-work/ASP_PORT_GUIDE.md` with:
 7. Ordered migration checklist and regression requirements.
 
 Do not begin the actual ASP.NET application build unless the owner explicitly requests it. Phase 09 is a handoff/readiness phase, not an automatic backend implementation.
+
+The current [architecture guide](../../../docs/ai/FRONTEND_ARCHITECTURE.md) identifies the static source and build boundaries. Do not run dotnet commands or claim Tag Helpers/server localization are implemented in a repository without a .NET project. An infrastructure/documentation audit alone does not activate Phase 09.

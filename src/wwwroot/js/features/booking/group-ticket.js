@@ -16,8 +16,10 @@ export function paintGroup(root, quote, catalog) {
     number.setAttribute('aria-hidden', 'true');
     const details = document.createElement('div');
     const time = document.createElement('strong');
+    time.dataset.rvOverflowText = '';
     time.textContent = longDay(item.date) + '، ' + faDigits(item.time);
     const summary = document.createElement('span');
+    summary.dataset.rvOverflowText = '';
     summary.className = 'rv-muted';
     const service = catalog.services.find(entry => entry.id === item.service);
     const stylist = catalog.stylists.find(entry => entry.id === item.stylist);

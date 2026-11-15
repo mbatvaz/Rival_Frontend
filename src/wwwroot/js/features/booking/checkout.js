@@ -1,7 +1,7 @@
 import { localUrl } from '../../core/config.js';
 import { faDigits } from '../../core/format.js';
 import { longDay } from './availability.js';
-import { demoId, get, money, persist, query, route, state, text, visible, bindForm, findHold } from './shared.js';
+import { dayName, demoId, get, money, persist, query, route, state, text, visible, bindForm, findHold } from './shared.js';
 import { bookingItem, snapshot } from './holds.js';
 import { paintGroup } from './group-ticket.js';
 
@@ -29,7 +29,12 @@ export async function initCheckout(root, { catalog, service, stylist }, scenario
   get(root, 'ticket-avatar').src = localUrl(bookedStylist.image);
   text(root, 'ticket-service', quote.items.length > 1 ? 'رزرو دوره‌ای · ' + faDigits(quote.items.length) + ' نوبت' : bookedService.name);
   text(root, 'ticket-stylist', quote.items.length > 1 ? 'یک پرداخت برای همهٔ نوبت‌ها' : 'با ' + bookedStylist.name + ' | ' + bookedService.duration);
-  text(root, 'ticket-date', longDay(first.date));
+  const date = get(root, 'ticket-date');
+  const weekday = document.createElement('span');
+  const monthDay = document.createElement('span');
+  weekday.textContent = dayName(first.date);
+  monthDay.textContent = longDay(first.date).replace(weekday.textContent, '').trim();
+  date.replaceChildren(weekday, monthDay);
   text(root, 'ticket-time', faDigits(first.time));
   const grouped = quote.items.length > 1;
   visible(root, 'steps', !grouped);

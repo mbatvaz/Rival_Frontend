@@ -1,7 +1,7 @@
 {% extends "Shared/_Document.njk" %}
 {% block body %}
 <template data-rv-booking-links>{% for key, href in bookingUrls %}<a data-rv-route="{{ key }}" href="{{ href }}"></a>{% endfor %}</template>
-<div class="rv-booking{% if model.nav %} rv-booking--dock{% endif %}" data-rv-page data-rv="booking{% if shell %} shell{% endif %}" data-rv-booking-id="{{ page.id }}" data-rv-booking-kind="{{ model.kind }}">
+<div class="rv-booking{% if model.nav %} rv-booking--dock{% endif %}" data-rv-page data-rv="booking{% if shell %} shell{% endif %}" data-rv-booking-id="{{ page.id }}" data-rv-booking-kind="{{ model.kind }}"{% if page.resultDefault %} data-rv-result-default="{{ page.resultDefault }}"{% endif %}>
   <div class="rv-booking-mast">
     <div class="rv-booking-mast__inner">
       {% if not shell %}<a class="rv-booking-mast__logo" href="{{ productUrls.panel }}"><img src="{{ basePath }}img/rival-logo.png" alt="ریوال، حساب مشتری"></a>{% endif %}
@@ -26,8 +26,7 @@
     </div>
   </header>
   <main class="rv-booking__main" id="rv-main" tabindex="-1">
-    {% if model.step %}<progress class="rv-booking__progress" value="{{ model.step }}" max="{{ model.total }}" aria-label="پیشرفت رزرو" data-rv-mobile-progress{% if model.kind == "services" %} hidden{% endif %}></progress>{% endif %}
-    <div class="rv-booking__demo"><span class="ri ri-info" aria-hidden="true"></span><span>پیش‌نمایش آزمایشی رزرو</span><a class="rv-text-link" href="{{ urls.directory }}">فهرست بازبینی</a></div>
+    {% if model.step %}<div class="rv-booking-progress"><progress class="rv-booking__progress" value="{{ model.step }}" max="{{ model.total }}" aria-label="پیشرفت رزرو" data-rv-mobile-progress{% if model.kind == "services" %} hidden{% endif %}></progress><span class="rv-booking-progress__shine" aria-hidden="true"><span></span></span></div>{% endif %}
     <p class="rv-booking__notice rv-booking__notice--warning" data-rv-booking-error role="alert" hidden></p>
     <div class="rv-booking__content" data-rv-booking-content>
       {% if model.kind == 'services' or model.kind == 'stylists' %}{% include "Booking/_Choices.njk" %}{% endif %}
@@ -38,7 +37,7 @@
       {% if model.kind == 'result' %}{% include "Booking/_Result.njk" %}{% endif %}
       {% if model.kind == 'external' %}{% include "Booking/_External.njk" %}{% endif %}
     </div>
-    <noscript><p>برای کار با پیش‌نمایش رزرو، JavaScript را فعال کنید.</p><a href="{{ productUrls.panel }}">بازگشت به حساب</a></noscript>
+    <noscript><p>برای رزرو، JavaScript را فعال کنید.</p><a href="{{ productUrls.panel }}">بازگشت به حساب</a></noscript>
   </main>
 </div>
 <div class="rv-sheet-layer" data-rv-sheet-layer hidden>

@@ -46,6 +46,12 @@
       "problemMatcher": []
     },
     {
+      "label": "Rival: Documentation + Skill Checks",
+      "type": "npm",
+      "script": "lint:docs",
+      "problemMatcher": []
+    },
+    {
       "label": "Rival: JavaScript + CSS Lint",
       "type": "shell",
       "command": "npm run lint:js && npm run lint:css",

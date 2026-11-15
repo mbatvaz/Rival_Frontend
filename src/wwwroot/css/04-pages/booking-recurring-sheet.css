@@ -1,4 +1,6 @@
 @layer pages {
+  .rv-recurring-editor__handle { display: none; }
+
   @media not all and (min-width: 1024px) {
     .rv-recurring-editor {
       position: relative;
@@ -8,15 +10,17 @@
       overscroll-behavior: contain;
     }
 
-    .rv-recurring-editor .rv-sheet__header {
+    .rv-recurring-editor__handle {
+      display: block;
       position: sticky;
       z-index: 2;
       inset-block-start: 0;
-      padding-block: var(--space-8) var(--space-2);
+      block-size: var(--space-6);
+      margin-inline: calc(-1 * var(--space-5));
       background: var(--bg-gradient-a);
     }
 
-    .rv-recurring-editor .rv-sheet__header::before {
+    .rv-recurring-editor__handle::before {
       content: "";
       position: absolute;
       inset-block-start: var(--space-2);

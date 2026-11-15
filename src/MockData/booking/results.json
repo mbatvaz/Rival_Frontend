@@ -114,6 +114,30 @@
         "badgeIcon": "calendar-x",
         "inlineReference": true,
         "referenceCode": "PAY-7Q42K"
+      },
+      "returned": {
+        "title": "مبلغ به اعتبار شما برگشت",
+        "description": "پس از بررسی کل مبلغ به اعتبار برگشته است و در رزرو بعدی مصرف می‌شود.",
+        "tone": "accent",
+        "icon": "wallet",
+        "action": "panel",
+        "actionText": "بازگشت به خانه",
+        "track": true,
+        "badge": "برگشت به اعتبار",
+        "amount": 180000
+      },
+      "sms": {
+        "title": "نوبت شما ثبت شد",
+        "description": "جزئیات رزرو در رسید قابل مشاهده است.",
+        "tone": "success",
+        "icon": "check",
+        "action": "appointments",
+        "actionText": "مشاهده نوبت‌ها",
+        "track": true,
+        "details": true,
+        "receipt": true,
+        "home": true,
+        "sms": true
       }
     },
     "STATE-04": {
@@ -125,77 +149,6 @@
         "icon": "hourglass",
         "action": "BK-F01",
         "actionText": "انتخاب دوباره زمان"
-      }
-    },
-    "STATE-05": {
-      "review": {
-        "title": "پرداخت شما در حال بررسی است",
-        "description": "",
-        "tone": "info",
-        "icon": "hourglass",
-        "action": "panel",
-        "actionText": "بازگشت به خانه",
-        "track": true,
-        "badge": "در حال بررسی",
-        "inlineReference": true,
-        "referenceCode": "PAY-7Q42K",
-        "facts": [
-          {
-            "icon": "info",
-            "label": "چه شد؟",
-            "text": "نتیجهٔ پرداخت شما هنوز از بانک نرسیده است."
-          },
-          {
-            "icon": "shield",
-            "label": "اثر",
-            "text": "تا روشن شدن نتیجه، نوبتی ثبت نمی‌شود. پرداخت دوباره لازم نیست."
-          },
-          {
-            "icon": "sms",
-            "label": "قدم بعد",
-            "text": "نتیجه با پیامک اعلام می‌شود. وضعیت را در جزئیات پیگیری کنید."
-          }
-        ]
-      }
-    },
-    "STATE-06": {
-      "lost": {
-        "title": "این زمان از دست رفت",
-        "description": "نوبت ساخته نشد. نتیجهٔ بررسی برگشت مبلغ در حساب نمایش داده می‌شود.",
-        "tone": "warning",
-        "icon": "calendar-x",
-        "action": "panel",
-        "actionText": "بازگشت به خانه",
-        "track": true,
-        "badge": "در انتظار بررسی",
-        "inlineReference": true,
-        "referenceCode": "PAY-7Q42K"
-      },
-      "returned": {
-        "title": "مبلغ به اعتبار شما برگشت",
-        "description": "در این نمونه، پس از بررسی کل مبلغ به اعتبار برگشته است و در رزرو بعدی مصرف می‌شود.",
-        "tone": "accent",
-        "icon": "wallet",
-        "action": "panel",
-        "actionText": "بازگشت به خانه",
-        "track": true,
-        "badge": "برگشت به اعتبار",
-        "amount": 180000
-      }
-    },
-    "STATE-07": {
-      "sms": {
-        "title": "نوبت آزمایشی شما ثبت شد",
-        "description": "جزئیات رزرو در رسید آزمایشی قابل مشاهده است.",
-        "tone": "success",
-        "icon": "check",
-        "action": "appointments",
-        "actionText": "مشاهده نوبت‌ها",
-        "track": true,
-        "details": true,
-        "receipt": true,
-        "home": true,
-        "sms": true
       }
     }
   }

@@ -1,0 +1,30 @@
+@layer pages {
+  .rv-booking-calendar__grid { grid-template-rows: repeat(7, minmax(var(--size-touch), auto)); }
+  .rv-booking-alert-entry > [data-rv-alert-details] { min-inline-size: 0; }
+  .rv-booking-context [data-rv-context-stylist] { display: flex; align-items: center; }
+  .rv-booking-context [data-rv-context-avatar] { flex: none; }
+  .rv-booking-context [data-rv-context-name] { min-inline-size: 0; }
+
+  @media not all and (min-width: 1024px) {
+    .rv-booking--dock { padding-block-end: calc(var(--size-nav) + var(--space-4) + env(safe-area-inset-bottom)); }
+    .rv-booking-choices .rv-slide-dots { margin-block: var(--space-2) var(--space-4); }
+    .rv-booking--dock .rv-booking__main { padding-block-end: var(--space-2); }
+  }
+
+  @media (min-width: 1024px) {
+    .rv-booking-time .rv-booking-detail > .rv-booking-step-row { display: block; grid-template-columns: 1fr; grid-column: 1 / -1; }
+    .rv-booking-time .rv-booking-detail { min-inline-size: 0; }
+
+    .rv-booking-checkout .rv-ticket-when,
+    .rv-booking-checkout [data-rv-ticket-date] { justify-items: end; text-align: left; }
+    .rv-booking-checkout .rv-ticket-when > * { inline-size: 100%; }
+  }
+
+  @media (min-width: 1440px) {
+    .rv-booking-time .rv-booking-detail:has([data-rv-soon]:not([hidden])) > .rv-booking-soon-panel { grid-area: 2 / 1; }
+    .rv-booking-time .rv-booking-detail:has([data-rv-soon]:not([hidden])) > .rv-booking-availability { grid-area: 2 / 2; }
+
+    .rv-booking-time .rv-booking-detail:has([data-rv-sms-entry]:not([hidden])) > .rv-booking-availability,
+    .rv-booking-time .rv-booking-detail:has([data-rv-sms-entry]:not([hidden])) > .rv-booking-soon-panel { grid-row: 3; }
+  }
+}

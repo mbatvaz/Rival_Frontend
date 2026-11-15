@@ -25,7 +25,7 @@ function bookingSteps(id, proposed = id === 'BK-P01') {
   }));
 }
 
-function statePages(fixtures, urls, catalog, defaults, asset) {
+function statePages(fixtures, urls, catalog, defaults, asset, defaultResult) {
   const money = value => new Intl.NumberFormat('fa-IR').format(value) + ' تومان';
   return Object.entries(fixtures ?? {}).map(([key, result], index) => {
     const context = result.details ? {
@@ -44,7 +44,7 @@ function statePages(fixtures, urls, catalog, defaults, asset) {
     const actions = [{ id: result.action, href: urls[result.action], label: result.actionText, secondary: result.secondaryOnly }];
     if (result.home) actions.push({ href: urls.panel, label: 'بازگشت به خانه', secondary: true });
     return {
-      ...result, key, context, lines, actions, hidden: index > 0,
+      ...result, key, context, lines, actions, hidden: defaultResult ? key !== defaultResult : index > 0,
       reference: result.track ? { label: 'کد پیگیری', value: result.referenceCode ?? catalog.tracking } : null,
       notice: result.sms ? { icon: 'info', text: 'پیامک تأیید ارسال نشد. جزئیات نوبت در حساب قابل مشاهده است.' } : null
     };
@@ -81,9 +81,8 @@ export async function productContext(page, basePath, pages) {
       bookingSteps: bookingSteps(page.id),
       bookingStepVariants: page.id === 'BK-02' ? [bookingSteps(page.id), bookingSteps(page.id, true)] : [bookingSteps(page.id)],
       bookingHeadings: desktopHeadings,
-      bookingResults: statePages(results[page.id], bookingUrls, catalog, defaultSelection, asset => basePath + asset),
-      bookingContact: page.id === 'STATE-07' ? (await readJson(path.join(src, 'MockData/public/home.json'))).data : null,
-      bookingDemoPhone: page.id === 'STATE-07' ? (await readJson(path.join(src, 'MockData/auth/policy.json'))).data.demoPhone : null,
+      bookingResults: statePages(results[['STATE-05', 'STATE-06'].includes(page.id) ? 'PAY-RES' : page.id], bookingUrls,
+        catalog, defaultSelection, asset => basePath + asset, page.resultDefault || { 'STATE-05': 'checking', 'STATE-06': 'lost' }[page.id]),
       bookingCatalog: catalog,
       bookingMonths: [1, 2, 3, 6],
       bookingUrls,

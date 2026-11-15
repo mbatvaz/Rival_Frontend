@@ -16,7 +16,7 @@ const nodeGlobals = {
 export default [
   { ignores: ['dist/**', 'node_modules/**', 'design-export/**'] },
   js.configs.recommended,
-  { files: ['src/wwwroot/js/**/*.js'], languageOptions: { ecmaVersion: 'latest', sourceType: 'module', globals: browserGlobals } },
+  { files: ['src/wwwroot/js/**/*.js', 'preview-review/**/*.js'], languageOptions: { ecmaVersion: 'latest', sourceType: 'module', globals: browserGlobals } },
   { files: ['tools/**/*.mjs', 'playwright.config.mjs'], languageOptions: { ecmaVersion: 'latest', sourceType: 'module', globals: nodeGlobals } },
   { files: ['tests/**/*.mjs'], languageOptions: { ecmaVersion: 'latest', sourceType: 'module', globals: { ...nodeGlobals, ...browserGlobals } } }
 ];

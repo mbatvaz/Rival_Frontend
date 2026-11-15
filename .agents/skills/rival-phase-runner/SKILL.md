@@ -13,17 +13,18 @@ description: Run one approved Rival implementation phase with strict scope, sour
 
 ## Execution
 - Work on one phase only. Never start the next phase automatically.
-- Start in Plan mode and show the intended file changes and tests before broad implementation.
+- Use Plan mode when available and show intended file changes/tests before broad implementation. Authorized infrastructure maintenance is separate from numbered product phases and continues after its preflight.
 - Keep original files under `design-export/` and `docs/references/` read-only.
 - Use `design-export/MANIFEST.json` to locate evidence. If a page has multiple variants, read the handoff and compare all candidates; do not select the first filename blindly.
 - Do not invent business behavior. If a business/permission/money decision is unresolved, use the conservative default in `docs/OPEN_QUESTIONS.md` and report it.
 - Build reusable components once according to `docs/COMPONENT_REUSE_MATRIX.md` and the phase ownership in `RIVAL_PROJECT_CONTRACT.md`.
+- Use the [implementation procedure](../../../docs/ai/DESIGN_IMPLEMENTATION_CONTRACT.md) and [page spec](../../../docs/ai/templates/page-spec.md) to record exact state sources, copy/assets, reuse, invariants, responsive and motion decisions.
 - For every desktop page, create `docs-work/desktop-layouts/<PAGE-ID>.md` and request owner review before implementing the desktop composition.
 - Keep the static-first contract: build-time Nunjucks only, no Express, no Node runtime on cPanel.
 
 ## Gate
 - Run the exact phase acceptance list.
-- Run `npm run build`, `npm run lint:structure`, relevant Playwright tests, axe, keyboard, route, and shared-component regressions.
+- Run `npm run build`, `npm run lint`, relevant root/subpath Playwright tests, axe, keyboard, reduced-motion, route and shared-component regressions. Follow the [QA checklist](../../../docs/ai/QA_CHECKLIST.md); inspect fresh screenshots and record at least five concrete source comparisons.
 - Record results honestly; do not claim tests that were not run.
 - Update `PROGRESS.md`, `docs/PAGE_INVENTORY.md`, `docs/TRACEABILITY.md`, `docs/DISCREPANCIES.md`, and `docs/OPEN_QUESTIONS.md` where applicable.
 - Return changed files, covered IDs/states, tests/results, screenshots, unresolved questions, and the next gate.

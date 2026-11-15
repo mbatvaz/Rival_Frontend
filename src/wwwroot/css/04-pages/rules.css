@@ -1,14 +1,19 @@
 @layer pages {
-  .rv-rules { display: grid; gap: var(--space-6); }
+  .rv-rules { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-6); }
 
   .rv-rules__toc {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    min-inline-size: 0;
+    overflow-x: auto;
+    padding: var(--space-1);
     gap: var(--space-2);
     align-self: start;
   }
 
   .rv-rules__toc a {
+    flex: none;
+    white-space: nowrap;
     padding: var(--space-2) var(--space-3);
     min-block-size: var(--size-touch);
     display: flex;
@@ -61,6 +66,8 @@
 
     .rv-rules__toc {
       flex-direction: column;
+      overflow: visible;
+      padding: 0;
       grid-column: 1;
       position: sticky;
       inset-block-start: var(--space-6);

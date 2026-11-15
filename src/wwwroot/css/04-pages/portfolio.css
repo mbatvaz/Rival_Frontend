@@ -48,7 +48,7 @@
     position: absolute;
     inset-inline: var(--space-4);
     inset-block-end: var(--space-4);
-    padding: var(--space-2) var(--space-3);
+    padding: var(--space-1) var(--space-3);
     border-radius: var(--radius-md);
   }
 
@@ -62,12 +62,13 @@
     background: none;
     cursor: pointer;
   }
-  .rv-portfolio-card__caption > span { display: block; padding-block: var(--space-2); }
+  .rv-portfolio-card__caption > span { display: block; }
   .rv-portfolio-card:focus-within { outline: 2px solid var(--focus-ring); outline-offset: 3px; }
 
   .rv-portfolio-card__caption p {
     margin: 0;
     font-size: var(--caption-size);
+    line-height: var(--body-sm-line);
     color: var(--text-secondary);
     font-weight: 300;
   }

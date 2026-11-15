@@ -11,6 +11,11 @@ test('Desktop date, times and persistent summary share one workspace @visual @sm
   const submit = summary.locator('[data-rv-booking-submit]');
   await expect(calendar).toBeVisible();
   await expect(page.getByRole('navigation', { name: 'مراحل رزرو' }).locator('[aria-current="step"]')).toContainText('زمان');
+  await page.evaluate(async () => {
+    await document.fonts.ready;
+    await Promise.all(document.getAnimations().filter(animation =>
+      animation.effect.getComputedTiming().iterations !== Infinity).map(animation => animation.finished));
+  });
   const [dateBox, timeBox, summaryBox] = await Promise.all([dayPanel.boundingBox(), times.boundingBox(), summary.boundingBox()]);
   expect(dateBox.y).toBe(timeBox.y);
   expect(dateBox.y).toBeGreaterThan(summaryBox.y);

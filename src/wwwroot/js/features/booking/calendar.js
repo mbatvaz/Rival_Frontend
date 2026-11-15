@@ -1,4 +1,5 @@
 import { dateLabel, dayName, faDay, get, text } from './shared.js';
+import { replaceMonth } from './selection-motion.js';
 
 const instant = date => new Date(date + 'T12:00:00Z');
 const persian = new Intl.DateTimeFormat('en-US-u-ca-persian', {
@@ -77,7 +78,10 @@ export function monthGrid(root, month, selected, { start, end, canPick, dayState
     day.append(input, number);
     nodes.push(day);
   }
-  grid.replaceChildren(...nodes);
+  const key = monthKey(month);
+  const changed = Boolean(grid.dataset.rvMonth && grid.dataset.rvMonth !== key);
+  grid.dataset.rvMonth = key;
+  replaceMonth(grid, nodes, changed);
   text(root, 'month-title', monthLabel(month));
   const previous = root.querySelector('[data-rv-month-move="-1"]');
   const next = root.querySelector('[data-rv-month-move="1"]');

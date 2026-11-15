@@ -14,6 +14,7 @@ export function initChoices(root, context) {
   visible(root, 'quick-items', !loading);
   visible(root, 'quick-loading', loading);
   visible(root, 'choice-dots', !loading && !empty);
+  root.querySelector('.rv-section-head').hidden = empty;
   if (empty && services) {
     visible(root, 'steps', false);
     root.querySelector('.rv-booking__progress').hidden = true;

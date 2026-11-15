@@ -56,12 +56,15 @@ export async function initRecurring(root, { catalog }) {
       card.addEventListener('click', () => editor({ ...item, index: index + 1 }, card));
       return fragment;
     }), addRow);
+    const rows = [...list.querySelectorAll('.rv-recurring-row')];
+    const lastMonth = rows.findLastIndex(row => get(row, 'rec-month').textContent);
+    rows.forEach((row, index) => { row.dataset.rvTimeline = String(index < lastMonth); });
     const invalid = items.some(item => item.invalid);
     visible(root, 'rec-empty', !items.length);
     get(root, 'booking-form').dataset.rvRecInvalid = String(invalid);
     text(root, 'action-title', invalid ? 'یک نوبت قابل رزرو نیست' : faDigits(items.length) + ' نوبت انتخاب شده');
     text(root, 'action-sub', invalid ? 'نوبت غیرقابل رزرو را ویرایش یا حذف کنید.' : items.length
-      ? dateLabel(items[0].date) + ' تا ' + dateLabel(items.at(-1).date) : 'همه با یک پرداخت آزمایشی');
+      ? dateLabel(items[0].date) + ' تا ' + dateLabel(items.at(-1).date) : 'همه با یک پرداخت');
     action.disabled = invalid || items.length < catalog.recurringMinimum;
     action.textContent = items.length < catalog.recurringMinimum ? 'حداقل ۳ نوبت لازم است' : 'ادامه';
   };

@@ -62,7 +62,7 @@
   }
   [data-rv-auth-status][data-rv-tone="info"] { background: var(--info-bg); color: var(--info-fg); border-color: var(--info-line); }
   [data-rv-auth-status][data-rv-tone="info"]::before { mask-image: url("../../icons/info.svg"); }
-  [data-rv-auth-submit][data-rv-loading="true"]::before { mask-image: url("../../icons/refresh.svg"); animation: rv-auth-busy 1s linear infinite; }
+  [data-rv-auth-submit][data-rv-loading="true"]::before { mask-image: url("../../icons/refresh.svg"); animation: rv-auth-busy var(--duration-deliberate) linear infinite; }
 
   @keyframes rv-auth-busy { to { transform: rotate(360deg); } }
 }

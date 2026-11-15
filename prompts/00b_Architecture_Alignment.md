@@ -28,7 +28,7 @@ Specifically verify all owner decisions recorded 2026-11-09:
 - Correct infrastructure acceptance for DS/RULE/ARCH.
 - tokens.json canonical, production rv-* classes, Yekan Bakh normal widths only,
   local Lucide SVG icons with ri compatibility prefix.
-- 44px touch targets, no nested vertical scroll, evidence-backed horizontal rails.
+- 44px touch targets, no nested vertical scroll except the approved mobile BK-REC01 editor with visible header, and evidence-backed horizontal rails. DEC-037 permits the centered desktop PortfolioViewer; other dialogs remain bottom sheets.
 - Purpose-designed desktop layouts derived from mobile design language and
   owner review of per-page desktop briefs.
 

@@ -5,10 +5,6 @@
     "title": "پرداخت",
     "back": "",
     "kind": "result",
-    "variants": {
-      "returned": {
-        "label": "برگشت به اعتبار"
-      }
-    }
+    "variants": {}
   }
 }

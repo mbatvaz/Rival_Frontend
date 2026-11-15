@@ -36,6 +36,6 @@ This is the canonical dependency plan. It preserves the nine owner-defined imple
 
 Use serialized Workflow B. One phase at a time; each phase ends with a review gate and owner approval. Parallel work is allowed only inside a phase after shared contracts are frozen. Any change to tokens, shared components, navigation, or shell triggers its reuse regression list.
 
-## Current owner gate — 2026-11-11
+## Current owner gate — 2026-11-15
 
-Phase 02 closeout is complete. The owner assigned Phase 03 and approved the second desktop proposal before its implementation. Phase 03 product acceptance is pending owner review. Phase 04 requires its own explicit assignment.
+Phases 01 and 02 are accepted. The owner explicitly accepted Phase 03 on 2026-11-15 and authorized only its completion work (DEC-058). The [Phase 03 closeout](../docs-work/PHASE_03_CLOSEOUT_FA.md) records final validation and handoff. Phase 04 is unassigned and must not start without a later explicit owner instruction. Manual review-platform approvals remain independent of phase acceptance.

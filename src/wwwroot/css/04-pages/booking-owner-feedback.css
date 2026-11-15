@@ -1,0 +1,101 @@
+/* Owner element review 2026-11-14 supersedes the older raised/landscape states. */
+@layer pages {
+  .rv-calendar-day > span {
+    transition: box-shadow var(--duration-base) var(--ease-standard), background-color var(--duration-base) var(--ease-standard);
+  }
+  .rv-booking-soon { align-items: stretch; grid-auto-rows: 1fr; }
+  .rv-booking-soon .rv-booking-quick-time > span { block-size: 100%; }
+  .rv-booking-explainer { align-items: flex-start; gap: var(--space-2); }
+  .rv-booking-radio input { z-index: 1; }
+  .rv-booking-explainer .ri { flex: none; margin-block-start: var(--space-1); }
+  .rv-booking-progress { position: relative; overflow: clip; border-radius: var(--radius-pill); }
+  .rv-booking-progress:has(> [hidden]) { display: none; }
+  .rv-recurring-list::before { content: none; }
+  .rv-recurring-row { position: relative; }
+  .rv-recurring-row .rv-booking-context { position: relative; }
+
+  .rv-recurring-row .rv-booking-context > img {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-end: 0;
+    inline-size: 42%;
+    block-size: 100%;
+    max-block-size: none;
+  }
+  .rv-recurring-row .rv-booking-context > span { padding-inline: var(--space-4); }
+  .rv-calendar-day[data-rv-day-state="closed"] :checked + span { color: var(--danger-fg); }
+  .rv-calendar-day[data-rv-day-state="closed"]:hover > span { color: var(--danger-fg); }
+  .rv-recurring-date bdi { font-size: var(--heading-lg-size); }
+  .rv-recurring-editor .rv-booking-calendar { margin-inline: 0; padding: var(--space-2); }
+  .rv-recurring-editor > .rv-actions { grid-column: 1 / -1; }
+  .rv-booking-checkout [data-rv-ticket-date] { display: inline-flex; gap: var(--space-1); }
+
+  @media not all and (min-width: 1024px) {
+    .rv-booking-explainer.rv-booking-mobile-only { display: flex; }
+    .rv-booking[data-rv-booking-kind="services"] .rv-booking-steps:not([hidden]) { display: none; }
+
+    .rv-booking-progress__shine {
+      position: absolute;
+      inset-inline-start: 0;
+      inline-size: var(--rv-progress-fill, 0%);
+      inset-block-start: var(--space-2);
+      block-size: 6px;
+      pointer-events: none;
+      overflow: clip;
+    }
+
+    .rv-booking-progress__shine > span {
+      position: absolute;
+      inset-inline-start: -40%;
+      inline-size: 40%;
+      block-size: 100%;
+      background: linear-gradient(to right, transparent, var(--glass-fill-strong), transparent);
+      animation: rv-booking-progress-shine calc(var(--duration-deliberate) * 4) linear infinite;
+    }
+    .rv-booking-checkout [data-rv-ticket-time] { font-size: var(--heading-xl-size); }
+    .rv-booking-time [data-rv-empty-alert] .rv-btn { padding-inline: var(--space-4); gap: var(--space-2); }
+    [data-rv-empty-alert] [data-rv-alert-details] { flex: none; }
+
+    .rv-recurring-row[data-rv-timeline="true"]::before {
+      content: "";
+      position: absolute;
+      inset-inline-start: var(--space-6);
+      inset-block-start: calc(var(--space-3) + var(--space-4));
+      block-size: calc(100% + var(--space-3));
+      inline-size: 1px;
+      background: var(--line-strong);
+    }
+    .rv-booking-checkout .rv-booking-action:has([data-rv-gateway-note]:not([hidden])) { flex-wrap: wrap; }
+    .rv-booking-action [data-rv-gateway-note] { flex: 1 0 100%; margin: 0; }
+    .rv-booking-checkout:has([data-rv-gateway-note]:not([hidden])) { padding-block-end: calc(var(--size-control) * 4); }
+  }
+
+  @media (min-width: 1024px) {
+    .rv-booking-explainer.rv-booking-desktop-only { display: flex; }
+    .rv-booking:has(.rv-booking-sidebar) .rv-booking-mast { padding-block-start: var(--space-6); }
+    .rv-booking-time-picker [data-rv-picked-day] { display: none; }
+
+    .rv-booking-checkout .rv-booking-action > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .rv-booking-checkout [data-rv-ticket-date] { display: grid; }
+    .rv-booking-requested .rv-booking-detail > .rv-booking-step-row { display: block; grid-template-columns: 1fr; }
+    .rv-checkout-breakdown { overflow: visible; }
+    .rv-booking-checkout .rv-booking-ticket > img { aspect-ratio: 3 / 1; }
+    .rv-booking-summary > .rv-booking-explainer { margin-block-start: var(--space-2); }
+    .rv-booking-progress { display: none; }
+  }
+
+  @keyframes rv-booking-progress-shine {
+    from { transform: translateX(0); }
+    to { transform: translateX(-350%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rv-booking-progress__shine { display: none; }
+    .rv-calendar-day > span { transition: none; }
+  }
+}

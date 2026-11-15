@@ -13,7 +13,7 @@ export class ApiError extends Error {
 
 function validate(resource, state = 'default') {
   if (!/^[a-z0-9_-]+(?:\/[a-z0-9_-]+)*$/i.test(resource) || !/^[a-z0-9_-]+$/i.test(state)) {
-    throw new ApiError('INVALID_RESOURCE', 'مسیر دادهٔ آزمایشی معتبر نیست.');
+    throw new ApiError('INVALID_RESOURCE', 'مسیر داده معتبر نیست.');
   }
 }
 
@@ -28,22 +28,22 @@ export async function read(resource, { state = 'default', signal } = {}) {
     response = await fetch(localUrl(`mock-data/${resource}${suffix}.json`), { signal });
   } catch (error) {
     if (error.name === 'AbortError') throw error;
-    throw new ApiError('NETWORK_ERROR', 'دادهٔ آزمایشی در دسترس نیست.');
+    throw new ApiError('NETWORK_ERROR', 'اطلاعات در دسترس نیست.');
   }
-  if (!response.ok) throw new ApiError('HTTP_ERROR', 'دادهٔ آزمایشی پیدا نشد.', response.status);
+  if (!response.ok) throw new ApiError('HTTP_ERROR', 'اطلاعات پیدا نشد.', response.status);
   let result;
   try { result = await response.json(); }
-  catch { throw new ApiError('INVALID_RESPONSE', 'ساختار دادهٔ آزمایشی معتبر نیست.'); }
+  catch { throw new ApiError('INVALID_RESPONSE', 'ساختار داده معتبر نیست.'); }
   if (result?.demo !== true || typeof result.ok !== 'boolean') {
-    throw new ApiError('INVALID_RESPONSE', 'پاسخ باید قرارداد دادهٔ آزمایشی را رعایت کند.');
+    throw new ApiError('INVALID_RESPONSE', 'ساختار پاسخ معتبر نیست.');
   }
   if (!result.ok) {
     if (!result.error?.code || !result.error?.message) {
-      throw new ApiError('INVALID_RESPONSE', 'ساختار خطای آزمایشی معتبر نیست.');
+      throw new ApiError('INVALID_RESPONSE', 'ساختار خطا معتبر نیست.');
     }
     throw new ApiError(result.error.code, result.error.message, result.error.status);
   }
-  if (!Object.hasOwn(result, 'data')) throw new ApiError('INVALID_RESPONSE', 'دادهٔ پاسخ آزمایشی موجود نیست.');
+  if (!Object.hasOwn(result, 'data')) throw new ApiError('INVALID_RESPONSE', 'دادهٔ پاسخ موجود نیست.');
   if (state === 'default') {
     try {
       const saved = JSON.parse(localStorage.getItem(key(resource)));
@@ -62,14 +62,14 @@ export async function write(resource, data) {
     localStorage.setItem(key(resource), serialized);
     return detached;
   } catch {
-    throw new ApiError('STORAGE_ERROR', 'ذخیرهٔ آزمایشی در این مرورگر ممکن نیست.');
+    throw new ApiError('STORAGE_ERROR', 'ذخیره در این مرورگر ممکن نیست.');
   }
 }
 
 export async function reset(resource) {
   validate(resource);
   try { localStorage.removeItem(key(resource)); }
-  catch { throw new ApiError('STORAGE_ERROR', 'پاک‌کردن دادهٔ آزمایشی ممکن نیست.'); }
+  catch { throw new ApiError('STORAGE_ERROR', 'پاک‌کردن داده ممکن نیست.'); }
   return clone({ ok: true, demo: true, data: null });
 }
 

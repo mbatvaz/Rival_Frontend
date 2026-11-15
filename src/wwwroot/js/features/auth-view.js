@@ -31,7 +31,7 @@ export function render(root, view, policy, account) {
   const resend = Math.max(0, Math.ceil((account.issuedAt + policy.resendSeconds * 1000 - Date.now()) / 1000));
   get('resend').disabled = resend > 0 || locked || view.busy;
   get('resend').textContent = resend ? 'ارسال دوباره تا ' + faDigits(resend) + ' ثانیه' : 'ارسال دوباره کد';
-  get('auth-demo').textContent = 'نسخهٔ آزمایشی؛ هیچ پیامکی فرستاده نمی‌شود. ' + (password ? 'رمز نمونه: ' + policy.demoPassword : 'کد نمونه: ' + faDigits(policy.demoCodes[account.codeVersion ?? 0]));
+  get('auth-demo').textContent = password ? 'رمز پیش‌فرض: ' + policy.demoPassword : 'کد پیش‌فرض: ' + faDigits(policy.demoCodes[account.codeVersion ?? 0]);
 }
 
 export function fieldError(root, name, message) {

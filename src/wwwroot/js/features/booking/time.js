@@ -4,6 +4,7 @@ import { get, minuteLabel, query, route, state, text, visible, bindForm, centerI
 import { bookingItem, createHold } from './holds.js';
 import { setupTimeCalendar } from './time-calendar.js';
 import { populateDays, renderDayNote } from './time-day-strip.js';
+import { reveal } from './selection-motion.js';
 
 export function initTime(root, context) {
   const { catalog, service, stylist, kind, id } = context;
@@ -36,8 +37,11 @@ export function initTime(root, context) {
   }
   let selection = '';
   let markDesktopDay;
+  let painted = false;
   const quickChoices = [...root.querySelectorAll('[data-rv-quick-date]')];
   const pick = (date, value = '', quick = null) => {
+    const changed = selectedDay !== date || !painted;
+    painted = true;
     selectedDay = date;
     const day = available(date);
     const conflict = fixed && state === 'conflict' && date === '2026-10-15';
@@ -51,11 +55,12 @@ export function initTime(root, context) {
       if (fixed) input.closest('label').hidden = Boolean(day && !day.closed && !day.opens && input.disabled);
       input.checked = !input.disabled && input.value === value;
     }
+    if (changed) reveal(inputs.map(input => input.closest('label')).filter(label => !label.hidden));
     selection = inputs.find(input => input.checked)?.value ?? '';
     quickChoices.forEach(input => { input.checked = input === quick && Boolean(selection); });
     submit.disabled = !selection || none;
     if (!none) text(root, 'action-title', selection ? longDay(date) + (fixed ? '، ' + minuteLabel(selection) : '') : 'زمانی انتخاب نشده');
-    text(root, 'action-sub', none ? 'اعلان تا ۶ روز فعال می‌ماند' : selection ? fixed ? '' : selection + '، بدون پرداخت' : fixed ? 'یک روز و ساعت آزاد انتخاب کنید' : 'روز و بخش روز را انتخاب کنید');
+    text(root, 'action-sub', none ? 'اعلان تا ۶ روز فعال می‌ماند' : selection && !fixed ? selection + '، بدون پرداخت' : '');
     const buttons = [...get(root, 'days').querySelectorAll('[data-rv-day]')];
     buttons.forEach((button, index) => button.setAttribute('aria-pressed', String(days[index].date === date)));
     markDesktopDay?.(none ? '' : date);

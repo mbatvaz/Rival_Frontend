@@ -1,10 +1,11 @@
 <section class="rv-sheet rv-booking-sheet rv-recurring-editor" id="rv-rec-sheet" role="dialog" aria-modal="true" aria-labelledby="rv-rec-sheet-title" tabindex="-1" hidden>
+  <div class="rv-recurring-editor__handle" aria-hidden="true"></div>
   <header class="rv-sheet__header">
     <div><h2 id="rv-rec-sheet-title" data-rv-rec-title>نوبت تازه</h2><p class="rv-muted" data-rv-rec-step-text></p></div>
     <button class="rv-icon-btn" type="button" data-rv-sheet-close aria-label="بستن ویرایش نوبت"><span class="ri ri-x" aria-hidden="true"></span></button>
   </header>
   <div class="rv-recurring-editor__identity">
-    <div data-rv-rec-locked hidden>{% include "Booking/_Context.njk" %}<p class="rv-muted"><span class="ri ri-lock" aria-hidden="true"></span>خدمت و آرایشگر</p></div>
+    <div data-rv-rec-locked hidden>{% include "Booking/_Context.njk" %}</div>
     <fieldset class="rv-booking-picks" data-rv-rec-step="1">
       <legend><span>۱</span> خدمت</legend>
       <div class="rv-booking-picks__grid rv-booking-picks__grid--parts">
@@ -13,7 +14,7 @@
         {% endif %}{% endfor %}
       </div>
     </fieldset>
-    <fieldset class="rv-booking-picks rv-recurring-editor__stylists" data-rv-rec-step="2">
+    <fieldset class="rv-booking-picks rv-recurring-editor__stylists" data-rv-rec-step="2" hidden>
       <legend><span>۲</span> آرایشگر</legend>
       <div class="rv-booking-picks__grid rv-booking-picks__grid--parts">
         {% for stylist in bookingCatalog.stylists %}
@@ -21,7 +22,7 @@
         {% endfor %}
       </div>
     </fieldset>
-    <div class="rv-recurring-editor__when" data-rv-rec-step="3">
+    <div class="rv-recurring-editor__when" data-rv-rec-step="3" hidden>
       <h3><span data-rv-rec-day-number>۳</span> روز و ساعت</h3>
       {% include "Booking/_Calendar.njk" %}
       <fieldset class="rv-booking-picks" data-rv-rec-time-list hidden>
@@ -34,7 +35,7 @@
     </div>
   </div>
   <div class="rv-recurring-editor__repeat">
-    <fieldset class="rv-booking-picks" data-rv-rec-step="4">
+    <fieldset class="rv-booking-picks" data-rv-rec-step="4" hidden>
       <legend><span>۴</span> تکرار</legend>
       <div class="rv-booking-picks__grid rv-booking-picks__grid--parts">
         <label class="rv-booking-radio"><input type="radio" name="rec-repeat" value="once"><span>یک بار</span></label>
@@ -43,7 +44,7 @@
         <label class="rv-booking-radio"><input type="radio" name="rec-repeat" value="month"><span>ماهانه</span></label>
       </div>
     </fieldset>
-    <div data-rv-rec-step="5">
+    <div data-rv-rec-step="5" hidden>
       <fieldset class="rv-booking-picks" data-rv-rec-horizon>
         <legend><span>۵</span> تا کی؟</legend>
         <div class="rv-booking-picks__grid">
@@ -58,7 +59,7 @@
     <p>این نوبت از فهرست رزرو دوره‌ای حذف می‌شود.</p>
     <div class="rv-actions"><button class="rv-btn rv-btn--danger" type="button" data-rv-rec-remove>تأیید حذف</button><button class="rv-btn rv-btn--secondary" type="button" data-rv-rec-cancel-remove>انصراف از حذف</button></div>
   </div>
-  <div class="rv-actions">
+  <div class="rv-actions" data-rv-rec-actions>
     <button class="rv-btn" type="button" data-rv-rec-next>ادامه</button>
     <button class="rv-btn rv-btn--secondary rv-recurring-delete" type="button" data-rv-rec-delete hidden><span class="ri ri-trash" aria-hidden="true"></span>حذف این نوبت</button>
   </div>

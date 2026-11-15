@@ -34,3 +34,6 @@
 بازبینی دوم (نظرهای ۱–۳): تعریض هیرو، ناوبری تیره و هم‌ترازی پایین ستون‌ها با دستور مستقیم مالک تأیید شده است.
 
 بازبینی سوم مالک: ناوبری عمومی دسکتاپ مشکی شیشه‌ای با شفافیت ۷۸٪ و بدون بوردر است. گوشهٔ بالای هیرو صاف می‌ماند. تیتر از ۱۰۲۴، ۳۶ پیکسل و از ۱۴۴۰، ۵۴ پیکسل است؛ باکس کپی تا ۶۴۰ پیکسل ظرفیت دارد. تصویر سوم سالن در دسکتاپ دقیقاً ۲۶۴×۱۸۰ است؛ گرید ستون دوم ۲۶۴ و تصویر قدی مجاور ارتفاع ظرف را پر می‌کند. موبایل همان ساختار پیشین است. دستور مستقیم چهار نظر جدید مجوز این تنظیم‌ها است.
+
+
+Owner element correction 2026-11-14 (DEC-048): the [review record](../OWNER_FEEDBACK_2026-11-14.md) supersedes affected image crops, explanatory copy placement, sidebar top spacing, selection/calendar motion and recurring-editor header behavior. Desktop photo cards use the same assets in portrait 4:5; mobile keeps its source composition. This records direct owner instructions, not a new phase acceptance.

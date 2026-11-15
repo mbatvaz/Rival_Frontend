@@ -1,0 +1,26 @@
+@layer components {
+  .rv-review__state {
+    --rv-review-tone: var(--rv-review-pending-fg);
+    --rv-review-surface: var(--rv-review-pending-bg);
+    --rv-review-mark: var(--rv-review-pending-mark);
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    padding: var(--space-1) var(--space-2);
+    border: 1px solid var(--line-hairline);
+    border-inline-start: 3px solid var(--rv-review-mark);
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface-muted);
+  }
+
+  .rv-review__state-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-1);
+  }
+  .rv-review__state-head a { flex: 1; gap: var(--space-1); font-size: var(--body-sm-size); }
+  .rv-review__state-head span { overflow-wrap: anywhere; }
+  [data-rv-variant-count][data-complete="true"] { color: var(--accent-fg); }
+}

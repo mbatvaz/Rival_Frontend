@@ -1,5 +1,73 @@
 # Traceability Contract
 
+## Phase 03 acceptance — 2026-11-15
+
+Owner approval -> DEC-058 -> [registry](../src/page-registry.json): 15 Phase 03 contexts accepted and dated 2026-11-15. [Closeout](../docs-work/PHASE_03_CLOSEOUT_FA.md) maps implemented states, exact source comparisons, full root/subpath regression and component reuse. CUS-02, BK-01/02, BK-F01/F02, BK-P01/R01/REQ01/REC01/ALERT01, PAY-RES and STATE-04..07 retain their routes, fixtures and existing design ownership. StatePage remains a single Phase 03 base for Phase 08 extension. Other phase registry entries and manual review approvals are preserved; Phase 04 has not started. Earlier dated review gates are historical.
+
+## Calendar selection parity
+
+Owner mobile comparison -> [shared calendar states](../src/wwwroot/css/04-pages/booking-calendar-review.css), removal of [desktop-only duplication](../src/wwwroot/css/04-pages/desktop-refinement.css) and [mobile override](../src/wwwroot/css/04-pages/booking-review-polish.css) -> [cross-width parity/keyboard/calendar axe](../tests/phase03/calendar-parity.spec.mjs). [Record](../docs-work/BOOKING_REVIEW_POLISH_2026-11-15.md).
+
+## Shadow and responsive alignment clarification
+
+Owner follow-up -> [rail paint space](../src/wwwroot/css/04-pages/owner-booking.css), [responsive payment/header and returned badge](../src/wwwroot/css/04-pages/booking-review-polish.css) -> [polish regression](../tests/phase03/review-polish.spec.mjs) and visual/axe/typography suites. [Scope and evidence](../docs-work/BOOKING_REVIEW_POLISH_2026-11-15.md).
+
+## Booking review polish
+
+Owner element annotations -> [polish CSS](../src/wwwroot/css/04-pages/booking-review-polish.css), [progress markup](../src/Views/Booking/Index.njk), [canonical result routing](../src/wwwroot/js/features/booking/result.js), [review directory](../tools/lib/preview-review.mjs) and [state data](../src/MockData/booking/results.json) -> [geometry/motion/state regression](../tests/phase03/review-polish.spec.mjs) plus existing visual/axe, smoke and review-persistence suites. [Source comparisons and scope](../docs-work/BOOKING_REVIEW_POLISH_2026-11-15.md).
+
+## Final text typography audit
+
+Owner regression request -> [package caption typography](../src/wwwroot/css/04-pages/booking-cards.css) -> [paired-page typography audit](../tests/phase03/typography-audit.spec.mjs) and existing public/booking/axe/overflow regressions. Canonical BK-R01 label source is 13px/18px/600; inner text now inherits its card weight. [Sources, findings and results](../docs-work/TEXT_LAYOUT_FINAL_AUDIT_2026-11-15.md).
+
+## Compact-card text scope correction
+
+Latest owner feedback -> explicit data-rv-overflow-text hooks in compact card templates -> [opt-in text module](../src/wwwroot/js/components/overflow-text.js) -> [scope regression](../tests/phase03/overflow-scope.spec.mjs). Rules, home introduction and request-result prose are asserted to wrap even after receiving longer dynamic content. Long/short card names and reduced-motion access are checked separately. [Evidence](../docs-work/OVERFLOW_CARD_SCOPE_2026-11-15.md).
+
+## Booking geometry and overflowing text
+
+Owner annotated elements -> [shared text motion](../src/wwwroot/js/components/overflow-text.js), [text utility](../src/wwwroot/css/05-utilities/overflow-text.css), [booking corrections](../src/wwwroot/css/04-pages/booking-layout-corrections.css), [time markup](../src/Views/Booking/_Time.njk), [calendar motion](../src/wwwroot/js/features/booking/selection-motion.js) -> [focused regression](../tests/phase03/layout-corrections.spec.mjs) plus existing public/booking/axe/keyboard suites. [Exact evidence and motion record](../docs-work/BOOKING_LAYOUT_CORRECTIONS_2026-11-15.md).
+
+## Scoped preview invalidation
+
+Owner request -> [scoped fingerprint](../tools/lib/review-revision.mjs), [CSS scope](../tools/lib/review-css.mjs), [state/module projection](../tools/lib/review-scope.mjs), [independent variant revisions](../tools/lib/review-entries.mjs) and [final-only state](../preview-review/state.js) -> actual source mutation tests for page CSS, state fixture and separate Requested/Proposed content, plus UI stale-final/reconfirmation tests. [Evidence](../docs-work/PREVIEW_REVIEW_REPORT.md). No product acceptance is inferred.
+
+## Public spacing and shared input focus
+
+Latest element feedback -> [portfolio caption](../src/wwwroot/css/04-pages/portfolio.css), [rules rail](../src/wwwroot/css/04-pages/rules.css), [shared TextField](../src/wwwroot/css/03-components/fields.css), [independent search](../preview-review/layout.css) -> [spacing/focus regression](../tests/phase02/spacing-focus.spec.mjs), existing auth/OTP/portfolio/axe/keyboard suites. Exact sources/comparisons and responsive evidence are in the [review report](../docs-work/OWNER_FEEDBACK_2026-11-14.md). Product fixtures and phase gates remain unchanged.
+
+## BK-REQ01 Requested / Proposed distinction
+
+Owner correction -> exact Batch 2 BK-REQ01-R/P HTML/screenshots -> [registry default](../src/page-registry.json), [static StatePage adapter](../tools/lib/product.mjs), [runtime selection](../src/wwwroot/js/features/booking/result.js) and [directory variant](../tools/lib/preview-review.mjs) -> [result/flow tests](../tests/phase03/request-results.spec.mjs). Requested has no time receipt; Proposed carries the actual preferred date and day-part. [Source comparisons](../docs-work/BK_REQ01_RESULT_CORRECTION.md).
+
+## Owner-requested project-file review persistence
+
+Cross-browser persistence request -> [review data](../preview-review/approvals.json), [shared validation](../preview-review/format.js), [browser boundary](../preview-review/storage.js), [serialized file store](../tools/lib/review-file-store.mjs), [local-only tooling endpoint](../tools/lib/review-endpoint.mjs) -> [integration regression](../tests/preview-review/project-file.spec.mjs) and existing approval/backup/axe/keyboard/static suites. No product context, API contract or phase acceptance changes.
+
+## Owner element feedback - 2026-11-14
+
+PUB-01/02 and Phase 03 annotations -> [scope/source report](../docs-work/OWNER_FEEDBACK_2026-11-14.md) -> shared [selection motion](../src/wwwroot/js/features/booking/selection-motion.js), [calendar](../src/wwwroot/js/features/booking/calendar.js), [editor](../src/wwwroot/js/features/booking/recurring-edit.js), native CSS and partials -> [owner regression](../tests/phase03/owner-feedback.spec.mjs), [carousel regression](../tests/phase02/carousel-motion.spec.mjs), existing route/axe/keyboard and root/subpath suites. Alias suppression is a [review-build concern](../tools/lib/preview-review.mjs); it does not mutate acceptance.
+
+Preview follow-up: owner feedback → [compact controls](../preview-review/controls.njk), [state rows](../preview-review/variant.njk), [stable query identities](../tools/lib/review-entries.mjs), schema-v1 import/schema-v2 export → [variant regression](../tests/preview-review/variants.spec.mjs) and expanded keyboard/axe screenshots. Default-page acceptance never implies child-state approval; no product Page IDs or phase gates changed.
+
+## ARCH — Independent review workspace
+
+Owner request 2026-11-14 → [standalone UI/storage](../preview-review/) + [build adapter](../tools/lib/preview-review.mjs) + [content revisions](../tools/lib/review-revision.mjs) → [review tests](../tests/preview-review/) + existing static/route/axe/keyboard gates. Manual review is independent of product registry acceptance. [Report](../docs-work/PREVIEW_REVIEW_REPORT.md) records exact limits and results; no new product Page ID or business rule is introduced.
+
+## Phase 01–02 owner-requested refresh — 2026-11-14
+
+- ARCH / DS: [lint integration](../package.json), [VS Code task](../.vscode/tasks.json), [motion timing](../src/wwwroot/js/components/motion.js); existing build/structure/token/API/registry tests retain basePath and static-only guarantees.
+- PUB-01: Batch 1 PUB-01 + MotionSpecimens + approved desktop brief → [carousel](../src/wwwroot/js/features/home-carousel.js), [visible step sequence](../src/wwwroot/js/features/home-steps.js) → [carousel behavior tests](../tests/phase02/carousel-motion.spec.mjs).
+- PUB-02 / AUTH / SHELL / MORE: exact phase sources, DEC-037/038/044..047 → shared sheet/navigation motion, transform loading, canonical ink role-booking action → [motion/fallback tests](../tests/phase02/shared-motion.spec.mjs), existing auth/shell/axe/keyboard suites and Phase 03 consumer regression.
+- Responsive: [boundary suite](../tests/phase02/refresh.spec.mjs), existing 390/768/1280 suites and [review evidence](../docs-work/PHASE_01_02_REFRESH_FA.md). No business rule, backend operation or next-phase assignment added.
+
+## Infrastructure maintenance — 2026-11-14
+
+- ARCH: [project context](ai/PROJECT_CONTEXT.md), [frontend guide](ai/FRONTEND_ARCHITECTURE.md), root workflow prompts and ten local skills preserve static/Razor compatibility and phase gates.
+- DS: [export inventory](ai/DESIGN_EXPORT_INVENTORY.md), [source map](ai/DESIGN_SOURCE_MAP.md), [catalog](ai/COMPONENT_CATALOG.md), [conflicts](ai/DESIGN_SOURCE_CONFLICTS.md) derive from immutable source evidence and existing owner decisions.
+- RULE: [implementation](ai/DESIGN_IMPLEMENTATION_CONTRACT.md), [responsive](ai/RESPONSIVE_DESIGN_CONTRACT.md), [motion](ai/MOTION_SPEC.md), [dependency](ai/DEPENDENCY_POLICY.md), [QA](ai/QA_CHECKLIST.md) and seven evidence templates govern later assigned work.
+- Acceptance evidence: [maintenance report](ai/AUDIT_REPORT.md), existing root/subpath suites (76 passed each), full lint/build and maintained-doc structural checks. This is maintenance evidence, not new PAGE_INVENTORY product rows or Phase 03 acceptance.
+
 Every implementation item must be traceable through this chain:
 
 `Phase package → Page ID / Component ID → Artboard or Handoff section → Design token/Business rule → Acceptance test`.

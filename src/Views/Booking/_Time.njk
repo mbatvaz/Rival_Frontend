@@ -1,6 +1,6 @@
 <form class="rv-booking-form rv-booking-workspace rv-booking-time" data-rv-booking-form action="{% if model.kind == 'fixed' %}{{ bookingUrls['BK-F02'] }}{% else %}{{ bookingUrls['BK-REQ01'] }}{% endif %}">
-  <div class="rv-booking-step-row">{% include "Booking/_Steps.njk" %}</div>
   <div class="rv-booking-detail">
+    <div class="rv-booking-step-row">{% include "Booking/_Steps.njk" %}</div>
     {% if model.kind == 'fixed' %}
     <p class="rv-booking__notice" data-rv-sms-entry hidden>این زمان از پیامک اعلان آمده است. زمان به محض رزرو شدن از فهرست حذف می‌شود.</p>
     <section class="rv-booking-soon-panel" data-rv-soon aria-labelledby="rv-soon-title">
@@ -47,6 +47,9 @@
             {% endif %}
           </div>
         </fieldset>
+        {% if model.kind == 'proposed' %}
+      <p class="rv-booking-explainer rv-booking-mobile-only"><span class="ri ri-info" aria-hidden="true"></span>این درخواست زمانی را قفل نمی‌کند. آرایشگر تا ۷ روز پاسخ می‌دهد و پاسخ او ۳ ساعت برای پرداخت نگه داشته می‌شود.</p>
+        {% endif %}
         <div class="rv-booking__notice rv-booking-day-note" data-rv-day-note role="status" hidden>
           <span class="rv-booking-day-note__badge" data-rv-day-badge hidden><span class="ri" aria-hidden="true" data-rv-day-icon></span><span data-rv-day-status></span></span>
           <strong data-rv-day-heading></strong><p class="rv-muted" data-rv-day-description></p>
@@ -67,19 +70,16 @@
 
       {% include "Booking/_Context.njk" %}
 
-      {% if model.kind == 'proposed' %}
-      <p class="rv-booking__notice rv-booking-explainer rv-booking-mobile-only"><span class="ri ri-info" aria-hidden="true"></span>این درخواست زمانی را قفل نمی‌کند. آرایشگر تا ۷ روز پاسخ می‌دهد و پاسخ او ۳ ساعت برای پرداخت نگه داشته می‌شود.</p>
-      {% endif %}
     </div>
     <div class="rv-booking-action rv-glass rv-glass--strong">
       <p class="rv-booking-conflict" data-rv-selection-warning role="status" hidden></p>
       <div><strong data-rv-action-title>{% if model.kind == 'fixed' %}زمانی انتخاب نشده{% else %}روز و بخش روز را انتخاب کنید{% endif %}</strong><p class="rv-muted" data-rv-action-sub></p></div>
       <div data-rv-empty-alert></div>
       <button class="rv-btn" type="submit" data-rv-booking-submit disabled>{% if model.kind == 'fixed' %}ادامه{% else %}ثبت درخواست{% endif %}</button>
-      {% if model.kind == 'proposed' %}
-      <p class="rv-booking__notice rv-booking-explainer rv-booking-desktop-only"><span class="ri ri-info" aria-hidden="true"></span>این درخواست زمانی را قفل نمی‌کند. آرایشگر تا ۷ روز پاسخ می‌دهد و پاسخ او ۳ ساعت برای پرداخت نگه داشته می‌شود.</p>
-      {% endif %}
       <div data-rv-desktop-alert></div>
     </div>
+    {% if model.kind == 'proposed' %}
+      <p class="rv-booking-explainer rv-booking-desktop-only"><span class="ri ri-info" aria-hidden="true"></span>این درخواست زمانی را قفل نمی‌کند. آرایشگر تا ۷ روز پاسخ می‌دهد و پاسخ او ۳ ساعت برای پرداخت نگه داشته می‌شود.</p>
+    {% endif %}
   </aside>
 </form>

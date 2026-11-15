@@ -13,3 +13,7 @@ This file intentionally does not repeat the full architecture. It exists for com
 - The source tree remains Razor-compatible for the Phase 09 ASP.NET Core MVC handoff.
 
 For all constraints, source precedence, responsive rules, phase boundaries, and migration rules, read `RIVAL_PROJECT_CONTRACT.md`.
+
+For current source entry points and tooling, use the [frontend guide](ai/FRONTEND_ARCHITECTURE.md). For task procedures and documentation ownership, use [project context](ai/PROJECT_CONTEXT.md).
+
+The independent [preview-review workspace](../preview-review/) supplies the directory UI and manual approvals. A small build adapter writes its assets/HTML and static revisions into the generated preview routes. Product pages load no review controller; manual approval never mutates the page registry or product mock data. See [review documentation](../preview-review/README.md).

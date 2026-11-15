@@ -1,5 +1,49 @@
 # Decision Log
 
+## DEC-058 - Phase 03 acceptance and closeout only
+
+On 2026-11-15 the owner explicitly accepted completion of Phase 03 and authorized the necessary closeout work, while explicitly forbidding starting Phase 04. Acceptance covers CUS-02, BK-01/02, BK-F01/F02, BK-P01, BK-R01, BK-REQ01, BK-REC01, BK-ALERT01, PAY-RES, STATE-04..07 and their implemented variants, including the reusable StatePage base. Record acceptance in the registry and current handoff; preserve independent manual preview approvals and unresolved product decisions. Phase 04 remains unassigned. [Closeout evidence](../docs-work/PHASE_03_CLOSEOUT_FA.md).
+
+## DEC-057 - Calendar selection uses one responsive visual state
+
+Latest owner clarification requires mobile selection to match the existing desktop calendar. Share selected white raised pill, available inset pill, disabled flat appearance and keyboard focus across widths; remove the mobile black selected-state override introduced under DEC-055. [Evidence](../docs-work/BOOKING_REVIEW_POLISH_2026-11-15.md).
+
+## DEC-056 - Payment alignment is responsive and column-relative
+
+Latest owner clarification: left-aligned wrapped amounts apply only on desktop; mobile keeps its original stacked RTL summary. Center the PAY-RES desktop heading within its own content column, not across the sidebar. Extend rail shadow paint clearance without widening the visible pager gap and prevent the returned-credit badge from covering icon shadows. This supersedes those portions of DEC-055. [Evidence](../docs-work/BOOKING_REVIEW_POLISH_2026-11-15.md).
+
+## DEC-055 - Booking polish and canonical payment review ownership
+
+Owner requests more mobile shadow/pager clearance, seamless right-to-left filled-progress shine, wrapped long payment label/amount, matching image corners, preserved recurring-photo area, clear mobile calendar radios and centered desktop state headings. PAY-RES is the single review owner for checking/lost/returned/SMS results; remove independent STATE-05/06/07 review rows, map/OTP designs and duplicate gateway review. Preserve old registered links as compatibility aliases and keep manual review records. [Record](../docs-work/BOOKING_REVIEW_POLISH_2026-11-15.md).
+
+## DEC-054 - Overflow motion is opt-in for compact cards only
+
+Owner correction: the previous broad interpretation was wrong. Moving single-line text applies only to variable labels/metadata in compact cards where wrapping disrupts their layout. Restore ordinary multiline prose, headings, explanatory panels and messages everywhere else. Explicit data-rv-overflow-text hooks define consumers; short labels remain still. This corrects only the overflow-text portion of DEC-053. [Record](../docs-work/OVERFLOW_CARD_SCOPE_2026-11-15.md).
+
+## DEC-053 - Shared overflow motion and compact booking layout
+
+Owner instruction 2026-11-15: keep overflowing text on one moving line across current product pages; shrink off-center mobile booking cards, compact pager/dock spacing, remove redundant empty-state headings and unselected-time help, clip progress shine to its fill, stabilize calendar replacement, use compact horizontal context photos on desktop and a short checkout photo, and left-align the three date/time rows. This supersedes conflicting portrait/wrapping presentation notes; phase acceptance is unchanged. [Record](../docs-work/BOOKING_LAYOUT_CORRECTIONS_2026-11-15.md).
+
+## DEC-052 - Revoke final approval only for changed review contexts
+
+Owner explicitly requests scope-limited final invalidation after file edits. Default pages and registered variants receive independent content/dependency fingerprints; only changed possible consumers become stale. Automatic version invalidation preserves mobile/desktop flags; explicit manual revocation retains its prior reset behavior. Preserve unchanged current owner approvals during this fingerprint scheme upgrade, without promoting stale records. Shared-component changes may affect multiple actual consumers; unrelated pages/states remain approved. [Evidence](../docs-work/PREVIEW_REVIEW_REPORT.md).
+
+## DEC-051 - Compact captions, mobile rules rail and single input border
+
+Owner explicitly requests smaller internal portfolio-caption spacing on mobile and desktop; rules links must scroll horizontally rather than wrap on mobile; typing-input focus must thicken the existing border and turn it ink instead of adding an outline. Reuse TextField and native rails; preserve keyboard focus visibility, input geometry, error feedback and the approved desktop rules sidebar. [Evidence](../docs-work/OWNER_FEEDBACK_2026-11-14.md).
+
+## DEC-050 - Distinguish requested and proposed request results
+
+Owner clarifies that Requested has no time selection, while Proposed includes a preferred day and day-part such as morning/noon. BK-REQ01 default must show Requested; the Proposed result must be independently reachable for review. Both remain canonical variants of the same source context; real stored request type determines which appears after submission. This supersedes the earlier default/duplicate suppression interpretation in DEC-048. [Evidence](../docs-work/BK_REQ01_RESULT_CORRECTION.md).
+
+## DEC-049 - Persist manual review approvals in the project
+
+The owner explicitly requests `_preview` approvals in project files so another browser sees the same state. Authorize only the local development-preview review endpoint and [approval JSON](../preview-review/approvals.json), with an exported static snapshot. Browser migration fills missing records; explicit import may replace the imported records; unchanged IDs/revisions retain approval semantics. No product backend, dependency, real transaction or phase acceptance is authorized. [Implementation evidence](../docs-work/PREVIEW_REVIEW_REPORT.md).
+
+## DEC-048 - Owner element corrections, 2026-11-14
+
+The owner directly assigns the public/booking corrections recorded in the [review report](../docs-work/OWNER_FEEDBACK_2026-11-14.md): looping home steps, removal of carousel toggle, portrait desktop assets, smooth calendar/gallery/selection motion, progressive recurring editor with only its mobile handle sticky, revised copy placement, removal of demo-facing copy except default login credentials, and omission of duplicate review entries. Existing local simulation and phase gates remain. The ambiguous bottom-navigation sentence is awaiting clarification and is not recorded as a new navigation decision.
+
 | ID | Decision | Status | Evidence / implication |
 |---|---|---|---|
 | DEC-001 | Owner decisions and Current Truth outrank stale handoff tables | Confirmed | Docs README; Phase 8 current truth |

@@ -21,9 +21,9 @@ Fixed, Proposed, Requested, recurring, availability alerts, payment return, and 
 ## Done when
 - [x] Fixed/Proposed/Requested/recurring flows and hold states are covered.
 - [x] StatePage base is reusable; STATE-04..07 are explicit variants.
-- [x] Mock payment and booking results are visibly demo-only; no real transaction is implied.
-- 390/768/1280 checks, axe, keyboard, structure and no-dead-end checks pass.
-- `PROGRESS.md`, `DISCREPANCIES.md`, and traceability are updated.
-- The agent stops for owner review.
+- [x] Payment and booking use local demo fixtures only; no real transaction is performed. DEC-048 removes product-facing demo notices except default login credentials; the static boundary remains documented in the handoff.
+- [x] 390/768/1280 checks, axe, keyboard, structure and no-dead-end checks are covered by the final regression recorded in the closeout.
+- [x] Progress, inventory, discrepancies, questions, acceptance and traceability are synchronized.
+- [x] Owner accepted Phase 03 on 2026-11-15 (DEC-058). Phase 04 is unassigned and must not start.
 
-Implementation review: `docs-work/PHASE_03_REPORT_FA.md`. Owner acceptance is pending.
+Implementation history: [review](../../docs-work/PHASE_03_REPORT_FA.md). Current acceptance, regression results and component handoff: [Phase 03 closeout](../../docs-work/PHASE_03_CLOSEOUT_FA.md).

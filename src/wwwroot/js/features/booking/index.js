@@ -35,6 +35,7 @@ export async function init(root) {
     if (kind === 'recurring') await (await import('./recurring.js')).initRecurring(root, context);
     if (kind === 'result' || kind === 'external') await (await import('./result.js')).initResult(root, context);
     if (kind === 'requested') bindForm(root, () => submitRequest({ type: 'requested', service: service.id }));
+    if (step) step.parentElement.style.setProperty('--rv-progress-fill', step.value / step.max * 100 + '%');
   } catch (error) {
     visible(root, 'booking-content', false);
     report(root, error);

@@ -9,7 +9,7 @@
     {% for item in bookingQuick %}
     <a class="rv-booking-quick__card rv-glass" href="{{ bookingUrls['BK-F01'] }}?service={{ item.service.id }}&amp;stylist={{ item.stylist.id }}">
       <span class="rv-booking-quick__media"><img src="{{ basePath }}{{ item.service.image }}" alt=""><img src="{{ basePath }}{{ item.stylist.image }}" alt=""></span>
-      <strong>{{ item.service.name }}</strong><span class="rv-muted">{{ item.stylist.name }} · {{ item.service.duration }}</span>
+      <strong data-rv-overflow-text>{{ item.service.name }}</strong><span class="rv-muted" data-rv-overflow-text>{{ item.stylist.name }} · {{ item.service.duration }}</span>
     </a>
     {% endfor %}
   </div>
@@ -29,13 +29,13 @@
     {% if model.kind == 'services' %}
     {% for service in bookingCatalog.services %}
     <a class="rv-booking-choice" data-rv-service-choice="{{ service.id }}" href="{% if service.kind == 'requested' %}{{ bookingUrls['BK-R01'] }}{% else %}{{ bookingUrls['BK-02'] }}{% endif %}?service={{ service.id }}">
-      <img src="{{ basePath }}{{ service.image }}" alt=""><span class="rv-booking-choice__caption rv-glass rv-glass--strong"><strong>{{ service.name }}</strong><span>{% if service.kind == 'fixed' %}{{ service.duration }}{% else %}{% if service.kind == 'requested' %}هماهنگی توسط مدیر سالن{% else %}زمان ترجیحی شما{% endif %}{% endif %}</span></span>
+      <img src="{{ basePath }}{{ service.image }}" alt=""><span class="rv-booking-choice__caption rv-glass rv-glass--strong"><strong data-rv-overflow-text>{{ service.name }}</strong><span data-rv-overflow-text>{% if service.kind == 'fixed' %}{{ service.duration }}{% else %}{% if service.kind == 'requested' %}هماهنگی توسط مدیر سالن{% else %}زمان ترجیحی شما{% endif %}{% endif %}</span></span>
     </a>
     {% endfor %}
     {% else %}
     {% for stylist in bookingCatalog.stylists %}
     <a class="rv-booking-choice" data-rv-stylist-choice="{{ stylist.id }}" href="{{ bookingUrls['BK-F01'] }}?service={{ bookingDefault.service.id }}&amp;stylist={{ stylist.id }}">
-      <img src="{{ basePath }}{{ stylist.image }}" alt=""><span class="rv-booking-choice__caption rv-glass rv-glass--strong"><strong>{{ stylist.name }}</strong></span>
+      <img src="{{ basePath }}{{ stylist.image }}" alt=""><span class="rv-booking-choice__caption rv-glass rv-glass--strong"><strong data-rv-overflow-text>{{ stylist.name }}</strong></span>
     </a>
     {% endfor %}
     {% endif %}

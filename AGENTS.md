@@ -1,82 +1,39 @@
-# AGENTS.md — Rival Codex Engineering Rules
+﻿# Rival engineering instructions
 
-## Mission
-You are the senior frontend engineer and implementation agent for Rival. Build only the phase explicitly assigned by the owner. Preserve product truth, visual design, accessibility, and the ASP.NET Core MVC migration path.
+Build only the owner-assigned scope. This is a Persian RTL static frontend reference for a future ASP.NET Core MVC application. The owner accepted Phase 03 on 2026-11-15 and authorized its closeout only. Phase 04 is unassigned and must not start; never start another product phase automatically.
 
-## Read first
-1. `docs/RIVAL_PROJECT_CONTRACT.md` — the canonical architecture contract.
-2. `docs/PHASE_PLAN.md` — phase dependencies and ownership.
-3. `docs/PAGE_INVENTORY.md`, `docs/COMPONENT_REUSE_MATRIX.md`, `docs/TRACEABILITY.md`.
-4. `docs/DECISION_LOG.md` and `docs/OPEN_QUESTIONS.md`.
-5. The assigned phase's README, `CODING_AGENT_PROMPT.md`, `SOURCE_MAP.md`, and handoff.
-6. `design-export/MANIFEST.md` and the exact source evidence referenced by it.
+## Read and resolve
 
-## Project skills
-- Use `.agents/skills/rival-phase-runner/SKILL.md` for phase planning/execution and phase gates.
-- Use `.agents/skills/rival-visual-qa/SKILL.md` for screenshot, responsive, accessibility, and route regression work.
-- Use `.agents/skills/rival-mvc-compatibility/SKILL.md` only for Phase 09 MVC-readiness and handoff.
+- Read [contract](docs/RIVAL_PROJECT_CONTRACT.md), [phase plan](docs/PHASE_PLAN.md), [progress](PROGRESS.md), [decisions](docs/DECISION_LOG.md), [questions](docs/OPEN_QUESTIONS.md), then the assigned phase package.
+- Latest owner instruction wins, then architecture contract and confirmed product decisions. Within design evidence: exact page/state, component/token specification, general design system, general docs. Log [conflicts](docs/ai/DESIGN_SOURCE_CONFLICTS.md); never guess permissions or money rules.
+- [Design exports](design-export/) and [original references](docs/references/) are read-only. Locate exact states in [manifest](design-export/MANIFEST.json); inspect actual HTML/screenshots and handoffs.
+- Detailed workflow: [context](docs/ai/PROJECT_CONTEXT.md), [implementation procedure](docs/ai/DESIGN_IMPLEMENTATION_CONTRACT.md), [prompts](PROMPTS.md), [skills](docs/ai/SKILL_REGISTRY.md).
 
-## Source precedence
-The latest owner instruction wins, then `docs/RIVAL_PROJECT_CONTRACT.md`, then confirmed decisions and canonical product handoffs. Old Claude Code Kickstart and old Tailwind/Alpine/htmx references are historical only. Never guess a business rule or permission.
+## Source and technology
 
-## Technology — non-negotiable
-- Primary coding agent: OpenAI Codex.
-- Templates: restricted Razor-mappable Nunjucks in `src/Views/`, rendered at build time only.
-- Build: Node/npm local development tooling only. Static output goes to `dist/`.
-- Hosting: cPanel/Apache serves `dist/` as static files. No Express, no Node runtime, no Nunjucks runtime, and no backend service on hosting.
-- Preview: local static server only; use VS Code Tasks so the owner does not need to manage Node commands.
-- CSS: Native CSS only; no Tailwind, Bootstrap, Sass/Less, CSS-in-JS, Vite, Webpack, or CSS bundler.
-- JS: Native ES Modules only; no React, Vue, Angular, Alpine.js, htmx, jQuery, or frontend framework.
-- Fonts: Yekan Bakh only; normal width; weights 300/400/600.
-- Icons: 71 local Lucide-based SVGs, retaining `ri ri-*` compatibility names. No Remix Icon package, CDN, or emoji.
-- Tokens: `design-export/design-system-v2/tokens/tokens.json` is canonical.
-- Production class names: `rv-*` BEM-style. Do not carry `b2-`..`b7-` or `f-` export classes into app code.
+- Source: [Views](src/Views/), [MockData](src/MockData/), [wwwroot](src/wwwroot/). Restricted build-time Nunjucks maps to Razor layouts/partials/helpers. No ASP.NET runtime exists here; Phase 09 owns MVC handoff. Preserve ordinary forms and antiforgery contracts.
+- Node/npm are local build/test tools only. [Build](tools/build-static.mjs) generates dist; never edit generated output. cPanel/Apache receives only its contents. Preview uses VS Code Tasks and the local static server.
+- Native CSS and ES Modules only. No React, Vue, Angular, Alpine, htmx, jQuery, Tailwind, Bootstrap, preprocessors or bundlers; no Express/runtime backend.
+- Prefix every URL using [site config](src/site-config.json) basePath. Directory index routes: `/` public home, `/_preview/` page directory, `/pages.html` alias.
+- [api.js](src/wwwroot/js/core/api.js) is the sole product data boundary. Fixtures/localStorage simulate writes. Never perform or imply real payments, bookings, messages or authentication.
+- The owner-requested [preview review workspace](preview-review/) is independent infrastructure. Its [storage boundary](preview-review/storage.js) persists only manual approvals in [project data](preview-review/approvals.json) through the [local tooling endpoint](tools/lib/review-endpoint.mjs), and reads the static revision feed. This owner-authorized local-file exception must not change product fixtures, registry acceptance or phase gates; deployed product output remains static.
 
-## Static-first output contract
-- `src/Views/` + `src/MockData/` + `src/wwwroot/` are source of truth.
-- `tools/build-static.mjs` renders pages into `dist/`.
-- `dist/` is generated; never edit it manually. Edit `src/` and rebuild.
-- Use `src/site-config.json` `basePath` for all asset, route, and fixture URLs; do not hard-code root-only paths.
-- `dist/index.html` is the public home route `/`.
-- `dist/_preview/index.html` is the central page directory at `/_preview/`; `dist/pages.html` is an alias.
-- Static routes use directory `index.html` files and MVC-shaped URLs.
-- `src/MockData/` is copied as JSON fixtures; demo writes are simulated through `core/api.js` and localStorage. Never imply a real payment or booking.
-- cPanel receives only the contents of `dist/`. Never upload `src/`, `tools/`, `node_modules/`, docs, or phase archives.
+## Shared design and quality
 
-## Design and accessibility
-- Follow Design System v2 and the exact Page ID artboard/handoff evidence.
-- RTL, Persian copy, Persian digits, Jalali dates, and 24-hour time are mandatory.
-- CSS Cascade Layers: `tokens, base, layout, components, pages, utilities`.
-- `app.css` contains imports only. Target <=150 lines per CSS file and <=120 lines per JS module; split when needed.
-- No inline scripts/styles/event handlers. Use `data-rv` hooks and shared modules.
-- Use logical RTL CSS properties and min-width breakpoints.
-- All interactive hit targets >=44×44px even when the visible control is smaller.
-- No nested vertical scrolling except in the owner-approved mobile BK-REC01 editor, whose header stays visible. Horizontal rails/carousels are allowed only with design evidence.
-- All dialogs/pickers/confirmations are bottom sheets, never centered dialogs.
-- Desktop is a purpose-designed composition based on the mobile design language, not a scaled mobile screen. Write `docs-work/desktop-layouts/<PAGE-ID>.md` and obtain owner review before desktop implementation.
-- Run Playwright at 390, 768, and 1280; run axe and keyboard checks.
+- Reuse [components and phase ownership](docs/COMPONENT_REUSE_MATRIX.md); see [catalog](docs/ai/COMPONENT_CATALOG.md). StatePage belongs to Phase 03; finance primitives to Phase 06; Phase 08 extends both.
+- Generate tokens from [v2 JSON](design-export/design-system-v2/tokens/tokens.json). Yekan Bakh normal 300/400/600 only; 71 local Lucide SVGs with `ri ri-*` compatibility; `rv-*` BEM classes. No emoji/CDN/copied batch CSS.
+- Layers: tokens, base, layout, components, pages, utilities. [app.css](src/wwwroot/css/app.css) contains imports only. Target <=150 lines/CSS file, <=120 lines/JS module. No inline styles/scripts/handlers; use data-rv hooks.
+- Preserve Persian copy/digits, Jalali dates, 24-hour time, RTL logical CSS, semantics, visible labels/focus, keyboard order, contrast and >=44x44px hit areas.
+- Follow [responsive procedure](docs/ai/RESPONSIVE_DESIGN_CONTRACT.md): CSS first, inspect 390px source. Desktop needs a page-specific [brief](docs-work/desktop-layouts/) and owner review before implementation. An audit approves no composition.
+- Bottom sheets are the default. DEC-037 permits the centered desktop PortfolioViewer from 1024px. Nested vertical scroll is allowed only in the approved mobile BK-REC01 editor with visible header. Horizontal rails need design evidence.
+- Follow [motion spec](docs/ai/MOTION_SPEC.md): reduced motion, cancellation/static fallbacks, transform/opacity, no forced layout/heavy scroll handlers. Reserve image dimensions, lazy-load offscreen media and use picture/srcset when sources exist.
+- Evaluate every new dependency through [policy](docs/ai/DEPENDENCY_POLICY.md) before adding it.
 
-## Phase ownership
-- Phase 01: static build foundation, token/assets, page registry, central preview, mock adapter, test harness; no product shell/screens.
-- Phase 02: actual shared shell, navigation, public/auth, desktop shell.
-- Phase 03: canonical StatePage base + booking STATE-04..07.
-- Phase 06: canonical CreditPayments/WalletLedger/PaymentRow/balance primitives for ADM-09.
-- Phase 08: extend finance for ADM-16 and StatePage for remaining states; do not rebuild either.
-- Phase 08 remains MVC-compatible only. Actual MVC handoff belongs to Phase 09.
-- Infrastructure IDs DS/RULE/ARCH go in TRACEABILITY, not PAGE_INVENTORY.
+## Execution and completion
 
-## Working protocol
-1. Start every assigned phase in Plan mode. Inspect files and present a plan before broad edits.
-2. Confirm the requested phase and dependencies are complete. Never start the next phase automatically.
-3. Implement only the assigned scope. Do not opportunistically refactor unrelated areas.
-4. Keep `design-export/` and original source references read-only. Add derived notes only where allowed.
-5. Use Git checkpoints; never push, deploy, or change files outside the repository without explicit owner approval.
-6. Run the phase acceptance checklist, `npm run lint`, visual tests, axe, keyboard tests, and route checks.
-7. Update `PROGRESS.md`, `docs/PAGE_INVENTORY.md`, `docs/TRACEABILITY.md`, `docs/DISCREPANCIES.md`, and `docs/OPEN_QUESTIONS.md` as relevant.
-8. Report changed files, tests/results, screenshots, open questions, and the next phase gate. Stop for owner approval.
-
-## Safety and honesty
-- Never claim a test passed unless it was actually run and its output checked.
-- Never invent missing assets, business rules, API contracts, or artboard selectors.
-- Never perform a real payment, booking, message send, or external deployment from the static reference.
-- If the source evidence is incomplete, record the gap and ask the owner when it changes product behavior.
+- Inspect Git status/evidence and present a scoped plan before broad edits. Use Plan mode when available for numbered product phases. Continue authorized infrastructure work after preflight without another approval pause.
+- Use [phase runner](.agents/skills/rival-phase-runner/SKILL.md) for numbered phases and [visual QA](.agents/skills/rival-visual-qa/SKILL.md) for UI/shared changes. [MVC skill](.agents/skills/rival-mvc-compatibility/SKILL.md) applies only to Phase 09 or explicit MVC audit.
+- Actual commands: `npm run build`, `npm run lint`, `npm test`, `npm run test:subpath`; focused suites: `npm run test:visual`, `npm run test:a11y`, `npm run test:smoke`. See [QA](docs/ai/QA_CHECKLIST.md). Do not invent dotnet/format commands.
+- UI completion requires source-to-test traceability, route/state/console/interaction checks, screenshots and >=5 source comparisons, axe, keyboard, reduced motion and responsive review at 390/768/1280 plus affected boundary widths. Assertions alone do not prove fidelity.
+- Update [progress](PROGRESS.md), [inventory](docs/PAGE_INVENTORY.md), [traceability](docs/TRACEABILITY.md), [discrepancies](docs/DISCREPANCIES.md) and questions where relevant. Report actual checked results, evidence and gaps; stop at owner phase gate.
+- Preserve unrelated changes; use Git checkpoints where authorized. Never push, deploy or edit outside this repository without explicit approval.

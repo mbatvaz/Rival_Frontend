@@ -3,9 +3,8 @@ import { faDigits } from '../../core/format.js';
 import { get, text, visible, paintContext } from './shared.js';
 import { longDay } from './availability.js';
 import { adjacentMonth, availableTimes, monthGrid, monthKey } from './calendar.js';
-
 import { paintRecurringPreview, recurringDates } from './recurring-preview.js';
-
+import { reveal } from './selection-motion.js';
 export function setupEditor(catalog, save) {
   const sheet = document.getElementById('rv-rec-sheet');
   const { calendar } = catalog;
@@ -13,13 +12,20 @@ export function setupEditor(catalog, save) {
   let renderedCalendar;
   let month;
   let saving = false;
+  let lastDate;
   const next = get(sheet, 'rec-next');
   const render = () => {
     const editing = Boolean(draft.id);
     const service = catalog.services.find(item => item.id === draft.service);
     const stylist = catalog.stylists.find(item => item.id === draft.stylist);
     sheet.dataset.rvRecMode = editing ? 'edit' : 'new';
-    for (const panel of sheet.querySelectorAll('[data-rv-rec-step]')) panel.hidden = editing && panel.dataset.rvRecStep !== '3';
+    const progress = [true, Boolean(service), Boolean(stylist), Boolean(draft.time), Boolean(draft.time && draft.repeat !== 'once')];
+    for (const panel of sheet.querySelectorAll('[data-rv-rec-step]')) {
+      const show = editing ? panel.dataset.rvRecStep === '3' : progress[Number(panel.dataset.rvRecStep) - 1];
+      const entering = panel.hidden && show;
+      panel.hidden = !show;
+      if (entering) reveal([panel]);
+    }
     visible(sheet, 'rec-locked', editing);
     visible(sheet, 'rec-edit-tip', editing);
     visible(sheet, 'rec-delete', editing);
@@ -41,6 +47,8 @@ export function setupEditor(catalog, save) {
         field.closest('label').hidden = field.disabled;
       }
     }
+    if (draft.date !== lastDate) reveal(sheet.querySelectorAll('[data-rv-rec-time-list] label:not([hidden])'));
+    lastDate = draft.date;
     const calendarKey = monthKey(month) + '/' + Boolean(stylist);
     if (calendarKey !== renderedCalendar) {
       renderedCalendar = calendarKey;
@@ -94,8 +102,8 @@ export function setupEditor(catalog, save) {
     button.addEventListener('click', () => { month = adjacentMonth(month, Number(button.dataset.rvMonthMove)); render(); });
   }
   next.addEventListener('click', () => confirm(false));
-  get(sheet, 'rec-delete').addEventListener('click', () => { visible(sheet, 'rec-delete-note', true); get(sheet, 'rec-remove').focus(); });
-  get(sheet, 'rec-cancel-remove').addEventListener('click', () => { visible(sheet, 'rec-delete-note', false); get(sheet, 'rec-delete').focus(); });
+  get(sheet, 'rec-delete').addEventListener('click', () => { visible(sheet, 'rec-delete-note', true); get(sheet, 'rec-actions').hidden = true; get(sheet, 'rec-remove').focus(); });
+  get(sheet, 'rec-cancel-remove').addEventListener('click', () => { visible(sheet, 'rec-delete-note', false); get(sheet, 'rec-actions').hidden = false; get(sheet, 'rec-delete').focus(); });
   get(sheet, 'rec-remove').addEventListener('click', () => confirm(true));
   return (item, opener) => {
     draft = { service: '', stylist: '', date: '', time: '', repeat: 'once', months: 1, ...item };
@@ -103,6 +111,7 @@ export function setupEditor(catalog, save) {
     renderedCalendar = undefined;
     month = draft.date || calendar.start;
     visible(sheet, 'rec-delete-note', false);
+    get(sheet, 'rec-actions').hidden = false;
     visible(sheet, 'rec-error', false);
     render();
     openSheet(sheet.id, opener);
