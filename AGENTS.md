@@ -31,6 +31,7 @@ Build only the owner-assigned scope. This is a Persian RTL static frontend refer
 
 ## Execution and completion
 
+- Git is frontend-only: `master` holds the final stable version. Start each explicitly assigned phase on `phase/NN-name` from `master`; after owner acceptance and closeout, merge back with `--no-ff`, create an annotated `stable/phase-NN` tag and retire the phase branch after publication. No permanent frontend/backend or stable branches. Follow [Git workflow](docs/GIT_WORKFLOW.md); phase assignment and publication authorization remain required.
 - Inspect Git status/evidence and present a scoped plan before broad edits. Use Plan mode when available for numbered product phases. Continue authorized infrastructure work after preflight without another approval pause.
 - Use [phase runner](.agents/skills/rival-phase-runner/SKILL.md) for numbered phases and [visual QA](.agents/skills/rival-visual-qa/SKILL.md) for UI/shared changes. [MVC skill](.agents/skills/rival-mvc-compatibility/SKILL.md) applies only to Phase 09 or explicit MVC audit.
 - Actual commands: `npm run build`, `npm run lint`, `npm test`, `npm run test:subpath`; focused suites: `npm run test:visual`, `npm run test:a11y`, `npm run test:smoke`. See [QA](docs/ai/QA_CHECKLIST.md). Do not invent dotnet/format commands.

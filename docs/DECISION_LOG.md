@@ -1,5 +1,9 @@
 # Decision Log
 
+## DEC-059 - Frontend-only repository and phase branches from master
+
+On 2026-11-16 the owner explicitly requests local and GitHub cleanup: rename `mbatvaz/Rival` to `mbatvaz/Rival_Frontend`, keep frontend files and the final stable version on `master`, remove permanent backend/frontend branches and the empty backend solution, and replace stable branches with annotated tags. Preserve the old baseline tip with `stable/baseline-1`; mark the accepted current version with `stable/phase-03`. Future explicitly assigned phases branch from `master`, return after owner acceptance and closeout, and receive a fresh stable tag. Preserve published history and frontend reference contracts; do not start Phase 04. [Git workflow](GIT_WORKFLOW.md).
+
 ## DEC-058 - Phase 03 acceptance and closeout only
 
 On 2026-11-15 the owner explicitly accepted completion of Phase 03 and authorized the necessary closeout work, while explicitly forbidding starting Phase 04. Acceptance covers CUS-02, BK-01/02, BK-F01/F02, BK-P01, BK-R01, BK-REQ01, BK-REC01, BK-ALERT01, PAY-RES, STATE-04..07 and their implemented variants, including the reusable StatePage base. Record acceptance in the registry and current handoff; preserve independent manual preview approvals and unresolved product decisions. Phase 04 remains unassigned. [Closeout evidence](../docs-work/PHASE_03_CLOSEOUT_FA.md).

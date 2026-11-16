@@ -1,5 +1,9 @@
 # Rival Progress
 
+## Frontend-only Git workflow — 2026-11-16
+
+Owner authorizes repository cleanup and GitHub rename to `Rival_Frontend` (DEC-059). The frontend already exists on `master`; all permanent frontend/backend branch tips equal its pre-cleanup tip. Remove the empty backend solution and replace stable branches with annotated tags, preserving published history. Future assigned phases start from `master`, merge back after acceptance/closeout and receive stable tags; [workflow](docs/GIT_WORKFLOW.md). No product source, manual approval, registry acceptance or phase gate changes. Phase 04 remains unassigned. Validation: static build, all lint checks and diff whitespace checks passed. No UI change; browser suites were not rerun. GitHub rename and local origin update are verified; publication and branch/tag parity are verified separately after committing.
+
 ## Phase 03 owner acceptance and closeout — 2026-11-15
 
 The owner explicitly accepted Phase 03 and authorized its completion work only (DEC-058). All 15 Phase 03 registry contexts and their 33 current variant entries are accepted and dated; other phase entries, manual preview approvals and the entire review revision feed are unchanged. Current scope is 21 accepted contexts and 52 future placeholders. [Final handoff](docs-work/PHASE_03_CLOSEOUT_FA.md) consolidates state ownership, component reuse, five source comparisons and remaining gaps. Final validation: build and lint passed; full root 148/148 and subpath 148/148 passed; root output restored. Phase 03 closeout is complete. Phase 04 is unassigned and must not start. Earlier dated pending-review notes below are historical.

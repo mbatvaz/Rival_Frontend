@@ -1,4 +1,4 @@
-# Rival — Codex Starter
+# Rival_Frontend — Frontend Reference
 
 Current owner gate (2026-11-15): Phase 03 is accepted; only its closeout is authorized. Phase 04 has not started and requires a later explicit assignment. See the [Phase 03 final handoff](docs-work/PHASE_03_CLOSEOUT_FA.md).
 
@@ -12,6 +12,6 @@ The `/_preview/` directory now has independent red/yellow/green review status an
 
 ## Git branches
 
-`master` integrates the whole project. Frontend work uses `frontend`; backend work uses `backend`. Assigned frontend phases use separate `phase/frontend-NN-name` branches and return to `frontend` after owner acceptance. See [Git workflow](docs/GIT_WORKFLOW.md).
+This repository contains frontend development only: [Rival_Frontend](https://github.com/mbatvaz/Rival_Frontend). `master` holds the final stable version. Each explicitly assigned phase starts on a `phase/NN-name` branch from `master`, returns through a merge after owner acceptance and closeout, and receives an annotated `stable/phase-NN` tag. See [Git workflow](docs/GIT_WORKFLOW.md).
 
-`stable/baseline-1` preserves the initial frontend recovery snapshot. The original GitHub history is retained; its empty `Rival.slnx` does not implement a backend or start the MVC handoff.
+The `stable/baseline-1` tag preserves the previous recovery branch tip; `stable/phase-03` marks the current accepted frontend version. Permanent frontend/backend and stable branches are retired; the empty backend solution is removed. Published history is preserved. Phase 04 remains unassigned.
