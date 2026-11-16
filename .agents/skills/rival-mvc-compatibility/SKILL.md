@@ -6,6 +6,7 @@ description: Audit and prepare the Rival frontend source for ASP.NET Core MVC / 
 # Rival MVC Compatibility
 
 ## Read first
+- Resolve affected frontend paths through [navigation](../../../docs/ai/PROJECT_INDEX.md); reuse verified reads. Graph MVC destinations are planned conventions, not existing backend files. Read only the relevant mapping/contract sections before expanding to a full requested audit.
 - `docs/RIVAL_PROJECT_CONTRACT.md` §3.4 and §9.
 - `docs/ASP_NET_MVC_MIGRATION_MAP.md`.
 - `docs/TRACEABILITY.md`, `docs/PAGE_INVENTORY.md`, `docs/COMPONENT_REUSE_MATRIX.md`.

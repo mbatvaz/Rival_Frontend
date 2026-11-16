@@ -1,5 +1,7 @@
 # Project context and ownership
 
+Current navigation: [small index](PROJECT_INDEX.md) and [graph guide](PROJECT_GRAPH.md). Query relevant paths before reading large docs. Source implementation, current contract and effective owner decisions must be checked; historical inspection notes below are dated evidence, not live environment detection. Reuse verified reads and use the index's short handoff format.
+
 Inspected 2026-11-14. The owner attachment describes the eventual ASP.NET Core MVC product; current files establish a static frontend reference. No csproj, cshtml, Areas, Directory.Build files, .codex directory or AGENTS.override.md exist. Do not create a backend or override merely to match a generic file list.
 
 - [Canonical contract](../RIVAL_PROJECT_CONTRACT.md): architecture, safety and implementation rules.
@@ -14,4 +16,4 @@ Existing reference and phase handoff copies remain historical/product evidence. 
 
 Initial Git status contained only the untracked owner-provided firstTest.zip, preserved outside this scope. No global settings, plugin connections or external installation is required.
 
-Later owner assignment: the [preview-review workspace](../../preview-review/) is independent review infrastructure with browser-local mobile/desktop/final approvals. It replaces the two former directory-only templates; neutral product placeholders remain in Views. It reads a generated revision feed and never writes product/phase acceptance. See its [report](../../docs-work/PREVIEW_REVIEW_REPORT.md).
+Later owner assignment: the [preview-review workspace](../../preview-review/) is independent review infrastructure. Local preview persists manual mobile/desktop/final approvals in project data through the scoped local tooling endpoint; static hosting uses the exported snapshot and browser-local fallback. It reads a generated revision feed and never writes product/phase acceptance. See the current [contract §3.3](../RIVAL_PROJECT_CONTRACT.md) and its [report](../../docs-work/PREVIEW_REVIEW_REPORT.md).

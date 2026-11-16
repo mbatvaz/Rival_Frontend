@@ -15,7 +15,7 @@ const documents = ['AGENTS.md', 'GOALS.md', 'PLANS.md', 'PROMPTS.md',
   'prompts/00b_Architecture_Alignment.md', 'prompts/MASTER_CODEX_DEVELOPMENT_PROMPT.md',
   'docs/COMPONENT_REUSE_MATRIX.md', 'docs-work/PHASE_02_COMPONENT_GUIDE_FA.md',
   'docs-work/PHASE_01_02_REFRESH_PLAN.md', 'docs-work/PHASE_01_02_REFRESH_FA.md',
-  'preview-review/README.md', 'docs-work/PREVIEW_REVIEW_REPORT.md',
+  'preview-review/README.md', 'docs-work/PREVIEW_REVIEW_REPORT.md', 'docs-work/CONTEXT_OPTIMIZATION_REPORT_FA.md',
   ...(await walk('phases/PHASE_01_Foundation')).filter(file => file.endsWith('.md') && !file.includes('/references/')),
   ...(await walk('phases/PHASE_02_Shell_Public_Auth')).filter(file => file.endsWith('.md') && !file.includes('/references/')),
   ...(await walk('docs/ai')).filter(file => file.endsWith('.md')),
@@ -43,4 +43,4 @@ for (const file of documents) {
   }
 }
 if (errors.length) { console.error(errors.join('\n')); process.exitCode = 1; }
-else console.log(`Validated ${documents.length} maintained Markdown files, ${links} local links and 10 skill entry points.`);
+else console.log(`Validated ${documents.length} maintained Markdown files, ${links} local links and ${documents.filter(file => file.endsWith('/SKILL.md')).length} skill entry points.`);

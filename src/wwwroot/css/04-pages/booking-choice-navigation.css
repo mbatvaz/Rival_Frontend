@@ -1,0 +1,19 @@
+@layer pages {
+  @media not all and (min-width: 768px) {
+    .rv-booking:is([data-rv-booking-id="BK-01"], [data-rv-booking-id="BK-02"]) .rv-role-nav {
+      /* Preserve the existing glass card's 79% share of the two-part dock. */
+      inline-size: calc((100% - var(--space-4) * 2) * .79);
+      max-inline-size: calc(560px * .79);
+      min-block-size: 60px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .rv-booking:is([data-rv-booking-id="BK-01"], [data-rv-booking-id="BK-02"]) .rv-role-nav::before {
+      inset-inline: 0;
+    }
+
+    .rv-booking:is([data-rv-booking-id="BK-01"], [data-rv-booking-id="BK-02"]) .rv-role-nav__book {
+      display: none;
+    }
+  }
+}

@@ -5,7 +5,7 @@ description: Specify or implement Rival responsive behavior for an assigned page
 
 # Responsive layout
 
-Read [responsive procedure](../../../docs/ai/RESPONSIVE_DESIGN_CONTRACT.md), exact mobile evidence and current page brief. Use the [responsive spec](../../../docs/ai/templates/responsive-page-spec.md) to record invariants, tablet/desktop/wide layouts, container, gutter, order/visibility, crop, interaction, focus and RTL.
+Resolve the page using [navigation](../../../docs/ai/PROJECT_INDEX.md). Read relevant responsive procedure, exact mobile evidence and current brief not already verified in this conversation. Use the [responsive spec](../../../docs/ai/templates/responsive-page-spec.md) to record invariants, tablet/desktop/wide layouts, container, gutter, order/visibility, crop, interaction, focus and RTL. Add affected width checks to shared QA evidence rather than duplicating it.
 
 Distinguish an actual desktop source from inference. Record content problem, layout choice, tokens/breakpoint, reason and accessibility/performance effect in the decision index by linking the single page brief. Owner review of a new desktop composition remains required before implementation; existing approval persists.
 

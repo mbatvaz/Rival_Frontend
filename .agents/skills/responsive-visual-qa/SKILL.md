@@ -5,7 +5,7 @@ description: Review Rival mobile, tablet and desktop screenshots, intermediate w
 
 # Responsive visual QA
 
-Read [QA checklist](../../../docs/ai/QA_CHECKLIST.md), responsive page spec and approved desktop brief. Use the existing [Rival visual workflow](../rival-visual-qa/SKILL.md) for shared browser/accessibility gates rather than recreating tests.
+Use [navigation](../../../docs/ai/PROJECT_INDEX.md) for the page and affected consumers. Read relevant QA/page-spec/brief sections not already verified. Extend the [shared visual workflow](../rival-visual-qa/SKILL.md) with affected width/boundary observations; reuse valid captures and checks for the unchanged revision instead of running identical suites again.
 
 Run mobile 390, tablet 768 and desktop 1280; add 320/375/1024/1440 and neighbors of changed breakpoints. Record actual width/height/DPR. Compare mobile against exact state evidence and desktop against its reference/approved decision; never stretch the mobile image to assert desktop fidelity.
 

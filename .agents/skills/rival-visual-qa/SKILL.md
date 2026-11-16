@@ -6,7 +6,7 @@ description: Validate Rival pages visually and functionally at mobile, tablet, a
 # Rival Visual QA
 
 ## Required inputs
-- Read `AGENTS.md`, `docs/RIVAL_PROJECT_CONTRACT.md`, `docs/TRACEABILITY.md`, and the relevant Page/Component handoff.
+- Reuse active instructions and verified reads. Resolve the page/consumers through [navigation](../../../docs/ai/PROJECT_INDEX.md); inspect relevant contract/traceability/handoff sections only.
 - Identify the canonical artboard and all meaningful states from `design-export/MANIFEST.json` and the handoff.
 - For desktop, read the owner-approved `docs-work/desktop-layouts/<PAGE-ID>.md`.
 
@@ -17,6 +17,7 @@ description: Validate Rival pages visually and functionally at mobile, tablet, a
 - Add 320/375/1024/1440 and intermediate/breakpoint-neighbor widths for affected responsive behavior. Record width, height and DPR; source image pixels may be 2x CSS pixels.
 
 ## Checks
+Run shared checks once per affected revision/scope. Fidelity, responsive and debugging skills add specialist observations to this evidence; they do not require another identical suite/build. Recheck after changes invalidate the relevant evidence. Full phase acceptance remains mandatory.
 1. Capture full-page screenshots for every required state.
 2. Check layout, typography, spacing, token use, image crop, RTL order, and visual hierarchy.
 3. Verify all controls have >=44×44px interactive hit areas.

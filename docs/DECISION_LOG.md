@@ -1,5 +1,13 @@
 # Decision Log
 
+## DEC-061 - Remove the booking navigation flash
+
+On 2026-11-16 the owner reports a brief white flash when selecting links on the choice pages and requests removing it. Keep booking content opaque until native document navigation and remove the booking main's transparent entry; do not change the centered BK-01/BK-02 dock, layout, routes or fixture behavior. Public/other-role and sheet/viewer motion remain as before. [Cause and checked results](../docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md).
+
+## DEC-060 - Center only BK-01/BK-02 mobile icon card without booking
+
+On 2026-11-16 the owner specifies BK-01 and BK-02: hide the separate booking action on mobile and center the existing right-hand icon card. Apply below 768px; preserve its width/height/style, other page visibility and tablet/desktop composition. No new animation or JavaScript behavior is requested. This is a scoped maintenance change, not phase assignment or acceptance. [Implementation and QA](../docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md).
+
 ## DEC-059 - Frontend-only repository and phase branches from master
 
 On 2026-11-16 the owner explicitly requests local and GitHub cleanup: rename `mbatvaz/Rival` to `mbatvaz/Rival_Frontend`, keep frontend files and the final stable version on `master`, remove permanent backend/frontend branches and the empty backend solution, and replace stable branches with annotated tags. Preserve the old baseline tip with `stable/baseline-1`; mark the accepted current version with `stable/phase-03`. Future explicitly assigned phases branch from `master`, return after owner acceptance and closeout, and receive a fresh stable tag. Preserve published history and frontend reference contracts; do not start Phase 04. [Git workflow](GIT_WORKFLOW.md).

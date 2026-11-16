@@ -1,5 +1,17 @@
 # Traceability Contract
 
+## Booking flash correction — 2026-11-16
+
+DEC-061 → [booking-link fade bypass](../src/wwwroot/js/components/navigation-motion.js) and [opaque booking entry](../src/wwwroot/css/05-utilities/motion.css) → [first-frame and real navigation regression](../tests/phase03/choice-navigation-flash.spec.mjs), choice-layout/booking/shared-motion tests → [report](../docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md). No route/data/acceptance changes.
+
+## BK-01/BK-02 mobile dock — 2026-11-16
+
+DEC-060 → [scoped CSS](../src/wwwroot/css/04-pages/booking-choice-navigation.css) → [choice navigation tests](../tests/phase03/choice-navigation.spec.mjs), existing review-polish/shared-motion regressions → [source comparisons and limits](../docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md). Two existing IDs only; no templates, JS or acceptance changes.
+
+## Context navigation infrastructure — 2026-11-16
+
+Owner context-optimization request → [map CLI](../tools/project-map.mjs), [extractors/query/validation](../tools/lib/project-map/), [read-only graph check](ai/PROJECT_GRAPH.md), [navigation](ai/PROJECT_INDEX.md) and [context skill](../.agents/skills/rival-context/SKILL.md) → [tool regression](../tools/tests/project-map.test.mjs). [Report](../docs-work/CONTEXT_OPTIMIZATION_REPORT_FA.md) distinguishes static render evidence, inferred consumers/tests, unknown sources and planned MVC targets. No product Page ID, acceptance, behavior or source was changed.
+
 ## Phase 03 acceptance — 2026-11-15
 
 Owner approval -> DEC-058 -> [registry](../src/page-registry.json): 15 Phase 03 contexts accepted and dated 2026-11-15. [Closeout](../docs-work/PHASE_03_CLOSEOUT_FA.md) maps implemented states, exact source comparisons, full root/subpath regression and component reuse. CUS-02, BK-01/02, BK-F01/F02, BK-P01/R01/REQ01/REC01/ALERT01, PAY-RES and STATE-04..07 retain their routes, fixtures and existing design ownership. StatePage remains a single Phase 03 base for Phase 08 extension. Other phase registry entries and manual review approvals are preserved; Phase 04 has not started. Earlier dated review gates are historical.

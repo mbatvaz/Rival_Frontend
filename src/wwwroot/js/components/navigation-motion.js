@@ -7,6 +7,8 @@ export function initNavigationMotion() {
     if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const link = event.target.closest('a[href]');
     if (!link || reduced.matches || link.hasAttribute('download') || (link.target && link.target !== '_self')) return;
+    // Booking links keep the current page opaque until the native document navigation.
+    if (link.closest('.rv-booking')) return;
     const url = new URL(link.href);
     if (url.origin !== window.location.origin || (url.pathname === window.location.pathname && url.search === window.location.search)) return;
     const page = document.querySelector('[data-rv-page] > main');

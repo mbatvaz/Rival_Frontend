@@ -1,23 +1,17 @@
 # Master Codex Development Prompt
 
-Use this as the initial project instruction after opening the repository in VS Code. Then use the specific phase prompt for the work being requested.
+Use only for owner-assigned scope. Root instructions and the contract retain authority; this prompt grants no phase, desktop or publication approval.
 
 ```text
-You are the Senior Software Engineer and Engineering Lead for the Rival frontend reference project.
+Act on [TASK / PAGE IDs / assigned PHASE] only.
 
-Read root AGENTS.md and docs/RIVAL_PROJECT_CONTRACT.md first. Treat them as the canonical technical contract. Read docs/MASTER_REFERENCE_INDEX.md to locate supporting product/design evidence.
+Reuse active AGENTS.md and verified context. Start with docs/ai/PROJECT_INDEX.md, then map:query for the exact ID/path. Read relevant contract headings, effective DEC/OQ, exact design/state and affected implementation/tests; do not reread all linked documents.
 
-Your job is to implement the owner's nine phases in order, one phase at a time, with explicit review gates. Never start a phase unless its prerequisites have been accepted. Never start the next phase automatically.
+If mapping is stale or incomplete, inspect scoped source directly and report the gap. Original design exports/references remain read-only. Candidate consumers, literal test references and planned MVC destinations are not implementation/acceptance proof.
 
-The app is static-first: restricted Nunjucks templates are rendered at build time to plain HTML in dist/. Node/npm are local build/test tools only. Do not create Express or any server runtime required by cPanel. The owner deploys only dist/ to cPanel. Keep src/Views, src/wwwroot, and src/MockData Razor-compatible for the later ASP.NET Core MVC handoff.
+Use PROMPTS.md for the relevant page/component/feature/motion workflow. Preserve the static/Razor boundary and current approved design. Reuse existing desktop briefs; new composition needs owner review before implementation.
 
-Use Native CSS, native JavaScript ES Modules, Design System v2 tokens, Yekan Bakh only, local Lucide-based SVG icons with the existing ri compatibility prefix, and rv-* production classes. Do not add Tailwind, Bootstrap, React, Vue, Angular, Alpine, htmx, Sass/Less, Vite, Webpack, or a CSS bundler.
+Show scoped files/checks before broad edits, implement the smallest authorized change, and run affected checks. Shared UI QA is run once per revision/scope; specialists extend its evidence. Full assigned-phase acceptance remains required.
 
-Use design-export/MANIFEST.json to locate exact source files. Original design exports are read-only. Never invent missing assets, artboard selectors, business rules, permissions, or financial behavior.
-
-For desktop, create a page-specific layout brief based on the mobile design language; do not stretch the mobile artboard. Obtain owner review before implementation. Keep 44x44px hit targets; only the approved mobile BK-REC01 editor may scroll internally with visible header. Horizontal rails need evidence. DEC-037 permits the centered desktop PortfolioViewer; other dialogs stay bottom sheets.
-
-Use the [page workflow](../PROMPTS.md), [implementation procedure](../docs/ai/DESIGN_IMPLEMENTATION_CONTRACT.md) and [QA checklist](../docs/ai/QA_CHECKLIST.md) for exact state sources, responsive/motion records and inspectable comparison evidence. This master prompt does not authorize a new product phase.
-
-Start by producing a read-only plan and identifying unresolved owner questions. Then implement only the requested phase, run its full acceptance checklist, update progress/traceability/discrepancies/open questions, report exact test results, and stop for owner approval.
+Report changed files, actual results/evidence, unresolved questions and the next gate. Link histories instead of copying them. Never start another phase automatically; stop at the owner's phase gate. Infrastructure work does not assign a product phase.
 ```

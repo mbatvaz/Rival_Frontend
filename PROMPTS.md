@@ -2,9 +2,11 @@
 
 Use only for explicitly assigned scope. Replace bracketed inputs. The [phase plan](docs/PHASE_PLAN.md) retains dependency/approval ownership.
 
+Start with [navigation](docs/ai/PROJECT_INDEX.md) for the assigned ID/path. Reuse verified reads and valid QA evidence for unchanged scope; references below mean relevant sections, not mandatory whole-file rereads. Shared browser gates belong to [visual QA](.agents/skills/rival-visual-qa/SKILL.md); specialist checks extend that evidence. Infrastructure-only tasks use affected tooling/docs checks and do not activate all UI workflows.
+
 ## Page
 
-Implement [PAGE-ID / route / states] in assigned [PHASE]. Read its [page spec](docs/ai/templates/page-spec.md), exact manifest HTML/screenshots and handoff. Check similar routes, shared partials, token generation and component ownership. Present a short file/test plan; record invariants, responsive adaptations and any dependency decision. Desktop needs an owner-reviewed brief before implementation. Build the smallest reusable change using real copy/assets. Run build, lint and relevant root/subpath tests. Validate route/title/content, runtime/console, primary interaction and screenshots at exact dimensions. Compare mobile against source and desktop against its approved brief. Cover tablet/intermediate widths, RTL, axe, keyboard/focus, reduced motion, performance and defined loading/empty/error/success states. Fix significant mismatches; record at least five concrete comparisons and every remaining deviation with source, reason and acceptance status. Report changed files, tests and screenshots. Stop at the phase gate.
+Implement [PAGE-ID / route / states] in assigned [PHASE]. Resolve exact source/state and affected files through the index. Complete relevant [page-spec](docs/ai/templates/page-spec.md) fields, verify component ownership and present a scoped file/test plan. Use the [implementation procedure](docs/ai/DESIGN_IMPLEMENTATION_CONTRACT.md), approved desktop brief and [shared QA checklist](docs/ai/QA_CHECKLIST.md) for implementation, state/root/subpath/width/accessibility coverage and >=5 source comparisons. Fix significant mismatches; record deviations with evidence and acceptance status. Report changed files, checked results/screenshots and gaps. Stop at the phase gate.
 
 ## Component
 

@@ -1,5 +1,19 @@
 # Rival Progress
 
+## Booking navigation flash correction — 2026-11-16
+
+Owner reports a bright flash when selecting choice-page links (DEC-061). Booking anchors now use native navigation without the outgoing 1→0.35 fade; booking main content has no transparent entry. The centered choice dock and product data/routes remain unchanged. [Cause, first-frame checks and results](docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md). Root targeted choice/flash/booking/shared-motion **19/19** passed; first-frame opacity=1, no JS exit fade, Back and reduced motion checked at 390/1280. No phase assignment or acceptance change.
+
+Final subpath flash **2/2**, lint and map CHECK passed; root output restored. Full browser suites were not repeated for this targeted motion correction.
+
+## BK-01/BK-02 mobile navigation — 2026-11-16
+
+Owner narrows the navigation request to mobile BK-01/BK-02 (DEC-060): hide booking and center the existing four-icon glass card below 768px, with its previous dimensions/tokens. CSS only; no template/JS/fixture or other route behavior change. Root focused navigation/review-polish/shared-motion **19/19**, subpath focused navigation **6/6** passed; root output restored. Screenshots, keyboard, overflow, hit areas and WCAG checks were reviewed, with a baseline 320px carousel accessibility issue explicitly retained in the [report](docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md). No new phase or acceptance; previous context infrastructure preserved.
+
+## Context navigation infrastructure — 2026-11-16
+
+Owner approved the context project and continuing remaining stages without repeated approval pauses. Added local evidence graph/index and BUILD/UPDATE/CHECK/QUERY commands; in-memory default rendering narrows template consumers without writing product output. Root routing and all ten existing skills select relevant context/reuse valid QA evidence; one rival-context skill added. No external dependencies, product source, original design/reference, registry acceptance, approvals, phase package, branch or history changes. Phase 04 remains unassigned. [Report, actual checks and limits](docs-work/CONTEXT_OPTIMIZATION_REPORT_FA.md); [navigation](docs/ai/PROJECT_INDEX.md). Six tool tests and six real navigation scenarios passed, as did lint and graph freshness checks. Browser/subpath/product builds were unnecessary for this infrastructure-only scope and were not run.
+
 ## Frontend-only Git workflow — 2026-11-16
 
 Owner authorizes repository cleanup and GitHub rename to `Rival_Frontend` (DEC-059). The frontend already exists on `master`; all permanent frontend/backend branch tips equal its pre-cleanup tip. Remove the empty backend solution and replace stable branches with annotated tags, preserving published history. Future assigned phases start from `master`, merge back after acceptance/closeout and receive stable tags; [workflow](docs/GIT_WORKFLOW.md). No product source, manual approval, registry acceptance or phase gate changes. Phase 04 remains unassigned. Validation: static build, all lint checks and diff whitespace checks passed. No UI change; browser suites were not rerun. GitHub rename and local origin update are verified; publication and branch/tag parity are verified separately after committing.

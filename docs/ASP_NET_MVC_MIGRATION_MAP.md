@@ -5,9 +5,9 @@ The source-to-MVC contract is defined in `RIVAL_PROJECT_CONTRACT.md`. This table
 | Frontend reference source | MVC destination | Notes |
 |---|---|---|
 | `src/Views/Shared/_Layout.njk` | `Views/Shared/_Layout.cshtml` | Keep shell regions and section names. |
-| `src/Views/Shared/_HeaderDesktop.njk` | `_HeaderDesktop.cshtml` | Desktop shell only. |
-| `src/Views/Shared/_BottomNav.njk` | `_BottomNav.cshtml` | Role-driven navigation data; mobile only. |
-| `src/Views/Shared/_SheetHost.njk` | `_SheetHost.cshtml` | Sheet behavior remains client-side. |
+| Historical proposal `_HeaderDesktop.njk` (not present) | `_HeaderDesktop.cshtml` (planned) | Inspect current `src/Views/Shared/_HeaderPublic.njk` and `_RoleLayout.njk`; no direct implemented source with the proposed name. |
+| Historical proposal `_BottomNav.njk` (not present) | `_BottomNav.cshtml` (planned) | Current navigation source: `src/Views/Shared/_RoleNav.njk`; destination naming remains a Phase 09 decision. |
+| Historical proposal `_SheetHost.njk` (not present) | `_SheetHost.cshtml` (planned) | Current hosts are composed in layouts and `src/Views/Booking/Index.njk`; behavior is in `src/wwwroot/js/components/sheet.js`. |
 | `src/Views/Shared/Components/*` | `Views/Shared/Components/*` | One partial per canonical component. |
 | `src/Views/<Area>/<Controller>/<Action>.njk` | Same route path, `.cshtml` | Convert only the restricted Razor-mappable subset. |
 | `src/MockData/*.json` | ViewModels / API contracts | Replace fixture loader with server model and real endpoints. |

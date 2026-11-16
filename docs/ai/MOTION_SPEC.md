@@ -10,6 +10,8 @@ Prefer CSS, then Web Animations; View Transitions need ordinary-navigation fallb
 
 ## Current implementation
 
+Owner follow-up 2026-11-16 (DEC-061): booking pages keep their main content opaque during document navigation. Booking links bypass the shared pre-navigation fade and `.rv-booking[data-rv-page] > main` has no entry animation; this removes the dim/restore/blank-entry flash reported from BK-01/BK-02. Other page and sheet/viewer motion remains unchanged. [Regression evidence](../../tests/phase03/choice-navigation-flash.spec.mjs) and [report](../../docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md).
+
 - [motion.css](../../src/wwwroot/css/05-utilities/motion.css): page/sheet entry duration-slow (380ms), sheet exit duration-base (240ms), scrim entry base/exit fast (140ms). Desktop PortfolioViewer uses fade/scale; mobile sheets keep bottom-edge motion. Reduced motion disables entry and closing states; content remains usable.
 - [sheet.js](../../src/wwwroot/js/components/sheet.js): closing lifecycle, inert background, focus/scroll restoration. Test close/reopen, Escape, scrim and navigation interruption before changes.
 - [navigation motion](../../src/wwwroot/js/components/navigation-motion.js): existing route interception; do not duplicate handlers.

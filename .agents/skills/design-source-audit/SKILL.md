@@ -5,7 +5,9 @@ description: Inventory Rival design exports and map page, component, token and a
 
 # Design source audit
 
-Read the manifest, page inventory and [conflict register](../../../docs/ai/DESIGN_SOURCE_CONFLICTS.md). Run `rg --files design-export` then `node tools/audit-design.mjs` from the repository root. Inspect actual relevant HTML/text/JSON/SVG/image contents; generated extraction is structural evidence, not visual acceptance.
+Start with [navigation](../../../docs/ai/PROJECT_INDEX.md) and `npm run export:lookup -- PAGE-ID`; inspect relevant inventory/conflict entries and actual HTML/text/JSON/SVG/images. Reuse verified reads. Scope file discovery to the exact package before expanding. Generated extraction is structural evidence, not visual acceptance.
+
+`node tools/audit-design.mjs` hashes the whole export and rewrites derived reports. Run it only for an authorized inventory refresh, not an ordinary lookup or read-only audit. Use existing reports first and report staleness without writing in read-only work.
 
 Map route/state to exact page reference, viewport, component README/preview, tokens, assets and allowed copy. Preserve all original source paths and read-only exports. Compare candidate handoff variants before choosing; never infer a selector or desktop reference from a filename.
 

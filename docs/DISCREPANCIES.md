@@ -1,5 +1,13 @@
 # Discrepancies and Alignment Log
 
+## Booking link flash — 2026-11-16
+
+DEC-061 removes the outgoing fade/cancel and transparent incoming main that caused a bright flash during booking navigation. Native booking links and opaque entry preserve current content until the next document; centered choice navigation is unchanged. [Evidence and limits](../docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md).
+
+## Owner adaptation: mobile choice navigation — 2026-11-16
+
+DEC-060 supersedes the two-part dock only for BK-01/BK-02 below 768px: remove booking and center the original icon card, without new motion or changes to other pages. [Source comparisons, checked results and baseline accessibility limits](../docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md). This adaptation does not claim pixel equality with the old two-part source or promote a future page.
+
 ## Phase 03 acceptance — 2026-11-15
 
 The owner accepted the implementation after the documented booking/device/layout/calendar review corrections (DEC-043..057) and authorized closeout only (DEC-058). [Final handoff](../docs-work/PHASE_03_CLOSEOUT_FA.md). GAP-25/26 composition and recurring alternatives are resolved by the accepted implementation and later explicit owner corrections. GAP-27 remains an intentional phase boundary: linked customer dashboards, appointment/request management and alert management are future placeholders, not completed screens. Original source gaps and unresolved OQ-01..06/OQ-08 remain; acceptance does not invent assets, real integrations or backend guarantees. Phase 04 is not started.

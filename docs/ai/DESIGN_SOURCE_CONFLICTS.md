@@ -16,6 +16,8 @@ The older blanket sentence in contract §6 and active master/alignment prompts w
 
 [Extraction](../DESIGN_SYSTEM_EXTRACTION.md), prior QA skill versus [owner review](../../docs-work/REVIEW_2026-11-12_FA.md), [sheet CSS](../../src/wwwroot/css/04-pages/booking-recurring-sheet.css). Permit only the approved mobile BK-REC01 editor with visible header. No generic scroll panels authorized.
 
+Context audit 2026-11-16: the [Phase 03 coding prompt](../../phases/PHASE_03_Customer_Booking/CODING_AGENT_PROMPT.md) still contains the older blanket prohibition. Preserve the phase package as historical scope evidence; the effective contract/root/QA exception above wins. Do not undo the accepted editor or infer permission for new nested scrollers.
+
 ## C-04 — Archived font/navigation/stack instructions
 
 [Tokens](../../design-export/design-system-v2/tokens/tokens.json), [v2 README](../../design-export/design-system-v2/README.md) versus [contract](../RIVAL_PROJECT_CONTRACT.md)/[decisions](../DECISION_LOG.md). Archive lists extra widths/weights and legacy navigation/tools. Only normal Yekan Bakh 300/400/600, local SVGs and current routes/owner decisions apply. Keep originals read-only; no archived frameworks/wallet routes.

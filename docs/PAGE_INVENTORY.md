@@ -1,5 +1,9 @@
 # Canonical Page Inventory
 
+## Mobile choice-page chrome — 2026-11-16
+
+DEC-060: BK-01/BK-02 hide the separate booking action below 768px and center the existing icon card. No route/variant or acceptance change; CUS-02 and all other contexts retain their previous behavior. [QA](../docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md).
+
 ## Current acceptance — 2026-11-15
 
 The owner accepted Phase 03 (DEC-058): CUS-02, BK-01/02, BK-F01/F02, BK-P01, BK-R01, BK-REQ01, BK-REC01, BK-ALERT01, PAY-RES and STATE-04..07, including their implemented variants. All 15 registry contexts now carry `implementationStatus=accepted` and `ownerAcceptedAt=2026-11-15`. Together with Phase 02 this is 21 accepted contexts; 52 future contexts remain placeholders. STATE-05/06/07 preserve compatibility URLs and route to their canonical payment/checkout owners; manual review controls remain independent. Earlier dated pending-review entries below are historical. [Closeout](../docs-work/PHASE_03_CLOSEOUT_FA.md). Phase 04 is unassigned and must not start.

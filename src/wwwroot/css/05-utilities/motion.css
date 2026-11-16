@@ -10,6 +10,7 @@
   [data-rv-page] > main {
     animation: rv-page-enter var(--duration-slow) var(--ease-standard) backwards;
   }
+  .rv-booking[data-rv-page] > main { animation: none; }
   .rv-sheet { animation: rv-sheet-enter var(--duration-slow) var(--ease-standard) both; }
   .rv-sheet-scrim { animation: rv-fade-enter var(--duration-base) var(--ease-standard) both; }
 

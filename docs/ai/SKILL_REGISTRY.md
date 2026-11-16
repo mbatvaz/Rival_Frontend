@@ -1,8 +1,10 @@
 # Skill registry
 
-Reviewed 2026-11-14. Repository skills live only in [.agents/skills](../../.agents/skills/); no duplicate .codex skill tree, root override or global installation was created. Local additions are original project instructions, version 1 in this Git diff, governed by repository terms; no separate license is asserted.
+Current local workflow reviewed 2026-11-16; original external evaluation dated 2026-11-14 is preserved below. Repository skills live in [.agents/skills](../../.agents/skills/); no duplicate .codex tree, override or global installation was created. Local instructions are project-authored and governed by repository terms; no separate third-party license is asserted.
 
 ## Local triggers and outputs
+
+- [rival-context](../../.agents/skills/rival-context/SKILL.md): unclear task paths/ownership, map maintenance or concise handoff. Uses the [navigation index](PROJECT_INDEX.md); unnecessary when relevant paths are already verified.
 
 - [rival-phase-runner](../../.agents/skills/rival-phase-runner/SKILL.md): assigned PHASE_01–09; scope/dependency/desktop gates and phase report. Preserves owner phase acceptance.
 - [rival-visual-qa](../../.agents/skills/rival-visual-qa/SKILL.md): changed page/shared component; browser/axe/keyboard/routes and screenshot report. Owns the common QA workflow.
@@ -17,7 +19,15 @@ Reviewed 2026-11-14. Repository skills live only in [.agents/skills](../../.agen
 
 Dependencies: existing Node tooling, Playwright/axe and exact local design sources; browser inspection tools where available. No npm/global dependencies added. Skills link to common contracts instead of embedding copies. Use only the relevant skills for a task. Frontmatter/link checks are structural, not behavioral proof.
 
-## External sources evaluated
+## Context-efficient activation — 2026-11-16
+
+Discovery uses names/descriptions; bodies load only when selected. Read relevant sections once per unchanged context, not every linked document. The root router and [index](PROJECT_INDEX.md) select inputs; the graph is derived navigation, not authority. Do not load its entire JSON into a conversation.
+
+Common UI QA belongs to rival-visual-qa. Fidelity adds exact-source analysis; responsive QA adds affected widths; debugging reproduces actual failures; motion adds lifecycle checks. Reuse valid evidence for the same revision/scope and rerun only invalidated checks. Full phase gates remain required. Source audit regenerates reports only for an authorized refresh. These changes preserve all ten previous skills and add one navigation entry point; no external skill is installed.
+
+External map/tool evaluation and validation are in the [context report](../../docs-work/CONTEXT_OPTIMIZATION_REPORT_FA.md). Local instructions are project-authored; no third-party code was copied. The following evaluation is historical evidence from 2026-11-14, not a statement of current plugin availability.
+
+## External sources evaluated — historical 2026-11-14
 
 GitHub tree fetches for five deep paths initially returned restricted-fetch errors; raw GitHub source retrieval then succeeded. Nothing was installed or copied. Revisions below refer to main as fetched on review date; exact commit SHAs were not verified, so vendoring is deliberately deferred. Unknown licenses are not inferred from repository owner. Candidate assessment does not activate an external skill.
 
