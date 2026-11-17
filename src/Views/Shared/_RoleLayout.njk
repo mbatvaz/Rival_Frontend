@@ -1,8 +1,9 @@
 {% extends "Shared/_Document.njk" %}
 {% block body %}
-  <div class="rv-workspace rv-workspace--{{ shell.role }}" data-rv-page data-rv="shell">
-    <header class="rv-workspace__header"><a href="{{ urls.home }}" aria-label="ریوال — خانه"><img src="{{ urls.logo }}" alt="ریوال" width="120" height="40"></a><span>{{ shell.label }}</span><button class="rv-icon-btn" type="button" data-rv-sheet-open="rv-more" aria-label="باز کردن منوی بیشتر"><span class="ri ri-menu" aria-hidden="true"></span></button></header>
+  <div class="rv-workspace rv-workspace--{{ shell.role }}{% block workspaceClass %}{% endblock %}" data-rv-page data-rv="shell">
+    <header class="rv-workspace__header">{% block workspaceHeader %}<a href="{{ urls.home }}" aria-label="ریوال — خانه"><img src="{{ urls.logo }}" alt="ریوال" width="120" height="40"></a><span>{{ shell.label }}</span><button class="rv-icon-btn" type="button" data-rv-sheet-open="rv-more" aria-label="باز کردن منوی بیشتر"><span class="ri ri-menu" aria-hidden="true"></span></button>{% endblock %}</header>
     <div class="rv-workspace__body">
+      {% block workspaceSidebar %}{% endblock %}
       {% include "Shared/_RoleNav.njk" %}
       <main class="rv-workspace__content" id="rv-main" tabindex="-1">{% block content %}{% endblock %}</main>
     </div>

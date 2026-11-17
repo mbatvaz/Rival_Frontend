@@ -8,7 +8,7 @@
   [data-rv-dragging] { scroll-snap-type: none; user-select: none; cursor: grabbing; }
 
   [data-rv-page] > main {
-    animation: rv-page-enter var(--duration-slow) var(--ease-standard) backwards;
+    animation: none;
   }
   .rv-booking[data-rv-page] > main { animation: none; }
   .rv-sheet { animation: rv-sheet-enter var(--duration-slow) var(--ease-standard) both; }

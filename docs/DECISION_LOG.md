@@ -1,5 +1,45 @@
 # Decision Log
 
+## DEC-071 — List entry runs on initial document load only
+
+Owner feedback on 2026-11-17 forbids entry replay after closing a portfolio popup and limits entry to the initial page load. Animate the initial visible data batch after feature initialization once; popup inertness, filtering, inserted records and bfcache restoration must not start a new sequence. Opening a modal cancels pending entry without replaying on close. This supersedes DEC-069's new/revealed-record observation while preserving DEC-070's fast RTL row order and reduced-motion/focus fallback. [Reproduction and checks](../docs-work/VARIABLE_LIST_MOTION_2026-11-17.md).
+
+## DEC-070 — Faster variable-record entry in visual row order
+
+Owner feedback on 2026-11-17 accelerates entry and changes column-wise appearance to visual row order. Use duration-base=240ms with a 170ms start step (base minus fast/2); sort visible pending records by top then right-to-left within a space-1 row tolerance. Geometry is read once per new batch, never per frame; DOM/tab order, fixed-component exclusions and reduced-motion/focus cleanup remain. [Updated motion/QA record](../docs-work/VARIABLE_LIST_MOTION_2026-11-17.md).
+
+## DEC-069 — Animate variable records only; remove page-navigation fade
+
+On 2026-11-17 the owner narrows entry motion to actual variable-count records (services, stylists, appointments, bookings, requests, notifications and available times), excluding home, fixed titles/steps, navigation and constant-count controls. Each next item starts near the preceding item's end. Remove whole-page whitening/fade during navigation and evaluate correctness and smoothness. This supersedes DEC-067/068's section-level entry and the earlier active-sidebar entry animation. Native data-list sequencing uses the existing 380ms duration and a derived 310ms step; static/reduced-motion/keyboard fallbacks remain immediate. [Implementation and measurements](../docs-work/VARIABLE_LIST_MOTION_2026-11-17.md).
+
+## DEC-068 — Reuse section entry on implemented pages and preserve mobile rail shadows
+
+On 2026-11-17 the owner extends DEC-067's entry motion to the other implemented pages and requests the customer dashboard rail-shadow clipping fix. Reuse the same local-left mobile/tablet entry and desktop fade, with explicit variable-section markers; keep headers, navigation, booking steps and fixed payment actions static. Preserve ordinary navigation and immediate reduced-motion/focus fallback. Public, authentication, booking and result templates are included; unimplemented placeholders remain unassigned. Reserve shadow space inside both customer horizontal scrollports without moving cards or replacing native horizontal scrolling. [Scope and verification](../docs-work/SHARED_SECTION_ENTRY_2026-11-17.md).
+
+## DEC-067 — Reveal customer content in sequence and expand the desktop active bar
+
+Owner feedback on 2026-11-16 replaces simultaneous customer-card fades with sequential variable-section entry: desktop opacity only; mobile/tablet a short physical-left offset fading into the section's own position. Shared header/sidebar/dock stay static. The customer desktop active background expands from the right without moving its link. Reduced motion shows final content immediately. This supersedes DEC-064's card-level entry; DEC-061's opaque booking-main navigation remains. [Motion record and QA](../docs-work/PHASE_04_SECTION_MOTION_2026-11-16.md).
+
+## DEC-066 — Simplify salon notice and adjust mobile sizing
+
+Owner feedback on 2026-11-16 removes the salon announcement clock tile at every width, narrows customer More to a 320px maximum with its small-screen gutter, and enlarges the mobile header wordmark to 90×30px below 768px. DEC-065's fixed-left drawer, internal list scrolling and breakpoint recovery remain. [Verification](../docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md).
+
+## DEC-065 — Restore customer chrome and constrain/recover the mobile More drawer
+
+Owner feedback on 2026-11-16 explicitly restores the previous home header and plain desktop menu links, moves salon notices below availability in the left support column, removes the entire customer More header row on mobile, and requires only the More list to scroll. This is a second narrow vertical-scroll exception alongside the accepted recurring editor: only `.rv-customer-more > .rv-more-list` below 1024px. Pin the overlay to the viewport/physical left with balanced standard timing and close the entire customer More stack when crossing the desktop boundary, including interrupted entry/exit and nested logout. This supersedes DEC-064's radio/header and document-scrolling drawer details; the paired cards, two payments and dock selection remain. [Cause, scope and QA](../docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md).
+
+## DEC-064 — Customer dashboard, shared navigation and left More drawer
+
+Owner element feedback and eight attached screenshots on 2026-11-16 direct: match the Phase 03 menu dimensions; use native radio selection/styles for the current desktop page; wider appointment images and shared responsive two/one-card rows; two independent payment cards below appointments on desktop and a horizontal mobile rail; stack credit/recurring/availability in that order in the desktop support column; add customer identity to the header. MORE-CUS is grouped and opens from the physical left on mobile, an explicit exception to the older all-bottom-sheet rule for this drawer only. The customer mobile dock shows the active label, slides without spring motion, then moves the icon right and reveals the label; cards fade without throwing the whole page. Preserve DEC-060's BK-01/BK-02 booking-button exception, shared sheet focus/scroll lifecycle, reduced motion, ordinary-link fallback and all product permissions. [Implementation and QA](../docs-work/PHASE_04_OWNER_FEEDBACK_2026-11-16.md).
+
+## DEC-063 — Customer dashboard desktop revision follows the prior right menu
+
+On 2026-11-16 the owner rejects the dashboard desktop presentation and directs implementation using previous desktop phases, especially the right-side navigation list, with distinct desktop card compositions instead of stretched mobile cards. This supersedes the pending horizontal-menu proposal in DEC-062 and the generic customer top-navigation preference for CUS-01. Reuse the actual Phase 03 customer menu and destinations; use compact horizontal appointment tickets, bounded payment/support cards and preserve mobile layouts. The direct instruction authorizes this revision without another approval pause; final visual/phase acceptance remains pending. [Revised brief](../docs-work/desktop-layouts/CUS-01.md).
+
+## DEC-062 — Assign Phase 04 on a new local branch
+
+On 2026-11-16 the owner explicitly assigns Phase 04 and requests a fresh local branch before implementation. Follow readable exact mobile references; if a mobile reference is missing or unreadable, ask for the owner's screenshot before inventing that screen. Existing desktop composition/review rules remain in force. This supersedes the previous unassigned status, not Phase 03 acceptance or product permissions. [Execution record](../docs-work/PHASE_04_IMPLEMENTATION_FA.md).
+
 ## DEC-061 - Remove the booking navigation flash
 
 On 2026-11-16 the owner reports a brief white flash when selecting links on the choice pages and requests removing it. Keep booking content opaque until native document navigation and remove the booking main's transparent entry; do not change the centered BK-01/BK-02 dock, layout, routes or fixture behavior. Public/other-role and sheet/viewer motion remain as before. [Cause and checked results](../docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md).

@@ -2,6 +2,7 @@ let current = null;
 const stack = [];
 let originalScroll = 0;
 let closingSheet = false;
+let closingGeneration = 0;
 const focusable = panel => [...panel.querySelectorAll('a[href],button,input,select,textarea,[tabindex]')]
   .filter(el => !el.disabled && el.tabIndex >= 0 && !el.closest('[hidden],[inert]') && el.getClientRects().length);
 
@@ -22,25 +23,30 @@ export function openSheet(id, opener = document.activeElement) {
     stack.push(current);
   }
   current = { panel, opener };
+  if (panel.classList.contains('rv-customer-more')) panel.dataset.rvDrawerMode = window.matchMedia('(min-width: 1024px)').matches ? 'desktop' : 'mobile';
   layer.hidden = false;
   panel.hidden = false;
   window.scrollTo(0, 0);
   (focusable(panel)[0] ?? panel).focus({ preventScroll: true });
 }
 
-export async function closeSheet() {
-  if (!current || closingSheet) return;
-  const closing = current;
+export async function closeSheet({ immediate = false, all = false } = {}) {
+  if (!current || (closingSheet && !immediate)) return;
+  const closing = all ? stack[0] ?? current : current;
+  const panels = all ? [...stack, current] : [current];
+  const generation = ++closingGeneration;
   closingSheet = true;
   const layer = closing.panel.parentElement;
   if (!stack.length) layer.dataset.rvClosing = 'true';
-  closing.panel.dataset.rvClosing = 'true';
-  await Promise.allSettled((closing.panel.getAnimations?.() ?? []).map(animation => animation.finished));
+  panels.forEach(({ panel }) => { panel.dataset.rvClosing = 'true'; });
+  if (immediate) panels.forEach(({ panel }) => panel.getAnimations?.().forEach(animation => animation.cancel()));
+  else await Promise.allSettled((closing.panel.getAnimations?.() ?? []).map(animation => animation.finished));
+  if (generation !== closingGeneration) return;
   delete layer.dataset.rvClosing;
-  delete closing.panel.dataset.rvClosing;
+  panels.forEach(({ panel }) => { delete panel.dataset.rvClosing; delete panel.dataset.rvDrawerMode; panel.hidden = true; });
   closingSheet = false;
-  closing.panel.hidden = true;
-  current = stack.pop() ?? null;
+  current = all ? null : stack.pop() ?? null;
+  if (all) stack.length = 0;
   if (current) {
     current.panel.hidden = false;
     (closing.opener?.isConnected ? closing.opener : current.panel).focus();
@@ -53,12 +59,16 @@ export async function closeSheet() {
     page.removeAttribute('aria-hidden');
     document.querySelector('.rv-skip-link').hidden = false;
     document.dispatchEvent(new CustomEvent('rv:sheet-close', { detail: { id: closing.panel.id } }));
-    closing.opener?.focus({ preventScroll: true });
+    const target = closing.opener?.getClientRects().length ? closing.opener : document.getElementById('rv-main');
+    target?.focus({ preventScroll: true });
     window.scrollTo(0, originalScroll);
   }
 }
 
 export function initSheets() {
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', () => {
+    if ([...stack, current].some(entry => entry?.panel.classList.contains('rv-customer-more'))) closeSheet({ immediate: true, all: true });
+  });
   document.addEventListener('click', event => {
     const open = event.target.closest('[data-rv-sheet-open]');
     if (open) openSheet(open.dataset.rvSheetOpen, open);

@@ -1,0 +1,42 @@
+@layer pages {
+  @media (min-width: 1024px) {
+    .rv-customer-home .rv-appointment-hero {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr);
+      box-shadow: var(--shadow-glass);
+    }
+    .rv-customer-home .rv-appointment-hero__media { block-size: auto; }
+    .rv-customer-home .rv-appointment-hero__media > img { position: absolute; inset: 0; }
+    .rv-customer-home .rv-appointment-hero__tag { inset-block-start: var(--space-2); inset-inline-start: var(--space-2); }
+
+    .rv-customer-home .rv-appointment-hero__panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 120px;
+      gap: var(--space-3);
+      margin: 0;
+      padding: var(--space-4);
+      border: 0;
+      border-radius: 0;
+    }
+    .rv-customer-home .rv-appointment-hero__service { grid-area: 1 / 1 / auto / 3; margin: 0; padding: 0; }
+    .rv-customer-home .rv-appointment-hero__service h2 { font-size: var(--heading-md-size); }
+    .rv-customer-home .rv-appointment-hero__when { grid-area: 2 / 1; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-3); }
+    .rv-customer-home .rv-appointment-hero__time { padding-inline-start: var(--space-3); }
+
+    .rv-customer-home .rv-appointment-hero__date > b,
+    .rv-customer-home .rv-appointment-hero__time > b { font-size: var(--display-lg-size); line-height: var(--display-lg-line); }
+    .rv-customer-home .rv-appointment-hero__date > span { font-size: var(--caption-size); }
+    .rv-customer-home .rv-appointment-countdown { gap: var(--space-1); max-inline-size: 144px; }
+    .rv-customer-home .rv-appointment-countdown > span + span::before { inset-inline-start: calc(-1 * var(--space-1)); }
+    .rv-customer-home .rv-appointment-countdown b { font-size: var(--caption-size); }
+
+    .rv-customer-home .rv-appointment-hero__actions {
+      grid-area: 2 / 2;
+      grid-template-columns: minmax(0, 1fr);
+      align-content: center;
+      margin: 0;
+    }
+    .rv-customer-home .rv-appointment-hero__actions .rv-btn { min-block-size: var(--size-touch); padding-block: var(--space-2); }
+    .rv-customer-home .rv-appointment-hero__panel > .rv-customer-reason { grid-column: 1 / -1; margin: 0; }
+  }
+}

@@ -2,7 +2,7 @@
   "ok": true,
   "demo": true,
   "data": {
-    "name": "علی رضایی",
+    "name": "رضا کریمی",
     "label": "مشتری",
     "primary": [
       {
@@ -67,6 +67,12 @@
         "href": "/booking-rules/",
         "icon": "shield"
       }
-    ]
+    ],
+    "profile": {
+      "firstName": "رضا",
+      "lastName": "کریمی",
+      "phone": "09142713840",
+      "image": "img/booking/groom.png"
+    }
   }
 }

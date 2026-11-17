@@ -30,4 +30,6 @@ Capture full pages and affected sheets/states with exact width/height/DPR after 
 
 Check RTL/wrapping/crop, no page overflow, >=44px targets, approved scroll exceptions. Run axe and keyboard-only flow, visible focus/labels, DOM order, errors/status, Escape/focus restoration, reduced motion and unsupported-feature fallback. Check image dimensions/layout shift, offscreen lazy loading, source selection and motion traces where relevant. Distinguish physical-device retest from emulation.
 
+DEC-065 adds the exact customer More-list exception to the recurring editor: at short mobile heights, wheel/touch/keyboard scroll only `.rv-customer-more > .rv-more-list`; window scroll and footer position stay fixed. Check x=0 pinning, 100dvh containment, normal/reduced motion and resizing across 1024 during entry, exit or nested logout. The stack must close, clear inert/closing state and allow reopening. [Reproduction and coverage](../../tests/phase04/more-recovery.spec.mjs).
+
 For shared changes enumerate consuming routes; cover root/subpath. Attach checked output/failures/screenshots in [visual](templates/visual-qa-report.md) and [responsive](templates/responsive-qa-report.md) reports. Failed/unavailable checks remain failed/unavailable; automated passes do not establish owner acceptance.

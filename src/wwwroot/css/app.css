@@ -62,3 +62,17 @@
 @import url("./04-pages/booking-choice-navigation.css");
 @import url("./05-utilities/motion.css");
 @import url("./05-utilities/overflow-text.css");
+@import url("./03-components/appointment-hero.css");
+@import url("./04-pages/customer-home.css");
+@import url("./04-pages/customer-home-tools.css");
+@import url("./04-pages/customer-payment.css");
+@import url("./04-pages/customer-notices.css");
+@import url("./04-pages/customer-home-desktop.css");
+@import url("./04-pages/customer-appointment-desktop.css");
+@import url("./03-components/customer-navigation.css");
+@import url("./03-components/customer-dock.css");
+@import url("./03-components/customer-more.css");
+@import url("./04-pages/customer-review-layout.css");
+@import url("./05-utilities/customer-motion.css");
+@import url("./05-utilities/section-entry.css");
+@import url("./03-components/customer-more-mobile.css");

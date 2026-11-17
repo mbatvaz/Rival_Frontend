@@ -1,0 +1,62 @@
+# Variable-record entry and navigation-flash correction
+
+## Initial load only — DEC-071
+
+Owner reported replay after closing a portfolio detail popup and explicitly restricts entry to initial page loading. The pre-fix [popup regression](../tests/phase04/entry-once.spec.mjs) reproduced 7 initial animation calls becoming 13 after one close: the old subtree observer treated inert records as hidden, removed their seen state, and scheduled them again when the page became interactive.
+
+The corrected [list module](../src/wwwroot/js/components/list-entry.js) takes one initial visible-record batch after feature initialization. There is no subtree/hidden-change observer or persisted-pageshow flush. A narrow observer of page inertness only cancels pending entry on modal open; it cannot start animations. Filtering and DOM insertion remain immediately visible with normal CSS. Pagehide cancels remaining motion; reload creates a new document and sequence. Timing, visual row order, fixed-element exclusions, canvas/shadow correction, focus and reduced-motion cleanup remain intact.
+
+Regression coverage at 390/1280px opens/closes the viewer twice, checks focus restoration and unchanged entry-call counts, changes/restores a filter without replay, then reloads and verifies a new initial sequence. The variable-count test now checks appended records do not animate. Root 16/16 and subpath 7/7 passed, including popup lifecycle, shared motion/fallback, row order, initial timing and canvas stability. Root output restored; lint/docs and whitespace checks passed. There is no visual/style change or phase acceptance in this correction; previous canvas screenshots remain representative.
+
+## Mobile page-shift correction — 2026-11-17
+
+Owner reported that the mobile page appeared shifted right until all records finished entering. A new paused-frame regression reproduced the source: portfolio document scrollWidth exceeded innerWidth by 8px during entry at 320/390px and returned to zero at completion. Clipping on body after a data hook was installed did not contain the RTL document's animated overflow. The correction in [section-entry.css](../src/wwwroot/css/05-utilities/section-entry.css) clips the stable public/booking/workspace canvas below 1024px from initial layout, rather than toggling clipping on body. No change to timing, row order, animation direction or data is needed; clip does not establish a vertical scrolling container.
+
+[Canvas regression](../tests/phase04/entry-canvas.spec.mjs) checks portfolio, booking and dashboard at 320/390/768px, with all record animations paused/sampled at 0, 80, 170, 240, 400 and 10000ms. Comparisons: transient overflow 8→0px; window.scrollX remains zero; canvas left/width and fixed-header left match the final state at every sample; final mobile card geometry and 64px shadow reservation are preserved; desktop remains outside the changed media rule. Root 24/24 checks passed, including existing public/auth responsive/axe/keyboard coverage, row-order/static-chrome tests and native-rail shadow scrolling. Fresh entry/final screenshots are under tests/screens/entry-canvas/{root,subpath}/. Subpath results are recorded after completion. This browser-emulated evidence is not a physical-mobile retest or full-phase acceptance.
+
+Completion: subpath 7/7 passed, covering the canvas samples, static consumers and shadow/keyboard rails. Root output restored. Entry/final 390px portfolio screenshots were opened for comparison; document and static chrome remain aligned while the individual card enters. Lint/docs/build and whitespace checks passed.
+
+## Latest follow-up — DEC-070
+
+The owner subsequently requested faster entry and row-by-row rather than column-by-column order. Current timings are duration-base=240ms and 170ms start spacing, replacing the historical 380/310ms values below. Each newly entering batch is measured once, sorted by top position and physical-right edge within space-1=4px row tolerance, then animated. This preserves DOM/tab order and handles nested portfolio columns without completing one column before the next. Initial root eight-check run passed; the added portfolio regression verifies visual RTL row order differs from DOM column order. Final subpath and refreshed performance results follow after completion.
+
+The interrupted preview investigation was also completed: [dev runner](../tools/dev.mjs) replaces nested npm invocation, [option parser](../tools/lib/preview-options.mjs) accepts CLI host/port before HOST/PORT environment defaults, and [server](../tools/serve-static.mjs) uses the parsed host/port with a useful EACCES/EADDRINUSE suggestion. Default 4173 remains backward compatible; explicit 8183 avoids this machine's reserved Windows range. [CLI tests](../tools/tests/preview-cli.test.mjs) passed 2/2, including a real build/start/fetch on an ephemeral port. No production UI/backend/runtime dependencies were added. Setup instructions include the corrected npm command.
+
+DEC-070 completion: root speed/static checks passed 8/8; the visual row-order regression passed after selecting the actual two-column mobile layout (desktop portfolio uses a flat grid, so its DOM order already matches rows). Subpath speed/static checks passed 8 cases; that same fixture-selection assertion was the remaining failed case before correction, not a production sort failure. The focused corrected row test then passed at root and subpath. Repeated isolated frame sampling with the new 240/170ms timing passed 2/2: mobile and desktop p95 16.8ms, maximum 16.8ms, no long tasks and CLS=0; reduced-motion baseline p95 16.7ms. Lint/docs/build passed and root output was restored. The actual npm dev invocation now forwards flags without npm warnings; a duplicate start found 8183 already occupied, and HTTP GET to its customer route confirmed 200 with the Rival dashboard title. Existing service was preserved.
+
+## Authority and source boundary
+
+DEC-069 is the latest owner instruction: only actual variable-count records enter, each next item near the preceding item's end; home and static components stay still, navigation must not whiten/fade the page, and smoothness must be evaluated. This supersedes the earlier section-level entry implementation and active-sidebar entry. Existing mobile layouts/assets and desktop compositions remain the source; no page, product fixture or permission rule is added.
+
+## Implementation and motion record
+
+[List entry](../src/wwwroot/js/components/list-entry.js) is initialized once after feature data/filter rendering through [app.js](../src/wwwroot/js/app.js). It targets actual service/stylist cards, quick bookings, customer appointment/payment records, recurring/group booking rows, requested-package services, nearest-time and time-slot choices, portfolio records outside home, and customer notice records. No future placeholder page is implemented. All old data-rv-entry section hooks are removed. Fixed balance/tools, authentication, result intros/facts, title/step/menu containers and home remain static; the right-menu active background remains painted without entry animation.
+
+Each list uses its actual visible record order, without fixed count limits or nth-child buckets. Native Web Animations use duration-slow=380ms, ease-standard, and stagger = slow minus fast/2 = 310ms, so the next item starts at 81.6% of the previous duration. Desktop fades opacity 0→1; mobile/tablet also moves from physical X=-space-6 (24px) to its own position. Existing timing helpers are reused. Animated fill is backwards only; the final visual state belongs to normal CSS. No inline styles, dependency, scroll handler or per-frame production layout loop is added.
+
+Mutation observation handles added/replaced records and hidden/inert changes; text-only clock changes are ignored. New arrivals join after the currently queued records rather than overlapping from zero. Hidden/disconnected records are canceled. Already seen records do not replay because unrelated content changes. Keyboard focus cancels that item's wait immediately. Reduced-motion and desktop-boundary changes cancel current animations. Pagehide cancels and disconnects observation; persisted pageshow resumes observation without replaying existing records. Missing Web Animations leaves static content usable; missing MutationObserver still permits initial entry. There is no timer waiting for navigation.
+
+[Navigation motion](../src/wwwroot/js/components/navigation-motion.js) now only coordinates the existing mobile dock selection. The previous whole-main opacity 1→0.35 route exit is deleted for ordinary links. Main/header/menu stay opaque during local navigation; the no-flash booking behavior is preserved.
+
+## Correctness and visual comparisons
+
+1. Home has no list-entry calls, and its hero/static content no longer participates in entry. Existing functional carousel/step demonstrations are separate accepted interactions.
+2. Services and stylists animate individual cards; heading, steps and sidebar have no list animation, unlike the superseded animated rail/section wrapper.
+3. Appointment/payment entries are individual records; section titles, balance/tools and shell stay static. The accepted 64px rail shadow reservation/native horizontal scrolling is preserved.
+4. Time and nearest-time labels are sequenced as records, while the calendar/date-picker container and page title remain fixed.
+5. Public/auth/result static wrappers no longer fade on entry or exit. Reduced motion and missing animation API show usable static content immediately; focused delayed cards are revealed without waiting.
+6. Tests append 12 additional service records and verify constant 310ms spacing without a fixed-count cutoff, plus focus/reduced-motion cancellation. Existing auth, booking, More recovery, navigation, axe and responsive tests validate affected consumers.
+
+Fresh entry/final screenshots are under tests/screens/list-entry/{root,subpath}/ at DPR 1 and 390/768/1280px; the cross-route static checks retain tests/screens/shared-entry/. Initial failures in new assertions were asynchronous media-query event delivery and the existing guest booking→login redirect, corrected in the tests without changing product routing.
+
+## Smoothness evaluation
+
+Budget established before sampling: normal-motion p95 frame interval <=34ms or <=1.5× the reduced-motion baseline when that baseline is slower, and zero motion-induced layout shift. [Performance test](../tests/phase04/list-entry-performance.spec.mjs) runs alone with one worker, sampling requestAnimationFrame intervals, Long Tasks and Layout Shift over 1.8 seconds after ready in Chromium. It compares normal entry against reduced motion on the same local machine, with 390×900 and 1280×900 viewport emulation. Production animation properties are transform/opacity only; the test does not stand in for physical-device GPU testing.
+
+Measured results: 390px normal p95 16.8ms, maximum 16.8ms, 108 frame intervals; reduced baseline p95 16.8ms. At 1280px normal p95 16.7ms, maximum 16.8ms, 109 frame intervals; baseline p95 16.7ms. Both samples recorded zero long tasks and CLS=0. Both performance tests passed. No universal FPS/real-phone performance claim is made. Measurements are also attached as JSON to the Playwright results.
+
+## Checks
+
+Root focused runs passed: 17 unaffected/shared motion and owner-feedback checks, 8 updated list/static-route/shadow checks, and 43 home/auth/booking/choice-navigation/More/sidebar regressions. The isolated performance run passed 2/2. Build and lint pass. Current Windows port reservations required the existing test-port override; preview infrastructure/OS configuration was not changed. Final subpath and screenshot observations are appended after completion. This is not full-phase acceptance.
+
+Final subpath run: 79 passed out of 80; the remaining mobile-geometry assertion compared 322px with the native translated rectangle's 322.000015px using strict equality. It now uses 0.01px precision and its focused subpath rerun passed. No production geometry change was needed. Root output restored. Fresh subpath 390/1280 entry screenshots were opened: the first two service records are visible while later records are still waiting; titles, step bar and menu remain fully painted. The final customer mobile capture preserves hero overlap, payment rails and tapered shadows with static balance/tools. Public responsive/axe/keyboard and all other subpath checks passed. Lint, docs and project-map verification completed after the correction.

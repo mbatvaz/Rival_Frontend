@@ -1,0 +1,81 @@
+@layer pages {
+  .rv-customer-payment {
+    display: grid;
+    gap: var(--space-4);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+  }
+  .rv-customer-payment__service { display: flex; align-items: center; gap: var(--space-3); }
+
+  .rv-customer-payment__service > img {
+    flex: none;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    object-position: center 25%;
+  }
+  .rv-customer-payment__service h3 { font-size: var(--heading-lg-size); line-height: var(--heading-lg-line); font-weight: 600; }
+
+  .rv-customer-payment__service p {
+    font-size: var(--body-size);
+    line-height: var(--body-sm-line);
+    font-weight: 300;
+    color: var(--text-secondary);
+  }
+
+  .rv-customer-payment__hold > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-1);
+  }
+
+  .rv-customer-payment__hold > div > span:last-child {
+    font-size: var(--caption-size);
+    line-height: var(--caption-line);
+    font-weight: 300;
+    color: var(--text-secondary);
+  }
+  .rv-customer-payment__hold bdi { font-size: var(--body-size); font-weight: 400; color: var(--text-primary); }
+
+  .rv-customer-payment__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    border: 1px solid var(--warning-line);
+    border-radius: var(--radius-pill);
+    padding: 0 var(--space-2);
+    background: var(--warning-bg);
+    color: var(--warning-fg);
+    font-size: var(--tag-size);
+    line-height: var(--tag-line);
+  }
+  .rv-customer-payment__badge .ri { inline-size: var(--space-4); block-size: var(--space-4); }
+
+  .rv-customer-payment__hold progress {
+    appearance: none;
+    inline-size: 100%;
+    block-size: 6px;
+    margin-block-start: var(--space-2);
+    border: 0;
+    border-radius: var(--radius-pill);
+    overflow: clip;
+    background: var(--chrome-300);
+  }
+  .rv-customer-payment__hold progress::-webkit-progress-bar { background: var(--chrome-300); }
+  .rv-customer-payment__hold progress::-webkit-progress-value { background: var(--warning-solid); border-radius: var(--radius-pill); }
+  .rv-customer-payment__hold progress::-moz-progress-bar { background: var(--warning-solid); border-radius: var(--radius-pill); }
+
+  .rv-customer-payment__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding-block-start: var(--space-3);
+    border-block-start: 1px solid var(--line-hairline);
+  }
+  .rv-customer-payment__footer p { font-size: var(--body-sm-size); font-weight: 300; color: var(--text-secondary); }
+  .rv-customer-payment__footer b { font-size: var(--heading-lg-size); font-weight: 400; color: var(--text-primary); }
+  .rv-customer-payment__pay { background: var(--accent-solid); }
+}

@@ -1,5 +1,59 @@
 # Rival Progress
 
+## Initial-load-only record entry — 2026-11-17
+
+DEC-071 removes list-animation replay on popup close, filter changes and inserted records. Initial data enters once per document; modal opening cancels pending entry, while reloading starts a fresh sequence. The pre-fix portfolio regression reproduced 7 initial calls becoming 13 after closing its viewer; corrected root lifecycle/motion/canvas checks passed 16/16. [Scope and verification](docs-work/VARIABLE_LIST_MOTION_2026-11-17.md). Phase acceptance is unchanged.
+
+## Mobile entry canvas stability — 2026-11-17
+
+Reproduced a transient 8px document overflow in mobile portfolio entry. Replaced late body-level clipping with stable public/booking/workspace canvas clipping below 1024px. Per-item motion and native rails remain intact; root 24/24 responsive, axe, motion and canvas checks passed. [Cause and frame-by-frame evidence](docs-work/VARIABLE_LIST_MOTION_2026-11-17.md). Phase acceptance remains unchanged.
+
+## Faster row-order motion and preview CLI — 2026-11-17
+
+DEC-070 uses 240ms entry and 170ms staggering in visual RTL row order, preserving static chrome and native data-list behavior. The preview dev command now forwards --host/--port directly through a Node build/start wrapper; the static server parses/validates CLI values with environment fallback and actionable port errors. [Motion/measurements](docs-work/VARIABLE_LIST_MOTION_2026-11-17.md) and [preview command](README_START_HERE_FA.md). No OS port reservations or unrelated approval data were changed.
+
+## Variable-record motion correction — 2026-11-17
+
+DEC-069 replaces section entry with per-record list sequencing; home, titles, steps, right navigation, balance/tools, auth forms and result facts stay static. Whole-main route fading is removed. New/revealed records join their list sequence, focus/reduced motion cancels entry, and detached records are cleaned up. [Scope, tests and frame-pacing measurements](docs-work/VARIABLE_LIST_MOTION_2026-11-17.md). Phase 04 remains in progress.
+
+## Shared section entry and customer rail shadows — 2026-11-17
+
+DEC-068 extends entry motion to implemented public/auth/booking/result templates through explicit variable-section hooks. Shared headers, navigation, booking steps and fixed payment actions remain static. Customer mobile rails reserve full shadow space without changing card positions or native scrolling. [Implementation and actual checks](docs-work/SHARED_SECTION_ENTRY_2026-11-17.md). No placeholder implementation or phase acceptance is included.
+
+## Customer section entry motion — 2026-11-16
+
+DEC-067 implements the owner's desktop active-bar expansion and staggered home variable sections: desktop fade, mobile/tablet local-left fade/slide. Shared chrome stays static; reduced motion is immediate. [Scope, timing and verification](docs-work/PHASE_04_SECTION_MOTION_2026-11-16.md). Phase 04 remains in progress.
+
+## Customer desktop canvas and sidebar alignment — 2026-11-16
+
+Fixed the capped gradient exposing side seams beyond 1600px and the dashboard's extra 24px horizontal inset moving the shared sidebar relative to booking. Existing composition/mobile scope preserved. The actual navigation regression failed before the fix, then root 39/39 and subpath 39/39 passed, including 1024–2560px alignment, current home states, axe/keyboard, drawer recovery and dock behavior. [Cause, source comparisons and checks](docs-work/PHASE_04_SHELL_ALIGNMENT_2026-11-16.md). Phase 04 remains in progress.
+
+## Customer sizing follow-up — 2026-11-16
+
+DEC-066 removes the salon notice clock tile, caps More at 320px and enlarges the mobile wordmark to 90×30px. Build/lint passed; focused home/recovery checks passed root 19/19 and subpath 19/19. Fresh mobile, desktop and drawer screenshots were inspected. Phase 04 remains in progress. [Evidence](docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md).
+
+## Customer chrome restoration and More recovery — 2026-11-16
+
+DEC-065 restores the previous dashboard header/plain desktop links, moves salon notices below the left support tools, hides the mobile More header and constrains scrolling to its list. More is pinned to the viewport/physical left with 240ms standard timing. The existing Sheet lifecycle now dismisses the customer More stack on breakpoint crossing, including interrupted animation/nested logout; inert/focus/scroll are restored. The precise More-list scroll exception is owner-authorized and narrowly allowed in structure lint. [Reproduction, current scope, comparisons and checks](docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md). Existing paired cards, payment data, dock motion and manual approvals are preserved; Phase 04 remains in progress.
+
+Final scoped QA: build/lint/whitespace passed; root 74/74 and subpath 74/74 passed, including scroll/resize recovery and affected shared consumers. Root output restored; fresh screenshots and six comparisons recorded. This is not full-phase acceptance or a physical-device retest.
+
+## Phase 04 owner element feedback — 2026-11-16
+
+DEC-064 implements the supplied More/dock screenshots and selected-element corrections: Phase 03-sized native-radio desktop navigation, responsive two/one-card appointment/payment grids, two independent payment entries and mobile payment rail, stacked credit/recurring/availability, shared identity header, grouped left-opening customer More and staged non-spring dock selection. Card entry fades without translating main. [Sources, motion contract, comparisons and QA](docs-work/PHASE_04_OWNER_FEEDBACK_2026-11-16.md). Current phase remains in progress; prior acceptance and concurrent manual review data are preserved.
+
+Validation: build/lint passed; related subpath suite 66/66, final root owner-feedback suite 9/9, and additional subpath fallback/card checks 3/3 passed. The broad root run's stale global input-count assertion was scoped to the actual booking main and its focused booking/feedback rerun passed 12/12. Fresh desktop/mobile/drawer screenshots and seven comparisons are recorded; root deployment output restored. Full-phase acceptance remains pending.
+
+## Phase 04 desktop revision — 2026-11-16
+
+DEC-063 directs the customer dashboard redesign using previous desktop phases and the right navigation list. Booking and home now share one customer desktop menu; CUS-01 has horizontal appointment tickets, bounded payment/support cards, and a separate empty-state composition from 1024px. Mobile/tablet remain source-based. The previous pending horizontal-menu proposal is superseded by the direct owner instruction; this is not Phase 04 acceptance. [Revised brief](docs-work/desktop-layouts/CUS-01.md) and [scope/QA](docs-work/PHASE_04_IMPLEMENTATION_FA.md). Existing unrelated/manual approval changes remain preserved.
+
+Validation: build/lint passed; Phase 04 root 18/18 and related subpath 35/35 passed. Additional desktop/shared accessibility/motion checks passed after updating the stale desktop menu-name expectation; the corrected booking-action check passed in both modes. Fresh screenshots and six visual comparisons are recorded. Final output uses root basePath; this is a scoped revision, not full-phase closeout.
+
+## Phase 04 assignment and first implementation — 2026-11-16
+
+Owner explicitly starts Phase 04 on a new local branch (DEC-062), superseding earlier unassigned notes. `phase/04-customer-panel` was created from clean, synchronized master. The first slice implements CUS-01 default/empty/inactive and embedded CUS-07 balance from exact Batch 3 artboards, reusing shared role navigation, More/logout sheets and rail behavior. [Scope, source comparisons, verification and remaining work](docs-work/PHASE_04_IMPLEMENTATION_FA.md). Desktop brief awaits owner review; remaining Phase 04 pages are still placeholders. No Phase 04 acceptance or Phase 05 start. Concurrent manual review approval edits are preserved.
+
 ## Booking navigation flash correction — 2026-11-16
 
 Owner reports a bright flash when selecting choice-page links (DEC-061). Booking anchors now use native navigation without the outgoing 1→0.35 fade; booking main content has no transparent entry. The centered choice dock and product data/routes remain unchanged. [Cause, first-frame checks and results](docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md). Root targeted choice/flash/booking/shared-motion **19/19** passed; first-frame opacity=1, no JS exit fade, Back and reduced motion checked at 390/1280. No phase assignment or acceptance change.

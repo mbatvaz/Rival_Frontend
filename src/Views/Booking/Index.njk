@@ -8,13 +8,7 @@
       {% if shell %}{% include "Shared/_RoleNav.njk" %}{% endif %}
     </div>
     {% if shell %}
-    <nav class="rv-booking-desktop-only rv-booking-sidebar" aria-label="منوی مشتری">
-      <a class="rv-booking-mast__logo" href="{{ productUrls.panel }}"><img src="{{ basePath }}img/rival-logo.png" alt="ریوال، حساب مشتری"></a>
-      {% for item in shell.primary %}<a href="{{ item.href }}"><span class="ri ri-{{ item.icon }}" aria-hidden="true"></span>{{ item.title }}</a>{% endfor %}
-      {% for item in shell.more %}<a href="{{ item.href }}"><span class="ri ri-{{ item.icon }}" aria-hidden="true"></span>{{ item.title }}</a>{% endfor %}
-      <a class="rv-btn" href="{{ shell.book.href }}"><span class="ri ri-calendar-plus" aria-hidden="true"></span>رزرو نوبت</a>
-      <button class="rv-btn rv-btn--danger" type="button" data-rv-sheet-open="rv-logout">خروج از حساب</button>
-    </nav>
+    {% include "Shared/_CustomerDesktopNav.njk" %}
     {% endif %}
   </div>
   <header class="rv-booking__top">

@@ -1,5 +1,21 @@
 # Open Questions / Decision Gates
 
+## Customer More correction — 2026-11-16
+
+DEC-065 explicitly replaces the prior radio/profile-header request and authorizes list-only scrolling inside mobile customer More. No confirmation is needed for this scoped exception. The desktop/mobile resize bug is reproduced and fixed through the shared Sheet lifecycle. Existing product OQ defaults remain unchanged. [Evidence](../docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md).
+
+## Owner feedback resolves current chrome details — 2026-11-16
+
+DEC-064 supplies the exact More/dock references, explicitly requests the left mobile customer drawer, identity header and radio selection, and specifies responsive card grouping. These presentation details need no further clarification. OQ-01..06/OQ-08 remain unchanged; no permission or financial policy is invented. [Evidence](../docs-work/PHASE_04_OWNER_FEEDBACK_2026-11-16.md).
+
+## Desktop proposal superseded — 2026-11-16
+
+DEC-063 directs CUS-01 to use the existing Phase 03 right-hand menu and distinct desktop card compositions. This directly authorizes replacing the pending horizontal-menu proposal; no repeated approval question is required. Final visual review remains pending and OQ-01..06/OQ-08 remain unchanged. [Revised brief](../docs-work/desktop-layouts/CUS-01.md).
+
+## Phase 04 assignment — 2026-11-16
+
+DEC-062 explicitly assigns Phase 04; earlier unassigned statements are historical. Exact CUS-01 mobile sources are readable and rendered; no replacement screenshot is needed for this slice. Any later missing/unreadable mobile source requires asking the owner for its screenshot before inventing a page. [CUS-01 desktop proposal](../docs-work/desktop-layouts/CUS-01.md) awaits owner review under DEC-027. OQ-01..06/OQ-08 keep their existing defaults; no product permission/money decision is changed. [Current scope and next work](../docs-work/PHASE_04_IMPLEMENTATION_FA.md).
+
 ## Phase 03 acceptance — 2026-11-15
 
 The owner accepted Phase 03 and authorized closeout only (DEC-058). [Handoff](../docs-work/PHASE_03_CLOSEOUT_FA.md). Acceptance introduces no business/permission/money decision and does not close OQ-01..06, OQ-08 or the unresolved bottom-navigation wording below. Preserve their existing conservative defaults. Phase 04 remains unassigned and must not start.

@@ -1,0 +1,41 @@
+{% extends "Shared/_RoleLayout.njk" %}
+{% block workspaceClass %} rv-customer-home{% endblock %}
+{% block workspaceSidebar %}{% include "Shared/_CustomerDesktopNav.njk" %}{% endblock %}
+{% block workspaceHeader %}
+<a href="{{ productUrls.panel }}" aria-label="ریوال — خانهٔ مشتری"><img src="{{ urls.logo }}" alt="ریوال" width="90" height="30"></a>
+<div class="rv-customer-home__desktop-heading"><strong>{{ page.titleFa }}</strong><span>{{ shell.name }}</span></div>
+<a class="rv-icon-btn rv-customer-home__bell" href="{{ customerUrls['CUS-09'] }}" aria-label="اعلان‌ها، ۱ خوانده‌نشده"><span class="ri ri-bell" aria-hidden="true"></span><span aria-hidden="true"></span></a>
+{% endblock %}
+{% block content %}
+<div class="rv-customer-home__content" data-rv="customer-home">
+  <p class="rv-feedback rv-feedback--error" data-rv-home-error role="alert" hidden></p>
+  <section class="rv-customer-notice rv-customer-notice--inactive" aria-labelledby="rv-inactive-title" data-rv-home-inactive hidden>
+    <span class="ri ri-lock" aria-hidden="true"></span>
+    <div><h2 id="rv-inactive-title">{{ model.inactive.title }}</h2><p>{{ model.inactive.text }}</p><a class="rv-text-link" href="{{ model.phone }}"><span class="ri ri-phone" aria-hidden="true"></span>تماس با سالن</a></div>
+  </section>
+  <section class="rv-customer-notice rv-glass rv-glass--strong" data-rv-home-personal data-rv-home-dismissable="{{ model.personal.id }}" aria-labelledby="rv-personal-title">
+    <span class="rv-icon-tile rv-customer-notice__icon"><span class="ri ri-calendar-clock" aria-hidden="true"></span></span>
+    <div><h2 id="rv-personal-title">{{ model.personal.title }}</h2><p>{{ model.personal.text }}</p></div>
+    <button class="rv-customer-dismiss" type="button" data-rv-home-dismiss="{{ model.personal.id }}" aria-label="بستن این اعلان"><span class="ri ri-x" aria-hidden="true"></span></button>
+  </section>
+  <div class="rv-customer-dashboard">
+  <section class="rv-customer-home__next" aria-labelledby="rv-next-title">
+    <div class="rv-section-head"><h1 id="rv-next-title">{{ model.title }}</h1><span class="rv-muted" data-rv-home-counter>۱ از ۲</span></div>
+    <div class="rv-appointment-rail" role="list" aria-label="نوبت‌های پیش رو" data-rv-home-appointments data-rv-drag-rail tabindex="0">
+      {% for appointment in model.appointments %}{% include "Shared/Components/_AppointmentHero.njk" %}{% endfor %}
+    </div>
+    <div class="rv-slide-dots" aria-hidden="true" data-rv-home-pager>{% for appointment in model.appointments %}<span data-rv-home-dot="{{ appointment.id }}"{% if loop.first %} data-rv-active="true"{% endif %}></span>{% endfor %}</div>
+    <div class="rv-customer-empty rv-glass rv-glass--strong" data-rv-home-empty hidden><span class="rv-customer-empty__icon"><span class="ri ri-calendar" aria-hidden="true"></span></span><h2>{{ model.empty.title }}</h2><p>{{ model.empty.text }}</p></div>
+  </section>
+  {% include "Customer/Home/_Payment.njk" %}
+  <div class="rv-customer-dashboard__support">
+  {% include "Customer/Home/_Tools.njk" %}
+  <section class="rv-customer-home__announcements" aria-labelledby="rv-announcements-title" data-rv-home-dismissable="{{ model.announcement.id }}">
+    <div class="rv-section-head"><h2 id="rv-announcements-title">اطلاعیه‌های سالن</h2></div>
+    <div class="rv-customer-announcement"><div><h3>{{ model.announcement.title }}</h3><p>{{ model.announcement.text }}</p><small>{{ model.announcement.date }}</small></div><button class="rv-customer-dismiss" type="button" data-rv-home-dismiss="{{ model.announcement.id }}" aria-label="بستن این اطلاعیه"><span class="ri ri-x" aria-hidden="true"></span></button></div>
+  </section>
+  </div>
+  </div>
+  <p class="rv-sr-only" role="status" data-rv-home-status></p>
+</div>
+{% endblock %}

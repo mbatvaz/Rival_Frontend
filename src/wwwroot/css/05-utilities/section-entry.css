@@ -1,0 +1,7 @@
+@layer utilities {
+  @media not all and (min-width: 1024px) {
+    .rv-public,
+    .rv-booking,
+    .rv-workspace { overflow-x: clip; }
+  }
+}

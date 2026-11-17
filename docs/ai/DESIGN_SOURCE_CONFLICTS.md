@@ -2,6 +2,18 @@
 
 Reviewed 2026-11-14. Latest owner instruction controls scope. Exact page evidence governs design within verified architecture and confirmed product decisions.
 
+## C-17 — More-list scrolling is now explicitly authorized; radio/header request reversed
+
+DEC-065 directly overrides DEC-064's desktop radios/profile header and its document-scrolling More. Restore ordinary links and the previous home header, move salon notices under the left tools, hide the mobile More header and allow vertical scrolling only in its direct list. Structure lint permits that exact selector/file alongside the existing recurring editor; no general scroll exemption is added. [Cause, evidence and focused resize/scroll checks](../../docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md).
+
+## C-16 — Owner More/dock references supersede generic bottom-sheet and anonymous-header rules
+
+DEC-064 explicitly requests the provided MORE-CUS left drawer and grouped options, active-label staged dock motion and profile/name/phone in the customer header. The old all-bottom-sheet description and Navigation README's identity-only-in-More statement do not govern this assigned correction. Keep other-role More, confirmation sheets and the accepted PortfolioViewer exception unchanged; reuse Sheet lifecycle and the route-motion owner. [Sources, comparisons and tests](../../docs-work/PHASE_04_OWNER_FEEDBACK_2026-11-16.md).
+
+## C-15 — Implementation Phase 04 versus historical product-phase numbering
+
+The current [implementation package](../../phases/PHASE_04_Customer_Panel/README.md) assigns Customer Panel, but [its linked historical handoff](../references/phases/Rival_Phase_04_AI_Handoff.md) is titled nonfunctional requirements. Use the current package for scope, [Batch 3](../references/design/Rival_Design_Batch_03_Customer_Panel.md) and exact final CUS artboards for page rules, and confirmed decisions for product invariants. Do not implement infrastructure/NFR projects or assume that the historical next phase is authorized. DEC-062 starts only current Customer Panel. [Task selections and deviations](../../docs-work/PHASE_04_IMPLEMENTATION_FA.md).
+
 ## C-01 — ASP.NET description versus current source
 
 Owner attachment versus [contract](../RIVAL_PROJECT_CONTRACT.md), [package](../../package.json), [Views](../../src/Views/). No csproj/cshtml/Areas or .NET build exists. Preserve build-time Nunjucks/native CSS/modules and Razor mapping. The attachment asks to detect/preserve the real stack; do not create a backend.

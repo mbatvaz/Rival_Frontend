@@ -1,5 +1,21 @@
 # Traceability Contract
 
+## Customer More recovery and restored chrome — 2026-11-16
+
+DEC-065 → [plain shared desktop menu](../src/Views/Shared/_CustomerDesktopNav.njk), [restored home header](../src/Views/Customer/Home/Index.njk), [support-column composition](../src/wwwroot/css/04-pages/customer-review-layout.css), [viewport/list-scrolling More](../src/wwwroot/css/03-components/customer-more-mobile.css) and [shared Sheet interruption cleanup](../src/wwwroot/js/components/sheet.js) → [reproduction/regression](../tests/phase04/more-recovery.spec.mjs), existing customer/shell/booking/motion/root/subpath tests → [actual evidence](../docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md). Prior radio/header decisions below are superseded; no role, money or backend permission changes.
+
+## Customer owner feedback — 2026-11-16
+
+DEC-064 and supplied More/dock screenshots → [shared native navigation](../src/Views/Shared/_CustomerDesktopNav.njk), [customer identity](../src/Views/Shared/_CustomerIdentity.njk), [More](../src/Views/Shared/_MoreDrawer.njk), [dock motion](../src/wwwroot/js/components/customer-dock.js), [responsive cards](../src/wwwroot/css/04-pages/customer-review-layout.css) and CUS-05's second pending-payment example → [owner-feedback regression](../tests/phase04/owner-feedback.spec.mjs) plus booking/shell/motion/axe/root/subpath checks. [Evidence](../docs-work/PHASE_04_OWNER_FEEDBACK_2026-11-16.md). Actual radios replace desktop-only page selection; fallback hrefs remain in static HTML. No financial/backend authorization is introduced.
+
+## CUS-01 desktop revision — 2026-11-16
+
+DEC-063 → [revised desktop brief](../docs-work/desktop-layouts/CUS-01.md), accepted booking menu → [shared menu partial](../src/Views/Shared/_CustomerDesktopNav.njk) reused by booking/home, [desktop composition](../src/wwwroot/css/04-pages/customer-home-desktop.css) and [appointment ticket layout](../src/wwwroot/css/04-pages/customer-appointment-desktop.css) → [desktop geometry, state, menu and keyboard tests](../tests/phase04/desktop.spec.mjs), mobile home/booking/choice/shared-shell regressions. [Actual results and comparisons](../docs-work/PHASE_04_IMPLEMENTATION_FA.md). Same source copy/data/routes; no permission or backend change.
+
+## Phase 04 first slice — 2026-11-16
+
+DEC-062 → Batch 3 CUS-01-A/EMPTY/INACTIVE and AppointmentHero/ScreensCustomer → [home template](../src/Views/Customer/Home/Index.njk), [canonical hero](../src/Views/Shared/Components/_AppointmentHero.njk), [fixture](../src/MockData/customer/home.json), [home feature](../src/wwwroot/js/features/customer/home.js) and existing shell/sheet/rail owners → [state, timer, readonly, keyboard, responsive and axe tests](../tests/phase04/home.spec.mjs). CUS-07 is only the embedded balance in [tools partial](../src/Views/Customer/Home/_Tools.njk). [Sources, comparisons and remaining phase work](../docs-work/PHASE_04_IMPLEMENTATION_FA.md); [desktop proposal](../docs-work/desktop-layouts/CUS-01.md) awaits review. No backend authorization or finance implementation is claimed.
+
 ## Booking flash correction — 2026-11-16
 
 DEC-061 → [booking-link fade bypass](../src/wwwroot/js/components/navigation-motion.js) and [opaque booking entry](../src/wwwroot/css/05-utilities/motion.css) → [first-frame and real navigation regression](../tests/phase03/choice-navigation-flash.spec.mjs), choice-layout/booking/shared-motion tests → [report](../docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md). No route/data/acceptance changes.

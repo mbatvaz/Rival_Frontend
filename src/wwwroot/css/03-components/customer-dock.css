@@ -1,0 +1,92 @@
+@layer utilities {
+  @media not all and (min-width: 1024px) {
+    [data-rv-customer-dock] {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 60px;
+      gap: var(--space-2);
+      inset-inline: var(--space-2);
+      padding: 0;
+      background: none;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+    [data-rv-customer-dock]::before { display: none; }
+
+    .rv-customer-dock__tabs {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      align-items: stretch;
+      min-inline-size: 0;
+      padding: var(--space-1);
+      border-radius: var(--radius-pill);
+      background: var(--glass-fill-strong);
+      border: 1px solid var(--glass-edge);
+      box-shadow: var(--shadow-glass);
+      backdrop-filter: blur(var(--blur-glass));
+    }
+
+    [data-rv-customer-dock] .rv-customer-dock__tabs > :is(a, button) {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex: 1 1 0;
+      flex-direction: row;
+      gap: var(--space-1);
+      min-inline-size: var(--size-touch);
+      min-block-size: calc(var(--size-control) - 2px);
+      padding: 0;
+      background: none;
+      box-shadow: none;
+      transition: none;
+      border-radius: var(--radius-pill);
+      transform: none;
+    }
+    [data-rv-customer-dock] .rv-customer-dock__tabs > [data-rv-nav-active="true"] { flex: 0 0 auto; padding-inline: var(--space-2); color: var(--text-inverse); }
+
+    [data-rv-customer-dock] .rv-customer-dock__label {
+      position: absolute;
+      clip-path: inset(50%);
+      opacity: 0;
+      font-size: var(--caption-size);
+      white-space: nowrap;
+    }
+    [data-rv-customer-dock] [data-rv-nav-active="true"] .rv-customer-dock__label { position: static; clip-path: none; opacity: 1; }
+    [data-rv-customer-dock]:not([data-rv-dock-ready]) [data-rv-nav-active="true"] { background: var(--bg-inverse); }
+
+    .rv-customer-dock__indicator {
+      position: absolute;
+      inset-block: var(--space-1);
+      left: var(--rv-dock-x, 0);
+      inline-size: var(--rv-dock-width, 0);
+      border-radius: var(--radius-pill);
+      background: var(--bg-inverse);
+      pointer-events: none;
+      transform-origin: left center;
+    }
+    [data-rv-dock-ready] .rv-customer-dock__indicator { display: block; }
+
+    [data-rv-customer-dock] > .rv-role-nav__book {
+      display: flex;
+      flex-direction: row;
+      gap: var(--space-1);
+      min-block-size: 60px;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      background: var(--bg-inverse);
+      color: var(--text-inverse);
+      box-shadow: var(--shadow-md);
+    }
+    [data-rv-customer-dock] > .rv-role-nav__book[aria-disabled="true"] { background: var(--bg-plaster); color: var(--text-disabled); }
+
+    @media (min-width: 375px) {
+      [data-rv-customer-dock] { grid-template-columns: minmax(0, 1fr) 80px; inset-inline: var(--space-4); }
+    }
+
+    @media not all and (min-width: 768px) {
+      .rv-booking:is([data-rv-booking-id="BK-01"], [data-rv-booking-id="BK-02"]) [data-rv-customer-dock] { display: block; }
+      .rv-booking:is([data-rv-booking-id="BK-01"], [data-rv-booking-id="BK-02"]) [data-rv-customer-dock] > .rv-role-nav__book { display: none; }
+    }
+  }
+}

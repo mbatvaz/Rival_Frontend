@@ -182,11 +182,16 @@
       "status": "Fully Designed / reused final ref",
       "source": "Batch 3",
       "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
+      "template": "Customer/Home/Index.njk",
+      "mockData": "MockData/customer/home.json",
+      "notes": "Phase 04 CUS-01: DEC-065 restores title/plain links, puts notices below left tools, and contains customer More list scrolling with resize recovery. Paired cards/two payments/dock retained; final review pending; CUS-07 embedded.",
       "titleFa": "داشبورد مشتری",
-      "phase": "Phase 04"
+      "phase": "Phase 04",
+      "implementationStatus": "in-progress",
+      "variants": [
+        { "label": "بدون نوبت", "query": "?state=empty" },
+        { "label": "حساب غیرفعال", "query": "?state=inactive" }
+      ]
     },
     {
       "id": "CUS-02",

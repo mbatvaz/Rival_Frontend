@@ -1,5 +1,21 @@
 # Canonical Page Inventory
 
+## Customer chrome recovery — 2026-11-16
+
+DEC-065 changes existing CUS-01 chrome and shared More behavior only: restored header/links, left-column salon notice and viewport-contained list scrolling with resize dismissal. Registry contexts and acceptance remain unchanged. [Scope and QA](../docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md).
+
+## CUS-01 owner element revision — 2026-11-16
+
+DEC-064 revises the three existing home states and shared customer chrome. Two local pending-payment items reuse CUS-05 source examples; no new page/route or accepted context is added. [Scope, sources and actual checks](../docs-work/PHASE_04_OWNER_FEEDBACK_2026-11-16.md). Other Phase 04 destinations remain placeholders until their assigned implementation.
+
+## CUS-01 desktop correction — 2026-11-16
+
+DEC-063 authorizes the owner-directed desktop revision: existing Phase 03 right menu, horizontal appointment tickets and bounded supporting cards. All three CUS-01 states now have deliberate desktop compositions; mobile/tablet references and registry acceptance status remain unchanged. The former pending horizontal-menu proposal below is superseded. [Brief and scope](../docs-work/desktop-layouts/CUS-01.md).
+
+## Phase 04 starts — 2026-11-16
+
+DEC-062 assigns Phase 04, superseding earlier unassigned statements. CUS-01 now has mobile/tablet default, empty and inactive implementations under review; desktop composition is pending. CUS-07 remains an embedded balance without an independent route or financial primitives. Current registry: 21 accepted contexts, one in-progress implementation, 51 labelled placeholders. Other customer contexts retain their existing ownership/status. [Execution and gaps](../docs-work/PHASE_04_IMPLEMENTATION_FA.md).
+
 ## Mobile choice-page chrome — 2026-11-16
 
 DEC-060: BK-01/BK-02 hide the separate booking action below 768px and center the existing icon card. No route/variant or acceptance change; CUS-02 and all other contexts retain their previous behavior. [QA](../docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md).

@@ -1,5 +1,21 @@
 # Discrepancies and Alignment Log
 
+## MORE-CUS scroll, pinning and resize recovery — 2026-11-16
+
+DEC-065 supersedes DEC-064's desktop radios/profile header and document-scrolling More. The owner explicitly requests restoration and list-only mobile drawer scrolling. A root test reproduced the menu remaining visible after resize; viewport pinning and shared Sheet stack dismissal correct the cause. The exception is confined to `.rv-customer-more > .rv-more-list`. [Cause and actual checks](../docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md).
+
+## Customer shell and dashboard source corrections — 2026-11-16
+
+DEC-064 supersedes the home-specific sidebar width, single stretched desktop rows, one payment example, bottom-attached mobile customer More, hidden active dock label and anonymous home header. The owner supplies screenshots and direct placement/motion instructions. Customer More is now an explicit left-drawer exception; other overlays retain their current ownership and alignment. [Detailed comparisons and remaining verification limits](../docs-work/PHASE_04_OWNER_FEEDBACK_2026-11-16.md).
+
+## CUS-01 desktop rejection resolved in implementation — 2026-11-16
+
+DEC-063 supersedes the pending horizontal-nav proposal and wide single-column fallback. The owner explicitly requests the prior desktop right-side menu and independent card composition. The accepted booking menu becomes one shared partial; home uses horizontal appointment tickets and bounded supporting cards. Mobile card geometry and source content remain. Implementation follows this direct direction; owner visual/phase acceptance is not inferred. [Brief](../docs-work/desktop-layouts/CUS-01.md), [evidence](../docs-work/PHASE_04_IMPLEMENTATION_FA.md).
+
+## Phase 04 first slice — 2026-11-16
+
+CUS-01 uses the final Batch 3 artboards, not the historical Batch 1 explorations. The historical Phase 04 handoff describes NFR; the current implementation package assigns Customer Panel, with page rules from Batch 3 and confirmed decisions. CUS-07 is an embedded balance and must not become a wallet/finance page. Existing contact/map/recurring route corrections apply. Canonical type tokens replace isolated 44/30/17px export sizes with 40/26/16px; mobile hierarchy, photos, 322px hero, 152px media and 44px overlap are preserved. Touch targets are at least 44px. Fixed board height becomes document scrolling and viewport-fixed navigation. These are recorded deviations pending owner visual review. Desktop composition remains gated by its [proposal](../docs-work/desktop-layouts/CUS-01.md); later customer destination screens remain placeholders. [Exact sources and verification](../docs-work/PHASE_04_IMPLEMENTATION_FA.md).
+
 ## Booking link flash — 2026-11-16
 
 DEC-061 removes the outgoing fade/cancel and transparent incoming main that caused a bright flash during booking navigation. Native booking links and opaque entry preserve current content until the next document; centered choice navigation is unchanged. [Evidence and limits](../docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md).

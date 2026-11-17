@@ -9,7 +9,7 @@
   "scripts": {
     "build": "node tools/build-static.mjs",
     "preview:server": "node tools/serve-static.mjs",
-    "dev": "npm run build && npm run preview:server",
+    "dev": "node tools/dev.mjs",
     "lint:structure": "node tools/lint-structure.mjs",
     "lint:js": "eslint src/wwwroot/js preview-review tools tests playwright.config.mjs",
     "lint:css": "stylelint \"src/wwwroot/css/**/*.css\" \"preview-review/**/*.css\"",

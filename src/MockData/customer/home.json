@@ -1,0 +1,118 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "title": "نوبت‌های پیش رو",
+    "balance": 60000,
+    "phone": "tel:09141452321",
+    "personal": {
+      "id": "appointment-moved",
+      "title": "نوبت سه‌شنبه ۲۸ مهر جابه‌جا شد",
+      "text": "سینا ساعت نوبت شما را از ۱۴:۰۰ به ۱۵:۳۰ تغییر داد. یک بار می‌توانید آن را جابه‌جا یا با بازگشت کامل هزینه لغو کنید."
+    },
+    "inactive": {
+      "title": "حساب شما غیرفعال است",
+      "text": "نوبت‌ها و درخواست‌هایتان را می‌بینید، ولی رزرو، پرداخت، لغو و جابه‌جایی فعلاً ممکن نیست. برای فعال شدن دوباره با سالن تماس بگیرید.",
+      "appointmentReason": "حساب غیرفعال است؛ جابه‌جایی و لغو ممکن نیست.",
+      "paymentReason": "حساب غیرفعال است و پرداخت ممکن نیست. با پایان مهلت، زمان‌ها آزاد می‌شوند."
+    },
+    "appointments": [
+      {
+        "id": "BK-48213",
+        "service": "اصلاح سر و صورت",
+        "stylist": "امیر",
+        "image": "img/public/shave.png",
+        "avatar": "img/public/amir.png",
+        "day": "۲۳",
+        "weekday": "پنج‌شنبه",
+        "month": "مهر",
+        "time": "۱۶:۰۰",
+        "distance": "فردا",
+        "secondsUntilStart": 102828,
+        "countdown": [
+          {
+            "value": "۴۸",
+            "label": "ثانیه"
+          },
+          {
+            "value": "۳۳",
+            "label": "دقیقه"
+          },
+          {
+            "value": "۰۴",
+            "label": "ساعت"
+          },
+          {
+            "value": "۰۱",
+            "label": "روز"
+          }
+        ]
+      },
+      {
+        "id": "BK-48390",
+        "service": "اصلاح سر",
+        "stylist": "سینا",
+        "image": "img/public/classic.png",
+        "avatar": "img/booking/sina.png",
+        "day": "۲۸",
+        "weekday": "سه‌شنبه",
+        "month": "مهر",
+        "time": "۱۵:۳۰",
+        "distance": "۶ روز دیگر",
+        "secondsUntilStart": 533028,
+        "countdown": [
+          {
+            "value": "۴۸",
+            "label": "ثانیه"
+          },
+          {
+            "value": "۰۳",
+            "label": "دقیقه"
+          },
+          {
+            "value": "۰۴",
+            "label": "ساعت"
+          },
+          {
+            "value": "۰۶",
+            "label": "روز"
+          }
+        ]
+      }
+    ],
+    "announcement": {
+      "id": "salon-hours",
+      "title": "پنج‌شنبه‌ها تا ساعت ۲۰:۰۰ باز هستیم",
+      "text": "از اول آبان، یک ساعت بیشتر برای نوبت‌های عصر.",
+      "date": "۱۸ مهر"
+    },
+    "empty": {
+      "title": "هنوز نوبتی ندارید",
+      "text": "برای اولین رزرو، دکمه «رزرو» پایین صفحه را بزنید. نوبت‌هایتان همین‌جا با زمان مانده نشان داده می‌شوند."
+    },
+    "payments": [
+      {
+        "id": "RQ-2207",
+        "state": "b",
+        "service": "پکیج دامادی",
+        "description": "۳ بخش، از دوشنبه ۲۷ مهر",
+        "image": "img/booking/groom.png",
+        "amount": 490000,
+        "remainingSeconds": 5640,
+        "totalSeconds": 10800,
+        "clock": "۱:۳۴"
+      },
+      {
+        "id": "RQ-2210",
+        "state": "p-pay",
+        "service": "فیشیال",
+        "description": "با سینا، سه‌شنبه ۲۸ مهر",
+        "image": "img/public/facial.png",
+        "amount": 250000,
+        "remainingSeconds": 9660,
+        "totalSeconds": 10800,
+        "clock": "۲:۴۱"
+      }
+    ]
+  }
+}

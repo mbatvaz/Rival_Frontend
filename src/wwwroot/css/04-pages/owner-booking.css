@@ -20,7 +20,7 @@
   @media not all and (min-width: 1024px) {
     .rv-booking-days .rv-booking-day > span:first-child { font-size: var(--caption-size); }
 
-    .rv-booking--dock .rv-role-nav {
+    :is(.rv-booking--dock, .rv-customer-home) .rv-role-nav {
       isolation: isolate;
       padding: 0;
       gap: var(--space-2);
@@ -29,7 +29,7 @@
       backdrop-filter: none;
     }
 
-    .rv-booking--dock .rv-role-nav::before {
+    :is(.rv-booking--dock, .rv-customer-home) .rv-role-nav::before {
       content: "";
       position: absolute;
       inset-block: 0;
@@ -42,12 +42,12 @@
       box-shadow: var(--shadow-glass);
     }
 
-    .rv-booking--dock .rv-role-nav > :not(.rv-role-nav__book) > span:last-child {
+    :is(.rv-booking--dock, .rv-customer-home) .rv-role-nav > :not(.rv-role-nav__book) > span:last-child {
       position: absolute;
       clip-path: inset(50%);
     }
 
-    .rv-booking--dock .rv-role-nav .rv-role-nav__book {
+    :is(.rv-booking--dock, .rv-customer-home) .rv-role-nav .rv-role-nav__book {
       flex-direction: row;
       min-block-size: 60px;
       border: 2px solid var(--bg-surface);

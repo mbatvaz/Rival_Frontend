@@ -38,4 +38,6 @@ Use serialized Workflow B. One phase at a time; each phase ends with a review ga
 
 ## Current owner gate — 2026-11-15
 
+**Superseded assignment status, 2026-11-16:** the owner explicitly assigned Phase 04 (DEC-062). Work starts on local `phase/04-customer-panel`; Phase 03 remains accepted/closed. Exact mobile sources and the existing desktop review gate apply. [Current execution](../docs-work/PHASE_04_IMPLEMENTATION_FA.md). The unassigned statements below describe the earlier gate.
+
 Phases 01 and 02 are accepted. The owner explicitly accepted Phase 03 on 2026-11-15 and authorized only its completion work (DEC-058). The [Phase 03 closeout](../docs-work/PHASE_03_CLOSEOUT_FA.md) records final validation and handoff. Phase 04 is unassigned and must not start without a later explicit owner instruction. Manual review-platform approvals remain independent of phase acceptance.

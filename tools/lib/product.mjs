@@ -1,5 +1,6 @@
 import path from 'node:path';
 import { src, readJson, withBase } from './site.mjs';
+import { customerContext } from './customer.mjs';
 
 const desktopHeadings = {
   services: { title: 'چه خدمتی می‌خواهید؟', lead: 'خدمت سالن را انتخاب کنید و مراحل رزرو را ادامه دهید.' },
@@ -60,10 +61,16 @@ export async function productContext(page, basePath, pages) {
     shell = (await readJson(path.join(src, `MockData/nav.${role}.json`))).data;
     const map = item => {
       const [pathname, query] = item.href.split('?');
-      return { ...item, href: route(pathname) + (query ? '?' + query : ''), active: pathname === page.previewPath };
+      return { ...item, href: route(pathname) + (query ? '?' + query : ''), active: !query && pathname === page.previewPath };
     };
     shell = { ...shell, role, book: shell.book ? map(shell.book) : null,
       primary: shell.primary.map(map), more: shell.more.map(map) };
+    if (role === 'customer') {
+      const personal = shell.more.filter(item => !['home', 'images', 'shield'].includes(item.icon));
+      shell.moreGroups = [{ title: '', items: [personal[0], personal[1], shell.book, ...personal.slice(2)] },
+        { title: 'سالن', items: shell.more.filter(item => ['home', 'images', 'shield'].includes(item.icon)) }];
+      shell.moreActive = shell.more.some(item => item.active);
+    }
   }
   let booking = {};
   if (page.phase === 'Phase 03') {
@@ -93,6 +100,7 @@ export async function productContext(page, basePath, pages) {
   }
   return {
     ...booking,
+    ...await customerContext(page, basePath, pages),
     shell,
     publicTitle: page.id === 'PUB-01' ? '' : page.titleFa,
     publicPage: page.id.startsWith('PUB-'),

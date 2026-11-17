@@ -66,7 +66,7 @@ test('Proposed selection and compound request reach distinct results without che
   await page.locator('[data-rv-service-choice="groom"]').click();
   await ready(page);
   await expect(page.locator('.rv-booking-package li')).toHaveCount(3);
-  await expect(page.locator('input')).toHaveCount(0);
+  await expect(page.locator('#rv-main input')).toHaveCount(0);
   await submit(page).click();
   await ready(page);
   const requested = page.locator('[data-rv-result-view="requested"]');

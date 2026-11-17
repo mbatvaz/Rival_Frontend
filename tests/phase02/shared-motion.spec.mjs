@@ -7,7 +7,7 @@ test('Role-shell booking uses the canonical ink action and accessible booking na
   for (const width of [390, 1280]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('customer/');
-    const link = page.getByRole('navigation', { name: 'ناوبری اصلی مشتری' }).getByRole('link', { name: 'رزرو نوبت', exact: true });
+    const link = page.getByRole('navigation', { name: width >= 1024 ? 'منوی مشتری' : 'ناوبری اصلی مشتری', exact: true }).getByRole('link', { name: 'رزرو نوبت', exact: true });
     await expect(link).toBeVisible();
     expect(await link.evaluate(element => getComputedStyle(element).backgroundColor)).toBe('rgb(18, 20, 23)');
     expect(await link.getAttribute('href')).toBe(basePath + 'customer/book/');
