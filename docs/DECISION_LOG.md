@@ -1,5 +1,21 @@
 # Decision Log
 
+## DEC-075 — Calendar overlays the retained filter and appointment dates grow
+
+On 2026-11-17 the owner keeps the CUS-03 filter visible beneath its Jalali calendar instead of hiding/replacing it, requests more separation between the calendar heading and day grid, and slightly larger appointment day/time text. The date picker uses the existing Sheet stack with an explicit visible-but-inert parent mode; the calendar is positioned over the same filter surface, restores the parent and opener on close, and adds a space-3 grid gap. Appointment day grows from 22px to 26px and time from 13px to 14px at both mobile and desktop widths. [Motion/interaction record](../docs-work/CUS_03_MOTION_2026-11-17.md), [owner evidence](../docs-work/CUS_03_OWNER_FEEDBACK_2026-11-17.md). No route, filter semantics or phase acceptance changes.
+
+## DEC-074 — Appointment filter multi-selection and corrected motion
+
+On 2026-11-17 the owner revises CUS-03: future/history radios need a distinct container and selection motion; the filter header replaces its close icon with an unbordered clear action; tapping either date field opens its borderless-icon Jalali calendar. Date range remains single-select, while status, service and stylist become native multi-select groups where “all” is exclusive. Nested calendar return must not replay the parent sheet, appointment entry follows fixture/DOM order starting with the first record, and customer touch controls suppress persistent browser tap highlighting without removing keyboard focus. [Motion record](../docs-work/CUS_03_MOTION_2026-11-17.md), [updated owner evidence](../docs-work/CUS_03_OWNER_FEEDBACK_2026-11-17.md). CUS-03 and full Phase 04 acceptance remain pending.
+
+## DEC-073 — Appointment owner annotations and one common filter
+
+On 2026-11-17 the owner supplies seven browser comments and a local popup screenshot. In CUS-03, desktop tools move immediately to the right of the top-left notification bell; use the existing native-radio appearance. Future rows contain one month only, with at most three cards per row. Day/time use normal-width semibold (time smaller), weekday uses weight 300. Desktop history is a single horizontal information row. Empty and error use centered half-width cards. Both views share the same filter and preserve selections; both Jalali date boundaries are selectable, stylists can scroll horizontally when numerous, and the popup uses glass. This supersedes the previous one-sided/tab-specific filter and two-column desktop proposal. [Current brief](../docs-work/desktop-layouts/CUS-03.md), [feedback implementation and checks](../docs-work/CUS_03_OWNER_FEEDBACK_2026-11-17.md). No phase acceptance or new business permission is implied.
+
+## DEC-072 — Phase 04 continuation and live desktop review
+
+On 2026-11-17 the owner accepts Phase 04 work implemented so far (CUS-01 default/empty/inactive and embedded CUS-07 balance) and authorizes remaining Phase 04 work. This is slice acceptance, not full-phase acceptance or Phase 05 assignment. Preserve prior page structure; stop at a missing/unreadable mobile source and request the owner screenshot. For each next desktop slice, implement a concrete preview first, show it in the live browser, apply owner feedback, then continue. This direct instruction supersedes approval-before-implementation for those review previews; it does not approve their final composition. Use local port 8183, explicitly selected by the owner. [CUS-03 brief](../docs-work/desktop-layouts/CUS-03.md) and [review evidence](../docs-work/CUS_03_REVIEW_2026-11-17.md).
+
 ## DEC-071 — List entry runs on initial document load only
 
 Owner feedback on 2026-11-17 forbids entry replay after closing a portfolio popup and limits entry to the initial page load. Animate the initial visible data batch after feature initialization once; popup inertness, filtering, inserted records and bfcache restoration must not start a new sequence. Opening a modal cancels pending entry without replaying on close. This supersedes DEC-069's new/revealed-record observation while preserving DEC-070's fast RTL row order and reduced-motion/focus fallback. [Reproduction and checks](../docs-work/VARIABLE_LIST_MOTION_2026-11-17.md).

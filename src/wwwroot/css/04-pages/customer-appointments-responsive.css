@@ -1,0 +1,20 @@
+@layer pages {
+  @media not all and (min-height: 760px) {
+    .rv-appointments-filter { padding: var(--space-3); }
+    .rv-appointments-filter form { gap: var(--space-2); }
+    .rv-appointments-filter .rv-sheet__header { margin-block-end: var(--space-1); }
+  }
+
+  @media not all and (min-width: 375px) {
+    .rv-appointments-filter { padding: var(--space-4); }
+    .rv-appointments-filter form { gap: var(--space-2); }
+    .rv-appointments-filter__options { gap: var(--space-1); }
+    .rv-appointments-filter__chip > span { gap: var(--space-1); padding-inline: var(--space-2); }
+    .rv-appointments-filter__chip img { inline-size: var(--space-6); block-size: var(--space-6); }
+    .rv-appointments-filter__people { gap: var(--space-1); }
+    .rv-appointments-filter__person > span { min-inline-size: var(--size-touch); padding: 0; }
+    .rv-appointments-filter__person :is(img, .rv-icon-tile) { inline-size: var(--size-touch); block-size: var(--size-touch); }
+    .rv-appointments-filter .rv-sheet__header { gap: var(--space-1); margin-block-end: var(--space-2); }
+    .rv-appointments-filter .rv-sheet__header h2 { font-size: var(--heading-md-size); }
+  }
+}

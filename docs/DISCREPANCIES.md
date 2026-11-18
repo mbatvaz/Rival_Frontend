@@ -1,5 +1,21 @@
 # Discrepancies and Alignment Log
 
+## CUS-03 calendar layering follow-up — 2026-11-17
+
+DEC-075 supersedes the prior nested-calendar presentation that hid the filter parent. The filter now remains visually present under an overlaid calendar but is inert and ARIA-hidden, preventing duplicate modal interaction. A space-3 separation is added between month controls and day choices. Direct owner instruction also increases card day/time from the prior token sizes 22/13px to 26/14px while preserving 600 weight and the lighter weekday. [Evidence](../docs-work/CUS_03_MOTION_2026-11-17.md).
+
+## CUS-03 interaction overrides — 2026-11-17
+
+DEC-074 supersedes the export's single-choice status/service/stylist behavior and visible filter close control. Direct owner instruction makes those three groups multi-select with exclusive “all”, keeps only date range single-select, opens the calendar from the full field and removes the icon/button chrome. Customer controls suppress browser tap highlight while preserving `:focus-visible`. The shared parent filter does not replay its entry after the nested calendar closes, and CUS-03 appointment entry follows source order rather than geometric sorting. [Motion and fallback record](../docs-work/CUS_03_MOTION_2026-11-17.md).
+
+## CUS-03 owner overrides — 2026-11-17
+
+DEC-073 supersedes export-specific tab styling, one-sided date locks/tab-specific filters and the earlier desktop row proposals. The owner image is visual evidence for glass, date/service grouping and portrait selectors; the direct request overrides its locked start date and tab-specific title. The popup now adds common status options, two editable Persian date fields/calendar buttons and a source-authorized horizontal portrait rail. [Comparisons, resulting layouts and verification](../docs-work/CUS_03_OWNER_FEEDBACK_2026-11-17.md). Mobile history keeps its existing compact layout; desktop alone uses a single information row.
+
+## CUS-03 source fidelity and desktop review — 2026-11-17
+
+DEC-072 permits implementing each desktop review preview before owner feedback. CUS-03 uses the exact six Batch 3 mobile boards; no missing mobile reference is inferred. Native controls use at least 44px targets, so tabs/filter choices and historical rows are slightly taller than exports. Filter adds an explicit close control, an all-status choice and a typed, validated Jalali boundary in place of a drawing-only date field. Narrow 320px choices compact without a horizontal rail or nested vertical scroll. Existing dock/sidebar supersede the export shell. [Source comparisons, geometry and review limitations](../docs-work/CUS_03_REVIEW_2026-11-17.md). No financial/booking behavior changes; detail routes remain the assigned next slice.
+
 ## MORE-CUS scroll, pinning and resize recovery — 2026-11-16
 
 DEC-065 supersedes DEC-064's desktop radios/profile header and document-scrolling More. The owner explicitly requests restoration and list-only mobile drawer scrolling. A root test reproduced the menu remaining visible after resize; viewport pinning and shared Sheet stack dismissal correct the cause. The exception is confined to `.rv-customer-more > .rv-more-list`. [Cause and actual checks](../docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md).

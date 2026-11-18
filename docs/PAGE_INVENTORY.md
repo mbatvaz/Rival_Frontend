@@ -1,5 +1,13 @@
 # Canonical Page Inventory
 
+## CUS-03 interaction revision — 2026-11-17
+
+DEC-073/074 revise existing CUS-03 views and states, without adding a page or changing phase acceptance. The two filter-preview query aliases show the same popup; appointment-date selection reuses the shared booking calendar. Range is single-select; status/service/stylist are multi-select with exclusive “all”, and their repeated query parameters survive reload/history. CUS-01 remains accepted and CUS-03 remains in progress. [Sources and checks](../docs-work/CUS_03_OWNER_FEEDBACK_2026-11-17.md), [motion record](../docs-work/CUS_03_MOTION_2026-11-17.md).
+
+## Phase 04 continuation — 2026-11-17
+
+DEC-072 accepts the already implemented CUS-01 default/empty/inactive slice and embedded CUS-07 balance, without closing Phase 04. CUS-03 is implemented at desktop owner review with seven addressable review variants. The registry still has 73 contexts: 23 product templates, 22 accepted contexts and 50 placeholders. CUS-07 stays embedded, without a standalone finance page. CUS-04/05/06/08/09/10 remain placeholders. [Review and source evidence](../docs-work/CUS_03_REVIEW_2026-11-17.md).
+
 ## Customer chrome recovery — 2026-11-16
 
 DEC-065 changes existing CUS-01 chrome and shared More behavior only: restored header/links, left-column salon notice and viewport-contained list scrolling with resize dismissal. Registry contexts and acceptance remain unchanged. [Scope and QA](../docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md).

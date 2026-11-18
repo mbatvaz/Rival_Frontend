@@ -4,6 +4,7 @@ const groups = [
   ['[data-rv-choices-list]', ':scope > a'],
   ['[data-rv-quick-items]', ':scope > a'],
   ['[data-rv-home-appointments]', ':scope > article'],
+  ['[data-rv-appointments-records]', ':scope > a'],
   ['[data-rv-home-payment-rail]', ':scope > article'],
   ['[data-rv-rec-list]', ':scope > .rv-recurring-row'],
   ['[data-rv-group-items]', ':scope > li'],
@@ -36,7 +37,8 @@ export function initListEntry() {
         if (!visible(el)) continue;
         if (!reduced.matches && !el.contains(document.activeElement)) pending.push(el);
       }
-      const ordered = pending.map(el => ({ el, rect: el.getBoundingClientRect() })).sort((a, b) =>
+      const candidates = pending.map(el => ({ el, rect: el.getBoundingClientRect() }));
+      const ordered = selector === '[data-rv-appointments-records]' ? candidates : candidates.sort((a, b) =>
         Math.abs(a.rect.top - b.rect.top) > rowTolerance ? a.rect.top - b.rect.top : b.rect.right - a.rect.right);
       ordered.forEach(({ el }, index) => {
         const frames = desktop.matches ? [{ opacity: 0 }, { opacity: 1 }] : [

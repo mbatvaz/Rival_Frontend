@@ -76,3 +76,10 @@
 @import url("./05-utilities/customer-motion.css");
 @import url("./05-utilities/section-entry.css");
 @import url("./03-components/customer-more-mobile.css");
+@import url("./03-components/appointment-card.css");
+@import url("./04-pages/customer-appointments.css");
+@import url("./04-pages/customer-appointments-filter.css");
+@import url("./04-pages/customer-panel.css");
+@import url("./04-pages/customer-appointments-responsive.css");
+@import url("./04-pages/customer-history-desktop.css");
+@import url("./04-pages/customer-appointment-dates.css");

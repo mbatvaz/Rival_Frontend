@@ -36,7 +36,11 @@ This is the canonical dependency plan. It preserves the nine owner-defined imple
 
 Use serialized Workflow B. One phase at a time; each phase ends with a review gate and owner approval. Parallel work is allowed only inside a phase after shared contracts are frozen. Any change to tokens, shared components, navigation, or shell triggers its reuse regression list.
 
-## Current owner gate — 2026-11-15
+## Current owner gate — 2026-11-17
+
+DEC-072 accepts the implemented CUS-01 slice and embedded CUS-07 balance, and authorizes remaining Phase 04 work on the existing branch. CUS-03 is implemented at live desktop owner review; continue after that feedback, preserving earlier structures and requesting a screenshot only when an exact mobile source is missing/unreadable. Port 8183 is owner-selected. [Current review](../docs-work/CUS_03_REVIEW_2026-11-17.md). This is not full Phase 04 acceptance or Phase 05 authorization.
+
+### Prior gate — 2026-11-15
 
 **Superseded assignment status, 2026-11-16:** the owner explicitly assigned Phase 04 (DEC-062). Work starts on local `phase/04-customer-panel`; Phase 03 remains accepted/closed. Exact mobile sources and the existing desktop review gate apply. [Current execution](../docs-work/PHASE_04_IMPLEMENTATION_FA.md). The unassigned statements below describe the earlier gate.
 

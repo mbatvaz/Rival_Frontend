@@ -187,7 +187,8 @@
       "notes": "Phase 04 CUS-01: DEC-065 restores title/plain links, puts notices below left tools, and contains customer More list scrolling with resize recovery. Paired cards/two payments/dock retained; final review pending; CUS-07 embedded.",
       "titleFa": "داشبورد مشتری",
       "phase": "Phase 04",
-      "implementationStatus": "in-progress",
+      "implementationStatus": "accepted",
+      "ownerAcceptedAt": "2026-11-17",
       "variants": [
         { "label": "بدون نوبت", "query": "?state=empty" },
         { "label": "حساب غیرفعال", "query": "?state=inactive" }
@@ -231,11 +232,42 @@
       "status": "Fully Designed",
       "source": "Batch 3",
       "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
+      "template": "Customer/Appointments/Index.njk",
+      "mockData": "MockData/customer/appointments.json",
+      "notes": "Phase 04 slice: source-based appointment list and filters; desktop owner review pending.",
       "titleFa": "نوبت‌های من",
-      "phase": "Phase 04"
+      "phase": "Phase 04",
+      "implementationStatus": "in-progress",
+      "variants": [
+        {
+          "label": "نوبت‌های گذشته",
+          "query": "?tab=history"
+        },
+        {
+          "label": "فیلتر پیش رو",
+          "query": "?state=filter"
+        },
+        {
+          "label": "فیلتر گذشته",
+          "query": "?state=filter-past"
+        },
+        {
+          "label": "نتیجه خالی فیلتر",
+          "query": "?state=noresult"
+        },
+        {
+          "label": "بدون نوبت",
+          "query": "?state=empty"
+        },
+        {
+          "label": "در حال دریافت",
+          "query": "?state=loading"
+        },
+        {
+          "label": "خطای دریافت",
+          "query": "?state=error"
+        }
+      ]
     },
     {
       "id": "CUS-04",

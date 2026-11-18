@@ -3,7 +3,7 @@ import { src, readJson, withBase } from './site.mjs';
 
 // Phase 04 build context only. Runtime reads/writes remain behind core/api.js.
 export async function customerContext(page, basePath, pages) {
-  if (page.id !== 'CUS-01') return {};
+  if (!['CUS-01', 'CUS-03'].includes(page.id)) return {};
   const [home, publicHome] = await Promise.all([
     readJson(path.join(src, 'MockData/customer/home.json')),
     readJson(path.join(src, 'MockData/public/home.json'))

@@ -1,0 +1,6 @@
+<a class="rv-appointment-history" href="{{ customerUrls['CUS-04'] }}?appointment={{ appointment.id }}&amp;state={{ appointment.detailState }}" data-rv-record="{{ appointment.id }}" aria-label="{{ appointment.day }} {{ appointment.month }}، {{ appointment.time }}، {{ appointment.service }} با {{ appointment.stylist }}، {{ appointment.statusText }}">
+  <img class="rv-appointment-history__image" src="{{ basePath }}{{ appointment.image }}" alt="" width="72" height="72" loading="lazy">
+  <div class="rv-appointment-history__body"><strong>{{ appointment.service }}</strong><span class="rv-muted">با {{ appointment.stylist }}</span><span class="rv-appointment-status" data-rv-tone="{{ appointment.tone }}"><span class="ri ri-{{ appointment.icon }}" aria-hidden="true"></span>{{ appointment.statusText }}</span></div>
+  <span class="rv-appointment-history__when"><bdi>{{ appointment.time }}</bdi><small>{{ appointment.day }} {{ appointment.month }}</small></span>
+  <span class="ri ri-chevron-left" aria-hidden="true"></span>
+</a>

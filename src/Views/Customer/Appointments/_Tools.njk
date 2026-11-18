@@ -1,0 +1,6 @@
+<div class="rv-appointments__tools">
+  <div class="rv-appointments__tabs rv-glass" role="radiogroup" aria-label="نمایش نوبت‌ها">
+    {% for group in model.groups %}<label class="rv-booking-radio"><input type="radio" name="appointments-tab" id="rv-tab-{{ group.key }}" aria-controls="rv-panel-{{ group.key }}" data-rv-appointments-tab="{{ group.key }}" value="{{ group.key }}"{% if loop.first %} checked{% endif %}><span>{{ group.label }}<span data-rv-total="{{ group.key }}">{{ group.count | faDigits }}</span></span></label>{% endfor %}
+  </div>
+  <button class="rv-icon-btn rv-glass" type="button" data-rv-appointments-filter aria-haspopup="dialog" aria-label="فیلتر نوبت‌ها"><span class="ri ri-filter" aria-hidden="true"></span><span class="rv-appointments__filter-count" data-rv-filter-count hidden></span></button>
+</div>

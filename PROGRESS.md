@@ -1,5 +1,23 @@
 # Rival Progress
 
+## CUS-03 retained-filter calendar follow-up — 2026-11-17
+
+DEC-075 keeps the filter popup visibly in place while its calendar opens as an overlaid Sheet; the underlying filter is inert/ARIA-hidden until the calendar closes, then focus returns to the originating date control. The calendar header/day grid now has a space-3 gap. Appointment day/time typography is 26px/14px for improved readability without changing card grouping or desktop columns. [Interaction record](docs-work/CUS_03_MOTION_2026-11-17.md). CUS-03 remains at owner review; no next page has started.
+
+## CUS-03 filter interaction follow-up — 2026-11-17
+
+DEC-074 adds a bounded glass container and token-based selection motion to the view radios, makes non-date filter groups multi-select with exclusive “all”, opens the existing Jalali calendar from the whole date field, removes the visible close control and calendar-icon chrome, and suppresses customer-only mobile tap highlighting. Nested Sheet return is static instead of replaying entry; initial appointment motion now follows source/DOM order. [Motion and interruption record](docs-work/CUS_03_MOTION_2026-11-17.md). CUS-03 remains at owner review and no next Phase 04 page has started.
+
+## CUS-03 owner feedback — 2026-11-17
+
+DEC-073 implements all seven annotated changes and the supplied glass-popup reference: desktop tools beside the bell, native radios, maximum three same-month cards per row, semibold day/time with light weekday, single-row history, and centered half-width empty/error frames. One shared filter preserves selections across views; both date boundaries accept Persian input and open the existing Jalali calendar, with shared nested-sheet focus restoration. The stylist rail supports native touch, keyboard and mouse dragging. [Scope, source comparisons and actual validation](docs-work/CUS_03_OWNER_FEEDBACK_2026-11-17.md). CUS-03 remains at owner review; remaining Phase 04 destinations and the overall phase gate are unchanged.
+
+## Phase 04 accepted slice and appointment-list review — 2026-11-17
+
+DEC-072 records owner acceptance of the existing CUS-01 slice (including embedded CUS-07 balance) and authorization to continue remaining Phase 04 work. CUS-01 is marked accepted; manual review approvals remain independent and untouched. CUS-03 now implements future/history lists, actual source-date/service/stylist/status filters, no-result/empty/loading/error states, keyboard navigation and shared initial-only record motion. Desktop reuses the accepted sidebar and is at the owner-requested live review gate on port 8183. [Specification](docs-work/CUS_03_SPEC.md), [brief](docs-work/desktop-layouts/CUS-03.md), [source comparisons and actual checks](docs-work/CUS_03_REVIEW_2026-11-17.md).
+
+Next action: review CUS-03 desktop, apply feedback, then implement CUS-04 and the remaining customer pages. Detail destinations CUS-04/06 and CUS-05/08/09/10 are still placeholders. Full Phase 04 acceptance/closeout and full regression remain pending; Phase 05 has not started. Earlier pending/unassigned statements below are historical.
+
 ## Initial-load-only record entry — 2026-11-17
 
 DEC-071 removes list-animation replay on popup close, filter changes and inserted records. Initial data enters once per document; modal opening cancels pending entry, while reloading starts a fresh sequence. The pre-fix portfolio regression reproduced 7 initial calls becoming 13 after closing its viewer; corrected root lifecycle/motion/canvas checks passed 16/16. [Scope and verification](docs-work/VARIABLE_LIST_MOTION_2026-11-17.md). Phase acceptance is unchanged.

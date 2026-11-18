@@ -15,6 +15,7 @@
   .rv-sheet-scrim { animation: rv-fade-enter var(--duration-base) var(--ease-standard) both; }
 
   .rv-sheet[data-rv-closing] { animation: rv-sheet-exit var(--duration-base) var(--ease-exit) both; }
+  .rv-sheet[data-rv-resuming] { animation: none; }
   [data-rv-closing] > .rv-sheet-scrim { animation: rv-fade-exit var(--duration-fast) var(--ease-exit) both; }
 
   @keyframes rv-sheet-exit {
@@ -59,6 +60,7 @@
     .rv-sheet,
     .rv-sheet-scrim,
     .rv-sheet[data-rv-closing],
+    .rv-sheet[data-rv-resuming],
     [data-rv-closing] > .rv-sheet-scrim { animation: none; }
   }
 }

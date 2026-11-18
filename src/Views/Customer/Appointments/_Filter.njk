@@ -1,0 +1,17 @@
+<section class="rv-sheet rv-glass rv-glass--strong rv-appointments-filter" id="rv-appointments-filter" role="dialog" aria-modal="true" aria-labelledby="rv-filter-title" tabindex="-1" hidden>
+  <span class="rv-appointments-filter__grip" aria-hidden="true"></span>
+  <header class="rv-sheet__header"><h2 id="rv-filter-title" tabindex="-1" data-rv-sheet-initial-focus>فیلتر نوبت‌ها</h2><button class="rv-text-link" type="button" data-rv-filter-reset>حذف فیلترها</button></header>
+  <form action="{{ customerUrls['CUS-03'] }}" method="get" data-rv-appointments-filter-form>
+    <input type="hidden" name="tab" value="upcoming">
+    <fieldset><legend>بازه تاریخ</legend><div class="rv-appointments-filter__options">{% for option in model.filters.ranges %}<label class="rv-appointments-filter__chip"><input type="radio" name="range" value="{{ option.value }}"{% if loop.first %} checked{% endif %}><span>{{ option.label }}</span></label>{% endfor %}</div>
+      <div class="rv-appointments-filter__dates">
+        {% for boundary in model.filters.dateFields %}<div class="rv-field" data-rv-date-field="{{ boundary.key }}"><label for="rv-filter-{{ boundary.key }}">{{ boundary.label }}</label><span class="rv-input"><input id="rv-filter-{{ boundary.key }}" name="{{ boundary.key }}" type="text" inputmode="numeric" maxlength="10" placeholder="{{ boundary.example }}" aria-describedby="rv-boundary-error" aria-haspopup="dialog"><button type="button" class="rv-icon-btn" data-rv-date-open="{{ boundary.key }}" aria-label="انتخاب {{ boundary.label }} از تقویم" aria-haspopup="dialog"><span class="ri ri-calendar" aria-hidden="true"></span></button></span></div>{% endfor %}
+      </div>
+      <p class="rv-muted rv-appointments-filter__hint">{{ model.filters.hint }}</p><p class="rv-feedback rv-feedback--error" id="rv-boundary-error" role="alert" hidden></p>
+    </fieldset>
+    <fieldset><legend>وضعیت</legend><div class="rv-appointments-filter__options">{% for option in model.filters.status %}<label class="rv-appointments-filter__chip"><input type="checkbox" name="status" value="{{ option.value }}"{% if loop.first %} checked{% endif %}><span>{{ option.label }}</span></label>{% endfor %}</div></fieldset>
+    <fieldset><legend>خدمت</legend><div class="rv-appointments-filter__options">{% for option in model.filters.services %}<label class="rv-appointments-filter__chip"><input type="checkbox" name="service" value="{{ option.value }}"{% if loop.first %} checked{% endif %}><span>{% if option.image %}<img src="{{ basePath }}{{ option.image }}" alt="" width="28" height="28" loading="lazy">{% endif %}{{ option.label }}</span></label>{% endfor %}</div></fieldset>
+    <fieldset><legend>آرایشگر</legend><div class="rv-appointments-filter__people" data-rv-drag-rail role="group" aria-label="آرایشگرها" tabindex="0">{% for option in model.filters.stylists %}<label class="rv-appointments-filter__person"><input type="checkbox" name="stylist" value="{{ option.value }}"{% if loop.first %} checked{% endif %}><span>{% if option.image %}<img src="{{ basePath }}{{ option.image }}" alt="" width="48" height="48" loading="lazy">{% else %}<span class="rv-icon-tile"><span class="ri ri-users" aria-hidden="true"></span></span>{% endif %}<span>{{ option.label }}</span></span></label>{% endfor %}</div></fieldset>
+    <button class="rv-btn" type="submit" data-rv-filter-submit>نمایش نوبت‌ها</button>
+  </form>
+</section>

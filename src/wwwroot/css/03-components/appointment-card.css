@@ -1,0 +1,119 @@
+@layer pages {
+  .rv-appointment-card {
+    position: relative;
+    min-block-size: 138px;
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rv-appointment-card > img {
+    position: absolute;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    inset-block: 0;
+    inset-inline-end: 0;
+    inline-size: 42%;
+    block-size: 100%;
+    min-block-size: 0;
+    max-block-size: none;
+    align-self: stretch;
+    object-position: center 35%;
+  }
+
+  .rv-appointment-card__body {
+    display: grid;
+    justify-items: start;
+    gap: var(--space-1);
+    min-inline-size: 0;
+  }
+  .rv-appointment-card > .rv-appointment-card__body { padding-block: var(--space-2); }
+  .rv-appointment-card__body > strong { font-size: var(--body-sm-size); font-weight: 400; }
+  .rv-appointment-card .rv-recurring-date { flex-wrap: wrap; gap: var(--space-1); font-size: var(--caption-size); }
+  .rv-appointment-card :where(.rv-recurring-date) > strong { font-size: var(--display-lg-size); line-height: var(--heading-xl-line); font-weight: 600; }
+  .rv-appointment-card :where(.rv-recurring-date) > span { font-weight: 300; }
+
+  .rv-appointment-card :where(.rv-recurring-date) bdi {
+    font-size: var(--body-size);
+    line-height: var(--body-line);
+    padding-inline-start: var(--space-1);
+    font-weight: 600;
+  }
+
+  .rv-appointment-card .rv-recurring-person {
+    flex-direction: row;
+    color: var(--text-secondary);
+    font-size: var(--caption-size);
+    font-weight: 300;
+  }
+
+  .rv-appointment-status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    inline-size: fit-content;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-pill);
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--caption-size);
+    line-height: var(--caption-line);
+    white-space: nowrap;
+  }
+  .rv-appointment-status .ri { inline-size: var(--space-3); block-size: var(--space-3); }
+  .rv-appointment-status[data-rv-tone="ink"] { background: var(--bg-inverse); color: var(--text-inverse); border-color: var(--bg-inverse); }
+  .rv-appointment-status[data-rv-tone="success"] { background: var(--success-bg); color: var(--success-fg); border-color: var(--success-line); }
+  .rv-appointment-status[data-rv-tone="rose"] { background: var(--rose-bg); color: var(--rose-fg); border-color: var(--rose-line); }
+  .rv-appointment-status[data-rv-tone="danger"] { background: var(--danger-bg); color: var(--danger-fg); border-color: var(--danger-line); }
+
+  .rv-appointment-history {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-inline-size: 0;
+    padding-block: var(--space-3);
+    text-decoration: none;
+    color: var(--text-secondary);
+  }
+  .rv-appointment-history + .rv-appointment-history { border-block-start: 1px solid var(--line-hairline); }
+
+  .rv-appointment-history__image {
+    inline-size: 72px;
+    block-size: 72px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    filter: grayscale(1);
+    flex: none;
+  }
+
+  .rv-appointment-history__body {
+    display: grid;
+    justify-items: start;
+    gap: var(--space-1);
+    min-inline-size: 0;
+    flex: 1;
+  }
+  .rv-appointment-history__body strong { font-size: var(--body-sm-size); font-weight: 400; }
+  .rv-appointment-history__body > span:not(.rv-appointment-status) { font-size: var(--caption-size); font-weight: 300; }
+
+  .rv-appointment-history__when {
+    display: grid;
+    gap: var(--space-1);
+    text-align: center;
+    flex: none;
+  }
+  .rv-appointment-history__when bdi { font-size: var(--heading-lg-size); line-height: var(--heading-lg-line); font-weight: 300; }
+  .rv-appointment-history__when small { font-size: var(--caption-size); font-weight: 300; }
+  .rv-appointment-history > .ri { inline-size: var(--space-3); block-size: var(--space-3); flex: none; }
+
+  @media not all and (min-width: 375px) {
+    .rv-appointment-history { flex-wrap: wrap; gap: var(--space-2); }
+    .rv-appointment-history__image { inline-size: var(--space-12); block-size: var(--space-12); }
+
+    .rv-appointment-history__when {
+      inline-size: 100%;
+      display: flex;
+      justify-content: end;
+      gap: var(--space-2);
+    }
+    .rv-appointment-history > .ri { display: none; }
+  }
+}
