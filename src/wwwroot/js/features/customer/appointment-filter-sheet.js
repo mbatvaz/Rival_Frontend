@@ -36,7 +36,11 @@ export function initFilterSheet(root, data, current, apply) {
     openSheet(sheet.id, root.querySelector('[data-rv-appointments-filter]'));
   };
   root.querySelector('[data-rv-appointments-filter]').addEventListener('click', open);
-  sheet.querySelector('[data-rv-filter-reset]').addEventListener('click', () => fill(defaults()));
+  sheet.querySelector('[data-rv-filter-reset]').addEventListener('click', () => {
+    const filters = defaults();
+    apply(filters);
+    fill(filters);
+  });
   form.addEventListener('change', event => {
     if (event.target.name === 'range') {
       const dates = data.filters.boundaries[form.elements.range.value] ?? { from: '', to: '' };

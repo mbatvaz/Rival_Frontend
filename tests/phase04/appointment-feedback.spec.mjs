@@ -6,10 +6,60 @@ const go = async (page, query = '') => { await page.goto('customer/appointments/
 const sheet = page => page.locator('#rv-appointments-filter');
 const picker = page => page.locator('#rv-appointment-date');
 
+test('Filter reset clears applied filters immediately and survives reload', async ({ page }) => {
+  await go(page, '?tab=history&service=face-hair&stylist=amir');
+  await expect(page.locator('#rv-panel-history [data-rv-record]:visible')).toHaveCount(1);
+  await page.locator('[data-rv-appointments-filter]').click();
+  await sheet(page).getByRole('button', { name: 'حذف فیلترها' }).click();
+  await expect(page).toHaveURL(/\?tab=history$/);
+  await expect(sheet(page)).toBeVisible();
+  await expect(sheet(page).getByRole('button', { name: 'نمایش ۵ نوبت' })).toBeVisible();
+  await expect(page.locator('[data-rv-filter-count]')).toBeHidden();
+  await page.reload();
+  await expect(page.locator('#rv-panel-history [data-rv-record]:visible')).toHaveCount(5);
+});
+
+test('Active desktop item fills from the right with a reduced-motion fallback', async ({ page }) => {
+  await page.setViewportSize({ width: 1378, height: 883 });
+  await go(page, '?tab=history');
+  const active = page.locator('.rv-booking-sidebar > a[aria-current="page"]');
+  const paint = () => active.evaluate(el => {
+    const style = getComputedStyle(el, '::before');
+    return [style.animationName, style.transformOrigin.split(' ')[0], el.offsetWidth];
+  });
+  const [name, origin, width] = await paint();
+  expect(name).toBe('rv-sidebar-active-fill');
+  expect(parseFloat(origin)).toBeCloseTo(width, 0);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  expect((await paint())[0]).toBe('none');
+});
+
+test('Mobile sheet grip dismisses only the top sheet after a deliberate pull', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 900 });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await go(page, '?state=filter');
+  const opener = sheet(page).getByRole('button', { name: 'انتخاب از تاریخ از تقویم' });
+  await opener.click();
+  const pull = async (target, distance) => {
+    const box = await target.boundingBox();
+    await page.mouse.move(box.x + box.width / 2, box.y + 3);
+    await page.mouse.down();
+    await page.mouse.move(box.x + box.width / 2, box.y + 3 + distance, { steps: 4 });
+    await page.mouse.up();
+  };
+  await pull(picker(page).locator('[data-rv-sheet-grip]'), 24);
+  await expect(picker(page)).toBeVisible();
+  await pull(picker(page).locator('[data-rv-sheet-grip]'), 90);
+  await expect(picker(page)).toBeHidden();
+  await expect(opener).toBeFocused();
+  await pull(sheet(page).locator('[data-rv-sheet-grip]'), 90);
+  await expect(sheet(page)).toBeHidden();
+});
+
 test('Desktop tools align beside the bell, month grids cap at three and history stays on one row @visual', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  for (const width of [1024, 1280, 1600, 1920]) {
-    await page.setViewportSize({ width, height: 900 });
+  for (const width of [1024, 1206, 1280, 1378, 1600, 1920]) {
+    await page.setViewportSize({ width, height: width === 1206 ? 883 : 900 });
     await go(page);
     const tools = await page.locator('.rv-appointments__tools').boundingBox();
     const bell = await page.locator('.rv-workspace__header > a').boundingBox();
@@ -28,7 +78,27 @@ test('Desktop tools align beside the bell, month grids cap at three and history 
     await page.getByRole('radio', { name: /گذشته/ }).check();
     const row = page.locator('.rv-appointment-history').first();
     const positions = await row.locator('img,strong,.rv-muted,.rv-appointment-status,.rv-appointment-history__when').evaluateAll(items => items.map(el => el.getBoundingClientRect().top + el.getBoundingClientRect().height / 2));
-    expect(Math.max(...positions) - Math.min(...positions)).toBeLessThan(2);
+    if (width >= 1280) expect(Math.max(...positions) - Math.min(...positions)).toBeLessThan(2);
+    const months = await page.locator('#rv-panel-history .rv-appointments__month').all();
+    const [newer, older] = await Promise.all(months.map(month => month.boundingBox()));
+    if (width >= 1206) {
+      expect(newer.y).toBeCloseTo(older.y, 0);
+      expect(newer.x).toBeGreaterThan(older.x + older.width);
+    }
+    expect(await page.locator('#rv-panel-history').evaluate(panel => panel.scrollWidth <= panel.clientWidth)).toBe(true);
+    if (width === 1206) await page.screenshot({ path: 'tests/screens/phase04-appointment-feedback/history-1206.png', fullPage: true });
+    const menu = await page.getByRole('navigation', { name: 'منوی مشتری' }).boundingBox();
+    expect(menu.width).toBeCloseTo(221, 0);
+    await go(page, '?tab=history&service=face-hair');
+    const filtered = await months[0].boundingBox();
+    expect(filtered.width).toBeCloseTo(newer.width, 0);
+    const badge = page.locator('.rv-appointments__filter-count');
+    await expect(badge).toHaveText('۱');
+    const badgeBox = await badge.boundingBox();
+    const filterBox = await badge.locator('..').boundingBox();
+    expect(badgeBox.width).toBeCloseTo(badgeBox.height, 0);
+    expect(badgeBox.x + badgeBox.width / 2).toBeGreaterThan(filterBox.x + filterBox.width / 2);
+    expect(badgeBox.y).toBeLessThan(filterBox.y);
   }
 });
 
@@ -184,9 +254,18 @@ for (const width of [320, 390, 768, 1280]) test(`Owner feedback screenshots, com
       const outerSpacing = await picker(page).evaluate(el => {
         const calendar = el.querySelector('.rv-booking-calendar').getBoundingClientRect();
         const layer = el.parentElement.getBoundingClientRect();
-        return { side: calendar.left - layer.left, bottom: layer.bottom - calendar.bottom };
+        const bounds = el.getBoundingClientRect();
+        const sides = window.innerWidth < 375 ? layer : bounds;
+        return {
+          side: calendar.left - sides.left,
+          right: sides.right - calendar.right,
+          bottom: layer.bottom - calendar.bottom,
+          sheetGap: layer.bottom - bounds.bottom
+        };
       });
       expect(Math.abs(outerSpacing.side - outerSpacing.bottom)).toBeLessThan(1);
+      expect(Math.abs(outerSpacing.right - outerSpacing.bottom)).toBeLessThan(1);
+      expect(Math.abs(outerSpacing.sheetGap)).toBeLessThan(1);
       await page.keyboard.press('Escape');
       await expect(sheet(page)).toBeVisible();
       await page.keyboard.press('Escape');

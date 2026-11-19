@@ -26,9 +26,9 @@
   .rv-appointment-date {
     position: absolute;
     inset-inline: 0;
-    inset-block-end: var(--space-5);
+    inset-block-end: 0;
     z-index: 2;
-    padding-block-end: 0;
+    padding-block-end: var(--space-5);
   }
   .rv-appointment-date .rv-booking-calendar { padding: var(--space-3); }
   .rv-appointment-date .rv-booking-calendar__head { margin-block-end: var(--space-3); }
@@ -42,7 +42,7 @@
   @media not all and (min-width: 375px) {
     .rv-appointment-date {
       inset-inline: calc(var(--space-1) / 2);
-      inset-block-end: calc(var(--space-1) / 2);
+      padding-block-end: calc(var(--space-1) / 2);
       inline-size: auto;
       margin-inline: 0;
       padding-inline: 0;

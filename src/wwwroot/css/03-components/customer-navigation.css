@@ -36,8 +36,4 @@
     .rv-customer-home .rv-booking-sidebar { inline-size: calc(100% - var(--space-6)); margin-inline: auto; }
     .rv-customer-home .rv-workspace__header .rv-customer-identity { display: flex; }
   }
-
-  @media (min-width: 1240px) {
-    .rv-customer-home { grid-template-columns: clamp(245px, 18vw, 286px) minmax(0, 1fr); }
-  }
 }

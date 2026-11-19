@@ -1,6 +1,6 @@
 # CUS-03 — نوبت‌های من
 
-Status: owner-directed revision implemented through DEC-074 (2026-11-17); final visual review pending. CUS-01 slice acceptance persists; full Phase 04 acceptance is separate.
+The owner accepted this CUS-03 slice on 2026-11-19.
 
 The owner supplies seven live annotations and a glass filter screenshot. These direct instructions replace the original preview's desktop arrangement and tab-specific date filters. Exact Batch 3 boards and source captures are linked from [the original report](../CUS_03_REVIEW_2026-11-17.md); latest evidence is in [the annotation report](../CUS_03_OWNER_FEEDBACK_2026-11-17.md).
 
@@ -11,5 +11,7 @@ At 768px retain document order with the existing 720px content bound. At 1024px 
 Desktop history becomes a single grid row: grayscale image, service, stylist, status, date/time, chevron. Empty and failed-loading cards occupy half the main content width, horizontally centered, with matching glass/radius/shadow and a real retry action on errors. Mobile history retains the source stacking and state cards keep full content width.
 
 Filter styling follows the supplied screenshot's glass, group spacing, image chips and portraits. The explicit request overrides its locked start date and context-dependent title. Both date fields can be typed or picked through the existing shared calendar in a nested bottom sheet, with focus/scroll/inert restoration. Preset spans have identical meanings in both views and both endpoints remain editable; changing endpoints selects custom range. Filter state survives view changes/reload/Back. Numeric fixture dates stay tied to the artboard's today (۲۲ مهر ۱۴۰۵), and no real booking/cancellation/financial write is introduced.
+
+The owner’s desktop history follow-up reserves two equal columns from 1024px. A single visible month occupies its original column. Each row distributes available width between its elements with an 8px minimum column gap. When a card has less than 420px of inner width, service details and date/time stack inside the row. The customer home, appointments and booking desktop layouts share a fixed 245px sidebar track. The filter count is a circular indicator at the top right of its button.
 
 Use v2 tokens/local assets/fonts and initial-only record entry (DEC-071). Test root/subpath, 320/390/768/1023/1024/1280/1440 plus 1600/1920 column stress, normal/reduced motion, keyboard/focus, axe, dense same-month records and many-artist horizontal scrolling. See the annotation report for actual checked results, deviations and source comparisons.

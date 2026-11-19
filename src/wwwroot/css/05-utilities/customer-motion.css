@@ -18,7 +18,13 @@
       border-radius: inherit;
       background: var(--bg-inverse);
       transform-origin: right center;
+      animation: rv-sidebar-active-fill var(--duration-slow) var(--ease-standard) both;
     }
+  }
+
+  @keyframes rv-sidebar-active-fill {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
   }
 
   @media not all and (min-width: 1024px) {

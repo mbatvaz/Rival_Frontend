@@ -4,7 +4,7 @@
 
     .rv-customer-home {
       display: grid;
-      grid-template-columns: clamp(155px, 15vw, 225px) minmax(0, 1fr);
+      grid-template-columns: 245px minmax(0, 1fr);
       grid-template-rows: auto 1fr;
       align-items: start;
       gap: var(--space-6);

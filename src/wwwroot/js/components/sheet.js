@@ -1,8 +1,11 @@
+import { initSheetGrips, releaseDrag } from './sheet-grip.js';
+
 let current = null;
 const stack = [];
 let originalScroll = 0;
 let closingSheet = false;
 let closingGeneration = 0;
+
 const focusable = panel => [...panel.querySelectorAll('a[href],button,input,select,textarea,[tabindex]')]
   .filter(el => !el.disabled && el.tabIndex >= 0 && !el.closest('[hidden],[inert]') && el.getClientRects().length);
 
@@ -10,6 +13,7 @@ export function openSheet(id, opener = document.activeElement, { preserveParent 
   const panel = document.getElementById(id);
   const layer = document.querySelector('[data-rv-sheet-layer]');
   if (!panel || !layer || closingSheet) return;
+  releaseDrag();
   if (!current) {
     originalScroll = window.scrollY;
     const page = document.querySelector('[data-rv-page]');
@@ -38,6 +42,7 @@ export function openSheet(id, opener = document.activeElement, { preserveParent 
 
 export async function closeSheet({ immediate = false, all = false } = {}) {
   if (!current || (closingSheet && !immediate)) return;
+  releaseDrag();
   const closing = all ? stack[0] ?? current : current;
   const panels = all ? [...stack, current] : [current];
   const generation = ++closingGeneration;
@@ -52,6 +57,7 @@ export async function closeSheet({ immediate = false, all = false } = {}) {
   panels.forEach(({ panel }) => {
     delete panel.dataset.rvClosing; delete panel.dataset.rvDrawerMode; delete panel.dataset.rvUnderSheet;
     panel.inert = false; panel.removeAttribute('aria-hidden'); panel.hidden = true;
+    panel.style.removeProperty('--rv-sheet-drag');
   });
   closingSheet = false;
   current = all ? null : stack.pop() ?? null;
@@ -79,6 +85,7 @@ export async function closeSheet({ immediate = false, all = false } = {}) {
 }
 
 export function initSheets() {
+  initSheetGrips(panel => current?.panel === panel && !closingSheet, closeSheet);
   window.matchMedia('(min-width: 1024px)').addEventListener('change', () => {
     if ([...stack, current].some(entry => entry?.panel.classList.contains('rv-customer-more'))) closeSheet({ immediate: true, all: true });
   });

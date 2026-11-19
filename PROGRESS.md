@@ -1,5 +1,7 @@
 # Rival Progress
 
+The owner accepted CUS-03 on 2026-11-19. Further Phase 04 implementation awaits the owner's instruction.
+
 ## CUS-03 retained-filter calendar follow-up — 2026-11-17
 
 DEC-075 keeps the filter popup visibly in place while its calendar opens as an overlaid Sheet; the underlying filter is inert/ARIA-hidden until the calendar closes, then focus returns to the originating date control. The calendar header/day grid now has a space-3 gap. Appointment day/time typography is 26px/14px for improved readability without changing card grouping or desktop columns. [Interaction record](docs-work/CUS_03_MOTION_2026-11-17.md). CUS-03 remains at owner review; no next page has started.
