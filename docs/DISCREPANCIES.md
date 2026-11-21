@@ -1,5 +1,9 @@
 # Discrepancies and Alignment Log
 
+## CUS-04 initial detail preview — 2026-11-21
+
+The live desktop preview uses the existing customer sidebar and a two-column information layout. Mobile keeps the source reading order and uses the existing dock and shared sheet. The first pass includes full receipts for the booked and completed records with exact source snapshots. Other linked records show their recorded appointment facts. The cancellation sheet displays the source impact with confirmation disabled; the reschedule calendar and other action/confirmation states are pending. [Scope and source evidence](../docs-work/desktop-layouts/CUS-04.md).
+
 ## CUS-03 calendar layering follow-up — 2026-11-17
 
 DEC-075 supersedes the prior nested-calendar presentation that hid the filter parent. The filter now remains visually present under an overlaid calendar but is inert and ARIA-hidden, preventing duplicate modal interaction. A space-3 separation is added between month controls and day choices. Direct owner instruction also increases card day/time from the prior token sizes 22/13px to 26/14px while preserving 600 weight and the lighter weekday. [Evidence](../docs-work/CUS_03_MOTION_2026-11-17.md).

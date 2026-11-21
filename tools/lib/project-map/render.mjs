@@ -30,7 +30,7 @@ export async function renderPages(root, records) {
       logo: prefix('/img/rival-logo.png'), favicon: prefix('/img/rival-mark.png') };
     try {
       const html = env.render(page.template, { site, urls, page, model, basePath,
-        ...await productContext(page, basePath, registry.pages), phaseNumber: Number(page.phase.replace('Phase ', '')),
+        ...await productContext(page, basePath, registry.pages, model), phaseNumber: Number(page.phase.replace('Phase ', '')),
         sourceBatch: page.primaryBatch, title: page.titleFa + ' — ریوال' });
       result[page.id] = {
         templates: [...used].sort(),

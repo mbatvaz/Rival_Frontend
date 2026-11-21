@@ -16,6 +16,7 @@ registerFeature('gallery-rail', () => import('./features/gallery-rail.js'));
 registerFeature('booking', () => import('./features/booking/index.js'));
 registerFeature('customer-home', () => import('./features/customer/home.js'));
 registerFeature('customer-appointments', () => import('./features/customer/appointments.js'));
+registerFeature('customer-appointment-detail', () => import('./features/customer/appointment-detail.js'));
 registerFeature('customer-dock', () => import('./components/customer-dock.js'));
 initSheets();
 initNavigationMotion();

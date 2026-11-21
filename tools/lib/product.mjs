@@ -52,16 +52,17 @@ function statePages(fixtures, urls, catalog, defaults, asset, defaultResult) {
   });
 }
 
-export async function productContext(page, basePath, pages) {
+export async function productContext(page, basePath, pages, model) {
   const role = page.role.startsWith('Customer') ? 'customer' : page.role.startsWith('Stylist') ? 'stylist'
     : page.role === 'OwnerAdmin' ? 'admin' : null;
   const route = relative => withBase(basePath, relative);
   let shell = null;
   if (role) {
     shell = (await readJson(path.join(src, `MockData/nav.${role}.json`))).data;
+    const activePath = page.id === 'CUS-04' ? '/customer/appointments/' : page.previewPath;
     const map = item => {
       const [pathname, query] = item.href.split('?');
-      return { ...item, href: route(pathname) + (query ? '?' + query : ''), active: !query && pathname === page.previewPath };
+      return { ...item, href: route(pathname) + (query ? '?' + query : ''), active: !query && pathname === activePath };
     };
     shell = { ...shell, role, book: shell.book ? map(shell.book) : null,
       primary: shell.primary.map(map), more: shell.more.map(map) };
@@ -100,7 +101,7 @@ export async function productContext(page, basePath, pages) {
   }
   return {
     ...booking,
-    ...await customerContext(page, basePath, pages),
+    ...await customerContext(page, basePath, pages, model),
     shell,
     publicTitle: page.id === 'PUB-01' ? '' : page.titleFa,
     publicPage: page.id.startsWith('PUB-'),

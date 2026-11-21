@@ -1,0 +1,144 @@
+@layer pages {
+  .rv-appointment-detail-page .rv-workspace__header > .rv-appointment-detail__back { grid-area: 1 / 1; }
+  .rv-appointment-detail { display: grid; gap: var(--space-6); }
+  .rv-appointment-detail .rv-appointment-hero__media { block-size: 168px; }
+  .rv-appointment-detail .rv-appointment-hero__panel { margin-block-start: calc(-1 * var(--space-6)); }
+  .rv-appointment-detail .rv-appointment-hero__tag { background: var(--bg-inverse); color: var(--text-inverse); }
+  [data-rv-detail-history] .rv-appointment-hero__media > img { filter: grayscale(1); }
+  [data-rv-detail-history] :is(.rv-appointment-hero__date, .rv-appointment-hero__time) > b { color: var(--text-secondary); }
+
+  .rv-appointment-detail__receipt,
+  .rv-appointment-detail__policy { display: grid; align-content: start; gap: var(--space-3); }
+  .rv-appointment-detail .rv-section-head { gap: var(--space-2); margin: 0; }
+  .rv-appointment-detail .rv-section-head h2 { margin: 0; font-size: var(--heading-md-size); line-height: var(--heading-md-line); }
+
+  .rv-appointment-detail .rv-section-head > :is(a, span) {
+    flex: none;
+    color: var(--text-secondary);
+    font-size: var(--body-sm-size);
+  }
+  .rv-appointment-detail .rv-section-head a { display: inline-flex; align-items: center; min-block-size: var(--size-touch); }
+  .rv-appointment-detail__duration { margin-inline-start: var(--space-2); }
+
+  .rv-appointment-detail__facts,
+  .rv-appointment-detail__timeline {
+    border-radius: var(--radius-xl);
+    margin: 0;
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .rv-appointment-detail__facts > div {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding-block: var(--space-2);
+  }
+  .rv-appointment-detail .rv-appointment-hero__service { border-block-start: 1px solid var(--line-hairline); }
+
+  .rv-appointment-detail :is(.rv-appointment-hero__date, .rv-appointment-hero__time) > b,
+  .rv-appointment-cancel-hero :is(.rv-appointment-hero__date, .rv-appointment-hero__time) > b {
+    font-size: 48px;
+    line-height: 56px;
+  }
+  .rv-appointment-detail__facts dd { margin: 0; font-weight: 600; text-align: end; }
+  .rv-appointment-detail__timeline { list-style: none; }
+
+  .rv-appointment-detail__timeline > li {
+    position: relative;
+    border-inline-start: 1px solid var(--line-hairline);
+    padding-inline-start: var(--space-4);
+    padding-block-end: var(--space-4);
+  }
+  .rv-appointment-detail__timeline > li:last-child { padding-block-end: 0; }
+
+  .rv-appointment-detail__timeline > li::before {
+    content: "";
+    position: absolute;
+    inset-block-start: var(--space-2);
+    inset-inline-start: calc(-1 * var(--space-1));
+    inline-size: var(--space-2);
+    block-size: var(--space-2);
+    border-radius: var(--radius-pill);
+    background: var(--chrome-500);
+  }
+  .rv-appointment-detail__timeline > li:first-child::before { background: var(--bg-inverse); }
+
+  .rv-appointment-detail__timeline p {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    margin-block: var(--space-1) 0;
+  }
+  .rv-appointment-detail__timeline .ri { flex: none; }
+  .rv-appointment-cancel .rv-sheet__header h2 { flex: 1; margin: 0; }
+
+  .rv-appointment-cancel__impact {
+    border-radius: var(--radius-md);
+    margin-block: var(--space-3);
+    padding: var(--space-3);
+  }
+  .rv-appointment-cancel__impact p { margin: 0; }
+
+  @media (min-width: 1024px) {
+    .rv-appointment-detail-page .rv-workspace__header { justify-content: flex-start; }
+    .rv-appointment-detail-page .rv-workspace__header > .rv-appointment-detail__back:first-child { display: inline-flex; }
+
+    .rv-appointment-detail {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: auto 1fr;
+      align-items: start;
+    }
+    .rv-appointment-detail > .rv-appointment-hero { display: block; }
+    .rv-appointment-detail .rv-appointment-hero__panel { display: block; margin-block-start: calc(-1 * var(--space-6)); }
+    .rv-appointment-detail .rv-appointment-hero__service { margin-block-start: var(--space-4); }
+
+    .rv-appointment-detail :is(.rv-appointment-hero__date, .rv-appointment-hero__time) > b {
+      font-size: 48px;
+      line-height: 56px;
+    }
+
+    .rv-appointment-detail__receipt { grid-area: 2 / 1; }
+    .rv-appointment-detail__policy { grid-area: 1 / 2 / span 2; }
+  }
+}
+
+@layer pages {
+  .rv-appointment-detail .rv-appointment-hero__tag[data-rv-tone="success"] { background: var(--success-bg); color: var(--success-fg); border-color: var(--success-line); }
+  .rv-appointment-detail .rv-appointment-hero__tag[data-rv-tone="danger"] { background: var(--danger-bg); color: var(--danger-fg); border-color: var(--danger-line); }
+  .rv-appointment-detail .rv-appointment-hero__tag[data-rv-tone="rose"] { background: var(--rose-bg); color: var(--rose-fg); border-color: var(--rose-line); }
+  .rv-appointment-detail__inactive[hidden] { display: none; }
+  .rv-appointment-detail__timeline { padding: var(--space-5); }
+  .rv-appointment-detail__timeline > li { border-inline-start: 2px solid var(--chrome-300); padding-inline-start: var(--space-6); padding-block-end: var(--space-5); }
+
+  .rv-appointment-detail__timeline > li::before {
+    inset-inline-start: -8px;
+    inline-size: 14px;
+    block-size: 14px;
+    border: 2px solid var(--chrome-500);
+    background: var(--bg-surface);
+  }
+  .rv-appointment-detail__timeline > li:first-child::before { border-color: var(--bg-inverse); background: var(--bg-inverse); }
+  .rv-appointment-detail__timeline > li:last-child::before { border-color: var(--bg-inverse); }
+  .rv-appointment-detail__timeline p { color: var(--text-secondary); font-weight: 300; }
+  .rv-appointment-detail__timeline li:first-child .ri { color: var(--success-fg); }
+  .rv-appointment-detail__timeline .ri-ban { color: var(--danger-fg); }
+  .rv-appointment-cancel__deadline { padding-block: var(--space-3); }
+  .rv-appointment-cancel__deadline > span { display: block; text-align: center; font-size: var(--caption-size); }
+  .rv-appointment-cancel__deadline > div { display: flex; gap: var(--space-1); }
+
+  .rv-appointment-cancel__deadline i {
+    flex: 1;
+    height: 4px;
+    border-radius: var(--radius-pill);
+    background: var(--chrome-300);
+  }
+  .rv-appointment-cancel__deadline i:first-child { background: var(--bg-inverse); }
+  .rv-appointment-cancel__deadline small { display: inline-block; width: 50%; color: var(--text-secondary); }
+
+  @media (min-width: 1024px) {
+    .rv-appointment-detail__inactive { grid-column: 1 / -1; }
+    .rv-appointment-detail:has(.rv-appointment-detail__inactive:not([hidden])) { grid-template-rows: auto auto 1fr; }
+    .rv-appointment-detail:has(.rv-appointment-detail__inactive:not([hidden])) .rv-appointment-detail__receipt { grid-area: 3 / 1; }
+    .rv-appointment-detail:has(.rv-appointment-detail__inactive:not([hidden])) .rv-appointment-detail__policy { grid-area: 2 / 2 / span 2; }
+  }
+}

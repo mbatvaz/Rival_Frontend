@@ -20,6 +20,11 @@ export async function init(root) {
     root.querySelector('[data-rv-home-alert-count]').textContent = 'فعالی ندارید';
   }
   if (inactive) {
+    root.querySelectorAll('[data-rv-home-detail]').forEach(link => {
+      const detailUrl = new URL(link.href);
+      detailUrl.searchParams.set('state', 'inactive');
+      link.href = detailUrl.href;
+    });
     const recurring = root.querySelector('.rv-customer-tools__links [data-rv-home-write-action]').getAttribute('href');
     const actions = [...root.querySelectorAll('[data-rv-home-write-action]'),
       ...document.querySelectorAll('.rv-role-nav__book, [data-rv-customer-book]'),

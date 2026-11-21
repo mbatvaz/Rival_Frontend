@@ -1,5 +1,9 @@
 # Traceability Contract
 
+## CUS-04 initial detail preview — 2026-11-21
+
+DEC-072 and Batch 3 CUS-04, DONE, INACTIVE and CAN-GT24 → [detail view](../src/Views/Customer/Appointments/Detail.njk), [receipt/policy fixture](../src/MockData/customer/appointment-detail.json), shared AppointmentHero and Sheet, and [linked record, responsive, keyboard and axe checks](../tests/phase04/appointment-detail.spec.mjs). [Source and desktop brief](../docs-work/desktop-layouts/CUS-04.md).
+
 ## CUS-03 retained-filter calendar — 2026-11-17
 
 DEC-075 + direct owner follow-up → optional parent preservation in [shared Sheet lifecycle](../src/wwwroot/js/components/sheet.js), enabled only by [CUS-03 date adapter](../src/wwwroot/js/features/customer/appointment-date-picker.js), overlaid calendar spacing in [date styles](../src/wwwroot/css/04-pages/customer-appointment-dates.css), and larger day/time in [appointment card](../src/wwwroot/css/03-components/appointment-card.css) → visible-parent/inert/focus/gap/typography assertions and fresh 320/390/768/1280 screenshots in [appointment feedback tests](../tests/phase04/appointment-feedback.spec.mjs), plus shared Sheet regressions. [Motion record](../docs-work/CUS_03_MOTION_2026-11-17.md). No data or write behavior.

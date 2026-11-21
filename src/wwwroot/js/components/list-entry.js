@@ -1,6 +1,7 @@
 import { motionTiming } from './motion.js';
 
 const groups = [
+  ['.rv-appointment-detail', ':scope > .rv-appointment-hero, :scope > section:not([hidden])'],
   ['[data-rv-choices-list]', ':scope > a'],
   ['[data-rv-quick-items]', ':scope > a'],
   ['[data-rv-home-appointments]', ':scope > article'],
@@ -41,7 +42,7 @@ export function initListEntry() {
       const ordered = selector === '[data-rv-appointments-records]' ? candidates : candidates.sort((a, b) =>
         Math.abs(a.rect.top - b.rect.top) > rowTolerance ? a.rect.top - b.rect.top : b.rect.right - a.rect.right);
       ordered.forEach(({ el }, index) => {
-        const frames = desktop.matches ? [{ opacity: 0 }, { opacity: 1 }] : [
+        const frames = desktop.matches && selector !== '.rv-appointment-detail' ? [{ opacity: 0 }, { opacity: 1 }] : [
           { opacity: 0, transform: `translateX(-${offset})` }, { opacity: 1, transform: 'none' }
         ];
         const animation = el.animate(frames, { ...timing, id: 'rv-list-entry', delay: index * stagger, fill: 'backwards' });

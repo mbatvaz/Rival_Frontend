@@ -1,0 +1,22 @@
+{% extends "Shared/_CustomerPanelLayout.njk" %}
+{% block workspaceClass %} rv-customer-home rv-customer-panel rv-appointment-detail-page{% endblock %}
+{% block workspaceHeader %}
+<a class="rv-icon-btn rv-appointment-detail__back" href="{{ customerUrls['CUS-03'] }}" aria-label="بازگشت به نوبت‌ها"><span class="ri ri-arrow-right" aria-hidden="true"></span></a>
+<div class="rv-customer-panel__heading"><h1>{{ page.titleFa }}</h1><span>{{ shell.name }}</span></div>
+<span class="rv-customer-panel__spacer" aria-hidden="true"></span>
+{% endblock %}
+{% block content %}
+<div data-rv="customer-appointment-detail">
+  {% for appointment in customerAppointments %}
+    {% if loop.first %}<div data-rv-detail-current data-rv-detail-id="{{ appointment.id }}">{% else %}<template data-rv-detail-id="{{ appointment.id }}">{% endif %}
+      {% include "Customer/Appointments/_DetailContent.njk" %}
+    {% if loop.first %}</div>{% else %}</template>{% endif %}
+  {% endfor %}
+  <div class="rv-appointments__empty rv-appointments__state-card" data-rv-detail-missing hidden>
+    <h2>نوبت پیدا نشد</h2>
+    <p>نوبت دیگری را از فهرست انتخاب کنید.</p>
+    <a class="rv-btn rv-btn--secondary" href="{{ customerUrls['CUS-03'] }}">نوبت‌های من</a>
+  </div>
+</div>
+{% endblock %}
+{% block workspaceSheets %}{% include "Customer/Appointments/_CancelPreview.njk" %}{% endblock %}

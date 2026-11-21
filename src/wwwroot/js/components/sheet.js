@@ -9,13 +9,13 @@ let closingGeneration = 0;
 const focusable = panel => [...panel.querySelectorAll('a[href],button,input,select,textarea,[tabindex]')]
   .filter(el => !el.disabled && el.tabIndex >= 0 && !el.closest('[hidden],[inert]') && el.getClientRects().length);
 
-export function openSheet(id, opener = document.activeElement, { preserveParent = false } = {}) {
+export function openSheet(id, opener = document.activeElement, { preserveParent = false, scrollPosition = window.scrollY } = {}) {
   const panel = document.getElementById(id);
   const layer = document.querySelector('[data-rv-sheet-layer]');
   if (!panel || !layer || closingSheet) return;
   releaseDrag();
   if (!current) {
-    originalScroll = window.scrollY;
+    originalScroll = scrollPosition;
     const page = document.querySelector('[data-rv-page]');
     page.style.setProperty('--rv-sheet-scroll', -originalScroll + 'px');
     page.classList.add('rv-page--behind-sheet');

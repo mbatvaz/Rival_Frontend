@@ -35,11 +35,11 @@ let rendered = 0;
 const revision = revisionTracker(src);
 const revisions = new Map();
 for (const page of registry.pages) {
-  const product = await productContext(page, site.basePath, registry.pages);
-  const template = page.template ?? (product.shell ? 'Shared/Preview/_RolePlaceholder.njk' : 'Shared/Preview/_Placeholder.njk');
-  if (page.template) inside(views, page.template);
   const fixture = page.mockData ? await readJson(inside(src, page.mockData)) : {};
   const model = fixture.demo ? fixture.data : fixture;
+  const product = await productContext(page, site.basePath, registry.pages, model);
+  const template = page.template ?? (product.shell ? 'Shared/Preview/_RolePlaceholder.njk' : 'Shared/Preview/_Placeholder.njk');
+  if (page.template) inside(views, page.template);
   const html = env.render(template, {
     site, urls, page, model, basePath: site.basePath, ...product,
     phaseNumber: Number(page.phase.replace('Phase ', '')), sourceBatch: page.primaryBatch,

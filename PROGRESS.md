@@ -1,6 +1,14 @@
 # Rival Progress
 
-The owner accepted CUS-03 on 2026-11-19. Further Phase 04 implementation awaits the owner's instruction.
+## CUS-04 preview accepted — 2026-11-21
+
+The owner accepted the implemented CUS-04 preview and requested closeout and publication on the Phase 04 branch. Cancellation submission, rescheduling and other CUS-04 variants remain pending. Further product work awaits owner instruction.
+
+## CUS-04 first detail preview — 2026-11-21
+
+After accepting CUS-03 on 2026-11-19, the owner asked to start the next Phase 04 slice. CUS-04 now opens from the customer home and appointment list, with the default and completed receipts, inactive account, a cancellation impact preview, and an unknown-record fallback. The [desktop review brief](docs-work/desktop-layouts/CUS-04.md) is pending owner feedback under DEC-072. Cancellation submission, rescheduling, and the remaining CUS-04 action variants are still pending.
+
+Static build and lint passed. Focused CUS-04, home, desktop and appointment-list regressions passed 36/36 at root and 36/36 under `/rival-demo/`. Root output was restored and the live detail was opened on port 8183. The [review brief](docs-work/desktop-layouts/CUS-04.md#source-comparisons) records the screenshot comparisons.
 
 ## CUS-03 retained-filter calendar follow-up — 2026-11-17
 

@@ -278,11 +278,17 @@
       "status": "Fully Designed",
       "source": "Batch 3",
       "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
+      "template": "Customer/Appointments/Detail.njk",
+      "mockData": "MockData/customer/appointment-detail.json",
+      "notes": "Initial Phase 04 detail, receipt, timeline and cancellation impact preview.",
       "titleFa": "جزئیات نوبت",
-      "phase": "Phase 04"
+      "phase": "Phase 04",
+      "implementationStatus": "implemented",
+      "variants": [
+        { "label": "انجام شده", "query": "?appointment=BK-47920&state=done" },
+        { "label": "حساب غیرفعال", "query": "?state=inactive" },
+        { "label": "پیش‌نمایش لغو", "query": "?state=can-gt24" }
+      ]
     },
     {
       "id": "CUS-05",
