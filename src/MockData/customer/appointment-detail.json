@@ -34,6 +34,23 @@
           }
         ]
       },
+      "BK-48390": {
+        "duration": "۳۰ دقیقه",
+        "paidAt": "۱۹ مهر، ۱۷:۲۰",
+        "amount": "۱۲۰٬۰۰۰",
+        "gateway": "۱۲۰٬۰۰۰",
+        "tracking": "#BK-48390",
+        "policy": [
+          {
+            "title": "اکنون",
+            "entries": [{ "icon": "coins", "text": "لغو: ۱۲۰٬۰۰۰ تومان به اعتبار شما برمی‌گردد" }]
+          },
+          {
+            "title": "سه‌شنبه ۲۸ مهر، ۱۵:۳۰، شروع نوبت",
+            "entries": [{ "icon": "ban", "text": "لغو و جابه‌جایی ممکن نیست" }]
+          }
+        ]
+      },
       "BK-47920": {
         "weekday": "سه‌شنبه",
         "duration": "۱ ساعت",
@@ -42,6 +59,22 @@
         "gateway": "۱۸۰٬۰۰۰",
         "tracking": "#BK-47920"
       }
+    },
+    "conflict": {
+      "id": "rsc-conflict",
+      "service": "فیشیال",
+      "stylist": "سینا",
+      "day": "۲۵",
+      "weekday": "شنبه",
+      "month": "مهر",
+      "time": "۱۸:۰۰",
+      "image": "img/public/facial.png",
+      "avatar": "img/booking/sina.png",
+      "status": "booked",
+      "statusText": "رزرو شده",
+      "tone": "ink",
+      "icon": "check-circle",
+      "countdown": []
     }
   }
 }

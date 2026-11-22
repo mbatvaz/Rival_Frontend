@@ -6,7 +6,7 @@ DEC-073/074 revise existing CUS-03 views and states, without adding a page or ch
 
 ## Phase 04 status — 2026-11-21
 
-DEC-072 accepts the CUS-01 default/empty/inactive slice and embedded CUS-07 balance. The owner accepted CUS-03 on 2026-11-19. The implemented CUS-04 preview is accepted, with action variants pending. The registry has 73 contexts, with 24 product templates, 23 accepted contexts and 49 placeholders. CUS-07 stays embedded. CUS-05/06/08/09/10 remain placeholders. [CUS-04 brief](../docs-work/desktop-layouts/CUS-04.md).
+DEC-072 accepts the CUS-01 default/empty/inactive slice and embedded CUS-07 balance. The owner accepted CUS-03 on 2026-11-19 and the first CUS-04 detail preview on 2026-11-21. CUS-04-RSC is available under CUS-04 for owner review. The registry has 73 contexts, with 24 product templates, 23 accepted contexts and 49 placeholders. CUS-07 stays embedded. CUS-05/06/08/09/10 remain placeholders. [CUS-04 brief](../docs-work/desktop-layouts/CUS-04.md), [rescheduling brief](../docs-work/desktop-layouts/CUS-04-RSC.md).
 
 ## Customer chrome recovery — 2026-11-16
 
@@ -84,7 +84,7 @@ Phase 01–02 refresh (2026-11-14): PUB-01..03, AUTH-01/02, SYS-ACC-01 and share
 | CUS-01 | `/customer` | Customer | Fully Designed / reused final ref | Batch 3 |
 | CUS-02 | `/customer/book` | Customer | Fully Designed | Batch 2 |
 | CUS-03 | `/customer/appointments` | Customer | Fully Designed | Batch 3 |
-| CUS-04 | `/customer/appointments/{id}` | Customer | Initial preview accepted; action variants pending | Batch 3 |
+| CUS-04 | `/customer/appointments/{id}` | Customer | Accepted with rescheduling and [Appointment Swap](features/APPOINTMENT_SWAP.md) under DEC-080. | Batch 3 and DEC-076–080 |
 | CUS-05 | `/customer/requests` | Customer | Fully Designed | Batch 3 |
 | CUS-06 | `/customer/requests/{id}` | Customer | Fully Designed | Batch 3 + Batch 2 payment reuse |
 | CUS-07 | embedded balance | Customer | Implied / no route | Batch 3, DS |

@@ -42,6 +42,10 @@
 
   .rv-sheet__header h2,
   .rv-sheet__header p { margin-block-end: var(--space-1); }
+
+  .rv-sheet [data-rv-sheet-auto-focus]:focus-visible,
+  .rv-sheet[data-rv-sheet-auto-focus]:focus-visible { outline: none; }
+
   [data-rv-sheet-grip] { display: none; }
 
   @media not all and (min-width: 768px) {

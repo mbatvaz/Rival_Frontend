@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "customers": { "a": "مشتری یک", "b": "مشتری دو" },
+    "appointments": [
+      { "id": "SWAP-01", "createdByUserId": "a", "payerUserId": "a", "attendeeUserId": "a", "dayOffset": 3, "time": "16:00", "status": "booked", "serviceId": "face-hair", "stylistId": "amir", "branchId": "demo-salon", "configurationId": "standard", "durationMinutes": 60, "revision": 0, "rescheduleAllowance": 1, "rescheduleHistory": [], "paymentHistory": ["DEMO-PAY-01"] },
+      { "id": "SWAP-02", "createdByUserId": "b", "payerUserId": "b", "attendeeUserId": "b", "dayOffset": 5, "time": "10:30", "status": "booked", "serviceId": "face-hair", "stylistId": "amir", "branchId": "demo-salon", "configurationId": "standard", "durationMinutes": 60, "revision": 0, "rescheduleAllowance": 0, "rescheduleHistory": ["DEMO-RSC-02"], "paymentHistory": ["DEMO-PAY-02"] }
+    ],
+    "offers": [],
+    "history": []
+  }
+}

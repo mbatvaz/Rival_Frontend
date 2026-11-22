@@ -1,5 +1,25 @@
 # Decision Log
 
+## DEC-080 — CUS-04 detail acceptance and final corrections
+
+The owner accepted the CUS-04 detail slice with its rescheduling and swap views and authorized publishing the finalized slice to the existing Phase 04 branch. The live demo shows appointment time remaining, uses equal management-action spacing and blocks redemption while the same appointment has an active offer. The fixed-date design snapshots display swap entry actions when cancellation is present and retain their reference dates. This closes the CUS-04 slice within Phase 04.
+
+## DEC-079 — Shared Sheet scrim, entry and focus
+
+The swap Sheets use the cancellation scrim and shared Sheet entry animation. Creation and direct previews prepare their content before opening. Automatic focus keeps keyboard interaction available, with a visible focus indicator during keyboard use and no initial ring on pointer or direct-preview entry. [CUS-04 review brief](../docs-work/desktop-layouts/CUS-04.md)
+
+## DEC-078 — Swap review shortcuts, eligibility and presentation
+
+CUS-04 exposes both swap actions across appointment details. The active future swap fixtures enable the actions. Inactive accounts, past records and ineligible statuses display the disabled actions with an explanation. The preview directory links directly to create, code, entry, confirmation and success. The code uses the customer payment timer presentation, and swap Sheets lift the appointment summary over a dark scrim. Customers own their decision and agreement to swap. The salon's legal and service obligations continue to apply. [Feature contract](features/APPOINTMENT_SWAP.md)
+
+## DEC-077 — Review both appointments before swapping
+
+The owner requested a confirmation view and a distinct success view inside the CUS-04 redemption Sheet. Checking a valid code displays both appointment dates and times. The final confirmation revalidates and redeems the offer. [Feature contract](features/APPOINTMENT_SWAP.md)
+
+## DEC-076 — Appointment Swap in CUS-04
+
+The owner assigned the appointment-swap workflow in Phase 04 on 2026-11-22. Exchange only current attendee/management ownership, using a ten-minute, single-use, date-only code. Preserve the reserved slots, original payer/creator, payment history and rescheduling quota. An eligible refund follows the original payer. Implement the browser-local preview under the existing CUS-04 composition. Implementation acceptance and publication require a separate owner decision. [Feature contract](features/APPOINTMENT_SWAP.md)
+
 ## DEC-075 — Calendar overlays the retained filter and appointment dates grow
 
 On 2026-11-17 the owner keeps the CUS-03 filter visible beneath its Jalali calendar instead of hiding/replacing it, requests more separation between the calendar heading and day grid, and slightly larger appointment day/time text. The date picker uses the existing Sheet stack with an explicit visible-but-inert parent mode; the calendar is positioned over the same filter surface, restores the parent and opener on close, and adds a space-3 grid gap. Appointment day grows from 22px to 26px and time from 13px to 14px at both mobile and desktop widths. [Motion/interaction record](../docs-work/CUS_03_MOTION_2026-11-17.md), [owner evidence](../docs-work/CUS_03_OWNER_FEEDBACK_2026-11-17.md). No route, filter semantics or phase acceptance changes.

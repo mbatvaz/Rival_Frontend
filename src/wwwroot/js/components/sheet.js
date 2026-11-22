@@ -1,4 +1,5 @@
 import { initSheetGrips, releaseDrag } from './sheet-grip.js';
+import { initSheetFocus, focusSheetTarget } from './sheet-focus.js';
 
 let current = null;
 const stack = [];
@@ -17,7 +18,7 @@ export function openSheet(id, opener = document.activeElement, { preserveParent 
   if (!current) {
     originalScroll = scrollPosition;
     const page = document.querySelector('[data-rv-page]');
-    page.style.setProperty('--rv-sheet-scroll', -originalScroll + 'px');
+    page.style.setProperty('--rv-sheet-scroll', -scrollPosition + 'px');
     page.classList.add('rv-page--behind-sheet');
     page.inert = true;
     page.setAttribute('aria-hidden', 'true');
@@ -37,7 +38,7 @@ export function openSheet(id, opener = document.activeElement, { preserveParent 
   layer.hidden = false;
   panel.hidden = false;
   window.scrollTo(0, 0);
-  (panel.querySelector('[data-rv-sheet-initial-focus]') ?? focusable(panel)[0] ?? panel).focus({ preventScroll: true });
+  focusSheetTarget(panel.querySelector('[data-rv-sheet-initial-focus]') ?? focusable(panel)[0] ?? panel);
 }
 
 export async function closeSheet({ immediate = false, all = false } = {}) {
@@ -68,7 +69,7 @@ export async function closeSheet({ immediate = false, all = false } = {}) {
     current.panel.removeAttribute('aria-hidden');
     delete current.panel.dataset.rvUnderSheet;
     current.panel.hidden = false;
-    (closing.opener?.isConnected ? closing.opener : current.panel).focus();
+    focusSheetTarget(closing.opener?.isConnected ? closing.opener : current.panel, { preventScroll: false });
   } else {
     document.querySelector('[data-rv-sheet-layer]').hidden = true;
     const page = document.querySelector('[data-rv-page]');
@@ -85,6 +86,7 @@ export async function closeSheet({ immediate = false, all = false } = {}) {
 }
 
 export function initSheets() {
+  initSheetFocus();
   initSheetGrips(panel => current?.panel === panel && !closingSheet, closeSheet);
   window.matchMedia('(min-width: 1024px)').addEventListener('change', () => {
     if ([...stack, current].some(entry => entry?.panel.classList.contains('rv-customer-more'))) closeSheet({ immediate: true, all: true });

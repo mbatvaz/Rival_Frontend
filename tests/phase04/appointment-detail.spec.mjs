@@ -4,6 +4,22 @@ import AxeBuilder from '@axe-core/playwright';
 const route = 'customer/appointments/demo/';
 const ready = page => expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
 
+test('shared cancellation Sheet shows focus on keyboard entry and skips the ring on pointer entry', async ({ page }) => {
+  await page.goto(route);
+  await ready(page);
+  const opener = page.getByRole('button', { name: 'لغو نوبت', exact: true });
+  const sheet = page.getByRole('dialog', { name: 'لغو این نوبت؟' });
+  const close = sheet.getByRole('button', { name: /بستن/ });
+  await opener.click();
+  await expect(close).toBeFocused();
+  await expect(close).toHaveCSS('outline-style', 'none');
+  await page.keyboard.press('Escape');
+  await expect(opener).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(close).toBeFocused();
+  await expect(close).toHaveCSS('outline-style', 'solid');
+});
+
 for (const width of [320, 390, 768, 1023, 1024, 1280]) {
   test(`CUS-04 detail and cancellation preview at ${width}px @visual @a11y`, async ({ page, baseURL }) => {
     await page.setViewportSize({ width, height: 844 });
@@ -16,6 +32,8 @@ for (const width of [320, 390, 768, 1023, 1024, 1280]) {
     await ready(page);
     await expect(page.getByRole('heading', { name: 'جزئیات نوبت' })).toBeVisible();
     await expect(page.getByText('#BK-48213')).toBeVisible();
+    await expect(page.getByRole('button', { name: 'ایجاد کد تعویض' })).toBeEnabled();
+    await expect(page.getByRole('button', { name: 'ثبت کد تعویض' })).toBeEnabled();
     await expect(page.getByRole('link', { name: 'بازگشت به نوبت‌ها' })).toBeVisible();
     await expect(page.locator(width < 1024 ? '.rv-role-nav' : '.rv-booking-sidebar')
       .getByRole('link', { name: 'نوبت‌ها', exact: true })).toHaveAttribute('aria-current', 'page');
@@ -65,6 +83,8 @@ test('CUS-04 resolves links from home and history and guards unknown records @sm
   await ready(page);
   await expect(page.getByText(/حساب غیرفعال است؛ لغو/)).toBeVisible();
   await expect(page.getByRole('button', { name: 'لغو نوبت' })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'ایجاد کد تعویض' })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'ثبت کد تعویض' })).toBeDisabled();
   await screenshot('inactive');
 
   await page.goto('customer/appointments/?tab=history');
@@ -74,6 +94,8 @@ test('CUS-04 resolves links from home and history and guards unknown records @sm
   await expect(page.getByText('#BK-47920')).toBeVisible();
   await expect(page.getByText('#BK-48213')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'لغو نوبت' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'ایجاد کد تعویض' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'ثبت کد تعویض' })).toHaveCount(0);
   await screenshot('completed');
   await page.getByRole('link', { name: 'بازگشت به نوبت‌ها' }).click();
   await expect(page).toHaveURL(/tab=history/);

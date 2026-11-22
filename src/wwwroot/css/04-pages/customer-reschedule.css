@@ -1,0 +1,149 @@
+@layer pages {
+  .rv-appointment-detail__previous { margin: var(--space-3) 0 0; font-size: var(--caption-size); }
+
+  .rv-appointment-detail__timeline > li[data-rv-policy-step]:first-child {
+    border-image: linear-gradient(to bottom, transparent 0 15px, var(--chrome-300) 15px) 1;
+  }
+
+  .rv-appointment-detail__timeline > li[data-rv-policy-step]:last-child {
+    border-image: linear-gradient(to bottom, var(--chrome-300) 0 15px, transparent 15px) 1;
+  }
+  .rv-appointment-detail__timeline > li[data-rv-policy-step="now"]::before { background: var(--bg-inverse); border-color: var(--bg-inverse); }
+  .rv-appointment-detail__timeline > li[data-rv-policy-step="past"]::before { background: var(--chrome-300); border-color: var(--chrome-300); }
+  [data-rv-detail-note] > .ri { vertical-align: middle; }
+
+  .rv-appointment-detail-page[data-rv-reschedule] { padding-block-end: 0; }
+  [data-rv-reschedule] .rv-customer-panel__heading > [data-rv-rsc-subtitle] { color: var(--text-secondary); font-size: var(--body-sm-size); }
+
+  .rv-reschedule {
+    display: grid;
+    gap: var(--space-4);
+    max-inline-size: 560px;
+    margin-inline: auto;
+    padding-block-end: calc(var(--size-touch) + var(--space-12));
+  }
+
+  .rv-reschedule > .rv-booking-context,
+  .rv-reschedule-lift .rv-booking-context {
+    grid-template-columns: minmax(0, 1fr) 34%;
+    background: var(--bg-surface);
+  }
+
+  :is(.rv-reschedule, .rv-reschedule-lift) .rv-booking-context > img { max-block-size: 118px; }
+  :is(.rv-reschedule, .rv-reschedule-lift) .rv-booking-context > :last-child { padding-inline-end: var(--space-2); }
+  .rv-booking-context__current { font-size: var(--caption-size); }
+  .rv-booking-context__current .ri { vertical-align: middle; inline-size: var(--space-4); block-size: var(--space-4); }
+  .rv-reschedule__times { min-inline-size: 0; }
+  .rv-reschedule__times h2 { font-size: var(--heading-md-size); margin: 0 0 var(--space-3); }
+  .rv-reschedule .rv-booking-days { gap: var(--space-1); padding: var(--space-3) calc((100% - var(--size-touch)) / 2); }
+
+  .rv-reschedule .rv-booking-day {
+    display: grid;
+    place-content: center;
+    gap: var(--space-1);
+    min-block-size: 68px;
+    border-radius: var(--radius-md);
+  }
+  .rv-reschedule .rv-booking-day > span { font-size: var(--caption-size); }
+  .rv-reschedule .rv-booking-day > strong { font: 300 var(--heading-lg-size)/1 var(--font-sans); }
+  .rv-reschedule .rv-booking-day[aria-pressed="true"] { border: 2px solid var(--bg-inverse); }
+  .rv-reschedule .rv-booking-day[data-rv-day-state="closed"]:not([aria-pressed="true"]) { background: transparent; box-shadow: none; }
+
+  .rv-reschedule__note {
+    display: flex;
+    gap: var(--space-2);
+    align-items: baseline;
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: var(--body-sm-size);
+  }
+  .rv-reschedule__times .rv-reschedule__note { margin-block-start: var(--space-3); }
+  .rv-reschedule__note > .ri { flex: none; align-self: center; }
+  .rv-reschedule__note a { display: inline-flex; align-items: center; min-block-size: var(--size-touch); }
+
+  .rv-reschedule__footer {
+    position: fixed;
+    z-index: 2;
+    inset: auto 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-3);
+    margin-inline: auto;
+    max-inline-size: 560px;
+    padding: var(--space-3) var(--space-4) max(var(--space-4), env(safe-area-inset-bottom));
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    background: var(--glass-fill-strong);
+  }
+
+  .rv-reschedule__footer small { display: block; color: var(--text-secondary); }
+  .rv-reschedule__footer .rv-btn { flex: 0 0 40%; }
+  .rv-reschedule-result.rv-booking { min-block-size: 0; background: none; }
+  .rv-reschedule-result.rv-booking .rv-state-page { min-block-size: calc(100dvh - var(--size-control) - var(--space-8)); justify-content: start; }
+  .rv-reschedule-result .rv-state-page__intro h2 { font-weight: 400; }
+  .rv-reschedule-result.rv-booking .rv-state-page__intro .rv-lead { max-inline-size: 280px; }
+  .rv-reschedule-result.rv-booking .rv-state-page__receipt { inline-size: min(100%, 328px); }
+  .rv-reschedule-result .rv-state-page__lines { border: 0; margin-block-end: 0; }
+  .rv-reschedule-result .rv-state-page__lines > div { justify-content: start; padding-block: var(--space-1); }
+  .rv-reschedule-result .rv-state-page__lines del { color: var(--text-secondary); }
+  .rv-reschedule-result .rv-state-page__code { border-block-start: 1px dashed var(--line-strong); }
+
+  .rv-reschedule-lift { position: fixed; pointer-events: none; }
+  .rv-reschedule-sheet { position: relative; z-index: 1; }
+  .rv-reschedule-sheet .rv-sheet__header h2 { flex: 1; margin: 0; }
+  .rv-reschedule-sheet .rv-sheet__header .rv-icon-tile { background: var(--bg-inverse); color: var(--text-inverse); }
+
+  .rv-reschedule-sheet__change {
+    display: grid;
+    gap: var(--space-2);
+    margin: 0;
+    padding: var(--space-3);
+  }
+  .rv-reschedule-sheet__change > :where(div) { display: flex; gap: var(--space-4); }
+  .rv-reschedule-sheet__change dd { margin: 0; }
+  .rv-reschedule-sheet__change :is(dt, del) { color: var(--text-secondary); }
+
+  .rv-reschedule-sheet__facts {
+    display: grid;
+    gap: var(--space-4);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .rv-reschedule-sheet__facts li { display: flex; gap: var(--space-3); color: var(--text-secondary); }
+  .rv-reschedule-sheet__facts .ri { flex: none; }
+  .rv-reschedule-sheet > :is(.rv-customer-notice, .rv-reschedule-sheet__facts, .rv-actions) { margin-block-start: var(--space-4); }
+  .rv-page--behind-sheet:has(+ .rv-sheet-layer .rv-reschedule-lift:not([hidden])) .rv-reschedule > .rv-booking-context { visibility: hidden; }
+
+  :is(.rv-reschedule__note, .rv-reschedule-sheet__facts, .rv-booking-context__current,
+    .rv-reschedule__footer small, [data-rv-rsc-warning], [data-rv-rsc-danger]) { font-weight: 300; }
+  .rv-reschedule .rv-booking-picks legend { position: absolute; clip-path: inset(50%); }
+
+  @media (min-width: 1024px) {
+    [data-rv-reschedule] .rv-customer-panel__heading > span { display: none; }
+    .rv-reschedule { max-inline-size: none; padding-block-end: var(--space-6); }
+    .rv-reschedule .rv-booking-availability { order: 0; }
+    .rv-reschedule .rv-booking-picks__grid:not(.rv-booking-picks__grid--parts) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .rv-reschedule .rv-booking-picks legend { position: static; clip-path: none; font-weight: 300; }
+    .rv-reschedule__footer { position: static; margin-inline: 0; border-radius: var(--radius-xl); }
+    .rv-reschedule-result.rv-booking .rv-state-page { min-block-size: 0; }
+  }
+
+  @media (min-width: 1280px) {
+    .rv-reschedule {
+      grid-template-columns: minmax(0, 1fr) minmax(210px, 25%);
+      grid-template-rows: repeat(3, max-content) 1fr;
+      align-items: start;
+    }
+    .rv-reschedule__times { grid-area: 1 / 1 / span 4; }
+    .rv-reschedule > :is(.rv-booking-context, .rv-customer-notice, [data-rv-rsc-compensation], .rv-reschedule__footer) { grid-column: 2; }
+    .rv-reschedule__footer { flex-direction: column; align-items: stretch; }
+    .rv-reschedule__footer .rv-btn { flex: auto; }
+    :is(.rv-reschedule, .rv-reschedule-lift) > .rv-booking-context { grid-template-columns: minmax(0, 1fr) 43%; }
+    :is(.rv-reschedule, .rv-reschedule-lift) > .rv-booking-context > img { max-block-size: 100%; mask-image: linear-gradient(to left, transparent, var(--bg-inverse) 66%); }
+  }
+}
+
+@layer utilities {
+  [data-rv-reschedule] [data-rv-customer-dock] { display: none; }
+}

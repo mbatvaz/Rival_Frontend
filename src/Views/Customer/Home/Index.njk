@@ -3,11 +3,13 @@
 {% block workspaceSidebar %}{% include "Shared/_CustomerDesktopNav.njk" %}{% endblock %}
 {% block workspaceHeader %}
 <a href="{{ productUrls.panel }}" aria-label="ریوال — خانهٔ مشتری"><img src="{{ urls.logo }}" alt="ریوال" width="90" height="30"></a>
-<div class="rv-customer-home__desktop-heading"><strong>{{ page.titleFa }}</strong><span>{{ shell.name }}</span></div>
+<div class="rv-customer-home__desktop-heading"><strong>{{ page.titleFa }}</strong><span data-rv-swap-shell-name>{{ shell.name }}</span></div>
 <a class="rv-icon-btn rv-customer-home__bell" href="{{ customerUrls['CUS-09'] }}" aria-label="اعلان‌ها، ۱ خوانده‌نشده"><span class="ri ri-bell" aria-hidden="true"></span><span aria-hidden="true"></span></a>
 {% endblock %}
 {% block content %}
 <div class="rv-customer-home__content" data-rv="customer-home">
+  <template data-rv-swap-heroes>{% for appointment in swapAppointments %}{% include "Shared/Components/_AppointmentHero.njk" %}{% endfor %}</template>
+  <p class="rv-feedback" data-rv-swap-customer hidden></p>
   <p class="rv-feedback rv-feedback--error" data-rv-home-error role="alert" hidden></p>
   <section class="rv-customer-notice rv-customer-notice--inactive" aria-labelledby="rv-inactive-title" data-rv-home-inactive hidden>
     <span class="ri ri-lock" aria-hidden="true"></span>

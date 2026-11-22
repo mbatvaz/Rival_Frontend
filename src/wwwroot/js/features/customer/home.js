@@ -1,9 +1,20 @@
 import { api } from '../../core/api.js';
 import { initHomeRails } from './home-rails.js';
 import { startClocks } from './home-clocks.js';
+import { refreshHomeAppointments } from './reschedule-summaries.js';
+import { swapCustomer } from './appointment-swap-context.js';
+import { renderSwapHome } from './appointment-swap-summaries.js';
 
 // CUS-01 / DEC-062: fixture-driven presentation, never server authorization.
 export async function init(root) {
+  const customer = swapCustomer();
+  if (customer) {
+    try { await renderSwapHome(root, customer); }
+    catch {
+      getSwapHomeError(root);
+    }
+    return;
+  }
   const state = new URLSearchParams(window.location.search).get('state');
   const empty = state === 'empty';
   const inactive = state === 'inactive';
@@ -42,6 +53,7 @@ export async function init(root) {
   const showError = error => { errorBox.hidden = false; errorBox.textContent = error.message; };
   try {
     const data = (await api.read('customer/home')).data;
+    if (!empty) await refreshHomeAppointments(root, inactive);
     const saved = (await api.read('customer/home-state')).data;
     if (!saved.clockStartedAt) { saved.clockStartedAt = Date.now(); await api.write('customer/home-state', saved); }
     saved.dismissed.forEach(id => { root.querySelector(`[data-rv-home-dismissable="${window.CSS.escape(id)}"]`)?.setAttribute('hidden', ''); });
@@ -59,4 +71,12 @@ export async function init(root) {
       } catch (error) { showError(error); button.disabled = false; }
     }));
   } catch (error) { showError(error); }
+}
+
+function getSwapHomeError(root) {
+  const error = root.querySelector('[data-rv-home-error]');
+  error.textContent = 'نوبت‌های پیش‌نمایش در دسترس نیست. دوباره تلاش کنید.';
+  error.hidden = false;
+  root.querySelector('[data-rv-home-appointments]').hidden = true;
+  root.querySelector('[data-rv-home-payment]').hidden = true;
 }

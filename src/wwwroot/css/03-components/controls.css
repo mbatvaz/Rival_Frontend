@@ -56,6 +56,8 @@
   }
   .rv-muted { color: var(--text-secondary); font-size: var(--body-sm-size); font-weight: 300; }
   .rv-lead { font-size: var(--body-lg-size); line-height: var(--body-lg-line); font-weight: 300; }
+
+  :is(.rv-booking-facts, .rv-state-page__facts) li { font-weight: 300; }
   .rv-feedback { color: var(--text-secondary); }
   .rv-feedback:empty { display: none; }
   .rv-feedback--error { color: var(--danger-fg); }

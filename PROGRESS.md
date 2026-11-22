@@ -1,5 +1,25 @@
 # Rival Progress
 
+## CUS-04 Appointment Swap — 2026-11-22
+
+The owner accepted CUS-04 and authorized publication on the Phase 04 branch after the final corrections in DEC-080. The rest of Phase 04 remains open.
+
+The targeted detail, swap, rescheduling and dashboard checks passed 56/56 under `/rival-demo/`. At root, 55 passed in the combined run and the remaining layout assertion passed after waiting for the entry animation to settle. Lint passed and the test runner restored root output.
+
+DEC-079 aligns swap dimming and entry with cancellation and adjusts shared Sheet focus visuals. [Visual and interaction brief](docs-work/desktop-layouts/CUS-04.md#swap-visual-evidence)
+
+DEC-078 adds five directory shortcuts, status-aware actions, the dashboard-style timer, centered success and shared appointment lift. [Feature contract](docs/features/APPOINTMENT_SWAP.md)
+
+DEC-077 adds the outgoing and incoming schedule review before final consent and a distinct success view within the redemption Sheet. [Feature contract](docs/features/APPOINTMENT_SWAP.md)
+
+DEC-076 assigns the appointment-swap slice. [Feature contract](docs/features/APPOINTMENT_SWAP.md) and [desktop brief](docs-work/desktop-layouts/CUS-04.md) define the shared Sheet states, mock ownership and review entry points. Owner review is pending.
+
+The root and subpath full Playwright runs each reported 269 passing tests and three failing tests. The same booking calendar animation assertion and two preview-directory count assertions also failed on an isolated build of the original HEAD, `bbd837a`. The 19 swap cases passed in both configurations. The subpath runner restored the root build. [Checks and changed files](docs/features/APPOINTMENT_SWAP.md#verification)
+
+## CUS-04 rescheduling preview — 2026-11-21
+
+The owner assigned the appointment rescheduling screens and provided the mobile references. The preview directory includes the eight CUS-04-RSC variants and the late-window detail entry under CUS-04. The calendar, confirmation, result and updated appointment run through the local demo data boundary. [Sources and review brief](docs-work/desktop-layouts/CUS-04-RSC.md).
+
 ## CUS-04 preview accepted — 2026-11-21
 
 The owner accepted the implemented CUS-04 preview and requested closeout and publication on the Phase 04 branch. Cancellation submission, rescheduling and other CUS-04 variants remain pending. Further product work awaits owner instruction.

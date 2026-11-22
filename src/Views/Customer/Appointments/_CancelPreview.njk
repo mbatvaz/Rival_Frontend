@@ -5,14 +5,14 @@
     <h2 id="rv-cancel-preview-title">لغو این نوبت؟</h2>
     <button class="rv-icon-btn" type="button" data-rv-sheet-close aria-label="بستن برگه لغو"><span class="ri ri-x" aria-hidden="true"></span></button>
   </header>
-  <div class="rv-appointment-cancel__deadline" aria-label="اکنون پیش از امروز ساعت ۱۶:۰۰ هستیم؛ لغو با بازگشت کامل هزینه"><span>اکنون</span><div><i></i><i></i></div><small>تا امروز، ۱۶:۰۰</small><small>از امروز، ۱۶:۰۰</small></div>
+  <div class="rv-appointment-cancel__deadline" data-rv-cancel-deadline aria-label="اکنون پیش از امروز ساعت ۱۶:۰۰ هستیم؛ لغو با بازگشت کامل هزینه"><span>اکنون</span><div><i></i><i></i></div><small>تا امروز، ۱۶:۰۰</small><small>از امروز، ۱۶:۰۰</small></div>
   <div class="rv-appointment-cancel__impact rv-glass">
-    <span class="rv-icon-tile rv-appointment-cancel__coin" aria-hidden="true"><span class="ri ri-coins"></span></span><div><strong>{{ model.records['BK-48213'].amount }} تومان به اعتبار شما برمی‌گردد</strong>
+    <span class="rv-icon-tile rv-appointment-cancel__coin" aria-hidden="true"><span class="ri ri-coins"></span></span><div><strong data-rv-cancel-impact>{{ model.records['BK-48213'].amount }} تومان به اعتبار شما برمی‌گردد</strong>
     <p>کل هزینه رزرو؛ برای نوبت بعدی‌تان خودکار مصرف می‌شود.</p></div>
   </div>
   <p id="rv-cancel-preview-note">ثبت لغو در این پیش‌نمایش در دسترس نیست.</p>
   <div class="rv-actions">
     <button class="rv-btn rv-btn--danger" type="button" aria-describedby="rv-cancel-preview-note" disabled>لغو نوبت</button>
-    <button class="rv-btn rv-btn--secondary" type="button" disabled aria-describedby="rv-cancel-preview-note">جابه‌جایی</button>
+    <button class="rv-btn rv-btn--secondary" type="button" data-rv-cancel-reschedule disabled aria-describedby="rv-cancel-preview-note">جابه‌جایی</button>
   </div>
 </section>

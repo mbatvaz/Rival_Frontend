@@ -2,7 +2,7 @@
 {% block workspaceClass %} rv-customer-home rv-customer-panel rv-appointment-detail-page{% endblock %}
 {% block workspaceHeader %}
 <a class="rv-icon-btn rv-appointment-detail__back" href="{{ customerUrls['CUS-03'] }}" aria-label="بازگشت به نوبت‌ها"><span class="ri ri-arrow-right" aria-hidden="true"></span></a>
-<div class="rv-customer-panel__heading"><h1>{{ page.titleFa }}</h1><span>{{ shell.name }}</span></div>
+<div class="rv-customer-panel__heading"><h1 data-rv-detail-title>{{ page.titleFa }}</h1><span data-rv-swap-shell-name>{{ shell.name }}</span><small data-rv-rsc-subtitle hidden>جبرانی</small></div>
 <span class="rv-customer-panel__spacer" aria-hidden="true"></span>
 {% endblock %}
 {% block content %}
@@ -17,6 +17,7 @@
     <p>نوبت دیگری را از فهرست انتخاب کنید.</p>
     <a class="rv-btn rv-btn--secondary" href="{{ customerUrls['CUS-03'] }}">نوبت‌های من</a>
   </div>
+  {% include "Customer/Appointments/_Reschedule.njk" %}
 </div>
 {% endblock %}
-{% block workspaceSheets %}{% include "Customer/Appointments/_CancelPreview.njk" %}{% endblock %}
+{% block workspaceSheets %}{% include "Customer/Appointments/_CancelPreview.njk" %}{% include "Customer/Appointments/_RescheduleSheet.njk" %}{% include "Customer/Appointments/_SwapSheets.njk" %}{% endblock %}

@@ -2,6 +2,8 @@
 {% block panelTools %}{% include "Customer/Appointments/_Tools.njk" %}{% endblock %}
 {% block content %}
 <div class="rv-appointments" data-rv="customer-appointments">
+  <template data-rv-swap-cards>{% for appointment in swapAppointments %}{% include "Shared/Components/_AppointmentCard.njk" %}{% endfor %}</template>
+  <p class="rv-feedback" data-rv-swap-customer hidden></p>
   <div class="rv-appointments__chips" aria-label="فیلترهای فعال" data-rv-filter-chips hidden></div>
   <p class="rv-feedback" role="status" data-rv-list-loading hidden>در حال دریافت نوبت‌ها…</p>
   <div class="rv-appointments__empty rv-appointments__state-card" role="alert" data-rv-list-error hidden><span class="rv-icon-tile rv-icon-tile--large"><span class="ri ri-info" aria-hidden="true"></span></span><h2>نوبت‌ها دریافت نشد</h2><p data-rv-list-error-text></p><button type="button" class="rv-btn rv-btn--secondary" data-rv-list-retry>تلاش دوباره</button></div>

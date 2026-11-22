@@ -3,7 +3,7 @@
 {% block workspaceSidebar %}{% include "Shared/_CustomerDesktopNav.njk" %}{% endblock %}
 {% block workspaceHeader %}
 <span class="rv-customer-panel__spacer" aria-hidden="true"></span>
-<div class="rv-customer-panel__heading"><h1>{{ page.titleFa }}</h1><span>{{ shell.name }}</span></div>
+<div class="rv-customer-panel__heading"><h1>{{ page.titleFa }}</h1><span data-rv-swap-shell-name>{{ shell.name }}</span></div>
 {% block panelTools %}{% endblock %}
 <a class="rv-icon-btn" href="{{ customerUrls['CUS-09'] }}" aria-label="اعلان‌ها"><span class="ri ri-bell" aria-hidden="true"></span></a>
 {% endblock %}

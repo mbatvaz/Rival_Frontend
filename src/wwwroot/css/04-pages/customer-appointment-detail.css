@@ -64,12 +64,10 @@
   .rv-appointment-detail__timeline > li:first-child::before { background: var(--bg-inverse); }
 
   .rv-appointment-detail__timeline p {
-    display: flex;
-    align-items: baseline;
-    gap: var(--space-2);
+    display: block;
     margin-block: var(--space-1) 0;
   }
-  .rv-appointment-detail__timeline .ri { flex: none; }
+  .rv-appointment-detail__timeline .ri { vertical-align: middle; margin-inline-end: var(--space-2); }
   .rv-appointment-cancel .rv-sheet__header h2 { flex: 1; margin: 0; }
 
   .rv-appointment-cancel__impact {

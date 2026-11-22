@@ -1,5 +1,9 @@
 # Open Questions / Decision Gates
 
+## CUS-04 Appointment Swap — 2026-11-22
+
+DEC-076 specifies original-payer refund attribution and current-attendee management. No cross-service compatibility mapping was supplied. The controlled demo compares service ID, configuration, duration and branch exactly. Production compatibility mappings, if needed, require explicit policy. [Feature contract](features/APPOINTMENT_SWAP.md)
+
 ## Customer More correction — 2026-11-16
 
 DEC-065 explicitly replaces the prior radio/profile-header request and authorizes list-only scrolling inside mobile customer More. No confirmation is needed for this scoped exception. The desktop/mobile resize bug is reproduced and fixed through the shared Sheet lifecycle. Existing product OQ defaults remain unchanged. [Evidence](../docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md).

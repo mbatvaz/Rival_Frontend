@@ -1,5 +1,13 @@
 # Discrepancies and Alignment Log
 
+## CUS-04 Appointment Swap — 2026-11-22
+
+Batch 3 supplies the CUS-04 detail hierarchy and an existing action Sheet. It has no Appointment Swap artboard. The review states use the existing Sheet and the CUS-03 stacked date picker as component evidence. Two controlled-customer preview entries supply future appointments and preserve the dates in the historical artboards. The swap states await owner review. [Desktop brief](../docs-work/desktop-layouts/CUS-04.md)
+
+## CUS-04-RSC rescheduling preview — 2026-11-21
+
+The mobile calendar and action controls use the project touch-target minimum. At desktop widths the picker and result fit inside the existing customer shell. The Batch 3 source provides a conflict description and no tracking code for the conflicting facial appointment. The linked demo detail displays the recorded facts. Availability and changes are local fixture scenarios. [Source and review brief](../docs-work/desktop-layouts/CUS-04-RSC.md).
+
 ## CUS-04 initial detail preview — 2026-11-21
 
 The live desktop preview uses the existing customer sidebar and a two-column information layout. Mobile keeps the source reading order and uses the existing dock and shared sheet. The first pass includes full receipts for the booked and completed records with exact source snapshots. Other linked records show their recorded appointment facts. The cancellation sheet displays the source impact with confirmation disabled; the reschedule calendar and other action/confirmation states are pending. [Scope and source evidence](../docs-work/desktop-layouts/CUS-04.md).

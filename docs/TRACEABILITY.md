@@ -1,5 +1,17 @@
 # Traceability Contract
 
+## CUS-04 Appointment Swap — 2026-11-22
+
+DEC-078 links the five preview states through the [registry](../src/page-registry.json), uses [shared swap actions](../src/Views/Customer/Appointments/_SwapActions.njk) on all detail records, and reuses the [appointment lift](../src/wwwroot/js/features/customer/appointment-sheet-hero.js) and dashboard payment-clock styling. [Swap coverage](../tests/phase04/appointment-swap.spec.mjs)
+
+DEC-077 introduces the in-Sheet schedule review and distinct result view. The swap suite verifies that checking the code leaves the ledger unchanged and that a code expiring before consent cannot be redeemed. [Feature contract](features/APPOINTMENT_SWAP.md)
+
+DEC-076 → [product and adapter contract](features/APPOINTMENT_SWAP.md), [review entry points](../src/page-registry.json), [Sheet forms](../src/Views/Customer/Appointments/_SwapSheets.njk), [Jalali calendar](../src/Views/Booking/_Calendar.njk), [mock API](../src/wwwroot/js/core/appointment-swap-api.js), [controlled records](../src/MockData/customer/appointment-swap.json) and [Playwright coverage](../tests/phase04/appointment-swap.spec.mjs). CUS-01 and CUS-03 project the current attendee's appointments in the two controlled fixture perspectives.
+
+## CUS-04-RSC rescheduling preview — 2026-11-21
+
+Owner mobile references, Batch 3 CUS-04-RSC, D10-49/59/61 and BR-RSC-01–08 → [registry variants](../src/page-registry.json), [picker](../src/Views/Customer/Appointments/_Reschedule.njk), [confirmation sheet](../src/Views/Customer/Appointments/_RescheduleSheet.njk), shared booking day/slot and StatePage components, [demo fixture](../src/MockData/customer/appointment-reschedule.json) and [Playwright coverage](../tests/phase04/appointment-reschedule.spec.mjs). [State map and desktop adaptation](../docs-work/desktop-layouts/CUS-04-RSC.md).
+
 ## CUS-04 initial detail preview — 2026-11-21
 
 DEC-072 and Batch 3 CUS-04, DONE, INACTIVE and CAN-GT24 → [detail view](../src/Views/Customer/Appointments/Detail.njk), [receipt/policy fixture](../src/MockData/customer/appointment-detail.json), shared AppointmentHero and Sheet, and [linked record, responsive, keyboard and axe checks](../tests/phase04/appointment-detail.spec.mjs). [Source and desktop brief](../docs-work/desktop-layouts/CUS-04.md).

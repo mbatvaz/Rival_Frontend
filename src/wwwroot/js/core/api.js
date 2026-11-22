@@ -1,4 +1,5 @@
 import { basePath, localUrl } from './config.js';
+import { createSwapAdapter } from './appointment-swap-api.js';
 
 // ARCH / contract §3.3: the sole data boundary. Every write is local and demo-only.
 export class ApiError extends Error {
@@ -73,4 +74,4 @@ export async function reset(resource) {
   return clone({ ok: true, demo: true, data: null });
 }
 
-export const api = { read, write, reset };
+export const api = { read, write, reset, appointmentSwap: createSwapAdapter({ read, write, storageKey: key, ApiError }) };

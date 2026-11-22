@@ -1,5 +1,14 @@
 const digits = value => value.toLocaleString('fa-IR', { minimumIntegerDigits: 2, useGrouping: false });
 
+export function paintAppointmentClock(element, remaining) {
+  const units = [remaining % 60, Math.floor(remaining / 60) % 60, Math.floor(remaining / 3600) % 24, Math.floor(remaining / 86400)];
+  const labels = [...element.children].map((cell, index) => {
+    cell.querySelector('b').textContent = digits(units[index]);
+    return `${digits(units[index])} ${cell.querySelector('small').textContent}`;
+  });
+  element.setAttribute('aria-label', labels.reverse().join('، '));
+}
+
 export function startClocks(root, data, startedAt) {
   const clocks = data.appointments.map(appointment => ({
     seconds: appointment.secondsUntilStart,
@@ -10,9 +19,7 @@ export function startClocks(root, data, startedAt) {
     const elapsed = Math.max(0, Math.floor((Date.now() - startedAt) / 1000));
     clocks.forEach(({ seconds, element }) => {
       const remaining = Math.max(0, seconds - elapsed);
-      const units = [remaining % 60, Math.floor(remaining / 60) % 60, Math.floor(remaining / 3600) % 24, Math.floor(remaining / 86400)];
-      element.querySelectorAll('b').forEach((cell, index) => { cell.textContent = digits(units[index]); });
-      element.setAttribute('aria-label', units.map((unit, index) => `${digits(unit)} ${data.appointments[0].countdown[index].label}`).reverse().join('، '));
+      paintAppointmentClock(element, remaining);
     });
     data.payments.forEach(payment => {
     const card = root.querySelector(`[data-rv-payment-id="${window.CSS.escape(payment.id)}"]`);

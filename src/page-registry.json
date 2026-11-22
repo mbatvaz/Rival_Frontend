@@ -280,14 +280,30 @@
       "primaryBatch": 3,
       "template": "Customer/Appointments/Detail.njk",
       "mockData": "MockData/customer/appointment-detail.json",
-      "notes": "Initial Phase 04 detail, receipt, timeline and cancellation impact preview.",
+      "notes": "Appointment detail, cancellation impact preview, CUS-04-RSC and Appointment Swap review variants.",
       "titleFa": "جزئیات نوبت",
       "phase": "Phase 04",
-      "implementationStatus": "implemented",
+      "implementationStatus": "accepted",
       "variants": [
         { "label": "انجام شده", "query": "?appointment=BK-47920&state=done" },
         { "label": "حساب غیرفعال", "query": "?state=inactive" },
-        { "label": "پیش‌نمایش لغو", "query": "?state=can-gt24" }
+        { "label": "پیش‌نمایش لغو", "query": "?state=can-gt24" },
+        { "label": "جزئیات نوبت در بازهٔ ۲۴ تا ۳ ساعت", "query": "?state=lt24" },
+        { "label": "جابه‌جایی — انتخاب زمان تازه", "query": "?state=rsc-select" },
+        { "label": "جابه‌جایی — برگه تأیید", "query": "?state=rsc-confirm" },
+        { "label": "جابه‌جایی — هشدار ۲۴ تا ۳ ساعت", "query": "?state=rsc-warn" },
+        { "label": "جابه‌جایی — جبرانی", "query": "?state=rsc-comp" },
+        { "label": "جابه‌جایی — انجام شد", "query": "?state=rsc-done" },
+        { "label": "جابه‌جایی — انجام شد بدون حق بازگشت", "query": "?state=rsc-done-lt24" },
+        { "label": "جابه‌جایی — سهم مصرف شده", "query": "?state=rsc-used" },
+        { "label": "جابه‌جایی — سهم مصرف شده بدون حق بازگشت", "query": "?state=rsc-used-nr" },
+        { "label": "تعویض نوبت — مشتری یک", "query": "?swapCustomer=a" },
+        { "label": "تعویض نوبت — مشتری دو", "query": "?swapCustomer=b" },
+        { "label": "تعویض نوبت — ایجاد کد", "query": "?swapCustomer=a&swapPreview=create" },
+        { "label": "تعویض نوبت — نمایش کد و تایمر", "query": "?swapCustomer=a&swapPreview=code" },
+        { "label": "تعویض نوبت — ثبت کد", "query": "?swapCustomer=b&swapPreview=redeem" },
+        { "label": "تعویض نوبت — تأیید تاریخ‌ها", "query": "?swapCustomer=b&swapPreview=confirm" },
+        { "label": "تعویض نوبت — نتیجهٔ موفق", "query": "?swapCustomer=b&swapPreview=success" }
       ]
     },
     {

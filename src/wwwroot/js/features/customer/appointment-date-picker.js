@@ -2,6 +2,7 @@ import { adjacentMonth, monthGrid, plusDays } from '../booking/calendar.js';
 import { jalali } from '../../core/format.js';
 import { digits, parseDate } from './appointment-filters.js';
 import { openSheet, closeSheet } from '../../components/sheet.js';
+import { salonDay, validSwapDay } from '../../core/appointment-swap-rules.js';
 
 // Convert a user-entered Jalali date using the browser's Persian calendar.
 export function dateInstant(value) {
@@ -17,30 +18,49 @@ export function dateInstant(value) {
   return null;
 }
 
+export function initCalendarSheet(root, bounds, pick) {
+  let month, selected;
+  const render = () => monthGrid(root, month, selected, bounds(), async date => {
+    pick(date);
+    await closeSheet();
+  });
+  root.querySelectorAll('[data-rv-month-move]').forEach(button => button.addEventListener('click', () => {
+    month = adjacentMonth(month, Number(button.dataset.rvMonthMove)); render();
+    if (button.disabled) root.querySelector('input:enabled')?.focus();
+  }));
+  return (button, date, fallback) => {
+    selected = date;
+    month = date || fallback;
+    render();
+    openSheet(root.id, button, { preserveParent: true });
+  };
+}
+
+export function initFutureDatePicker(root, pick) {
+  const tomorrow = () => plusDays(salonDay(), 1);
+  const open = initCalendarSheet(root, () => ({
+    start: tomorrow(), end: '2122-03-20', canPick: validSwapDay
+  }), pick);
+  return (button, selected) => open(button, selected, tomorrow());
+}
+
 export function initDatePicker(form, today) {
   const root = document.getElementById('rv-appointment-date');
-  let field, month, selected;
-  const render = () => monthGrid(root, month, selected, {
+  let field;
+  const openCalendar = initCalendarSheet(root, () => ({
     start: '1921-03-21', end: '2122-03-20', canPick: () => true
-  }, async date => {
+  }), date => {
     form.elements[field].value = jalali(date + 'T12:00:00Z');
     form.elements[field].dispatchEvent(new window.Event('input', { bubbles: true }));
-    await closeSheet();
   });
   const open = button => {
     field = button.dataset.rvDateOpen;
-    selected = dateInstant(form.elements[field].value) ?? dateInstant(today);
-    month = selected;
     root.querySelector('h2').textContent = field === 'from' ? 'انتخاب از تاریخ' : 'انتخاب تا تاریخ';
-    render();
-    openSheet(root.id, button, { preserveParent: true });
+    openCalendar(button, dateInstant(form.elements[field].value), dateInstant(today));
   };
   for (const button of form.querySelectorAll('[data-rv-date-open]')) button.addEventListener('click', () => open(button));
   for (const wrapper of form.querySelectorAll('[data-rv-date-field]')) wrapper.addEventListener('click', event => {
     if (event.target.closest('[data-rv-date-open]')) return;
     open(wrapper.querySelector('[data-rv-date-open]'));
   });
-  root.querySelectorAll('[data-rv-month-move]').forEach(button => button.addEventListener('click', () => {
-    month = adjacentMonth(month, Number(button.dataset.rvMonthMove)); render();
-  }));
 }

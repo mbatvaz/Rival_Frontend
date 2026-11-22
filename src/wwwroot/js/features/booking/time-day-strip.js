@@ -4,7 +4,7 @@ import { dateLabel, dayName, get, centerInRail, text, visible } from './shared.j
 
 const label = day => dayName(day) + ' ' + dateLabel(day);
 
-export function populateDays(root, days, active, pick) {
+export function populateDays(root, days, active, pick, immediate = false) {
   const rail = get(root, 'days');
   rail.replaceChildren(...days.flatMap((day, index) => {
     const button = document.createElement('button');
@@ -27,6 +27,7 @@ export function populateDays(root, days, active, pick) {
       button.append(lock);
     }
     button.addEventListener('click', event => {
+      if (immediate) { pick(day.date); return; }
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       centerInRail(rail, button, reduced ? 'instant' : 'smooth');
       if (!event.detail) pick(day.date);

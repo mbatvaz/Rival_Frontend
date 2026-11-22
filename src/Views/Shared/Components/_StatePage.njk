@@ -21,7 +21,7 @@
     {% if statePage.context.showTime %}<p data-rv-result-time>{{ statePage.context.time }}</p>{% endif %}
     {% endif %}
     {% if statePage.lines.length %}
-    <dl class="rv-state-page__lines">{% for line in statePage.lines %}<div><dt>{{ line.label }}</dt><dd{% if line.field %} data-rv-result-{{ line.field }}{% endif %}>{{ line.value }}</dd></div>{% endfor %}</dl>
+    <dl class="rv-state-page__lines">{% for line in statePage.lines %}<div><dt>{{ line.label }}</dt><dd{% if line.field and not line.previous %} data-rv-result-{{ line.field }}{% endif %}>{% if line.previous %}<del data-rv-result-{{ line.field }}>{{ line.value }}</del>{% else %}{{ line.value }}{% endif %}</dd></div>{% endfor %}</dl>
     {% endif %}
     {% if statePage.reference and not statePage.inlineReference %}<p class="rv-state-page__code"><span>{{ statePage.reference.label }}</span><bdi data-rv-result-code dir="ltr">#{{ statePage.reference.value }}</bdi></p>{% endif %}
   </div>

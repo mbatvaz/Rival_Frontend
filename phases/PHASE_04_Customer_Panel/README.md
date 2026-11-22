@@ -5,6 +5,8 @@ This package is executed by **OpenAI Codex** from the VS Code workspace. It foll
 ## Scope
 Customer dashboard, appointments, requests, availability alerts, notifications, profile, and read-only/disabled variants.
 
+DEC-076 adds [Appointment Swap](../../docs/features/APPOINTMENT_SWAP.md) to CUS-04. Its implementation has a separate owner review from the accepted initial CUS-04 preview.
+
 ## Required input
 - Root `AGENTS.md` and `docs/RIVAL_PROJECT_CONTRACT.md`.
 - Master docs: Page Inventory, Phase Plan, Component Reuse Matrix, Traceability, Decision Log, Open Questions.

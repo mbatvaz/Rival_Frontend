@@ -1,6 +1,9 @@
 import { api } from '../../core/api.js';
 import { defaults, fromUrl, matches, updateUrl, fa } from './appointment-filters.js';
 import { initFilterSheet } from './appointment-filter-sheet.js';
+import { refreshAppointmentCards } from './reschedule-summaries.js';
+import { swapCustomer } from './appointment-swap-context.js';
+import { projectSwapAppointments } from './appointment-swap-summaries.js';
 
 export async function init(root) {
   root = root.closest('.rv-customer-panel');
@@ -59,6 +62,9 @@ export async function init(root) {
     loading.hidden = false; error.hidden = true; panels.forEach(panel => { panel.hidden = true; });
     try {
       data = (await api.read('customer/appointments', { state: demoState })).data;
+      const customer = swapCustomer();
+      if (customer) await projectSwapAppointments(root, data, customer);
+      else if (demoState === 'default') await refreshAppointmentCards(root, data);
       current = fromUrl(data);
       loading.hidden = true;
       render();
