@@ -1,7 +1,18 @@
 <div class="rv-appointment-detail"{% if appointment.status != 'booked' %} data-rv-detail-history{% endif %}>
   <section class="rv-customer-notice rv-customer-notice--inactive rv-appointment-detail__inactive" data-rv-inactive-banner hidden><span class="ri ri-lock" aria-hidden="true"></span><div><h2>حساب شما غیرفعال است</h2><p>این نوبت را می‌بینید، ولی لغو و جابه‌جایی فعلاً ممکن نیست. برای فعال شدن دوباره با سالن تماس بگیرید.</p><a class="rv-text-link" href="tel:09141452321"><span class="ri ri-phone" aria-hidden="true"></span>تماس با سالن</a></div></section>
   {% include "Shared/Components/_AppointmentHero.njk" %}
-  {% if appointment.detail.paidAt %}
+  {% if appointment.detail.requestId %}
+    <section class="rv-appointment-detail__policy" data-rv-detail-request="{{ appointment.detail.requestId }}"{% if appointment.detail.requiresPayment %} data-rv-detail-request-payment{% endif %}>
+      {% if appointment.detail.part %}<header class="rv-section-head"><h2>بخشی از یک پکیج</h2><span>بخش {{ appointment.detail.part }}</span></header>{% endif %}
+      <a class="rv-booking-context rv-glass rv-appointment-card" href="{{ customerUrls['CUS-06'] }}?request={{ appointment.detail.requestId }}"><img src="{{ basePath }}{{ appointment.detail.requestImage }}" width="128" height="138" alt="" loading="lazy"><div class="rv-appointment-card__body"><strong>{{ appointment.detail.requestName }}</strong><bdi dir="ltr">#{{ appointment.detail.requestId }}</bdi><span>مشاهده جزئیات درخواست</span></div></a>
+    </section>
+  {% endif %}
+  {% if appointment.detail.requestId %}
+    <section class="rv-appointment-detail__receipt" aria-labelledby="rv-detail-payment">
+      <header class="rv-section-head"><h2 id="rv-detail-payment">پرداخت</h2>{% if appointment.detail.paidAt %}<span>{{ appointment.detail.paidAt }}</span>{% endif %}</header>
+      <dl class="rv-appointment-detail__facts rv-glass"><div><dt>هزینه رزرو</dt><dd>{{ appointment.detail.amount }} تومان</dd></div><div><dt>پرداخت</dt><dd>{% if appointment.detail.part %}همراه پکیج{% else %}همراه درخواست{% endif %}</dd></div><div><dt>کد پیگیری</dt><dd><bdi>{{ appointment.detail.tracking }}</bdi></dd></div></dl>
+    </section>
+  {% else %}{% if appointment.detail.paidAt %}
   <section class="rv-appointment-detail__receipt" aria-labelledby="rv-detail-payment">
     <header class="rv-section-head"><h2 id="rv-detail-payment">پرداخت</h2><span>{{ appointment.detail.paidAt }}</span></header>
     <dl class="rv-appointment-detail__facts rv-glass">
@@ -11,7 +22,7 @@
       <div><dt>کد پیگیری</dt><dd><bdi>{{ appointment.detail.tracking }}</bdi></dd></div>
     </dl>
   </section>
-  {% endif %}
+  {% endif %}{% endif %}
   {% if appointment.detail.policy %}
   <section class="rv-appointment-detail__policy" aria-labelledby="rv-detail-policy">
     <header class="rv-section-head"><h2 id="rv-detail-policy">اگر برنامه‌تان عوض شد</h2><a class="rv-text-link" href="{{ productUrls.rules }}">قوانین رزرو</a></header>

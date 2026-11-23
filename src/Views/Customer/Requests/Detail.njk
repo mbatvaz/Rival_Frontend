@@ -1,0 +1,36 @@
+{% extends "Shared/_CustomerPanelLayout.njk" %}
+{% block workspaceClass %} rv-customer-home rv-customer-panel rv-appointment-detail-page rv-request-page{% endblock %}
+{% block workspaceHeader %}
+<a class="rv-icon-btn rv-appointment-detail__back" href="{{ customerUrls['CUS-05'] }}" aria-label="بازگشت به درخواست‌ها"><span class="ri ri-arrow-right" aria-hidden="true"></span></a>
+<div class="rv-customer-panel__heading"><h1>{{ page.titleFa }}</h1><span>{{ shell.name }}</span></div>
+<span class="rv-customer-panel__spacer" aria-hidden="true"></span>
+{% endblock %}
+{% block content %}
+<div data-rv="customer-request-detail" data-rv-requests-url="{{ customerUrls['CUS-05'] }}" data-rv-payment-url="{{ customerUrls['PAY-RES'] }}">
+  {% for request in requestRecords %}
+    {% if loop.first %}<div data-rv-request-current>{% else %}<template data-rv-request-template="{{ request.id }}">{% endif %}
+      {% include "Customer/Requests/_DetailContent.njk" %}
+    {% if loop.first %}</div>{% else %}</template>{% endif %}
+  {% endfor %}
+  <section class="rv-appointments__empty rv-appointments__state-card" data-rv-request-missing hidden>
+    <h2>درخواست پیدا نشد</h2><a class="rv-btn rv-btn--secondary" href="{{ customerUrls['CUS-05'] }}">درخواست‌های من</a>
+  </section>
+  <p class="rv-feedback rv-feedback--error" data-rv-request-error role="alert" hidden></p>
+</div>
+{% endblock %}
+{% block workspaceSheets %}
+<div class="rv-appointment-cancel-hero" data-rv-cancel-hero aria-hidden="true" hidden></div>
+<section class="rv-sheet rv-glass rv-glass--strong rv-appointment-cancel" id="rv-request-cancel" role="dialog" aria-modal="true" aria-labelledby="rv-request-cancel-title" tabindex="-1" hidden>
+  <header class="rv-sheet__header">
+    <span class="rv-icon-tile rv-appointment-cancel__icon" aria-hidden="true"><span class="ri ri-x-circle"></span></span>
+    <h2 id="rv-request-cancel-title" tabindex="-1" data-rv-sheet-initial-focus>لغو این درخواست؟</h2>
+    <button class="rv-icon-btn" type="button" data-rv-sheet-close aria-label="بستن برگه لغو"><span class="ri ri-x" aria-hidden="true"></span></button>
+  </header>
+  <div class="rv-appointment-cancel__impact rv-glass">
+    <span class="rv-icon-tile" aria-hidden="true"><span class="ri ri-minus"></span></span>
+    <div><strong data-rv-request-impact>اثر مالی ندارد</strong><p data-rv-request-cancel-copy></p></div>
+  </div>
+  <p class="rv-feedback rv-feedback--error" data-rv-request-error role="alert" hidden></p>
+  <div class="rv-actions"><button class="rv-btn rv-btn--danger" type="button" data-rv-request-confirm>لغو درخواست</button><button class="rv-btn rv-btn--secondary" type="button" data-rv-sheet-close>انصراف</button></div>
+</section>
+{% endblock %}

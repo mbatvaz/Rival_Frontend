@@ -1,0 +1,150 @@
+@layer pages {
+  .rv-request-detail, .rv-request-detail__content { display: grid; align-content: start; gap: var(--space-5); }
+  .rv-request-hero.rv-appointment-hero .rv-appointment-hero__media { block-size: 168px; }
+  .rv-request-hero .rv-appointment-hero__panel { display: block; margin-block-start: calc(-1 * var(--space-6)); padding: var(--space-4); }
+  .rv-request-hero .rv-appointment-hero__service { margin: 0; padding: 0; }
+  .rv-request-hero .rv-appointment-hero__service h2 { font-size: var(--heading-lg-size); }
+  .rv-request-hero h2:focus { outline-offset: var(--space-1); }
+
+  .rv-request-hero__status {
+    position: absolute;
+    inset-block-start: var(--space-3);
+    inset-inline-start: var(--space-3);
+  }
+  .rv-request-hero__status .rv-request-status[data-rv-tone="neutral"] { background: var(--bg-surface); color: var(--text-primary); }
+  .rv-request-detail .rv-section-head { margin: 0; gap: var(--space-2); }
+  .rv-request-detail .rv-section-head h2 { margin: 0; font-size: var(--heading-md-size); }
+  .rv-request-detail .rv-section-head > span, .rv-request-schedule h3 { margin: 0; font-size: var(--caption-size); color: var(--text-secondary); }
+  .rv-request-detail .rv-text-link { display: inline-flex; align-items: center; min-block-size: var(--size-touch); }
+  .rv-request-detail :is(.rv-customer-notice h2, .rv-customer-notice p) { margin: 0; }
+  .rv-request-notice { border: 1px solid var(--neutral-line); background: var(--neutral-bg); color: var(--neutral-fg); }
+  .rv-request-notice[data-rv-tone="rose"] { border-color: var(--rose-line); background: var(--rose-bg); color: var(--rose-fg); }
+  .rv-request-notice[data-rv-tone="plum"] { border-color: var(--plum-line); background: var(--plum-bg); color: var(--plum-fg); }
+  .rv-request-notice[data-rv-tone="info"] { border-color: var(--info-line); background: var(--info-bg); color: var(--info-fg); }
+  .rv-request-schedule, .rv-request-schedule__slots, .rv-request-parts { display: grid; gap: var(--space-2); }
+
+  .rv-request-schedule--package {
+    --rv-request-date-height: calc(2 * var(--caption-line) + var(--heading-md-line) + 2 * var(--space-1) + 2px);
+
+    position: relative;
+    grid-template-columns: var(--size-control) minmax(0, 1fr);
+    align-items: start;
+    isolation: isolate;
+  }
+
+  .rv-request-schedule--package:has(+ .rv-request-schedule--package)::before {
+    content: "";
+    position: absolute;
+    inset-block: calc(var(--rv-request-date-height) / 2) calc(-1 * (var(--space-3) + var(--rv-request-date-height) / 2));
+    inset-inline-start: calc(var(--size-control) / 2 - 0.5px);
+    inline-size: 1px;
+    background: var(--line-strong);
+  }
+
+  .rv-request-schedule--package h3 {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    block-size: var(--rv-request-date-height);
+    padding: var(--space-1);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    font-weight: 300;
+    line-height: var(--caption-line);
+  }
+
+  .rv-request-schedule--package h3 b { font-size: var(--heading-md-size); line-height: var(--heading-md-line); color: var(--text-primary); }
+  .rv-request-parts { padding: 0; margin: 0; list-style: none; }
+  .rv-request-parts > li { min-block-size: 114px; }
+  .rv-request-slot__body, .rv-request-parts > li > div { display: grid; gap: var(--space-1); }
+
+  .rv-request-next {
+    display: grid;
+    gap: var(--space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .rv-request-next li { display: flex; align-items: start; gap: var(--space-2); }
+
+  .rv-request-detail .rv-appointment-detail__facts dt,
+  .rv-request-next li { font-weight: 300; }
+  .rv-request-next .ri { flex: none; color: var(--text-muted); }
+
+  :where([data-rv-request-detail-state="expired"]) .rv-request-parts img,
+  :where([data-rv-request-detail-state]:not([data-rv-request-detail-state="wait"], [data-rv-request-detail-state="pay"], [data-rv-request-detail-state="checking"], [data-rv-request-detail-state="booked"])) .rv-request-hero img { filter: grayscale(1); }
+  .rv-request-parts small { color: var(--text-secondary); }
+
+  .rv-request-slot, .rv-request-response {
+    overflow: clip;
+    border-radius: var(--radius-lg);
+    font-size: var(--body-sm-size);
+  }
+
+  .rv-request-slot--package {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 42%);
+    min-block-size: 120px;
+  }
+
+  .rv-request-slot--package > img {
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block: 0;
+    inline-size: 42%;
+    block-size: 100%;
+    object-fit: cover;
+    mask-image: linear-gradient(to left, transparent, var(--bg-inverse) 65%);
+  }
+
+  .rv-request-parts > li > img {
+    position: absolute;
+    grid-area: 1 / 1 / 2 / -1;
+    inset-inline-end: 0;
+    inset-block: 0;
+    block-size: 100%;
+    inline-size: 40%;
+  }
+
+  :where([data-rv-request-service="facial"]) .rv-request-hero .rv-appointment-hero__media > img { object-position: center 40%; }
+
+  .rv-request-slot--package .rv-request-slot__body {
+    position: relative;
+    align-content: center;
+    justify-items: start;
+    padding: var(--space-2) var(--space-3);
+  }
+  .rv-request-response { display: grid; gap: var(--space-3); padding: var(--space-4); }
+  .rv-request-response .rv-appointment-hero__when { margin: 0; }
+  .rv-request-slot bdi { font-size: var(--heading-md-size); }
+  :is(.rv-request-slot, .rv-request-response) .rv-recurring-person { flex-direction: row; font-size: var(--caption-size); color: var(--text-secondary); }
+  .rv-request-action .rv-actions { display: flex; gap: var(--space-2); }
+  .rv-request-action--pay .rv-btn { flex: 1; }
+  .rv-request-action .rv-btn:only-child { flex: 1; }
+  .rv-request-action--pay .rv-btn[data-rv-request-pay]:enabled { flex: 2; background: var(--accent-solid); color: var(--text-inverse); }
+  .rv-request-page:has(~ .rv-sheet-layer #rv-request-cancel:not([hidden])) [data-rv-request-cancel] { visibility: hidden; }
+  .rv-request-page:has(.rv-request-action--pay:not([hidden])) .rv-role-nav { display: none; }
+  .rv-request-page:has(.rv-request-action--pay:not([hidden])) .rv-workspace__content { padding-block-end: calc(160px + env(safe-area-inset-bottom)); }
+  .rv-request-page:has(.rv-request-action--pay [data-rv-request-inactive]:not([hidden])) .rv-workspace__content { padding-block-end: calc(210px + env(safe-area-inset-bottom)); }
+
+  .rv-request-action--pay {
+    position: fixed;
+    z-index: 5;
+    inset-inline: 0;
+    inset-block-end: 0;
+    padding: var(--space-2) var(--space-3) max(var(--space-3), env(safe-area-inset-bottom));
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  }
+
+  @media (min-width: 1024px) {
+    .rv-request-detail { inline-size: max(50%, min(100%, 420px)); margin-inline: auto; }
+    .rv-request-page .rv-request-hero { display: block; }
+    .rv-request-page .rv-request-hero .rv-appointment-hero__panel { border-radius: var(--radius-xl) var(--radius-xl) 0 0; }
+    .rv-request-detail__content > .rv-appointment-detail__receipt { grid-area: auto; }
+    .rv-request-page:has(.rv-request-action--pay:not([hidden])) .rv-workspace__content { padding-block-end: var(--space-6); }
+    .rv-request-action--pay { position: static; padding-block-end: var(--space-3); border-radius: var(--radius-xl); }
+  }
+}

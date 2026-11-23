@@ -1,5 +1,7 @@
 # Component Reuse Matrix
 
+CUS-05 uses the [RequestCard](../src/Views/Shared/Components/_RequestCard.njk) and shared appointment card surfaces. CUS-06 reuses the [Sheet lifecycle](../src/wwwroot/js/components/sheet.js), [calendar picker](../src/wwwroot/js/features/customer/appointment-date-picker.js), hold quote and PAY-RES. Both request views read the same demo records, including previously submitted requests.
+
 DEC-069: [list-entry.js](../src/wwwroot/js/components/list-entry.js) is the shared owner of variable-record entry on implemented booking, customer and portfolio consumers. It reuses canonical timing from [motion.js](../src/wwwroot/js/components/motion.js); no section wrapper, static shell, title or home consumer participates. [Current contract and measured QA](../docs-work/VARIABLE_LIST_MOTION_2026-11-17.md) supersede section-entry descriptions.
 
 DEC-076 reuses Sheet and the [Jalali calendar](../src/Views/Booking/_Calendar.njk) in CUS-04. The CUS-03 date filter and swap date field use the same [calendar Sheet controller](../src/wwwroot/js/features/customer/appointment-date-picker.js). The swap supplies its own date eligibility rule and uses the shared feedback and button styles. [Feature contract](features/APPOINTMENT_SWAP.md)

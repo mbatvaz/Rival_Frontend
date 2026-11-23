@@ -1,5 +1,13 @@
 # Traceability Contract
 
+## CUS-05 tab annotation — 2026-11-23
+
+DEC-081 + two live-browser annotations → renamed [group label](../src/MockData/customer/requests.json) and [done variant label](../src/page-registry.json); the [request tab styles](../src/wwwroot/css/04-pages/customer-requests.css) drop their transparent/ink and raised-count overrides so the shared [appointment radio treatment](../src/wwwroot/css/04-pages/customer-appointments.css) and [base radio states](../src/wwwroot/css/04-pages/booking-controls.css) apply. Tab switching and 44px target checks remain in [request coverage](../tests/phase04/requests.spec.mjs).
+
+## CUS-05 and CUS-06 request fidelity review — 2026-11-23
+
+DEC-072 and Batch 3 D10-41, D10-51–54, D10-59, D10-63, D10-65 and D10-68 → [list](../src/Views/Customer/Requests/Index.njk), [RequestCard](../src/Views/Shared/Components/_RequestCard.njk), [detail](../src/Views/Customer/Requests/Detail.njk), [fixtures](../src/MockData/customer/requests.json), [registry variants](../src/page-registry.json) and [request coverage](../tests/phase04/requests.spec.mjs). Filtering and cancellation use the existing Jalali picker, Sheet and card lift. The [booking receipt](../src/wwwroot/js/features/booking/result.js) links each submitted request to its detail, PAY-RES handles demo payment, and CUS-04 displays linked appointment parts. [Source comparisons](../docs-work/desktop-layouts/CUS-06.md#source-comparisons).
+
 ## CUS-04 Appointment Swap — 2026-11-22
 
 DEC-078 links the five preview states through the [registry](../src/page-registry.json), uses [shared swap actions](../src/Views/Customer/Appointments/_SwapActions.njk) on all detail records, and reuses the [appointment lift](../src/wwwroot/js/features/customer/appointment-sheet-hero.js) and dashboard payment-clock styling. [Swap coverage](../tests/phase04/appointment-swap.spec.mjs)

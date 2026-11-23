@@ -1,5 +1,33 @@
 # Rival Progress
 
+## Phase 04 worktree integration
+
+`vivid-zebra` supplied an alternate CUS-06 stylesheet on the same base commit. The request page retains the latest owner-directed centered column, timeline, and Sheet scroll fix. The integration carries over the response grid and next-step card treatment, scoped to CUS-06. Generated stylesheet line endings do not change the tracked token values.
+
+## CUS-05/06 desktop Sheet scroll gap
+
+In the desktop request filter, freezing the entry animation at 1 ms exposed 618px of extra document scroll. The transformed Sheet extended below its containing layer. The request pages now clip overflow at the desktop Sheet layer so the entry and exit animations cannot add document scroll. The layer still sizes to its content. The request regression checks scrim coverage during entry for both the filter and cancellation.
+
+## CUS-06 desktop layout and package timeline — 2026-11-23
+
+Owner feedback puts the request detail in a centered desktop column and connects consecutive package date markers from center to center. [Desktop brief](docs-work/desktop-layouts/CUS-06.md).
+
+## CUS-05 tab rename and appointment radio style — 2026-11-23
+
+Per the owner's live-browser annotations, the completed group tab reads “تکمیل” instead of “تکمیل شده” (fixture group and preview variant labels), and the three status tabs use the CUS-03 appointment radio treatment: the shared glass strip, muted inset unselected pill, white raised selected pill and the scale transition replace the earlier transparent/ink selection. Count bubbles and the compact three-tab spacing down to 320px remain. [DEC-081](docs/DECISION_LOG.md#dec-081)
+
+Build, lint and the focused requests suite passed 13/13 at root, including the 320/390/768/1023/1024/1280 visual and axe checks. Live preview updated on port 4173. CUS-05/06 desktop review remains open under DEC-072.
+
+## CUS-05 and CUS-06 fidelity review — 2026-11-23
+
+Rechecked the sixteen Batch 3 boards after the interrupted implementation. Restored the integrated hold cards, three tab states, fixed upper date and Jalali picker, the two detail layouts for single services and packages, and per-part appointment links. Existing booking submissions now reach their own customer detail and list entry. Payment returns through PAY-RES and cancellation updates the demo list and dashboard. [List review](docs-work/desktop-layouts/CUS-05.md), [detail review](docs-work/desktop-layouts/CUS-06.md). Desktop review remains open under DEC-072.
+
+Final CUS-05/06 suite: 13/13 at root and 13/13 under `/rival-demo/`. All sixteen states were captured at 320, 390, 768, 1023, 1024 and 1280px, with axe across the 390/1280 state matrices and focused axe checks at the other widths. The broader booking/customer regression passed 56/56 under the subpath. The earlier root run recorded two Chromium `ERR_NETWORK_CHANGED` failures during the 768/1023 request checks, which passed in the final root run. Build, lint and map freshness passed.
+
+## CUS-05 and CUS-06 requests preview — 2026-11-22
+
+The owner started the next Phase 04 slice after accepting CUS-04. CUS-05 provides the payment, review and completed groups, filtering and an empty view. CUS-06 provides single-service and package details, inactive and terminal states, and cancellation impact previews. Cancellation and payment use browser-local demo data and the existing payment-result path. The [request list](docs-work/desktop-layouts/CUS-05.md) and [request detail](docs-work/desktop-layouts/CUS-06.md) desktop previews await owner review under DEC-072.
+
 ## CUS-04 Appointment Swap — 2026-11-22
 
 The owner accepted CUS-04 and authorized publication on the Phase 04 branch after the final corrections in DEC-080. The rest of Phase 04 remains open.

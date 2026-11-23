@@ -1,0 +1,43 @@
+<section class="rv-appointment-detail__receipt" data-rv-request-schedule>
+  <header class="rv-section-head">
+    <h2 data-rv-request-schedule-title>{% if request.status == 'booked' %}نوبت‌های پکیج{% else %}{% if request.response %}پاسخ {{ request.person.name }}{% else %}برنامه بخش‌ها{% endif %}{% endif %}</h2>
+    <span data-rv-request-schedule-caption>{% if request.status == 'booked' %}هر بخش نوبت جداگانه است{% else %}{% if request.parts.length %}{{ request.partCount }} بخش در {{ request.dayCount }} روز{% endif %}{% endif %}</span>
+  </header>
+  {% for day in request.days %}
+    <section class="rv-request-schedule{% if request.parts.length %} rv-request-schedule--package{% endif %}">
+      {% if not request.response %}<h3><span>{{ day.weekday }}</span> <b>{{ day.day }}</b> <span>{{ day.month }}</span></h3>{% endif %}
+      <div class="rv-request-schedule__slots">
+      {% for slot in day.slots %}
+      {% if request.response %}
+      <div class="rv-request-response rv-glass">
+        <div class="rv-appointment-hero__when">
+          <div class="rv-appointment-hero__date"><b>{{ day.day }}</b><span>{{ day.weekday }}</span><small>{{ day.month }}</small></div>
+          <div class="rv-appointment-hero__time"><b><bdi>{{ slot.time | faDigits }}</bdi></b><small>{{ request.response }}</small></div>
+        </div>
+        <span class="rv-recurring-person"><img src="{{ basePath }}{{ slot.person.image }}" width="24" height="24" alt="" loading="lazy">پیشنهاد {{ slot.person.name }}</span>
+        <a class="rv-text-link" data-rv-request-part-link href="{{ customerUrls['CUS-04'] }}?appointment={{ slot.appointmentId }}" hidden>مشاهده نوبت</a>
+      </div>
+      {% else %}
+      <div class="rv-request-slot rv-request-slot--package rv-glass">
+        <img src="{{ basePath }}{{ slot.image }}" width="128" height="120" alt="" loading="lazy">
+        <div class="rv-request-slot__body"><bdi>{{ slot.time | faDigits }}</bdi><strong>{{ slot.name }}</strong><span class="rv-recurring-person"><img src="{{ basePath }}{{ slot.person.image }}" width="24" height="24" alt="" loading="lazy">{{ slot.person.name }}</span>
+          <span data-rv-request-slot-fee{% if request.status == 'booked' %} hidden{% endif %}>{{ slot.amount }} تومان</span>
+          <a class="rv-text-link" data-rv-request-part-link href="{{ customerUrls['CUS-04'] }}?appointment={{ slot.appointmentId }}" aria-label="مشاهده نوبت بخش {{ slot.number | faDigits }}، {{ slot.name }}"{% if request.status != 'booked' %} hidden{% endif %}>مشاهده نوبت<span class="ri ri-chevron-left" aria-hidden="true"></span></a>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+</section>
+<section class="rv-appointment-detail__receipt" data-rv-request-summary>
+  <header class="rv-section-head" data-rv-request-paid-row{% if request.status != 'booked' %} hidden{% endif %}><h2>پرداخت</h2>{% if request.paidAt %}<span>{{ request.paidAt }}</span>{% endif %}</header>
+  <dl class="rv-appointment-detail__facts rv-glass">
+    <div><dt>{% if request.status == 'booked' %}هزینه رزرو پکیج{% else %}{% if request.parts.length %}جمع هزینه رزرو{% else %}هزینه رزرو{% endif %}{% endif %}</dt><dd>{{ request.amount }} تومان</dd></div>
+    <div><dt>از اعتبار شما</dt><dd><span data-rv-request-credit-sign{% if request.status == 'booked' %} hidden{% endif %}>−</span>{{ request.creditAmount }} تومان</dd></div>
+    <div data-rv-request-paid-row{% if request.status != 'booked' %} hidden{% endif %}><dt>از درگاه</dt><dd>{{ request.due }} تومان</dd></div>
+    <div data-rv-request-paid-row{% if request.status != 'booked' %} hidden{% endif %}><dt>کد پیگیری</dt><dd><bdi data-rv-request-tracking>{% if request.tracking %}{{ request.tracking }}{% endif %}</bdi></dd></div>
+  </dl>
+  {% if request.status == 'pay' %}<p class="rv-muted" data-rv-request-payment-rules>{% if request.parts.length %}هر سه بخش با هم پرداخت یا لغو می‌شوند.{% else %}پرداخت یعنی پذیرش قوانین رزرو.{% endif %} <a class="rv-text-link" href="{{ productUrls.rules }}">قوانین رزرو</a></p>{% endif %}
+</section>

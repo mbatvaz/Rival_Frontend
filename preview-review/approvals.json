@@ -3,396 +3,396 @@
   "project": "rival-preview-review",
   "records": {
     "PUB-01": {
-      "revision": "6fa1cf82a9892e5af1e90617da0839cdd9ab0fd69c52a0c77d75168521366b4a",
+      "revision": "25b18a0730f07c4e26fafd378aaa412d3545d5d42e61b5c137471f5a6b186ecf",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:09:24.517Z"
+      "updatedAt": "2026-11-22T16:01:09.729Z"
     },
     "PUB-01~34e751d73021d757": {
-      "revision": "514529d43b09ddaeb38a86c4c8e784ff56d44fcdaa5869833e639ba28aace744",
+      "revision": "95cccee496c17132fbbef587c1de3f30ab50ab1803ca53c0715fe7842cd2e5e4",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:09:25.629Z"
+      "updatedAt": "2026-11-22T16:01:09.428Z"
     },
     "PUB-02~b32e836680201438": {
-      "revision": "c6a17f708d7b0eced57522df5c8e04df2241c0629177546f231c7b52f8d6f971",
+      "revision": "7e720d1704e3686b64dc2d705b4ed538040eecef01d625227a95a597b5fa82b9",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:09:43.522Z"
+      "updatedAt": "2026-11-22T16:01:13.784Z"
     },
     "PUB-02~6094514240ca2ad1": {
-      "revision": "363384b70fe8652e9afee4d7f403acd77fc77f99797792d6d2879cf9e9467a35",
+      "revision": "0bca4d3bebc7ee52b038b94b3b300ccb9965ae5b7b9d0c5a1d2b7ab47e9c153d",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:09:43.807Z"
+      "updatedAt": "2026-11-22T16:01:13.519Z"
     },
     "PUB-02~6df37b5a5ca7d26d": {
-      "revision": "5871eb3bafabc7ecf886c74c4a886ad5038f3402931c5bdcdf4f2763e3a74f98",
+      "revision": "2a79b8783541bae96d7066a152abd60785d25b86add5523b0be2a074a1807148",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:09:44.091Z"
+      "updatedAt": "2026-11-22T16:01:13.271Z"
     },
     "PUB-02~e74221381b8e6126": {
-      "revision": "9a5b659bfc34304d4cdfc44e7f64c149df2a5ed0cdb22db68cbe62737bef501b",
+      "revision": "ce60797b67d53ee6c2f8045a8494982a18c1d9edaf5a924dbcd1c90c3348f616",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:09:44.399Z"
+      "updatedAt": "2026-11-22T16:01:13.049Z"
     },
     "PUB-02~3a91707132f4f947": {
-      "revision": "2a9bea4580887cc50d537f2c47fb509b486160741f48acc4267c7e0b6a74d012",
+      "revision": "468514f97e0445e4419784b91f42b4444dcfe966d8b3d35140ff60537ad0d3d3",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:09:44.716Z"
+      "updatedAt": "2026-11-22T16:01:12.792Z"
     },
     "PUB-03": {
-      "revision": "4a454ce20b704827228216848a7ffc2de23196a2f74488a18bbfe18667ca66a3",
+      "revision": "09ba446b383fcd341cb0c743f31eafb691805af78d9800a2897e28f83054f502",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:09:45.064Z"
+      "updatedAt": "2026-11-22T16:01:16.402Z"
     },
     "AUTH-01~e6dc23cbbcd1640b": {
-      "revision": "ea860d35c2b714f3dc9f9fe55d24ab38c5666cf3bac7342a9fcee721b74655d0",
+      "revision": "8c51e292f6ae21e32b041b6fc0ceddb37fc5183e15ab92611f54f643fc6e584c",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:10:32.050Z"
+      "updatedAt": "2026-11-22T16:01:21.909Z"
     },
     "AUTH-01~65096f972ef41726": {
-      "revision": "3570096e9d8caf9ac20c3e7d837fa3ba1b474a5f2e4db6d72eda1d343910b9db",
+      "revision": "577cbbabd529d7250d2b3d093e32e3300004e0fa1625d56dc84f2fe16b39fc6b",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:10:32.452Z"
+      "updatedAt": "2026-11-22T16:01:23.586Z"
     },
     "AUTH-01~bde8ba5c61ad103a": {
-      "revision": "ac6219e3d6f54c9867ff04966d570d295c65879bdbc0ca01d13d12ad7ae010c1",
+      "revision": "44c4f583b9c10be157d089c392661516729d598276b5caea27e3ff63acab587e",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:10:32.759Z"
+      "updatedAt": "2026-11-22T16:01:22.327Z"
     },
     "AUTH-01~a464ff8274c6d890": {
-      "revision": "518de392542e588b5b717572404196dafc7386905074f2effed9958b43babbd1",
+      "revision": "3493152ed57aa72c93ea07a837d2353cbd2ba0796bbe89e6636664623cf44a39",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:10:33.066Z"
+      "updatedAt": "2026-11-22T16:01:20.974Z"
     },
     "AUTH-01~58f1c9e662c1e212": {
-      "revision": "7b08887f7bc7cbcc3c4268f90bcd06dd435f23bb0b5e9dd121c04057891646a5",
+      "revision": "7a277e60835b7e194e7afaed2385bf1d968557b751f28142fff1a26a741be94a",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:10:33.341Z"
+      "updatedAt": "2026-11-22T16:01:20.731Z"
     },
     "AUTH-01~a1cb44ecd60f6085": {
-      "revision": "5faec35deb27df1bb84258efd7214999c07f00ec987322d4253b4b08c17067d6",
+      "revision": "910043f6e1c529a1b60a89e57754500b2be315a864974e58d9eea4393928f8b0",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:10:33.905Z"
+      "updatedAt": "2026-11-22T16:01:20.508Z"
     },
     "AUTH-01~2bae8bc56e5a194a": {
-      "revision": "260652909c3b4f09424c46b4ce9f26e764c74304d8606d5ff07e36935d2ae490",
+      "revision": "f506c443cc6560b5ed5f23ee7e2829c9b35f169925d48acf1602f94c2af4a8f5",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:10:34.313Z"
+      "updatedAt": "2026-11-22T16:01:19.690Z"
     },
     "AUTH-01~e74221381b8e6126": {
-      "revision": "a46b8a24147de520ae16500e178e793c4f27a655c671f305ba93c4d069d00e91",
+      "revision": "4714d22d18267d6f2a5e8d5432da661cfc53f677f3229e93938b53401ee12eb6",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:10:34.626Z"
+      "updatedAt": "2026-11-22T16:01:19.481Z"
     },
     "AUTH-01~3a91707132f4f947": {
-      "revision": "cabad6c35550743f14924bdd816e64771c6c7095c1ec4d44338489aad08ea1cc",
+      "revision": "693d717d41051440ebc0ab4893a5e6a772f8c575769afca26d853422d8c7b136",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:10:34.926Z"
+      "updatedAt": "2026-11-22T16:01:19.287Z"
     },
     "SYS-ACC-01": {
-      "revision": "574ae8ce5523136465e387ed7e2e593e71ba0690a674f2257b7656d4950290d0",
+      "revision": "a55ede4ee4d6c860b64e8c88def7e04a5b215653b073350fe7daba8cfa8e4989",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:10:43.033Z"
+      "updatedAt": "2026-11-22T16:01:26.621Z"
     },
     "AUTH-02": {
-      "revision": "d7a44b1ea10105ebf24c3a3c738b93ef5fd97bb9c8bb4e9dc39d79f46d1937dc",
+      "revision": "ac3d4aa83d7ebeabe6ce5a3f61a4e9872727e811dfc61fdd035c68b543e6245a",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:10:43.877Z"
+      "updatedAt": "2026-11-22T16:01:29.202Z"
     },
     "AUTH-02~d2eeeedd4845808d": {
-      "revision": "b2d6efe025ad3406fc9821ac8ed10cc28491ddb8aa249f39bceef07f56ee29dc",
+      "revision": "b1c9f506e9453e4d8aa3a1ea7f213c684a05bf317b1c3252c667970ef4592736",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:10:45.184Z"
+      "updatedAt": "2026-11-22T16:01:28.960Z"
     },
     "AUTH-02~7cd95d795592752b": {
-      "revision": "f65992a3c2c12ade66c4ad332ca41aee927cb33c750005f3c5bed03c0c32c8d7",
+      "revision": "14aeb03dab230aeea36cfc4f507baec5b13de281294ad18fdf5c051f7298e7f4",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:10:44.907Z"
+      "updatedAt": "2026-11-22T16:01:28.695Z"
     },
     "PUB-02": {
-      "revision": "9dc0b0f2a89d3483d14cc59890ddef6a81ce9fa9627f623b590cdd8bfb8c6c64",
+      "revision": "2b3ffa8c2eec42ae411530757dbae6071fb07ebc385ad2f4e3e0b539b90691f4",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:09:42.708Z"
+      "updatedAt": "2026-11-22T16:01:14.121Z"
     },
     "AUTH-01": {
-      "revision": "71b8f67af545f462d0793fddbf75c42d30710c4915a94176d6affbb7425279f5",
+      "revision": "615735ceb4325cd7fa08ae2da139e15806b6b1fea9ebe0cd5197191d33c2d6e2",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:10:31.242Z"
+      "updatedAt": "2026-11-22T16:01:24.027Z"
     },
     "BK-01~e74221381b8e6126": {
-      "revision": "7074245129d55fdf2147debc23b7c153c6050b66ff7b1e4833a635f60a0e8aa2",
+      "revision": "641c03c89f11096700ab4c1fe0f2e3b0fbcc29cf3a756b0549c7344f898b4713",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:03.400Z"
+      "updatedAt": "2026-11-22T16:02:14.207Z"
     },
     "BK-01~c7a3f11bf7531740": {
-      "revision": "681adce78ee2069fdec327cd8f21786116bb001cfb36e59efbf18b85049c7bbe",
+      "revision": "136ac08c25b19b3b44016139294c9fb720bcd6bcf288de504c1316ec6c0ef90e",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:02.803Z"
+      "updatedAt": "2026-11-22T16:02:13.784Z"
     },
     "BK-02~6df37b5a5ca7d26d": {
-      "revision": "d05df765b063b223ace0aec0b499ceb13a2feb9a1bf422ae3d02a45b4d1cea55",
+      "revision": "16efd924a02c2f4a6cf8fbb902528b5af86fb0761d31922a5ddd6582c7677dcc",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:10.858Z"
+      "updatedAt": "2026-11-22T16:02:17.197Z"
     },
     "BK-02": {
-      "revision": "95ec1191efab9e590b0cde9246d49189c3b69eef78a3c827747bcb23c9186f8c",
+      "revision": "7a91e93a7ddd166583a1b33697ac84a4a6ae131042534312b67d289fd4ca2955",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:11.172Z"
+      "updatedAt": "2026-11-22T16:02:17.377Z"
     },
     "BK-F01~ad38505bdc0952d4": {
-      "revision": "bbf1622277f1ce56dafeec2664c0b26598c4a7cde96852fd6c53457dea513623",
+      "revision": "ad804caf9b8a9a0222a624a2be8273a622f1135cf093de74f42c11c73c8cdac6",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:14.928Z"
+      "updatedAt": "2026-11-22T16:02:20.607Z"
     },
     "BK-F01~9ee8f441710b8219": {
-      "revision": "6b06bfbfe0cfddd70f4cc57117d78ad095d92a124858bad67208659bcd888ca2",
+      "revision": "298fe11e43032c9a654264de6dfa805e21e40bd9ef44919c11854118cec8bc6b",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:16.004Z"
+      "updatedAt": "2026-11-22T16:02:20.904Z"
     },
     "BK-F01~ba69e64f004ac273": {
-      "revision": "dd6cf4ab21ee3228b08e19ebb558869518a28f84623bcfac247eea5d19c76d48",
+      "revision": "18537e784263c83073dde9f7ab01d9cf2ac40500ec33898e6e9ca40ebe824a6c",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:14.626Z"
+      "updatedAt": "2026-11-22T16:02:20.305Z"
     },
     "BK-F01~ce64a7603ffe45da": {
-      "revision": "350d331ec865d666158a234d82bbd7b3fad6755af56f429c45a043ba55c9e4d7",
+      "revision": "c30e74086c617c5ed9a4d4ed1542366fddf4e2765f7bd9a0a6650620a5bbb23c",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:13.940Z"
+      "updatedAt": "2026-11-22T16:02:20.000Z"
     },
     "BK-F01~133f36b9f01cf3c0": {
-      "revision": "d7c7d5d57ee353e37cc463a16f711969666527f379e2724b7e73eb49845252e6",
+      "revision": "284830a140cf837cd55656e21831aeec99c63f7ae9ebc8a585f78812d3eccc01",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:13.640Z"
+      "updatedAt": "2026-11-22T16:02:19.716Z"
     },
     "BK-01~6df37b5a5ca7d26d": {
-      "revision": "115f5f41231a22575d1f66a7b3aa1ccef98b68c12b6ad58c5857d464132cafab",
+      "revision": "552cd196fc485921197ca91c660be7ccc3d6866d94ecc7052d04ea17226d432f",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:03.106Z"
+      "updatedAt": "2026-11-22T16:02:13.996Z"
     },
     "BK-01": {
-      "revision": "6569d66e87d7b9dc8485c8f22cfb593180c14dbec8292f5454ee3c86bca5bf8f",
+      "revision": "715e330c322e6cf0dfecfcd7dad897a1edb2bc0a0c30e68bd036527cd74c89b5",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:03.720Z"
+      "updatedAt": "2026-11-22T16:02:14.442Z"
     },
     "BK-F01": {
-      "revision": "1fb4741684c9c9102d464968c01e544afea39082b2f87fb061c3d47f8b67b26b",
+      "revision": "fff67b2e5d6c4de48750d69fbf174a28d337f81b4d06168397b7f7e66218a856",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:15.533Z"
+      "updatedAt": "2026-11-22T16:02:21.181Z"
     },
     "BK-F02~4af5f8059b44b212": {
-      "revision": "92c4f5517a0c7118f1b232647be73c75708b52136c847c7affff68387cedc9b9",
+      "revision": "99a5e549a1e5a7530de218022d9380c987f7df73928709c47b349d95866cf547",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:18.931Z"
+      "updatedAt": "2026-11-22T16:02:23.230Z"
     },
     "BK-F02~98c83ba58b5f1867": {
-      "revision": "67cc757517972dc2091ef1bf27c4db6bfff3dfc9f295a0b3552afb21eb1da66e",
+      "revision": "f1c4f2d151c145a1bcc93e54c019c9f80b931a901f17a6c92a66d51e08cc6b66",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:19.272Z"
+      "updatedAt": "2026-11-22T16:02:23.486Z"
     },
     "BK-F02~8724a430abd93fa7": {
-      "revision": "5a69e790101eebc2e75b1e3d750914916c54b8b75d63e667148981a3390c1bf1",
+      "revision": "86815bd92e730c4667b797e16eecf373c78c4a29374d26c86a2c5198f6885de2",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:19.589Z"
+      "updatedAt": "2026-11-22T16:02:23.774Z"
     },
     "BK-F02~61dffc7402326c95": {
-      "revision": "64feafabb569e5544a4280b02d04aca0c57c3cfba974dcb49c6ebe07fc45d100",
+      "revision": "356bdd889c62d0bdae028e85e89ea3955d5a86b5d0fc1daf7e82a7638530311d",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:19.862Z"
+      "updatedAt": "2026-11-22T16:02:24.055Z"
     },
     "BK-F02~bde8ba5c61ad103a": {
-      "revision": "58e8f0460b4fe0079ef0c03395045e9de93d112b13e10c3bd3bd02b3ac91761a",
+      "revision": "b03c97fd11548bfb384a011d9b627be729ebf61d8616d63e0090be643ca63e25",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:20.134Z"
+      "updatedAt": "2026-11-22T16:02:24.372Z"
     },
     "BK-F02": {
-      "revision": "14158c042e9a41c345c420f74b5d2fa0dc34a207f4a54062b16e2baeb270d5a4",
+      "revision": "5a10dbe97079ed8361f428e904b5e356717213964b4e61875bd7ba7c5244c69f",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:20.436Z"
+      "updatedAt": "2026-11-22T16:02:24.659Z"
     },
     "BK-P01~b33a3b1445c91f5d": {
-      "revision": "176e2385141928ef44f3cbb2cd981be5096cbe029ebc93a00b82bef25d502b8c",
+      "revision": "b604af01b69972b97a22e1171d3ffc66fd53b0e89677093be5b8afc11a564fab",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:29.026Z"
+      "updatedAt": "2026-11-22T16:02:26.891Z"
     },
     "BK-P01": {
-      "revision": "9fb9ce0853e2cd248b8cccc78d17e57b88e0e6e68a4f6cca6fd2b032641abb5f",
+      "revision": "59dd265820f90f6f7208501f9901547c32a921805d218056061d87afd40799c5",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:29.368Z"
+      "updatedAt": "2026-11-22T16:02:27.165Z"
     },
     "BK-R01": {
-      "revision": "d5f7ab4694fdfec6c8c5bb34e69a0c17f7a32b3736e17896e6956cddbfab30cf",
+      "revision": "76e19defa86291ac68c7b75d9916de6818762f8df8e19c6355104b9aeb0fe692",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:31.060Z"
+      "updatedAt": "2026-11-22T16:02:31.566Z"
     },
     "BK-REQ01": {
-      "revision": "86e79ced255a891c247b8af73992266624a0cf0436c20d06b3f475a3983d9ce6",
+      "revision": "eca3690d0456ff6fcdda8d384271770b1c882bd1527e2b767321c30eb641fecd",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:31.882Z"
+      "updatedAt": "2026-11-22T16:02:34.893Z"
     },
     "BK-REQ01~2622ef11c42f5c22": {
-      "revision": "37af93eab2d627741c3664113a4f9e8964cbf73f2e4e312e9712c5cbd125e0cd",
+      "revision": "b725464f05d39612d447ac8021c3133875d4bebd7d597a1392069c1856a28d44",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:32.928Z"
+      "updatedAt": "2026-11-22T16:02:34.640Z"
     },
     "BK-REC01~96156996785a88c7": {
-      "revision": "25fd4c0746dda7fece8a08c791227af61c8e74b54207517edd725deb5beba0d2",
+      "revision": "b58bb2ed47ce2e2f02ec95daff341e90b78c2a154a86954b310c859785378d34",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:36.244Z"
+      "updatedAt": "2026-11-22T16:02:39.331Z"
     },
     "BK-REC01~2bb6e58ae5f1ad71": {
-      "revision": "b2f10b8d51058f09ab18a3bf4dc89d78bac5362b4715317b89ad614bff35b733",
+      "revision": "c6812de0f352cafb222475b8d0e818fc8056d08220c780c90ba0717922805ff9",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:35.921Z"
+      "updatedAt": "2026-11-22T16:02:39.003Z"
     },
     "BK-REC01~2bae8bc56e5a194a": {
-      "revision": "e44156a3303572b589a15fb63c46d0a71e8829ef7dba4570c4f29b5f11854158",
+      "revision": "a2cb21bafe8cd0e80e4790f86d76f5506055795e38820cce100a5f6b0ebf5792",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:35.629Z"
+      "updatedAt": "2026-11-22T16:02:38.711Z"
     },
     "BK-REC01~06322501837fc134": {
-      "revision": "cf6ee0cc5e6a63041cd248b0f8ea558545cdc683d5f770714a0040aa157bc1b6",
+      "revision": "eafe891457abab78119aa2606d96d810b7ce96e3ca9ebf5053e15569c6f7bdc8",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:35.359Z"
+      "updatedAt": "2026-11-22T16:02:38.435Z"
     },
     "BK-REC01~606c665be6f68510": {
-      "revision": "2fbe712ed7a351152b3ed6a117e28096122c30169f4833e38626f5f5e078c4b7",
+      "revision": "943cf8b14d24e832c5f769296e519526d5a7e30f55741bb6888d8b87b1418bb5",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:35.042Z"
+      "updatedAt": "2026-11-22T16:02:38.140Z"
     },
     "BK-REC01": {
-      "revision": "e1524df8900754fbfcbb466ad41d9b420d1affa609468e90484d2ae4d7b9a6e3",
+      "revision": "93888cc3fa396de7d6f48259d11d7907809abd31737c3023c09017085f540f9d",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:36.619Z"
+      "updatedAt": "2026-11-22T16:02:41.499Z"
     },
     "BK-ALERT01~41ab0c6ec8c7634f": {
-      "revision": "fa10f923a68473049ba29ef5b58a952025b6fc08d170b9e3d06472449c1b6981",
+      "revision": "2765a70018ecdfd235536eaca7e499efabe47b76cbd842d2cfac2577780df7a5",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:38.761Z"
+      "updatedAt": "2026-11-22T16:02:43.993Z"
     },
     "BK-ALERT01~773f2a0dc3536f51": {
-      "revision": "422ae0bb351b9761fdc533b4d2a8e7d63153cafc0ba02e1d79fe3a1bea0dc3b4",
+      "revision": "7310ca32a261a740649ccba0cec82d0330df668f5827a6a5675c62bd7b898430",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:39.062Z"
+      "updatedAt": "2026-11-22T16:02:44.253Z"
     },
     "BK-ALERT01": {
-      "revision": "19c8e4829f941f8c47b472822a42c2b77dc8efb0ea138bee88f266b2e5ba8c25",
+      "revision": "19c68f70d34131da8191cf7dd0acd6afae5afb1f1fea3f438e74a510274a54b7",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:39.742Z"
+      "updatedAt": "2026-11-22T16:02:44.632Z"
     },
     "PAY-RES": {
-      "revision": "4af69bbe731f7f152fd5b7101e2ceeadde799627a4f94d2b4f954c6577914876",
+      "revision": "e70ea761c8451cb118c2036d86eb1b116453eec67fde8a06bccef2690702dae4",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:43.670Z"
+      "updatedAt": "2026-11-22T16:02:48.203Z"
     },
     "PAY-RES~e01e7ce7707918ba": {
       "revision": "93d6700bba90dbd925d0f0ea99deeb4ef559b2c3b31364822a96a3ac6e74923e",
@@ -409,67 +409,298 @@
       "updatedAt": "2026-11-15T10:25:43.916Z"
     },
     "PAY-RES~1e6d8b3a04a40601": {
-      "revision": "a7f2bb486d0aa2c3dafd10eeefbd8fcc0a0954fb3e29de3686f9f40d03b8d372",
+      "revision": "0b1b375b8d8931ee0bd6ed9d722ab710ebb3de0e2fdb452edfbbb50855942ba8",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:43.276Z"
+      "updatedAt": "2026-11-22T16:02:47.992Z"
     },
     "PAY-RES~4378c339740d401b": {
-      "revision": "90371decab42184e2a4a80eeb3aac9dbc0a7e77c1ff38881e47102a02b34cb70",
+      "revision": "20c5fb20127841211c7c31515c314b0fe16e74ee23dc74114f3e9ffefed85592",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:42.724Z"
+      "updatedAt": "2026-11-22T16:02:47.469Z"
     },
     "PAY-RES~9265b16613366c15": {
-      "revision": "4d2f169175fea5a94883137218efe94bcdaaf2579155ba73ba47708478a7ec81",
+      "revision": "2221718d08cd2c044c1ec2f3fe7a82271e75de50ff9af1caae3e2666988ea15f",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:43.009Z"
+      "updatedAt": "2026-11-22T16:02:47.744Z"
     },
     "PAY-RES~4b515b9ef1c8ece8": {
-      "revision": "81e785778dbe529db5334a0b3e708c0ace7b05bc0c30d179ce5da36cc7ce3048",
+      "revision": "27a8f46b074b7e71b2ad50f7773626fe976c0e99bb342f29116639dcffe18765",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:41.794Z"
+      "updatedAt": "2026-11-22T16:02:46.929Z"
     },
     "PAY-RES~286b70532c528241": {
-      "revision": "22f2ec6a3c51711f343381238b0b1733743ddd04b5fe81e03ea76130777cb024",
+      "revision": "f40e9a2e409c11ae6fb57f0ae306cd91c6872331afc21cff5e58e0546137202a",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:42.081Z"
+      "updatedAt": "2026-11-22T16:02:47.190Z"
     },
     "STATE-04": {
-      "revision": "f72008520d3c39226518750b41e9be7c4c0839a44acfc8d8876d8e637947a207",
+      "revision": "31fa32b5c0b89505dead71e7e7ab754375848dfca6a4dd08373cda18c8f951a6",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:16:54.471Z"
+      "updatedAt": "2026-11-22T16:02:54.220Z"
     },
     "CUS-01": {
-      "revision": "1767480829a05248c06b27818cc3bd8133495f42dc709bb75de7703fb98daac5",
+      "revision": "57e549e20327c39b87001297d4384d9c94d5421b186a43739ad823970f8001a4",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:18:51.642Z"
+      "updatedAt": "2026-11-22T16:01:31.660Z"
     },
     "CUS-01~c7a3f11bf7531740": {
-      "revision": "b8c6ac09dc405668f6a9374bcf1ffc092b6a0b184af5d81f6be30f85a8d11b93",
+      "revision": "77cf77bcc4f94fa18166d9f73e3e6844ae8d3c491ae77930c1a071abd7855510",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:18:50.684Z"
+      "updatedAt": "2026-11-22T16:01:32.872Z"
     },
     "CUS-01~6df37b5a5ca7d26d": {
-      "revision": "3e65544c6e3a7a2aac1cb4801668388c2c8f76b6be1675a473a05d3eb70ab66c",
+      "revision": "4158bc30084afeadebd38cb436dddb9827a23a606c3120994acf7c2bff3319e3",
       "mobile": true,
       "desktop": true,
       "final": true,
-      "updatedAt": "2026-11-17T08:18:52.086Z"
+      "updatedAt": "2026-11-22T16:01:33.041Z"
+    },
+    "CUS-03~3a91707132f4f947": {
+      "revision": "33f163496c3630969086edd52daccc0eed922a7e05591abf55368121b54d7139",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:01:43.088Z"
+    },
+    "CUS-03~e74221381b8e6126": {
+      "revision": "ad7568e6557988935ac30feed1512f6eda14bc38573131bc08cb16a3743ba42f",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:01:43.435Z"
+    },
+    "CUS-03~6df37b5a5ca7d26d": {
+      "revision": "67627f0bb440fe44d4dde22543a19dd663995378fbe8f453088f9f985d9e2377",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:01:43.702Z"
+    },
+    "CUS-03~56add1330a8289a5": {
+      "revision": "d6e72e77c44a3b2861b4cccc847738af706af74ea526dc2dd9e212f9a5fc07bd",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:01:44.019Z"
+    },
+    "CUS-03~de4864df6f5263ad": {
+      "revision": "1d8ea2de855ee87957a8bae9f012321d735102bb98f78641856564727aff2576",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:01:44.334Z"
+    },
+    "CUS-03~b32e836680201438": {
+      "revision": "3100b92051feaa730500a2c18427d8924551dce2f4506b76caac0378bca6fb51",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:01:44.639Z"
+    },
+    "CUS-03~7fe9392320dc2a85": {
+      "revision": "fc389d9f459b16a7cbe0c2746d8c4d93fde21d0c251c1f79b6fe186cb32df73d",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:01:44.938Z"
+    },
+    "CUS-03": {
+      "revision": "d131e9ad1ced3a0ec4e674fbb7e283b9ee1b514fb5b3da33bb88c45509e57811",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:01:45.310Z"
+    },
+    "CUS-04": {
+      "revision": "09ae6c0593396e1f1b5caab99976dce2da10da7581015502ec379537bbb06a99",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:09.401Z"
+    },
+    "CUS-04~50987cc57049b6a7": {
+      "revision": "b61367c4b037da08b00a076141eef892de6cf3515a97c7b1a73ce9aa4e93cb69",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:09.022Z"
+    },
+    "CUS-04~c7a3f11bf7531740": {
+      "revision": "b8038bffcdd821a08a366d2ce24f069290cd1febeb8f77fef34aa5bee8d34550",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:08.042Z"
+    },
+    "CUS-04~2476a36845a64db4": {
+      "revision": "e53496f4f7cf0788112a6569bca173e79a5591ef9bb8b43964d591032e66565b",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:07.725Z"
+    },
+    "CUS-04~c6b8439753637396": {
+      "revision": "77480bab6fb679db8799f3b2aab38849eff9532690ab3a57837f6aee121ddad0",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:07.359Z"
+    },
+    "CUS-04~9a99f392c031d1b0": {
+      "revision": "a55570545226ef17ec2702674abdd02cec2d1f278f2b55cb1bf9470aa333617e",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:06.985Z"
+    },
+    "CUS-04~5b1c90a459cb741f": {
+      "revision": "f5c6f1c604de3559f7a6c346fb6f78e637e8a6183accdfdc3da586e238e89e57",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:06.675Z"
+    },
+    "CUS-04~cba88a4afbaa36f4": {
+      "revision": "a8f255d85fd15d6255cee233b1a69793bf01950ef73dd476ac97a9ae09b77826",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:06.399Z"
+    },
+    "CUS-04~a1f6456133f5214a": {
+      "revision": "b444714676c90988f1f932ca0edb9e17db1bb96de4a949a8ad3bd366fac9e74a",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:06.125Z"
+    },
+    "CUS-04~0c7ee0dbc55920b6": {
+      "revision": "f7653bee65171dbdba7cb570c77242b4639f5eca4af933e0fa3692a4e6b3cae2",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:05.861Z"
+    },
+    "CUS-04~5a807fc926dd653b": {
+      "revision": "cf8107c2337185a3135275ed46112ac7c68dbc9ea28a7eec01c52bb80d1a2001",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:04.602Z"
+    },
+    "CUS-04~0b3140a710cb641f": {
+      "revision": "6dcfbe252b6d6538368d2d5059d9bec015a063ae4a3fba7d7731e6601f79a1bf",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:04.316Z"
+    },
+    "CUS-04~72b4894c295b53fb": {
+      "revision": "7c6a4deb4312adb1c3b62084ffe191079e2266e8c1ba27c2c66add5f2b2f9b11",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:04.035Z"
+    },
+    "CUS-04~5be871b26ef076dd": {
+      "revision": "fbb88f43c5940455ba86825363a03864472df0473580a7d1a8ed2f3a39dafe47",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:03.729Z"
+    },
+    "CUS-04~29d2bebdd963a8b3": {
+      "revision": "0a0f419ecc17a7309ed96309a6683835745980ffc3f394ef7b86802c9af2a7c8",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:03.408Z"
+    },
+    "CUS-04~6d2caed4e26dbfc3": {
+      "revision": "ded29b42442656a35015020d43326ee1f278c53fb936d101dcd1c7a27b6dfcc3",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:03.093Z"
+    },
+    "CUS-04~e3d5b856f6b8b205": {
+      "revision": "9af5ced25ec24041248033be715ba88de97621ef7613ab47275d8a5319caecc2",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:02.784Z"
+    },
+    "CUS-04~63ea3b57564222f8": {
+      "revision": "751bc1ad7084fbbee7d71b268a0a9ecd5eb0d3479032f5c5b8beaf37cd567c7f",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:02.477Z"
+    },
+    "CUS-04~5f6014a2e75e7359": {
+      "revision": "c68409e2ea4ba87fb30a642c77450366e52be12a2f88849f6dd7548ad44bce2b",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:02.146Z"
+    },
+    "CUS-04~a3a722718926d2c9": {
+      "revision": "3aae3c5e487ac08704c22fa2be74e64d0f3b867882db3baa0f4cc8eeaa37d0d7",
+      "mobile": true,
+      "desktop": true,
+      "final": true,
+      "updatedAt": "2026-11-22T16:02:01.856Z"
+    },
+    "CUS-05": {
+      "revision": "0a4dffb12d5574fcd20b42b7163e0bf194ba220f7aed1f02de342cea585cf9cc",
+      "mobile": true,
+      "desktop": true,
+      "final": false,
+      "updatedAt": "2026-11-23T13:42:01.975Z"
+    },
+    "CUS-05~3f518722b99c13fc": {
+      "revision": "3c6e8d3af3113f44bc310a697d731856b9d1afc8516f2b5eef294ae901283f23",
+      "mobile": true,
+      "desktop": true,
+      "final": false,
+      "updatedAt": "2026-11-23T13:42:02.698Z"
+    },
+    "CUS-05~bc782119ac8cb272": {
+      "revision": "16d30d96a206e7b1e3012c95f6c4223858325e744b65854bdaa5fcbdd029f0f9",
+      "mobile": true,
+      "desktop": true,
+      "final": false,
+      "updatedAt": "2026-11-23T13:42:03.255Z"
+    },
+    "CUS-05~8864a83e68dec33d": {
+      "revision": "81005ea16576e1b6b28dae3340321db64107ddf57d5d4a712e1446e172bb432d",
+      "mobile": true,
+      "desktop": true,
+      "final": false,
+      "updatedAt": "2026-11-23T13:42:03.845Z"
+    },
+    "CUS-05~6df37b5a5ca7d26d": {
+      "revision": "ff51335000839adfeca5a76956bce7c358cfc78198025f4653ceae4e3fd95242",
+      "mobile": true,
+      "desktop": true,
+      "final": false,
+      "updatedAt": "2026-11-23T13:42:04.478Z"
     }
   }
 }

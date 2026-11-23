@@ -76,7 +76,7 @@ export function demoId() {
 
 export async function submitRequest(details) {
   const id = demoId();
-  await persist('requests', id, { ...details, id });
+  await persist('requests', id, { ...details, id, createdAt: Date.now() });
   window.location.assign(route('BK-REQ01', { request: id }));
 }
 

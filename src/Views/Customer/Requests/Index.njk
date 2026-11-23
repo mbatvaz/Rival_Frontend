@@ -1,0 +1,36 @@
+{% extends "Shared/_CustomerPanelLayout.njk" %}
+{% block workspaceClass %} rv-customer-home rv-customer-panel rv-requests-page{% endblock %}
+{% block panelTools %}
+<div class="rv-appointments__tools">
+  <div class="rv-appointments__tabs rv-glass" role="radiogroup" aria-label="وضعیت درخواست‌ها">
+    {% for group in model.groups %}
+    <label class="rv-booking-radio"><input type="radio" name="request-tab" value="{{ group.key }}" aria-controls="rv-requests-{{ group.key }}"{% if loop.first %} checked{% endif %}><span>{{ group.label }} <span data-rv-request-count="{{ group.key }}">{{ requestCounts[group.key] | faDigits }}</span></span></label>
+    {% endfor %}
+  </div>
+  <button class="rv-icon-btn rv-glass" type="button" data-rv-sheet-open="rv-request-filter" aria-haspopup="dialog" aria-label="فیلتر درخواست‌ها"><span class="ri ri-filter" aria-hidden="true"></span></button>
+</div>
+{% endblock %}
+{% block content %}
+<div class="rv-appointments rv-requests" data-rv="customer-request-list">
+  {% for group in model.groups %}
+  <section id="rv-requests-{{ group.key }}" data-rv-request-group="{{ group.key }}"{% if not loop.first %} hidden{% endif %} aria-labelledby="rv-requests-{{ group.key }}-title">
+    <header class="rv-section-head"><h2 id="rv-requests-{{ group.key }}-title">{{ group.title }}</h2><span data-rv-request-group-note>{% if group.hint %}{{ group.hint }}{% else %}{{ requestCounts[group.key] | faDigits }} درخواست{% endif %}</span></header>
+    <div class="rv-requests__records{% if group.key == 'done' %} rv-appointments__records--past rv-glass{% endif %}" data-rv-request-records data-rv-list-entry>
+      {% for request in requestRecords %}
+        {% if (group.key == 'done' and request.status != 'pay' and request.status != 'wait') or group.key == request.status %}
+          {% include "Shared/Components/_RequestCard.njk" %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+  <section class="rv-appointments__empty rv-appointments__state-card" data-rv-request-empty hidden>
+    <span class="rv-icon-tile"><span class="ri ri-inbox" aria-hidden="true"></span></span><h2>هنوز درخواستی ندارید</h2>
+    <p>خدمت‌های پیشنهادی و پکیج‌ها با درخواست رزرو می‌شوند. هر درخواستی که ثبت کنید، اینجا با وضعیتش می‌آید.</p>
+    <p class="rv-requests__mobile-book-text">برای شروع، دکمه «رزرو» پایین صفحه را بزنید.</p><a class="rv-btn rv-btn--secondary rv-requests__desktop-book" href="{{ productUrls.booking }}">رزرو نوبت</a>
+  </section>
+  <p class="rv-appointments__empty" data-rv-request-no-result role="status" hidden>درخواستی در این گروه پیدا نشد.</p>
+  <p class="rv-feedback rv-feedback--error" data-rv-request-error role="alert" hidden></p>
+</div>
+{% endblock %}
+{% block workspaceSheets %}{% include "Customer/Requests/_Filter.njk" %}{% include "Customer/Appointments/_DatePicker.njk" %}{% endblock %}

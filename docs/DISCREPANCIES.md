@@ -1,5 +1,13 @@
 # Discrepancies and Alignment Log
 
+## CUS-05 tab annotation — 2026-11-23
+
+DEC-081 supersedes the ink-selection tab treatment recorded in the [list brief](../docs-work/desktop-layouts/CUS-05.md). The owner renamed the completed tab “تکمیل شده” to “تکمیل” and switched the status tabs to the CUS-03 appointment radio design: shared glass strip, muted inset unselected pill and white raised selected pill with the shared scale transition. The count bubbles and compact three-tab spacing remain; no filter, route or acceptance change.
+
+## CUS-05 and CUS-06 request fidelity review — 2026-11-23
+
+The review restores the integrated hold footer, the Jalali filter boundary and picker, image-led package schedule, stylist response card, and the two appointment links explicitly supplied by the booked-package export. The shared customer shell and 44px native controls govern production spacing. RQ-2186 has no dedicated detail artboard or recorded schedule. It opens its summary and links to the appointments list. Desktop compositions await owner review. [List brief](../docs-work/desktop-layouts/CUS-05.md), [detail brief](../docs-work/desktop-layouts/CUS-06.md).
+
 ## CUS-04 Appointment Swap — 2026-11-22
 
 Batch 3 supplies the CUS-04 detail hierarchy and an existing action Sheet. It has no Appointment Swap artboard. The review states use the existing Sheet and the CUS-03 stacked date picker as component evidence. Two controlled-customer preview entries supply future appointments and preserve the dates in the historical artboards. The swap states await owner review. [Desktop brief](../docs-work/desktop-layouts/CUS-04.md)

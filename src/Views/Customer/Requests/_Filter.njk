@@ -1,0 +1,31 @@
+<section class="rv-sheet rv-glass rv-glass--strong rv-appointments-filter" id="rv-request-filter" role="dialog" aria-modal="true" aria-labelledby="rv-request-filter-title" tabindex="-1" hidden>
+  <span class="rv-appointments-filter__grip" aria-hidden="true"></span>
+  <header class="rv-sheet__header"><h2 id="rv-request-filter-title" tabindex="-1" data-rv-sheet-initial-focus>فیلتر درخواست‌ها</h2><button class="rv-text-link" type="button" data-rv-request-filter-reset>پاک کردن همه</button></header>
+  <form id="rv-request-filter-form" action="{{ customerUrls['CUS-05'] }}" method="get">
+    <fieldset data-rv-request-status-filter hidden><legend>وضعیت</legend><div class="rv-appointments-filter__options">
+      {% for key in ['booked', 'rejected', 'cancelled', 'expired'] %}<label class="rv-appointments-filter__chip"><input type="checkbox" name="status" value="{{ key }}"><span>{{ model.statuses[key][0] }}</span></label>{% endfor %}
+    </div></fieldset>
+    <fieldset><legend>تاریخ ثبت</legend><div class="rv-appointments-filter__options">
+      {% for option in [['30d', '۳۰ روز اخیر'], ['3m', '۳ ماه اخیر'], ['year', 'امسال'], ['custom', 'از تاریخ دلخواه']] %}
+      <label class="rv-appointments-filter__chip"><input type="radio" name="range" value="{{ option[0] }}"><span>{% if option[0] == 'custom' %}<span class="ri ri-calendar" aria-hidden="true"></span>{% endif %}{{ option[1] }}</span></label>
+      {% endfor %}
+    </div>
+    <input type="hidden" name="from">
+    <input type="hidden" name="to">
+    <div class="rv-appointments-filter__dates">
+      <button class="rv-btn rv-btn--secondary rv-request-filter-date" type="button" data-rv-request-from aria-haspopup="dialog"><span>از</span><strong>همه تاریخ‌ها</strong></button>
+      <button class="rv-btn rv-btn--secondary rv-request-filter-date" type="button" data-rv-request-to aria-haspopup="dialog"><span>تا</span><strong>امروز</strong></button>
+    </div>
+    <p class="rv-muted rv-appointments-filter__hint">از و تا تاریخ را جداگانه انتخاب می‌کنید.</p>
+    </fieldset>
+    <fieldset><legend>خدمت</legend><div class="rv-appointments-filter__options">
+      <label class="rv-appointments-filter__chip"><input type="radio" name="service" value="" checked><span>همه</span></label>
+      {% for item in requestServices %}<label class="rv-appointments-filter__chip"><input type="radio" name="service" value="{{ item.id }}"><span><img src="{{ basePath }}{{ item.image }}" alt="" width="28" height="28" loading="lazy">{{ item.name }}</span></label>{% endfor %}
+    </div></fieldset>
+    <fieldset><legend>آرایشگر</legend><div class="rv-appointments-filter__people">
+      <label class="rv-appointments-filter__person"><input type="radio" name="stylist" value="" checked><span><span class="rv-icon-tile"><span class="ri ri-users" aria-hidden="true"></span></span><span>همه</span></span></label>
+      {% for item in requestStylists %}<label class="rv-appointments-filter__person"><input type="radio" name="stylist" value="{{ item.id }}"><span>{% if item.image %}<img src="{{ basePath }}{{ item.image }}" alt="" width="48" height="48" loading="lazy">{% else %}<span class="rv-icon-tile" aria-hidden="true">{{ item.initial }}</span>{% endif %}<span>{{ item.name }}</span></span></label>{% endfor %}
+    </div></fieldset>
+    <button class="rv-btn" type="submit" data-rv-request-filter-submit>نمایش درخواست‌ها</button>
+  </form>
+</section>

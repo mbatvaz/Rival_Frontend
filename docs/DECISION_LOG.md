@@ -1,5 +1,9 @@
 # Decision Log
 
+## DEC-081 — CUS-05 tab rename and shared appointment radio treatment
+
+On 2026-11-23 the owner renames the CUS-05 completed tab from “تکمیل شده” to “تکمیل” (fixture group label and preview variant label) and directs the request status tabs to use the native radio pill treatment designed for the CUS-03 appointment tabs instead of the transparent/ink selection. The shared appointments strip and radio states now apply: glass container, muted inset unselected pill, white raised selected pill and the scale transition. The count bubbles and the compact three-tab spacing down to 320px remain. No route, filter or acceptance change.
+
 ## DEC-080 — CUS-04 detail acceptance and final corrections
 
 The owner accepted the CUS-04 detail slice with its rescheduling and swap views and authorized publishing the finalized slice to the existing Phase 04 branch. The live demo shows appointment time remaining, uses equal management-action spacing and blocks redemption while the same appointment has an active offer. The fixed-date design snapshots display swap entry actions when cancellation is present and retain their reference dates. This closes the CUS-04 slice within Phase 04.

@@ -15,7 +15,7 @@ function paint(root, key, context, record, request) {
   const stylist = catalog.stylists.find(item => item.id === (first?.stylist ?? request?.stylist ?? query.get('stylist'))) ?? catalog.stylists.find(item => item.id === service.stylists[0]) ?? context.stylist;
   const photo = get(view, 'result-image');
   if (photo) photo.src = localUrl(service.image);
-  text(view, 'result-service', record?.items.length > 1 ? 'رزرو دوره‌ای · ' + faDigits(record.items.length) + ' نوبت' : service.name);
+  text(view, 'result-service', record?.items.length > 1 ? (record.request ? 'رزرو پکیج' : 'رزرو دوره‌ای') + ' · ' + faDigits(record.items.length) + ' نوبت' : service.name);
   if (stylist) {
     text(view, 'result-stylist', 'با ' + stylist.name);
     const avatar = get(view, 'result-avatar');
@@ -36,6 +36,11 @@ function paint(root, key, context, record, request) {
     text(view, 'result-preferred-part', part || 'انتخاب نشده');
   }
   const action = get(view, 'result-action');
+  if (request) action.href = route('requestDetail', { request: request.id });
+  if (record?.request && key === 'success') {
+    action.href = route('requestDetail', { request: record.request });
+    action.textContent = 'مشاهده جزئیات درخواست';
+  }
   if (record && ['STATE-05', 'STATE-06'].includes(action.dataset.rvResultAction)) {
     action.href = route(action.dataset.rvResultAction, { hold: record.id });
   }

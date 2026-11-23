@@ -1,5 +1,13 @@
 # Canonical Page Inventory
 
+## CUS-05 tab annotation — 2026-11-23
+
+DEC-081 renames the CUS-05 completed tab to “تکمیل” and applies the CUS-03 appointment radio treatment to the status tabs. No page, route or variant addition; the done variant label follows the new tab name.
+
+## Phase 04 request previews — 2026-11-23
+
+CUS-05 and CUS-06 are implemented for review. CUS-05 owns the list, status groups, filter and empty view. CUS-06 owns details, inactive and terminal views, and cancellation impact. The payment result remains PAY-RES. This leaves CUS-08/09/10 pending. [List brief](../docs-work/desktop-layouts/CUS-05.md), [detail brief](../docs-work/desktop-layouts/CUS-06.md).
+
 ## CUS-03 interaction revision — 2026-11-17
 
 DEC-073/074 revise existing CUS-03 views and states, without adding a page or changing phase acceptance. The two filter-preview query aliases show the same popup; appointment-date selection reuses the shared booking calendar. Range is single-select; status/service/stylist are multi-select with exclusive “all”, and their repeated query parameters survive reload/history. CUS-01 remains accepted and CUS-03 remains in progress. [Sources and checks](../docs-work/CUS_03_OWNER_FEEDBACK_2026-11-17.md), [motion record](../docs-work/CUS_03_MOTION_2026-11-17.md).

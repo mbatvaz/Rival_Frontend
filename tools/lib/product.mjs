@@ -59,7 +59,7 @@ export async function productContext(page, basePath, pages, model) {
   let shell = null;
   if (role) {
     shell = (await readJson(path.join(src, `MockData/nav.${role}.json`))).data;
-    const activePath = page.id === 'CUS-04' ? '/customer/appointments/' : page.previewPath;
+    const activePath = { 'CUS-04': '/customer/appointments/', 'CUS-06': '/customer/requests/' }[page.id] ?? page.previewPath;
     const map = item => {
       const [pathname, query] = item.href.split('?');
       return { ...item, href: route(pathname) + (query ? '?' + query : ''), active: !query && pathname === activePath };
@@ -84,7 +84,8 @@ export async function productContext(page, basePath, pages, model) {
     const defaultSelection = { service: service(page.id === 'BK-R01' ? 'groom' : page.id === 'BK-P01' ? 'facial' : 'face-hair'),
       stylist: stylist(page.id === 'BK-P01' ? 'sina' : 'amir') };
     const bookingUrls = { ...urls, panel: route('/customer/'), alerts: route('/customer/availability-alerts/'),
-      requests: route('/customer/requests/'), appointments: route('/customer/appointments/') };
+      requests: route('/customer/requests/') + '?tab=wait', requestDetail: route('/customer/requests/demo/'),
+      appointments: route('/customer/appointments/') };
     booking = {
       bookingSteps: bookingSteps(page.id),
       bookingStepVariants: page.id === 'BK-02' ? [bookingSteps(page.id), bookingSteps(page.id, true)] : [bookingSteps(page.id)],

@@ -314,11 +314,30 @@
       "status": "Fully Designed",
       "source": "Batch 3",
       "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
-      "titleFa": "درخواست‌های من",
-      "phase": "Phase 04"
+      "template": "Customer/Requests/Index.njk",
+      "mockData": "MockData/customer/requests.json",
+      "notes": "Batch 3 request preview under DEC-072, pending owner desktop review.",
+      "titleFa": "درخواست‌ها",
+      "phase": "Phase 04",
+      "implementationStatus": "implemented",
+      "variants": [
+        {
+          "label": "در انتظار پاسخ",
+          "query": "?tab=wait"
+        },
+        {
+          "label": "تکمیل",
+          "query": "?tab=done"
+        },
+        {
+          "label": "فیلتر درخواست‌ها",
+          "query": "?tab=done&state=filter"
+        },
+        {
+          "label": "بدون درخواست",
+          "query": "?state=empty"
+        }
+      ]
     },
     {
       "id": "CUS-06",
@@ -328,11 +347,54 @@
       "status": "Fully Designed",
       "source": "Batch 3 + Batch 2 payment reuse",
       "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
+      "template": "Customer/Requests/Detail.njk",
+      "mockData": "MockData/customer/requests.json",
+      "notes": "Batch 3 request preview under DEC-072, pending owner desktop review.",
       "titleFa": "جزئیات درخواست",
-      "phase": "Phase 04"
+      "phase": "Phase 04",
+      "implementationStatus": "implemented",
+      "variants": [
+        {
+          "label": "در انتظار پرداخت — یک خدمت",
+          "query": "?request=RQ-2210"
+        },
+        {
+          "label": "در انتظار بررسی — یک خدمت",
+          "query": "?request=RQ-2215"
+        },
+        {
+          "label": "در انتظار هماهنگی پکیج",
+          "query": "?request=RQ-2219"
+        },
+        {
+          "label": "رزرو شده",
+          "query": "?request=RQ-2194"
+        },
+        {
+          "label": "رد شده",
+          "query": "?request=RQ-2171"
+        },
+        {
+          "label": "لغو شده",
+          "query": "?request=RQ-2160"
+        },
+        {
+          "label": "منقضی شده",
+          "query": "?request=RQ-2152"
+        },
+        {
+          "label": "حساب غیرفعال",
+          "query": "?request=RQ-2210&state=inactive"
+        },
+        {
+          "label": "لغو پیش از پاسخ",
+          "query": "?request=RQ-2215&state=can-review"
+        },
+        {
+          "label": "لغو در مهلت پرداخت",
+          "query": "?request=RQ-2207&state=can-pay"
+        }
+      ]
     },
     {
       "id": "CUS-07",

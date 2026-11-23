@@ -17,6 +17,8 @@ registerFeature('booking', () => import('./features/booking/index.js'));
 registerFeature('customer-home', () => import('./features/customer/home.js'));
 registerFeature('customer-appointments', () => import('./features/customer/appointments.js'));
 registerFeature('customer-appointment-detail', () => import('./features/customer/appointment-detail.js'));
+registerFeature('customer-request-list', () => import('./features/customer/request-list.js'));
+registerFeature('customer-request-detail', () => import('./features/customer/request-detail.js'));
 registerFeature('customer-dock', () => import('./components/customer-dock.js'));
 initSheets();
 initNavigationMotion();

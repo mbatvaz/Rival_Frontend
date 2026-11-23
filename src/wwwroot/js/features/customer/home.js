@@ -4,6 +4,7 @@ import { startClocks } from './home-clocks.js';
 import { refreshHomeAppointments } from './reschedule-summaries.js';
 import { swapCustomer } from './appointment-swap-context.js';
 import { renderSwapHome } from './appointment-swap-summaries.js';
+import { requestPaymentOutcomes } from './request-state.js';
 
 // CUS-01 / DEC-062: fixture-driven presentation, never server authorization.
 export async function init(root) {
@@ -57,7 +58,23 @@ export async function init(root) {
     const saved = (await api.read('customer/home-state')).data;
     if (!saved.clockStartedAt) { saved.clockStartedAt = Date.now(); await api.write('customer/home-state', saved); }
     saved.dismissed.forEach(id => { root.querySelector(`[data-rv-home-dismissable="${window.CSS.escape(id)}"]`)?.setAttribute('hidden', ''); });
-    if (!empty) startClocks(root, data, saved.clockStartedAt);
+    if (!empty) {
+      startClocks(root, data, saved.clockStartedAt);
+      const refreshPayments = async () => {
+        try {
+          const outcome = await requestPaymentOutcomes();
+          const payments = root.querySelector('[data-rv-home-payment]');
+          const cards = [...payments.querySelectorAll('[data-rv-payment-id]')];
+          for (const card of cards) {
+            const status = outcome(card.dataset.rvPaymentId);
+            card.hidden = status === 'cancelled' || status === 'success';
+          }
+          payments.hidden = cards.every(card => card.hidden);
+        } catch { /* Keep the dashboard available if request state cannot be read. */ }
+      };
+      await refreshPayments();
+      window.addEventListener('pageshow', event => { if (event.persisted) refreshPayments(); });
+    }
     root.querySelectorAll('[data-rv-home-dismiss]').forEach(button => button.addEventListener('click', async () => {
       button.disabled = true;
       try {

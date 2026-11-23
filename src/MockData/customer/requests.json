@@ -1,0 +1,256 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "groups": [
+      {
+        "key": "pay",
+        "label": "پرداخت",
+        "title": "در انتظار پرداخت",
+        "hint": "زمان‌ها نگه داشته شده‌اند"
+      },
+      {
+        "key": "wait",
+        "label": "پاسخ",
+        "title": "در انتظار پاسخ"
+      },
+      {
+        "key": "done",
+        "label": "تکمیل",
+        "title": "تکمیل شده"
+      }
+    ],
+    "statuses": {
+      "pay": [
+        "در انتظار پرداخت",
+        "warning",
+        "hourglass"
+      ],
+      "wait": [
+        "در انتظار بررسی",
+        "plum",
+        "clock"
+      ],
+      "booked": [
+        "رزرو شده",
+        "ink",
+        "check-circle"
+      ],
+      "rejected": [
+        "رد شده",
+        "neutral",
+        "ban"
+      ],
+      "expired": [
+        "منقضی شده",
+        "neutral",
+        "timer"
+      ],
+      "cancelled": [
+        "لغو شده",
+        "rose",
+        "x-circle"
+      ]
+    },
+    "services": [
+      "facial",
+      "beard-color",
+      "groom",
+      "grooming"
+    ],
+    "extraServices": [
+      {
+        "id": "grooming",
+        "name": "پکیج آراستگی",
+        "image": "img/booking/groom.png"
+      }
+    ],
+    "records": [
+      {
+        "id": "RQ-2207",
+        "service": "groom",
+        "status": "pay",
+        "date": "1405/07/23",
+        "subtitle": "۳ بخش، از دوشنبه ۲۷ مهر",
+        "parts": [
+          "face-hair",
+          "facial",
+          "beard-color"
+        ],
+        "credit": 60000,
+        "schedule": [
+          {
+            "service": "face-hair",
+            "stylist": "taha",
+            "date": "2026-10-19",
+            "time": "10:00",
+            "fee": 180000
+          },
+          {
+            "service": "facial",
+            "stylist": "sina",
+            "date": "2026-10-19",
+            "time": "11:00",
+            "fee": 220000
+          },
+          {
+            "service": "beard-color",
+            "stylist": "amir",
+            "date": "2026-10-24",
+            "time": "17:00",
+            "fee": 90000
+          }
+        ],
+        "remainingSeconds": 5640,
+        "totalSeconds": 10800,
+        "clock": "۱:۳۴"
+      },
+      {
+        "id": "RQ-2210",
+        "service": "facial",
+        "stylist": "sina",
+        "status": "pay",
+        "date": "1405/07/23",
+        "subtitle": "با سینا، ۲۶ مهر، ۱۲:۰۰",
+        "credit": 60000,
+        "response": "ترجیح شما: یکشنبه، ظهر",
+        "schedule": [
+          {
+            "service": "facial",
+            "stylist": "sina",
+            "date": "2026-10-18",
+            "time": "12:00",
+            "fee": 250000
+          }
+        ],
+        "remainingSeconds": 9660,
+        "totalSeconds": 10800,
+        "clock": "۲:۴۱"
+      },
+      {
+        "id": "RQ-2219",
+        "service": "grooming",
+        "status": "wait",
+        "date": "1405/07/22",
+        "subtitle": "مدیر سالن",
+        "parts": [
+          "face-hair",
+          "beard-color"
+        ],
+        "submitted": "۲۲ مهر، ۰۹:۴۰",
+        "notice": [
+          "در انتظار هماهنگی مدیر سالن",
+          "مدیر سالن آرایشگر و زمان هر بخش را هماهنگ می‌کند و برایتان می‌فرستد."
+        ],
+        "nextTitle": "بعد از پاسخ",
+        "next": [
+          { "icon": "hourglass", "text": "برای پرداخت کل پکیج ۳ ساعت دارید و همه زمان‌ها با هم نگه داشته می‌شوند." },
+          { "icon": "layers", "text": "پکیج فقط یک‌جا پرداخت یا لغو می‌شود." }
+        ]
+      },
+      {
+        "id": "RQ-2215",
+        "service": "beard-color",
+        "stylist": "amir",
+        "status": "wait",
+        "date": "1405/07/21",
+        "preference": {
+          "day": "دوشنبه ۴ آبان",
+          "part": "عصر",
+          "submitted": "سه‌شنبه ۲۱ مهر، ۲۰:۱۰"
+        },
+        "nextTitle": "بعد از این",
+        "next": [
+          { "icon": "clock", "text": "امیر تا سه‌شنبه ۲۸ مهر، ۲۰:۱۰ زمان و مبلغ را پیشنهاد می‌دهد." },
+          { "icon": "hourglass", "text": "بعد از پیشنهاد، ۳ ساعت برای پرداخت دارید و زمان برایتان نگه داشته می‌شود." },
+          { "icon": "ban", "text": "اگر تا آن تاریخ پاسخی نیاید، درخواست «رد شده» می‌شود." }
+        ]
+      },
+      {
+        "id": "RQ-2194",
+        "service": "grooming",
+        "status": "booked",
+        "date": "1405/07/20",
+        "parts": [
+          "face-hair",
+          "beard-color"
+        ],
+        "credit": 60000,
+        "paidAt": "۲۰ مهر، ۱۹:۰۵",
+        "tracking": "#PAY-91822",
+        "schedule": [
+          {
+            "service": "face-hair",
+            "stylist": "taha",
+            "date": "2026-10-18",
+            "time": "17:00",
+            "appointmentId": "BK-48371",
+            "fee": 180000
+          },
+          {
+            "service": "beard-color",
+            "stylist": "amir",
+            "date": "2026-10-18",
+            "time": "18:00",
+            "appointmentId": "BK-48372",
+            "fee": 90000
+          }
+        ]
+      },
+      {
+        "id": "RQ-2186",
+        "service": "facial",
+        "stylist": "sina",
+        "status": "booked",
+        "date": "1405/07/19"
+      },
+      {
+        "id": "RQ-2171",
+        "service": "beard-color",
+        "stylist": "amir",
+        "status": "rejected",
+        "date": "1405/07/10",
+        "notice": [
+          "امیر در ۷ روز پاسخی نداد",
+          "درخواست بسته شد. مبلغی پرداخت نشده بود."
+        ],
+        "preference": {
+          "day": "شنبه ۱۸ مهر",
+          "part": "صبح",
+          "submitted": "جمعه ۱۰ مهر، ۱۸:۳۰"
+        }
+      },
+      {
+        "id": "RQ-2152",
+        "service": "groom",
+        "status": "expired",
+        "date": "1405/07/08",
+        "parts": [
+          "face-hair",
+          "facial",
+          "beard-color"
+        ],
+        "notice": [
+          "مهلت پرداخت تمام شد",
+          "مهلت ۳ ساعته پرداخت شنبه ۱۸ مهر، ۲۲:۴۰ تمام شد و هر سه زمان آزاد شدند. مبلغی پرداخت نشده بود."
+        ]
+      },
+      {
+        "id": "RQ-2160",
+        "service": "facial",
+        "stylist": "sina",
+        "status": "cancelled",
+        "date": "1405/07/06",
+        "notice": [
+          "شما این درخواست را لغو کردید",
+          "دوشنبه ۷ مهر، ۱۱:۰۵، پیش از پاسخ سینا. اثر مالی نداشت."
+        ],
+        "preference": {
+          "day": "پنج‌شنبه ۱۰ مهر",
+          "part": "بعد از ظهر",
+          "submitted": "یکشنبه ۶ مهر، ۲۱:۱۵"
+        }
+      }
+    ]
+  }
+}

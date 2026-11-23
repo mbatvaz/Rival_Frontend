@@ -20,6 +20,23 @@ export async function init(root) {
     current.replaceChildren(view.content.cloneNode(true));
     current.dataset.rvDetailId = appointmentId;
   }
+  const linkedRequest = current.querySelector('[data-rv-detail-request]');
+  if (linkedRequest) {
+    if (linkedRequest.hasAttribute('data-rv-detail-request-payment')) {
+      const { readRequests, requestStatus } = await import('./request-state.js');
+      const records = await readRequests().catch(() => []);
+      const request = records.find(item => item.id === linkedRequest.dataset.rvDetailRequest);
+      if (!request || requestStatus(request) !== 'booked') {
+        current.hidden = true;
+        root.querySelector('[data-rv-detail-missing]').hidden = false;
+        return;
+      }
+    }
+    const back = document.querySelector('.rv-appointment-detail__back');
+    back.href = linkedRequest.querySelector('a').href;
+    back.setAttribute('aria-label', 'بازگشت به جزئیات درخواست');
+    return;
+  }
   if (current.querySelector('[data-rv-detail-history]')) {
     const back = document.querySelector('.rv-appointment-detail__back');
     const listUrl = new URL(back.href);

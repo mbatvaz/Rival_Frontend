@@ -1,8 +1,10 @@
 import path from 'node:path';
 import { src, readJson, withBase } from './site.mjs';
+import { requestAppointments, requestContext } from './customer-requests.mjs';
 
 // Phase 04 build context only. Runtime reads/writes remain behind core/api.js.
 export async function customerContext(page, basePath, pages, model) {
+  if (['CUS-05', 'CUS-06'].includes(page.id)) return requestContext(basePath, pages, model);
   if (!['CUS-01', 'CUS-03', 'CUS-04'].includes(page.id)) return {};
   const [home, publicHome] = await Promise.all([
     readJson(path.join(src, 'MockData/customer/home.json')),
@@ -34,6 +36,9 @@ export async function customerContext(page, basePath, pages, model) {
         countdown: home.data.appointments.find(item => item.id === appointment.id)?.countdown ?? []
       }));
     customerAppointments.push(model.conflict, ...swapAppointments);
+    const requests = (await readJson(path.join(src, 'MockData/customer/requests.json'))).data;
+    const context = await requestContext(basePath, pages, requests);
+    customerAppointments.push(...requestAppointments(context.requestRecords));
   }
   const appointment = customerAppointments[0];
   return {
