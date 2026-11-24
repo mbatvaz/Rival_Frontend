@@ -1,20 +1,12 @@
 # Implementation Phase Plan
 
-This is the canonical dependency plan. It preserves the nine owner-defined implementation phases while adding a Codex preflight step that is preparation, not a numbered implementation phase.
-
-## Preflight (before Phase 01; not counted as a product phase)
-
-- Read root `AGENTS.md` and `docs/RIVAL_PROJECT_CONTRACT.md`.
-- Validate `design-export/MANIFEST.json` against actual export files and the Page Inventory.
-- Resolve path references and mark superseded Claude/Tailwind/Alpine/htmx instructions as inactive.
-- Confirm the static build pipeline and cPanel deployment boundary.
-- Do not implement product screens during preflight.
+This is the canonical dependency plan. The [root instructions](../AGENTS.md) govern task intake. Phase 01 acceptance includes the original foundation preparation.
 
 ## Nine implementation phases
 
 | Phase | Package | Scope | Depends on | Gate |
 |---:|---|---|---|---|
-| 01 | Foundation | Repository skeleton, token/font/icon extraction, static build pipeline, page registry, central preview index, static mock adapter, native JS registry, test harness, MVC-shaped source folders. No Express and no finished product shell. | Preflight | `npm run build` produces static HTML; `/_preview/` lists canonical routes; cPanel payload is static; structure lint passes. |
+| 01 | Foundation | Repository skeleton, token/font/icon extraction, static build pipeline, page registry, central preview index, static mock adapter, native JS registry, test harness, MVC-shaped source folders. | — | Static HTML builds, `/_preview/` lists canonical routes, cPanel payload is static, and structure lint passes. |
 | 02 | Shell + Public + Auth | Shared shell, role navigation, desktop shell, bottom sheets, public pages, authentication and final OTP/lock rules. | 01 | Mobile 390, tablet 768, approved desktop 1280 layouts; OTP/lock/accessibility and route checks. |
 | 03 | Customer Booking | Fixed, Proposed, Requested, recurring, availability alerts, payment return and hold/system-state flows. Build canonical `StatePage` base and implement booking-owned STATE-04..07. | 01–02 | Booking flow variants and hold states; StatePage component is reusable; no duplicate state markup. |
 | 04 | Customer Panel | CUS-01..10, profile, notifications, appointment/request details. | 01–03 | Customer navigation and state matrix. |
@@ -36,20 +28,8 @@ This is the canonical dependency plan. It preserves the nine owner-defined imple
 
 Use serialized Workflow B. One phase at a time; each phase ends with a review gate and owner approval. Parallel work is allowed only inside a phase after shared contracts are frozen. Any change to tokens, shared components, navigation, or shell triggers its reuse regression list.
 
-## Current owner gate — 2026-11-24
+## Current owner gate
 
 The owner accepted the implemented [CUS-10 profile slice](../docs-work/desktop-layouts/CUS-10.md) under DEC-084. Its separate desktop proposal and full Phase 04 acceptance remain open. CUS-09 was accepted under DEC-083.
 
-On 2026-11-24 the owner accepted the [CUS-08 availability alerts slice](../docs-work/desktop-layouts/CUS-08.md) under DEC-082. The Phase 04 gate remains open.
-
-CUS-03 was accepted on 2026-11-19. The owner accepted [CUS-04](../docs-work/desktop-layouts/CUS-04.md), including rescheduling and [Appointment Swap](features/APPOINTMENT_SWAP.md), and authorized publication on the Phase 04 branch under DEC-080. The phase gate remains open.
-
-### Phase 04 continuation gate — 2026-11-17
-
-DEC-072 accepts the implemented CUS-01 slice and embedded CUS-07 balance, and authorizes remaining Phase 04 work on the existing branch. CUS-03 is implemented at live desktop owner review; continue after that feedback, preserving earlier structures and requesting a screenshot only when an exact mobile source is missing/unreadable. Port 8183 is owner-selected. [Current review](../docs-work/CUS_03_REVIEW_2026-11-17.md). This is not full Phase 04 acceptance or Phase 05 authorization.
-
-### Prior gate — 2026-11-15
-
-**Superseded assignment status, 2026-11-16:** the owner explicitly assigned Phase 04 (DEC-062). Work starts on local `phase/04-customer-panel`; Phase 03 remains accepted/closed. Exact mobile sources and the existing desktop review gate apply. [Current execution](../docs-work/PHASE_04_IMPLEMENTATION_FA.md). The unassigned statements below describe the earlier gate.
-
-Phases 01 and 02 are accepted. The owner explicitly accepted Phase 03 on 2026-11-15 and authorized only its completion work (DEC-058). The [Phase 03 closeout](../docs-work/PHASE_03_CLOSEOUT_FA.md) records final validation and handoff. Phase 04 is unassigned and must not start without a later explicit owner instruction. Manual review-platform approvals remain independent of phase acceptance.
+DEC-072 governs live desktop preview and review on port 8183. Request a source only when the exact mobile board is missing or unreadable. The [decision log](DECISION_LOG.md) and [progress history](../PROGRESS.md) record earlier slice acceptances. Manual preview approvals are independent of phase acceptance.

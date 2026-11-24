@@ -1,30 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { createHash } from 'node:crypto';
 import { root, write } from './lib/site.mjs';
 
-async function walk(dir = '') {
-  const entries = await fs.readdir(path.join(root, dir), { withFileTypes: true });
-  const ignored = new Set(['.git', 'node_modules', 'dist', '.playwright-browsers', '.npm-cache',
-    'tests/screens', 'test-results', 'playwright-report', 'screens']);
-  return (await Promise.all(entries.filter(e => !ignored.has(e.name)).map(e => {
-    const file = dir ? dir + '/' + e.name : e.name;
-    return e.isDirectory() ? walk(file) : file;
-  }))).flat();
-}
-const files = (await walk()).filter(file => /\.mdx?$/.test(file)).sort();
-const records = [];
-for (const file of files) {
-  const text = await fs.readFile(path.join(root, file), 'utf8');
-  records.push({ path: file, lines: text.split(/\r?\n/).length,
-    sha256: createHash('sha256').update(text).digest('hex'),
-    headings: [...text.matchAll(/^#{1,6}\s+(.+)$/gm)].map(match => match[1]),
-    instructionCandidates: text.split(/\r?\n/).filter(line =>
-      /Tailwind|Alpine|htmx|Claude|Express|centered|nested vertical|Plan mode|owner approval|MVC/i.test(line)) });
-}
-await write(path.join(root, 'docs/ai/document-audit.json'), JSON.stringify({
-  scope: 'All Markdown/MDX content read for headings, hashes and instruction candidates; historical evidence is not rewritten.',
-  records }, null, 2) + '\n');
 const components = (await fs.readdir(path.join(root, 'design-export/design-system-v2/components'),
   { withFileTypes: true })).filter(entry => entry.isDirectory()).map(entry => entry.name).sort();
 const link = file => `[${path.basename(file)}](<../../${file}>)`;
@@ -41,14 +18,17 @@ const runtime = {
   BookingFlow: ['03', 'src/Views/Booking'],
   RecurringBooking: ['03', 'src/wwwroot/js/features/booking/recurring.js'],
   HoldTimer: ['03', 'src/wwwroot/js/features/booking/holds.js'],
+  CustomerProfile: ['04', 'src/Views/Customer/Profile/Index.njk'],
+  AppointmentHero: ['04', 'src/Views/Shared/Components/_AppointmentHero.njk'],
+  NotificationItem: ['04', 'src/Views/Shared/Components/_NotificationItem.njk'],
   Iconography: ['01', 'src/wwwroot/icons'], Logo: ['01', 'src/wwwroot/img'],
   MotionSpecimens: ['02', 'src/wwwroot/css/05-utilities/motion.css']
 };
 const planned = { CreditPayments: '06', WalletLedger: '06', PricingRules: '07', SettingsFinance: '08',
   StaffDashboard: '05', StylistSchedule: '05', WorkSchedule: '05', ScreensAdmin: '06–08',
-  ScreensCustomer: '04', CustomerProfile: '04', AppointmentHero: '04', NotificationItem: '04–08' };
+  ScreensCustomer: '04' };
 const entries = ['# Component catalog', '',
-  'Generated source index: `node tools/audit-documents.mjs`. Design groups are not proof of runtime implementation. Ownership stays in the [reuse matrix](../COMPONENT_REUSE_MATRIX.md); approved source variants/states are in each linked README/preview.', '',
+  'Generated on demand with `node tools/catalog-components.mjs`. Use the [reuse matrix](../COMPONENT_REUSE_MATRIX.md) for ownership and the linked design references for variants and states.', '',
   '## Runtime owners and contracts', '',
   '- Phase 01: token/font/icon generation and native registry/API adapter.',
   '- Phase 02: Public/Auth/Role layouts, navigation/More/logout, Sheet, OTP, PortfolioViewer/Card, fields/controls/materials.',
@@ -84,4 +64,4 @@ for (const name of components) {
     'Variants/states, anatomy, usage and exclusions: source above. For each assigned consumer, record selected variant/state, accessible names/focus/error behavior and mobile/desktop rule in the page spec. Common runtime constraints above apply; design preview markup is evidence, not reusable production code.', '');
 }
 await write(path.join(root, 'docs/ai/COMPONENT_CATALOG.md'), entries.join('\n'));
-console.log(`Read ${records.length} Markdown/MDX files; indexed ${components.length} design component groups.`);
+console.log(`Indexed ${components.length} design component groups.`);

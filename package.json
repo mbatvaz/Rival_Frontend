@@ -15,18 +15,15 @@
     "lint:css": "stylelint \"src/wwwroot/css/**/*.css\" \"preview-review/**/*.css\"",
     "lint:docs": "node tools/validate-ai-docs.mjs",
     "lint": "npm run lint:structure && npm run lint:js && npm run lint:css && npm run lint:docs",
-    "test:smoke": "node tools/run-tests.mjs --grep @smoke",
-    "test:visual": "node tools/run-tests.mjs --grep @visual",
-    "test:a11y": "node tools/run-tests.mjs --grep @a11y",
-    "test": "node tools/run-tests.mjs",
+    "test": "node tools/qa-affected.mjs",
     "qa:affected": "node tools/qa-affected.mjs",
-    "export:lookup": "node tools/export-lookup.mjs",
+    "task:context": "node tools/task-context.mjs",
+    "task:usage": "node tools/task-usage.mjs",
     "map:build": "node tools/project-map.mjs build",
     "map:update": "node tools/project-map.mjs update",
     "map:check": "node tools/project-map.mjs check",
     "map:query": "node tools/project-map.mjs query",
-    "install:browsers": "node tools/playwright.mjs install chromium",
-    "test:subpath": "node tools/run-tests.mjs --subpath"
+    "install:browsers": "node tools/playwright.mjs install chromium"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.3",

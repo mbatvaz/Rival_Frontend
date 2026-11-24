@@ -1,5 +1,9 @@
 # Rival Progress
 
+## Local context and QA workflow — 2026-11-24
+
+Page and phase startup now use a compact local lookup. Affected QA scopes literal import and registration additions to their consumers and treats registry acceptance metadata as a review check. Scoped subpath runs skip audited duplicate visual widths. [Measurements and retained coverage](docs-work/CONTEXT_OPTIMIZATION_REPORT_FA.md#اجرای-دوم-۲۴-نوامبر-۲۰۲۶)
+
 ## CUS-10 customer profile accepted — 2026-11-24
 
 The owner accepted the implemented mobile and tablet profile, its six preview states and the mobile keyboard follow-up under DEC-084. The separate desktop proposal and the Phase 04 gate remain open. [CUS-10 brief](docs-work/desktop-layouts/CUS-10.md)

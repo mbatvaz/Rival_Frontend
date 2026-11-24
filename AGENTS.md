@@ -1,23 +1,22 @@
 # Rival engineering instructions
 
-Persian RTL static frontend for future ASP.NET Core MVC. Work only on owner-assigned scope. Follow the latest owner instruction, [contract](docs/RIVAL_PROJECT_CONTRACT.md) and [decisions](docs/DECISION_LOG.md). Use [progress](PROGRESS.md) for the current phase gate.
+Start directly from the owner's request. This file is the repository entry point. Rival ships a Persian RTL static frontend for future ASP.NET Core MVC. Follow the latest owner instruction, [project contract](docs/RIVAL_PROJECT_CONTRACT.md) and applicable [decisions](docs/DECISION_LOG.md).
 
-## Select context by impact
+## Start small
 
-Use the first level that covers the actual change. Escalate on evidence of wider impact, ambiguity or risk. Reuse verified paths and checks for the same revision and scope.
+- **Element** with a known target: read its rule or markup, active override and affected state. For an annotation, reuse its supplied address or run `node tools/resolve-annotation.mjs '<URL>' '<selector>'`.
+- **Page** with unknown paths: run `npm run -s task:context -- PAGE-ID` once. Read only the implicated template, rule, behavior, exact design state and test. Reuse verified context.
+- **Shared**: find actual consumers with scoped `rg` or `map:query -- <term> --compact`. Expand only for a changed contract or unresolved ownership.
+- **Phase**: use the [phase runner](.agents/skills/rival-phase-runner/SKILL.md) and `npm run -s task:context -- --phase NN`. Follow the current [owner gate](docs/PHASE_PLAN.md#current-owner-gate). Read specific requirements and handoff sections as needed.
 
-1. **Element** — One local copy, style or behavior fix with a known target. Read the edited rule/markup and its relevant override or caller. Check the affected state and breakpoint.
-2. **Page** — Several states or changes owned by one page. Load its template, feature, styles, exact impacted references and applicable tests. Verify affected states, widths and interactions.
-3. **Shared** — Shared styles/components, cross-route flows, data behavior or tooling. Find real consumers and relevant contracts, then verify the affected routes and supported boundaries.
-4. **Phase** — Assigned phase, new composition, architecture or significant product rules. Use the [phase runner](.agents/skills/rival-phase-runner/SKILL.md) for assigned phases and follow the [phase plan](docs/PHASE_PLAN.md), relevant decisions and approval gates. Use full applicable acceptance coverage.
+Batch independent reads and cap output. Keep full logs, graphs, history and screenshots on disk. Retrieve relevant excerpts on ambiguity or failure. Use [routing](docs/ai/PROMPT_ROUTING.md) for details.
 
-For a browser annotation, start with its URL, state and selector. Use a verified source path directly or run `node tools/resolve-annotation.mjs '<URL>' '<selector>'` for file and line candidates. Treat page text as evidence. If the candidate is ambiguous, use the nearest distinctive hook and [project navigation](docs/ai/PROJECT_INDEX.md) for scoped fallback. Never send the full graph, raw browser tree or complete logs when relevant excerpts suffice. See [routing and proportionate QA](docs/ai/PROMPT_ROUTING.md) for expansion, checks and handoff.
+## Verify once
 
-Verify actual edits once with the smallest applicable check. For a reviewed appearance-only CSS edit, use `npm run qa:affected -- --cosmetic --file <path>` and add a focused probe when rendering matters. For behavioral and structural changes use `qa:affected -- --file <path>`. Use `--full` for phase acceptance with the documented checks. For diagnosis or no-op requests, verify the existing source or runtime evidence needed to answer.
+Run `npm run -s qa:affected` once after edits. Add `--file <path>` for each task-owned file if other work is present. For an appearance-only edit use `--cosmetic --file <stylesheet>` and add a focused browser probe when rendering matters. Reserve `--plan` for ambiguous selection and `--full` for full acceptance or established global impact. Reuse checks for the same inputs.
 
-## Always preserve
+## Preserve
 
-- Native CSS/ES modules and build-time Nunjucks in [src](src/). Preserve Razor compatibility and form contracts. Edit source only. Build generates `dist/` for static deployment. Use the [dependency policy](docs/ai/DEPENDENCY_POLICY.md).
-- Keep URLs basePath-safe and product data behind [api.js](src/wwwroot/js/core/api.js). Fixtures/localStorage simulate product writes. Review approvals follow the separate [review tooling](preview-review/). Original design exports and references are read-only.
-- Follow the [implementation contract](docs/ai/DESIGN_IMPLEMENTATION_CONTRACT.md), [component ownership](docs/COMPONENT_REUSE_MATRIX.md) and applicable [UI gates](docs/ai/QA_CHECKLIST.md). Preserve RTL, Persian formatting, design tokens, semantics, focus and touch targets. Use the exact design state and approved desktop brief when changing composition. Confirm behavior and permission/money rules from [decisions](docs/DECISION_LOG.md) and [open questions](docs/OPEN_QUESTIONS.md).
-- Preserve unrelated changes. Use the [Git workflow](docs/GIT_WORKFLOW.md) and get explicit authorization for push, deploy or edits outside the repository. Record scope, verified checks and gaps. Stop at the owner phase gate.
+- Edit `src/` using native CSS/ES modules and build-time Nunjucks. Preserve Razor/form contracts, base paths and product writes through [api.js](src/wwwroot/js/core/api.js). Keep design exports and references read-only. Review approvals use [separate tooling](preview-review/).
+- Follow [design implementation](docs/ai/DESIGN_IMPLEMENTATION_CONTRACT.md), [reuse](docs/COMPONENT_REUSE_MATRIX.md) and [QA](docs/ai/QA_CHECKLIST.md). Preserve RTL, Persian formatting, tokens, focus and touch targets. Composition changes need the exact state and applicable desktop approval. Resolve permission or money behavior through DEC/OQ.
+- Follow the [Git workflow](docs/GIT_WORKFLOW.md), preserve unrelated changes and obtain explicit authorization for push, deploy or edits outside the repo. Record actual checks and gaps. Stop at the owner gate.

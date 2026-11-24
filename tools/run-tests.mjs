@@ -6,6 +6,7 @@ import { root } from './lib/site.mjs';
 
 const subpath = process.argv.includes('--subpath');
 const compact = process.argv.includes('--agent');
+const started = Date.now();
 const keepOutput = process.argv.includes('--keep-output');
 const probeIndex = process.argv.indexOf('--probe', 2);
 const probeOnly = process.argv.includes('--probe-only');
@@ -67,9 +68,16 @@ try {
 }
 if (compact) {
   const details = stripVTControlCharacters(await fs.readFile(logFile, 'utf8'));
-  const highlights = details.split(/\r?\n/).map(line => line.trim())
-    .filter(line => /^(?:Probe:|Error:|listen |\d+ (?:passed|failed|skipped|did not run))/.test(line));
-  for (const line of [...new Set(highlights)].slice(0, 4)) console.log(line.slice(0, 360));
-  console.log((status ? 'Checks failed' : 'Checks passed') + '. Full log: ' + logPath);
+  const lines = details.split(/\r?\n/).map(line => line.trim());
+  const summary = lines.filter(line => /^\d+ (?:passed|failed|skipped|did not run)\b/.test(line)).slice(-4);
+  const probeSummary = lines.find(line => line.startsWith('Probe:'));
+  const note = [...summary, probeSummary].filter(Boolean).map(line => line.slice(0, 200)).join(', ');
+  const elapsed = ((Date.now() - started) / 1000).toFixed(1);
+  console.log(`${subpath ? 'Subpath' : 'Root'} QA ${status ? 'failed' : 'passed'} in ${elapsed}s${note ? ' | ' + note : ''} | ${logPath}`);
+  if (status) {
+    const failure = [/^\d+\) /, /^(?:Error:|listen )/, /^Expected[: ]/, /^Received[: ]/]
+      .map(pattern => lines.find(line => pattern.test(line))?.slice(0, 210)).filter(Boolean);
+    for (const line of failure) console.log(line);
+  }
 }
 process.exitCode = status;

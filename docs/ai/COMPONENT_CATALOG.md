@@ -1,6 +1,6 @@
 # Component catalog
 
-Generated source index: `node tools/audit-documents.mjs`. Design groups are not proof of runtime implementation. Ownership stays in the [reuse matrix](../COMPONENT_REUSE_MATRIX.md); approved source variants/states are in each linked README/preview.
+Generated on demand with `node tools/catalog-components.mjs`. Use the [reuse matrix](../COMPONENT_REUSE_MATRIX.md) for ownership and the linked design references for variants and states.
 
 ## Runtime owners and contracts
 
@@ -48,7 +48,7 @@ Variants/states, anatomy, usage and exclusions: source above. For each assigned 
 
 Source token references (not new definitions): none extracted; inspect specification.
 
-Planned owner: Phase 04; no canonical runtime implementation asserted.
+Runtime: Phase 04; [_AppointmentHero.njk](<../../src/Views/Shared/Components/_AppointmentHero.njk>).
 
 Variants/states, anatomy, usage and exclusions: source above. For each assigned consumer, record selected variant/state, accessible names/focus/error behavior and mobile/desktop rule in the page spec. Common runtime constraints above apply; design preview markup is evidence, not reusable production code.
 
@@ -192,7 +192,7 @@ Variants/states, anatomy, usage and exclusions: source above. For each assigned 
 
 Source token references (not new definitions): shadow-hairline, space-3, text-muted.
 
-Planned owner: Phase 04; no canonical runtime implementation asserted.
+Runtime: Phase 04; [Index.njk](<../../src/Views/Customer/Profile/Index.njk>).
 
 Variants/states, anatomy, usage and exclusions: source above. For each assigned consumer, record selected variant/state, accessible names/focus/error behavior and mobile/desktop rule in the page spec. Common runtime constraints above apply; design preview markup is evidence, not reusable production code.
 
@@ -324,7 +324,7 @@ Variants/states, anatomy, usage and exclusions: source above. For each assigned 
 
 Source token references (not new definitions): text-primary.
 
-Planned owner: Phase 04–08; no canonical runtime implementation asserted.
+Runtime: Phase 04; [_NotificationItem.njk](<../../src/Views/Shared/Components/_NotificationItem.njk>).
 
 Variants/states, anatomy, usage and exclusions: source above. For each assigned consumer, record selected variant/state, accessible names/focus/error behavior and mobile/desktop rule in the page spec. Common runtime constraints above apply; design preview markup is evidence, not reusable production code.
 

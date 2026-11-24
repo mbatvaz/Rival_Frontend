@@ -69,7 +69,8 @@ test('Panel accepts eligible pairs and moves expired alerts into history @smoke'
 });
 
 for (const width of [320, 390, 768, 1024, 1280]) {
-  test('Availability alert source states at ' + width + ' @a11y @visual', async ({ page, baseURL }) => {
+  const repeatedWidth = ![390, 1280].includes(width);
+  test(`Availability alert source states at ${width} @a11y @visual${repeatedWidth ? ' @root-visual' : ''}`, async ({ page, baseURL }) => {
     await page.setViewportSize({ width, height: 844 });
     await page.emulateMedia({ reducedMotion: 'reduce' });
     const errors = [];

@@ -15,21 +15,20 @@ Initial untracked firstTest.zip is preserved. No files were deleted. Existing re
 Root instructions and workflow:
 
 - Updated [AGENTS.md](../../AGENTS.md) and [README](../../README.md).
-- Added [GOALS](../../GOALS.md), [PLANS](../../PLANS.md) and [PROMPTS](../../PROMPTS.md).
-- Updated active [master prompt](../../prompts/MASTER_CODEX_DEVELOPMENT_PROMPT.md) and [alignment prompt](../../prompts/00b_Architecture_Alignment.md) to preserve approved scroll/viewer exceptions and route future work to the maintained procedures.
+- Added workflow indexes during the original audit. They have since been consolidated into [root instructions](../../AGENTS.md) and [prompt routing](PROMPT_ROUTING.md).
 
 New focused documents:
 
-- [Project context](PROJECT_CONTEXT.md), [implementation procedure](DESIGN_IMPLEMENTATION_CONTRACT.md), [frontend architecture](FRONTEND_ARCHITECTURE.md).
+- [Implementation procedure](DESIGN_IMPLEMENTATION_CONTRACT.md) and [frontend architecture](FRONTEND_ARCHITECTURE.md).
 - [Component catalog](COMPONENT_CATALOG.md), [export inventory](DESIGN_EXPORT_INVENTORY.md), [source map](DESIGN_SOURCE_MAP.md), [conflicts](DESIGN_SOURCE_CONFLICTS.md).
 - [Responsive procedure](RESPONSIVE_DESIGN_CONTRACT.md), [decision index](RESPONSIVE_DECISION_LOG.md), [motion spec](MOTION_SPEC.md), [dependency policy](DEPENDENCY_POLICY.md), [QA checklist](QA_CHECKLIST.md), [skill registry](SKILL_REGISTRY.md).
 - [Page](templates/page-spec.md), [feature](templates/feature-spec.md), [source map](templates/design-source-map.md), [responsive page](templates/responsive-page-spec.md), [motion](templates/motion-spec.md), [visual report](templates/visual-qa-report.md) and [responsive report](templates/responsive-qa-report.md) templates.
-- Generated [design audit JSON](design-audit.json) and [document audit JSON](document-audit.json). They contain file paths/hashes/content metadata, duplicate groups, original source candidates and actual registry metadata; neither is an inventory of completed visual reviews.
+- Generated [design audit JSON](design-audit.json) and a historical document snapshot kept in Git history. The design audit records structural evidence and candidate mappings.
 
 Tooling:
 
 - [audit-design.mjs](../../tools/audit-design.mjs): reads export contents, parses JSON, extracts HTML titles/text/references/viewports, SVG viewBoxes, hashes/duplicates and manifest/registry mapping; writes only derived docs/ai outputs.
-- [audit-documents.mjs](../../tools/audit-documents.mjs): reads all Markdown/MDX content outside ignored dependencies/output, extracts headings/hash/instruction candidates and indexes 51 actual design component groups.
+- The original repository-wide document audit also indexed 51 design component groups. The maintained [catalog generator](../../tools/catalog-components.mjs) reads the component evidence directly.
 - [validate-ai-docs.mjs](../../tools/validate-ai-docs.mjs): validates maintained local links, replacement characters and the deliberately simple name/description frontmatter used by ten local skills. It does not replace full YAML/Markdown linting or behavioral skill evaluation.
 
 Existing docs updated: [contract](../RIVAL_PROJECT_CONTRACT.md), [architecture entry](../ARCHITECTURE.md), [extraction](../DESIGN_SYSTEM_EXTRACTION.md), [progress](../../PROGRESS.md), [traceability](../TRACEABILITY.md), [inventory](../PAGE_INVENTORY.md), [discrepancies](../DISCREPANCIES.md) and [questions](../OPEN_QUESTIONS.md). Contract wording was reconciled with existing DEC-037, not a new owner decision.
@@ -52,7 +51,7 @@ Eight conflict records cover actual stack versus generic MVC assumption, centere
 
 - `rg --files design-export`, repository file/instruction discovery and `git status --short`: completed before edits.
 - `node tools/audit-design.mjs`: passed; 1271 exports, 73 contexts, 39 duplicate groups.
-- `node tools/audit-documents.mjs`: passed; all current Markdown/MDX content scanned and 51 design groups indexed. Exact current records are in document-audit.json.
+- The document audit passed and indexed 51 design groups. Its snapshot belongs to the original audit revision.
 - `npm.cmd run build`: passed; 21 product templates, 52 labelled placeholders, root basePath.
 - `npm.cmd run lint`: passed structure, ESLint and Stylelint, including new helper modules.
 - `npm.cmd test`: **76 passed in 58.8s**.

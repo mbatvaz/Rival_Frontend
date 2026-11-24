@@ -1,29 +1,9 @@
-# Phase 03 — Customer Booking
+# Phase 03 — Customer booking
 
-This package is executed by **OpenAI Codex** from the VS Code workspace. It follows root `AGENTS.md` and `docs/RIVAL_PROJECT_CONTRACT.md`.
+Batch 2 booking and payment return flows and Batch 8 STATE-04–07.
 
-## Scope
-Fixed, Proposed, Requested, recurring, availability alerts, payment return, and hold/system-state flows. Build the canonical reusable StatePage base and booking-owned STATE-04..07 variants.
+## Acceptance
 
-## Required input
-- Root `AGENTS.md` and `docs/RIVAL_PROJECT_CONTRACT.md`.
-- Master docs: Page Inventory, Phase Plan, Component Reuse Matrix, Traceability, Decision Log, Open Questions.
-- `design-export/MANIFEST.json` and exact source evidence for the IDs in this phase.
-- This package's Source Map and `references/Rival_Phase_03_AI_Handoff.md`.
+Cover Fixed, Proposed, Requested, recurring, availability alerts, holds, and payment outcomes. Reuse one StatePage base for all booking variants and later Phase 08 states. Payment and booking use local simulation. DEC-048 governs product-facing demo notices.
 
-## Rules
-- Do not invent business behavior. Cite Page ID, Component ID, RULE/DEC in code comments or PROGRESS.
-- Keep shared components single-source. Run their reuse regression list after changes.
-- Preserve RTL, Persian copy, fa-digits/Jalali helpers, bottom sheets, Yekan Bakh, 44px touch targets, and the approved scroll policy.
-- Desktop is a page-specific composition based on the mobile design language, not a stretched mobile page.
-- Node/npm are local build/test tools only; cPanel receives static `dist/` files.
-
-## Done when
-- [x] Fixed/Proposed/Requested/recurring flows and hold states are covered.
-- [x] StatePage base is reusable; STATE-04..07 are explicit variants.
-- [x] Payment and booking use local demo fixtures only; no real transaction is performed. DEC-048 removes product-facing demo notices except default login credentials; the static boundary remains documented in the handoff.
-- [x] 390/768/1280 checks, axe, keyboard, structure and no-dead-end checks are covered by the final regression recorded in the closeout.
-- [x] Progress, inventory, discrepancies, questions, acceptance and traceability are synchronized.
-- [x] Owner accepted Phase 03 on 2026-11-15 (DEC-058). Phase 04 is unassigned and must not start.
-
-Implementation history: [review](../../docs-work/PHASE_03_REPORT_FA.md). Current acceptance, regression results and component handoff: [Phase 03 closeout](../../docs-work/PHASE_03_CLOSEOUT_FA.md).
+Read the relevant product excerpts in the [phase handoff](references/Rival_Phase_03_AI_Handoff.md) and use the [design manifest](../../design-export/MANIFEST.json) for exact boards. [Accepted handoff](../../docs-work/PHASE_03_CLOSEOUT_FA.md).

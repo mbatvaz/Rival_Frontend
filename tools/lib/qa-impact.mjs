@@ -1,5 +1,6 @@
 import { focusedStyles } from './qa-coverage.mjs';
 import { queryGraph } from './project-map/graph.mjs';
+import { reviewVariantsSpec } from './qa-change-scope.mjs';
 
 const structural = new Set(['renders', 'uses-component', 'extends', 'include', 'import', 'fromimport',
   'binds-feature', 'loads-module', 'imports', 'reads-mock-data', 'uses-asset']);
@@ -12,9 +13,10 @@ const globalInputs = [
   /^tools\/lib\/(?:site|registry|format|design-system|product|customer(?:-requests)?|preview-review|review-[^/]+|preview-options)\.mjs$/
 ];
 
-const isDoc = file => /\.md$/.test(file) || file.startsWith('docs/ai/project-graph.json');
+const isDoc = file => /\.md$/.test(file) || file === 'tools/validate-ai-docs.mjs'
+  || /^docs\/ai\/(?:project-graph\.json|[\w-]+-audit\.json)$/.test(file);
 const isSpec = file => /^tests\/.*\.spec\.[cm]?js$/.test(file);
-const localTool = /^(?:\.codex\/hooks\.json$|tools\/(?:tests\/|lib\/(?:project-map\/|qa-)|project-map\.mjs$|resolve-annotation\.mjs$|annotation-context-hook\.mjs$|qa-(?:affected|probe)\.mjs$))/;
+const localTool = /^(?:\.codex\/hooks\.json$|tools\/(?:tests\/|lib\/(?:project-map\/|qa-)|project-map\.mjs$|resolve-annotation\.mjs$|annotation-context-hook\.mjs$|qa-(?:affected|probe)\.mjs$|task-(?:context|usage)\.mjs$))/;
 
 function toolTests(files) {
   const selected = new Set();
@@ -22,7 +24,7 @@ function toolTests(files) {
     if (file.startsWith('tools/tests/') && file.endsWith('.test.mjs')) selected.add(file);
     else if (file.includes('qa-')) selected.add('tools/tests/qa-impact.test.mjs');
     else if (file.includes('annotation') || file === '.codex/hooks.json') selected.add('tools/tests/annotation-context.test.mjs');
-    else selected.add('tools/tests/project-map.test.mjs');
+    else if (!file.startsWith('tools/task-')) selected.add('tools/tests/project-map.test.mjs');
   }
   return [...selected].sort();
 }
@@ -76,7 +78,7 @@ function cssPages(graph, file) {
   return [...pages];
 }
 
-export function planImpact(files, graphs, { full = false, subpath = false, element = false, cosmetic = false, page } = {}) {
+export function planImpact(files, graphs, { full = false, subpath = false, element = false, cosmetic = false, page, scopes = new Map() } = {}) {
   const result = { level: 'none', pages: [], specs: [], docs: files.some(isDoc),
     tools: files.some(file => localTool.test(file)), toolSpecs: toolTests(files), subpath, reasons: [] };
   const product = files.filter(file => !isDoc(file) && !localTool.test(file));
@@ -91,14 +93,20 @@ export function planImpact(files, graphs, { full = false, subpath = false, eleme
   }
   if (full) return broad('Explicit full acceptance');
   if (!product.length) return { ...result, level: files.length ? 'static' : 'none' };
-  const globals = product.filter(file => globalInputs.some(pattern => pattern.test(file)));
+  const globals = product.filter(file => !scopes.has(file) && globalInputs.some(pattern => pattern.test(file)));
   if (globals.length) return broad('Global inputs: ' + globals.join(', '));
   if (!graphs.length) return broad('Dependency map unavailable');
 
   const affected = new Set();
   const ownership = new Map();
   const specs = new Set(product.filter(isSpec));
-  const source = product.filter(file => !isSpec(file));
+  const source = [...new Set(product.filter(file => !isSpec(file)).flatMap(file => scopes.get(file)?.paths ?? [file]))];
+  const registryPages = product.flatMap(file => scopes.get(file)?.pages ?? []);
+  if (registryPages.length) specs.add(reviewVariantsSpec);
+  for (const { id, reviewOnly } of registryPages) {
+    affected.add(id);
+    if (!reviewOnly) ownership.set(id, ['src/page-registry.json']);
+  }
   for (const file of source) {
     const known = graphs.filter(graph => graph.sources[file] || graph.edges.some(edge => edge.to === file));
     const related = known.map(graph => file.endsWith('.css') ? cssPages(graph, file) : linkedPages(graph, file));
@@ -115,12 +123,13 @@ export function planImpact(files, graphs, { full = false, subpath = false, eleme
   result.pages = [...affected].sort();
 
   const onlyCss = source.length && source.every(file => file.endsWith('.css'));
-  result.subpath ||= Boolean(source.length && (!onlyCss || source.some(file => graphs.some(graph =>
-    graph.sources[file]?.facts.links.some(edge => edge.type === 'uses-asset')))));
+  result.subpath ||= Boolean(registryPages.some(item => !item.reviewOnly) || (source.length && (!onlyCss ||
+    source.some(file => graphs.some(graph => graph.sources[file]?.facts.links.some(edge => edge.type === 'uses-asset'))))));
   if (element && onlyCss && !specs.size && !result.subpath && affected.size === 1 && affected.has(page)) {
     return { ...result, level: 'element' };
   }
   for (const id of affected) {
+    if (!ownership.has(id)) continue;
     const focused = ownership.get(id).map(file => focusedStyles[file]?.[id]);
     if (focused.every(Boolean)) {
       focused.forEach(file => specs.add(file));

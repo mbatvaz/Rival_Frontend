@@ -1,28 +1,9 @@
-# Phase 09 — Regression MVC Handoff
+# Phase 09 — Regression and MVC handoff
 
-This package is executed by **OpenAI Codex** from the VS Code workspace. It follows root `AGENTS.md` and `docs/RIVAL_PROJECT_CONTRACT.md`.
+Full route, state, component, accessibility, visual and structure regression.
 
-## Scope
-Full route/state/component regression, visual and accessibility QA, migration guide, and final traceability.
+## Acceptance
 
-## Required input
-- Root `AGENTS.md` and `docs/RIVAL_PROJECT_CONTRACT.md`.
-- Master docs: Page Inventory, Phase Plan, Component Reuse Matrix, Traceability, Decision Log, Open Questions.
-- `design-export/MANIFEST.json` and exact source evidence for the IDs in this phase.
-- This package's Source Map and `references/Rival_Phase_09_AI_Handoff.md`.
+Resolve dead ends and prepare `docs-work/ASP_PORT_GUIDE.md` with Views, ViewModels, endpoints, helpers and conversion steps. The [MVC map](../../docs/ASP_NET_MVC_MIGRATION_MAP.md) identifies the source port from `src/Views/`, `src/wwwroot/` and `src/MockData/`; static output and local tooling stay in this repository.
 
-## Rules
-- Do not invent business behavior. Cite Page ID, Component ID, RULE/DEC in code comments or PROGRESS.
-- Keep shared components single-source. Run their reuse regression list after changes.
-- Preserve RTL, Persian copy, fa-digits/Jalali helpers, bottom sheets, Yekan Bakh, 44px touch targets, and the approved scroll policy.
-- Desktop is a page-specific composition based on the mobile design language, not a stretched mobile page.
-- Node/npm are local build/test tools only; cPanel receives static `dist/` files.
-
-## Done when
-- [ ] All routes/states/components pass visual, a11y, keyboard, and structure regression.
-- [ ] `docs-work/ASP_PORT_GUIDE.md` maps Views, ViewModels, endpoints, helpers, and conversion steps.
-- [ ] `src/wwwroot` is MVC-ready and `dist/` is excluded from migration.
-- [ ] All gates are green; no stale routes or dead ends.
-- 390/768/1280 checks, axe, keyboard, structure and no-dead-end checks pass.
-- `PROGRESS.md`, `DISCREPANCIES.md`, and traceability are updated.
-- The agent stops for owner review.
+Read the relevant product excerpts in the [phase handoff](references/Rival_Phase_09_AI_Handoff.md) and use the [design manifest](../../design-export/MANIFEST.json) for exact boards.

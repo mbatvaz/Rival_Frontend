@@ -145,7 +145,7 @@ Owner request 2026-11-14 → [standalone UI/storage](../preview-review/) + [buil
 
 ## Infrastructure maintenance — 2026-11-14
 
-- ARCH: [project context](ai/PROJECT_CONTEXT.md), [frontend guide](ai/FRONTEND_ARCHITECTURE.md), root workflow prompts and ten local skills preserve static/Razor compatibility and phase gates.
+- ARCH: [frontend guide](ai/FRONTEND_ARCHITECTURE.md), [root instructions](../AGENTS.md) and the [phase plan](PHASE_PLAN.md) track static/Razor compatibility and phase gates.
 - DS: [export inventory](ai/DESIGN_EXPORT_INVENTORY.md), [source map](ai/DESIGN_SOURCE_MAP.md), [catalog](ai/COMPONENT_CATALOG.md), [conflicts](ai/DESIGN_SOURCE_CONFLICTS.md) derive from immutable source evidence and existing owner decisions.
 - RULE: [implementation](ai/DESIGN_IMPLEMENTATION_CONTRACT.md), [responsive](ai/RESPONSIVE_DESIGN_CONTRACT.md), [motion](ai/MOTION_SPEC.md), [dependency](ai/DEPENDENCY_POLICY.md), [QA](ai/QA_CHECKLIST.md) and seven evidence templates govern later assigned work.
 - Acceptance evidence: [maintenance report](ai/AUDIT_REPORT.md), existing root/subpath suites (76 passed each), full lint/build and maintained-doc structural checks. This is maintenance evidence, not new PAGE_INVENTORY product rows or Phase 03 acceptance.

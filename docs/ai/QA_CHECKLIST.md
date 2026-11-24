@@ -2,20 +2,9 @@
 
 Use [visual QA](../../.agents/skills/rival-visual-qa/SKILL.md) and relevant skills from the [registry](SKILL_REGISTRY.md). Exact state sources and approved desktop briefs are required for fidelity claims.
 
-## Existing commands
+## Verification entry point
 
-- `npm run build`: static output/assets.
-- `npm run lint`: structure, ESLint, Stylelint and maintained documentation/skill checks.
-- `npm run lint:docs`: standalone local-link/frontmatter checks, also exposed as a VS Code task.
-- `npm test`: full root suite including browser interactions/routes/axe/keyboard.
-- `npm test -- --agent <test files or filter>`: selected checks with a browser preview preflight, compact summary and full local log under `test-results/`. Supports `--subpath`.
-- `npm run qa:affected -- --file <path>`: scope lint and Playwright across the registry. Use [affected QA options](PROMPT_ROUTING.md#local-qa-for-all-phases) for probes, planning and full acceptance.
-- `npm run qa:affected -- --cosmetic --file <stylesheet>`: scoped lint and one build for a reviewed appearance-only CSS change, with an optional direct probe.
-- `npm run test:subpath`: suite at /rival-demo/; restores root build.
-- `npm run test:visual`, `npm run test:a11y`, `npm run test:smoke`: grep suites, not substitutes for uncovered requirements.
-- `node tools/audit-design.mjs`: regenerate derived inventory/map reports; writes files. Never use for an ordinary lookup or read-only audit; original design exports remain unchanged.
-- `node tools/validate-ai-docs.mjs`: maintained links/local skill structure.
-- `npm run export:lookup -- PAGE-ID`: inspect candidates. `node tools/screenshot-artboard.mjs PAGE-ID --source <exact-package-relative-html>`: source render at 390×844; differing source dimensions need a matching task capture.
+Use `npm run -s qa:affected` once. The [routing guide](PROMPT_ROUTING.md#local-qa-for-all-phases) defines scoped checks and explicit full acceptance. Use `task:context` for design paths. Render the exact board with `node tools/screenshot-artboard.mjs PAGE-ID --source <path>` when a source comparison needs it.
 
 No .NET project, formatter, Markdown linter or pixel-baseline suite exists. The doc validator checks links/frontmatter, not Markdown style/skill behavior. Screenshot-producing tests do not assert pixel matching.
 

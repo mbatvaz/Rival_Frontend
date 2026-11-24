@@ -4,7 +4,7 @@
     {
       "label": "Rival: Install Dependencies",
       "type": "shell",
-      "command": "npm install --cache .npm-cache",
+      "command": "npm ci --cache .npm-cache",
       "problemMatcher": []
     },
     {
@@ -20,9 +20,9 @@
       "problemMatcher": []
     },
     {
-      "label": "Rival: Start Local Preview",
-      "type": "npm",
-      "script": "preview:server",
+      "label": "Rival: Dev Preview",
+      "type": "shell",
+      "command": "npm run -s dev -- --host 127.0.0.1 --port 8183",
       "isBackground": true,
       "problemMatcher": {
         "owner": "rival",
@@ -34,51 +34,21 @@
       }
     },
     {
-      "label": "Rival: Build + Preview",
-      "dependsOn": ["Rival: Build Static Preview", "Rival: Start Local Preview"],
-      "dependsOrder": "sequence",
-      "problemMatcher": []
-    },
-    {
-      "label": "Rival: Structure Lint",
-      "type": "npm",
-      "script": "lint:structure",
-      "problemMatcher": []
-    },
-    {
       "label": "Rival: Documentation + Skill Checks",
       "type": "npm",
       "script": "lint:docs",
       "problemMatcher": []
     },
     {
-      "label": "Rival: JavaScript + CSS Lint",
+      "label": "Rival: Affected QA",
+      "type": "npm",
+      "script": "qa:affected",
+      "problemMatcher": []
+    },
+    {
+      "label": "Rival: Full Phase QA",
       "type": "shell",
-      "command": "npm run lint:js && npm run lint:css",
-      "problemMatcher": []
-    },
-    {
-      "label": "Rival: All Foundation Tests",
-      "type": "npm",
-      "script": "test",
-      "problemMatcher": []
-    },
-    {
-      "label": "Rival: Test Subfolder Deployment",
-      "type": "npm",
-      "script": "test:subpath",
-      "problemMatcher": []
-    },
-    {
-      "label": "Rival: Visual Tests",
-      "type": "npm",
-      "script": "test:visual",
-      "problemMatcher": []
-    },
-    {
-      "label": "Rival: Accessibility Tests",
-      "type": "npm",
-      "script": "test:a11y",
+      "command": "npm run -s qa:affected -- --full",
       "problemMatcher": []
     }
   ]

@@ -9,8 +9,8 @@ import { renderPages } from './render.mjs';
 export const outputs = ['docs/ai/project-graph.json', 'docs/ai/PROJECT_INDEX.md', 'docs/ai/PROJECT_GRAPH.md'];
 export const digest = text => createHash('sha256').update(text).digest('hex');
 const roots = ['src/Views', 'src/wwwroot/css', 'src/wwwroot/js', 'src/MockData', 'tools', 'tests',
-  'preview-review', '.agents/skills', 'docs/ai', 'docs-work/desktop-layouts', 'prompts', 'phases'];
-const singles = ['AGENTS.md', 'PROGRESS.md', 'GOALS.md', 'PLANS.md', 'PROMPTS.md', 'package.json',
+  'preview-review', '.agents/skills', 'docs-work/desktop-layouts', 'phases'];
+const singles = ['AGENTS.md', 'PROGRESS.md', 'README.md', 'README_START_HERE_FA.md', 'package.json',
   'package-lock.json', 'playwright.config.mjs', '.codex/hooks.json', 'src/page-registry.json', 'src/site-config.json',
   'design-export/MANIFEST.json', 'design-export/design-system-v2/tokens/tokens.json'];
 const excluded = new Set(['references', 'screens', 'node_modules', 'archive', 'test-results']);

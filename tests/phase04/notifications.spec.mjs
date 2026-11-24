@@ -58,7 +58,8 @@ test('Notification sources lead to existing domain screens @smoke', async ({ pag
 });
 
 for (const width of [320, 390, 768, 1023, 1024, 1280]) {
-  test(`Notification source states at ${width}px @a11y @visual`, async ({ page, baseURL }) => {
+  const repeatedWidth = ![390, 1280].includes(width);
+  test(`Notification source states at ${width}px @a11y @visual${repeatedWidth ? ' @root-visual' : ''}`, async ({ page, baseURL }) => {
     await page.setViewportSize({ width, height: 844 });
     await page.emulateMedia({ reducedMotion: 'reduce' });
     const errors = [];

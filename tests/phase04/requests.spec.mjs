@@ -159,7 +159,8 @@ test('Desktop request Sheets do not expose a scroll gap during entry', async ({ 
 });
 
 for (const width of [320, 390, 768, 1023, 1024, 1280]) {
-  test('Request layouts, assets and accessibility at ' + width + ' @visual @a11y', async ({ page, baseURL }) => {
+  const repeatedWidth = ![390, 1280].includes(width);
+  test(`Request layouts, assets and accessibility at ${width} @visual @a11y${repeatedWidth ? ' @root-visual' : ''}`, async ({ page, baseURL }) => {
     test.slow();
     await page.setViewportSize({ width, height: 844 });
     await page.emulateMedia({ reducedMotion: 'reduce' });

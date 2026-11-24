@@ -10,15 +10,17 @@ description: Validate Rival pages visually and functionally at mobile, tablet, a
 - Identify the canonical artboard and all meaningful states from `design-export/MANIFEST.json` and the handoff.
 - For desktop, read the owner-approved `docs-work/desktop-layouts/<PAGE-ID>.md`.
 
-## Viewports
+## Scope and viewports
+
+Use the [affected QA route](../../../docs/ai/PROMPT_ROUTING.md#local-qa-for-all-phases) once. An element change needs its affected state and width. A page change needs the changed states and affected widths. Shared changes follow actual consumers. The phase checklist governs full acceptance.
 - 390px: compare against the exact mobile artboard and record deviations.
 - 768px: tablet adaptation; verify no unintended overflow and enforce the documented scroll exception only for the mobile BK-REC01 editor.
 - 1280px: validate against the approved desktop layout brief, not by stretching or pixel-comparing the 390px artboard.
-- Add 320/375/1024/1440 and intermediate/breakpoint-neighbor widths for affected responsive behavior. Record width, height and DPR; source image pixels may be 2x CSS pixels.
+- Add a boundary or intermediate width when the change affects it. Record width, height and DPR.
 
 ## Checks
 Run shared checks once per affected revision/scope. Fidelity, responsive and debugging skills add specialist observations to this evidence; they do not require another identical suite/build. Recheck after changes invalidate the relevant evidence. Full phase acceptance remains mandatory.
-1. Capture full-page screenshots for every required state.
+1. Reuse captures from the selected suite. Inspect representative captures or a mismatch and capture remaining required states only when the evidence is missing.
 2. Check layout, typography, spacing, token use, image crop, RTL order, and visual hierarchy.
 3. Verify all controls have >=44×44px interactive hit areas.
 4. Verify no nested vertical scrolling except the approved mobile BK-REC01 editor with visible header; allow only evidence-backed horizontal rails/carousels. DEC-037 permits the centered desktop PortfolioViewer from 1024px; other overlays remain bottom sheets.

@@ -4,6 +4,7 @@ import { spawnSync } from 'node:child_process';
 import { parseArgs } from 'node:util';
 import { inside, root, loadSite, readJson, src, matchPreviewRoute } from './lib/site.mjs';
 import { planImpact } from './lib/qa-impact.mjs';
+import { classifyInput, scopeableInput } from './lib/qa-change-scope.mjs';
 
 const flags = {
   file: { type: 'string', multiple: true }, plan: { type: 'boolean' }, full: { type: 'boolean' },
@@ -12,6 +13,7 @@ const flags = {
   axe: { type: 'boolean' }, screenshot: { type: 'boolean' }
 };
 const regexLiteral = value => value.replace(/[.*+?^$\x7b\x7d()|[\]\\]/g, '\\$&');
+const scopedSubpathFilter = ['--grep-invert', '@root-visual'];
 
 function run(command, args, capture = false) {
   const result = spawnSync(command, args, { cwd: root, encoding: 'utf8',
@@ -24,9 +26,22 @@ const node = (args, capture) => run(process.execPath, args, capture);
 
 function chosenFiles(explicit) {
   const git = args => run('git', args, true).split('\0').filter(Boolean);
+  // Root upload archives are source evidence, outside the app's verification scope.
+  const untracked = () => git(['ls-files', '--others', '--exclude-standard', '-z'])
+    .filter(file => !/^[^/]+\.zip$/i.test(file));
   const files = explicit ?? [...git(['diff', '--no-renames', '--name-only', '-z', 'HEAD']),
-    ...git(['ls-files', '--others', '--exclude-standard', '-z'])];
+    ...untracked()];
   return [...new Set(files.map(file => path.relative(root, inside(root, file)).replaceAll('\\', '/')))].sort();
+}
+
+async function inspectChanges(files) {
+  const pairs = await Promise.all(files.filter(scopeableInput).map(async file => {
+    const current = await fs.readFile(inside(root, file), 'utf8').catch(() => null);
+    let previous = null;
+    try { previous = run('git', ['show', 'HEAD:' + file], true); } catch { /* An unverified change stays global. */ }
+    return [file, classifyInput(file, previous, current)];
+  }));
+  return new Map(pairs.filter(([, scope]) => scope));
 }
 
 async function graphsFor(files, full) {
@@ -63,6 +78,23 @@ function countSpecs(args) {
   return count(suites);
 }
 
+async function verifyToolTests(specs) {
+  const result = spawnSync(process.execPath, ['--test', '--test-reporter=tap', ...specs], {
+    cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024
+  });
+  if (result.error) throw result.error;
+  const log = 'test-results/tools-' + process.pid + '.log';
+  await fs.mkdir(path.join(root, 'test-results'), { recursive: true });
+  await fs.writeFile(path.join(root, log), result.stdout + result.stderr, 'utf8');
+  const total = result.stdout.match(/^# tests (\d+)/m)?.[1];
+  const passed = result.stdout.match(/^# pass (\d+)/m)?.[1];
+  if (result.status !== 0) {
+    const failure = result.stdout.match(/^not ok[^\r\n]*/m)?.[0]?.slice(0, 210);
+    throw new Error([failure ?? 'Local tool checks failed', log].join(' | '));
+  }
+  console.log('Local tool checks passed' + (total ? ` | ${passed}/${total}` : '') + ' | ' + log);
+}
+
 async function verify(plan, files, testArgs, probe) {
   const present = await Promise.all(files.map(async file => (await fs.stat(inside(root, file)).catch(() => null))?.isFile() ? file : null));
   const js = present.filter(file => file && /\.(?:js|mjs)$/.test(file));
@@ -74,7 +106,7 @@ async function verify(plan, files, testArgs, probe) {
   if (full || css.length) node(['node_modules/stylelint/bin/stylelint.mjs',
     ...(full ? ['src/wwwroot/css/**/*.css', 'preview-review/**/*.css'] : css)]);
   if (full || plan.docs) node(['tools/validate-ai-docs.mjs']);
-  if (plan.toolSpecs.length) node(['--test', ...plan.toolSpecs]);
+  if (plan.toolSpecs.length) await verifyToolTests(plan.toolSpecs);
   if (plan.level === 'cosmetic' && !probe) {
     node(['tools/build-static.mjs']);
     return;
@@ -87,7 +119,7 @@ async function verify(plan, files, testArgs, probe) {
     if (probeOnly) args.push('--probe-only');
     if (plan.subpath) {
       // The root run rebuilds dist even if the subpath checks fail.
-      try { node([...args, '--subpath', '--keep-output']); }
+      try { node([...args, '--subpath', '--keep-output', ...(full ? [] : scopedSubpathFilter)]); }
       finally { node(args); }
     } else node(args);
   }
@@ -99,7 +131,8 @@ try {
   const files = chosenFiles(values.file);
   const probe = await evidence(values);
   const graphs = values.cosmetic ? [] : await graphsFor(files, values.full).catch(() => []);
-  let plan = planImpact(files, graphs, { ...values, page: probe?.page });
+  const scopes = values.full || values.cosmetic ? new Map() : await inspectChanges(files);
+  let plan = planImpact(files, graphs, { ...values, page: probe?.page, scopes });
   if (plan.specs.some(file => !graphs[0]?.sources[file])) {
     plan = { ...plan, level: 'full', specs: [], subpath: true, reasons: [...plan.reasons, 'A selected spec was removed or is unindexed'] };
   }
@@ -108,12 +141,14 @@ try {
   if (plan.level === 'full' && !values.full && !values.plan) {
     throw new Error(plan.reasons.at(-1).slice(0, 400) + '. Use --plan to inspect or --full to run both suites.');
   }
-  const browserTests = values.plan && hasSuite ? countSpecs(testArgs) : undefined;
+  const rootTests = values.plan && hasSuite ? countSpecs(testArgs) : undefined;
+  const subpathTests = rootTests && plan.subpath
+    ? (plan.level === 'full' ? rootTests : countSpecs([...testArgs, ...scopedSubpathFilter])) : 0;
   const builds = (hasSuite || ['element', 'cosmetic'].includes(plan.level)) ? (plan.subpath ? 2 : 1) : 0;
   const { specs, reasons, ...scope } = plan;
   console.log(JSON.stringify({ ...scope, ...(values.plan ? { specs, reasons } : { specCount: specs.length, reason: reasons[0] }),
     fileCount: files.length, ...((values.plan || !hasSuite) ? {
-      browserTestsPerPath: browserTests ?? 0, browserTests: (browserTests ?? 0) * builds
+      rootTests: rootTests ?? 0, subpathTests, browserTests: (rootTests ?? 0) + subpathTests
     } : {}), builds, probe: builds ? (probe?.widths.length ?? 0) * builds : 0 }));
   if (!values.plan) await verify(plan, files, testArgs, probe);
 } catch (error) {

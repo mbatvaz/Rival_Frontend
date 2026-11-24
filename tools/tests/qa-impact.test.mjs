@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { planImpact } from '../lib/qa-impact.mjs';
+import { classifyInput, reviewVariantsSpec } from '../lib/qa-change-scope.mjs';
 
 const local = 'src/wwwroot/css/04-pages/page.css';
 const shared = 'src/wwwroot/css/04-pages/filter.css';
@@ -58,4 +59,35 @@ test('appearance-only checks can cover shared styles without a graph or suite', 
   assert.throws(() => planImpact(['src/wwwroot/css/app.css'], [], options), /component or page stylesheets/);
   assert.throws(() => planImpact([shared], [], { ...options, subpath: true }), /root-only/);
   assert.throws(() => planImpact([shared, view], [], options), /component or page stylesheets/);
+});
+
+test('acceptance metadata runs review coverage once while variants and routes retain wider checks', () => {
+  const file = 'src/page-registry.json';
+  const page = { id: 'STY-01', previewPath: '/stylist/', implementationStatus: 'implemented' };
+  const snapshot = changes => JSON.stringify({ pages: [{ ...page, ...changes }] });
+  const scope = changes => classifyInput(file, snapshot({}), snapshot(changes));
+  const review = planImpact([file], [graph], { scopes: new Map([[file, scope({ implementationStatus: 'accepted' })]]) });
+  assert.deepEqual(review.pages, ['STY-01']);
+  assert.deepEqual(review.specs, [reviewVariantsSpec]);
+  assert.equal(review.subpath, false);
+  const variants = planImpact([file], [graph], { scopes: new Map([[file, scope({ variants: [{ query: '?state=empty' }] })]]) });
+  assert.deepEqual(variants.specs, [featureSpec, reviewVariantsSpec].sort());
+  assert.equal(variants.subpath, true);
+  assert.equal(scope({ previewPath: '/stylist/other/' }), null);
+});
+
+test('additive wiring follows actual consumers while duplicate names and changes stay global', () => {
+  const css = 'src/wwwroot/css/app.css';
+  const oldCss = '@import url("./00-tokens/color.css");\n';
+  const newCss = oldCss + '@import url("./04-pages/page.css");\n';
+  const scope = classifyInput(css, oldCss, newCss);
+  const plan = planImpact([css], [graph], { scopes: new Map([[css, scope]]) });
+  assert.deepEqual(plan.pages, ['AUTH-01']);
+  assert.deepEqual(plan.specs, [authSpec]);
+  assert.equal(classifyInput(css, newCss, oldCss), null);
+  const app = 'src/wwwroot/js/app.js';
+  const oldJs = "registerFeature('one', () => import('./features/one.js'));\n";
+  const feature = "registerFeature('two', () => import('./features/customer/two.js'));\n";
+  assert.deepEqual(classifyInput(app, oldJs, oldJs + feature)?.paths, ['src/wwwroot/js/features/customer/two.js']);
+  assert.equal(classifyInput(app, oldJs, oldJs + feature.replace("'two'", "'one'")), null);
 });
