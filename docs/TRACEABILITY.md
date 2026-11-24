@@ -1,5 +1,9 @@
 # Traceability Contract
 
+## CUS-10 customer profile
+
+D10-57, D10-58, D10-69 and DEC-084 → [profile](../src/Views/Customer/Profile/Index.njk), [Sheet forms](../src/Views/Customer/Profile/_Sheets.njk), [sample profile](../src/MockData/customer/profile.json), [demo settings](../src/wwwroot/js/features/customer/profile.js), [two-step verification](../src/wwwroot/js/features/customer/profile-phone.js), [keyboard scroll](../src/wwwroot/js/components/sheet-keyboard.js) and [browser coverage](../tests/phase04/profile.spec.mjs). DEC-034 covers authentication capability and fallback. DEC-035 supplies the salon contact. [Source states and desktop proposal](../docs-work/desktop-layouts/CUS-10.md)
+
 ## CUS-09 notifications
 
 D10-56, DEC-072 and DEC-083 → [inbox](../src/Views/Customer/Notifications/Index.njk), [NotificationItem](../src/Views/Shared/Components/_NotificationItem.njk), [demo feed](../src/MockData/customer/notifications.json), [read and pagination behavior](../src/wwwroot/js/features/customer/notifications.js), [browser coverage](../tests/phase04/notifications.spec.mjs). [Accepted source states and desktop layout](../docs-work/desktop-layouts/CUS-09.md)

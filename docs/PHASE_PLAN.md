@@ -38,7 +38,7 @@ Use serialized Workflow B. One phase at a time; each phase ends with a review ga
 
 ## Current owner gate — 2026-11-24
 
-The owner accepted the [CUS-09 notification slice](../docs-work/desktop-layouts/CUS-09.md) under DEC-083 and authorized its closeout. The full Phase 04 gate remains open and CUS-10 is the remaining unimplemented route.
+The owner accepted the implemented [CUS-10 profile slice](../docs-work/desktop-layouts/CUS-10.md) under DEC-084. Its separate desktop proposal and full Phase 04 acceptance remain open. CUS-09 was accepted under DEC-083.
 
 On 2026-11-24 the owner accepted the [CUS-08 availability alerts slice](../docs-work/desktop-layouts/CUS-08.md) under DEC-082. The Phase 04 gate remains open.
 

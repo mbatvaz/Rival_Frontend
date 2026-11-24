@@ -13,6 +13,8 @@ Approval evidence stays in [decisions](../DECISION_LOG.md) and [page briefs](../
 
 New rows record date, Page ID/state, content problem, source or explicit inference, layout, tokens, breakpoint/container, reason, accessibility/performance impact, deviation, review status and link to its single maintained brief. Use the [responsive spec](templates/responsive-page-spec.md). Missing approval remains pending.
 
+- 2026-11-24, CUS-10: Batch 3 mobile states retain one profile column, with a 720px cap on tablet. The proposed desktop split gives the device list more space while preserving DOM and focus order. The proposal awaits approval. [CUS-10 brief](../../docs-work/desktop-layouts/CUS-10.md)
+
 - DEC-062, 2026-11-16: CUS-01 default/empty/inactive begins mobile/tablet implementation from Batch 3. Existing 768px/720px adaptation and source-backed horizontal appointment rail are retained. The proposed 1024px desktop 2:1 grouping, top navigation and two-card grid await owner review in [the brief](../../docs-work/desktop-layouts/CUS-01.md); no dedicated desktop composition is yet implemented or approved.
 
 - DEC-048, 2026-11-14: direct owner element review changes existing page briefs, using portrait desktop photo cards to reduce crop and moving explanations outside action cards; only the recurring mobile handle stays sticky. Existing 768/1024 breakpoints, space tokens and DOM task order remain. [Decision/evidence](../../docs-work/OWNER_FEEDBACK_2026-11-14.md).

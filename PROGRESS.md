@@ -1,8 +1,14 @@
 # Rival Progress
 
+## CUS-10 customer profile accepted — 2026-11-24
+
+The owner accepted the implemented mobile and tablet profile, its six preview states and the mobile keyboard follow-up under DEC-084. The separate desktop proposal and the Phase 04 gate remain open. [CUS-10 brief](docs-work/desktop-layouts/CUS-10.md)
+
+Closeout rebuilt both deployment paths and passed 26/26 at root and 23/23 under `/rival-demo/` across the profile, sign-in and review variants. The root output was restored. The mobile keyboard was verified with a simulated visual viewport.
+
 ## CUS-09 customer notifications accepted — 2026-11-24
 
-The owner accepted the inbox, all-read and empty views under DEC-083. The registry records acceptance and the desktop brief records source comparisons. CUS-10 is the remaining unimplemented Phase 04 route. [Accepted brief](docs-work/desktop-layouts/CUS-09.md)
+The owner accepted the inbox, all-read and empty views under DEC-083. The registry records acceptance and the desktop brief records source comparisons. [Accepted brief](docs-work/desktop-layouts/CUS-09.md)
 
 Closeout builds and lint passed. The notification and preview-variant suites passed 14/14 at root and 14/14 under `/rival-demo/`. The root output was restored.
 

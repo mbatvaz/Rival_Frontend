@@ -461,10 +461,10 @@
       "primaryBatch": 3,
       "template": "Customer/Profile/Index.njk",
       "mockData": "MockData/customer/profile.json",
-      "notes": "D10-57/D10-58 profile and method Sheets. Mobile and tablet ready for review. Desktop composition pending approval.",
+      "notes": "D10-57/D10-58 profile and method Sheets accepted under DEC-084. Separate desktop proposal remains pending.",
       "titleFa": "پروفایل",
       "phase": "Phase 04",
-      "implementationStatus": "implemented",
+      "implementationStatus": "accepted",
       "variants": [
         { "label": "نمونهٔ طرح — پروفایل", "query": "?state=example" },
         { "label": "ویرایش پروفایل", "query": "?state=edit" },

@@ -1,5 +1,9 @@
 # Decision Log
 
+## DEC-084 — CUS-10 profile slice acceptance
+
+On 2026-11-24 the owner accepted the implemented CUS-10 profile slice, its five Sheets and the mobile keyboard follow-up, and authorized local Git closeout. The separate desktop proposal and full Phase 04 gate remain pending. [CUS-10 brief](../docs-work/desktop-layouts/CUS-10.md)
+
 ## DEC-083 — CUS-09 customer notifications acceptance
 
 On 2026-11-24 the owner accepted CUS-09 and authorized closeout and local Git commits. Acceptance covers the inbox, all-read and empty views, read actions, dashboard badge, pagination and linked customer resources. [CUS-09 brief](../docs-work/desktop-layouts/CUS-09.md)

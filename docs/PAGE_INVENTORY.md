@@ -2,7 +2,7 @@
 
 ## CUS-09 notifications
 
-CUS-09 was accepted on 2026-11-24 under DEC-083, including its default, all-read and empty states. CUS-10 is the remaining unimplemented Phase 04 route. [CUS-09 brief](../docs-work/desktop-layouts/CUS-09.md)
+CUS-10 and its five Sheet variants were accepted on mobile and tablet under DEC-084. The separate desktop proposal awaits review. CUS-09 was accepted under DEC-083. [CUS-10 brief](../docs-work/desktop-layouts/CUS-10.md) · [CUS-09 brief](../docs-work/desktop-layouts/CUS-09.md)
 
 ## CUS-08 availability alerts
 

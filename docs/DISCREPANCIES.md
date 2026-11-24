@@ -1,5 +1,9 @@
 # Discrepancies and Alignment Log
 
+## CUS-10 customer profile
+
+DEC-084 accepts the implemented mobile and tablet slice. The shared shell, minimum touch targets and Sheet layout affect spacing relative to the 390px exports. The demo uses a local code hint and the salon number from the public fixture under DEC-035. Credentials and verified phone changes require the eventual identity integration. The desktop proposal awaits owner approval. [Source mapping and desktop proposal](../docs-work/desktop-layouts/CUS-10.md)
+
 ## CUS-09 notifications
 
 The export gives six notification samples and a total of 24. The additional 18 records are demo notices for pagination. Existing preview routes supply resource links and shared customer chrome. The owner accepted the slice and its single-column desktop composition under DEC-083. [CUS-09 brief](../docs-work/desktop-layouts/CUS-09.md)
