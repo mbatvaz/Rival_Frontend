@@ -19,6 +19,7 @@
     "test:visual": "node tools/run-tests.mjs --grep @visual",
     "test:a11y": "node tools/run-tests.mjs --grep @a11y",
     "test": "node tools/run-tests.mjs",
+    "qa:affected": "node tools/qa-affected.mjs",
     "export:lookup": "node tools/export-lookup.mjs",
     "map:build": "node tools/project-map.mjs build",
     "map:update": "node tools/project-map.mjs update",

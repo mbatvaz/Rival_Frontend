@@ -35,6 +35,8 @@ export async function renderPages(root, records) {
       result[page.id] = {
         templates: [...used].sort(),
         classes: [...new Set([...html.matchAll(/\bclass="([^"]*)"/g)].flatMap(match => match[1].split(/\s+/)).filter(Boolean))].sort(),
+        ids: [...new Set([...html.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]))].sort(),
+        hooks: [...new Set([...html.matchAll(/\s(data-rv-[\w-]+)(?=[\s=>])/g)].map(match => match[1]))].sort(),
         features: [...new Set([...html.matchAll(/\bdata-rv="([^"]*)"/g)].flatMap(match => match[1].split(/\s+/)).filter(Boolean))].sort(),
         assets: [...new Set([...html.matchAll(/\b(?:src|href)="([^"]+)"/g)].map(match => match[1].split(/[?#]/)[0])
           .filter(value => value.startsWith(basePath) && /\.(?:css|js|png|jpe?g|webp|svg|woff2|ico)$/.test(value))

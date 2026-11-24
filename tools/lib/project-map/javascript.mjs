@@ -16,7 +16,7 @@ export function javascriptFacts(text, file) {
     ExportAllDeclaration: node => link(node, node.source.value, 'Re-export.'),
     ImportExpression: node => link(node, node.source.value, 'Dynamic import declaration; execution not proven.'),
     Literal(node) {
-      if (file.startsWith('tests/') && typeof node.value === 'string' && /\/|^[A-Z]+-/.test(node.value)) {
+      if (file.startsWith('tests/') && typeof node.value === 'string' && /\/|^[a-z]+-[\w-]+$/i.test(node.value)) {
         facts.literals.push({ value: node.value, line: node.loc.start.line });
       }
     },

@@ -2,7 +2,7 @@
 
 Use only for explicitly assigned scope. Replace bracketed inputs. The [phase plan](docs/PHASE_PLAN.md) retains dependency/approval ownership.
 
-Start with [navigation](docs/ai/PROJECT_INDEX.md) for the assigned ID/path. Reuse verified reads and valid QA evidence for unchanged scope; references below mean relevant sections, not mandatory whole-file rereads. Shared browser gates belong to [visual QA](.agents/skills/rival-visual-qa/SKILL.md); specialist checks extend that evidence. Infrastructure-only tasks use affected tooling/docs checks and do not activate all UI workflows.
+Use [prompt routing](docs/ai/PROMPT_ROUTING.md) to choose context and verification by scope. A browser annotation or verified source path is enough to start an element fix. The examples below cover broader work. Reuse verified reads and checks for unchanged scope.
 
 ## Page
 

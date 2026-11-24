@@ -3,8 +3,9 @@ import stylelint from 'stylelint';
 
 // Obtain the PostCSS AST through the existing direct Stylelint dependency.
 export async function styleFacts(text, file) {
-  const facts = { links: [], classes: [], gaps: [] };
+  const facts = { links: [], classes: [], anchors: [], gaps: [] };
   const plugin = stylelint.createPlugin('map/collect', () => root => {
+    root.walkAtRules(/^(?:-webkit-)?keyframes$|^(?:font-face|property)$/, () => facts.anchors.push([]));
     root.walkAtRules('import', node => {
       const target = node.params.match(/^(?:url\(\s*)?["']([^"']+)["']/)?.[1];
       if (target?.startsWith('.')) facts.links.push({ type: 'imports',
@@ -13,7 +14,15 @@ export async function styleFacts(text, file) {
         line: node.source.start.line, detail: 'CSS import.' });
       else facts.gaps.push({ line: node.source.start.line, reason: 'Unresolved or external CSS import.' });
     });
-    root.walkRules(node => facts.classes.push(...(node.selector.match(/\.(?:rv|ri)-[\w-]+/g) || []).map(value => value.slice(1))));
+    root.walkRules(node => {
+      facts.classes.push(...(node.selector.match(/\.(?:rv|ri)-[\w-]+/g) || []).map(value => value.slice(1)));
+      for (const selector of node.selectors) {
+        // Only keep mandatory hooks before complex pseudo/attribute selectors.
+        const prefix = selector.replace(/\[(.*?)\]/g, (_, attribute) => ' ' + (attribute.match(/^data-rv-[\w-]+(?=[\s~|^$*!=]|$)/)?.[0] ?? ''))
+          .split('(', 1)[0];
+        facts.anchors.push(prefix.includes('\\') ? [] : (prefix.match(/[.#](?:rv|ri)-[\w-]+|data-rv-[\w-]+/g) ?? []));
+      }
+    });
     root.walkDecls(node => {
       if (node.prop.startsWith('--')) facts.links.push({ type: 'defines-token', target: 'token:' + node.prop,
         line: node.source.start.line, detail: node.value });

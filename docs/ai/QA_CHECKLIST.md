@@ -8,6 +8,9 @@ Use [visual QA](../../.agents/skills/rival-visual-qa/SKILL.md) and relevant skil
 - `npm run lint`: structure, ESLint, Stylelint and maintained documentation/skill checks.
 - `npm run lint:docs`: standalone local-link/frontmatter checks, also exposed as a VS Code task.
 - `npm test`: full root suite including browser interactions/routes/axe/keyboard.
+- `npm test -- --agent <test files or filter>`: selected checks with a browser preview preflight, compact summary and full local log under `test-results/`. Supports `--subpath`.
+- `npm run qa:affected -- --file <path>`: scope lint and Playwright across the registry. Use [affected QA options](PROMPT_ROUTING.md#local-qa-for-all-phases) for probes, planning and full acceptance.
+- `npm run qa:affected -- --cosmetic --file <stylesheet>`: scoped lint and one build for a reviewed appearance-only CSS change, with an optional direct probe.
 - `npm run test:subpath`: suite at /rival-demo/; restores root build.
 - `npm run test:visual`, `npm run test:a11y`, `npm run test:smoke`: grep suites, not substitutes for uncovered requirements.
 - `node tools/audit-design.mjs`: regenerate derived inventory/map reports; writes files. Never use for an ordinary lookup or read-only audit; original design exports remain unchanged.

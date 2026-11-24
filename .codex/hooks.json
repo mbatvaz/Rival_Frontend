@@ -1,0 +1,16 @@
+{
+  "description": "Attach bounded Rival source addresses to browser annotations.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node tools/annotation-context-hook.mjs",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

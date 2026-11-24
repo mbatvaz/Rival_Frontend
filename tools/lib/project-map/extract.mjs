@@ -11,7 +11,7 @@ export const digest = text => createHash('sha256').update(text).digest('hex');
 const roots = ['src/Views', 'src/wwwroot/css', 'src/wwwroot/js', 'src/MockData', 'tools', 'tests',
   'preview-review', '.agents/skills', 'docs/ai', 'docs-work/desktop-layouts', 'prompts', 'phases'];
 const singles = ['AGENTS.md', 'PROGRESS.md', 'GOALS.md', 'PLANS.md', 'PROMPTS.md', 'package.json',
-  'package-lock.json', 'playwright.config.mjs', 'src/page-registry.json', 'src/site-config.json',
+  'package-lock.json', 'playwright.config.mjs', '.codex/hooks.json', 'src/page-registry.json', 'src/site-config.json',
   'design-export/MANIFEST.json', 'design-export/design-system-v2/tokens/tokens.json'];
 const excluded = new Set(['references', 'screens', 'node_modules', 'archive', 'test-results']);
 export async function inventory(root) {
@@ -29,7 +29,7 @@ export async function inventory(root) {
   }
   for (const dir of roots) await walk(dir);
   // Tool tests are source inputs too, but never traverse their temporary fixtures.
-  for (const file of ['tools/tests/project-map.test.mjs']) {
+  for (const file of ['tools/tests/project-map.test.mjs', 'tools/tests/annotation-context.test.mjs', 'tools/tests/qa-impact.test.mjs']) {
     try { await fs.access(path.join(root, file)); found.add(file); } catch { /* Optional in fixtures. */ }
   }
   await walk('docs'); // references/ is deliberately excluded, not read or hashed.

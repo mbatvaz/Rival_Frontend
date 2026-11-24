@@ -24,6 +24,17 @@ export function withBase(basePath, route) {
   }
   return basePath.replace(/\/$/, '') + route;
 }
+export function matchPreviewRoute(pages, input, basePath) {
+  const url = new URL(input, 'http://localhost');
+  if (!['http:', 'https:'].includes(url.protocol)) throw new Error('Use an HTTP(S) URL or a local route.');
+  const route = url.pathname.replace(/\/index\.html$/, '/').replace(/\/?$/, '/');
+  const prefixes = [...new Set([basePath, '/rival-demo/', '/'])];
+  for (const prefix of prefixes) {
+    const page = pages.find(item => withBase(prefix, item.previewPath) === route);
+    if (page) return { page, url };
+  }
+  return { url };
+}
 export function inside(directory, relative) {
   const resolved = path.resolve(directory, relative);
   if (!resolved.startsWith(directory + path.sep)) throw new Error(`Path escapes source: ${relative}`);

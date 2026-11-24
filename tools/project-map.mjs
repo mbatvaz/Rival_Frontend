@@ -16,11 +16,12 @@ function guides(graph) {
     `- [Registry](../../src/page-registry.json): ${pages.length} contexts, ${pages.filter(page => page.implementation === 'accepted').length} accepted; placeholders are not implementations.\n\n` +
     `## Find only the relevant context\n\n` +
     `1. QUERY checks freshness itself; do not run a redundant CHECK first. Use \`npm run map:check\` independently for maintenance/CI. Both write nothing.\n` +
-    `2. Run \`npm run map:query -- BK-REQ01\`, or use an exact repository-relative path, \`feature:booking\`, or \`--accent-500\`. Default: 20 evidence edges plus grouped navigation; \`--limit=120\` expands only when needed.\n` +
+    `2. Start with \`npm run map:query -- BK-REQ01 --compact\`, or query an exact path, \`feature:booking\`, or \`--accent-500\`. Compact mode lists bounded candidates and totals. Drop \`--compact\` when you need edge evidence; \`--limit=N\` adjusts the output bound.\n` +
     `3. Inspect direct references first, then dependencies and possible consumers. INFERRED means candidate, not runtime proof. Never load the full JSON into the conversation.\n` +
     `4. Read only relevant contract headings, DEC/OQ entries, exact design states, source and tests. Reuse verified reads already in this conversation.\n` +
     `5. Missing/stale map: use direct scoped search. For authorized writes, refresh with \`npm run map:update\`; read-only audits report drift without updating.\n\n` +
     `## Task routing\n\n` +
+    `- [Prompt routing](PROMPT_ROUTING.md): choose context by impact. For annotations, resolve URL and selector before a broader lookup.\n` +
     `- Page/UI: query Page ID; inspect template, fixture, feature, style candidates, design candidates, desktop brief and test references.\n` +
     `- Shared component/token: query its path/name; reverse results list possible consumers. Validate conditions before selecting regression scope.\n` +
     `- Git/tooling/docs: inspect affected config/tool and [Git workflow](../GIT_WORKFLOW.md); UI handoffs are conditional.\n` +
@@ -52,20 +53,22 @@ function guides(graph) {
   return { [outputs[1]]: index, [outputs[2]]: guide };
 }
 export async function runMap(directory, mode, args = []) {
-  if (!['build', 'update', 'check', 'query'].includes(mode)) throw new Error('Usage: project-map.mjs build|update|check|query [ID/path/--token] [--limit=N]');
+  if (!['build', 'update', 'check', 'query'].includes(mode)) throw new Error('Usage: project-map.mjs build|update|check|query [ID/path/--token] [--limit=N] [--compact]');
   let previous;
   try { previous = await read(directory, graphPath); }
   catch (error) { if (!['build', 'update'].includes(mode) || error.code !== 'ENOENT') throw error; }
   if (mode === 'check') return { code: 0, result: await checkGraph(directory, previous) };
   if (mode === 'query') {
+    const compact = args.includes('--compact');
     const limitArg = args.find(arg => arg.startsWith('--limit='));
-    const limit = limitArg ? Number(limitArg.slice(8)) : 20;
+    const limit = limitArg ? Number(limitArg.slice(8)) : compact ? 6 : 20;
     if (!Number.isInteger(limit) || limit < 1 || limit > 250) throw new Error('Limit must be 1..250.');
-    const term = args.find(arg => arg !== limitArg);
+    const term = args.find(arg => arg !== limitArg && arg !== '--compact');
     if (!term) throw new Error('Query requires a Page ID, token, feature or repository-relative path.');
     const health = await checkGraph(directory, previous);
-    return { code: 0, result: { ...queryGraph(previous, term, limit), fresh: health.ok,
-      ...(!health.ok ? { warning: 'Map is stale or invalid; inspect source or run an authorized UPDATE.', health } : {}) } };
+    const result = { ...queryGraph(previous, term, limit), fresh: health.ok,
+      ...(!health.ok ? { warning: 'Map is stale or invalid; inspect source or run an authorized UPDATE.', health } : {}) };
+    return { code: 0, result: compact ? compactQuery(result, limit) : result };
   }
   const extracted = await extract(directory, mode === 'update' ? previous?.sources : {});
   const graph = buildGraph(extracted.records);
@@ -78,10 +81,20 @@ export async function runMap(directory, mode, args = []) {
   return { code: 0, result: { mode, parsed: extracted.changed.length, reused: Object.keys(graph.sources).length - extracted.changed.length,
     removed: extracted.removed.length, nodes: graph.nodes.length, edges: graph.edges.length, gaps: graph.gaps.length } };
 }
+
+function compactQuery(result, limit) {
+  const { query, fresh, matches, possiblePages, renderedPages, navigation, warning } = result;
+  const entries = { matches: matches.map(({ id, kind, route }) => ({ id, kind, route })),
+    possiblePages, renderedPages, ...navigation };
+  return { query, fresh, ...(warning ? { warning } : {}),
+    ...Object.fromEntries(Object.entries(entries).filter(([, list]) => list?.length)
+      .map(([key, list]) => [key, { count: list.length, items: list.slice(0, limit) }])) };
+}
+
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
   try {
     const { code, result } = await runMap(root, process.argv[2], process.argv.slice(3));
-    console.log(JSON.stringify(result, null, 2));
+    console.log(JSON.stringify(result, null, process.argv.includes('--compact') ? 0 : 2));
     process.exitCode = result.ok === false ? 1 : code;
   } catch (error) { console.error(error.message); process.exitCode = 1; }
 }
