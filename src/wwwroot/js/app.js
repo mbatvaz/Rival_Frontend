@@ -21,6 +21,7 @@ registerFeature('customer-request-list', () => import('./features/customer/reque
 registerFeature('customer-request-detail', () => import('./features/customer/request-detail.js'));
 registerFeature('customer-availability-alerts', () => import('./features/customer/availability-alerts.js'));
 registerFeature('customer-notifications', () => import('./features/customer/notifications.js'));
+registerFeature('customer-profile', () => import('./features/customer/profile.js'));
 registerFeature('customer-notification-badge', () => import('./features/customer/notification-badge.js'));
 registerFeature('customer-dock', () => import('./components/customer-dock.js'));
 initSheets();

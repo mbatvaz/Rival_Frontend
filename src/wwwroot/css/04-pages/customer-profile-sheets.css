@@ -1,0 +1,70 @@
+@layer pages {
+  .rv-profile-sheet .rv-sheet__header { align-items: start; }
+  .rv-profile-sheet .rv-sheet__header h2 { font-size: var(--heading-md-size); line-height: var(--heading-md-line); }
+  #rv-profile-passkey-delete .rv-btn--danger { background: var(--danger-solid); color: var(--text-inverse); }
+  .rv-profile-sheet__form { display: grid; gap: var(--space-4); }
+  .rv-profile-sheet__form p { margin: 0; }
+
+  .rv-profile-sheet__photo {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-3);
+    text-align: center;
+  }
+  .rv-profile-sheet__photo .rv-actions > * { flex: 0 0 auto; }
+  .rv-profile-sheet__photo .rv-profile__avatar { inline-size: 96px; block-size: 96px; }
+  .rv-profile-sheet__step { display: grid; gap: var(--space-2); }
+  .rv-profile-sheet__step > div { display: flex; justify-content: space-between; gap: var(--space-2); }
+
+  .rv-profile-sheet__step progress {
+    inline-size: 100%;
+    block-size: var(--space-2);
+    appearance: none;
+    accent-color: var(--bg-inverse);
+    border: 0;
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+    background: var(--bg-plaster);
+  }
+
+  .rv-profile-sheet__step progress::-webkit-progress-bar { background: var(--bg-plaster); }
+  .rv-profile-sheet__step progress::-webkit-progress-value { background: var(--bg-inverse); }
+  .rv-profile-sheet__step progress::-moz-progress-bar { background: var(--bg-inverse); }
+  .rv-profile-sheet__form input[readonly] { color: var(--text-secondary); }
+
+  .rv-profile-sheet__verified,
+  .rv-profile-sheet__help,
+  .rv-profile-sheet__note {
+    display: flex;
+    align-items: start;
+    gap: var(--space-2);
+    font-size: var(--body-sm-size);
+  }
+
+  .rv-profile-sheet__verified,
+  .rv-profile-sheet__note { padding: var(--space-3); border-radius: var(--radius-sm); }
+
+  .rv-profile-sheet__help .ri,
+  .rv-profile-sheet__note .ri,
+  .rv-profile-sheet__verified .ri { flex: none; }
+
+  .rv-profile__row > .ri,
+  .rv-profile__devices li > .ri { color: var(--text-secondary); }
+  .rv-profile-sheet__note { background: var(--bg-plaster); color: var(--text-secondary); }
+  .rv-profile-sheet__verified { background: var(--success-bg); color: var(--success-fg); }
+  .rv-profile-sheet [data-profile-demo-code]:empty { display: none; }
+
+  .rv-profile__resend {
+    justify-self: start;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--text-primary);
+    font: inherit;
+    font-size: var(--body-sm-size);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .rv-profile__resend:disabled { color: var(--text-secondary); cursor: default; text-decoration: none; }
+}

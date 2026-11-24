@@ -12,6 +12,19 @@
     padding-block-start: var(--space-6);
   }
 
+  .rv-sheet-layer::after {
+    position: absolute;
+    inset-block-start: 100%;
+    inset-inline: 0;
+    block-size: var(--rv-sheet-keyboard-space, 0);
+    content: "";
+    pointer-events: none;
+  }
+
+  @media not all and (min-width: 1024px) {
+    .rv-sheet .rv-input :where(input, textarea) { font-size: var(--body-lg-size); }
+  }
+
   .rv-sheet-scrim {
     position: absolute;
     inset: 0;

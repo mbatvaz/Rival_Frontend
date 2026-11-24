@@ -1,0 +1,4 @@
+{% extends "Shared/Components/_Otp.njk" %}
+{% block otpInput %}
+<input id="profile-code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="5" aria-describedby="profile-code-demo" data-rv-code>
+{% endblock %}

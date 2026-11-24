@@ -459,11 +459,20 @@
       "status": "Fully Designed",
       "source": "Batch 3",
       "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
-      "titleFa": "پروفایل مشتری",
-      "phase": "Phase 04"
+      "template": "Customer/Profile/Index.njk",
+      "mockData": "MockData/customer/profile.json",
+      "notes": "D10-57/D10-58 profile and method Sheets. Mobile and tablet ready for review. Desktop composition pending approval.",
+      "titleFa": "پروفایل",
+      "phase": "Phase 04",
+      "implementationStatus": "implemented",
+      "variants": [
+        { "label": "نمونهٔ طرح — پروفایل", "query": "?state=example" },
+        { "label": "ویرایش پروفایل", "query": "?state=edit" },
+        { "label": "تنظیم رمز عبور", "query": "?state=password" },
+        { "label": "تأیید شماره فعلی", "query": "?state=phone-current" },
+        { "label": "تأیید شماره تازه", "query": "?state=phone-new" },
+        { "label": "حذف Passkey", "query": "?state=passkey-delete" }
+      ]
     },
     {
       "id": "BK-01",

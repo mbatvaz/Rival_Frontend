@@ -1,0 +1,42 @@
+<section class="rv-sheet rv-profile-sheet" id="rv-profile-phone" role="dialog" aria-modal="true" aria-labelledby="rv-profile-phone-title" aria-describedby="rv-profile-phone-lead" tabindex="-1" hidden>
+  <span data-rv-sheet-grip aria-hidden="true"></span>
+  <div class="rv-sheet__header">
+    <span class="rv-icon-tile" aria-hidden="true"><span class="ri ri-smartphone"></span></span>
+    <div class="rv-profile__value">
+      <h2 id="rv-profile-phone-title" data-profile-sheet-title>تغییر شماره موبایل</h2>
+      <p class="rv-muted" id="rv-profile-phone-lead" data-profile-sheet-lead>اول شماره فعلی، بعد شماره تازه را تأیید می‌کنید.</p>
+    </div>
+    <button class="rv-icon-btn rv-profile__plain" type="button" data-rv-sheet-close aria-label="بستن"><span class="ri ri-x" aria-hidden="true"></span></button>
+  </div>
+  <form class="rv-profile-sheet__form" method="post" data-profile-form="phone" novalidate>
+    <div class="rv-profile-sheet__step">
+      <div><strong data-profile-phone-step>تأیید شماره فعلی</strong><span class="rv-muted" data-profile-phone-progress-label>قدم ۱ از ۲</span></div>
+      <progress max="2" value="1" aria-label="پیشرفت تغییر شماره موبایل"></progress>
+    </div>
+    <div class="rv-field" data-profile-current-phone>
+      <label for="profile-current">شماره فعلی</label>
+      <div class="rv-input"><span class="ri ri-smartphone" aria-hidden="true"></span><input id="profile-current" dir="ltr" readonly></div>
+    </div>
+    <p class="rv-profile-sheet__verified" data-profile-phone-verified hidden><span class="ri ri-check-circle" aria-hidden="true"></span><span>شماره فعلی <bdi dir="ltr" data-profile-verified-number></bdi> تأیید شد</span></p>
+    <div class="rv-field" data-profile-new-phone hidden>
+      <label for="profile-phone">شماره تازه</label>
+      <div class="rv-input">
+        <span class="ri ri-smartphone" aria-hidden="true"></span><input id="profile-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" dir="ltr" maxlength="15">
+        <button class="rv-icon-btn rv-profile__plain" type="button" data-profile-edit-phone hidden>ویرایش</button>
+      </div>
+    </div>
+    <div class="rv-field" data-profile-phone-code>
+      <label for="profile-code" data-profile-code-label>کدی که به شماره فعلی پیامک شد</label>
+      {% include "Customer/Profile/_Otp.njk" %}
+      <small class="rv-muted" data-profile-demo-code id="profile-code-demo"></small>
+      <button class="rv-text-link rv-profile__resend" type="button" data-profile-resend></button>
+    </div>
+    <p class="rv-muted rv-profile-sheet__help" data-profile-contact><span class="ri ri-phone" aria-hidden="true"></span><span>به شماره فعلی دسترسی ندارید؟ تغییر شماره فقط با کمک سالن ممکن است. <a class="rv-text-link" data-profile-salon-contact>تماس با سالن</a></span></p>
+    <p class="rv-profile-sheet__note" data-profile-phone-note hidden><span class="ri ri-info" aria-hidden="true"></span>بعد از تأیید، ورود و پیامک‌ها با شماره تازه انجام می‌شود. Passkey و رمز تغییری نمی‌کنند.</p>
+    <p class="rv-feedback rv-feedback--error" data-profile-form-error role="alert"></p>
+    <div class="rv-actions">
+      <button class="rv-btn" type="submit" data-profile-submit>ادامه</button>
+      <button class="rv-btn rv-btn--secondary" type="button" data-rv-sheet-close>انصراف</button>
+    </div>
+  </form>
+</section>
