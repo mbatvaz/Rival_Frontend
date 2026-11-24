@@ -2,31 +2,22 @@ import { api, ApiError } from '../../core/api.js';
 import { faDigits } from '../../core/format.js';
 import { snapshot } from '../booking/holds.js';
 import { findHold, persist } from '../booking/shared.js';
+import { readHomeState } from './home-state.js';
 import { readSubmittedRequests } from './submitted-requests.js';
 
 const resource = 'customer/request-state';
 const holdId = id => id + '-customer-request';
 export const requestGroup = status => status === 'checking' ? 'pay' : ['pay', 'wait'].includes(status) ? status : 'done';
 
-async function session() {
-  const { data } = await api.read('customer/home-state');
-  if (!data.clockStartedAt) {
-    data.clockStartedAt = Date.now();
-    try { await api.write('customer/home-state', data); }
-    catch { /* A readable preview still uses its initial fixture deadline. */ }
-  }
-  return data.clockStartedAt;
-}
-
 export async function readRequests() {
-  const [{ data }, { data: cancelled }, { data: holds }, startedAt, submitted] = await Promise.all([
-    api.read('customer/requests'), api.read(resource), api.read('booking/holds'), session(), readSubmittedRequests()
+  const [{ data }, { data: cancelled }, { data: holds }, { clockStartedAt }, submitted] = await Promise.all([
+    api.read('customer/requests'), api.read(resource), api.read('booking/holds'), readHomeState(), readSubmittedRequests()
   ]);
   return [...submitted, ...data.records].map(record => ({
     ...record,
     cancelled: Boolean(cancelled[record.id]),
     hold: holds[holdId(record.id)],
-    expiresAt: startedAt + (record.remainingSeconds ?? 0) * 1000
+    expiresAt: clockStartedAt + (record.remainingSeconds ?? 0) * 1000
   }));
 }
 

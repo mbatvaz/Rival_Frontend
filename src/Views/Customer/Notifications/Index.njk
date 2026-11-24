@@ -1,10 +1,6 @@
 {% extends "Shared/_CustomerPanelLayout.njk" %}
-{% block workspaceClass %} rv-customer-home rv-customer-panel rv-notifications-page{% endblock %}
-{% block workspaceHeader %}
-<button class="rv-icon-btn rv-notifications__back" type="button" data-rv-sheet-open="rv-more" aria-label="بازگشت به منوی بیشتر"><span class="ri ri-arrow-right" aria-hidden="true"></span></button>
-<div class="rv-customer-panel__heading"><h1>{{ page.titleFa }}</h1><span>{{ shell.name }}</span></div>
-<span class="rv-customer-panel__spacer" aria-hidden="true"></span>
-{% endblock %}
+{% block panelBack %}{% include "Shared/Components/_CustomerMoreBack.njk" %}{% endblock %}
+{% block panelTrailing %}{% endblock %}
 {% block content %}
 <div class="rv-notifications" data-rv="customer-notifications" data-rv-notification-page-size="{{ model.pageSize }}">
   <p class="rv-feedback rv-feedback--error" data-rv-notifications-error role="alert"></p>

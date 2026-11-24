@@ -78,8 +78,6 @@
   .rv-request-hold progress::-webkit-progress-value { background: var(--warning-solid); border-radius: var(--radius-pill); }
   .rv-request-hold progress::-moz-progress-bar { background: var(--warning-solid); }
   .rv-requests__desktop-book { display: none; }
-  #rv-request-filter .rv-appointments-filter__people { flex-wrap: wrap; }
-  #rv-request-filter [name="status"]:checked + span { background: var(--bg-inverse); color: var(--text-inverse); }
 
   .rv-request-filter-date {
     display: flex;

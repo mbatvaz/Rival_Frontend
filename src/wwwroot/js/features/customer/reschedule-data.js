@@ -1,5 +1,5 @@
 import { api } from '../../core/api.js';
-import { faDigits } from '../../core/format.js';
+import { faDigits, latinDigits } from '../../core/format.js';
 import { longDay } from '../booking/availability.js';
 import { plusDays } from '../booking/calendar.js';
 import { dateLabel } from '../booking/shared.js';
@@ -42,7 +42,7 @@ export function changeDetails(change) {
   const { weekday, month, day } = Object.fromEntries(
     dateFormat.formatToParts(new Date(change.date + 'T12:00:00Z')).map(part => [part.type, part.value])
   );
-  const date = dateLabel(change.date).replace(/[۰-۹]/g, digit => '۰۱۲۳۴۵۶۷۸۹'.indexOf(digit));
+  const date = latinDigits(dateLabel(change.date));
   return { weekday, month, day, time: faDigits(change.time), date };
 }
 

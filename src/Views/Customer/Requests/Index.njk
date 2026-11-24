@@ -15,7 +15,7 @@
   {% for group in model.groups %}
   <section id="rv-requests-{{ group.key }}" data-rv-request-group="{{ group.key }}"{% if not loop.first %} hidden{% endif %} aria-labelledby="rv-requests-{{ group.key }}-title">
     <header class="rv-section-head"><h2 id="rv-requests-{{ group.key }}-title">{{ group.title }}</h2><span data-rv-request-group-note>{% if group.hint %}{{ group.hint }}{% else %}{{ requestCounts[group.key] | faDigits }} درخواست{% endif %}</span></header>
-    <div class="rv-requests__records{% if group.key == 'done' %} rv-appointments__records--past rv-glass{% endif %}" data-rv-request-records data-rv-list-entry>
+    <div class="rv-requests__records{% if group.key == 'done' %} rv-appointments__records--past rv-glass{% endif %}" data-rv-request-records>
       {% for request in requestRecords %}
         {% if (group.key == 'done' and request.status != 'pay' and request.status != 'wait') or group.key == request.status %}
           {% include "Shared/Components/_RequestCard.njk" %}
@@ -33,4 +33,4 @@
   <p class="rv-feedback rv-feedback--error" data-rv-request-error role="alert" hidden></p>
 </div>
 {% endblock %}
-{% block workspaceSheets %}{% include "Customer/Requests/_Filter.njk" %}{% include "Customer/Appointments/_DatePicker.njk" %}{% endblock %}
+{% block workspaceSheets %}{% include "Customer/Requests/_Filter.njk" %}{% include "Shared/Components/_CustomerDatePicker.njk" %}{% endblock %}

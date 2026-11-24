@@ -2,7 +2,7 @@ import { api } from '../../core/api.js';
 import { addAlert, alertKey, cancelAlert, closeAlert, readAlerts, registerAlert } from '../../core/availability-alerts.js';
 import { closeSheet, openSheet } from '../../components/sheet.js';
 import { get, text, visible } from '../booking/shared.js';
-import { appointmentSheetOpener } from './appointment-sheet-hero.js';
+import { appointmentSheetOpener } from './card-sheet.js';
 import { initAlertChoices } from './availability-add.js';
 import { renderAlerts } from './availability-views.js';
 

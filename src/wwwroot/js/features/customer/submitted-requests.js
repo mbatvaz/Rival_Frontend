@@ -1,8 +1,7 @@
 import { api } from '../../core/api.js';
 import { localUrl } from '../../core/config.js';
-import { faDigits, jalali, time24 } from '../../core/format.js';
+import { faDigits, jalali, latinDigits, time24 } from '../../core/format.js';
 import { longDay } from '../booking/availability.js';
-import { digits } from './appointment-filters.js';
 
 const dateFormat = new Intl.DateTimeFormat('fa-IR', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'Asia/Tehran' });
 const dayParts = value => Object.fromEntries(dateFormat.formatToParts(value).map(part => [part.type, part.value]));
@@ -21,7 +20,7 @@ export async function readSubmittedRequests() {
     const parts = (service.parts ?? []).map(id => catalog.services.find(item => item.id === id));
     const caption = stylist ? 'با ' + stylist.name : faDigits(parts.length) + ' بخش';
     return [{
-      ...record, preferredDate: record.date, date: when ? digits(jalali(when)) : '',
+      ...record, preferredDate: record.date, date: when ? latinDigits(jalali(when)) : '',
       day: when ? dayParts(when).day : '', month: when ? dayParts(when).month : '',
       submitted: when ? dateFormat.format(when) + '، ' + time24(when) : '—',
       deadline: when ? dateFormat.format(when + 7 * 864e5) + '، ' + time24(when) : '',

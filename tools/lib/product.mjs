@@ -100,9 +100,15 @@ export async function productContext(page, basePath, pages, model) {
       bookingPackage: service('groom').parts.map(service)
     };
   }
+  const customer = {};
+  if (page.phase === 'Phase 04') {
+    const customerUrls = Object.fromEntries(pages.map(item => [item.id, route(item.previewPath)]));
+    customerUrls.recurring = customerUrls['BK-REC01'];
+    Object.assign(customer, { customerUrls }, await customerContext(page, basePath, customerUrls, model));
+  }
   return {
     ...booking,
-    ...await customerContext(page, basePath, pages, model),
+    ...customer,
     shell,
     publicTitle: page.id === 'PUB-01' ? '' : page.titleFa,
     publicPage: page.id.startsWith('PUB-'),

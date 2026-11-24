@@ -5,7 +5,7 @@ import { populateDays } from '../booking/time-day-strip.js';
 import { setupTimeCalendar } from '../booking/time-calendar.js';
 import { longDay } from '../booking/availability.js';
 import { appointmentUrl, commitReschedule, currentLabel, cutoff, scenarioDays, timeLabel } from './reschedule-data.js';
-import { liftContext } from './reschedule-lift.js';
+import { cardSheetOpener } from './card-sheet.js';
 import { appointmentContext, paintFlowHeader } from './reschedule-result.js';
 
 function timeOption(time, selected, blocked) {
@@ -45,6 +45,7 @@ export function showReschedulePicker(root, current, scenario, mode, cutoffDays, 
   const card = get(picker, 'booking-context');
   const sheet = document.getElementById('rv-reschedule-confirm');
   const confirm = get(sheet, 'rsc-confirm');
+  const openConfirmation = cardSheetOpener(get(document, 'rsc-lift'), () => card);
   let { date, time } = scenario.selected;
   const updateSummary = () => {
     text(picker, 'rsc-next', time ? timeLabel(date, time) : 'یک ساعت انتخاب کنید');
@@ -89,14 +90,8 @@ export function showReschedulePicker(root, current, scenario, mode, cutoffDays, 
     visible(sheet, 'rsc-fee', !late);
     visible(sheet, 'rsc-danger', late);
     visible(sheet, 'rsc-error', false);
-    liftContext(card, sheet, next);
+    openConfirmation(sheet.id, next);
   };
-  document.addEventListener('rv:sheet-close', event => {
-    if (event.detail.id !== sheet.id) return;
-    const lift = get(document, 'rsc-lift');
-    lift.getAnimations?.().forEach(animation => animation.cancel());
-    lift.hidden = true;
-  });
   next.addEventListener('click', showConfirmation);
   get(sheet, 'rsc-submit').addEventListener('submit', async event => {
     event.preventDefault();

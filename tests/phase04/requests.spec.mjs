@@ -83,6 +83,18 @@ test('Custom Jalali filter keeps its parent Sheet, focus and fixed upper date @s
   await page.setViewportSize({ width: 390, height: 844 });
   await open(page, list + '?tab=done&state=filter');
   const parent = page.locator('#rv-request-filter');
+  const people = parent.getByRole('group', { name: 'آرایشگرها' });
+  await people.evaluate(rail => {
+    const extra = rail.lastElementChild.cloneNode(true);
+    extra.querySelector('input').value = 'test-extra-stylist';
+    rail.append(extra);
+  });
+  await people.focus();
+  await page.keyboard.press('End');
+  expect(await people.evaluate(rail => rail.scrollLeft)).toBeLessThan(0);
+  await page.keyboard.press('Home');
+  expect(await people.evaluate(rail => rail.scrollLeft)).toBe(0);
+  await people.locator('label').last().evaluate(label => label.remove());
   await expect(parent.locator('[data-rv-request-to] strong')).toHaveText('امروز');
   await expect(parent.getByRole('button', { name: 'نمایش ۲ درخواست' })).toBeVisible();
   const field = parent.locator('[data-rv-request-from]');

@@ -61,6 +61,9 @@ for (const width of [320, 390, 768, 1023, 1024, 1280]) {
     const capture = [390, 768, 1280].includes(width);
     const mode = baseURL.includes('/rival-demo/') ? 'subpath' : 'root';
     const check = async state => {
+      await page.evaluate(() => Promise.allSettled(document.getAnimations()
+        .filter(animation => Number.isFinite(animation.effect.getComputedTiming().endTime))
+        .map(animation => animation.finished)));
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);
       const sizes = await page.locator('[data-rv-swap-open], .rv-appointment-swap button, #rv-swap-calendar input, #rv-swap-calendar button')
         .evaluateAll(controls => controls.filter(control => control.getClientRects().length).map(control => {
@@ -69,9 +72,6 @@ for (const width of [320, 390, 768, 1023, 1024, 1280]) {
         }));
       expect(sizes.every(size => size >= 44)).toBe(true);
       if (capture) {
-        await page.evaluate(() => Promise.allSettled(document.getAnimations()
-          .filter(animation => Number.isFinite(animation.effect.getComputedTiming().endTime))
-          .map(animation => animation.finished)));
         const axe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
         expect(axe.violations.map(item => [item.id, item.nodes.map(node => node.target)])).toEqual([]);
         await page.screenshot({ path: `tests/screens/phase04-swap/${mode}/${state}-${width}.png`, fullPage: true });
@@ -204,6 +204,14 @@ test('directory opens every swap preview without issuing or redeeming a code', a
 
 test('swap keeps the visible background position on close and matches the cancellation scrim', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 720 });
+  await page.addInitScript(() => {
+    window.liftTiming = [];
+    const animate = window.Element.prototype.animate;
+    window.Element.prototype.animate = function (frames, options) {
+      if (options?.id === 'rv-card-lift' && this.matches('[data-rv-cancel-hero]')) window.liftTiming.push(options.duration);
+      return animate.call(this, frames, options);
+    };
+  });
   await open(page);
   const opener = createButton(page);
   const hero = page.locator('[data-rv-cancel-hero]');
@@ -217,11 +225,12 @@ test('swap keeps the visible background position on close and matches the cancel
     await opener.scrollIntoViewIfNeeded();
     const start = await page.evaluate(() => window.scrollY);
     expect(start).toBeGreaterThan(0);
+    await page.evaluate(() => { window.liftTiming.length = 0; });
     await opener.click();
     await expect(hero.locator('.rv-appointment-hero')).toBeVisible();
     const visibleScroll = await backgroundScroll(page);
     expect(visibleScroll).toBeLessThan(start);
-    expect(await hero.evaluate(element => element.getAnimations().length)).toBe(reducedMotion === 'reduce' ? 0 : 1);
+    expect(await page.evaluate(() => window.liftTiming)).toEqual(reducedMotion === 'reduce' ? [] : [240]);
     await expect(scrim).toHaveCSS('background-color', cancellationColor);
     await page.keyboard.press('Escape');
     await expect(opener).toBeFocused();

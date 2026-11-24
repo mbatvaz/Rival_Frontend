@@ -10,17 +10,6 @@
   .rv-customer-home__content .rv-section-head :is(h1, h2) { font-size: var(--heading-md-size); line-height: var(--heading-md-line); }
   .rv-customer-home__content .rv-section-head .rv-muted { font-size: var(--caption-size); }
   .rv-customer-home__next:has([data-rv-home-appointments]:not([hidden])) { margin-block-start: calc(-1 * var(--space-2)); }
-  .rv-customer-home__bell { position: relative; }
-
-  .rv-customer-home__bell > span:last-child {
-    position: absolute;
-    inset-block-start: var(--space-2);
-    inset-inline-end: var(--space-2);
-    inline-size: var(--space-2);
-    block-size: var(--space-2);
-    border-radius: var(--radius-pill);
-    background: var(--bg-inverse);
-  }
 
   .rv-appointment-rail {
     display: flex;

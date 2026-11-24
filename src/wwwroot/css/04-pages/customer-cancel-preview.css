@@ -1,13 +1,17 @@
 @layer pages {
-  .rv-appointment-cancel-hero {
+  .rv-appointment-cancel-hero,
+  .rv-reschedule-lift {
     position: fixed;
     inset-inline: auto;
     top: var(--rv-hero-top);
     left: var(--rv-hero-left);
     width: var(--rv-hero-width);
+    pointer-events: none;
+  }
+
+  .rv-appointment-cancel-hero {
     display: block;
     z-index: 0;
-    pointer-events: none;
     padding: 0;
     margin: 0;
     background: none;

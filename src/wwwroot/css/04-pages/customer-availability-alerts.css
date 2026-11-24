@@ -1,5 +1,4 @@
 @layer pages {
-  .rv-availability-page .rv-workspace__header > button { grid-area: 1 / 1; }
   .rv-availability__tools { margin-block-end: var(--space-4); }
   .rv-availability__tools > p { margin: 0; color: var(--text-secondary); }
   .rv-availability__groups, .rv-availability__cards { display: grid; gap: var(--space-5); }

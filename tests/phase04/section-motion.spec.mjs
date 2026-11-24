@@ -1,6 +1,55 @@
 ﻿import { test, expect } from '@playwright/test';
 import fs from 'node:fs/promises';
 
+for (const width of [390, 1280]) {
+  test(`Customer record entry is consistent at ${width}px @visual`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    await page.addInitScript(() => {
+      window.recordEntries = [];
+      const animate = window.Element.prototype.animate;
+      window.Element.prototype.animate = function (frames, options) {
+        if (options?.id === 'rv-list-entry') window.recordEntries.push({ target: this, frames, options });
+        return animate.call(this, frames, options);
+      };
+    });
+    for (const [route, selector] of [
+      ['customer/appointments/', '[data-rv-appointments-records] > a'],
+      ['customer/requests/', '[data-rv-request-record]'],
+      ['customer/requests/demo/', '.rv-request-slot'],
+      ['customer/availability-alerts/?state=example', '.rv-appointment-history'],
+      ['customer/notifications/', '[data-rv-notification]'],
+      ['customer/profile/?state=example', '[data-profile-passkeys] > li']
+    ]) {
+      await page.goto(route);
+      await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
+      const entries = await page.evaluate(selector => window.recordEntries.filter(entry => entry.target.matches(selector))
+        .map(entry => ({ duration: entry.options.duration, transform: entry.frames[0].transform })), selector);
+      expect(entries.length, route).toBeGreaterThan(0);
+      expect(entries.every(entry => entry.duration === 240 && entry.transform === (width < 1024 ? 'translateX(-24px)' : undefined)), route).toBe(true);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth), route).toBeLessThanOrEqual(width);
+      await page.emulateMedia({ reducedMotion: 'reduce' });
+      await expect.poll(() => page.evaluate(() => document.getAnimations().filter(animation => animation.id === 'rv-list-entry').length)).toBe(0);
+      const added = await page.evaluate(() => window.recordEntries.length);
+      await page.emulateMedia({ reducedMotion: 'no-preference' });
+      if (route === 'customer/requests/') {
+        await page.locator('label').filter({ has: page.locator('[name="request-tab"][value="done"]') }).click();
+        await expect(page.locator('[data-rv-request-group="done"]')).toBeVisible();
+      }
+      if (/^customer\/(availability-alerts|notifications|profile)\//.test(route)) {
+        const back = page.locator('.rv-customer-panel__more-back');
+        if (width < 1024) {
+          await back.click();
+          await expect(page.getByRole('dialog', { name: 'بیشتر' })).toBeVisible();
+          await page.keyboard.press('Escape');
+          await expect(back).toBeFocused();
+        } else await expect(back).toBeHidden();
+      }
+      expect(await page.evaluate(() => window.recordEntries.length), route).toBe(added);
+    }
+  });
+}
+
 for (const width of [390, 768, 1280]) {
   test(`Data items enter in near-complete sequence at ${width}px @visual`, async ({ page }, info) => {
     await page.setViewportSize({ width, height: 900 });

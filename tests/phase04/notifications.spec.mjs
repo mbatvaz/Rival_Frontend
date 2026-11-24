@@ -7,17 +7,19 @@ async function open(page, path = route) {
   await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
 }
 
-test('Reading a notification updates the inbox and dashboard across tabs @smoke', async ({ page, context }) => {
+test('Reading a notification updates the inbox and customer header bells across tabs @smoke', async ({ page, context }) => {
   const home = await context.newPage();
+  const appointments = await context.newPage();
   await open(home, 'customer/');
-  const bell = home.locator('.rv-customer-home__bell');
-  await expect(bell).toHaveAccessibleName(/۱ خوانده‌نشده/);
+  await open(appointments, 'customer/appointments/');
+  const bells = [home, appointments].map(tab => tab.getByRole('link', { name: /^اعلان‌ها/ }).and(tab.locator('.rv-customer-notification-bell')));
+  for (const bell of bells) await expect(bell).toHaveAccessibleName(/۱ خوانده‌نشده/);
   await open(page);
   const mark = page.getByRole('button', { name: 'خواندم', exact: true });
   await mark.focus();
   await page.keyboard.press('Enter');
   await expect(page.getByRole('link', { name: 'سینا به درخواست فیشیال پاسخ داد' })).toBeFocused();
-  await expect(bell).toHaveAccessibleName('اعلان‌ها');
+  for (const bell of bells) await expect(bell).toHaveAccessibleName('اعلان‌ها');
   await open(page);
   await expect(page.getByRole('button', { name: 'همه خوانده شد' })).toBeDisabled();
   await open(page, route + '?state=example');

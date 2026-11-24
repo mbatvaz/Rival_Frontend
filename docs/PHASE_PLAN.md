@@ -30,6 +30,6 @@ Use serialized Workflow B. One phase at a time; each phase ends with a review ga
 
 ## Current owner gate
 
-The owner accepted the implemented [CUS-10 profile slice](../docs-work/desktop-layouts/CUS-10.md) under DEC-084. Its separate desktop proposal and full Phase 04 acceptance remain open. CUS-09 was accepted under DEC-083.
+The owner accepted the implemented [CUS-10 profile slice](../docs-work/desktop-layouts/CUS-10.md) under DEC-084 and its existing single-column desktop layout under DEC-085. CUS-09 was accepted under DEC-083. Full Phase 04 acceptance remains open.
 
 DEC-072 governs live desktop preview and review on port 8183. Request a source only when the exact mobile board is missing or unreadable. The [decision log](DECISION_LOG.md) and [progress history](../PROGRESS.md) record earlier slice acceptances. Manual preview approvals are independent of phase acceptance.

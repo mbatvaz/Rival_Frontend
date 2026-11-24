@@ -1,5 +1,9 @@
 # Decision Log
 
+## DEC-085 — CUS-10 desktop profile acceptance
+
+On 2026-11-24 the owner approved the existing single-column desktop profile and closed the separate two-column proposal. The full Phase 04 gate remains open. [CUS-10 brief](../docs-work/desktop-layouts/CUS-10.md)
+
 ## DEC-084 — CUS-10 profile slice acceptance
 
 On 2026-11-24 the owner accepted the implemented CUS-10 profile slice, its five Sheets and the mobile keyboard follow-up, and authorized local Git closeout. The separate desktop proposal and full Phase 04 gate remain pending. [CUS-10 brief](../docs-work/desktop-layouts/CUS-10.md)

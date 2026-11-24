@@ -1,3 +1,13 @@
+export function keepRailChoicesInView(rail) {
+  rail.addEventListener('focusin', event => event.target.closest('label')?.scrollIntoView({ block: 'nearest', inline: 'nearest' }));
+  rail.addEventListener('keydown', event => {
+    if (event.target !== rail || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    if (event.key === 'Home' || event.key === 'End') rail.scrollLeft = event.key === 'Home' ? 0 : -rail.scrollWidth;
+    else rail.scrollBy({ left: (event.key === 'ArrowLeft' ? -1 : 1) * rail.clientWidth / 2 });
+  });
+}
+
 export function center(rail, item, behavior = 'instant') {
   if (!item || !rail.clientWidth) return;
   const frame = rail.getBoundingClientRect();

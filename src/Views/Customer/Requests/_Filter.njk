@@ -22,7 +22,7 @@
       <label class="rv-appointments-filter__chip"><input type="radio" name="service" value="" checked><span>همه</span></label>
       {% for item in requestServices %}<label class="rv-appointments-filter__chip"><input type="radio" name="service" value="{{ item.id }}"><span><img src="{{ basePath }}{{ item.image }}" alt="" width="28" height="28" loading="lazy">{{ item.name }}</span></label>{% endfor %}
     </div></fieldset>
-    <fieldset><legend>آرایشگر</legend><div class="rv-appointments-filter__people">
+    <fieldset><legend>آرایشگر</legend><div class="rv-appointments-filter__people" data-rv-drag-rail role="group" aria-label="آرایشگرها" tabindex="0">
       <label class="rv-appointments-filter__person"><input type="radio" name="stylist" value="" checked><span><span class="rv-icon-tile"><span class="ri ri-users" aria-hidden="true"></span></span><span>همه</span></span></label>
       {% for item in requestStylists %}<label class="rv-appointments-filter__person"><input type="radio" name="stylist" value="{{ item.id }}"><span>{% if item.image %}<img src="{{ basePath }}{{ item.image }}" alt="" width="48" height="48" loading="lazy">{% else %}<span class="rv-icon-tile" aria-hidden="true">{{ item.initial }}</span>{% endif %}<span>{{ item.name }}</span></span></label>{% endfor %}
     </div></fieldset>

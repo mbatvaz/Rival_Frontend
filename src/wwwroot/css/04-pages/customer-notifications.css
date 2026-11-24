@@ -1,5 +1,4 @@
 @layer pages {
-  .rv-notifications-page .rv-workspace__header > .rv-notifications__back { grid-area: 1 / 1; }
   .rv-notifications { max-inline-size: 720px; margin-inline: auto; }
   .rv-notifications__inbox { display: grid; gap: var(--space-6); }
   .rv-notifications__toolbar { font-size: var(--body-sm-size); color: var(--text-secondary); }
@@ -80,7 +79,6 @@
   .rv-notifications__toast .rv-notification-item__tile { margin: 0; }
 
   @media (min-width: 1024px) {
-    .rv-notifications-page .rv-workspace__header > .rv-notifications__back { display: none; }
     .rv-notifications__toolbar { padding-inline: var(--space-1); }
     .rv-notifications__list { padding-inline: var(--space-2); }
     .rv-notifications__toast { inset-block-end: var(--space-6); }

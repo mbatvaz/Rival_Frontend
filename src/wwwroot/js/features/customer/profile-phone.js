@@ -1,6 +1,6 @@
 import { initOtp, renderOtp } from '../../components/otp.js';
-import { latinDigits, normalizePhone, validPhone } from '../../core/auth-demo.js';
-import { faDigits } from '../../core/format.js';
+import { normalizePhone, validPhone } from '../../core/auth-demo.js';
+import { faDigits, latinDigits } from '../../core/format.js';
 import { phoneChallenge } from './profile-phone-challenge.js';
 import { phonePreview, renderPhoneStage } from './profile-phone-view.js';
 

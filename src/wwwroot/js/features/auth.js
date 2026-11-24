@@ -1,7 +1,7 @@
 import { api } from '../core/api.js';
 import { basePath } from '../core/config.js';
-import { faDigits } from '../core/format.js';
-import { normalizePhone, validPhone, latinDigits, stateFor, issueCode, verify, finishSession, safeReturn } from '../core/auth-demo.js';
+import { faDigits, latinDigits } from '../core/format.js';
+import { normalizePhone, validPhone, stateFor, issueCode, verify, finishSession, safeReturn } from '../core/auth-demo.js';
 import { initOtp } from '../components/otp.js';
 import { initMethods, passwordMode } from './auth-methods.js';
 import { render, fieldError, notice } from './auth-view.js';

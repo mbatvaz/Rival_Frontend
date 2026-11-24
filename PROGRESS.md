@@ -1,12 +1,20 @@
 # Rival Progress
 
+## Phase 04 architecture review — 2026-11-24
+
+Consolidated customer date conversion, calendar Sheet ownership, card-preview lifecycle, shared dashboard state and build-time routes. Verified runtime consumers after moving shared files. [Architecture review](docs-work/PHASE_04_ARCHITECTURE_REVIEW_FA.md). The full phase gate remains open.
+
+## Phase 04 interface consistency review — 2026-11-24
+
+Reviewed CUS-01 through CUS-10 for shared controls and motion. Reused the customer notification bell and mobile More return, aligned the request filter with appointment controls, and connected the remaining variable records and card previews to shared motion. [Review and evidence](docs-work/PHASE_04_CONSISTENCY_REVIEW_FA.md). The full phase gate remains open.
+
 ## Local context and QA workflow — 2026-11-24
 
 Page and phase startup now use a compact local lookup. Affected QA scopes literal import and registration additions to their consumers and treats registry acceptance metadata as a review check. Scoped subpath runs skip audited duplicate visual widths. [Measurements and retained coverage](docs-work/CONTEXT_OPTIMIZATION_REPORT_FA.md#اجرای-دوم-۲۴-نوامبر-۲۰۲۶)
 
 ## CUS-10 customer profile accepted — 2026-11-24
 
-The owner accepted the implemented mobile and tablet profile, its six preview states and the mobile keyboard follow-up under DEC-084. The separate desktop proposal and the Phase 04 gate remain open. [CUS-10 brief](docs-work/desktop-layouts/CUS-10.md)
+The owner accepted the implemented mobile and tablet profile, its six preview states and the mobile keyboard follow-up under DEC-084. DEC-085 records acceptance of the existing single-column desktop layout and closes the two-column proposal. The Phase 04 gate remains open. [CUS-10 brief](docs-work/desktop-layouts/CUS-10.md)
 
 Closeout rebuilt both deployment paths and passed 26/26 at root and 23/23 under `/rival-demo/` across the profile, sign-in and review variants. The root output was restored. The mobile keyboard was verified with a simulated visual viewport.
 

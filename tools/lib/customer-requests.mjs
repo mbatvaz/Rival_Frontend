@@ -1,11 +1,11 @@
 import path from 'node:path';
-import { src, readJson, withBase } from './site.mjs';
+import { src, readJson } from './site.mjs';
 import { faDigits } from './format.mjs';
 
 const money = new Intl.NumberFormat('fa-IR');
 const date = new Intl.DateTimeFormat('fa-IR', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'Asia/Tehran' });
 
-export async function requestContext(basePath, pages, model) {
+export async function requestContext(model) {
   const catalog = (await readJson(path.join(src, 'MockData/booking/catalog.json'))).data;
   const services = [...catalog.services, ...model.extraServices];
   const service = id => services.find(item => item.id === id);
@@ -43,8 +43,7 @@ export async function requestContext(basePath, pages, model) {
     requestRecords,
     requestCounts,
     requestServices: model.services.map(service),
-    requestStylists: [...catalog.stylists, { id: 'mehdi', name: 'مهدی', initial: 'م' }],
-    customerUrls: Object.fromEntries(pages.map(item => [item.id, withBase(basePath, item.previewPath)]))
+    requestStylists: [...catalog.stylists, { id: 'mehdi', name: 'مهدی', initial: 'م' }]
   };
 }
 

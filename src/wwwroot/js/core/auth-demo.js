@@ -1,7 +1,6 @@
 import { api } from './api.js';
+import { latinDigits } from './format.js';
 
-export const latinDigits = value => String(value).replace(/[۰-۹]/g, d => String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d)))
-  .replace(/[٠-٩]/g, d => String('٠١٢٣٤٥٦٧٨٩'.indexOf(d)));
 export const normalizePhone = value => latinDigits(value).replace(/[\s-]/g, '');
 export const validPhone = value => /^09[0-9]{9}$/.test(value);
 

@@ -1,10 +1,8 @@
 {% extends "Shared/_CustomerPanelLayout.njk" %}
 {% block workspaceClass %} rv-customer-home rv-customer-panel rv-profile-page{% endblock %}
-{% block workspaceHeader %}
-<button class="rv-icon-btn rv-profile__back" type="button" data-rv-sheet-open="rv-more" aria-label="بازگشت به منوی بیشتر"><span class="ri ri-arrow-right" aria-hidden="true"></span></button>
-<div class="rv-customer-panel__heading"><h1>{{ page.titleFa }}</h1></div>
-<span class="rv-customer-panel__spacer" aria-hidden="true"></span>
-{% endblock %}
+{% block panelBack %}{% include "Shared/Components/_CustomerMoreBack.njk" %}{% endblock %}
+{% block panelIdentity %}{% endblock %}
+{% block panelTrailing %}{% endblock %}
 {% block content %}
 <div class="rv-profile" data-rv="customer-profile">
   <section class="rv-profile__identity rv-glass rv-glass--strong" aria-label="حساب شما">

@@ -61,6 +61,8 @@ test('Inactive home blocks every write entry including More while retaining read
 
 test('Dismissed notices persist locally and failed storage leaves the notice available @smoke', async ({ page }) => {
   await go(page);
+  const otherTab = await page.context().newPage();
+  await go(otherTab);
   await page.getByRole('button', { name: 'بستن این اعلان' }).click();
   await expect(page.locator('[data-rv-home-personal]')).toBeHidden();
   await page.reload(); await ready(page);
@@ -70,6 +72,11 @@ test('Dismissed notices persist locally and failed storage leaves the notice ava
   await page.getByRole('button', { name: 'بستن این اطلاعیه' }).click();
   await expect(page.locator('[data-rv-home-error]')).toContainText('ذخیره در این مرورگر ممکن نیست.');
   await expect(page.locator('[data-rv-home-dismissable="salon-hours"]')).toBeVisible();
+  await otherTab.getByRole('button', { name: 'بستن این اطلاعیه' }).click();
+  await expect(otherTab.locator('[data-rv-home-dismissable="salon-hours"]')).toBeHidden();
+  await page.reload(); await ready(page);
+  await expect(page.locator('[data-rv-home-personal]')).toBeHidden();
+  await expect(page.locator('[data-rv-home-dismissable="salon-hours"]')).toBeHidden();
 });
 
 test('Countdown uses elapsed time across reload and expired payment leads to request details @smoke', async ({ page }) => {

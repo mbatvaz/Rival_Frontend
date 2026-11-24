@@ -1,4 +1,5 @@
 import { faDigits } from '../../core/format.js';
+import { keepRailChoicesInView } from '../../components/rail.js';
 import { matchesRequest, requestFilter } from './request-filter.js';
 import { readRequests, refreshRequests, requestClock, requestGroup, requestStatus } from './request-state.js';
 import { draftCard } from './submitted-requests.js';
@@ -23,6 +24,7 @@ export async function init(root) {
   const openFilterPreview = requestFilter(query, () => ({
     active: selected().value, records: query.get('state') === 'empty' ? [] : records
   }), apply);
+  keepRailChoicesInView(document.querySelector('#rv-request-filter-form [data-rv-drag-rail]'));
   for (const radio of radios) radio.addEventListener('change', () => {
     views.set(selected().value, [...query].filter(([key]) => !['tab', 'state'].includes(key)));
     for (const [key] of [...query]) if (!['tab', 'state'].includes(key)) query.delete(key);

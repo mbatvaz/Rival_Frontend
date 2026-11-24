@@ -1,7 +1,8 @@
 import { openSheet, closeSheet } from '../../components/sheet.js';
-import { defaults, matches, parseDate, fa } from './appointment-filters.js';
-import { faDigits } from '../../core/format.js';
-import { initDatePicker, dateInstant } from './appointment-date-picker.js';
+import { keepRailChoicesInView } from '../../components/rail.js';
+import { defaults, matches } from './appointment-filters.js';
+import { faDigits, faNumber, jalaliToIsoDate, parseJalaliDate } from '../../core/format.js';
+import { initDatePicker } from './appointment-date-picker.js';
 
 export function initFilterSheet(root, data, current, apply) {
   const sheet = document.getElementById('rv-appointments-filter');
@@ -15,7 +16,7 @@ export function initFilterSheet(root, data, current, apply) {
   };
   function count() {
     const records = data.groups.find(group => group.key === current().tab).months.flatMap(month => month.items);
-    submit.textContent = 'نمایش ' + fa(records.filter(record => matches(record, values())).length) + ' نوبت';
+    submit.textContent = 'نمایش ' + faNumber(records.filter(record => matches(record, values())).length) + ' نوبت';
   }
   function fill(filters) {
     form.reset();
@@ -59,26 +60,19 @@ export function initFilterSheet(root, data, current, apply) {
     if (['from', 'to'].includes(event.target.name)) form.elements.range.value = 'custom';
     count();
   });
-  const rail = sheet.querySelector('[data-rv-drag-rail]');
-  rail.addEventListener('focusin', event => event.target.closest('label')?.scrollIntoView({ block: 'nearest', inline: 'nearest' }));
-  rail.addEventListener('keydown', event => {
-    if (event.target !== rail || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-    event.preventDefault();
-    if (event.key === 'Home' || event.key === 'End') rail.scrollLeft = event.key === 'Home' ? 0 : -rail.scrollWidth;
-    else rail.scrollBy({ left: (event.key === 'ArrowLeft' ? -1 : 1) * rail.clientWidth / 2 });
-  });
+  keepRailChoicesInView(sheet.querySelector('[data-rv-drag-rail]'));
   initDatePicker(form, data.today);
   form.addEventListener('submit', async event => {
     event.preventDefault();
     const filters = values();
     for (const key of ['from', 'to']) {
-      const valid = !filters[key] || dateInstant(filters[key]);
+      const valid = !filters[key] || jalaliToIsoDate(filters[key]);
       form.elements[key].setAttribute('aria-invalid', String(!valid));
       if (!valid) {
         error.textContent = 'تاریخ شمسی معتبر وارد کنید؛ مانند ۱۴۰۵/۰۷/۲۲.';
         error.hidden = false; form.elements[key].focus(); return;
       }
-      filters[key] = parseDate(filters[key]) ?? '';
+      filters[key] = parseJalaliDate(filters[key]) ?? '';
     }
     if (filters.from && filters.to && filters.from > filters.to) {
       error.textContent = 'تاریخ پایان باید برابر یا پس از تاریخ شروع باشد.';

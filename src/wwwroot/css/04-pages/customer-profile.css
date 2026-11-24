@@ -1,5 +1,4 @@
 @layer pages {
-  .rv-profile-page .rv-workspace__header > .rv-profile__back { grid-area: 1 / 1; }
   .rv-profile-page { translate: var(--rv-profile-lift, none); }
 
   .rv-profile {
@@ -133,7 +132,4 @@
   .rv-profile__add { text-align: start; }
   .rv-profile > .rv-feedback { margin: 0; }
 
-  @media (min-width: 1024px) {
-    .rv-profile-page .rv-profile__back { display: none; }
-  }
 }

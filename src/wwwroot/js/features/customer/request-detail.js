@@ -1,5 +1,5 @@
 import { closeSheet } from '../../components/sheet.js';
-import { appointmentSheetOpener } from './appointment-sheet-hero.js';
+import { appointmentSheetOpener } from './card-sheet.js';
 import { beginRequestPayment, cancelRequest, readRequests, refreshRequests, requestGroup, requestStatus, runRequestAction } from './request-state.js';
 import { get, show, requestRenderer } from './request-renderer.js';
 import { paintDraftDetail } from './submitted-requests.js';
@@ -47,7 +47,9 @@ export async function init(root) {
     show(surface, 'error', false);
     try {
       await runRequestAction(async () => {
-        record = (await readRequests()).find(item => item.id === id);
+        const latest = (await readRequests()).find(item => item.id === id);
+        if (!latest) throw new Error('درخواست دیگر در دسترس نیست. فهرست درخواست‌ها را دوباره باز کنید.');
+        record = latest;
         if (requestStatus(record) === original && ['pay', 'wait'].includes(original)) await operation();
       });
     } catch (error) { showError(surface, error); }

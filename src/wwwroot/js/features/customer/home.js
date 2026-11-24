@@ -2,6 +2,7 @@ import { api } from '../../core/api.js';
 import { activeAlert, readAlerts } from '../../core/availability-alerts.js';
 import { faDigits } from '../../core/format.js';
 import { initHomeRails } from './home-rails.js';
+import { dismissHomeNotice, readHomeState } from './home-state.js';
 import { startClocks } from './home-clocks.js';
 import { refreshHomeAppointments } from './reschedule-summaries.js';
 import { swapCustomer } from './appointment-swap-context.js';
@@ -57,8 +58,7 @@ export async function init(root) {
   try {
     const data = (await api.read('customer/home')).data;
     if (!empty) await refreshHomeAppointments(root, inactive);
-    const saved = (await api.read('customer/home-state')).data;
-    if (!saved.clockStartedAt) { saved.clockStartedAt = Date.now(); await api.write('customer/home-state', saved); }
+    const saved = await readHomeState();
     saved.dismissed.forEach(id => { root.querySelector(`[data-rv-home-dismissable="${window.CSS.escape(id)}"]`)?.setAttribute('hidden', ''); });
     if (!empty) {
       const refreshAlerts = async () => {
@@ -89,8 +89,7 @@ export async function init(root) {
       button.disabled = true;
       try {
         const id = button.dataset.rvHomeDismiss;
-        if (!saved.dismissed.includes(id)) saved.dismissed.push(id);
-        await api.write('customer/home-state', saved);
+        await dismissHomeNotice(id);
         root.querySelector(`[data-rv-home-dismissable="${window.CSS.escape(id)}"]`).hidden = true;
         root.querySelector('#rv-next-title').tabIndex = -1;
         root.querySelector('#rv-next-title').focus({ preventScroll: true });

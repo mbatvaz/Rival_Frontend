@@ -3,45 +3,14 @@ import { URLSearchParams } from 'node:url';
 import { src, readJson, withBase } from './site.mjs';
 import { requestAppointments, requestContext } from './customer-requests.mjs';
 
-// Phase 04 build context only. Runtime reads/writes remain behind core/api.js.
-export async function customerContext(page, basePath, pages, model) {
-  if (['CUS-05', 'CUS-06'].includes(page.id)) return requestContext(basePath, pages, model);
-  if (page.id === 'CUS-09') {
-    const routes = Object.fromEntries(pages.map(item => [item.id, withBase(basePath, item.previewPath)]));
-    let index = 0;
-    const notificationGroups = model.groups.map(group => ({
-      ...group,
-      items: group.items.map(item => ({ ...item, initial: index++ < model.pageSize,
-        href: item.target ? routes[item.target.page] + '?' + new URLSearchParams(item.target.params) : '' }))
-    }));
-    return { notificationGroups, notificationTotal: index,
-      notificationUnread: model.groups.flatMap(group => group.items).filter(item => item.unread).length };
-  }
-  if (page.id === 'CUS-08') {
-    const { data: catalog } = await readJson(path.join(src, 'MockData/booking/catalog.json'));
-    const history = model.history.map(item => ({
-      ...item, service: catalog.services.find(service => service.id === item.service),
-      stylist: catalog.stylists.find(stylist => stylist.id === item.stylist)
-    }));
-    return {
-      alertServices: ['face-hair', 'hair', 'beard-color', 'facial'].map(id => catalog.services.find(service => service.id === id)),
-      alertStylists: catalog.stylists,
-      alertHistory: history,
-      customerUrls: Object.fromEntries(pages.map(item => [item.id, withBase(basePath, item.previewPath)]))
-    };
-  }
-  if (!['CUS-01', 'CUS-03', 'CUS-04'].includes(page.id)) return {};
-  const [home, publicHome] = await Promise.all([
-    readJson(path.join(src, 'MockData/customer/home.json')),
-    readJson(path.join(src, 'MockData/public/home.json'))
-  ]);
-  const format = value => new Intl.NumberFormat('fa-IR').format(value);
-  const { data: swap } = await readJson(path.join(src, 'MockData/customer/appointment-swap.json'));
-  const swapAppointments = swap.appointments.map((record, index) => ({
+const fixture = async name => (await readJson(path.join(src, 'MockData', name + '.json'))).data;
+const amount = new Intl.NumberFormat('fa-IR');
+
+function swapCards({ appointments }, countdown = []) {
+  return appointments.map((record, index) => ({
     id: record.id, swap: true, service: 'اصلاح سر و صورت', stylist: 'امیر',
     image: 'img/public/shave.png', avatar: 'img/public/amir.png',
-    status: 'booked', statusText: 'رزرو شده', tone: 'ink', icon: 'check-circle',
-    countdown: page.id === 'CUS-04' ? home.data.appointments[0].countdown.map(unit => ({ ...unit, value: '۰۰' })) : [],
+    status: 'booked', statusText: 'رزرو شده', tone: 'ink', icon: 'check-circle', countdown,
     weekday: '', day: '', month: '', time: '', distance: 'رزرو شده',
     detail: {
       duration: '۱ ساعت', paidAt: 'پرداخت آزمایشی', amount: '۱۸۰٬۰۰۰', gateway: '۱۸۰٬۰۰۰',
@@ -51,24 +20,58 @@ export async function customerContext(page, basePath, pages, model) {
       ]
     }
   }));
-  let customerAppointments = [];
-  if (page.id === 'CUS-04') {
-    const { data } = await readJson(path.join(src, 'MockData/customer/appointments.json'));
-    customerAppointments = data.groups.flatMap(group => group.months.flatMap(month => month.items))
-      .map(appointment => ({
-        ...appointment,
-        detail: model.records[appointment.id],
-        countdown: home.data.appointments.find(item => item.id === appointment.id)?.countdown ?? []
-      }));
-    customerAppointments.push(model.conflict, ...swapAppointments);
-    const requests = (await readJson(path.join(src, 'MockData/customer/requests.json'))).data;
-    const context = await requestContext(basePath, pages, requests);
-    customerAppointments.push(...requestAppointments(context.requestRecords));
+}
+
+// Phase 04 build context only. Runtime reads/writes remain behind core/api.js.
+export async function customerContext(page, basePath, customerUrls, model) {
+  if (['CUS-05', 'CUS-06'].includes(page.id)) return requestContext(model);
+  if (page.id === 'CUS-09') {
+    let index = 0;
+    const notificationGroups = model.groups.map(group => ({
+      ...group,
+      items: group.items.map(item => ({ ...item, initial: index++ < model.pageSize,
+        href: item.target ? customerUrls[item.target.page] + '?' + new URLSearchParams(item.target.params) : '' }))
+    }));
+    return { notificationGroups, notificationTotal: index,
+      notificationUnread: model.groups.flatMap(group => group.items).filter(item => item.unread).length };
   }
+  if (page.id === 'CUS-08') {
+    const catalog = await fixture('booking/catalog');
+    const history = model.history.map(item => ({
+      ...item, service: catalog.services.find(service => service.id === item.service),
+      stylist: catalog.stylists.find(stylist => stylist.id === item.stylist)
+    }));
+    return {
+      alertServices: ['face-hair', 'hair', 'beard-color', 'facial'].map(id => catalog.services.find(service => service.id === id)),
+      alertStylists: catalog.stylists,
+      alertHistory: history
+    };
+  }
+  if (page.id === 'CUS-03') return { swapAppointments: swapCards(await fixture('customer/appointment-swap')) };
+  if (!['CUS-01', 'CUS-04'].includes(page.id)) return {};
+  const [home, publicHome, swap] = await Promise.all([
+    fixture('customer/home'), fixture('public/home'), fixture('customer/appointment-swap')
+  ]);
+  const customerMapUrl = publicHome.links.map;
+  if (page.id === 'CUS-01') return {
+    swapAppointments: swapCards(swap),
+    customerMapUrl,
+    customerBalance: amount.format(home.balance),
+    customerPayments: home.payments.map(payment => ({ ...payment, amountText: amount.format(payment.amount) }))
+  };
+  const swapAppointments = swapCards(swap, home.appointments[0].countdown.map(unit => ({ ...unit, value: '۰۰' })));
+  const [data, requests] = await Promise.all([fixture('customer/appointments'), fixture('customer/requests').then(requestContext)]);
+  const customerAppointments = data.groups.flatMap(group => group.months.flatMap(month => month.items))
+    .map(appointment => ({
+      ...appointment,
+      detail: model.records[appointment.id],
+      countdown: home.appointments.find(item => item.id === appointment.id)?.countdown ?? []
+    }));
+  customerAppointments.push(model.conflict, ...swapAppointments, ...requestAppointments(requests.requestRecords));
   const appointment = customerAppointments[0];
   return {
     customerAppointments,
-    swapAppointments,
+    customerMapUrl,
     ...(appointment && {
       bookingDefault: {
         service: { image: appointment.image, name: appointment.service },
@@ -86,13 +89,6 @@ export async function customerContext(page, basePath, pages, model) {
           { id: 'home', label: 'بازگشت به خانه', href: withBase(basePath, '/customer/'), secondary: true }]
       }]
     }),
-    detailHero: page.id === 'CUS-04',
-    customerUrls: {
-      ...Object.fromEntries(pages.filter(item => item.id.startsWith('CUS-')).map(item => [item.id, withBase(basePath, item.previewPath)])),
-      recurring: withBase(basePath, '/_preview/context/bk-rec01/')
-    },
-    customerMapUrl: publicHome.data.links.map,
-    customerBalance: format(home.data.balance),
-    customerPayments: home.data.payments.map(payment => ({ ...payment, amountText: format(payment.amount) }))
+    detailHero: true
   };
 }

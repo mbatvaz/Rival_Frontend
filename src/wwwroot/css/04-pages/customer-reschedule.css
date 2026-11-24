@@ -88,7 +88,6 @@
   .rv-reschedule-result .rv-state-page__lines del { color: var(--text-secondary); }
   .rv-reschedule-result .rv-state-page__code { border-block-start: 1px dashed var(--line-strong); }
 
-  .rv-reschedule-lift { position: fixed; pointer-events: none; }
   .rv-reschedule-sheet { position: relative; z-index: 1; }
   .rv-reschedule-sheet .rv-sheet__header h2 { flex: 1; margin: 0; }
   .rv-reschedule-sheet .rv-sheet__header .rv-icon-tile { background: var(--bg-inverse); color: var(--text-inverse); }

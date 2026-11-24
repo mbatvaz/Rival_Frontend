@@ -1,5 +1,6 @@
 import { api } from '../../core/api.js';
-import { defaults, fromUrl, matches, updateUrl, fa } from './appointment-filters.js';
+import { faNumber } from '../../core/format.js';
+import { defaults, fromUrl, matches, updateUrl } from './appointment-filters.js';
 import { initFilterSheet } from './appointment-filter-sheet.js';
 import { refreshAppointmentCards } from './reschedule-summaries.js';
 import { swapCustomer } from './appointment-swap-context.js';
@@ -36,7 +37,7 @@ export async function init(root) {
     }
     container.hidden = !container.childElementCount;
     const badge = root.querySelector('[data-rv-filter-count]');
-    badge.hidden = container.hidden; badge.textContent = fa(container.childElementCount);
+    badge.hidden = container.hidden; badge.textContent = faNumber(container.childElementCount);
   }
   function render() {
     const group = data.groups.find(group => group.key === current.tab);
@@ -46,15 +47,15 @@ export async function init(root) {
       panel.hidden = panel.dataset.rvAppointmentsPanel !== current.tab;
       for (const el of panel.querySelectorAll('[data-rv-record]')) {
         const record = records.find(record => record.id === el.dataset.rvRecord);
-        el.hidden = !record || !matches(record, current.filters, current.tab, data);
+        el.hidden = !record || !matches(record, current.filters);
         if (!panel.hidden && !el.hidden) count++;
       }
       for (const month of panel.querySelectorAll('[data-rv-record-month]')) month.hidden = ![...month.querySelectorAll('[data-rv-record]')].some(el => !el.hidden);
     }
     tabs.forEach(tab => { tab.checked = tab.dataset.rvAppointmentsTab === current.tab; });
-    for (const group of data.groups) root.querySelector(`[data-rv-total="${group.key}"]`).textContent = fa(group.count);
+    for (const group of data.groups) root.querySelector(`[data-rv-total="${group.key}"]`).textContent = faNumber(group.count);
     for (const el of root.querySelectorAll('[data-rv-list-empty]')) el.hidden = count > 0 || el.dataset.rvListEmpty !== (group.count === 0 ? 'empty' : 'noresult');
-    root.querySelector('[data-rv-appointments-status]').textContent = `${fa(count)} نوبت ${group.label}`;
+    root.querySelector('[data-rv-appointments-status]').textContent = `${faNumber(count)} نوبت ${group.label}`;
     chips();
   }
   async function load(demoState) {

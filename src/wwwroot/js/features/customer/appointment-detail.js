@@ -1,4 +1,4 @@
-import { appointmentSheetOpener } from './appointment-sheet-hero.js';
+import { appointmentSheetOpener } from './card-sheet.js';
 import { applyRescheduleRoute, rescheduleAppointmentId } from './reschedule-route.js';
 import { initSwapDetail, loadSwapDetail } from './appointment-swap-detail.js';
 import { initReferenceSwap } from './appointment-swap-reference.js';

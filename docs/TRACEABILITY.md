@@ -24,7 +24,7 @@ DEC-072 and Batch 3 D10-41, D10-51–54, D10-59, D10-63, D10-65 and D10-68 → [
 
 ## CUS-04 Appointment Swap — 2026-11-22
 
-DEC-078 links the five preview states through the [registry](../src/page-registry.json), uses [shared swap actions](../src/Views/Customer/Appointments/_SwapActions.njk) on all detail records, and reuses the [appointment lift](../src/wwwroot/js/features/customer/appointment-sheet-hero.js) and dashboard payment-clock styling. [Swap coverage](../tests/phase04/appointment-swap.spec.mjs)
+DEC-078 links the five preview states through the [registry](../src/page-registry.json), uses [shared swap actions](../src/Views/Customer/Appointments/_SwapActions.njk) on all detail records, and reuses the [appointment lift](../src/wwwroot/js/features/customer/card-sheet.js) and dashboard payment-clock styling. [Swap coverage](../tests/phase04/appointment-swap.spec.mjs)
 
 DEC-077 introduces the in-Sheet schedule review and distinct result view. The swap suite verifies that checking the code leaves the ledger unchanged and that a code expiring before consent cannot be redeemed. [Feature contract](features/APPOINTMENT_SWAP.md)
 
@@ -48,7 +48,7 @@ DEC-074 + four browser annotations and direct motion/multi-select request → [f
 
 ## CUS-03 annotated revision — 2026-11-17
 
-DEC-073 + seven owner browser comments + supplied popup screenshot → [native tools](../src/Views/Customer/Appointments/_Tools.njk), [common filter](../src/Views/Customer/Appointments/_Filter.njk), [two-boundary calendar wrapper](../src/Views/Customer/Appointments/_DatePicker.njk), [date adapter](../src/wwwroot/js/features/customer/appointment-date-picker.js) reusing Phase 03 calendar.js/monthGrid, [desktop history](../src/wwwroot/css/04-pages/customer-history-desktop.css) and scoped list/panel styles → [annotation regressions](../tests/phase04/appointment-feedback.spec.mjs), [updated list/filter regressions](../tests/phase04/appointments.spec.mjs), home and recurring calendar parity → [actual evidence](../docs-work/CUS_03_OWNER_FEEDBACK_2026-11-17.md). No new page/role/write endpoint.
+DEC-073 + seven owner browser comments + supplied popup screenshot → [native tools](../src/Views/Customer/Appointments/_Tools.njk), [common filter](../src/Views/Customer/Appointments/_Filter.njk), [two-boundary calendar wrapper](../src/Views/Shared/Components/_CustomerDatePicker.njk), [date adapter](../src/wwwroot/js/features/customer/appointment-date-picker.js) reusing Phase 03 calendar.js/monthGrid, [desktop history](../src/wwwroot/css/04-pages/customer-history-desktop.css) and scoped list/panel styles → [annotation regressions](../tests/phase04/appointment-feedback.spec.mjs), [updated list/filter regressions](../tests/phase04/appointments.spec.mjs), home and recurring calendar parity → [actual evidence](../docs-work/CUS_03_OWNER_FEEDBACK_2026-11-17.md). No new page/role/write endpoint.
 
 ## CUS-03 list and filters — 2026-11-17
 
