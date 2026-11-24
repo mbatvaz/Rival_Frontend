@@ -1,5 +1,9 @@
 # Discrepancies and Alignment Log
 
+## CUS-09 notifications
+
+The export gives six notification samples and a total of 24. The additional 18 records are demo notices for pagination. Existing preview routes supply resource links and shared customer chrome. The owner accepted the slice and its single-column desktop composition under DEC-083. [CUS-09 brief](../docs-work/desktop-layouts/CUS-09.md)
+
 ## CUS-08 availability alerts
 
 The demo catalog includes Sina for haircut so the released alert opens time selection directly with both values from the reference. The four directory variants reproduce the source sample independently of the customer's local alerts. [Accepted brief](../docs-work/desktop-layouts/CUS-08.md).

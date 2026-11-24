@@ -1,5 +1,9 @@
 # Decision Log
 
+## DEC-083 — CUS-09 customer notifications acceptance
+
+On 2026-11-24 the owner accepted CUS-09 and authorized closeout and local Git commits. Acceptance covers the inbox, all-read and empty views, read actions, dashboard badge, pagination and linked customer resources. [CUS-09 brief](../docs-work/desktop-layouts/CUS-09.md)
+
 ## DEC-082 — CUS-08 availability alerts acceptance
 
 On 2026-11-24 the owner accepted the CUS-08 availability alert slice and authorized its closeout. The accepted slice includes the customer list, add and duplicate states, cancellation Sheet, and navigation from a released alert directly to time selection with the same service and stylist. [CUS-08 brief](../docs-work/desktop-layouts/CUS-08.md)

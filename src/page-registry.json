@@ -439,11 +439,17 @@
       "status": "Fully Designed",
       "source": "Batch 3",
       "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
-      "titleFa": "اعلان‌های مشتری",
-      "phase": "Phase 04"
+      "template": "Customer/Notifications/Index.njk",
+      "mockData": "MockData/customer/notifications.json",
+      "notes": "Customer inbox and three D10-56 source states accepted under DEC-083.",
+      "titleFa": "اعلان‌ها",
+      "phase": "Phase 04",
+      "implementationStatus": "accepted",
+      "variants": [
+        { "label": "نمونهٔ طرح — فهرست", "query": "?state=example" },
+        { "label": "همه خوانده شد", "query": "?state=read" },
+        { "label": "بدون اعلان", "query": "?state=empty" }
+      ]
     },
     {
       "id": "CUS-10",

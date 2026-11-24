@@ -1,10 +1,22 @@
 import path from 'node:path';
+import { URLSearchParams } from 'node:url';
 import { src, readJson, withBase } from './site.mjs';
 import { requestAppointments, requestContext } from './customer-requests.mjs';
 
 // Phase 04 build context only. Runtime reads/writes remain behind core/api.js.
 export async function customerContext(page, basePath, pages, model) {
   if (['CUS-05', 'CUS-06'].includes(page.id)) return requestContext(basePath, pages, model);
+  if (page.id === 'CUS-09') {
+    const routes = Object.fromEntries(pages.map(item => [item.id, withBase(basePath, item.previewPath)]));
+    let index = 0;
+    const notificationGroups = model.groups.map(group => ({
+      ...group,
+      items: group.items.map(item => ({ ...item, initial: index++ < model.pageSize,
+        href: item.target ? routes[item.target.page] + '?' + new URLSearchParams(item.target.params) : '' }))
+    }));
+    return { notificationGroups, notificationTotal: index,
+      notificationUnread: model.groups.flatMap(group => group.items).filter(item => item.unread).length };
+  }
   if (page.id === 'CUS-08') {
     const { data: catalog } = await readJson(path.join(src, 'MockData/booking/catalog.json'));
     const history = model.history.map(item => ({

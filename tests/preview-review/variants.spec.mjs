@@ -15,7 +15,8 @@ async function ready(page) {
 test('Each state has independent persisted approvals, while default approvals never cascade @smoke', async ({ page }) => {
   await ready(page);
   await expect(page.locator('[data-rv-page-row]')).toHaveCount(69);
-  await expect(page.locator('[data-rv-parent-id]')).toHaveCount(45);
+  await expect(parent(page).locator('[data-rv-parent-id]')).toHaveCount(5);
+  await expect(page.locator('[data-rv-parent-id="CUS-09"]')).toHaveCount(3);
   await expect(state(page)).not.toBeVisible();
   await approve(parent(page));
   await parent(page).locator(':scope > details > summary').click();

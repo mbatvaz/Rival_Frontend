@@ -1,5 +1,9 @@
 # Canonical Page Inventory
 
+## CUS-09 notifications
+
+CUS-09 was accepted on 2026-11-24 under DEC-083, including its default, all-read and empty states. CUS-10 is the remaining unimplemented Phase 04 route. [CUS-09 brief](../docs-work/desktop-layouts/CUS-09.md)
+
 ## CUS-08 availability alerts
 
 CUS-08 was accepted by the owner on 2026-11-24 under DEC-082. It includes an active list, finished records and add, duplicate and cancellation Sheets. CUS-09 and CUS-10 are the remaining customer routes. [Desktop brief and sources](../docs-work/desktop-layouts/CUS-08.md).

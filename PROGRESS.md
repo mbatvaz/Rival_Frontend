@@ -1,5 +1,17 @@
 # Rival Progress
 
+## CUS-09 customer notifications accepted — 2026-11-24
+
+The owner accepted the inbox, all-read and empty views under DEC-083. The registry records acceptance and the desktop brief records source comparisons. CUS-10 is the remaining unimplemented Phase 04 route. [Accepted brief](docs-work/desktop-layouts/CUS-09.md)
+
+Closeout builds and lint passed. The notification and preview-variant suites passed 14/14 at root and 14/14 under `/rival-demo/`. The root output was restored.
+
+## CUS-09 customer notifications preview — 2026-11-24
+
+The next owner-assigned Phase 04 slice implements the grouped notification inbox, persistent read actions, dashboard unread indicator, pagination and direct resource links. The three Batch 3 states are available in the preview directory. Desktop review is pending under DEC-072. [Sources and layout](docs-work/desktop-layouts/CUS-09.md)
+
+Build, lint and map freshness passed. The CUS-09 suite passed 9/9 at root and 9/9 under `/rival-demo/`. The related customer and review suites passed 47/47 at root. Under the subpath all 46 other tests passed, and the preview review suite passed 5/5 after scoping its obsolete directory-wide variant count to the two pages under test. The local root preview on port 8183 returned the CUS-09 example route.
+
 ## CUS-08 availability alerts accepted — 2026-11-24
 
 The owner accepted CUS-08 and authorized its slice closeout under DEC-082. The registry records acceptance of the page with its four preview states. [Desktop brief and verification](docs-work/desktop-layouts/CUS-08.md)

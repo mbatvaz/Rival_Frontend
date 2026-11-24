@@ -4,7 +4,7 @@
 {% block workspaceHeader %}
 <a href="{{ productUrls.panel }}" aria-label="ریوال — خانهٔ مشتری"><img src="{{ urls.logo }}" alt="ریوال" width="90" height="30"></a>
 <div class="rv-customer-home__desktop-heading"><strong>{{ page.titleFa }}</strong><span data-rv-swap-shell-name>{{ shell.name }}</span></div>
-<a class="rv-icon-btn rv-customer-home__bell" href="{{ customerUrls['CUS-09'] }}" aria-label="اعلان‌ها، ۱ خوانده‌نشده"><span class="ri ri-bell" aria-hidden="true"></span><span aria-hidden="true"></span></a>
+<a class="rv-icon-btn rv-customer-home__bell" href="{{ customerUrls['CUS-09'] }}" aria-label="اعلان‌ها" data-rv="customer-notification-badge"><span class="ri ri-bell" aria-hidden="true"></span><span aria-hidden="true" hidden></span></a>
 {% endblock %}
 {% block content %}
 <div class="rv-customer-home__content" data-rv="customer-home">

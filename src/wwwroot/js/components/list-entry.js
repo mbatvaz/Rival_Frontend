@@ -6,6 +6,7 @@ const groups = [
   ['[data-rv-quick-items]', ':scope > a'],
   ['[data-rv-home-appointments]', ':scope > article'],
   ['[data-rv-appointments-records]', ':scope > a'],
+  ['[data-rv-notifications-records]', '[data-rv-notification]'],
   ['[data-rv-home-payment-rail]', ':scope > article'],
   ['[data-rv-rec-list]', ':scope > .rv-recurring-row'],
   ['[data-rv-group-items]', ':scope > li'],

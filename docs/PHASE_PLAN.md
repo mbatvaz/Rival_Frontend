@@ -36,7 +36,9 @@ This is the canonical dependency plan. It preserves the nine owner-defined imple
 
 Use serialized Workflow B. One phase at a time; each phase ends with a review gate and owner approval. Parallel work is allowed only inside a phase after shared contracts are frozen. Any change to tokens, shared components, navigation, or shell triggers its reuse regression list.
 
-## Current owner gate — 2026-11-21
+## Current owner gate — 2026-11-24
+
+The owner accepted the [CUS-09 notification slice](../docs-work/desktop-layouts/CUS-09.md) under DEC-083 and authorized its closeout. The full Phase 04 gate remains open and CUS-10 is the remaining unimplemented route.
 
 On 2026-11-24 the owner accepted the [CUS-08 availability alerts slice](../docs-work/desktop-layouts/CUS-08.md) under DEC-082. The Phase 04 gate remains open.
 

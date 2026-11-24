@@ -1,5 +1,9 @@
 # Traceability Contract
 
+## CUS-09 notifications
+
+D10-56, DEC-072 and DEC-083 → [inbox](../src/Views/Customer/Notifications/Index.njk), [NotificationItem](../src/Views/Shared/Components/_NotificationItem.njk), [demo feed](../src/MockData/customer/notifications.json), [read and pagination behavior](../src/wwwroot/js/features/customer/notifications.js), [browser coverage](../tests/phase04/notifications.spec.mjs). [Accepted source states and desktop layout](../docs-work/desktop-layouts/CUS-09.md)
+
 ## CUS-08 availability alerts
 
 The owner accepted the page and its four preview states on 2026-11-24 under DEC-082.

@@ -1,0 +1,41 @@
+{% extends "Shared/_CustomerPanelLayout.njk" %}
+{% block workspaceClass %} rv-customer-home rv-customer-panel rv-notifications-page{% endblock %}
+{% block workspaceHeader %}
+<button class="rv-icon-btn rv-notifications__back" type="button" data-rv-sheet-open="rv-more" aria-label="بازگشت به منوی بیشتر"><span class="ri ri-arrow-right" aria-hidden="true"></span></button>
+<div class="rv-customer-panel__heading"><h1>{{ page.titleFa }}</h1><span>{{ shell.name }}</span></div>
+<span class="rv-customer-panel__spacer" aria-hidden="true"></span>
+{% endblock %}
+{% block content %}
+<div class="rv-notifications" data-rv="customer-notifications" data-rv-notification-page-size="{{ model.pageSize }}">
+  <p class="rv-feedback rv-feedback--error" data-rv-notifications-error role="alert"></p>
+  <div class="rv-notifications__inbox" data-rv-notifications-inbox>
+    <div class="rv-section-head rv-notifications__toolbar">
+      <span id="rv-notifications-summary" role="status">{{ notificationUnread | faDigits }} خوانده‌نشده</span>
+      <button type="button" class="rv-btn rv-btn--small rv-notification-item__read" data-rv-notifications-read-all aria-describedby="rv-notifications-summary" aria-disabled="true"><span class="ri ri-check" aria-hidden="true"></span>همه خوانده شد</button>
+    </div>
+    <div class="rv-notifications__groups" data-rv-notifications-records>
+      {% for group in notificationGroups %}
+      <section aria-labelledby="rv-notifications-{{ group.id }}"{% if not group.items[0].initial %} hidden{% endif %}>
+        <h2 id="rv-notifications-{{ group.id }}">{{ group.label }}</h2>
+        <ul class="rv-notifications__list rv-glass" role="list">
+          {% for notification in group.items %}{% include "Shared/Components/_NotificationItem.njk" %}{% endfor %}
+        </ul>
+      </section>
+      {% endfor %}
+    </div>
+    <div class="rv-notifications__pagination">
+      <span role="status" data-rv-notifications-count>{{ model.pageSize | faDigits }} از {{ notificationTotal | faDigits }} اعلان</span>
+      <button type="button" class="rv-btn rv-btn--secondary" data-rv-notifications-more disabled>نمایش اعلان‌های قدیمی‌تر</button>
+    </div>
+  </div>
+  <section class="rv-notifications__empty rv-panel" aria-labelledby="rv-notifications-empty-title" data-rv-notifications-empty hidden>
+    <span class="rv-icon-tile" aria-hidden="true"><span class="ri ri-bell"></span></span>
+    <h2 id="rv-notifications-empty-title">اعلانی ندارید</h2>
+    <p>خبرهای نوبت‌ها، پاسخ درخواست‌ها و اطلاعیه‌های سالن اینجا می‌آیند.</p>
+  </section>
+  <div class="rv-notifications__toast" role="status">
+    <span class="rv-icon-tile rv-notification-item__tile" data-rv-tone="success" aria-hidden="true" hidden><span class="ri ri-check"></span></span>
+    <span data-rv-notifications-toast></span>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "pageSize": 6,
+    "groups": [
+      {
+        "id": "today",
+        "label": "امروز",
+        "items": [
+          { "id": "facial-reply", "title": "سینا به درخواست فیشیال پاسخ داد", "description": "یکشنبه ۲۶ مهر، ۱۲:۰۰. سه ساعت برای پرداخت دارید.", "when": "امروز، ۱۱:۰۷", "icon": "hourglass", "tone": "warning", "unread": true, "target": { "page": "CUS-06", "params": { "request": "RQ-2210" } } },
+          { "id": "haircut-booked", "title": "نوبت شما رزرو شد", "description": "سه‌شنبه ۲۸ مهر، ۱۵:۳۰، اصلاح سر با سینا.", "when": "امروز، ۰۸:۱۵", "icon": "check-circle", "tone": "ink", "target": { "page": "CUS-04", "params": { "appointment": "BK-48390" } } }
+        ]
+      },
+      {
+        "id": "week",
+        "label": "این هفته",
+        "items": [
+          { "id": "sina-available", "title": "زمانی از سینا آزاد شد", "description": "اصلاح سر. برای رزرو، زمان‌های تازه را ببینید.", "when": "دوشنبه ۲۰ مهر، ۱۸:۲۰", "icon": "bell-ring", "tone": "success", "target": { "page": "BK-F01", "params": { "service": "hair", "stylist": "sina" } } },
+          { "id": "thursday-hours", "title": "پنج‌شنبه‌ها تا ساعت ۲۰:۰۰ باز هستیم", "description": "از اول آبان، یک ساعت بیشتر برای نوبت‌های عصر.", "when": "شنبه ۱۸ مهر", "icon": "users", "tone": "ink", "public": true }
+        ]
+      },
+      {
+        "id": "older",
+        "label": "قدیمی‌تر",
+        "items": [
+          { "id": "beard-request-closed", "title": "درخواست رنگ ریش بسته شد", "description": "امیر در ۷ روز پاسخی نداد. مبلغی پرداخت نشده بود.", "when": "۱۷ مهر", "icon": "ban", "tone": "neutral", "target": { "page": "CUS-06", "params": { "request": "RQ-2171" } } },
+          { "id": "salon-refund", "title": "۱۸۰٬۰۰۰ تومان به اعتبار شما برگشت", "description": "نوبت ۳ شهریور توسط سالن لغو شد.", "when": "۳ شهریور", "icon": "wallet", "tone": "accent", "target": { "page": "CUS-04", "params": { "appointment": "BK-47388", "state": "scxl" } } },
+          { "id": "summer-gallery", "title": "نمونه‌کارهای تابستان", "description": "تصاویر کوتاهی و حالت‌دهی مو به مجموعهٔ سالن اضافه شد.", "when": "۱ شهریور", "icon": "images", "tone": "ink", "public": true },
+          { "id": "august-contact", "title": "راه‌های تماس با سالن", "description": "راه‌های تماس و نشانی در صفحهٔ اصلی سالن در دسترس است.", "when": "۲۹ مرداد", "icon": "phone", "tone": "ink", "public": true },
+          { "id": "august-portfolio", "title": "تصاویر تازه از اصلاح سر", "description": "نمونه‌های جدید اصلاح سر در مجموعهٔ تصاویر سالن قرار گرفت.", "when": "۲۵ مرداد", "icon": "images", "tone": "ink", "public": true },
+          { "id": "august-address", "title": "یادآوری نشانی سالن", "description": "از نقشهٔ صفحهٔ اصلی برای پیدا کردن سالن استفاده کنید.", "when": "۲۲ مرداد", "icon": "map-pin", "tone": "ink", "public": true },
+          { "id": "august-feedback", "title": "از همراهی شما متشکریم", "description": "بازخورد شما دربارهٔ تجربهٔ مراجعه به سالن برای ما ارزشمند است.", "when": "۱۸ مرداد", "icon": "users", "tone": "ink", "public": true },
+          { "id": "august-services", "title": "آشنایی با خدمات سالن", "description": "نام و توضیح هر خدمت را در گام اول رزرو می‌بینید.", "when": "۱۴ مرداد", "icon": "scissors", "tone": "ink", "public": true },
+          { "id": "august-stylists", "title": "آشنایی با تیم سالن", "description": "نام آرایشگران هر خدمت در مراحل رزرو نمایش داده می‌شود.", "when": "۱۰ مرداد", "icon": "users", "tone": "ink", "public": true },
+          { "id": "august-weekend", "title": "آخر هفتهٔ خوبی داشته باشید", "description": "برای دیدن زمان‌ها، خدمت و آرایشگر دلخواهتان را انتخاب کنید.", "when": "۷ مرداد", "icon": "calendar", "tone": "ink", "public": true },
+          { "id": "august-beard", "title": "نمونه‌های اصلاح ریش", "description": "چند تصویر تازه از فرم‌دهی ریش در گالری سالن منتشر شد.", "when": "۳ مرداد", "icon": "images", "tone": "ink", "public": true },
+          { "id": "july-appointments", "title": "یادآوری مشاهدهٔ نوبت‌ها", "description": "روز و ساعت رزرو در جزئیات هر نوبت قابل مشاهده است.", "when": "۲۸ تیر", "icon": "calendar", "tone": "ink", "public": true },
+          { "id": "july-requests", "title": "پیگیری درخواست‌ها", "description": "درخواست‌های ثبت‌شده را در منوی حساب مشتری پیدا می‌کنید.", "when": "۲۴ تیر", "icon": "inbox", "tone": "ink", "public": true },
+          { "id": "july-gallery", "title": "گالری سالن به‌روز شد", "description": "عکس‌های تازه را در بخش نمونه‌کارها ببینید.", "when": "۲۰ تیر", "icon": "images", "tone": "ink", "public": true },
+          { "id": "july-location", "title": "مسیریابی تا سالن", "description": "نقشه از صفحهٔ اصلی سالن در دسترس است.", "when": "۱۶ تیر", "icon": "map-pin", "tone": "ink", "public": true },
+          { "id": "july-customer", "title": "خانهٔ حساب مشتری", "description": "از صفحهٔ خانه به نوبت‌ها و درخواست‌ها دسترسی دارید.", "when": "۱۲ تیر", "icon": "home", "tone": "ink", "public": true },
+          { "id": "july-photos", "title": "تصاویر جدید از کار سالن", "description": "چند نمونهٔ تازه به گالری عکس‌ها افزوده شد.", "when": "۸ تیر", "icon": "images", "tone": "ink", "public": true },
+          { "id": "july-thanks", "title": "سپاس از همراهی‌تان", "description": "از اینکه سالن ریوال را انتخاب می‌کنید سپاسگزاریم.", "when": "۴ تیر", "icon": "users", "tone": "ink", "public": true },
+          { "id": "june-contact", "title": "ارتباط با سالن", "description": "شمارهٔ تماس در بخش نشانی و تماس سایت قرار دارد.", "when": "۲۶ خرداد", "icon": "phone", "tone": "ink", "public": true },
+          { "id": "june-gallery", "title": "مجموعهٔ نمونه‌کارهای سالن", "description": "نمونه‌کارهای آرایشگران را در گالری مرور کنید.", "when": "۲۰ خرداد", "icon": "images", "tone": "ink", "public": true }
+        ]
+      }
+    ]
+  }
+}

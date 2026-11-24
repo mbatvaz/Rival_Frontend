@@ -74,4 +74,23 @@ export async function reset(resource) {
   return clone({ ok: true, demo: true, data: null });
 }
 
-export const api = { read, write, reset, appointmentSwap: createSwapAdapter({ read, write, storageKey: key, ApiError }) };
+const notificationReads = 'customer/notification-reads';
+const notifications = {
+  async readStatus() { return (await read('customer/notification-reads')).data; },
+  markRead(ids) {
+    const save = async () => {
+      const { data } = await read('customer/notification-reads');
+      return (await write(notificationReads, [...new Set([...data, ...ids])])).data;
+    };
+    return navigator.locks ? navigator.locks.request(key(notificationReads), save) : save();
+  },
+  observe(refresh) {
+    window.addEventListener('storage', event => {
+      if (event.key === key(notificationReads) || event.key === null) refresh();
+    });
+    window.addEventListener('pageshow', event => { if (event.persisted) refresh(); });
+  }
+};
+
+export const api = { read, write, reset, notifications,
+  appointmentSwap: createSwapAdapter({ read, write, storageKey: key, ApiError }) };
