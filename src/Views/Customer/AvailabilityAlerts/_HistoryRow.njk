@@ -1,0 +1,18 @@
+{% if item.status == 'released' %}
+<a class="rv-appointment-history" href="{{ customerUrls['BK-F01'] }}?service={{ item.service.id }}&amp;stylist={{ item.stylist.id }}">
+{% else %}
+<div class="rv-appointment-history">
+{% endif %}
+  <img class="rv-appointment-history__image" {% if item %}src="{{ basePath }}{{ item.service.image }}" {% endif %}alt="" width="72" height="72" loading="lazy">
+  <div class="rv-appointment-history__body">
+    <strong data-rv-availability-service>{% if item %}{{ item.service.name }}{% endif %}</strong>
+    <span data-rv-availability-stylist>{% if item %}با {{ item.stylist.name }}{% endif %}</span>
+    <span class="rv-appointment-status" data-rv-tone="success" data-rv-availability-status="released"{% if item.status != 'released' %} hidden{% endif %}><span class="ri ri-sms" aria-hidden="true"></span>زمان آزاد شد، پیامک رفت</span>
+    <span class="rv-appointment-status" data-rv-availability-status="expired"{% if item.status != 'expired' %} hidden{% endif %}><span class="ri ri-timer" aria-hidden="true"></span>۶ روز گذشت</span>
+    <span class="rv-appointment-status" data-rv-tone="rose" data-rv-availability-status="cancelled"{% if item.status != 'cancelled' %} hidden{% endif %}><span class="ri ri-x-circle" aria-hidden="true"></span>لغو شده</span>
+  </div>
+  <span class="rv-appointment-history__when">
+    <bdi data-rv-availability-day>{% if item %}{{ item.day }}{% endif %}</bdi><small data-rv-availability-month>{% if item %}{{ item.month }}{% endif %}</small>
+  </span>
+  {% if item.status == 'released' %}<span class="ri ri-chevron-left" aria-hidden="true"></span>{% endif %}
+{% if item.status == 'released' %}</a>{% else %}</div>{% endif %}

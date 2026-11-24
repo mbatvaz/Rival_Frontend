@@ -1,5 +1,11 @@
 # Traceability Contract
 
+## CUS-08 availability alerts
+
+The owner accepted the page and its four preview states on 2026-11-24 under DEC-082.
+
+D10-37, D10-55, D10-59 and D10-63 → [list](../src/Views/Customer/AvailabilityAlerts/Index.njk), [shared booking Sheet](../src/Views/Booking/_Alert.njk), [local alert adapter](../src/wwwroot/js/core/availability-alerts.js), [source examples](../src/MockData/customer/availability-alerts.json) and [browser coverage](../tests/phase04/availability-alerts.spec.mjs). The route reuses the appointment media and lift, local storage boundary and customer shell. [Desktop brief and comparisons](../docs-work/desktop-layouts/CUS-08.md).
+
 ## CUS-05 tab annotation — 2026-11-23
 
 DEC-081 + two live-browser annotations → renamed [group label](../src/MockData/customer/requests.json) and [done variant label](../src/page-registry.json); the [request tab styles](../src/wwwroot/css/04-pages/customer-requests.css) drop their transparent/ink and raised-count overrides so the shared [appointment radio treatment](../src/wwwroot/css/04-pages/customer-appointments.css) and [base radio states](../src/wwwroot/css/04-pages/booking-controls.css) apply. Tab switching and 44px target checks remain in [request coverage](../tests/phase04/requests.spec.mjs).

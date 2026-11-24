@@ -1,5 +1,9 @@
 # Discrepancies and Alignment Log
 
+## CUS-08 availability alerts
+
+The demo catalog includes Sina for haircut so the released alert opens time selection directly with both values from the reference. The four directory variants reproduce the source sample independently of the customer's local alerts. [Accepted brief](../docs-work/desktop-layouts/CUS-08.md).
+
 ## CUS-05 tab annotation — 2026-11-23
 
 DEC-081 supersedes the ink-selection tab treatment recorded in the [list brief](../docs-work/desktop-layouts/CUS-05.md). The owner renamed the completed tab “تکمیل شده” to “تکمیل” and switched the status tabs to the CUS-03 appointment radio design: shared glass strip, muted inset unselected pill and white raised selected pill with the shared scale transition. The count bubbles and compact three-tab spacing remain; no filter, route or acceptance change.

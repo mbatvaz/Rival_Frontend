@@ -5,6 +5,19 @@ import { requestAppointments, requestContext } from './customer-requests.mjs';
 // Phase 04 build context only. Runtime reads/writes remain behind core/api.js.
 export async function customerContext(page, basePath, pages, model) {
   if (['CUS-05', 'CUS-06'].includes(page.id)) return requestContext(basePath, pages, model);
+  if (page.id === 'CUS-08') {
+    const { data: catalog } = await readJson(path.join(src, 'MockData/booking/catalog.json'));
+    const history = model.history.map(item => ({
+      ...item, service: catalog.services.find(service => service.id === item.service),
+      stylist: catalog.stylists.find(stylist => stylist.id === item.stylist)
+    }));
+    return {
+      alertServices: ['face-hair', 'hair', 'beard-color', 'facial'].map(id => catalog.services.find(service => service.id === id)),
+      alertStylists: catalog.stylists,
+      alertHistory: history,
+      customerUrls: Object.fromEntries(pages.map(item => [item.id, withBase(basePath, item.previewPath)]))
+    };
+  }
   if (!['CUS-01', 'CUS-03', 'CUS-04'].includes(page.id)) return {};
   const [home, publicHome] = await Promise.all([
     readJson(path.join(src, 'MockData/customer/home.json')),

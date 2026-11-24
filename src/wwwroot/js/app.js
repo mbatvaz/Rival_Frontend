@@ -19,6 +19,7 @@ registerFeature('customer-appointments', () => import('./features/customer/appoi
 registerFeature('customer-appointment-detail', () => import('./features/customer/appointment-detail.js'));
 registerFeature('customer-request-list', () => import('./features/customer/request-list.js'));
 registerFeature('customer-request-detail', () => import('./features/customer/request-detail.js'));
+registerFeature('customer-availability-alerts', () => import('./features/customer/availability-alerts.js'));
 registerFeature('customer-dock', () => import('./components/customer-dock.js'));
 initSheets();
 initNavigationMotion();

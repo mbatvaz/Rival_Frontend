@@ -1,4 +1,6 @@
 import { api } from '../../core/api.js';
+import { activeAlert, readAlerts } from '../../core/availability-alerts.js';
+import { faDigits } from '../../core/format.js';
 import { initHomeRails } from './home-rails.js';
 import { startClocks } from './home-clocks.js';
 import { refreshHomeAppointments } from './reschedule-summaries.js';
@@ -59,6 +61,14 @@ export async function init(root) {
     if (!saved.clockStartedAt) { saved.clockStartedAt = Date.now(); await api.write('customer/home-state', saved); }
     saved.dismissed.forEach(id => { root.querySelector(`[data-rv-home-dismissable="${window.CSS.escape(id)}"]`)?.setAttribute('hidden', ''); });
     if (!empty) {
+      const refreshAlerts = async () => {
+        try {
+          const count = Object.values(await readAlerts()).filter(record => activeAlert(record)).length;
+          root.querySelector('[data-rv-home-alert-count]').textContent = count ? faDigits(count) + ' فعال' : 'فعالی ندارید';
+        } catch { /* Keep the dashboard available when alerts cannot be read. */ }
+      };
+      await refreshAlerts();
+      window.addEventListener('pageshow', event => { if (event.persisted) refreshAlerts(); });
       startClocks(root, data, saved.clockStartedAt);
       const refreshPayments = async () => {
         try {

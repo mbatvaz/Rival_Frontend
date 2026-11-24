@@ -2,6 +2,10 @@
 
 Reviewed 2026-11-14. Latest owner instruction controls scope. Exact page evidence governs design within verified architecture and confirmed product decisions.
 
+## CUS-08 released history pairing
+
+Batch 3 CUS-08 names Sina for the released haircut alert. The demo catalog includes the pairing, and CUS-08 opens time selection with both values. The owner accepted this behavior under DEC-082. [Accepted brief](../../docs-work/desktop-layouts/CUS-08.md).
+
 ## C-17 — More-list scrolling is now explicitly authorized; radio/header request reversed
 
 DEC-065 directly overrides DEC-064's desktop radios/profile header and its document-scrolling More. Restore ordinary links and the previous home header, move salon notices under the left tools, hide the mobile More header and allow vertical scrolling only in its direct list. Structure lint permits that exact selector/file alongside the existing recurring editor; no general scroll exemption is added. [Cause, evidence and focused resize/scroll checks](../../docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md).

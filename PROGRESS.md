@@ -1,5 +1,17 @@
 # Rival Progress
 
+## CUS-08 availability alerts accepted — 2026-11-24
+
+The owner accepted CUS-08 and authorized its slice closeout under DEC-082. The registry records acceptance of the page with its four preview states. [Desktop brief and verification](docs-work/desktop-layouts/CUS-08.md)
+
+Closeout build and lint passed. The focused availability, booking, dashboard and appointment-detail suites passed 33/33 at root and 33/33 under `/rival-demo/`. The root preview was restored.
+
+## CUS-08 availability alerts preview
+
+Started the next owner-assigned Phase 04 slice. The customer can add an eligible availability alert, review duplicate status, cancel it, and see finished alerts. Booking and the dashboard use the same local demo alert records. The four source variants are available separately in the preview directory. [Layout and source comparisons](docs-work/desktop-layouts/CUS-08.md).
+
+Build and lint passed. The focused availability, booking, dashboard and appointment detail suites passed 33/33 at root and 33/33 under `/rival-demo/`. The test runner restored the root build. CUS-08 is at live owner review under DEC-072.
+
 ## Phase 04 worktree integration
 
 `vivid-zebra` supplied an alternate CUS-06 stylesheet on the same base commit. The request page retains the latest owner-directed centered column, timeline, and Sheet scroll fix. The integration carries over the response grid and next-step card treatment, scoped to CUS-06. Generated stylesheet line endings do not change the tracked token values.

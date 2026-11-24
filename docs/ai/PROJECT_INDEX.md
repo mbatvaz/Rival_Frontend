@@ -4,7 +4,7 @@ Derived navigation, never an architecture or acceptance authority. Read the rele
 
 - [Graph guide](PROJECT_GRAPH.md): scope, certainty, update rules and diagrams.
 - [Contract](../RIVAL_PROJECT_CONTRACT.md), [phase gate](../PHASE_PLAN.md#current-owner-gate--2026-11-15), [decisions](../DECISION_LOG.md), [open questions](../OPEN_QUESTIONS.md).
-- [Registry](../../src/page-registry.json): 73 contexts, 24 accepted; placeholders are not implementations.
+- [Registry](../../src/page-registry.json): 73 contexts, 25 accepted; placeholders are not implementations.
 
 ## Find only the relevant context
 

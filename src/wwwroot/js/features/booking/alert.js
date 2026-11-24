@@ -1,19 +1,18 @@
-import { api } from '../../core/api.js';
+import { activeAlert, addAlert, alertDeadline, alertKey, readAlerts } from '../../core/availability-alerts.js';
 import { closeSheet, openSheet } from '../../components/sheet.js';
 import { faDigits } from '../../core/format.js';
 import { longDay } from './availability.js';
-import { get, persist, state, text, visible } from './shared.js';
+import { get, state, text, visible } from './shared.js';
 
 export async function initAlert(root, { service, stylist, catalog, open }) {
   const sheet = document.getElementById('rv-booking-alert');
   const trigger = root.querySelector('[data-rv-sheet-open="rv-booking-alert"]');
   const button = get(sheet, 'alert-confirm');
   const empty = !get(root, 'no-availability').hidden;
-  const key = service.id + ':' + stylist.id;
-  const resource = 'booking/alerts';
-  const expiry = () => Date.now() + catalog.alertDays * 86400000;
-  const records = (await api.read(resource)).data;
-  let current = records[key]?.expiresAt > Date.now() ? records[key] : null;
+  const key = alertKey(service.id, stylist.id);
+  const expiry = () => alertDeadline(Date.now(), catalog.alertDays);
+  const records = await readAlerts();
+  let current = activeAlert(records[key]) ? records[key] : null;
   if (open && ['done', 'duplicate'].includes(state)) current = { expiresAt: expiry() };
   const render = () => {
     const active = Boolean(current);
@@ -39,15 +38,14 @@ export async function initAlert(root, { service, stylist, catalog, open }) {
   if (open && state === 'done') showConfirmation();
   if (open && state !== 'done') openSheet(sheet.id, trigger);
   button.addEventListener('click', async () => {
-    if (button.disabled || current) return;
+    if (button.disabled) return;
     button.disabled = true;
     visible(sheet, 'alert-error', false);
     try {
-      const existing = (await api.read(resource)).data[key];
-      const active = existing?.expiresAt > Date.now();
-      current = active ? existing : await persist('alerts', key, { service: service.id, stylist: stylist.id, expiresAt: expiry() });
+      const { record, duplicate } = await addAlert(service.id, stylist.id, catalog.alertDays);
+      current = record;
       render();
-      if (!active) {
+      if (!duplicate) {
         closeSheet();
         showConfirmation();
       }
@@ -55,6 +53,21 @@ export async function initAlert(root, { service, stylist, catalog, open }) {
       text(sheet, 'alert-error', error.message);
       visible(sheet, 'alert-error', true);
     } finally { button.disabled = false; }
+  });
+  window.addEventListener('pageshow', async event => {
+    if (!event.persisted) return;
+    try {
+      const saved = (await readAlerts())[key];
+      current = activeAlert(saved) ? saved : null;
+      if (!current) {
+        delete trigger.dataset.rvAlertConfirmed;
+        get(trigger, 'alert-icon').className = 'ri ri-bell-ring';
+        get(trigger, 'alert-icon-tile').classList.remove('rv-state-page__icon--success');
+        visible(trigger, 'alert-details', true);
+        visible(trigger, 'alert-done', false);
+      }
+      render();
+    } catch { /* Keep the last readable snapshot. */ }
   });
   const facts = get(sheet, 'alert-facts');
   facts.querySelector('li:nth-child(2)').lastChild.textContent = 'این اعلان ' + faDigits(catalog.alertDays) + ' روز اعتبار دارد، تا ' + longDay(new Date(expiry()).toISOString().slice(0, 10)) + '.';

@@ -1,0 +1,19 @@
+<form id="rv-availability-form" action="{{ customerUrls['CUS-08'] }}" method="get">
+  <fieldset>
+    <legend>خدمت</legend>
+    <div class="rv-appointments-filter__options">
+      {% for service in alertServices %}
+      <label class="rv-appointments-filter__chip"><input name="service" type="radio" value="{{ service.id }}"{% if service.id == 'hair' %} checked{% endif %}><span><img src="{{ basePath }}{{ service.image }}" width="28" height="28" alt="">{{ service.name }}</span></label>
+      {% endfor %}
+    </div>
+    <p class="rv-muted">پکیج‌ها با هماهنگی مدیر سالن رزرو می‌شوند و اعلان آزادشدن ندارند.</p>
+  </fieldset>
+  <fieldset>
+    <legend>آرایشگر</legend>
+    <div class="rv-appointments-filter__people">
+      {% for stylist in alertStylists %}
+      <label class="rv-appointments-filter__person"><input name="stylist" type="radio" value="{{ stylist.id }}"{% if loop.first %} checked{% endif %}><span><img src="{{ basePath }}{{ stylist.image }}" width="48" height="48" alt=""><span>{{ stylist.name }}</span></span></label>
+      {% endfor %}
+    </div>
+  </fieldset>
+</form>

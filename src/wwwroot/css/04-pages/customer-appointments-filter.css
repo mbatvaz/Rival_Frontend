@@ -105,8 +105,8 @@
 
   .rv-appointments-filter__person img {
     object-fit: cover;
-    inline-size: var(--space-12);
-    block-size: var(--space-12);
+    inline-size: 60px;
+    block-size: 60px;
     border-radius: var(--radius-pill);
     filter: grayscale(1);
   }

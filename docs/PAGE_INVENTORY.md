@@ -1,5 +1,9 @@
 # Canonical Page Inventory
 
+## CUS-08 availability alerts
+
+CUS-08 was accepted by the owner on 2026-11-24 under DEC-082. It includes an active list, finished records and add, duplicate and cancellation Sheets. CUS-09 and CUS-10 are the remaining customer routes. [Desktop brief and sources](../docs-work/desktop-layouts/CUS-08.md).
+
 ## CUS-05 tab annotation — 2026-11-23
 
 DEC-081 renames the CUS-05 completed tab to “تکمیل” and applies the CUS-03 appointment radio treatment to the status tabs. No page, route or variant addition; the done variant label follows the new tab name.

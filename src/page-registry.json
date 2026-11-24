@@ -418,11 +418,18 @@
       "status": "Fully Designed",
       "source": "Batch 3",
       "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
-      "titleFa": "اعلان آزاد شدن زمان",
-      "phase": "Phase 04"
+      "template": "Customer/AvailabilityAlerts/Index.njk",
+      "mockData": "MockData/customer/availability-alerts.json",
+      "notes": "Availability alert management and source scenarios accepted under DEC-082.",
+      "titleFa": "اعلان آزادشدن زمان",
+      "phase": "Phase 04",
+      "implementationStatus": "accepted",
+      "variants": [
+        { "label": "نمونهٔ طرح — فهرست", "query": "?state=example" },
+        { "label": "افزودن اعلان", "query": "?state=add" },
+        { "label": "ترکیب تکراری", "query": "?state=duplicate" },
+        { "label": "لغو اعلان", "query": "?state=cancel" }
+      ]
     },
     {
       "id": "CUS-09",

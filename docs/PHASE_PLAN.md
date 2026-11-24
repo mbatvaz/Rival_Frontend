@@ -38,6 +38,8 @@ Use serialized Workflow B. One phase at a time; each phase ends with a review ga
 
 ## Current owner gate — 2026-11-21
 
+On 2026-11-24 the owner accepted the [CUS-08 availability alerts slice](../docs-work/desktop-layouts/CUS-08.md) under DEC-082. The Phase 04 gate remains open.
+
 CUS-03 was accepted on 2026-11-19. The owner accepted [CUS-04](../docs-work/desktop-layouts/CUS-04.md), including rescheduling and [Appointment Swap](features/APPOINTMENT_SWAP.md), and authorized publication on the Phase 04 branch under DEC-080. The phase gate remains open.
 
 ### Phase 04 continuation gate — 2026-11-17

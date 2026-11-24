@@ -1,7 +1,7 @@
 import { openSheet } from '../../components/sheet.js';
 
 // Shared appointment lift for cancellation and swap sheets.
-export function appointmentSheetOpener(current) {
+export function appointmentSheetOpener(current, selector = '.rv-appointment-hero') {
   const preview = document.querySelector('[data-rv-cancel-hero]');
   const page = document.querySelector('[data-rv-page]');
   const layer = preview.parentElement;
@@ -16,7 +16,7 @@ export function appointmentSheetOpener(current) {
 
   return (id, opener) => {
     if (!layer.hidden) return;
-    const hero = current.querySelector('.rv-appointment-hero');
+    const hero = typeof selector === 'string' ? current.querySelector(selector) : selector(opener);
     const bounds = hero.getBoundingClientRect();
     const start = window.scrollY;
     const target = Math.min(start, Math.max(0, start + bounds.top - 16));

@@ -1,5 +1,9 @@
 # Decision Log
 
+## DEC-082 — CUS-08 availability alerts acceptance
+
+On 2026-11-24 the owner accepted the CUS-08 availability alert slice and authorized its closeout. The accepted slice includes the customer list, add and duplicate states, cancellation Sheet, and navigation from a released alert directly to time selection with the same service and stylist. [CUS-08 brief](../docs-work/desktop-layouts/CUS-08.md)
+
 ## DEC-081 — CUS-05 tab rename and shared appointment radio treatment
 
 On 2026-11-23 the owner renames the CUS-05 completed tab from “تکمیل شده” to “تکمیل” (fixture group label and preview variant label) and directs the request status tabs to use the native radio pill treatment designed for the CUS-03 appointment tabs instead of the transparent/ink selection. The shared appointments strip and radio states now apply: glass container, muted inset unselected pill, white raised selected pill and the scale transition. The count bubbles and the compact three-tab spacing down to 320px remain. No route, filter or acceptance change.
