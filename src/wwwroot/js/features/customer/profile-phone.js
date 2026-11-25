@@ -1,4 +1,4 @@
-import { initOtp, renderOtp } from '../../components/otp.js';
+import { initOtp, renderOtp, shakeOtp } from '../../components/otp.js';
 import { normalizePhone, validPhone } from '../../core/auth-demo.js';
 import { faDigits, latinDigits } from '../../core/format.js';
 import { phoneChallenge } from './profile-phone-challenge.js';
@@ -15,13 +15,10 @@ export function profilePhone(sheet, policy, salonPhone, save) {
   const resend = get('resend');
   const submit = get('submit');
   const error = get('form-error');
-  let current;
-  let stage;
+  let current, stage;
   const challenge = phoneChallenge(resend, get('demo-code'), policy);
-
-  initOtp(codeField);
+  const syncOtp = initOtp(codeField);
   get('salon-contact').href = 'tel:' + salonPhone;
-
   function updateButton() {
     submit.disabled = stage !== 'number' && (code.value.length !== policy.digits || challenge.exhausted());
   }
@@ -34,6 +31,7 @@ export function profilePhone(sheet, policy, salonPhone, save) {
     code.toggleAttribute('data-rv-sheet-initial-focus', stage !== 'number');
     renderOtp(codeField);
     updateButton();
+    syncOtp(stage === 'number' ? null : Symbol(), policy.validSeconds * 1000);
   }
 
   function warn(input, message) {
@@ -81,7 +79,8 @@ export function profilePhone(sheet, policy, salonPhone, save) {
     }
     const failure = challenge.check(latinDigits(code.value));
     if (failure) {
-      warn(code, failure);
+      warn(code, failure.message);
+      if (failure.wrong) shakeOtp(codeField);
       updateButton();
       return;
     }
@@ -103,7 +102,7 @@ export function profilePhone(sheet, policy, salonPhone, save) {
     } finally { updateButton(); }
   });
   document.addEventListener('rv:sheet-close', event => {
-    if (event.detail.id === sheet.id) challenge.stop();
+    if (event.detail.id === sheet.id) { challenge.stop(); syncOtp(null); }
   });
   return (phone, preview = '') => {
     const sample = phonePreview(preview);

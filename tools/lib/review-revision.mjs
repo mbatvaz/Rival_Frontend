@@ -6,7 +6,7 @@ import { reviewCss } from './review-css.mjs';
 import { scopedHtml, activeImport, fixtureScope } from './review-scope.mjs';
 
 const normalize = value => value.replaceAll('\\', '/');
-export function revisionTracker(sourceRoot) {
+export function revisionTracker(sourceRoot, browserVendor) {
   const bytes = new Map();
   async function read(relative) {
     const absolute = path.resolve(sourceRoot, relative);
@@ -30,6 +30,10 @@ export function revisionTracker(sourceRoot) {
       relative = normalize(relative);
       if (visited.has(relative)) return;
       visited.add(relative);
+      if (browserVendor && /^wwwroot\/vendor\/[\w.-]+$/.test(relative)) {
+        dependencies.set(relative, await fs.readFile(path.join(browserVendor, path.basename(relative)), 'utf8'));
+        return;
+      }
       const content = await read(relative);
       if (!content) return;
       let text = content.toString('utf8');

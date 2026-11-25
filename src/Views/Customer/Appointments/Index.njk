@@ -5,14 +5,17 @@
   <template data-rv-swap-cards>{% for appointment in swapAppointments %}{% include "Shared/Components/_AppointmentCard.njk" %}{% endfor %}</template>
   <p class="rv-feedback" data-rv-swap-customer hidden></p>
   <div class="rv-appointments__chips" aria-label="فیلترهای فعال" data-rv-filter-chips hidden></div>
-  <p class="rv-feedback" role="status" data-rv-list-loading hidden>در حال دریافت نوبت‌ها…</p>
+  <div class="rv-appointments__records" role="status" data-rv-list-loading hidden>
+    <span class="rv-sr-only">در حال دریافت نوبت‌ها…</span>
+    <span class="rv-skel" aria-hidden="true"></span><span class="rv-skel" aria-hidden="true"></span>
+  </div>
   <div class="rv-appointments__empty rv-appointments__state-card" role="alert" data-rv-list-error hidden><span class="rv-icon-tile rv-icon-tile--large"><span class="ri ri-info" aria-hidden="true"></span></span><h2>نوبت‌ها دریافت نشد</h2><p data-rv-list-error-text></p><button type="button" class="rv-btn rv-btn--secondary" data-rv-list-retry>تلاش دوباره</button></div>
   {% for group in model.groups %}
   <section id="rv-panel-{{ group.key }}" aria-label="{{ group.label }}" tabindex="0" data-rv-appointments-panel="{{ group.key }}"{% if not loop.first %} hidden{% endif %}>
     {% for month in group.months %}
     <section class="rv-appointments__month{% if group.key == 'upcoming' %} rv-appointments__month--future{% endif %}" aria-labelledby="rv-month-{{ group.key }}-{{ month.key }}" data-rv-record-month>
       <h2 id="rv-month-{{ group.key }}-{{ month.key }}">{{ month.label }}</h2>
-      <div class="rv-appointments__records{% if group.key == 'history' %} rv-appointments__records--past rv-glass{% endif %}" data-rv-appointments-records>
+      <div class="rv-appointments__records{% if group.key == 'history' %} rv-appointments__records--past rv-glass{% endif %}" data-rv-entry-zone data-rv-appointments-records>
         {% for appointment in month.items %}{% if group.key == 'upcoming' %}{% include "Shared/Components/_AppointmentCard.njk" %}{% else %}{% include "Shared/Components/_AppointmentHistoryRow.njk" %}{% endif %}{% endfor %}
       </div>
     </section>

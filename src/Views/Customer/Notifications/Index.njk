@@ -9,7 +9,7 @@
       <span id="rv-notifications-summary" role="status">{{ notificationUnread | faDigits }} خوانده‌نشده</span>
       <button type="button" class="rv-btn rv-btn--small rv-notification-item__read" data-rv-notifications-read-all aria-describedby="rv-notifications-summary" aria-disabled="true"><span class="ri ri-check" aria-hidden="true"></span>همه خوانده شد</button>
     </div>
-    <div class="rv-notifications__groups" data-rv-notifications-records>
+    <div class="rv-notifications__groups" data-rv-entry-zone="rows" data-rv-notifications-records>
       {% for group in notificationGroups %}
       <section aria-labelledby="rv-notifications-{{ group.id }}"{% if not group.items[0].initial %} hidden{% endif %}>
         <h2 id="rv-notifications-{{ group.id }}">{{ group.label }}</h2>

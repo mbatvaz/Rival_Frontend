@@ -1,4 +1,4 @@
-<div class="rv-appointment-detail"{% if appointment.status != 'booked' %} data-rv-detail-history{% endif %}>
+<div data-rv-entry-zone class="rv-appointment-detail"{% if appointment.status != 'booked' %} data-rv-detail-history{% endif %}>
   <section class="rv-customer-notice rv-customer-notice--inactive rv-appointment-detail__inactive" data-rv-inactive-banner hidden><span class="ri ri-lock" aria-hidden="true"></span><div><h2>حساب شما غیرفعال است</h2><p>این نوبت را می‌بینید، ولی لغو و جابه‌جایی فعلاً ممکن نیست. برای فعال شدن دوباره با سالن تماس بگیرید.</p><a class="rv-text-link" href="tel:09141452321"><span class="ri ri-phone" aria-hidden="true"></span>تماس با سالن</a></div></section>
   {% include "Shared/Components/_AppointmentHero.njk" %}
   {% if appointment.detail.requestId %}
@@ -26,7 +26,6 @@
   {% if appointment.detail.policy %}
   <section class="rv-appointment-detail__policy" aria-labelledby="rv-detail-policy">
     <header class="rv-section-head"><h2 id="rv-detail-policy">اگر برنامه‌تان عوض شد</h2><a class="rv-text-link" href="{{ productUrls.rules }}">قوانین رزرو</a></header>
-    {% if appointment.swap %}<p class="rv-feedback" data-rv-swap-owner></p>{% endif %}
     <ol class="rv-appointment-detail__timeline rv-glass">
       {% for step in appointment.detail.policy %}
       <li><strong>{{ step.title }}</strong>{% for entry in step.entries %}<p><span class="ri ri-{{ entry.icon }}" aria-hidden="true"></span>{{ entry.text }}</p>{% endfor %}</li>
@@ -37,7 +36,6 @@
       <button class="rv-btn" type="button" data-rv-detail-rsc disabled aria-describedby="rv-detail-actions-note">جابه‌جایی</button>
       <button class="rv-btn rv-btn--danger" type="button" data-rv-sheet-open="rv-cancel-preview" data-rv-detail-cancel aria-haspopup="dialog">لغو نوبت</button>
     </div>
-    {% include "Customer/Appointments/_SwapActions.njk" %}
     <p id="rv-detail-actions-note" class="rv-muted" data-rv-detail-note hidden></p>
     <p id="rv-detail-inactive-note" class="rv-muted" data-rv-detail-inactive hidden><span class="ri ri-lock" aria-hidden="true"></span> حساب غیرفعال است؛ لغو و جابه‌جایی ممکن نیست. مهلت‌ها همچنان می‌گذرند.</p>
   </section>

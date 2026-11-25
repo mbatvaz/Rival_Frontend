@@ -1,5 +1,5 @@
 {# CUS-03 / D10-42; reuses Phase 03 booking-context media and recurring date/person. #}
-<a class="rv-booking-context rv-glass rv-appointment-card" href="{{ customerUrls['CUS-04'] }}?appointment={{ appointment.id }}" data-rv-record="{{ appointment.id }}" aria-label="جزئیات نوبت {{ appointment.weekday }} {{ appointment.day }} {{ appointment.month }}، ساعت {{ appointment.time }}، {{ appointment.service }} با {{ appointment.stylist }}">
+<a class="rv-booking-context rv-glass rv-appointment-card" href="{{ customerUrls['CUS-04'] }}?appointment={{ appointment.id }}" data-rv-card-media data-rv-record="{{ appointment.id }}" aria-label="جزئیات نوبت {{ appointment.weekday }} {{ appointment.day }} {{ appointment.month }}، ساعت {{ appointment.time }}، {{ appointment.service }} با {{ appointment.stylist }}">
   <img src="{{ basePath }}{{ appointment.image }}" alt="" width="128" height="138"{% if not loop.first %} loading="lazy"{% endif %}>
   <div class="rv-appointment-card__body">
     <span class="rv-recurring-date"><strong>{{ appointment.day }}</strong><span>{{ appointment.weekday }}</span><bdi>{{ appointment.time }}</bdi></span>

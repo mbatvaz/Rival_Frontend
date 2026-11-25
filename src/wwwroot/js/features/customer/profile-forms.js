@@ -1,4 +1,4 @@
-import { showPhoto, thumbnail } from './profile-photo.js';
+import { profilePhoto } from './profile-photo.js';
 
 export function submitProfileForm(form, save, update, message, focusAfter) {
   const submit = form.querySelector('[type="submit"]');
@@ -17,24 +17,13 @@ export function submitProfileForm(form, save, update, message, focusAfter) {
 export function profileForms(sheets, save) {
   const edit = sheets.edit.querySelector('form');
   const password = sheets.password.querySelector('form');
-  const editPhoto = edit.querySelector('[data-profile-photo]');
-  const editError = edit.querySelector('[data-profile-form-error]');
-  const pick = edit.querySelector('[data-profile-pick-photo]');
-  const remove = edit.querySelector('[data-profile-remove-photo]');
-  let draftPhoto;
-  let photoVersion = 0;
-
-  function setDraft(photo) {
-    draftPhoto = photo;
-    showPhoto(editPhoto, photo);
-    remove.disabled = !photo;
-  }
+  const photo = profilePhoto(edit);
 
   function prepareEdit(profile) {
-    photoVersion++;
+    photo.end();
     edit.reset();
     for (const key of ['firstName', 'lastName']) edit.elements[key].value = profile[key];
-    setDraft(profile.photo);
+    photo.setDraft(profile.photo);
   }
 
   function preparePassword(sample = '') {
@@ -46,33 +35,6 @@ export function profileForms(sheets, save) {
       button.firstElementChild.className = 'ri ri-eye-off';
     }
   }
-
-  pick.addEventListener('click', () => edit.elements.photo.click());
-  remove.addEventListener('click', () => {
-    photoVersion++;
-    edit.elements.photo.value = '';
-    editError.textContent = '';
-    setDraft(null);
-  });
-  edit.elements.photo.addEventListener('change', async event => {
-    const [file] = event.target.files;
-    if (!file) return;
-    const version = ++photoVersion;
-    pick.disabled = true;
-    const submit = edit.querySelector('[type="submit"]');
-    submit.disabled = true;
-    editError.textContent = '';
-    try {
-      const picture = await thumbnail(file);
-      if (version === photoVersion) setDraft(picture);
-    } catch (error) {
-      if (version === photoVersion) editError.textContent = error.message;
-    } finally {
-      pick.disabled = false;
-      submit.disabled = false;
-      event.target.value = '';
-    }
-  });
 
   password.addEventListener('click', event => {
     const button = event.target.closest('[data-profile-show-password]');
@@ -91,8 +53,8 @@ export function profileForms(sheets, save) {
       fields[firstName ? 'lastName' : 'firstName'].focus();
       throw new Error('نام و نام خانوادگی را بنویسید.');
     }
-    const photo = draftPhoto;
-    return current => ({ ...current, firstName, lastName, photo });
+    const picture = photo.value();
+    return current => ({ ...current, firstName, lastName, photo: picture });
   }, 'پروفایل ذخیره شد.');
   submitProfileForm(password, save, fields => {
     const value = fields.password.value;
@@ -107,7 +69,7 @@ export function profileForms(sheets, save) {
     return current => ({ ...current, passwordConfigured: true });
   }, 'تنظیم رمز در پروفایل آزمایشی ثبت شد.');
   document.addEventListener('rv:sheet-close', event => {
-    if (event.detail.id === sheets.edit.id) photoVersion++;
+    if (event.detail.id === sheets.edit.id) photo.end();
     if (event.detail.id === sheets.password.id) preparePassword();
   });
 

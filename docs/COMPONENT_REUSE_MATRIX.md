@@ -61,7 +61,7 @@ Do not create separate “wallet page”, “announcement page”, “reports pa
 
 Phase 02 review: reusable native primitives now include Glass/IconTile (`materials.css`), editable five-cell Otp (`_Otp.njk`, `components/otp.js`), PolicyWindow (`_PolicyWindow.njk`), portfolio feedback/skeleton and auth notice styles. Sheet preserves an inert visible background. Future phase owners should reuse these primitives; canonical StatePage ownership remains Phase 03.
 
-Second Phase 02 review: PortfolioViewer has a centered desktop variant (DEC-037) and reuses gallery-rail.js for native touch, mouse drag/wheel and keyboard scrolling. Other shared sheets retain their bottom alignment. Auth password uses the full Auth layout, replacing its previous popup.
+PortfolioViewer has a centered desktop variant (DEC-037). [Gallery rail](../src/wwwroot/js/features/gallery-rail.js) uses Embla for inline swipe, drag, wheel and keyboard navigation and PhotoSwipe for expanded images. Shared sheets and the expanded gallery use Focus Trap. Auth password uses the full Auth layout.
 
 Phase 02 accepted reuse contract (2026-11-10): see docs-work/PHASE_02_COMPONENT_GUIDE_FA.md for source ownership, data-rv hooks, sheet/focus/scroll constraints, OTP setup, gallery gestures and current owner-approved exceptions. This is documentation of existing components; it does not start any later-phase implementation.
 

@@ -20,6 +20,11 @@
       background: var(--bg-gradient-a);
     }
 
+    .rv-recurring-editor__handle::after {
+      inset: 0 calc(50% - var(--space-12)) auto;
+      block-size: var(--size-touch);
+    }
+
     .rv-recurring-editor__handle::before {
       content: "";
       position: absolute;

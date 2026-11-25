@@ -1,5 +1,5 @@
 {# CUS-05 / D10-51. Active requests reuse the appointment media frame and completed requests reuse the history row. #}
-<article class="rv-request-record" data-rv-request-record="{{ request.id }}" data-rv-record="{{ request.id }}" data-rv-request-list-status="{{ request.status }}">
+<article data-rv-card-media class="rv-request-record" data-rv-request-record="{{ request.id }}" data-rv-record="{{ request.id }}" data-rv-request-list-status="{{ request.status }}">
   <a class="rv-booking-context rv-glass rv-appointment-card rv-request-card" data-rv-request-active href="{{ customerUrls['CUS-06'] }}?request={{ request.id }}"{% if request.status != 'pay' and request.status != 'wait' %} hidden{% endif %}>
     <img src="{{ basePath }}{{ request.image }}" alt="" width="128" height="138" loading="lazy">
     <div class="rv-appointment-card__body">

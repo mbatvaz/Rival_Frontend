@@ -12,20 +12,20 @@
   <div class="rv-availability__groups">
     <section aria-labelledby="rv-availability-current-title">
       <header class="rv-section-head"><h2 id="rv-availability-current-title">فعال</h2></header>
-      <div class="rv-availability__cards" data-rv-availability-active></div>
+      <div class="rv-availability__cards" data-rv-entry-zone data-rv-availability-active></div>
       <p class="rv-muted" data-rv-availability-none>اعلان فعالی ندارید.</p>
       <p class="rv-muted" data-rv-availability-hint hidden><span class="ri ri-info" aria-hidden="true"></span> در اولین آزاد شدن زمان، یک پیامک می‌گیرید. زمانی نگه داشته نمی‌شود.</p>
     </section>
     <section aria-labelledby="rv-availability-history-title">
       <header class="rv-section-head"><h2 id="rv-availability-history-title">پایان‌یافته</h2><span class="rv-muted" data-rv-availability-count>{{ alertHistory.length | faDigits }} اعلان</span></header>
-      <div class="rv-glass rv-availability__history" data-rv-availability-history>
+      <div class="rv-glass rv-availability__history" data-rv-entry-zone="rows" data-rv-availability-history>
         <div data-rv-availability-ended></div>
         {% for item in alertHistory %}{% include "Customer/AvailabilityAlerts/_HistoryRow.njk" %}{% endfor %}
       </div>
     </section>
   </div>
   <template data-rv-availability-card-template>
-    <article class="rv-availability-card rv-glass">
+    <article data-rv-card-media class="rv-availability-card rv-glass">
       <div class="rv-booking-context rv-appointment-card">
         <img width="128" height="138" loading="lazy" alt="">
         <div class="rv-appointment-card__body">

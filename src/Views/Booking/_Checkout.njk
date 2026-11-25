@@ -1,7 +1,7 @@
 <form class="rv-booking-form rv-booking-workspace rv-booking-checkout" data-rv-booking-form action="{{ bookingUrls['PAY-RES'] }}">
   {% if bookingSteps.length %}<div class="rv-booking-step-row">{% include "Booking/_Steps.njk" %}</div>{% endif %}
   <div class="rv-booking-checkout__ticket">
-    <div data-rv-mobile-hold><section class="rv-panel rv-booking-hold" aria-label="زمان نگه‌داشت" data-rv-hold>
+    <div data-rv-mobile-hold><section data-rv-entry-zone class="rv-panel rv-booking-hold" aria-label="زمان نگه‌داشت" data-rv-hold>
       <div class="rv-booking-hold__head">
         <span class="rv-booking-hold__badge"><span class="ri ri-hourglass" aria-hidden="true" data-rv-hold-icon></span><span data-rv-hold-label>نگه‌داشت فعال</span></span>
         <span class="rv-booking-hold__remaining"><bdi data-rv-hold-clock>۵:۰۰</bdi> تا آزاد شدن زمان</span>
@@ -11,16 +11,16 @@
     </section></div>
     <section class="rv-booking__notice rv-checkout-expired" data-rv-checkout-expired hidden><h2>زمان نگه‌داشت تمام شد</h2><p>زمان و اعتبار آزاد شد. برای ادامه یک زمان دیگر انتخاب کنید.</p></section>
 
-    <div class="rv-checkout-breakdown rv-panel">
+    <div data-rv-entry-zone class="rv-checkout-breakdown rv-panel">
       <div class="rv-checkout-details">
         <div class="rv-booking-desktop-only rv-booking-summary-head" data-rv-ticket-heading><h2>جزئیات نوبت</h2><span class="ri ri-calendar" aria-hidden="true"></span></div>
-        <div class="rv-booking-ticket rv-glass rv-glass--strong" data-rv-single-ticket>
+        <div data-rv-card-media class="rv-booking-ticket rv-glass rv-glass--strong" data-rv-single-ticket>
           <img src="{{ basePath }}{{ bookingDefault.service.image }}" alt="" data-rv-ticket-image>
           <div class="rv-booking-ticket__body"><h2 data-rv-ticket-service>{{ bookingDefault.service.name }}</h2><div class="rv-ticket-stylist"><p class="rv-muted" data-rv-ticket-stylist>با {{ bookingDefault.stylist.name }}</p><img class="rv-ticket-avatar" src="{{ basePath }}{{ bookingDefault.stylist.image }}" alt="" data-rv-ticket-avatar></div><div class="rv-ticket-when"><strong data-rv-ticket-date></strong><bdi data-rv-ticket-time></bdi></div></div>
         </div>
-        <section data-rv-group-ticket hidden aria-label="نوبت‌های رزرو دوره‌ای"><ol class="rv-booking-group" data-rv-group-items></ol></section>
+        <section data-rv-group-ticket hidden aria-label="نوبت‌های رزرو دوره‌ای"><ol class="rv-booking-group" data-rv-entry-zone data-rv-group-items></ol></section>
       </div>
-      <div class="rv-booking-prices">
+      <div class="rv-booking-prices" data-rv-entry-zone>
           <div data-rv-desktop-hold></div>
           <div class="rv-booking-desktop-only rv-booking-summary-head"><h2>هزینهٔ رزرو</h2><span class="ri ri-card" aria-hidden="true"></span></div>
           <dl><div><dt data-rv-total-label>هزینه رزرو</dt><dd data-rv-price-total></dd></div><div data-rv-credit-row><dt>از اعتبار شما</dt><dd data-rv-price-credit></dd></div><div><dt>مانده برای درگاه</dt><dd data-rv-price-due></dd></div></dl>
@@ -28,13 +28,13 @@
           <div data-rv-desktop-rules></div>
       </div>
     </div>
-    <div data-rv-mobile-rules><p class="rv-booking-rules rv-muted" data-rv-checkout-rules><span class="ri ri-shield" aria-hidden="true"></span>پرداخت یعنی پذیرش <a class="rv-text-link" href="{{ productUrls.rules }}">قوانین رزرو</a></p></div>
+    <div data-rv-mobile-rules><p data-rv-entry-zone class="rv-booking-rules rv-muted" data-rv-checkout-rules><span class="ri ri-shield" aria-hidden="true"></span>پرداخت یعنی پذیرش <a class="rv-text-link" href="{{ productUrls.rules }}">قوانین رزرو</a></p></div>
   </div>
   <aside class="rv-booking-summary" aria-label="خلاصهٔ پرداخت">
-    <div class="rv-booking-action rv-glass rv-glass--strong">
+    <div data-rv-entry-zone class="rv-booking-action rv-glass rv-glass--strong">
     <p class="rv-booking__notice rv-booking__notice--warning" data-rv-gateway-note hidden>درگاه پاسخ نداد. نگه‌داشت زمان تا پایان مهلت ادامه دارد.</p>
       <div><p class="rv-muted" data-rv-payment-label>مبلغ قابل پرداخت</p><strong data-rv-action-title></strong></div>
-      <button class="rv-btn rv-booking-pay" type="submit" data-rv-booking-submit disabled>پرداخت</button><a class="rv-btn" data-rv-checkout-retry href="{{ bookingUrls['BK-F01'] }}" hidden>انتخاب دوباره زمان</a>
+      <button class="rv-btn rv-booking-pay" type="submit" data-rv-confirm-action data-rv-booking-submit disabled>پرداخت</button><a class="rv-btn" data-rv-checkout-retry href="{{ bookingUrls['BK-F01'] }}" hidden>انتخاب دوباره زمان</a>
     </div>
   </aside>
 </form>

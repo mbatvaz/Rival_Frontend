@@ -18,6 +18,16 @@
       </div>
       <p class="rv-muted">عکس چهره در فهرست نوبت‌های آرایشگر کنار نامتان دیده می‌شود.</p>
     </div>
+    <section class="rv-profile-crop" data-profile-crop aria-labelledby="rv-profile-crop-title" hidden>
+      <h3 id="rv-profile-crop-title">برش مربع عکس</h3>
+      <div class="rv-profile-crop__surface" data-profile-crop-surface tabindex="0" aria-label="جابه‌جایی عکس با کشیدن یا کلیدهای جهت"></div>
+      <div class="rv-actions">
+        <button class="rv-btn rv-btn--secondary rv-btn--small" type="button" data-profile-crop-zoom-in>بزرگ‌تر</button>
+        <button class="rv-btn rv-btn--secondary rv-btn--small" type="button" data-profile-crop-zoom-out>کوچک‌تر</button>
+        <button class="rv-btn rv-btn--small" type="button" data-profile-crop-apply>اعمال برش</button>
+        <button class="rv-btn rv-btn--small rv-profile__plain" type="button" data-profile-crop-cancel>لغو برش</button>
+      </div>
+    </section>
     {% for field in [{ id: "firstName", label: "نام", autocomplete: "given-name" }, { id: "lastName", label: "نام خانوادگی", autocomplete: "family-name" }] %}
       <div class="rv-field">
         <label for="profile-{{ field.id }}">{{ field.label }}</label>

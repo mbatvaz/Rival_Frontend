@@ -1,4 +1,4 @@
-<section class="rv-appointment-detail__receipt" data-rv-request-schedule>
+<section class="rv-appointment-detail__receipt" data-rv-entry-zone="rows" data-rv-request-schedule>
   <header class="rv-section-head">
     <h2 data-rv-request-schedule-title>{% if request.status == 'booked' %}نوبت‌های پکیج{% else %}{% if request.response %}پاسخ {{ request.person.name }}{% else %}برنامه بخش‌ها{% endif %}{% endif %}</h2>
     <span data-rv-request-schedule-caption>{% if request.status == 'booked' %}هر بخش نوبت جداگانه است{% else %}{% if request.parts.length %}{{ request.partCount }} بخش در {{ request.dayCount }} روز{% endif %}{% endif %}</span>

@@ -8,17 +8,15 @@
 
   .rv-appointments-filter[data-rv-under-sheet] { visibility: visible; }
 
-  .rv-appointments-filter__grip {
-    display: none;
-    inline-size: var(--space-8);
-    block-size: var(--space-1);
-    margin: calc(-1 * var(--space-3)) auto var(--space-4);
-    border-radius: var(--radius-pill);
-    background: var(--line-strong);
-  }
-
-  @media (min-width: 768px) {
-    .rv-appointments-filter__grip { display: block; }
+  @media (min-width: 1024px) {
+    .rv-appointments-filter__grip {
+      display: block;
+      inline-size: var(--space-8);
+      block-size: var(--space-1);
+      margin: calc(-1 * var(--space-3)) auto var(--space-4);
+      border-radius: var(--radius-pill);
+      background: var(--line-strong);
+    }
   }
   .rv-appointments-filter form { display: grid; gap: var(--space-3); }
 

@@ -1,12 +1,12 @@
 import { openSheet } from '../../components/sheet.js';
-import { motionTiming } from '../../components/motion.js';
+import { motionTiming, startMotion } from '../../components/motion.js';
 
 function animateCardLift(preview, page, distance) {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (!distance || reduced.matches || !preview.animate) return;
   const frames = [{ transform: `translateY(-${distance}px)` }, { transform: 'translateY(0)' }];
   const timing = { ...motionTiming(), id: 'rv-card-lift' };
-  const animations = [preview.animate(frames, timing), page.animate(frames, timing)];
+  const animations = [startMotion(preview, frames, timing), startMotion(page, frames, timing)];
   const cancel = () => animations.forEach(animation => animation.cancel());
   reduced.addEventListener('change', cancel);
   Promise.allSettled(animations.map(animation => animation.finished))
@@ -26,8 +26,6 @@ export function cardSheetOpener(preview, cardFor) {
     cancelLift = undefined;
     preview.hidden = true;
     preview.replaceChildren();
-    delete layer.dataset.rvSwapLift;
-    layer.style.removeProperty('--rv-swap-hero-space');
   });
 
   return (id, opener) => {
@@ -37,16 +35,11 @@ export function cardSheetOpener(preview, cardFor) {
     const start = window.scrollY;
     const target = Math.min(start, Math.max(0, start + bounds.top - 16));
     const distance = start - target;
-    const swap = id.startsWith('rv-swap-');
     preview.replaceChildren(hero.cloneNode(true));
     preview.style.setProperty('--rv-hero-left', bounds.left + 'px');
     preview.style.setProperty('--rv-hero-top', bounds.top + distance + 'px');
     preview.style.setProperty('--rv-hero-width', bounds.width + 'px');
     preview.hidden = false;
-    if (swap) {
-      layer.dataset.rvSwapLift = '';
-      layer.style.setProperty('--rv-swap-hero-space', Math.max(0, bounds.bottom + distance) + 'px');
-    }
     openSheet(id, opener, { scrollPosition: target });
     activeSheet = id;
     cancelLift = animateCardLift(preview, page, distance);

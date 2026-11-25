@@ -1,4 +1,9 @@
 @layer pages {
+  @media (prefers-reduced-motion: no-preference) {
+    :root:has(.rv-rules) { scroll-behavior: smooth; }
+    [data-rv-rule-pending]:not(:focus-within) { opacity: 0; }
+  }
+
   .rv-rules { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-6); }
 
   .rv-rules__toc {

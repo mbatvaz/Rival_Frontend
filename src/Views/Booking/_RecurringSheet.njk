@@ -1,5 +1,5 @@
 <section class="rv-sheet rv-booking-sheet rv-recurring-editor" id="rv-rec-sheet" role="dialog" aria-modal="true" aria-labelledby="rv-rec-sheet-title" tabindex="-1" hidden>
-  <div class="rv-recurring-editor__handle" aria-hidden="true"></div>
+  <div class="rv-recurring-editor__handle" data-rv-sheet-grip aria-hidden="true"></div>
   <header class="rv-sheet__header">
     <div><h2 id="rv-rec-sheet-title" data-rv-rec-title>نوبت تازه</h2><p class="rv-muted" data-rv-rec-step-text></p></div>
     <button class="rv-icon-btn" type="button" data-rv-sheet-close aria-label="بستن ویرایش نوبت"><span class="ri ri-x" aria-hidden="true"></span></button>
@@ -57,7 +57,7 @@
   <p class="rv-booking__notice rv-booking__notice--warning" data-rv-rec-error role="alert" hidden></p>
   <div class="rv-booking__notice rv-booking__notice--warning" data-rv-rec-delete-note hidden>
     <p>این نوبت از فهرست رزرو دوره‌ای حذف می‌شود.</p>
-    <div class="rv-actions"><button class="rv-btn rv-btn--danger" type="button" data-rv-rec-remove>تأیید حذف</button><button class="rv-btn rv-btn--secondary" type="button" data-rv-rec-cancel-remove>انصراف از حذف</button></div>
+    <div class="rv-actions"><button class="rv-btn rv-btn--secondary" type="button" data-rv-rec-cancel-remove>انصراف از حذف</button><button class="rv-btn rv-btn--danger" type="button" data-rv-confirm-action data-rv-rec-remove><span class="ri ri-trash" aria-hidden="true"></span>تأیید حذف</button></div>
   </div>
   <div class="rv-actions" data-rv-rec-actions>
     <button class="rv-btn" type="button" data-rv-rec-next>ادامه</button>

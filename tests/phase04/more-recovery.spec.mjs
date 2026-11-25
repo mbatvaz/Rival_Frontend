@@ -42,18 +42,21 @@ for (const width of [320, 390, 610]) {
   });
 }
 
-test('Desktop restores plain links/title and positions salon notices below availability in the left column @visual', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 1000 }); await go(page);
+test('Desktop restores plain links/title and positions salon notices below credit in the left column @visual', async ({ page }) => {
+  await page.setViewportSize({ width: 1600, height: 1000 });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await go(page);
   const header = page.locator('.rv-workspace__header');
   await expect(header.locator('.rv-customer-identity')).toHaveCount(0);
   await expect(header).toContainText('داشبورد مشتری');
   const nav = page.getByRole('navigation', { name: 'منوی مشتری', exact: true });
   await expect(nav.getByRole('radio')).toHaveCount(0);
   await expect(nav.getByRole('link', { name: 'خانه', exact: true })).toHaveAttribute('aria-current', 'page');
-  const alert = await page.locator('.rv-customer-tools__links a').last().boundingBox();
+  await expect(page.locator('.rv-customer-tools__links')).toBeHidden();
+  const credit = await page.locator('.rv-customer-balance').boundingBox();
   const notice = await page.locator('.rv-customer-home__announcements').boundingBox();
-  expect(notice.x).toBeCloseTo(alert.x, 0); expect(notice.width).toBeCloseTo(alert.width, 0);
-  expect(notice.y).toBeGreaterThanOrEqual(alert.y + alert.height);
+  expect(notice.x).toBeCloseTo(credit.x, 0); expect(notice.width).toBeCloseTo(credit.width, 0);
+  expect(notice.y).toBeGreaterThanOrEqual(credit.y + credit.height);
 });
 
 test('Drawer resize interrupts an opening or closing animation and nested logout without leaving inert state @smoke', async ({ page }) => {

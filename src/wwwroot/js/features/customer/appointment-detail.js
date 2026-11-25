@@ -1,7 +1,6 @@
 import { appointmentSheetOpener } from './card-sheet.js';
 import { applyRescheduleRoute, rescheduleAppointmentId } from './reschedule-route.js';
 import { initSwapDetail, loadSwapDetail } from './appointment-swap-detail.js';
-import { initReferenceSwap } from './appointment-swap-reference.js';
 
 export async function init(root) {
   const query = new URLSearchParams(location.search);
@@ -51,7 +50,7 @@ export async function init(root) {
   const state = query.get('state') ?? '';
   let policy = {};
   try {
-    policy = isSwap ? await initSwapDetail(root, current, customer, swapView, state, openAppointmentSheet, query.get('swapPreview'))
+    policy = isSwap ? await initSwapDetail(root, current, customer, swapView, state)
       : await applyRescheduleRoute(root, current, appointmentId, state);
     if (policy.handled) return;
   } catch {
@@ -71,7 +70,6 @@ export async function init(root) {
     });
     return;
   }
-  if (!isSwap && !current.querySelector('[data-rv-detail-history]')) initReferenceSwap(current, openAppointmentSheet);
   const cancelSheet = document.getElementById('rv-cancel-preview');
   const move = cancelSheet.querySelector('[data-rv-cancel-reschedule]');
   if (policy.move) {

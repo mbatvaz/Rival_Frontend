@@ -1,3 +1,4 @@
+import { appointmentEntries } from '../../components/route-entries.js';
 import { api } from '../../core/api.js';
 import { faNumber } from '../../core/format.js';
 import { defaults, fromUrl, matches, updateUrl } from './appointment-filters.js';
@@ -8,6 +9,8 @@ import { projectSwapAppointments } from './appointment-swap-summaries.js';
 
 export async function init(root) {
   root = root.closest('.rv-customer-panel');
+  const list = root.querySelector('.rv-appointments');
+  const replay = () => { if (document.documentElement.dataset.rvReady) appointmentEntries(list); };
   const state = new URLSearchParams(location.search).get('state');
   const error = root.querySelector('[data-rv-list-error]');
   const loading = root.querySelector('[data-rv-list-loading]');
@@ -57,6 +60,7 @@ export async function init(root) {
     for (const el of root.querySelectorAll('[data-rv-list-empty]')) el.hidden = count > 0 || el.dataset.rvListEmpty !== (group.count === 0 ? 'empty' : 'noresult');
     root.querySelector('[data-rv-appointments-status]').textContent = `${faNumber(count)} نوبت ${group.label}`;
     chips();
+    replay();
   }
   async function load(demoState) {
     root.setAttribute('aria-busy', 'true');
@@ -74,6 +78,7 @@ export async function init(root) {
       root.querySelector('[data-rv-list-error-text]').textContent = failure.message;
       root.querySelector('[data-rv-appointments-filter]').disabled = true;
       tabs.forEach(tab => { tab.disabled = true; });
+      replay();
       root.setAttribute('aria-busy', 'false');
       return false;
     }

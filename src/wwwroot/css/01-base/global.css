@@ -1,4 +1,12 @@
 @layer base {
+  :root[data-rv-font="fallback"] {
+    --font-sans: sans-serif;
+    --font-display: var(--font-sans);
+    --font-display-regular: var(--font-sans);
+    --font-numeric: var(--font-sans);
+    --font-numeric-regular: var(--font-sans);
+  }
+
   body {
     direction: rtl;
     font-family: var(--font-sans);
@@ -8,6 +16,8 @@
     color: var(--text-primary);
     background: var(--bg-canvas);
   }
+
+  :root[data-rv-font="pending"] body { visibility: hidden; }
 
   h1 {
     font-size: var(--heading-xl-size);
@@ -26,5 +36,6 @@
   p { margin-block: 0 var(--space-4); }
   p { font-weight: 300; }
   a { color: inherit; text-underline-offset: var(--space-1); }
+  :where(a[href], button) { -webkit-tap-highlight-color: transparent; }
   :focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; }
 }

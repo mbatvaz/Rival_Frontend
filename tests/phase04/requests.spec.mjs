@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { holdAction } from '../helpers/hold-action.mjs';
 import AxeBuilder from '@axe-core/playwright';
 import fs from 'node:fs/promises';
 
@@ -41,7 +42,7 @@ test('Cancellation previews impact, then updates detail and list after confirmat
   await page.keyboard.press('Escape');
   await expect(button).toBeFocused();
   await button.click();
-  await page.getByRole('dialog').getByRole('button', { name: 'لغو درخواست' }).click();
+  await holdAction(page.getByRole('dialog').getByRole('button', { name: 'لغو درخواست' }));
   await expect(page.getByText('شما این درخواست را لغو کردید')).toBeVisible();
   await page.reload();
   await expect(page.getByText('شما این درخواست را لغو کردید')).toBeVisible();
@@ -52,7 +53,7 @@ test('Cancellation previews impact, then updates detail and list after confirmat
 test('Package payment reuses the payment result and returns to the paid request @smoke', async ({ page }) => {
   await open(page, detail);
   await expect(page.locator('[data-rv-request-schedule] .rv-request-slot')).toHaveCount(3);
-  await page.getByRole('button', { name: 'پرداخت کل' }).click();
+  await holdAction(page.getByRole('button', { name: 'پرداخت کل' }));
   await expect(page).toHaveURL(/hold=RQ-2207-customer-request/);
   await page.getByRole('link', { name: 'مشاهده جزئیات درخواست' }).click();
   await expect(page.locator('[data-rv-request-detail-state="booked"]')).toBeVisible();

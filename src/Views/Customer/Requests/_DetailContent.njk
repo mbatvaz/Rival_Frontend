@@ -2,7 +2,7 @@
   <section class="rv-customer-notice rv-customer-notice--inactive" data-rv-request-inactive hidden>
     <span class="ri ri-lock" aria-hidden="true"></span><div><h2>حساب شما غیرفعال است</h2><p>این درخواست را می‌بینید، ولی پرداخت و لغو فعلاً ممکن نیست. برای فعال شدن دوباره با سالن تماس بگیرید.</p><a class="rv-text-link" href="tel:09141452321">تماس با سالن</a></div>
   </section>
-  <div class="rv-appointment-hero rv-request-hero">
+  <div data-rv-card-media class="rv-appointment-hero rv-request-hero">
     <div class="rv-appointment-hero__media">
       <img src="{{ basePath }}{{ request.image }}" width="390" height="168" alt="">
       <div class="rv-request-hero__status">
@@ -29,7 +29,7 @@
     {% if request.parts.length and (request.status == 'wait' or request.status == 'expired' or request.status == 'pay') %}
       <section class="rv-appointment-detail__receipt" data-rv-request-parts{% if request.status == 'pay' %} hidden{% endif %}>
         <header class="rv-section-head"><h2>بخش‌های پکیج</h2>{% if request.submitted %}<span>ثبت <span data-rv-request-submitted>{{ request.submitted }}</span></span>{% endif %}</header>
-        <ol class="rv-request-parts">{% for part in request.parts %}
+        <ol data-rv-entry-zone class="rv-request-parts">{% for part in request.parts %}
           <li class="rv-booking-context rv-glass"><img src="{{ basePath }}{{ part.image }}" width="128" height="96" alt="" loading="lazy"><div><small>بخش {{ loop.index | faDigits }}</small><strong>{{ part.name }}</strong></div></li>
         {% endfor %}</ol>
       </section>
@@ -51,7 +51,7 @@
         <p class="rv-muted" data-rv-request-inactive hidden>حساب غیرفعال است؛ پرداخت و لغو ممکن نیست. با پایان مهلت، زمان آزاد می‌شود.</p>
         {% endif %}
         <div class="rv-actions"><button class="rv-btn{% if request.status == 'pay' %} rv-btn--secondary{% else %} rv-btn--danger{% endif %}" type="button" aria-haspopup="dialog" data-rv-request-cancel disabled>{% if request.parts.length and request.status == 'pay' %}لغو کل{% else %}لغو درخواست{% endif %}</button>
-          {% if request.status == 'pay' %}<button class="rv-btn" type="button" data-rv-request-pay disabled>{% if request.parts.length %}پرداخت کل{% else %}پرداخت و قطعی کردن{% endif %}</button>{% endif %}</div>
+          {% if request.status == 'pay' %}<button class="rv-btn" type="button" data-rv-confirm-action data-rv-request-pay disabled>{% if request.parts.length %}پرداخت کل{% else %}پرداخت و قطعی کردن{% endif %}</button>{% endif %}</div>
       </div>
     {% endif %}
     {% if request.status != 'booked' %}<a class="rv-btn" data-rv-request-new href="{{ productUrls.booking }}?service={{ request.service }}"{% if request.status != 'expired' and request.status != 'rejected' %} hidden{% endif %}>ثبت درخواست تازه</a>{% endif %}

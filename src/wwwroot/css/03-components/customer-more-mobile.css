@@ -38,15 +38,6 @@
 }
 
 @layer utilities {
-  @keyframes rv-customer-drawer-enter { from { transform: translate3d(-100%, 0, 0); } to { transform: translate3d(0, 0, 0); } }
-
-  @keyframes rv-customer-drawer-exit { to { transform: translate3d(-100%, 0, 0); } }
-
-  @media not all and (min-width: 1024px) {
-    .rv-customer-more,
-    .rv-customer-more[data-rv-closing] { animation-duration: var(--duration-base); }
-  }
-
   @media (min-width: 1024px) {
     .rv-customer-more[data-rv-drawer-mode="mobile"] { display: none; }
   }

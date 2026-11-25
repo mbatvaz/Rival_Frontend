@@ -33,7 +33,6 @@
       padding: 0 var(--space-6);
       min-block-size: var(--size-control);
     }
-    .rv-customer-home .rv-customer-tools__links > a { padding: var(--space-4); }
     .rv-customer-home .rv-workspace__header > a:first-child { display: none; }
     .rv-customer-home__desktop-heading { display: grid; gap: var(--space-1); }
     .rv-customer-home__desktop-heading strong { font-size: var(--heading-xl-size); line-height: var(--heading-xl-line); }
@@ -71,7 +70,7 @@
       padding: 0;
     }
     .rv-customer-home :is([data-rv-home-pager], [data-rv-home-counter]) { display: none; }
-    .rv-customer-home .rv-customer-tools { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-self: start; }
+    .rv-customer-home .rv-customer-tools { grid-template-columns: minmax(0, 1fr); align-self: start; }
     .rv-customer-home .rv-customer-balance { min-block-size: 160px; padding: var(--space-4); }
     .rv-customer-home .rv-customer-balance b { font-size: var(--numeral-xl-size); line-height: var(--numeral-xl-line); }
 

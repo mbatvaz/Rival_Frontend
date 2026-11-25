@@ -1,15 +1,15 @@
 import { initSheetGrips, releaseDrag } from './sheet-grip.js';
-import { initSheetFocus, focusSheetTarget } from './sheet-focus.js';
+import { containFocus, initSheetFocus, focusSheetTarget } from './sheet-focus.js';
 import { initSheetKeyboard, mobileSheet, sheetTextField } from './sheet-keyboard.js';
+import { tabbable } from '../../vendor/tabbable.js';
+import { animateScrim, enterSheet, exitSheet } from './sheet-motion.js';
 
 let current = null;
 const stack = [];
 let originalScroll = 0;
 let closingSheet = false;
 let closingGeneration = 0;
-
-const focusable = panel => [...panel.querySelectorAll('a[href],button,input,select,textarea,[tabindex]')]
-  .filter(el => !el.disabled && el.tabIndex >= 0 && !el.closest('[hidden],[inert]') && el.getClientRects().length);
+let scrimMotion;
 
 export function openSheet(id, opener = document.activeElement, { preserveParent = false, scrollPosition = window.scrollY } = {}) {
   const panel = document.getElementById(id);
@@ -25,7 +25,8 @@ export function openSheet(id, opener = document.activeElement, { preserveParent 
     page.setAttribute('aria-hidden', 'true');
     document.querySelector('.rv-skip-link').hidden = true;
   } else {
-    current.panel.getAnimations?.().forEach(animation => animation.cancel());
+    current.trap.deactivate();
+    current.motion?.cancel();
     if (preserveParent) {
       current.panel.inert = true;
       current.panel.setAttribute('aria-hidden', 'true');
@@ -33,17 +34,20 @@ export function openSheet(id, opener = document.activeElement, { preserveParent 
     } else current.panel.hidden = true;
     stack.push(current);
   }
-  current = { panel, opener, preserveParent };
+  current = { panel, opener };
   delete panel.dataset.rvResuming;
   if (panel.classList.contains('rv-customer-more')) panel.dataset.rvDrawerMode = window.matchMedia('(min-width: 1024px)').matches ? 'desktop' : 'mobile';
   layer.hidden = false;
   panel.hidden = false;
+  current.motion = enterSheet(panel);
+  if (!stack.length) scrimMotion = animateScrim(layer, true);
   window.scrollTo(0, 0);
-  const target = panel.querySelector('[data-rv-sheet-initial-focus]') ?? focusable(panel)[0] ?? panel;
+  const target = panel.querySelector('[data-rv-sheet-initial-focus]') ?? tabbable(panel)[0] ?? panel;
   focusSheetTarget(mobileSheet() && sheetTextField(target) ? panel : target);
+  current.trap = containFocus(panel);
 }
 
-export async function closeSheet({ immediate = false, all = false } = {}) {
+export async function closeSheet({ immediate = false, all = false, dragOffset = 0 } = {}) {
   if (!current || (closingSheet && !immediate)) return;
   releaseDrag();
   const closing = all ? stack[0] ?? current : current;
@@ -51,11 +55,17 @@ export async function closeSheet({ immediate = false, all = false } = {}) {
   const generation = ++closingGeneration;
   closingSheet = true;
   const layer = closing.panel.parentElement;
-  if (!stack.length) layer.dataset.rvClosing = 'true';
+  if (!stack.length || all) layer.dataset.rvClosing = 'true';
   panels.forEach(({ panel }) => { delete panel.dataset.rvResuming; panel.dataset.rvClosing = 'true'; });
-  if (immediate) panels.forEach(({ panel }) => panel.getAnimations?.().forEach(animation => animation.cancel()));
-  else await Promise.allSettled((closing.panel.getAnimations?.() ?? []).map(animation => animation.finished));
+  if (!immediate) {
+    current.motion = exitSheet(current.panel, dragOffset);
+    if (!stack.length || all) scrimMotion = animateScrim(layer, false);
+    await current.motion.finished;
+  }
   if (generation !== closingGeneration) return;
+  current.trap.deactivate();
+  panels.forEach(entry => entry.motion?.cancel());
+  if (!stack.length || all) scrimMotion?.cancel();
   delete layer.dataset.rvClosing;
   panels.forEach(({ panel }) => {
     delete panel.dataset.rvClosing; delete panel.dataset.rvDrawerMode; delete panel.dataset.rvUnderSheet;
@@ -73,6 +83,7 @@ export async function closeSheet({ immediate = false, all = false } = {}) {
     current.panel.hidden = false;
     const target = closing.opener?.isConnected ? closing.opener : current.panel;
     focusSheetTarget(mobileSheet() && sheetTextField(target) ? current.panel : target, { preventScroll: false });
+    current.trap = containFocus(current.panel);
   } else {
     document.querySelector('[data-rv-sheet-layer]').hidden = true;
     const page = document.querySelector('[data-rv-page]');
@@ -101,16 +112,7 @@ export function initSheets() {
     if (event.target.closest('[data-rv-sheet-close]')) closeSheet();
   });
   document.addEventListener('keydown', event => {
-    if (!current) return;
+    if (!current || current.panel.parentElement.inert) return;
     if (event.key === 'Escape') { event.preventDefault(); closeSheet(); }
-    if (event.key !== 'Tab') return;
-    const targets = focusable(current.panel);
-    const first = targets[0] ?? current.panel;
-    const last = targets.at(-1) ?? current.panel;
-    if (event.shiftKey && (document.activeElement === first || !targets.includes(document.activeElement))) {
-      event.preventDefault(); last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault(); first.focus();
-    }
   });
 }

@@ -33,7 +33,7 @@ function selectSections(html, pattern, state) {
 export function activeImport(relative, dependency, html, page, query) {
   const kind = html.match(/data-rv-booking-kind="([^"]+)"/)?.[1];
   if (relative.endsWith('/booking/index.js')) {
-    const feature = { fixed: 'time', proposed: 'time', checkout: 'checkout', recurring: 'recurring', result: 'result', external: 'result' }[kind];
+    const feature = { services: 'choices', stylists: 'choices', fixed: 'time', proposed: 'time', checkout: 'checkout', recurring: 'recurring', result: 'result', external: 'result' }[kind];
     return dependency === './' + feature + '.js';
   }
   if (relative.endsWith('/booking/result.js')) return page.id === 'STATE-07' && (!resultState(page, query) || resultState(page, query) === 'gateway');

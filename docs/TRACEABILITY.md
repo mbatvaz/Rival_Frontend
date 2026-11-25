@@ -24,11 +24,11 @@ DEC-072 and Batch 3 D10-41, D10-51–54, D10-59, D10-63, D10-65 and D10-68 → [
 
 ## CUS-04 Appointment Swap — 2026-11-22
 
-DEC-078 links the five preview states through the [registry](../src/page-registry.json), uses [shared swap actions](../src/Views/Customer/Appointments/_SwapActions.njk) on all detail records, and reuses the [appointment lift](../src/wwwroot/js/features/customer/card-sheet.js) and dashboard payment-clock styling. [Swap coverage](../tests/phase04/appointment-swap.spec.mjs)
+DEC-078 historically linked five preview states through the [registry](../src/page-registry.json), historically used shared swap actions on detail records and reused the [appointment lift](../src/wwwroot/js/features/customer/card-sheet.js) and dashboard payment-clock styling. [Swap coverage](../tests/phase04/appointment-swap.spec.mjs)
 
 DEC-077 introduces the in-Sheet schedule review and distinct result view. The swap suite verifies that checking the code leaves the ledger unchanged and that a code expiring before consent cannot be redeemed. [Feature contract](features/APPOINTMENT_SWAP.md)
 
-DEC-076 → [product and adapter contract](features/APPOINTMENT_SWAP.md), [review entry points](../src/page-registry.json), [Sheet forms](../src/Views/Customer/Appointments/_SwapSheets.njk), [Jalali calendar](../src/Views/Booking/_Calendar.njk), [mock API](../src/wwwroot/js/core/appointment-swap-api.js), [controlled records](../src/MockData/customer/appointment-swap.json) and [Playwright coverage](../tests/phase04/appointment-swap.spec.mjs). CUS-01 and CUS-03 project the current attendee's appointments in the two controlled fixture perspectives.
+DEC-076 → [product and adapter contract](features/APPOINTMENT_SWAP.md), [review entry points](../src/page-registry.json), [Jalali calendar](../src/Views/Booking/_Calendar.njk), [mock API](../src/wwwroot/js/core/appointment-swap-api.js), [controlled records](../src/MockData/customer/appointment-swap.json) and [Playwright coverage](../tests/phase04/appointment-swap.spec.mjs). CUS-01 and CUS-03 project the current attendee's appointments in the two controlled fixture perspectives.
 
 ## CUS-04-RSC rescheduling preview — 2026-11-21
 

@@ -68,7 +68,7 @@
 
     .rv-booking-choice-context [data-rv-inactive] { margin-block-start: 0; }
 
-    .rv-booking-choices .rv-booking-rail,
+    .rv-booking-choices .rv-booking-rail__track,
     .rv-booking-requested .rv-booking-package { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
     .rv-booking-choices .rv-booking-choice,

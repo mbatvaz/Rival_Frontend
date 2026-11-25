@@ -184,7 +184,7 @@
       "primaryBatch": 3,
       "template": "Customer/Home/Index.njk",
       "mockData": "MockData/customer/home.json",
-      "notes": "Phase 04 CUS-01: DEC-065 restores title/plain links, puts notices below left tools, and contains customer More list scrolling with resize recovery. Paired cards/two payments/dock retained; final review pending; CUS-07 embedded.",
+      "notes": "Phase 04 CUS-01: DEC-065 restores title/plain links, puts notices below left tools, and contains customer More list scrolling with resize recovery. Paired cards/two payments/dock retained; final review pending; balance is embedded.",
       "titleFa": "داشبورد مشتری",
       "phase": "Phase 04",
       "implementationStatus": "accepted",
@@ -298,12 +298,7 @@
         { "label": "جابه‌جایی — سهم مصرف شده", "query": "?state=rsc-used" },
         { "label": "جابه‌جایی — سهم مصرف شده بدون حق بازگشت", "query": "?state=rsc-used-nr" },
         { "label": "تعویض نوبت — مشتری یک", "query": "?swapCustomer=a" },
-        { "label": "تعویض نوبت — مشتری دو", "query": "?swapCustomer=b" },
-        { "label": "تعویض نوبت — ایجاد کد", "query": "?swapCustomer=a&swapPreview=create" },
-        { "label": "تعویض نوبت — نمایش کد و تایمر", "query": "?swapCustomer=a&swapPreview=code" },
-        { "label": "تعویض نوبت — ثبت کد", "query": "?swapCustomer=b&swapPreview=redeem" },
-        { "label": "تعویض نوبت — تأیید تاریخ‌ها", "query": "?swapCustomer=b&swapPreview=confirm" },
-        { "label": "تعویض نوبت — نتیجهٔ موفق", "query": "?swapCustomer=b&swapPreview=success" }
+        { "label": "تعویض نوبت — مشتری دو", "query": "?swapCustomer=b" }
       ]
     },
     {
@@ -395,20 +390,6 @@
           "query": "?request=RQ-2207&state=can-pay"
         }
       ]
-    },
-    {
-      "id": "CUS-07",
-      "routeTemplate": "embedded balance",
-      "previewPath": "/_preview/context/cus-07/",
-      "role": "Customer",
-      "status": "Implied / no route",
-      "source": "Batch 3, DS",
-      "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
-      "titleFa": "موجودی اعتبار",
-      "phase": "Phase 04"
     },
     {
       "id": "CUS-08",

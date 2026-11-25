@@ -1,8 +1,8 @@
 <section class="rv-customer-home__payment" aria-labelledby="rv-payment-title" data-rv-home-payment>
   <div class="rv-section-head"><h2 id="rv-payment-title">منتظر پرداخت</h2></div>
-  <div class="rv-customer-payment-rail" data-rv-home-payment-rail data-rv-drag-rail tabindex="0" role="list" aria-label="درخواست‌های منتظر پرداخت">
+  <div class="rv-customer-payment-rail" data-rv-entry-zone data-rv-home-payment-rail data-rv-drag-rail tabindex="0" role="list" aria-label="درخواست‌های منتظر پرداخت">
   {% for payment in customerPayments %}
-  <article class="rv-customer-payment rv-glass" role="listitem" data-rv-payment-id="{{ payment.id }}" aria-label="{{ payment.service }}، در انتظار پرداخت">
+  <article data-rv-card-media class="rv-customer-payment rv-glass" role="listitem" data-rv-payment-id="{{ payment.id }}" aria-label="{{ payment.service }}، در انتظار پرداخت">
     <div class="rv-customer-payment__service"><img src="{{ basePath }}{{ payment.image }}" alt="" width="56" height="64" loading="lazy"><div><h3>{{ payment.service }}</h3><p>{{ payment.description }}</p></div></div>
     <div class="rv-customer-payment__hold" role="timer" aria-label="زمان باقی‌مانده تا آزاد شدن زمان‌ها"><div><span class="rv-customer-payment__badge"><span class="ri ri-hourglass" aria-hidden="true"></span>در انتظار پرداخت</span><span><bdi data-rv-home-hold>{{ payment.clock }}</bdi> تا آزاد شدن زمان‌ها</span></div><progress value="{{ payment.remainingSeconds }}" max="{{ payment.totalSeconds }}" data-rv-home-hold-progress aria-label="مهلت پرداخت"></progress></div>
     <div class="rv-customer-payment__footer"><p>هزینه رزرو <b>{{ payment.amountText }}</b> تومان</p><a class="rv-btn rv-customer-payment__pay" href="{{ customerUrls['CUS-06'] }}?request={{ payment.id }}&amp;state={{ payment.state }}" data-rv-home-pay data-rv-home-write-action>پرداخت</a></div>

@@ -1,42 +1,101 @@
-import { enableDrag, observeCenter } from '../components/rail.js';
+import EmblaCarousel from '../../vendor/embla.js';
+import { createFocusTrap } from '../../vendor/focus-trap.js';
 
-const smooth = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+async function openPhoto(panel, links, index) {
+  const opener = links[index];
+  const { default: PhotoSwipe } = await import('../../vendor/photoswipe.js').catch(() => ({}));
+  const layer = panel.parentElement;
+  if (panel.hidden || panel.dataset.rvClosing || layer.inert) return;
+  if (!PhotoSwipe) { window.location.assign(opener.href); return; }
+  const viewer = new PhotoSwipe({
+    dataSource: links.map(link => {
+      const image = link.querySelector('img');
+      return { src: link.href, width: Number(image.getAttribute('width')),
+        height: Number(image.getAttribute('height')), alt: image.alt };
+    }),
+    index,
+    loop: false,
+    trapFocus: false,
+    returnFocus: false,
+    showHideAnimationType: reduced.matches ? 'none' : 'fade',
+    closeTitle: 'بستن نمایش بزرگ',
+    zoomTitle: 'بزرگ‌نمایی',
+    arrowPrevTitle: 'تصویر قبلی',
+    arrowNextTitle: 'تصویر بعدی',
+    errorMsg: 'بارگیری تصویر ممکن نشد.'
+  });
+
+  let trap;
+  viewer.on('afterInit', () => {
+    viewer.element.setAttribute('aria-label', 'نمایش بزرگ تصاویر نمونه‌کار');
+    viewer.element.setAttribute('aria-modal', 'true');
+    viewer.element.dir = 'ltr';
+    trap = createFocusTrap(viewer.element, {
+      initialFocus: viewer.element.querySelector('.pswp__button--close') ?? viewer.element,
+      fallbackFocus: viewer.element, delayInitialFocus: false,
+      escapeDeactivates: false, returnFocusOnDeactivate: false
+    });
+    trap.activate();
+    layer.inert = true;
+  });
+  viewer.on('destroy', () => {
+    layer.inert = false;
+    trap?.deactivate();
+    if (!panel.hidden) opener.focus({ preventScroll: true });
+  });
+  viewer.init();
+}
 
 export function init(rail) {
-  const figures = [...rail.querySelectorAll('figure')];
-  const scrollable = () => rail.scrollWidth > rail.clientWidth + 1;
-  const nearest = () => {
-    const frame = rail.getBoundingClientRect();
-    const center = frame.left + frame.width / 2;
-    return figures.reduce((best, figure, index) => {
-      const rect = figure.getBoundingClientRect();
-      const distance = Math.abs(rect.left + rect.width / 2 - center);
-      return distance < best.distance ? { index, distance } : best;
-    }, { index: 0, distance: Infinity }).index;
-  };
-  const go = index => {
-    const frame = rail.getBoundingClientRect();
-    const rect = figures[index].getBoundingClientRect();
-    rail.scrollBy({ left: rect.left - frame.left - (frame.width - rect.width) / 2, behavior: smooth() });
-  };
-  let lastWheel = -Infinity;
-  rail.addEventListener('wheel', event => {
-    if (!scrollable() || event.ctrlKey || Math.abs(event.deltaX) >= Math.abs(event.deltaY)) return;
-    const current = nearest();
-    const target = Math.max(0, Math.min(figures.length - 1, current + Math.sign(event.deltaY)));
-    if (target === current) return;
-    event.preventDefault();
-    if (window.performance.now() - lastWheel < 300) return;
-    lastWheel = window.performance.now();
-    go(target);
-  }, { passive: false });
-  enableDrag(rail);
-  rail.addEventListener('rv:dragend', () => go(nearest()));
-  const dots = rail.parentElement.querySelectorAll('[data-rv-gallery-dot]');
-  observeCenter(rail, () => figures, item => {
-    dots.forEach((dot, index) => { dot.dataset.rvActive = String(figures[index] === item); });
-  });
   const panel = rail.closest('.rv-viewer');
+  const figures = [...rail.querySelectorAll('figure')];
+  if (!figures.length) return;
+  const links = figures.map(figure => figure.querySelector('a'));
+  const dots = panel.querySelectorAll('[data-rv-gallery-dot]');
+  rail.dataset.rvCarousel = '';
+  const carousel = EmblaCarousel(rail, {
+    direction: 'rtl', align: 'center', containScroll: false, watchDrag: figures.length > 1,
+    breakpoints: { '(prefers-reduced-motion: reduce)': { duration: 0 } }
+  });
+  const render = () => {
+    const selected = carousel.selectedScrollSnap();
+    figures.forEach((figure, index) => {
+      figure.dataset.rvActive = String(index === selected);
+      dots[index].dataset.rvActive = figure.dataset.rvActive;
+    });
+  };
+  carousel.on('select', render).on('reInit', render);
+  carousel.on('pointerUp', () => {
+    if (reduced.matches) carousel.scrollTo(carousel.selectedScrollSnap(), true);
+  });
+  render();
+
+  rail.addEventListener('keydown', event => {
+    if (event.target !== rail) return;
+    const selected = carousel.selectedScrollSnap();
+    const target = { ArrowLeft: selected + 1, ArrowRight: selected - 1, Home: 0, End: figures.length - 1 }[event.key];
+    if (target === undefined) return;
+    event.preventDefault();
+    carousel.scrollTo(target, reduced.matches);
+  });
+  let wheelTime = -Infinity;
+  rail.addEventListener('wheel', event => {
+    if (event.ctrlKey) return;
+    const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? -event.deltaX : event.deltaY;
+    if (!delta || (delta > 0 ? !carousel.canScrollNext() : !carousel.canScrollPrev())) return;
+    event.preventDefault();
+    if (event.timeStamp - wheelTime < 300) return;
+    wheelTime = event.timeStamp;
+    carousel.scrollTo(carousel.selectedScrollSnap() + Math.sign(delta), reduced.matches);
+  }, { passive: false });
+  rail.addEventListener('click', event => {
+    const index = links.indexOf(event.target.closest('a'));
+    if (index === -1 || event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    event.preventDefault();
+    openPhoto(panel, links, index);
+  });
   let touch;
   panel.addEventListener('touchstart', event => {
     touch = event.touches.length === 1 ? { x: event.touches[0].clientX, y: event.touches[0].clientY } : null;
@@ -55,5 +114,4 @@ export function init(rail) {
     touch = null;
     panel.style.removeProperty('--rv-viewer-stretch');
   });
-  new window.ResizeObserver(() => { rail.dataset.rvScrollable = String(scrollable()); }).observe(rail);
 }

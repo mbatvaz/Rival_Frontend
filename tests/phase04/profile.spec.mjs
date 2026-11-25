@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { installMotionProbe } from '../helpers/motion.mjs';
 import AxeBuilder from '@axe-core/playwright';
 
 const route = 'customer/profile/';
@@ -32,8 +33,12 @@ test('Profile is reachable from More and photo and names persist locally @smoke'
   const firstName = edit.getByLabel('نام', { exact: true });
   await expect(edit).toBeFocused();
   await firstName.fill('علی');
-  await edit.locator('#profile-photo').setInputFiles('src/wwwroot/img/customer/profile-demo.jpg');
-  await expect(edit.locator('[data-profile-photo]')).toHaveAttribute('src', /^data:image\/jpeg;base64,/);
+  await edit.locator('#profile-photo').setInputFiles('src/wwwroot/img/public/hall-wide.png');
+  await expect(edit.locator('cropper-selection')).toBeVisible();
+  await edit.getByRole('button', { name: 'اعمال برش' }).click();
+  const picture = edit.locator('[data-profile-photo]');
+  await expect(picture).toHaveAttribute('src', /^data:image\/jpeg;base64,/);
+  await expect.poll(() => picture.evaluate(img => [img.naturalWidth, img.naturalHeight])).toEqual([240, 240]);
   await edit.getByRole('button', { name: 'ذخیره', exact: true }).click();
   await expect(trigger).toBeFocused();
   await expect(page.getByRole('region', { name: 'حساب شما' })).toContainText('علی کریمی');
@@ -76,6 +81,7 @@ test('Mobile sheet waits for text focus and restores scroll after the keyboard c
 });
 
 test('Phone replacement requires both codes and rejects the current number @smoke', async ({ page }) => {
+  await page.addInitScript(installMotionProbe, { id: 'rv-otp-rejected', record: 'otpShakes' });
   await open(page);
   await page.getByRole('button', { name: /شماره موبایل/ }).click();
   const dialog = page.getByRole('dialog', { name: 'تغییر شماره موبایل' });
@@ -84,6 +90,7 @@ test('Phone replacement requires both codes and rejects the current number @smok
   await code.fill('۱۱۱۱۱');
   await dialog.getByRole('button', { name: 'ادامه' }).click();
   await expect(dialog.getByRole('alert')).toContainText('کد تأیید درست نیست');
+  await expect.poll(() => page.evaluate(() => window.otpShakes.length)).toBe(1);
   await code.fill('۱۲۳۴۵');
   await dialog.getByRole('button', { name: 'ادامه' }).click();
   const phone = dialog.getByLabel('شماره تازه', { exact: true });
@@ -139,7 +146,8 @@ test('Password setup checks confirmation, without storing the password value', a
   expect(await page.evaluate(() => JSON.stringify(localStorage))).not.toContain('ExamplePassword9021');
 });
 
-test('Passkey confirmation restores focus and unsupported browsers retain SMS', async ({ page }) => {
+test('Passkey touch confirmation restores focus and unsupported browsers retain SMS', async ({ page, context }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
   await page.addInitScript(() => Object.defineProperty(window, 'PublicKeyCredential', { value: undefined }));
   await open(page);
   await expect(page.getByText('کد پیامکی', { exact: true })).toBeVisible();
@@ -151,8 +159,21 @@ test('Passkey confirmation restores focus and unsupported browsers retain SMS', 
   await page.keyboard.press('Escape');
   await expect(remove).toBeFocused();
   await remove.click();
-  await confirm.getByRole('button', { name: 'حذف', exact: true }).click();
+  const action = confirm.getByRole('button', { name: 'حذف', exact: true });
+  const touch = await context.newCDPSession(page);
+  await action.hover();
+  const box = await action.boundingBox();
+  const point = [{ x: box.x + box.width / 2, y: box.y + box.height / 2 }];
+  await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: point });
+  await expect(action.locator('.rv-confirm-face')).toHaveCSS('background-color', 'rgb(255, 255, 255)');
+  expect(await action.locator('.rv-confirm-fill').evaluate(el => el.getAnimations()[0].effect.getTiming().duration)).toBe(1000);
+  await expect(action.locator('.rv-confirm-fill')).not.toHaveCSS('clip-path', 'inset(0px 0px 0px 100%)');
+  await touch.send('Input.dispatchTouchEvent', { type: 'touchCancel', touchPoints: [] });
+  await expect(confirm).toBeVisible();
+  await expect(action).not.toHaveAttribute('data-rv-confirm-holding');
+  await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: point });
   await expect(page.getByRole('button', { name: 'حذف Passkey آیفون رضا' })).toBeFocused();
+  await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
   await page.reload();
   await expect(page.getByText('۱ دستگاه', { exact: true })).toBeVisible();
   await expect(remove).toHaveCount(0);

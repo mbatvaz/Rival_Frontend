@@ -29,13 +29,9 @@
 
   @media not all and (min-width: 1024px) {
     .rv-customer-home { overflow-x: clip; }
-    .rv-customer-more { animation: rv-customer-drawer-enter var(--duration-slow) var(--ease-standard) both; }
-    .rv-customer-more[data-rv-closing] { animation: rv-customer-drawer-exit var(--duration-base) var(--ease-exit) both; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .rv-booking-sidebar > a[aria-current="page"]::before,
-    .rv-customer-more,
-    .rv-customer-more[data-rv-closing] { animation: none; }
+    .rv-booking-sidebar > a[aria-current="page"]::before { animation: none; }
   }
 }

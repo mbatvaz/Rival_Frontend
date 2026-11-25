@@ -1,3 +1,4 @@
+import { requestEntries } from '../../components/route-entries.js';
 import { faDigits } from '../../core/format.js';
 import { keepRailChoicesInView } from '../../components/rail.js';
 import { matchesRequest, requestFilter } from './request-filter.js';
@@ -20,6 +21,7 @@ export async function init(root) {
   const apply = () => {
     history.replaceState(null, '', location.pathname + '?' + query);
     render();
+    if (document.documentElement.dataset.rvReady) requestEntries(root);
   };
   const openFilterPreview = requestFilter(query, () => ({
     active: selected().value, records: query.get('state') === 'empty' ? [] : records

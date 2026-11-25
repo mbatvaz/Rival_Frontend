@@ -4,10 +4,13 @@
 <a class="rv-booking-desktop-only rv-booking-rec-link rv-btn rv-btn--secondary" href="{{ bookingUrls['BK-REC01'] }}" data-rv-recurring-link><span class="ri ri-repeat" aria-hidden="true"></span>رزرو دوره‌ای</a>
 <section data-rv-choices-quick aria-labelledby="rv-quick-title">
   <h2 id="rv-quick-title">رزرو دوباره</h2>
-  <div class="rv-booking-quick rv-quick-skeleton" data-rv-quick-loading hidden role="status" aria-label="در حال بارگذاری رزروهای قبلی"><div></div><div></div></div>
-  <div class="rv-booking-quick" data-rv-quick-items>
+  <div class="rv-booking-quick rv-quick-skeleton" data-rv-quick-loading hidden role="status" aria-label="در حال بارگذاری رزروهای قبلی">
+    <div class="rv-booking-quick__card rv-glass" aria-hidden="true"><span class="rv-skel"></span><span class="rv-skel"></span><span class="rv-skel"></span></div>
+    <div class="rv-booking-quick__card rv-glass" aria-hidden="true"><span class="rv-skel"></span><span class="rv-skel"></span><span class="rv-skel"></span></div>
+  </div>
+  <div class="rv-booking-quick" data-rv-entry-zone data-rv-quick-items>
     {% for item in bookingQuick %}
-    <a class="rv-booking-quick__card rv-glass" href="{{ bookingUrls['BK-F01'] }}?service={{ item.service.id }}&amp;stylist={{ item.stylist.id }}">
+    <a data-rv-card-media class="rv-booking-quick__card rv-glass" href="{{ bookingUrls['BK-F01'] }}?service={{ item.service.id }}&amp;stylist={{ item.stylist.id }}">
       <span class="rv-booking-quick__media"><img src="{{ basePath }}{{ item.service.image }}" alt=""><img src="{{ basePath }}{{ item.stylist.image }}" alt=""></span>
       <strong data-rv-overflow-text>{{ item.service.name }}</strong><span class="rv-muted" data-rv-overflow-text>{{ item.stylist.name }} · {{ item.service.duration }}</span>
     </a>
@@ -25,23 +28,28 @@
     <h2 id="rv-choice-title">{% if model.kind == 'services' %}<span class="rv-booking-mobile-only">چه خدمتی می‌خواهید؟</span><span class="rv-booking-desktop-only">چه خدمتی می‌خواهید؟</span>{% else %}<span class="rv-booking-mobile-only">با کدام آرایشگر؟</span><span class="rv-booking-desktop-only">آرایشگران این خدمت</span>{% endif %}</h2>
     {% if model.kind == 'services' %}<a class="rv-booking-mobile-only" href="{{ bookingUrls['BK-REC01'] }}" data-rv-recurring-link><span class="ri ri-repeat" aria-hidden="true"></span>رزرو دوره‌ای</a>{% endif %}
   </div>
-  <div class="rv-booking-rail" data-rv-choices-list tabindex="0" role="region" aria-labelledby="rv-choice-title">
+  <div class="rv-booking-rail" data-rv-entry-zone data-rv-choices-list tabindex="0" role="region" aria-labelledby="rv-choice-title">
+    <div class="rv-booking-rail__track">
     {% if model.kind == 'services' %}
     {% for service in bookingCatalog.services %}
-    <a class="rv-booking-choice" data-rv-service-choice="{{ service.id }}" href="{% if service.kind == 'requested' %}{{ bookingUrls['BK-R01'] }}{% else %}{{ bookingUrls['BK-02'] }}{% endif %}?service={{ service.id }}">
-      <img src="{{ basePath }}{{ service.image }}" alt=""><span class="rv-booking-choice__caption rv-glass rv-glass--strong"><strong data-rv-overflow-text>{{ service.name }}</strong><span data-rv-overflow-text>{% if service.kind == 'fixed' %}{{ service.duration }}{% else %}{% if service.kind == 'requested' %}هماهنگی توسط مدیر سالن{% else %}زمان ترجیحی شما{% endif %}{% endif %}</span></span>
+    <a class="rv-booking-choice" data-rv-card-media data-rv-service-choice="{{ service.id }}" href="{% if service.kind == 'requested' %}{{ bookingUrls['BK-R01'] }}{% else %}{{ bookingUrls['BK-02'] }}{% endif %}?service={{ service.id }}">
+      <img src="{{ basePath }}{{ service.image }}" alt="" draggable="false"><span class="rv-booking-choice__caption rv-glass rv-glass--strong"><strong data-rv-overflow-text>{{ service.name }}</strong><span data-rv-overflow-text>{% if service.kind == 'fixed' %}{{ service.duration }}{% else %}{% if service.kind == 'requested' %}هماهنگی توسط مدیر سالن{% else %}زمان ترجیحی شما{% endif %}{% endif %}</span></span>
     </a>
     {% endfor %}
     {% else %}
     {% for stylist in bookingCatalog.stylists %}
-    <a class="rv-booking-choice" data-rv-stylist-choice="{{ stylist.id }}" href="{{ bookingUrls['BK-F01'] }}?service={{ bookingDefault.service.id }}&amp;stylist={{ stylist.id }}">
-      <img src="{{ basePath }}{{ stylist.image }}" alt=""><span class="rv-booking-choice__caption rv-glass rv-glass--strong"><strong data-rv-overflow-text>{{ stylist.name }}</strong></span>
+    <a class="rv-booking-choice" data-rv-card-media data-rv-stylist-choice="{{ stylist.id }}" href="{{ bookingUrls['BK-F01'] }}?service={{ bookingDefault.service.id }}&amp;stylist={{ stylist.id }}">
+      <img src="{{ basePath }}{{ stylist.image }}" alt="" draggable="false"><span class="rv-booking-choice__caption rv-glass rv-glass--strong"><strong data-rv-overflow-text>{{ stylist.name }}</strong></span>
     </a>
     {% endfor %}
     {% endif %}
+    </div>
   </div>
   <div class="rv-slide-dots rv-booking-mobile-only" data-rv-choice-dots aria-hidden="true"></div>
-  <div class="rv-booking-skeleton" data-rv-choices-loading role="status" hidden><span>در حال بارگذاری خدمت‌ها…</span><div aria-hidden="true"></div></div>
+  <div class="rv-booking-skeleton" data-rv-choices-loading role="status" aria-label="{% if model.kind == 'services' %}در حال بارگذاری خدمت‌ها{% else %}در حال بارگذاری آرایشگرها{% endif %}" hidden>
+    <div class="rv-booking-skeleton__cards" aria-hidden="true"><span class="rv-skel"></span><span class="rv-skel"></span><span class="rv-skel"></span><span class="rv-skel"></span></div>
+    <div class="rv-slide-dots rv-booking-mobile-only" aria-hidden="true"><span></span><span data-rv-active="true"></span><span></span></div>
+  </div>
   <div class="rv-booking-empty" data-rv-choices-empty hidden>
     <span class="rv-icon-tile rv-icon-tile--large"><picture class="rv-icon-motion" aria-hidden="true"><source media="(prefers-reduced-motion: no-preference)" srcset="{{ basePath }}img/icon-motion/{% if model.kind == 'stylists' %}users{% else %}scissors{% endif %}-neutral.gif"><img src="{{ basePath }}icons/{% if model.kind == 'stylists' %}users{% else %}scissors{% endif %}.svg" alt="" width="40" height="40"></picture><span class="ri ri-{% if model.kind == 'stylists' %}users{% else %}scissors{% endif %} rv-icon-motion-static" aria-hidden="true"></span></span>
     <h2>{% if model.kind == 'services' %}فعلاً خدمتی برای رزرو نیست{% else %}فعلاً آرایشگری برای این خدمت نیست{% endif %}</h2>

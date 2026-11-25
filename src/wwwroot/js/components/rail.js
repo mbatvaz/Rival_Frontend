@@ -56,10 +56,8 @@ export function enableDrag(rail) {
     event.preventDefault();
   });
   const release = () => {
-    const moved = Boolean(drag && suppress);
     drag = null;
     delete rail.dataset.rvDragging;
-    if (moved) rail.dispatchEvent(new window.CustomEvent('rv:dragend'));
   };
   for (const event of ['pointerup', 'pointercancel', 'lostpointercapture']) rail.addEventListener(event, release);
   rail.addEventListener('click', event => {

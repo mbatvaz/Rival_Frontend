@@ -27,7 +27,7 @@ export async function prepareDesignSystem() {
   for (const [index, name] of ['Light', 'Regular', 'SemiBold'].entries()) {
     const file = `YekanBakh-${name}.woff2`;
     await fs.copyFile(path.join(ds, 'fonts', file), path.join(target, 'fonts', file));
-    fontRules.push(`  @font-face {\n    font-family: "Yekan Bakh";\n    src: url("../../fonts/${file}") format("woff2");\n    font-weight: ${[300, 400, 600][index]};\n    font-style: normal;\n    font-display: block;\n  }`);
+    fontRules.push(`  @font-face {\n    font-family: "Yekan Bakh";\n    src: url("../../fonts/${file}") format("woff2");\n    font-weight: ${[300, 400, 600][index]};\n    font-style: normal;\n    font-display: optional;\n  }`);
   }
   await write(path.join(target, 'css/01-base/fonts.css'), `/* Generated local font faces. */\n@layer base {\n${fontRules.join('\n\n')}\n}\n`);
   const icons = (await fs.readdir(path.join(ds, 'assets/icons'))).filter(file => file.endsWith('.svg')).sort();

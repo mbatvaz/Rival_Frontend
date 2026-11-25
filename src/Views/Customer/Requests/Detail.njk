@@ -8,7 +8,7 @@
 {% block content %}
 <div data-rv="customer-request-detail" data-rv-requests-url="{{ customerUrls['CUS-05'] }}" data-rv-payment-url="{{ customerUrls['PAY-RES'] }}">
   {% for request in requestRecords %}
-    {% if loop.first %}<div data-rv-request-current>{% else %}<template data-rv-request-template="{{ request.id }}">{% endif %}
+    {% if loop.first %}<div data-rv-entry-zone data-rv-request-current>{% else %}<template data-rv-request-template="{{ request.id }}">{% endif %}
       {% include "Customer/Requests/_DetailContent.njk" %}
     {% if loop.first %}</div>{% else %}</template>{% endif %}
   {% endfor %}
@@ -31,6 +31,6 @@
     <div><strong data-rv-request-impact>اثر مالی ندارد</strong><p data-rv-request-cancel-copy></p></div>
   </div>
   <p class="rv-feedback rv-feedback--error" data-rv-request-error role="alert" hidden></p>
-  <div class="rv-actions"><button class="rv-btn rv-btn--danger" type="button" data-rv-request-confirm>لغو درخواست</button><button class="rv-btn rv-btn--secondary" type="button" data-rv-sheet-close>انصراف</button></div>
+  <div class="rv-actions"><button class="rv-btn rv-btn--secondary" type="button" data-rv-sheet-close>انصراف</button><button class="rv-btn rv-btn--danger" type="button" data-rv-confirm-action data-rv-request-confirm><span class="ri ri-x" aria-hidden="true"></span>لغو درخواست</button></div>
 </section>
 {% endblock %}

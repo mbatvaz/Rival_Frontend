@@ -5,7 +5,7 @@
     <p class="rv-booking__notice" data-rv-sms-entry hidden>این زمان از پیامک اعلان آمده است. زمان به محض رزرو شدن از فهرست حذف می‌شود.</p>
     <section class="rv-booking-soon-panel" data-rv-soon aria-labelledby="rv-soon-title">
       <h2 id="rv-soon-title">نزدیک‌ترین زمان</h2>
-      <div class="rv-booking-soon" role="radiogroup" aria-labelledby="rv-soon-title">
+      <div data-rv-entry-zone class="rv-booking-soon" role="radiogroup" aria-labelledby="rv-soon-title">
         {% for day in bookingCatalog.calendar.days %}
         {% if day.label %}
         <label class="rv-booking-radio rv-booking-quick-time">
@@ -35,7 +35,7 @@
         <h2 class="rv-booking-desktop-only" data-rv-picked-day>روز را انتخاب کنید</h2>
         <fieldset class="rv-booking-picks" data-rv-picks>
           <legend>{% if model.kind == 'fixed' %}ساعت شروع{% else %}چه زمانی از روز؟{% endif %}</legend>
-          <div class="rv-booking-picks__grid{% if model.kind == 'proposed' %} rv-booking-picks__grid--parts{% endif %}">
+          <div data-rv-entry-zone class="rv-booking-picks__grid{% if model.kind == 'proposed' %} rv-booking-picks__grid--parts{% endif %}">
             {% if model.kind == 'fixed' %}
             {% for time in bookingCatalog.calendar.times %}
             <label class="rv-booking-radio"><input type="radio" name="time" value="{{ time }}"><span><bdi>{{ time | faDigits }}</bdi></span></label>

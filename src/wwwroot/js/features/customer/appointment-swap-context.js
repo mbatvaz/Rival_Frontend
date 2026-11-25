@@ -1,6 +1,5 @@
 import { localUrl } from '../../core/config.js';
-import { api, ApiError } from '../../core/api.js';
-import { text } from '../booking/shared.js';
+import { api } from '../../core/api.js';
 
 export const swapCustomer = () => new URLSearchParams(location.search).get('swapCustomer');
 
@@ -9,10 +8,6 @@ export function swapLink(href, customer, appointment) {
   url.searchParams.set('swapCustomer', customer);
   if (appointment) url.searchParams.set('appointment', appointment);
   return url.href;
-}
-
-export function reportSwapError(sheet, error) {
-  text(sheet, 'swap-error', error instanceof ApiError ? error.message : 'انجام عملیات ممکن نشد. دوباره تلاش کنید.');
 }
 
 export function preserveSwapNavigation(customer, name) {

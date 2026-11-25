@@ -1,7 +1,19 @@
 @layer pages {
+  .rv-profile-crop { display: grid; gap: var(--space-3); }
+
+  .rv-profile-crop__surface {
+    inline-size: min(100%, 240px);
+    aspect-ratio: 1;
+    margin-inline: auto;
+    overflow: clip;
+    border-radius: var(--radius-md);
+  }
+
+  .rv-profile-crop__surface cropper-canvas { inline-size: 100%; block-size: 100%; }
+  .rv-profile-crop .rv-actions { flex-wrap: wrap; }
+
   .rv-profile-sheet .rv-sheet__header { align-items: start; }
   .rv-profile-sheet .rv-sheet__header h2 { font-size: var(--heading-md-size); line-height: var(--heading-md-line); }
-  #rv-profile-passkey-delete .rv-btn--danger { background: var(--danger-solid); color: var(--text-inverse); }
   .rv-profile-sheet__form { display: grid; gap: var(--space-4); }
   .rv-profile-sheet__form p { margin: 0; }
 

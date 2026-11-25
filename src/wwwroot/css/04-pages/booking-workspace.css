@@ -30,13 +30,11 @@
     .rv-booking-choice-context:not(:has(> :not([hidden], .rv-booking-mobile-only))) { display: none; }
 
     .rv-booking-rail {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--space-4);
       overflow: visible;
       margin: 0;
       padding: 0;
     }
+    .rv-booking-rail__track { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }
     .rv-booking-choice { aspect-ratio: 3 / 2; border-radius: var(--radius-lg); }
     .rv-booking-choice__caption { justify-items: center; text-align: center; }
     .rv-booking-choice__caption span:empty { display: none; }

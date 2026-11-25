@@ -1,4 +1,6 @@
 @layer pages {
+  [data-rv-portfolio-loading]:not([hidden]) { visibility: visible; }
+
   .rv-portfolio-empty {
     min-block-size: 360px;
     display: flex;
@@ -29,32 +31,10 @@
   .rv-portfolio-skeleton { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
 
   .rv-portfolio-skeleton span {
-    position: relative;
-    overflow: clip;
-    display: block;
     block-size: 240px;
-    border-radius: var(--radius-xl);
-    background: var(--bg-plaster);
-  }
-
-  .rv-portfolio-skeleton span::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(105deg, transparent, var(--glass-fill-strong), transparent);
-    animation: rv-skeleton-shimmer calc(var(--duration-deliberate) * 2) var(--ease-standard) infinite;
   }
   .rv-portfolio-skeleton span:first-child { grid-column: 1 / -1; block-size: 400px; }
   .rv-portfolio-skeleton span:nth-child(3n) { block-size: 320px; }
-
-  @keyframes rv-skeleton-shimmer {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .rv-portfolio-skeleton span::after { animation: none; opacity: 0; }
-  }
 
   @media (min-width: 1024px) {
     .rv-portfolio-error { inline-size: 50%; margin-inline: auto; }

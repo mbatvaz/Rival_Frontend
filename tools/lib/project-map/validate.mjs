@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { snapshot, digest, outputs } from './extract.mjs';
+import { browserVendorFiles } from '../browser-vendor.mjs';
 
 export function drift(previous, current) {
   return {
@@ -51,7 +52,9 @@ export async function checkGraph(root, graph) {
   for (const file of [...new Set(graph.nodes.filter(node => node.path).map(node => node.path))]) {
     const absolute = path.resolve(root, file);
     if (!absolute.startsWith(path.resolve(root) + path.sep)) { errors.push('Escaping path: ' + file); continue; }
-    try { await fs.access(absolute); }
+    const asset = file.match(/^src\/wwwroot\/vendor\/([\w.-]+)$/)?.[1];
+    const source = asset && Object.hasOwn(browserVendorFiles, asset) ? path.join(root, browserVendorFiles[asset]) : absolute;
+    try { await fs.access(source); }
     catch { errors.push('Missing referenced file: ' + file); }
   }
   for (const edge of graph.edges) {

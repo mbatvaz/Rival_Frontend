@@ -1,6 +1,6 @@
 <div class="rv-home-carousel" data-rv="home-carousel" data-rv-interval="{{ model.carouselInterval }}" role="region" aria-roledescription="چرخ‌فلک" aria-label="نمونه‌کارهای منتخب">
   <div class="rv-home-carousel__stage" tabindex="0" role="group" aria-label="تصاویر منتخب؛ با کلیدهای جهت چپ و راست جابه‌جا شوید">
-    {% for work in model.featured %}<figure class="rv-home-carousel__card" data-rv-carousel-card data-rv-position="{{ loop.index0 }}" {% if not loop.first %}aria-hidden="true"{% endif %}><img src="{{ basePath }}{{ work.image }}" alt="{{ work.title }}" width="260" height="350" draggable="false"></figure>{% endfor %}
+    {% for work in model.featured %}<figure class="rv-home-carousel__card" data-rv-card-media data-rv-carousel-card data-rv-position="{{ loop.index0 }}" {% if not loop.first %}aria-hidden="true"{% endif %}><img src="{{ basePath }}{{ work.image }}" alt="{{ work.title }}" width="260" height="350" draggable="false"></figure>{% endfor %}
   </div>
   <div class="rv-carousel-caption" data-rv-carousel-description aria-live="off" aria-atomic="true">
     {% for work in model.featured %}<div data-rv-carousel-caption {% if not loop.first %}hidden{% endif %}><a href="{{ productUrls.portfolio }}">{{ work.title }}</a><p>{{ work.service }} <span aria-hidden="true">|</span> {{ work.stylist }}</p></div>{% endfor %}

@@ -1,17 +1,11 @@
 import { test, expect } from '@playwright/test';
 import fs from 'node:fs/promises';
+import { installMotionProbe } from '../helpers/motion.mjs';
 
 for (const width of [320, 390, 768]) {
   test(`Mobile entry never moves the RTL page canvas at ${width}px @visual`, async ({ page }, info) => {
     await page.setViewportSize({ width, height: 900 });
-    await page.addInitScript(() => {
-      const animate = window.Element.prototype.animate;
-      window.Element.prototype.animate = function (frames, options) {
-        const animation = animate.call(this, frames, options);
-        if (options?.id === 'rv-list-entry') animation.pause();
-        return animation;
-      };
-    });
+    await page.addInitScript(installMotionProbe, { record: 'canvasEntries', pause: true });
     for (const route of ['portfolio/', 'customer/book/', 'customer/']) {
       await page.goto(route);
       await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
@@ -47,5 +41,52 @@ for (const width of [320, 390, 768]) {
         await page.screenshot({ path: `${dir}/portfolio-${width}.png`, fullPage: true });
       }
     }
+  });
+}
+
+for (const width of [390, 1280]) {
+  test(`Dashboard cards and shadows stay fixed during content entry at ${width}px @visual`, async ({ page }, info) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.addInitScript(installMotionProbe, { record: 'dashboardEntries', pause: true });
+    await page.goto('customer/');
+    await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
+    const rail = page.locator('[data-rv-home-appointments]');
+    const first = rail.locator('article').first();
+    const inner = first.locator('.rv-appointment-hero__media > img');
+    await expect.poll(() => inner.evaluate(el => el.getAnimations().some(effect => effect.id === 'rv-list-entry'))).toBe(true);
+    const setTime = instant => page.evaluate(time => {
+      for (const effect of document.getAnimations().filter(animation => animation.id === 'rv-list-entry')) {
+        effect.currentTime = time;
+      }
+    }, instant);
+    const surface = () => first.evaluate(el => {
+      const card = el.getBoundingClientRect();
+      const rail = el.parentElement;
+      const panel = getComputedStyle(el.querySelector('.rv-appointment-hero__panel'));
+      return {
+        x: card.x, scrollLeft: rail.scrollLeft, snapWidth: rail.scrollWidth,
+        opacity: getComputedStyle(el).opacity, shadow: getComputedStyle(el).boxShadow,
+        filter: panel.backdropFilter, fill: panel.backgroundColor
+      };
+    });
+    await setTime(0);
+    const initial = await surface();
+    expect(initial.opacity).toBe('1');
+    expect(initial.shadow).not.toBe('none');
+    expect(initial.filter).not.toBe('none');
+    const samples = [];
+    for (const time of [0, 100, 200, 310, 399, 2000]) {
+      await setTime(time);
+      expect(await surface()).toEqual(initial);
+      samples.push((await inner.boundingBox()).x);
+      if (time === 200 || time === 2000) {
+        await page.screenshot({ path: info.outputPath(`dashboard-${time}.png`) });
+      }
+    }
+    expect(samples[0]).toBeLessThan(samples.at(-1));
+    samples.slice(1).forEach((x, i) => {
+      expect(x).toBeGreaterThanOrEqual(samples[i] - 0.1);
+      expect(x).toBeLessThanOrEqual(samples.at(-1) + 0.1);
+    });
   });
 }

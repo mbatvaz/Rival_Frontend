@@ -1,0 +1,17 @@
+@layer components {
+  @media not all and (min-width: 1024px) {
+    .rv-sheet:has(> [data-rv-sheet-drag-zone]) { position: relative; }
+
+    [data-rv-sheet-drag-zone] {
+      display: block;
+      position: absolute;
+      z-index: 1;
+      inset: calc(var(--rv-sheet-grab-depth, var(--size-touch)) / -2) 0 auto;
+      block-size: calc(var(--rv-sheet-grab-depth, var(--size-touch)) * 1.5);
+      touch-action: none;
+      cursor: grab;
+    }
+
+    .rv-sheet__header :is(button, a) { position: relative; z-index: 2; }
+  }
+}

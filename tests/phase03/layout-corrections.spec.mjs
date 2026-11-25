@@ -35,6 +35,7 @@ test('Mobile choice cards, dots and progress use compact geometry @visual @smoke
     const side = await page.locator('[data-rv-centered="false"]').first().boundingBox();
     expect(side.height / center.height).toBeCloseTo(.84, 1);
     const rail = await page.locator('[data-rv-choices-list]').boundingBox();
+    expect(Math.abs(center.x + center.width / 2 - rail.x - rail.width / 2)).toBeLessThan(2);
     const dots = await page.locator('[data-rv-choice-dots]').boundingBox();
     expect(dots.y - rail.y - rail.height).toBeLessThanOrEqual(9);
     const progress = page.locator('[data-rv-mobile-progress]');
@@ -48,6 +49,72 @@ test('Mobile choice cards, dots and progress use compact geometry @visual @smoke
     const ratio = await progress.evaluate(el => el.parentElement.querySelector('.rv-booking-progress__shine').getBoundingClientRect().width / el.parentElement.clientWidth);
     expect(ratio).toBeCloseTo(fill.expected, 2);
     await page.emulateMedia({ reducedMotion: 'reduce' });
+  }
+});
+
+test('Booking rails scroll in RTL and dragging or swiping does not select a link @smoke', async ({ page, context }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  const touch = await context.newCDPSession(page);
+  for (const route of ['bk-01/', 'bk-02/']) {
+    await page.goto('_preview/context/' + route);
+    await ready(page);
+    const url = page.url();
+    const rail = page.locator('[data-rv-choices-list]');
+    const cards = rail.locator('.rv-booking-choice:visible');
+    await rail.focus();
+    await page.keyboard.press('Home');
+    await page.keyboard.press('ArrowLeft');
+    await expect(cards.nth(1)).toHaveAttribute('data-rv-centered', 'true');
+    await expect(cards.first().locator('img')).toHaveCSS('opacity', '0.8');
+    await expect(page.locator('[data-rv-choice-dots] > span').nth(1)).toHaveAttribute('data-rv-active', 'true');
+    await page.keyboard.press('Home');
+    await rail.scrollIntoViewIfNeeded();
+    const box = await cards.first().boundingBox();
+    await page.mouse.move(box.x + 22, box.y + 72);
+    await page.mouse.down();
+    await page.mouse.move(box.x + 180, box.y + 72, { steps: 8 });
+    await page.mouse.up();
+    await expect(cards.first()).toHaveAttribute('data-rv-centered', 'false');
+    await expect(page).toHaveURL(url);
+    await rail.focus();
+    await page.keyboard.press('Home');
+    const first = await cards.first().boundingBox();
+    const point = x => [{ x: first.x + x, y: first.y + 72 }];
+    await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: point(22) });
+    for (const x of [65, 105, 145, 180]) {
+      await touch.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: point(x) });
+    }
+    await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+    await expect(cards.first()).toHaveAttribute('data-rv-centered', 'false');
+    await expect(page).toHaveURL(url);
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await expect(rail.locator('.rv-booking-rail__track')).toHaveCSS('display', 'grid');
+    await expect(rail.locator('.rv-booking-rail__track')).toHaveCSS('transform', 'none');
+    await page.setViewportSize({ width: 390, height: 844 });
+  }
+});
+
+test('Booking card scale follows the carousel continuously at mobile width @visual', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const id of ['bk-01', 'bk-02']) {
+    await page.goto('_preview/context/' + id + '/');
+    await ready(page);
+    const rail = page.locator('[data-rv-choices-list]');
+    const samples = await rail.evaluate(async element => {
+      const active = element.querySelector('[data-rv-centered="true"]');
+      const values = [Number(getComputedStyle(active).scale)];
+      element.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'ArrowLeft' }));
+      for (let i = 0; i < 40; i++) {
+        await new Promise(resolve => window.requestAnimationFrame(resolve));
+        values.push(Number(getComputedStyle(active).scale));
+      }
+      return values;
+    });
+    expect(samples[0]).toBeCloseTo(1);
+    expect(samples.at(-1)).toBeCloseTo(0.84);
+    expect(samples.filter(value => value > 0.85 && value < 0.99).length).toBeGreaterThan(2);
+    expect(Math.max(...samples.slice(1).map((value, i) => Math.abs(value - samples[i])))).toBeLessThan(0.09);
   }
 });
 

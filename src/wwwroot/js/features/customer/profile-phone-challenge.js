@@ -35,10 +35,10 @@ export function phoneChallenge(resend, hint, policy) {
       timer = window.setInterval(refresh, 1000);
     },
     check(value) {
-      if (Date.now() >= challenge.expiresAt) return 'زمان این کد تمام شد. کد تازه بگیرید.';
+      if (Date.now() >= challenge.expiresAt) return { message: 'زمان این کد تمام شد. کد تازه بگیرید.', wrong: false };
       if (value === challenge.value) return '';
       challenge.attempts++;
-      return exhausted() ? 'برای ادامه کد تازه بگیرید.' : 'کد تأیید درست نیست.';
+      return { message: exhausted() ? 'برای ادامه کد تازه بگیرید.' : 'کد تأیید درست نیست.', wrong: true };
     }
   };
 }

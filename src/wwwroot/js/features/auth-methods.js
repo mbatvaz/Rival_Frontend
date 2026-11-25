@@ -5,26 +5,17 @@ export function passwordMode() {
   return query.get('method') === 'password' || query.get('state') === 'password';
 }
 
-export function initMethods(root, view, refresh, ready) {
+export function initMethods(root, changeStage, ready) {
   const get = name => root.querySelector('[data-rv-' + name + ']');
-  const show = stage => {
-    view.stage = stage;
+  const show = stage => changeStage(stage, () => {
     get('code').value = '';
     for (const name of ['phone', 'code', 'password']) {
       get(name).setAttribute('aria-invalid', 'false');
       get(name + '-error').textContent = '';
     }
     notice(root, '', 'info');
-    refresh();
-    window.scrollTo(0, 0);
-    get('phone').focus({ preventScroll: true });
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.getElementById('rv-main').animate(
-        [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'translateY(0)' }],
-        { duration: 240, easing: 'ease-out' }
-      );
-    }
-  };
+    return get('phone');
+  });
   root.addEventListener('click', event => {
     const method = event.target.closest('[data-rv-method]');
     if (!method || method.disabled || !ready()) return;

@@ -28,3 +28,14 @@ export function focusSheetTarget(target, { preventScroll = true } = {}) {
   }
   target.focus({ preventScroll });
 }
+import { createFocusTrap } from '../../vendor/focus-trap.js';
+
+
+export function containFocus(panel) {
+  const trap = createFocusTrap(panel, {
+    initialFocus: false, fallbackFocus: panel, returnFocusOnDeactivate: false,
+    escapeDeactivates: false, allowOutsideClick: event => Boolean(event.target.closest('[data-rv-sheet-close]'))
+  });
+  trap.activate();
+  return trap;
+}

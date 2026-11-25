@@ -7,33 +7,64 @@
   ::-webkit-scrollbar { display: none; }
   [data-rv-dragging] { scroll-snap-type: none; user-select: none; cursor: grabbing; }
 
+  [data-rv-confirm-action] {
+    position: relative;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  [data-rv-confirm-action]:active { transform: none; }
+
+  .rv-confirm-face,
+  .rv-confirm-fill {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  .rv-confirm-face {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    box-shadow: inset 0 0 0 2px var(--rv-confirm-color);
+  }
+
+  .rv-confirm-fill {
+    background: var(--rv-confirm-color);
+    color: var(--rv-confirm-text);
+    clip-path: inset(0 0 0 100%);
+  }
+
+  [data-rv-confirm-hint]::after {
+    position: absolute;
+    z-index: 1;
+    inset-inline: 0;
+    inset-block-end: calc(100% + var(--space-1));
+    min-inline-size: max-content;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    background: var(--bg-inverse);
+    color: var(--text-inverse);
+    font-size: var(--body-sm-size);
+    content: attr(data-rv-confirm-hint);
+    pointer-events: none;
+  }
+
+  .rv-confirm-announcement {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: clip;
+    clip-path: inset(50%);
+  }
+
   [data-rv-page] > main {
     animation: none;
-  }
-  .rv-booking[data-rv-page] > main { animation: none; }
-  .rv-sheet { animation: rv-sheet-enter var(--duration-slow) var(--ease-standard) both; }
-  .rv-sheet-scrim { animation: rv-fade-enter var(--duration-base) var(--ease-standard) both; }
-
-  .rv-sheet[data-rv-closing] { animation: rv-sheet-exit var(--duration-base) var(--ease-exit) both; }
-  .rv-sheet[data-rv-resuming] { animation: none; }
-  [data-rv-closing] > .rv-sheet-scrim { animation: rv-fade-exit var(--duration-fast) var(--ease-exit) both; }
-
-  @keyframes rv-sheet-exit {
-    to { transform: translateY(100%); }
-  }
-
-  @keyframes rv-fade-exit {
-    to { opacity: 0; }
-  }
-
-  @keyframes rv-page-enter {
-    from { opacity: 0; transform: translateY(var(--space-3)); }
-    to { opacity: 1; transform: none; }
-  }
-
-  @keyframes rv-sheet-enter {
-    from { transform: translateY(100%); }
-    to { opacity: 1; transform: none; }
   }
 
   @keyframes rv-fade-enter {
@@ -41,26 +72,4 @@
     to { opacity: 1; }
   }
 
-  @media (min-width: 1024px) {
-    .rv-viewer { animation-name: rv-viewer-enter; }
-    .rv-viewer[data-rv-closing] { animation-name: rv-viewer-exit; }
-  }
-
-  @keyframes rv-viewer-enter {
-    from { opacity: 0; transform: scale(0.98); }
-    to { opacity: 1; transform: none; }
-  }
-
-  @keyframes rv-viewer-exit {
-    to { opacity: 0; transform: scale(0.98); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    [data-rv-page] > main,
-    .rv-sheet,
-    .rv-sheet-scrim,
-    .rv-sheet[data-rv-closing],
-    .rv-sheet[data-rv-resuming],
-    [data-rv-closing] > .rv-sheet-scrim { animation: none; }
-  }
 }

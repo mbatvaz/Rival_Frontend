@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import fs from 'node:fs/promises';
+import { installMotionProbe } from '../helpers/motion.mjs';
 
 const ready = async page => expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
 const go = async (page, query = '') => { await page.goto('customer/appointments/' + query); await ready(page); };
@@ -100,24 +101,24 @@ test('Keyboard tabs, modal focus restoration, empty/loading/error and retry @a11
   await expect(records(page)).toHaveCount(5);
 });
 
-test('Appointment records enter initially and never replay after filtering or popup close', async ({ page }) => {
+test('Appointment tab entry replays after switching views and stays still on popup close', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.addInitScript(() => {
-    window.rvEntryCalls = [];
-    const animate = window.Element.prototype.animate;
-    window.Element.prototype.animate = function (frames, options) {
-      if (options?.id === 'rv-list-entry') window.rvEntryCalls.push(this.dataset.rvRecord);
-      return animate.call(this, frames, options);
-    };
-  });
+  await page.addInitScript(installMotionProbe, { record: 'rvEntryCalls' });
   await go(page);
   await expect.poll(() => page.evaluate(() => window.rvEntryCalls.length)).toBe(3);
-  expect(await page.evaluate(() => window.rvEntryCalls)).toEqual(['BK-48213', 'BK-48390', 'BK-48477']);
+  expect(await page.evaluate(() => window.rvEntryCalls.map(({ target }) => target.dataset.rvRecord))).toEqual(['BK-48213', 'BK-48390', 'BK-48477']);
   await page.getByRole('button', { name: 'فیلتر نوبت‌ها', exact: true }).click();
   await page.keyboard.press('Escape');
   await expect(filter(page)).toBeHidden();
-  await page.getByRole('radio', { name: /گذشته/ }).click();
   expect(await page.evaluate(() => window.rvEntryCalls.length)).toBe(3);
+  await page.getByRole('radio', { name: /گذشته/ }).click();
+  const history = await page.evaluate(() => window.rvEntryCalls
+    .filter(({ target }) => target.closest('[data-rv-appointments-panel="history"]'))
+    .map(({ target, options }) => ({ card: target.hasAttribute('data-rv-appointments-records'), delay: options.delay, duration: options.duration })));
+  expect(history[0].card).toBe(true);
+  expect(history[1].delay).toBeGreaterThanOrEqual(history[0].duration);
+  await page.getByRole('radio', { name: /پیش رو/ }).click();
+  await expect.poll(() => page.evaluate(() => window.rvEntryCalls.filter(({ target }) => target.dataset.rvRecord === 'BK-48213').length)).toBe(2);
 });
 
 for (const width of [390, 768, 1280]) test(`Appointment source states, geometry and axe at ${width} @visual @a11y`, async ({ page, baseURL }) => {

@@ -1,4 +1,4 @@
-<figure class="rv-portfolio-card {% if item.lead %}rv-portfolio-card--lead{% endif %}" data-rv-work data-rv-service="{{ item.service }}" data-rv-stylist="{{ item.stylist }}">
+<figure class="rv-portfolio-card {% if item.lead %}rv-portfolio-card--lead{% endif %}" data-rv-card-media data-rv-work data-rv-service="{{ item.service }}" data-rv-stylist="{{ item.stylist }}">
   <img src="{{ basePath }}{{ item.image }}" alt="{{ item.title }}، {{ item.service }}، کار {{ item.stylist }}" width="358" height="440" loading="lazy">
   <span class="rv-portfolio-card__count">{{ item.images.length | faDigits }} تصویر</span>
   <figcaption class="rv-portfolio-card__caption rv-glass rv-glass--strong"><span data-rv-overflow-text>{{ item.title }}</span><p data-rv-overflow-text>{{ item.service }} · {{ item.stylist }}</p></figcaption>

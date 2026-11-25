@@ -5,14 +5,14 @@
 {% block panelTrailing %}{% endblock %}
 {% block content %}
 <div class="rv-profile" data-rv="customer-profile">
-  <section class="rv-profile__identity rv-glass rv-glass--strong" aria-label="حساب شما">
+  <section data-rv-card-media data-rv-entry-zone class="rv-profile__identity rv-glass rv-glass--strong" aria-label="حساب شما">
     {% include "Customer/Profile/_Avatar.njk" %}
     <div class="rv-profile__value"><strong data-profile-name>{{ model.firstName }} {{ model.lastName }}</strong><bdi dir="ltr" data-profile-phone>{{ model.phone | faDigits }}</bdi></div>
     <button class="rv-btn rv-btn--secondary rv-btn--small" type="button" data-profile-open="edit" aria-haspopup="dialog" disabled><span class="ri ri-edit" aria-hidden="true"></span>ویرایش</button>
   </section>
   <section aria-labelledby="rv-profile-account">
     <h2 id="rv-profile-account">اطلاعات حساب</h2>
-    <div class="rv-profile__list rv-glass">
+    <div data-rv-entry-zone class="rv-profile__list rv-glass">
       <button class="rv-profile__row" type="button" data-profile-open="edit" aria-haspopup="dialog" disabled>
         <span class="rv-icon-tile" aria-hidden="true"><span class="ri ri-user"></span></span>
         <span class="rv-profile__value"><small>نام و نام خانوادگی</small><span data-profile-name>{{ model.firstName }} {{ model.lastName }}</span></span>
@@ -27,7 +27,7 @@
   </section>
   <section aria-labelledby="rv-profile-methods">
     <h2 id="rv-profile-methods">روش‌های ورود</h2>
-    <div class="rv-profile__list rv-glass">
+    <div data-rv-entry-zone class="rv-profile__list rv-glass">
       <div class="rv-profile__row">
         <span class="rv-icon-tile" aria-hidden="true"><span class="ri ri-sms"></span></span>
         <span class="rv-profile__value"><span>کد پیامکی</span><small>روش اصلی؛ همیشه فعال است.</small></span>

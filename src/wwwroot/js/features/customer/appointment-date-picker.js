@@ -1,15 +1,5 @@
-import { plusDays } from '../booking/calendar.js';
 import { initCalendarSheet } from '../booking/calendar-sheet.js';
 import { jalali, jalaliToIsoDate } from '../../core/format.js';
-import { salonDay, validSwapDay } from '../../core/appointment-swap-rules.js';
-
-export function initFutureDatePicker(root, pick) {
-  const tomorrow = () => plusDays(salonDay(), 1);
-  const open = initCalendarSheet(root, () => ({
-    start: tomorrow(), end: '2122-03-20', canPick: validSwapDay
-  }), pick);
-  return (button, selected) => open(button, selected, tomorrow());
-}
 
 export function initDatePicker(form, today) {
   const root = document.getElementById('rv-appointment-date');

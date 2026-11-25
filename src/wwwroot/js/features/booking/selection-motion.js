@@ -1,4 +1,4 @@
-import { motionTiming } from '../../components/motion.js';
+import { motionTiming, startMotion } from '../../components/motion.js';
 
 const active = new WeakMap();
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -10,8 +10,8 @@ export function reveal(elements, frames = [{ opacity: 0 }, { opacity: 1 }], rows
   return Promise.all([...elements].map((element, index) => {
     active.get(element)?.cancel();
     if (!element.animate || reduced.matches) return Promise.resolve();
-    const animation = element.animate(frames, {
-      ...timing, delay: (rows ? Math.floor(index / 7) : index) * stagger, fill: 'both'
+    const animation = startMotion(element, frames, {
+      ...timing, delay: (rows ? Math.floor(index / 7) : index) * stagger, retain
     });
     active.set(element, animation);
     animations.push(animation);

@@ -43,9 +43,7 @@ test('Appointment and payment grids share responsive rows; tools stack in owner 
     const payment = await page.locator('.rv-customer-home__payment').boundingBox();
     expect(payment.y).toBeGreaterThanOrEqual(next.y + next.height);
     const credit = await page.locator('.rv-customer-balance').boundingBox();
-    const recurring = await page.locator('.rv-customer-tools__links [data-rv-home-write-action]').boundingBox();
-    const alert = await page.locator('.rv-customer-tools__links a').last().boundingBox();
-    expect(credit.y).toBeLessThan(recurring.y); expect(recurring.y).toBeLessThan(alert.y);
+    await expect(page.locator('.rv-customer-tools__links')).toBeHidden();
     expect(credit.x).toBeLessThan(next.x);
     await capture(page, info, 'dashboard-' + width);
   }
@@ -103,14 +101,14 @@ test('Dock selection slides before icon and label, with reduced-motion static fa
   await expect(page).toHaveURL(/customer\/$/);
 });
 
-test('Mobile data cards enter locally from the left and drawer enters from the left @visual', async ({ page }) => {
+test('Mobile rail cards stay stable while the drawer slides in @visual', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 }); await go(page);
   const properties = await page.locator('[data-rv-appointment]').first().evaluate(el => {
-    const animation = el.getAnimations()[0]; return animation ? animation.effect.getKeyframes().map(frame => Object.keys(frame)) : [];
+    return el.getAnimations().flatMap(animation => animation.effect.getKeyframes().map(frame => Object.keys(frame)));
   });
-  expect(properties.flat()).toContain('transform');
+  expect(properties.flat()).not.toContain('transform');
   await page.getByRole('button', { name: 'بیشتر', exact: true }).click();
-  await expect(page.locator('#rv-more')).toHaveCSS('animation-name', 'rv-customer-drawer-enter');
+  expect(await page.locator('#rv-more').evaluate(el => el.getAnimations().some(animation => animation.id === 'rv-sheet-enter'))).toBe(true);
   await page.keyboard.press('Escape'); await expect(page.locator('#rv-more')).toBeHidden();
 });
 

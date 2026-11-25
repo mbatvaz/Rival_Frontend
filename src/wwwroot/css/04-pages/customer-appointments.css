@@ -1,4 +1,6 @@
 @layer pages {
+  [data-rv-list-loading] > .rv-skel { min-block-size: calc(var(--size-touch) * 2); }
+
   .rv-appointments { display: grid; gap: var(--space-5); }
   .rv-appointments :is(h2, p) { margin: 0; }
   .rv-appointments__tools { display: flex; gap: var(--space-2); align-items: center; }

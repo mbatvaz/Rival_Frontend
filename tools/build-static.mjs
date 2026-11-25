@@ -9,6 +9,7 @@ import { productContext } from './lib/product.mjs';
 import { revisionTracker } from './lib/review-revision.mjs';
 import { buildPreviewReview } from './lib/preview-review.mjs';
 import { variantReview } from './lib/review-entries.mjs';
+import { copyBrowserVendor } from './lib/browser-vendor.mjs';
 
 // ARCH / DEC-020: cPanel receives only the generated dist contents.
 const out = path.join(root, 'dist');
@@ -21,6 +22,7 @@ await prepareDesignSystem();
 if (path.dirname(out) !== root || path.basename(out) !== 'dist') throw new Error('Invalid output target.');
 await fs.rm(out, { recursive: true, force: true });
 await fs.mkdir(out, { recursive: true });
+await copyBrowserVendor(root, out);
 const env = nunjucks.configure(views, {
   autoescape: true, noCache: true, throwOnUndefined: true, trimBlocks: true, lstripBlocks: true
 });
@@ -32,7 +34,7 @@ const urls = {
   logo: withBase(site.basePath, '/img/rival-logo.png'), favicon: withBase(site.basePath, '/img/rival-mark.png')
 };
 let rendered = 0;
-const revision = revisionTracker(src);
+const revision = revisionTracker(src, path.join(out, 'vendor'));
 const revisions = new Map();
 for (const page of registry.pages) {
   const fixture = page.mockData ? await readJson(inside(src, page.mockData)) : {};

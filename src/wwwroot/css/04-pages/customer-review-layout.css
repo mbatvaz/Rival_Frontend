@@ -41,9 +41,8 @@
     }
     .rv-customer-home .rv-customer-home__payment > .rv-section-head { margin-block-end: var(--space-3); }
     .rv-customer-home .rv-customer-tools { grid-template-columns: minmax(0, 1fr); }
-    .rv-customer-home .rv-customer-tools__links { display: contents; }
+    .rv-customer-home .rv-customer-tools__links { display: none; }
     .rv-customer-home .rv-customer-balance { min-block-size: 160px; }
-    .rv-customer-home .rv-customer-tools__links > a { min-block-size: 76px; }
     .rv-customer-home .rv-customer-home__announcements { max-inline-size: 430px; }
     .rv-customer-home[data-rv-customer-state="empty"] .rv-customer-dashboard { grid-template-areas: "next support"; }
 

@@ -1,4 +1,4 @@
-import { motionTiming } from './motion.js';
+import { motionTiming, startMotion } from './motion.js';
 
 const states = new WeakMap();
 const options = root => [...root.querySelectorAll('.rv-customer-dock__tabs > a, .rv-customer-dock__tabs > button')];
@@ -8,6 +8,8 @@ export async function selectDock(root, target, animate = true) {
   const state = states.get(root);
   if (!state || !root.offsetWidth) return true;
   const sequence = ++state.sequence;
+  const before = options(root).map(el => ({ el, box: el.getBoundingClientRect() }));
+  const old = state.indicator.getBoundingClientRect();
   state.animations.forEach(animation => animation.cancel());
   state.animations = [];
   if (!target) {
@@ -15,8 +17,6 @@ export async function selectDock(root, target, animate = true) {
     root.removeAttribute('data-rv-dock-ready');
     return true;
   }
-  const before = options(root).map(el => ({ el, box: el.getBoundingClientRect() }));
-  const old = state.indicator.getBoundingClientRect();
   options(root).forEach(el => { el.dataset.rvNavActive = String(el === target); });
   const frame = state.tabs.getBoundingClientRect();
   const next = target.getBoundingClientRect();
@@ -26,7 +26,7 @@ export async function selectDock(root, target, animate = true) {
   if (!animate || reduced() || !target.animate) return true;
   const timing = motionTiming('duration-base', 'ease-standard');
   const add = (el, frames, config = timing) => {
-    const animation = el.animate(frames, config); state.animations.push(animation); return animation;
+    state.animations.push(startMotion(el, frames, config));
   };
   add(state.indicator, [{ transform: `translateX(${old.left - next.left}px) scaleX(${old.width / next.width || 1})` }, { transform: 'none' }]);
   before.forEach(({ el, box }) => {

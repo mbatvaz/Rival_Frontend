@@ -18,7 +18,7 @@ test('Desktop drag settles gradually on the nearest centered portrait @visual', 
     const values = [];
     for (let index = 0; index < 8; index++) {
       await new Promise(resolve => window.requestAnimationFrame(resolve));
-      values.push(element.scrollLeft);
+      values.push(element.firstElementChild.getBoundingClientRect().left);
     }
     return values;
   });
@@ -30,4 +30,38 @@ test('Desktop drag settles gradually on the nearest centered portrait @visual', 
       return Math.abs(box.left + box.width / 2 - frame.left - frame.width / 2);
     }));
   })).toBeLessThan(2);
+});
+
+test('Portfolio photos open in PhotoSwipe and restore focus through both dialogs @a11y @smoke', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('portfolio/');
+  await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
+  const card = page.locator('[data-rv-sheet-open="work-1"]');
+  await card.click();
+  const sheet = page.locator('#work-1');
+  const rail = sheet.locator('.rv-viewer__rail');
+  await rail.focus();
+  await page.keyboard.press('ArrowLeft');
+  const selected = rail.locator('figure').nth(1);
+  await expect(selected).toHaveAttribute('data-rv-active', 'true');
+  await expect(selected).toHaveCSS('opacity', '1');
+  await expect(rail.locator('figure').first()).toHaveCSS('opacity', '0.8');
+  const image = selected.getByRole('link');
+  await image.focus();
+  await page.keyboard.press('Enter');
+  const lightbox = page.getByRole('dialog', { name: 'نمایش بزرگ تصاویر نمونه‌کار' });
+  await expect(lightbox).toBeVisible();
+  await expect(lightbox.locator('.pswp__counter')).toHaveText('2 / 3');
+  await expect(page.locator('[data-rv-sheet-layer]')).toHaveJSProperty('inert', true);
+  await expect(lightbox.getByRole('button', { name: 'بستن نمایش بزرگ' })).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(lightbox.locator(':focus')).toHaveCount(1);
+  await lightbox.getByRole('button', { name: 'بزرگ‌نمایی' }).click();
+  await expect(lightbox).toHaveClass(/pswp--zoomed-in/);
+  await page.keyboard.press('Escape');
+  await expect(lightbox).toHaveCount(0);
+  await expect(image).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(sheet).toBeHidden();
+  await expect(card).toBeFocused();
 });

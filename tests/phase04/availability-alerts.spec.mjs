@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { holdAction } from '../helpers/hold-action.mjs';
 import AxeBuilder from '@axe-core/playwright';
 import fs from 'node:fs/promises';
 
@@ -38,7 +39,7 @@ test('Booking registration, panel duplicates and cancellation share the alert re
   await page.keyboard.press('Escape');
   await expect(cancel).toBeFocused();
   await cancel.click();
-  await dialog.getByRole('button', { name: 'لغو اعلان' }).click();
+  await holdAction(dialog.getByRole('button', { name: 'لغو اعلان' }));
   await expect(card).toHaveCount(0);
   await expect(page.locator('[data-rv-availability-ended]')).toContainText('لغو شده');
   await open(page, booking);
