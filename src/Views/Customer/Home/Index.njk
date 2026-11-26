@@ -8,7 +8,7 @@
 {% endblock %}
 {% block content %}
 <div class="rv-customer-home__content" data-rv="customer-home">
-  <template data-rv-swap-heroes>{% for appointment in swapAppointments %}{% include "Shared/Components/_AppointmentHero.njk" %}{% endfor %}</template>
+  <template data-rv-swap-heroes>{% for appointment in swapAppointments %}<div class="rv-home-appointment-slot">{% include "Shared/Components/_AppointmentHero.njk" %}</div>{% endfor %}</template>
   <p class="rv-feedback" data-rv-swap-customer hidden></p>
   <p class="rv-feedback rv-feedback--error" data-rv-home-error role="alert" hidden></p>
   <section class="rv-customer-notice rv-customer-notice--inactive" aria-labelledby="rv-inactive-title" data-rv-home-inactive hidden>
@@ -24,7 +24,7 @@
   <section class="rv-customer-home__next" aria-labelledby="rv-next-title">
     <div class="rv-section-head"><h1 id="rv-next-title">{{ model.title }}</h1><span class="rv-muted" data-rv-home-counter>۱ از ۲</span></div>
     <div class="rv-appointment-rail" role="list" aria-label="نوبت‌های پیش رو" data-rv-entry-zone data-rv-home-appointments data-rv-drag-rail tabindex="0">
-      {% for appointment in model.appointments %}{% include "Shared/Components/_AppointmentHero.njk" %}{% endfor %}
+      {% for appointment in model.appointments %}<div class="rv-home-appointment-slot">{% include "Shared/Components/_AppointmentHero.njk" %}</div>{% endfor %}
     </div>
     <div class="rv-slide-dots" aria-hidden="true" data-rv-home-pager>{% for appointment in model.appointments %}<span data-rv-home-dot="{{ appointment.id }}"{% if loop.first %} data-rv-active="true"{% endif %}></span>{% endfor %}</div>
     <div class="rv-customer-empty rv-glass rv-glass--strong" data-rv-home-empty hidden><span class="rv-customer-empty__icon"><span class="ri ri-calendar" aria-hidden="true"></span></span><h2>{{ model.empty.title }}</h2><p>{{ model.empty.text }}</p></div>

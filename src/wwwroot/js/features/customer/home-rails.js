@@ -5,7 +5,9 @@ export function initHomeRails(root) {
     const cards = [...rail.querySelectorAll('[role="listitem"]')];
     let current = 0;
     const visible = () => cards.filter(card => !card.hidden);
-    const render = observeCenter(rail, visible, card => {
+    const snapTarget = card => card.closest('.rv-home-appointment-slot') ?? card;
+    const render = observeCenter(rail, () => visible().map(snapTarget), target => {
+      const card = target.matches('[role="listitem"]') ? target : target.firstElementChild;
       current = cards.indexOf(card);
       if (!rail.hasAttribute('data-rv-home-appointments')) return;
       root.querySelector('[data-rv-home-counter]').textContent = `${(current + 1).toLocaleString('fa-IR')} از ${cards.length.toLocaleString('fa-IR')}`;
@@ -17,7 +19,7 @@ export function initHomeRails(root) {
       const available = visible();
       const index = Math.max(0, available.indexOf(cards[current]));
       const next = event.key === 'Home' ? 0 : event.key === 'End' ? available.length - 1 : index + (event.key === 'ArrowLeft' ? 1 : -1);
-      if (available.length) center(rail, available[Math.max(0, Math.min(available.length - 1, next))]);
+      if (available.length) center(rail, snapTarget(available[Math.max(0, Math.min(available.length - 1, next))]));
       render();
     });
   }

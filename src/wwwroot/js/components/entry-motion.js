@@ -5,6 +5,7 @@ const batches = new Map();
 const media = '[data-rv-card-media]';
 
 const entryFrames = {
+  cardSlide: [{ translate: '-12px 0' }, { translate: '0 0' }],
   left: [{ opacity: 0, translate: '-24px 0' }, { opacity: 1, translate: '0 0' }],
   rise: [{ opacity: 0, translate: '0 16px' }, { opacity: 1, translate: '0 0' }],
   zoom: [{ opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1 }],

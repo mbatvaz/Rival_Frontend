@@ -52,7 +52,7 @@ for (const width of [390, 1280]) {
     await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
     const rail = page.locator('[data-rv-home-appointments]');
     const first = rail.locator('article').first();
-    const inner = first.locator('.rv-appointment-hero__media > img');
+    const inner = first;
     await expect.poll(() => inner.evaluate(el => el.getAnimations().some(effect => effect.id === 'rv-list-entry'))).toBe(true);
     const setTime = instant => page.evaluate(time => {
       for (const effect of document.getAnimations().filter(animation => animation.id === 'rv-list-entry')) {
@@ -60,11 +60,11 @@ for (const width of [390, 1280]) {
       }
     }, instant);
     const surface = () => first.evaluate(el => {
-      const card = el.getBoundingClientRect();
-      const rail = el.parentElement;
+      const card = el.parentElement.getBoundingClientRect();
+      const rail = el.parentElement.parentElement;
       const panel = getComputedStyle(el.querySelector('.rv-appointment-hero__panel'));
       return {
-        x: card.x, scrollLeft: rail.scrollLeft, snapWidth: rail.scrollWidth,
+        x: card.x, scrollLeft: rail.scrollLeft, snapWidth: getComputedStyle(rail).overflowX === 'auto' ? rail.scrollWidth : null,
         opacity: getComputedStyle(el).opacity, shadow: getComputedStyle(el).boxShadow,
         filter: panel.backdropFilter, fill: panel.backgroundColor
       };

@@ -72,7 +72,8 @@ export async function renderSwapHome(root, customer) {
   rail.replaceChildren();
   for (const selector of ['home-personal', 'home-payment', 'home-pager']) get(root, selector).hidden = true;
   for (const record of records) {
-    const hero = templates.querySelector('[data-rv-appointment="' + record.id + '"]').cloneNode(true);
+    const slot = templates.querySelector('[data-rv-appointment="' + record.id + '"]').parentElement.cloneNode(true);
+    const hero = slot.firstElementChild;
     updateAppointmentHero(hero, record);
     hero.querySelector('.rv-appointment-hero__tag').lastChild.textContent = 'رزرو شده';
     const detail = get(hero, 'home-detail');
@@ -80,7 +81,7 @@ export async function renderSwapHome(root, customer) {
     const move = get(hero, 'home-write-action');
     if (record.canSwap && record.rescheduleAllowance) move.href = swapLink(move.href, customer);
     else move.hidden = true;
-    rail.append(hero);
+    rail.append(slot);
   }
   get(root, 'home-empty').hidden = records.length > 0;
   rail.hidden = !records.length;

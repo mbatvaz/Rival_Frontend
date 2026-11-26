@@ -47,11 +47,11 @@ function appointmentDetail(root) {
 }
 
 function homeEntries(root) {
-  motionBatch(root, ({ items, add, step }) => {
+  motionBatch(root, ({ items, add, list, step }) => {
     const enter = (cards, content) => items(cards).forEach((card, index) => {
       for (const el of visibleEntries(card, content)) add(el, 'left', index * step);
     });
-    enter('[data-rv-home-appointments] > article', '.rv-appointment-hero__media > img, .rv-appointment-hero__panel > *');
+    list(items('.rv-home-appointment-slot > article'), 'cardSlide');
     enter('[data-rv-home-payment-rail] > article, [data-rv-home-empty]', ':scope > :not(.rv-customer-empty__icon)');
     enter('.rv-customer-balance, .rv-customer-tools__links > a', ':scope > div, :scope > span:nth-child(2)');
     enter('.rv-customer-announcement', ':scope > div');

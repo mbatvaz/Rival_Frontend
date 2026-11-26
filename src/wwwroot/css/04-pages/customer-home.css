@@ -21,6 +21,9 @@
     padding: var(--space-6) var(--space-4) var(--space-8);
 
   }
+  .rv-home-appointment-slot { flex: 0 0 min(322px, calc(100vw - var(--space-8))); min-inline-size: 0; scroll-snap-align: center; }
+  .rv-home-appointment-slot:has(> [hidden]) { display: none; }
+
   .rv-customer-home__next .rv-slide-dots { margin-block: var(--space-2) 0; }
   .rv-customer-home__next .rv-slide-dots > span { block-size: 6px; inline-size: 6px; }
   .rv-customer-home__next .rv-slide-dots > [data-rv-active="true"] { inline-size: 18px; }
