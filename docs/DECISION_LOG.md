@@ -1,5 +1,9 @@
 # Decision Log
 
+## DEC-087 — Reuse and mobile-first delivery for phases 05–09
+
+The owner directs future frontend work to reuse accepted Phase 01–04 code, resolve task context locally and return compact evidence. New pages use the mobile composition at every width. From tablet width the Stylist and OwnerAdmin panels use a right-hand list of role links in place of the bottom dock. Desktop inherits that responsive layout at wider dimensions. [Responsive contract](RIVAL_PROJECT_CONTRACT.md#6-responsive-and-desktop-design-contract) · [Prompt routing](ai/PROMPT_ROUTING.md)
+
 ## DEC-086 — Phase 04 acceptance
 
 On 2026-11-26 the owner accepted the completed customer panel and authorized the Phase 04 closeout, GitHub publication and merge to `master`. Acceptance covers single-activation buttons, synchronized dashboard card entry and the existing desktop layouts. Appointment swap actions and preview scenes were withdrawn. The dashboard balance remains embedded. [Closeout](../docs-work/PHASE_04_CLOSEOUT_FA.md)

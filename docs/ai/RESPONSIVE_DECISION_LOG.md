@@ -2,7 +2,8 @@
 
 Approval evidence stays in [decisions](../DECISION_LOG.md) and [page briefs](../../docs-work/desktop-layouts/). This maintenance task approves no layout.
 
-- DEC-027: deliberate desktop layout, reviewed before implementation.
+- DEC-087: new work in phases 05–09 uses the mobile composition and a right-hand role list from tablet width in stylist/admin. [Contract](../RIVAL_PROJECT_CONTRACT.md#6-responsive-and-desktop-design-contract)
+- DEC-027: accepted Phase 01–04 desktop compositions retain their review records below.
 - DEC-065, 2026-11-16: CUS-01 returns to plain desktop links and its earlier header; salon notices follow availability in the left support column. Customer More is viewport-contained with a hidden mobile header and only its direct list scrolling. Crossing 1024 closes its stack through Sheet. [Current brief](../../docs-work/desktop-layouts/CUS-01.md), [reproduction/QA](../../docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md).
 - DEC-064, 2026-11-16: CUS-01 uses the actual Phase 03 two-range menu dimensions, native route radios, shared auto-fit two/one-card grids, 144px appointment media, pending payments below appointments and a stacked 260px tool column. Customer More is a grouped left drawer below 1024; the active-label dock follows the supplied image. [Current brief](../../docs-work/desktop-layouts/CUS-01.md), [evidence](../../docs-work/PHASE_04_OWNER_FEEDBACK_2026-11-16.md). These supersede earlier CUS-01 arrangements below.
 - DEC-063, 2026-11-16: CUS-01 owner-directed revision replaces the pending horizontal-nav proposal with the actual Phase 03 right menu, horizontal appointment tickets and bounded support cards. Uses the existing 1024 breakpoint/1600px booking workspace and v2 tokens; mobile/tablet unchanged. [Current brief](../../docs-work/desktop-layouts/CUS-01.md) supersedes the earlier DEC-062 proposal below. Final visual acceptance remains pending.

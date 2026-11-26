@@ -28,6 +28,8 @@ This is the canonical dependency plan. The [root instructions](../AGENTS.md) gov
 
 Use serialized Workflow B. One phase at a time; each phase ends with a review gate and owner approval. Parallel work is allowed only inside a phase after shared contracts are frozen. Any change to tokens, shared components, navigation, or shell triggers its reuse regression list.
 
+For phases 05–09 apply DEC-087. Start with an [accepted implementation](COMPONENT_REUSE_MATRIX.md#implemented-reuse) and use the [mobile-first contract](RIVAL_PROJECT_CONTRACT.md#6-responsive-and-desktop-design-contract) for new work.
+
 ## Current owner gate
 
 The owner accepted Phase 04 on 2026-11-26 under DEC-086. Phase 05 awaits explicit assignment. See the [Phase 04 closeout](../docs-work/PHASE_04_CLOSEOUT_FA.md) for the accepted routes and regression evidence.

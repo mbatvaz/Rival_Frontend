@@ -152,7 +152,15 @@ Use Yekan Bakh weight 300 for supporting descriptions and metadata such as servi
 
 ## 6. Responsive and desktop design contract
 
-The 390px mobile artboards are the primary visual reference, but desktop is **not** a stretched or enlarged mobile page.
+### New work in phases 05–09
+
+DEC-087 makes the 390px mobile artboard the design for every width. Use the same templates, component order and actions. Below 768px retain the role's mobile navigation and support 320px. From 768px, the Stylist and OwnerAdmin panels replace the bottom dock with a right-hand RTL list of their permitted destinations. Use the customer panel's [right-hand navigation](../src/Views/Shared/_CustomerDesktopNav.njk) as the shared pattern and supply the correct role links, active state and accessible names.
+
+At wider widths the same layout and navigation expand through shared CSS sizing, wrapping and gutters. Use a single implementation for tablet and desktop. Desktop QA checks usability, navigation and overflow with that layout. New pages require only mobile design evidence.
+
+### Accepted layouts from phases 01–04
+
+The approved desktop compositions and their existing references still govern maintenance of those layouts.
 
 | Range | Contract |
 |---|---|
@@ -167,7 +175,7 @@ Desktop-specific rules:
 - Customer pages use a compact desktop header/navigation and a clear primary booking action; do not force a staff-style admin sidebar onto the customer experience.
 - Stylist and OwnerAdmin workspaces may use a persistent right-side navigation rail (RTL) for primary work areas, with secondary destinations in a More menu. Reuse the exact mobile navigation destinations; do not create new routes.
 - Booking flows may use a main form/step column plus a contextual summary column when that summary exists in the approved mobile flow.
-- Before implementing any page at desktop width, write `docs-work/desktop-layouts/<PAGE-ID>.md` describing the desktop composition, columns, navigation, ordering, and which existing mobile components move. The owner reviews/approves the brief before desktop implementation.
+- For an assigned redesign of an accepted desktop composition, update its `docs-work/desktop-layouts/<PAGE-ID>.md` and obtain the owner's review.
 - Dialogs, pickers and confirmations remain bottom sheets. On desktop, a sheet remains bottom-attached and horizontally centered with a maximum width of 560px. DEC-037 is the explicit exception: PortfolioViewer is centered in the desktop viewport from 1024px and stays bottom-attached on mobile.
 - Nested vertical scrolling is prohibited outside two owner-approved cases: the mobile BK-REC01 editor and, under DEC-065, only the direct `.rv-more-list` inside mobile/tablet customer More. The customer drawer is viewport-fixed, its header row is hidden, its footer stays in the frame and only the list scrolls; crossing the 1024px boundary dismisses its modal stack. The recurring editor retains its separately documented header/handle behavior. Intentional horizontal rails/carousels with design evidence may scroll horizontally (including documented snap rails such as ADM-14). Do not introduce arbitrary horizontal scrolling for whole pages or tables.
 
@@ -176,7 +184,7 @@ Desktop-specific rules:
 - RTL, visible focus, keyboard operation, meaningful labels, semantic headings, and reduced-motion handling are required.
 - Interactive hit targets are at least 44×44px.
 - Use `aria-invalid` for field errors and `role="alert"` / `role="status"` for feedback.
-- Run Playwright at 390, 768, and 1280px. Compare 390px against the matching source artboard with tolerance recorded. Desktop 1280px is reviewed against its approved desktop layout brief, not falsely pixel-compared to a 390px canvas.
+- Run Playwright at 390, 768 and 1280px as relevant. Compare 390px against the exact mobile artboard. Check shared layout, role navigation, focus and overflow at wider widths. Compare with a desktop brief when maintaining an accepted Phase 01–04 composition.
 - Run axe, keyboard-path checks, state coverage, route/no-dead-end checks, and structure lint after each phase and after any shared-component change.
 - A page is not done merely because it renders without a JavaScript error.
 
@@ -246,7 +254,7 @@ Use `OPEN_QUESTIONS.md` for unresolved items. The desktop strategy in OQ-07 is r
 
 ## 12. Definition of done for every phase
 
-A phase is complete only when its IDs and states are traceable, its acceptance checklist passes, 390/768/1280 reviews are recorded, desktop briefs are owner-approved where applicable, axe and keyboard checks pass, no dead-end routes exist, shared-component regression passes, `PROGRESS.md`/`DISCREPANCIES.md`/`OPEN_QUESTIONS.md` are updated, and the agent stops for owner review. Never auto-start the next phase.
+A phase is complete when its IDs and states are traceable, the acceptance checklist passes, [responsive QA](#7-accessibility-and-qa) is recorded, shared-component regression passes, `PROGRESS.md`/`DISCREPANCIES.md`/`OPEN_QUESTIONS.md` reflect the outcome, and the owner accepts it. Start the next phase only when assigned.
 
 ## Owner mobile-device review rules
 

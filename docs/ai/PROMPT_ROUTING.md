@@ -4,12 +4,12 @@ Use [root instructions](../../AGENTS.md) for scope and [the current gate](../PHA
 
 ## Context
 
-- Known element or file: start there. Read the relevant selector, caller, state and active override.
-- Unknown page or phase: run `npm run -s task:context -- PAGE-ID` or `npm run -s task:context -- --phase 04`. The command reads the registry and gate locally. Page lookup groups exact export paths and lists brief and test candidates. Add `--details` only for additional evidence. Resolve undecided composition against its actual mobile reference and desktop brief.
+- A short request can use `PAGE-ID or URL | change | affected state`. Start at a supplied file or selector. Read the relevant caller, active override and exact state.
+- Unknown page or phase: run `npm run -s task:context -- PAGE-ID` or `npm run -s task:context -- --phase NN`. For a known accepted analogue use `npm run -s task:context -- STY-01 --reuse CUS-01` to get the target and existing code in one lookup. Choose an analogue from the [reuse map](../COMPONENT_REUSE_MATRIX.md#implemented-reuse). Add `--details` only for more evidence.
 - Unknown shared consumers: use `rg` or `npm run -s map:query -- <term> --compact`. Confirm conditional consumers in source. Resolve stale candidates with scoped search.
 - An annotation supplies URL, state and selector. The trusted [project hook](../../.codex/hooks.json) supplies candidates for up to four distinct targets. If needed, run `node tools/resolve-annotation.mjs '<URL>' '<selector>'` once. Verify the candidate and preserve the URL state.
 
-Batch independent reads and cap output. Use exact headings, line ranges and source addresses rather than entire handoffs, exports, browser trees or logs. Leave screenshots on disk and inspect representative captures or a specific mismatch. Read the relevant [skills](SKILL_REGISTRY.md) once. Keep archived progress available for historical questions.
+Read the matched excerpt, only the skill needed for the task, and the accepted implementation. Use local tools for lookup, verification and counting. Batch independent reads and keep full handoffs, browser trees, screenshots, logs and history on disk. Open a specific excerpt on ambiguity or failure. For phases 05–09 use the [mobile-first contract](../RIVAL_PROJECT_CONTRACT.md#6-responsive-and-desktop-design-contract).
 
 ## Local QA for all phases
 

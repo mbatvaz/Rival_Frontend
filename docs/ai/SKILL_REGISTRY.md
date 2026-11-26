@@ -12,7 +12,7 @@ This registry covers the active local skills. The original external evaluation i
 - [frontend-fidelity](../../.agents/skills/frontend-fidelity/SKILL.md): source/runtime comparison; >=5 observations and mismatch/deviation report.
 - [design-system-governance](../../.agents/skills/design-system-governance/SKILL.md): shared component/token changes; reuse/ownership/magic-value findings.
 - [design-source-audit](../../.agents/skills/design-source-audit/SKILL.md): evidence audit or unclear references; inventory/source map/conflicts.
-- [responsive-layout](../../.agents/skills/responsive-layout/SKILL.md): responsive spec/implementation; invariant/adaptation record and reviewed desktop brief.
+- [responsive-layout](../../.agents/skills/responsive-layout/SKILL.md): mobile composition, wider adaptation and existing desktop approvals where applicable.
 - [responsive-visual-qa](../../.agents/skills/responsive-visual-qa/SKILL.md): responsive validation; width/state screenshots and defect report, using common Rival QA gates.
 - [frontend-testing-debugging](../../.agents/skills/frontend-testing-debugging/SKILL.md): failing route/flow or browser validation; reproduction, checked interaction, console/errors and QA report.
 - [motion-interaction](../../.agents/skills/motion-interaction/SKILL.md): motion change/audit; interruption/reduced-motion/fallback/performance spec and evidence.

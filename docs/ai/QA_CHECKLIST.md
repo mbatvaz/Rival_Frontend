@@ -1,6 +1,6 @@
 # QA checklist and evidence
 
-Use [visual QA](../../.agents/skills/rival-visual-qa/SKILL.md) and relevant skills from the [registry](SKILL_REGISTRY.md). Exact state sources and approved desktop briefs are required for fidelity claims.
+Use [visual QA](../../.agents/skills/rival-visual-qa/SKILL.md) and the [responsive contract](RESPONSIVE_DESIGN_CONTRACT.md). Fidelity claims use the exact source state and applicable approval evidence.
 
 ## Verification entry point
 
@@ -18,7 +18,7 @@ The test runner builds before every invocation; subpath mode also restores a roo
 
 Record route/query, title/nonempty page, no error overlay, console/page errors and relevant failed requests. Perform a real local demo interaction and check its observable result; no real external side effects.
 
-Capture full pages and affected sheets/states with exact width/height/DPR after fonts/UI settle. Cover 390/768/1280 and affected small/boundary/intermediate widths. Cover defined loading/empty/error/success/disabled/expired states; explain nonapplicable cases. Inspect fresh screenshots and >=5 source comparisons covering copy/layout/type/palette/spacing/assets/container/motion. Normalize source image scale; no fabricated baseline/threshold.
+Capture affected states at the relevant width/height/DPR after fonts and UI settle. New pages and phase acceptance cover 390/768/1280. For phases 05–09 compare the 390px design, check the navigation switch at 768px and verify the same composition fits at 1280px. Cover defined loading, empty, error, success, disabled and expired states. Record at least five source comparisons for a new or changed composition and reuse existing evidence for unchanged parts.
 
 Check RTL/wrapping/crop, no page overflow, >=44px targets, approved scroll exceptions. Run axe and keyboard-only flow, visible focus/labels, DOM order, errors/status, Escape/focus restoration, reduced motion and unsupported-feature fallback. Check image dimensions/layout shift, offscreen lazy loading, source selection and motion traces where relevant. Distinguish physical-device retest from emulation.
 

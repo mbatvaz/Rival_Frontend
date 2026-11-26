@@ -8,14 +8,14 @@ description: Validate Rival pages visually and functionally at mobile, tablet, a
 ## Required inputs
 - Reuse active instructions and verified reads. Resolve the page/consumers through [navigation](../../../docs/ai/PROJECT_INDEX.md); inspect relevant contract/traceability/handoff sections only.
 - Identify the canonical artboard and all meaningful states from `design-export/MANIFEST.json` and the handoff.
-- For desktop, read the owner-approved `docs-work/desktop-layouts/<PAGE-ID>.md`.
+- Use the [responsive contract](../../../docs/ai/RESPONSIVE_DESIGN_CONTRACT.md). Read a desktop brief when the task affects an accepted Phase 01–04 desktop composition.
 
 ## Scope and viewports
 
 Use the [affected QA route](../../../docs/ai/PROMPT_ROUTING.md#local-qa-for-all-phases) once. An element change needs its affected state and width. A page change needs the changed states and affected widths. Shared changes follow actual consumers. The phase checklist governs full acceptance.
 - 390px: compare against the exact mobile artboard and record deviations.
 - 768px: tablet adaptation; verify no unintended overflow and enforce the documented scroll exception only for the mobile BK-REC01 editor.
-- 1280px: validate against the approved desktop layout brief, not by stretching or pixel-comparing the 390px artboard.
+- 1280px: verify fit and navigation for the Phase 05–09 layout or compare an existing Phase 01–04 desktop composition to its approved brief.
 - Add a boundary or intermediate width when the change affects it. Record width, height and DPR.
 
 ## Checks
@@ -35,4 +35,4 @@ Run shared checks once per affected revision/scope. Fidelity, responsive and deb
 - Record source artboard path, viewport, state, and observed difference.
 - Classify findings as blocker, major, minor, or accepted design adaptation.
 - Never invent a missing screenshot or artboard selector. If no exact source exists, report the gap and use the relevant handoff.
-- Record >=5 source-versus-runtime comparisons, not just screenshot filenames. Use the [visual report](../../../docs/ai/templates/visual-qa-report.md) and [responsive report](../../../docs/ai/templates/responsive-qa-report.md). Automated assertions are not pixel-fidelity evidence. Separate emulation from physical-device retesting.
+- Record at least five source-versus-runtime comparisons for new or changed compositions. Reuse documented comparisons for unchanged layouts. Use the [visual report](../../../docs/ai/templates/visual-qa-report.md) and [responsive report](../../../docs/ai/templates/responsive-qa-report.md). Separate emulation from physical-device retesting.

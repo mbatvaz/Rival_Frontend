@@ -12,7 +12,7 @@ Reuse the [root route](../../../AGENTS.md) and prior evidence. Use the phase REA
 ## Execution
 - Stay in the assigned phase. Use Plan mode when available and show intended files and checks before broad implementation. Infrastructure maintenance has its own scope.
 - Use the read-only manifest and exports to compare mapped state candidates. Record Page IDs, shared components, decisions, copy, assets, layout and motion in the [page spec](../../../docs/ai/templates/page-spec.md).
-- Follow the [implementation procedure](../../../docs/ai/DESIGN_IMPLEMENTATION_CONTRACT.md) and reuse approved desktop briefs. Apply the current owner gate to new or changed compositions.
+- Follow the [implementation procedure](../../../docs/ai/DESIGN_IMPLEMENTATION_CONTRACT.md) and start from the [accepted runtime patterns](../../../docs/COMPONENT_REUSE_MATRIX.md#implemented-reuse). Check the [responsive contract](../../../docs/RIVAL_PROJECT_CONTRACT.md#6-responsive-and-desktop-design-contract) for the assigned phase.
 - Preserve the static contract and canonical component ownership. Apply documented conservative defaults for open business, permission and money decisions.
 
 ## Gate

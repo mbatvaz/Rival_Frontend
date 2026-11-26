@@ -11,7 +11,7 @@ Status: draft; incomplete fields are gaps, never approval.
 - Asset path / provenance / crop / alt text / dimensions / lazy or eager loading:
 - Component names / canonical implementation paths / variants / ownership / reuse consumers:
 - Token names; missing token or geometry exception and review status:
-- Responsive spec and approved desktop brief path/status:
+- Mobile composition and wider adaptation / approved brief for an existing Phase 01–04 desktop composition:
 - Motion spec / reduced motion / fallback:
 - Semantic landmarks, names, errors, announcements, focus/keyboard order, >=44px targets:
 - API adapter input/output fixture / demo-write boundary / future server responsibility:

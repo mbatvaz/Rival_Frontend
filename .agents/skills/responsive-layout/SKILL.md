@@ -1,12 +1,10 @@
 ---
 name: responsive-layout
-description: Specify or implement Rival responsive behavior for an assigned page, separating mobile reference fidelity from desktop composition and CSS adaptation.
+description: Specify or implement responsive sizing, navigation and layout for an assigned Rival page.
 ---
 
 # Responsive layout
 
-Resolve the page using [navigation](../../../docs/ai/PROJECT_INDEX.md). Read relevant responsive procedure, exact mobile evidence and current brief not already verified in this conversation. Use the [responsive spec](../../../docs/ai/templates/responsive-page-spec.md) to record invariants, tablet/desktop/wide layouts, container, gutter, order/visibility, crop, interaction, focus and RTL. Add affected width checks to shared QA evidence rather than duplicating it.
-
-Distinguish an actual desktop source from inference. Record content problem, layout choice, tokens/breakpoint, reason and accessibility/performance effect in the decision index by linking the single page brief. Owner review of a new desktop composition remains required before implementation; existing approval persists.
+Start from exact mobile evidence and the [responsive procedure](../../../docs/ai/RESPONSIVE_DESIGN_CONTRACT.md). For phases 05–09 reuse the same composition at every width. For an existing Phase 01–04 desktop composition, read its approved brief when the task affects it. Record relevant adaptations in the [responsive spec](../../../docs/ai/templates/responsive-page-spec.md) and use the shared QA results.
 
 Use CSS Grid/Flexbox and existing min-width policy; container queries require named containment and base fallback. Never branch JS solely for layout. Check RTL, long-label wrapping, overflow, source-backed rails, intermediate widths and breakpoint neighbors. Output spec, source/approval evidence, scoped changes and responsive checks without assigning a new product phase.
