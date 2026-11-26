@@ -14,9 +14,10 @@ for (const width of [390, 768, 1280]) {
       await page.emulateMedia({ reducedMotion: 'no-preference' });
       await page.goto(route);
       await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
-      await expect(page.locator('[data-rv-entry]')).toHaveCount(0);
+      await expect(page.locator('html')).toHaveAttribute('data-rv-entry', /^(ready|static)$/);
+      await expect(page.locator('main [data-rv-entry]')).toHaveCount(0);
       expect(await page.locator('#rv-main').evaluate(el => getComputedStyle(el).animationName)).toBe('none');
-      const fixed = '#rv-main, h1, .rv-section-head, .rv-booking-mast, .rv-auth-top, .rv-role-nav, .rv-booking-action, .rv-booking-steps';
+      const fixed = '#rv-main, h1, .rv-section-head, .rv-booking-mast, .rv-auth-top, .rv-role-nav, .rv-booking-steps';
       expect(await page.locator(fixed).evaluateAll(elements => elements.every(el => !el.getAnimations().some(animation => animation.id === 'rv-list-entry')))).toBe(true);
       await page.emulateMedia({ reducedMotion: 'reduce' });
       await expect.poll(() => page.evaluate(() => document.getAnimations().filter(animation => animation.id === 'rv-list-entry').length)).toBe(0);

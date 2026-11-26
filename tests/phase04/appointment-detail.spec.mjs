@@ -32,8 +32,7 @@ for (const width of [320, 390, 768, 1023, 1024, 1280]) {
     await ready(page);
     await expect(page.getByRole('heading', { name: 'جزئیات نوبت' })).toBeVisible();
     await expect(page.getByText('#BK-48213')).toBeVisible();
-    await expect(page.getByRole('button', { name: 'ایجاد کد تعویض' })).toBeEnabled();
-    await expect(page.getByRole('button', { name: 'ثبت کد تعویض' })).toBeEnabled();
+    await expect(page.getByRole('button', { name: /کد تعویض/ })).toHaveCount(0);
     await expect(page.getByRole('link', { name: 'بازگشت به نوبت‌ها' })).toBeVisible();
     await expect(page.locator(width < 1024 ? '.rv-role-nav' : '.rv-booking-sidebar')
       .getByRole('link', { name: 'نوبت‌ها', exact: true })).toHaveAttribute('aria-current', 'page');
@@ -83,8 +82,7 @@ test('CUS-04 resolves links from home and history and guards unknown records @sm
   await ready(page);
   await expect(page.getByText(/حساب غیرفعال است؛ لغو/)).toBeVisible();
   await expect(page.getByRole('button', { name: 'لغو نوبت' })).toBeDisabled();
-  await expect(page.getByRole('button', { name: 'ایجاد کد تعویض' })).toBeDisabled();
-  await expect(page.getByRole('button', { name: 'ثبت کد تعویض' })).toBeDisabled();
+  await expect(page.getByRole('button', { name: /کد تعویض/ })).toHaveCount(0);
   await screenshot('inactive');
 
   await page.goto('customer/appointments/?tab=history');

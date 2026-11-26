@@ -1,5 +1,9 @@
 # Rival Progress
 
+## Phase 04 accepted — 2026-11-26
+
+The owner accepted the customer panel and its existing desktop layouts under DEC-086. All eight Phase 04 routes are accepted in the registry. Phase 05 awaits assignment. [Final scope and checks](docs-work/PHASE_04_CLOSEOUT_FA.md)
+
 ## Phase 04 architecture review — 2026-11-24
 
 Consolidated customer date conversion, calendar Sheet ownership, card-preview lifecycle, shared dashboard state and build-time routes. Verified runtime consumers after moving shared files. [Architecture review](docs-work/PHASE_04_ARCHITECTURE_REVIEW_FA.md). The full phase gate remains open.

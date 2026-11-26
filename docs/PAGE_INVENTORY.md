@@ -1,8 +1,8 @@
 # Canonical Page Inventory
 
-## CUS-09 notifications
+## Phase 04 accepted — 2026-11-26
 
-CUS-10 and its five Sheet variants were accepted on mobile and tablet under DEC-084. The separate desktop proposal awaits review. CUS-09 was accepted under DEC-083. [CUS-10 brief](../docs-work/desktop-layouts/CUS-10.md) · [CUS-09 brief](../docs-work/desktop-layouts/CUS-09.md)
+CUS-01, CUS-03–06 and CUS-08–10 are accepted under DEC-086. CUS-02 was accepted in Phase 03. CUS-07 is the embedded dashboard balance. CUS-04 includes rescheduling and a cancellation-impact preview. The swap scenes were withdrawn. The registry contains 29 accepted contexts and 43 future placeholders. [Registry](../src/page-registry.json) · [Closeout](../docs-work/PHASE_04_CLOSEOUT_FA.md)
 
 ## CUS-08 availability alerts
 

@@ -1,5 +1,7 @@
 # Open Questions / Decision Gates
 
+DEC-086 closes the Phase 04 review gate. Business, permission and financial questions retain their documented defaults. Swap compatibility is relevant if that workflow is assigned again. [Closeout](../docs-work/PHASE_04_CLOSEOUT_FA.md)
+
 ## CUS-04 Appointment Swap — 2026-11-22
 
 DEC-076 specifies original-payer refund attribution and current-attendee management. No cross-service compatibility mapping was supplied. The controlled demo compares service ID, configuration, duration and branch exactly. Production compatibility mappings, if needed, require explicit policy. [Feature contract](features/APPOINTMENT_SWAP.md)

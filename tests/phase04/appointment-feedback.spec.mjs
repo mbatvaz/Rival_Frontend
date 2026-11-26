@@ -103,6 +103,7 @@ test('Desktop tools align beside the bell, month grids cap at three and history 
 });
 
 test('Day and time use semibold, weekday is light, and desktop empty/error cards are centered at half width @visual', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   for (const width of [390, 1280]) {
     await page.setViewportSize({ width, height: 900 });
     await go(page);

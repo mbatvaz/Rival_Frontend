@@ -1,5 +1,9 @@
 # Decision Log
 
+## DEC-086 — Phase 04 acceptance
+
+On 2026-11-26 the owner accepted the completed customer panel and authorized the Phase 04 closeout, GitHub publication and merge to `master`. Acceptance covers single-activation buttons, synchronized dashboard card entry and the existing desktop layouts. Appointment swap actions and preview scenes were withdrawn. The dashboard balance remains embedded. [Closeout](../docs-work/PHASE_04_CLOSEOUT_FA.md)
+
 ## DEC-085 — CUS-10 desktop profile acceptance
 
 On 2026-11-24 the owner approved the existing single-column desktop profile and closed the separate two-column proposal. The full Phase 04 gate remains open. [CUS-10 brief](../docs-work/desktop-layouts/CUS-10.md)

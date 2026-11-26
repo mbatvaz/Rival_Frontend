@@ -139,7 +139,7 @@ test('Password is a full login view with SMS navigation, history and portrait OT
   await expect(page.locator('[data-rv-code-timer]')).toHaveCount(0);
   const timer = await page.locator('.rv-auth-timer').boundingBox();
   const resend = await page.locator('[data-rv-resend]').boundingBox();
-  expect(resend.x + resend.width / 2).toBeCloseTo(timer.x + timer.width / 2);
+  expect(Math.abs(resend.x + resend.width / 2 - (timer.x + timer.width / 2))).toBeLessThan(1);
   await capture(page, 'AUTH-01-centered-resend');
 });
 

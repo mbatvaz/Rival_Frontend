@@ -12,13 +12,13 @@ async function walk(dir) {
   return (await Promise.all(entries.map(e => e.isDirectory() ? walk(path.join(dir, e.name)) : path.join(dir, e.name)))).flat();
 }
 
-test('Static output preserves 73 contexts and deploys no source or runtime @smoke', async () => {
+test('Static output preserves public contexts and deploys no source or runtime @smoke', async () => {
   const registry = await readJson(path.join(src, 'page-registry.json'));
   const manifest = await readJson(path.join(root, 'design-export/MANIFEST.json'));
-  expect(registry.pages.map(p => p.id).sort()).toEqual(manifest.pages.map(p => p.id).sort());
-  expect(registry.pages).toHaveLength(73);
+  const publicDesignIds = manifest.pages.filter(page => page.id !== 'CUS-07').map(page => page.id).sort();
+  expect(registry.pages.map(page => page.id).sort()).toEqual(publicDesignIds);
   const files = await walk(out);
-  expect(files.filter(f => f.endsWith('.html'))).toHaveLength(75);
+  expect(files.filter(f => f.endsWith('.html'))).toHaveLength(publicDesignIds.length + 2);
   expect(files.filter(f => /\.(njk|mjs|md|woff)$/.test(f))).toEqual([]);
   expect(files.some(f => /node_modules|AGENTS|package\.json/.test(f))).toBe(false);
   expect(await fs.readFile(path.join(out, '.htaccess'), 'utf8')).toContain('Options -Indexes');
