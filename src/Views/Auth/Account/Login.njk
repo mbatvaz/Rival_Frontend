@@ -2,7 +2,7 @@
 {% block content %}
   <section data-rv="auth">
     <header class="rv-auth-hero"><a href="{{ urls.home }}" aria-label="ریوال — خانه"><img src="{{ urls.logo }}" alt="ریوال" width="150" height="50"></a><h1 data-rv-auth-title>ورود یا ثبت‌نام</h1><p data-rv-auth-description>با یک کد پیامکی، بدون رمز عبور</p></header>
-    <form class="rv-panel rv-auth-form" method="post" action="{{ productUrls.login }}" novalidate data-rv-auth-form>
+    <form data-rv-entry-zone class="rv-panel rv-auth-form" method="post" action="{{ productUrls.login }}" novalidate data-rv-auth-form>
       <!-- MVC:ANTIFORGERY -->
       <p class="rv-auth-return" data-rv-auth-return hidden>بعد از ورود به <strong>رزرو نوبت</strong> برمی‌گردید.</p>
       <p class="rv-auth-lock" role="alert" data-rv-auth-lock hidden></p>

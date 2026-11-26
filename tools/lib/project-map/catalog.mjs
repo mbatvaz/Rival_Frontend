@@ -49,9 +49,10 @@ export function catalog(records, addNode, addEdge, gaps) {
     }
     if (!design?.preferredSourceHtml) gaps.push({ source: id, reason: 'No preferred source HTML in manifest.' });
     if (!design?.artboardSelector) gaps.push({ source: id, reason: 'No artboard selector in manifest.' });
+    const contextSlug = page.previewPath.match(/^\/_preview\/context\/([\w-]+)\/$/)?.[1];
     for (const [file, record] of Object.entries(records).filter(([file]) => /^tests\/.*\.(?:js|mjs)$/.test(file))) {
       const literal = record.facts.literals?.find(item => item.value.includes(page.previewPath.replace(/^\//, ''))
-        || item.value === page.id);
+        || item.value === page.id || item.value === contextSlug);
       if (literal) addEdge(id, file, 'tested-by', file, 'INFERRED', 'AST literal references route/ID; execution and state coverage not proven.', literal.line);
     }
   }

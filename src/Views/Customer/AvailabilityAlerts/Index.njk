@@ -1,0 +1,49 @@
+{% extends "Shared/_CustomerPanelLayout.njk" %}
+{% block workspaceClass %} rv-customer-home rv-customer-panel rv-availability-page{% endblock %}
+{% block panelBack %}{% include "Shared/Components/_CustomerMoreBack.njk" %}{% endblock %}
+{% block panelTrailing %}{% endblock %}
+{% block content %}
+<div class="rv-availability" data-rv="customer-availability-alerts">
+  <div class="rv-section-head rv-availability__tools">
+    <p data-rv-availability-summary role="status">۰ فعال، {{ alertHistory.length | faDigits }} پایان‌یافته</p>
+    <button class="rv-btn rv-btn--secondary" type="button" data-rv-sheet-open="rv-booking-alert" aria-haspopup="dialog" disabled><span class="ri ri-plus" aria-hidden="true"></span>افزودن</button>
+  </div>
+  <p class="rv-feedback rv-feedback--error" role="alert" data-rv-availability-error hidden></p>
+  <div class="rv-availability__groups">
+    <section aria-labelledby="rv-availability-current-title">
+      <header class="rv-section-head"><h2 id="rv-availability-current-title">فعال</h2></header>
+      <div class="rv-availability__cards" data-rv-entry-zone data-rv-availability-active></div>
+      <p class="rv-muted" data-rv-availability-none>اعلان فعالی ندارید.</p>
+      <p class="rv-muted" data-rv-availability-hint hidden><span class="ri ri-info" aria-hidden="true"></span> در اولین آزاد شدن زمان، یک پیامک می‌گیرید. زمانی نگه داشته نمی‌شود.</p>
+    </section>
+    <section aria-labelledby="rv-availability-history-title">
+      <header class="rv-section-head"><h2 id="rv-availability-history-title">پایان‌یافته</h2><span class="rv-muted" data-rv-availability-count>{{ alertHistory.length | faDigits }} اعلان</span></header>
+      <div class="rv-glass rv-availability__history" data-rv-entry-zone="rows" data-rv-availability-history>
+        <div data-rv-availability-ended></div>
+        {% for item in alertHistory %}{% include "Customer/AvailabilityAlerts/_HistoryRow.njk" %}{% endfor %}
+      </div>
+    </section>
+  </div>
+  <template data-rv-availability-card-template>
+    <article data-rv-card-media class="rv-availability-card rv-glass">
+      <div class="rv-booking-context rv-appointment-card">
+        <img width="128" height="138" loading="lazy" alt="">
+        <div class="rv-appointment-card__body">
+          <strong data-rv-availability-service></strong>
+          <span class="rv-recurring-person"><img width="24" height="24" alt=""><span data-rv-availability-stylist></span></span>
+          <span class="rv-appointment-status" data-rv-tone="info"><span class="ri ri-bell-ring" aria-hidden="true"></span>در انتظار آزاد شدن</span>
+        </div>
+      </div>
+      <div class="rv-availability-card__foot">
+        <span data-rv-availability-deadline></span>
+        <button class="rv-btn rv-btn--secondary" type="button" data-rv-availability-cancel aria-haspopup="dialog">لغو اعلان</button>
+      </div>
+    </article>
+  </template>
+  <template data-rv-availability-history-template>{% include "Customer/AvailabilityAlerts/_HistoryRow.njk" %}</template>
+</div>
+{% endblock %}
+{% block workspaceSheets %}
+{% include "Booking/_Alert.njk" %}
+{% include "Customer/AvailabilityAlerts/_Cancel.njk" %}
+{% endblock %}

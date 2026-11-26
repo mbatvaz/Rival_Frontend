@@ -1,8 +1,19 @@
-<section class="rv-sheet" id="rv-more" role="dialog" aria-modal="true" aria-labelledby="rv-more-title" tabindex="-1" hidden>
+<section class="rv-sheet{% if shell.role == 'customer' %} rv-customer-more{% endif %}" id="rv-more" role="dialog" aria-modal="true" aria-labelledby="rv-more-title" tabindex="-1" hidden>
+  {% if shell.role == 'customer' %}
+  <h2 class="rv-customer-more__title" id="rv-more-title">بیشتر</h2>
+  <header class="rv-sheet__header">{% include "Shared/_CustomerIdentity.njk" %}<button class="rv-icon-btn" type="button" data-rv-sheet-close aria-label="بستن منوی بیشتر"><span class="ri ri-x" aria-hidden="true"></span></button></header>
+  <nav class="rv-more-list" aria-label="منوی بیشتر مشتری">
+    {% for group in shell.moreGroups %}<div class="rv-customer-more__group">{% if group.title %}<h3>{{ group.title }}</h3>{% endif %}
+      {% for item in group.items %}<a href="{{ item.href }}"{% if item.icon == 'calendar-plus' %} data-rv-customer-book{% endif %}><span class="rv-icon-tile"><span class="ri ri-{{ item.icon }}" aria-hidden="true"></span></span><span>{{ item.title }}</span>{% if item.icon == 'bell-ring' %}<small>۱ فعال</small>{% endif %}{% if item.icon == 'bell' %}<span class="rv-customer-more__dot" aria-label="۱ خوانده‌نشده"></span>{% endif %}<span class="ri ri-chevron-left" aria-hidden="true"></span></a>{% endfor %}
+    </div>{% endfor %}
+  </nav>
+  <footer class="rv-customer-more__footer"><button class="rv-customer-more__logout" type="button" data-rv-sheet-open="rv-logout"><span class="rv-icon-tile"><span class="ri ri-logout" aria-hidden="true"></span></span>خروج از حساب</button><p class="rv-muted">سالن مردانه طاها، اردبیل</p></footer>
+  {% else %}
   <header class="rv-sheet__header"><div><h2 id="rv-more-title">بیشتر</h2><p>{{ shell.name }} · {{ shell.label }}</p></div><button class="rv-icon-btn" type="button" data-rv-sheet-close aria-label="بستن منوی بیشتر"><span class="ri ri-x" aria-hidden="true"></span></button></header>
   <nav class="rv-more-list" aria-label="منوی بیشتر {{ shell.label }}">
     {% for item in shell.more %}<a href="{{ item.href }}"><span class="ri ri-{{ item.icon }}" aria-hidden="true"></span>{{ item.title }}<span class="ri ri-chevron-left" aria-hidden="true"></span></a>{% endfor %}
   </nav>
   <button class="rv-btn rv-btn--danger" type="button" data-rv-sheet-open="rv-logout"><span class="ri ri-logout" aria-hidden="true"></span>خروج از حساب</button>
   <p class="rv-muted">سالن مردانه طاها، اردبیل</p>
+  {% endif %}
 </section>

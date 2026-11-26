@@ -1,0 +1,80 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "records": {
+      "BK-48213": {
+        "duration": "۱ ساعت",
+        "paidAt": "۲۱ مهر، ۱۸:۱۲",
+        "amount": "۱۸۰٬۰۰۰",
+        "credit": "۹۰٬۰۰۰",
+        "gateway": "۹۰٬۰۰۰",
+        "tracking": "#BK-48213",
+        "policy": [
+          {
+            "title": "اکنون",
+            "entries": [
+              { "icon": "coins", "text": "لغو: ۱۸۰٬۰۰۰ تومان به اعتبار شما برمی‌گردد" },
+              { "icon": "repeat", "text": "جابه‌جایی: یک بار، و حق بازگشت هزینه می‌ماند" }
+            ]
+          },
+          {
+            "title": "امروز، ۱۶:۰۰",
+            "entries": [
+              { "icon": "minus", "text": "از این زمان، لغو بدون بازگشت هزینه است و جابه‌جایی حق بازگشت را از بین می‌برد" }
+            ]
+          },
+          {
+            "title": "فردا، ۱۳:۰۰",
+            "entries": [{ "icon": "ban", "text": "جابه‌جایی دیگر ممکن نیست" }]
+          },
+          {
+            "title": "فردا، ۱۶:۰۰، شروع نوبت",
+            "entries": [{ "icon": "ban", "text": "لغو و جابه‌جایی ممکن نیست" }]
+          }
+        ]
+      },
+      "BK-48390": {
+        "duration": "۳۰ دقیقه",
+        "paidAt": "۱۹ مهر، ۱۷:۲۰",
+        "amount": "۱۲۰٬۰۰۰",
+        "gateway": "۱۲۰٬۰۰۰",
+        "tracking": "#BK-48390",
+        "policy": [
+          {
+            "title": "اکنون",
+            "entries": [{ "icon": "coins", "text": "لغو: ۱۲۰٬۰۰۰ تومان به اعتبار شما برمی‌گردد" }]
+          },
+          {
+            "title": "سه‌شنبه ۲۸ مهر، ۱۵:۳۰، شروع نوبت",
+            "entries": [{ "icon": "ban", "text": "لغو و جابه‌جایی ممکن نیست" }]
+          }
+        ]
+      },
+      "BK-47920": {
+        "weekday": "سه‌شنبه",
+        "duration": "۱ ساعت",
+        "paidAt": "۹ مهر، ۲۰:۱۵",
+        "amount": "۱۸۰٬۰۰۰",
+        "gateway": "۱۸۰٬۰۰۰",
+        "tracking": "#BK-47920"
+      }
+    },
+    "conflict": {
+      "id": "rsc-conflict",
+      "service": "فیشیال",
+      "stylist": "سینا",
+      "day": "۲۵",
+      "weekday": "شنبه",
+      "month": "مهر",
+      "time": "۱۸:۰۰",
+      "image": "img/public/facial.png",
+      "avatar": "img/booking/sina.png",
+      "status": "booked",
+      "statusText": "رزرو شده",
+      "tone": "ink",
+      "icon": "check-circle",
+      "countdown": []
+    }
+  }
+}

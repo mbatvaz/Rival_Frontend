@@ -1,0 +1,14 @@
+@layer pages {
+  .rv-request-response .rv-appointment-hero__when {
+    grid-template-columns: var(--size-nav) minmax(0, 1fr);
+    align-items: center;
+  }
+  .rv-request-response .rv-appointment-hero__time > small { color: var(--text-primary); }
+
+  .rv-request-detail .rv-request-next > li {
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-lg);
+    background: var(--glass-fill);
+  }
+}

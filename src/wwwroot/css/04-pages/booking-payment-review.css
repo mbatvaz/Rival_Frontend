@@ -2,7 +2,6 @@
   .rv-checkout-breakdown {
     display: grid;
     gap: var(--space-4);
-    overflow: clip;
     padding: 0;
   }
 
@@ -52,6 +51,11 @@
   }
 
   @media not all and (min-width: 1024px) {
+    .rv-checkout-breakdown [data-rv-ticket-image] {
+      border-start-start-radius: var(--radius-xl);
+      border-start-end-radius: var(--radius-xl);
+    }
+
     .rv-checkout-breakdown .rv-booking-prices { border-block-start: 1px dashed var(--line-strong); }
   }
 

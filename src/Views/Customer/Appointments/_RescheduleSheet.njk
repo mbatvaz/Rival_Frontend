@@ -1,0 +1,23 @@
+<div class="rv-reschedule-lift" data-rv-rsc-lift aria-hidden="true" inert hidden></div>
+<section class="rv-sheet rv-reschedule-sheet" id="rv-reschedule-confirm" role="dialog" aria-modal="true" aria-labelledby="rv-rsc-confirm-title" tabindex="-1" hidden>
+  <header class="rv-sheet__header">
+    <span class="rv-icon-tile" aria-hidden="true"><span class="ri ri-repeat"></span></span>
+    <h2 id="rv-rsc-confirm-title">تأیید جابه‌جایی</h2>
+    <button class="rv-icon-btn" type="button" data-rv-sheet-close aria-label="بستن برگه تأیید"><span class="ri ri-x" aria-hidden="true"></span></button>
+  </header>
+  <dl class="rv-reschedule-sheet__change rv-panel">
+    <div><dt>از</dt><dd><del data-rv-rsc-from></del></dd></div>
+    <div><dt>به</dt><dd><strong data-rv-rsc-to></strong></dd></div>
+  </dl>
+  <p class="rv-customer-notice rv-customer-notice--inactive" data-rv-rsc-danger hidden><span class="ri ri-alert" aria-hidden="true"></span><span>با این جابه‌جایی، امکان بازگشت هزینه این نوبت برای همیشه از بین می‌رود.</span></p>
+  <ul class="rv-reschedule-sheet__facts">
+    <li><span class="ri ri-repeat" aria-hidden="true"></span><span data-rv-rsc-quota></span></li>
+    <li><span class="ri ri-coins" aria-hidden="true"></span><span data-rv-rsc-refund></span></li>
+    <li data-rv-rsc-fee><span class="ri ri-wallet" aria-hidden="true"></span><span>هزینه تازه‌ای ندارد؛ همان هزینه رزرو پرداخت‌شده می‌ماند.</span></li>
+  </ul>
+  <p class="rv-feedback" role="alert" data-rv-rsc-error hidden></p>
+  <form class="rv-actions" data-rv-rsc-submit action="{{ customerUrls['CUS-04'] }}">
+    <button class="rv-btn" type="submit" data-rv-rsc-confirm>تأیید جابه‌جایی</button>
+    <button class="rv-btn rv-btn--secondary" type="button" data-rv-sheet-close>انصراف</button>
+  </form>
+</section>

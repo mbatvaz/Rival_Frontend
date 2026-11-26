@@ -1,0 +1,60 @@
+<div class="rv-request-detail" data-rv-request-detail-state="{{ request.status }}" data-rv-request-id="{{ request.id }}" data-rv-request-service="{{ request.service }}">
+  <section class="rv-customer-notice rv-customer-notice--inactive" data-rv-request-inactive hidden>
+    <span class="ri ri-lock" aria-hidden="true"></span><div><h2>حساب شما غیرفعال است</h2><p>این درخواست را می‌بینید، ولی پرداخت و لغو فعلاً ممکن نیست. برای فعال شدن دوباره با سالن تماس بگیرید.</p><a class="rv-text-link" href="tel:09141452321">تماس با سالن</a></div>
+  </section>
+  <div data-rv-card-media class="rv-appointment-hero rv-request-hero">
+    <div class="rv-appointment-hero__media">
+      <img src="{{ basePath }}{{ request.image }}" width="390" height="168" alt="">
+      <div class="rv-request-hero__status">
+        {% for key in ['pay', 'wait', 'booked', 'expired', 'rejected', 'cancelled'] %}
+          <span data-rv-request-result="{{ key }}"{% if request.status != key %} hidden{% endif %}>{% include "Shared/Components/_RequestStatus.njk" %}</span>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="rv-appointment-hero__panel rv-glass">
+      <div class="rv-appointment-hero__service">
+        <div><h2 data-rv-request-heading tabindex="-1">{{ request.name }}</h2><p><span data-rv-request-identity>{{ request.identity }}</span> · <bdi dir="ltr" data-rv-request-reference>#{{ request.id }}</bdi></p></div>
+      </div>
+    </div>
+  </div>
+  <div class="rv-request-detail__content">
+    {% if request.notice %}<section class="rv-customer-notice rv-request-notice" data-rv-request-source-notice data-rv-tone="{{ model.statuses[request.status][1] }}"><span class="ri ri-{{ model.statuses[request.status][2] }}" aria-hidden="true"></span><div><h2>{{ request.notice[0] }}</h2><p>{{ request.notice[1] }}</p></div></section>{% endif %}
+    <section class="rv-customer-notice rv-request-notice" data-rv-request-outcome role="status" hidden><span class="ri ri-info" aria-hidden="true"></span><div><h2></h2><p></p></div></section>
+    {% if request.preference %}
+      <section class="rv-appointment-detail__receipt">
+        <header class="rv-section-head"><h2>ترجیح شما</h2></header>
+        <dl class="rv-appointment-detail__facts rv-glass"><div><dt>روز ترجیحی</dt><dd data-rv-request-preferred-date>{{ request.preference.day }}</dd></div><div><dt>زمان از روز</dt><dd data-rv-request-preferred-part>{{ request.preference.part }}</dd></div><div><dt>ثبت درخواست</dt><dd data-rv-request-submitted>{{ request.preference.submitted }}</dd></div></dl>
+      </section>
+    {% endif %}
+    {% if request.parts.length and (request.status == 'wait' or request.status == 'expired' or request.status == 'pay') %}
+      <section class="rv-appointment-detail__receipt" data-rv-request-parts{% if request.status == 'pay' %} hidden{% endif %}>
+        <header class="rv-section-head"><h2>بخش‌های پکیج</h2>{% if request.submitted %}<span>ثبت <span data-rv-request-submitted>{{ request.submitted }}</span></span>{% endif %}</header>
+        <ol data-rv-entry-zone class="rv-request-parts">{% for part in request.parts %}
+          <li class="rv-booking-context rv-glass"><img src="{{ basePath }}{{ part.image }}" width="128" height="96" alt="" loading="lazy"><div><small>بخش {{ loop.index | faDigits }}</small><strong>{{ part.name }}</strong></div></li>
+        {% endfor %}</ol>
+      </section>
+    {% endif %}
+    {% if request.days.length %}{% include "Customer/Requests/_Schedule.njk" %}{% endif %}
+    {% if request.next %}
+    <section class="rv-appointment-detail__receipt" data-rv-request-next>
+      <header class="rv-section-head"><h2>{{ request.nextTitle }}</h2></header>
+      <ul class="rv-request-next">{% for fact in request.next %}<li><span class="ri ri-{{ fact.icon }}" aria-hidden="true"></span><span{% if loop.first %} data-rv-request-next-first{% endif %}>{{ fact.text }}</span></li>{% endfor %}</ul>
+    </section>
+    {% endif %}
+    {% if request.status == 'wait' or request.status == 'pay' %}
+      <div class="rv-request-action{% if request.status == 'pay' %} rv-request-action--pay rv-glass rv-glass--strong{% endif %}" data-rv-request-actions>
+        {% if request.status == 'pay' %}
+        <div class="rv-request-hold" data-rv-request-hold>
+          <div><span role="timer"><bdi data-rv-request-clock>{{ request.clock }}</bdi> تا آزاد شدن زمان{% if request.parts.length %}‌ها{% endif %}</span><span>مانده برای درگاه <b>{{ request.due }}</b> تومان</span></div>
+          <progress value="{{ request.remainingSeconds }}" max="{{ request.totalSeconds }}" aria-label="مهلت پرداخت"></progress>
+        </div>
+        <p class="rv-muted" data-rv-request-inactive hidden>حساب غیرفعال است؛ پرداخت و لغو ممکن نیست. با پایان مهلت، زمان آزاد می‌شود.</p>
+        {% endif %}
+        <div class="rv-actions"><button class="rv-btn{% if request.status == 'pay' %} rv-btn--secondary{% else %} rv-btn--danger{% endif %}" type="button" aria-haspopup="dialog" data-rv-request-cancel disabled>{% if request.parts.length and request.status == 'pay' %}لغو کل{% else %}لغو درخواست{% endif %}</button>
+          {% if request.status == 'pay' %}<button class="rv-btn" type="button" data-rv-request-pay disabled>{% if request.parts.length %}پرداخت کل{% else %}پرداخت و قطعی کردن{% endif %}</button>{% endif %}</div>
+      </div>
+    {% endif %}
+    {% if request.status != 'booked' %}<a class="rv-btn" data-rv-request-new href="{{ productUrls.booking }}?service={{ request.service }}"{% if request.status != 'expired' and request.status != 'rejected' %} hidden{% endif %}>ثبت درخواست تازه</a>{% endif %}
+    {% if request.status == 'booked' and not request.days.length %}<a class="rv-btn rv-btn--secondary" href="{{ customerUrls['CUS-03'] }}">نوبت‌های من</a>{% endif %}
+  </div>
+</div>

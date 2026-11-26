@@ -1,0 +1,67 @@
+@layer components {
+  .rv-skel,
+  :where([data-rv-card-media]) { position: relative; }
+
+  .rv-skel {
+    display: block;
+    overflow: clip;
+    border-radius: var(--radius-xl);
+    background: var(--bg-plaster);
+    visibility: visible;
+  }
+
+  [data-rv-loading] :is([data-rv-entry-zone], main:not(:has([data-rv-entry-zone]))):not([hidden]) {
+    position: relative;
+    min-block-size: var(--size-control);
+    visibility: hidden;
+  }
+
+  :is([data-rv-loading], [data-rv-media]) [data-rv-card-media]:not([data-rv-media-ready]) {
+    visibility: hidden;
+    overflow: clip;
+  }
+
+  :is(
+    .rv-skel,
+    [data-rv-loading] :is([data-rv-entry-zone], main:not(:has([data-rv-entry-zone]))):not([hidden], :has([data-rv-card-media])),
+    [data-rv-loading] :is([data-rv-entry-zone], main:not(:has([data-rv-entry-zone]))) [data-rv-card-media],
+    :is([data-rv-loading], [data-rv-media]) [data-rv-card-media]:not([data-rv-media-ready])
+  ) {
+    overflow: clip;
+
+    &:not(.rv-skel)::before,
+    &::after {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      visibility: visible;
+      content: "";
+    }
+
+    &:not(.rv-skel)::before { background: var(--bg-plaster); }
+
+    &::after {
+      background: linear-gradient(105deg, transparent 32%, var(--glass-fill-strong) 50%, transparent 68%);
+      animation: rv-skeleton-shimmer calc(var(--duration-deliberate) * 2) linear infinite;
+
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+        opacity: 0;
+      }
+    }
+
+    &[data-rv-entry-zone="rows"]::before,
+    &[data-rv-entry-zone="rows"]::after {
+      border-radius: var(--radius-md);
+      mask-image: repeating-linear-gradient(to bottom, var(--bg-inverse) 0 var(--size-control), transparent var(--size-control) calc(var(--size-control) + var(--space-2)));
+    }
+  }
+
+  img[data-rv-media-failed] { opacity: 0; }
+
+  @keyframes rv-skeleton-shimmer {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+  }
+}

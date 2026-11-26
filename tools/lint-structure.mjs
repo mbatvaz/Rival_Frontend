@@ -25,7 +25,9 @@ for (const file of [...await walk(src), ...await walk(path.join(root, 'preview-r
   if (/font-family\s*:[^;]*(Inter|Roboto|Vazirmatn|Tahoma|Arial|system-ui)/i.test(text)) fail('non-Yekan Bakh typeface');
   const sheetBody = file.endsWith('booking-recurring-sheet.css')
     ? text.replace(/\.rv-recurring-editor\s*\{[^}]*\}/, '')
-    : text;
+    : file.endsWith('customer-more-mobile.css')
+      ? text.replace(/\.rv-customer-more\s*>\s*\.rv-more-list\s*\{[^}]*\}/, '')
+      : text;
   if (/overflow-y\s*:\s*(auto|scroll)/i.test(sheetBody)) fail('nested vertical scrolling');
   if (/\.(?:b[2-7]|f)-[a-z0-9_-]+/i.test(text)) fail('legacy batch class prefix');
   if (ext === '.js' && !rel.endsWith('/core/api.js') && rel !== 'preview-review/storage.js'

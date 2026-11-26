@@ -1,0 +1,39 @@
+@layer pages {
+  .rv-customer-dock__tabs { display: contents; }
+  .rv-customer-dock__indicator { display: none; }
+
+  .rv-customer-identity {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-inline-size: 0;
+
+  }
+
+  .rv-customer-identity > img {
+    flex: none;
+    inline-size: 56px;
+    block-size: 56px;
+    object-fit: cover;
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-sm);
+  }
+  .rv-customer-identity > div { display: grid; gap: var(--space-1); }
+  .rv-customer-identity__meta { display: flex; gap: var(--space-2); align-items: center; }
+  .rv-customer-identity__role { display: none; }
+  .rv-customer-identity strong { font-size: var(--heading-lg-size); line-height: var(--heading-lg-line); }
+
+  .rv-customer-identity bdi {
+    font-size: var(--body-sm-size);
+    line-height: var(--body-sm-line);
+    color: var(--text-secondary);
+    font-weight: 300;
+    text-align: start;
+  }
+  .rv-customer-home .rv-workspace__header .rv-customer-identity img { inline-size: 56px; block-size: 56px; }
+
+  @media (min-width: 1024px) {
+    .rv-customer-home .rv-booking-sidebar { inline-size: calc(100% - var(--space-6)); margin-inline: auto; }
+    .rv-customer-home .rv-workspace__header .rv-customer-identity { display: flex; }
+  }
+}

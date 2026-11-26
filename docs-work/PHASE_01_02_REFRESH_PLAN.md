@@ -14,7 +14,7 @@ Owner scope: re-audit accepted foundation and shell/public/auth against the new 
 ## Evidence and invariants
 
 - [Phase 01 scope](../phases/PHASE_01_Foundation/README.md): DS/RULE/ARCH; no product screenshots claimed for neutral foundation pages.
-- [Phase 02 map](../phases/PHASE_02_Shell_Public_Auth/SOURCE_MAP.md), [manifest](../design-export/MANIFEST.json), [MotionSpecimens](../design-export/design-system-v2/components/MotionSpecimens/README.md), [Button](../design-export/design-system-v2/components/Button/README.md), [Overlays](../design-export/design-system-v2/components/Overlays/README.md).
+- [Phase 02 package](../phases/PHASE_02_Shell_Public_Auth/README.md), [manifest](../design-export/MANIFEST.json), [MotionSpecimens](../design-export/design-system-v2/components/MotionSpecimens/README.md), [Button](../design-export/design-system-v2/components/Button/README.md), [Overlays](../design-export/design-system-v2/components/Overlays/README.md).
 - Existing [desktop briefs](desktop-layouts/) remain reviewed compositions. New work changes interactions/timing, not their grid/navigation/crop hierarchy. Small accessible carousel controls stay inside the existing caption block.
 - Existing source/brief BK-01 drift is outside this two-phase scope. Shared motion consumers in booking require regression, not redesign.
 

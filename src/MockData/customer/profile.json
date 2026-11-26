@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "firstName": "رضا",
+    "lastName": "کریمی",
+    "phone": "0914 271 3840",
+    "photo": "sample",
+    "passwordConfigured": false,
+    "passkeys": [
+      { "id": "iphone", "name": "آیفون رضا", "icon": "smartphone", "created": "۱۲ شهریور", "lastUsed": "امروز" },
+      { "id": "laptop", "name": "لپ‌تاپ خانه", "icon": "grid", "created": "۳ مهر", "lastUsed": "۱۸ مهر" }
+    ]
+  }
+}

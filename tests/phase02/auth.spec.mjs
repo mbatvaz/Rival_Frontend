@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { installMotionProbe } from '../helpers/motion.mjs';
 
 async function login(page, query = '') {
   await page.goto('login/' + query);
@@ -110,4 +111,20 @@ test('Switching login methods cannot reset the shared failure counter @smoke', a
   }
   await expect(page.locator('[data-rv-auth-lock]')).toContainText('همهٔ روش‌های ورود');
   await expect(page.locator('[data-rv-password-toggle]')).toBeDisabled();
+});
+
+test('OTP rejection shakes once per wrong code and skips motion when reduced @smoke', async ({ page }) => {
+  await page.addInitScript(installMotionProbe, { id: 'rv-otp-rejected', record: 'otpShakes' });
+  await login(page, '?state=otp');
+  const code = page.getByLabel('کد پیامک‌شده');
+  for (let index = 1; index <= 2; index++) {
+    await code.fill('۱۱۱۱۱');
+    await expect(code).toHaveAttribute('aria-invalid', 'true');
+    await expect.poll(() => page.evaluate(() => window.otpShakes.length)).toBe(index);
+    await code.fill('');
+  }
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await code.fill('۱۱۱۱۱');
+  await expect(code).toHaveAttribute('aria-invalid', 'true');
+  expect(await page.evaluate(() => window.otpShakes.length)).toBe(2);
 });

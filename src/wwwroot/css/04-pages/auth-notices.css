@@ -1,4 +1,6 @@
 @layer pages {
+  [data-rv-auth-switching] { overflow: clip; box-sizing: border-box; }
+
   .rv-auth-return {
     display: block;
     position: relative;

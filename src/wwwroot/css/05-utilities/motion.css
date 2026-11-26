@@ -8,31 +8,7 @@
   [data-rv-dragging] { scroll-snap-type: none; user-select: none; cursor: grabbing; }
 
   [data-rv-page] > main {
-    animation: rv-page-enter var(--duration-slow) var(--ease-standard) backwards;
-  }
-  .rv-booking[data-rv-page] > main { animation: none; }
-  .rv-sheet { animation: rv-sheet-enter var(--duration-slow) var(--ease-standard) both; }
-  .rv-sheet-scrim { animation: rv-fade-enter var(--duration-base) var(--ease-standard) both; }
-
-  .rv-sheet[data-rv-closing] { animation: rv-sheet-exit var(--duration-base) var(--ease-exit) both; }
-  [data-rv-closing] > .rv-sheet-scrim { animation: rv-fade-exit var(--duration-fast) var(--ease-exit) both; }
-
-  @keyframes rv-sheet-exit {
-    to { transform: translateY(100%); }
-  }
-
-  @keyframes rv-fade-exit {
-    to { opacity: 0; }
-  }
-
-  @keyframes rv-page-enter {
-    from { opacity: 0; transform: translateY(var(--space-3)); }
-    to { opacity: 1; transform: none; }
-  }
-
-  @keyframes rv-sheet-enter {
-    from { transform: translateY(100%); }
-    to { opacity: 1; transform: none; }
+    animation: none;
   }
 
   @keyframes rv-fade-enter {
@@ -40,25 +16,4 @@
     to { opacity: 1; }
   }
 
-  @media (min-width: 1024px) {
-    .rv-viewer { animation-name: rv-viewer-enter; }
-    .rv-viewer[data-rv-closing] { animation-name: rv-viewer-exit; }
-  }
-
-  @keyframes rv-viewer-enter {
-    from { opacity: 0; transform: scale(0.98); }
-    to { opacity: 1; transform: none; }
-  }
-
-  @keyframes rv-viewer-exit {
-    to { opacity: 0; transform: scale(0.98); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    [data-rv-page] > main,
-    .rv-sheet,
-    .rv-sheet-scrim,
-    .rv-sheet[data-rv-closing],
-    [data-rv-closing] > .rv-sheet-scrim { animation: none; }
-  }
 }

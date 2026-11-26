@@ -1,0 +1,143 @@
+@layer components {
+  /* AppointmentHero: exact CUS-01 geometry; canonical v2 type and materials. */
+  .rv-appointment-hero {
+    position: relative;
+    flex: 0 0 min(322px, calc(100vw - var(--space-8)));
+    min-inline-size: 0;
+    border-radius: var(--radius-xl);
+    overflow: clip;
+    isolation: isolate;
+    box-shadow: var(--shadow-md);
+    scroll-snap-align: center;
+  }
+  .rv-appointment-hero__media { position: relative; block-size: 152px; }
+
+  .rv-appointment-hero__media > img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+
+  .rv-appointment-hero__tag {
+    position: absolute;
+    inset-block-start: var(--space-3);
+    inset-inline-start: var(--space-3);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    border-radius: var(--radius-pill);
+    padding: var(--space-1) var(--space-2);
+    background: var(--glass-fill-strong);
+    font-size: var(--tag-size);
+    line-height: var(--tag-line);
+  }
+  .rv-appointment-hero__tag .ri { inline-size: var(--space-4); block-size: var(--space-4); }
+
+  .rv-appointment-hero__panel {
+    position: relative;
+    margin-block-start: calc(-1 * var(--size-touch));
+    padding: var(--space-5) var(--space-4) var(--space-4);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    border-block-start: 1px solid var(--glass-edge);
+    background: var(--glass-fill-strong);
+    backdrop-filter: blur(var(--blur-strong)) saturate(180%);
+  }
+
+  .rv-appointment-hero__when {
+    display: grid;
+    grid-template-columns: var(--size-nav) minmax(0, 1fr);
+    gap: var(--space-5);
+    align-items: center;
+  }
+  .rv-appointment-hero__date { text-align: center; }
+
+  .rv-appointment-hero__date > b,
+  .rv-appointment-hero__time > b {
+    display: block;
+    font-size: var(--numeral-xl-size);
+    line-height: var(--numeral-xl-line);
+    font-weight: 300;
+  }
+  .rv-appointment-hero__date > span { display: block; font-size: var(--body-size); line-height: var(--label-line); }
+
+  .rv-appointment-hero__date > small {
+    display: block;
+    font-size: var(--caption-size);
+    line-height: var(--caption-line);
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+  .rv-appointment-hero__time { border-inline-start: 1px solid var(--line-hairline); padding-inline-start: var(--space-5); }
+
+  .rv-appointment-countdown {
+    display: flex;
+    gap: var(--space-2);
+    margin-block-start: var(--space-1);
+
+  }
+
+  .rv-appointment-countdown > span {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    flex: 1;
+  }
+
+  .rv-appointment-countdown > span + span::before {
+    content: ":";
+    position: absolute;
+    inset-inline-start: calc(-1 * var(--space-2));
+    color: var(--chrome-500);
+    font-size: var(--caption-size);
+    line-height: var(--label-line);
+  }
+
+  .rv-appointment-countdown b {
+    font-size: var(--body-sm-size);
+    line-height: var(--label-line);
+    font-weight: 300;
+    color: var(--text-secondary);
+  }
+
+  .rv-appointment-countdown small {
+    font-size: var(--overline-size);
+    line-height: var(--overline-line);
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  .rv-appointment-hero__service {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-block-start: var(--space-4);
+    padding-block-start: var(--space-3);
+
+  }
+  .rv-appointment-hero__service > img { flex: none; border-radius: var(--radius-pill); object-fit: cover; }
+  .rv-appointment-hero__service > div { flex: 1; min-inline-size: 0; }
+
+  .rv-appointment-hero__service h2 {
+    margin: 0;
+    font-size: var(--title-size);
+    line-height: var(--title-line);
+    font-weight: 600;
+  }
+
+  .rv-appointment-hero__service p {
+    margin: 0;
+    font-size: var(--body-sm-size);
+    line-height: var(--body-sm-line);
+    font-weight: 300;
+    color: var(--text-secondary);
+  }
+
+  .rv-appointment-hero__actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-2);
+    margin-block-start: var(--space-3);
+  }
+  .rv-appointment-hero__actions .rv-btn { padding-inline: var(--space-2); }
+}

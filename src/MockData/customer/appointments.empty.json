@@ -1,0 +1,168 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "today": "1405/07/22",
+    "todayLabel": "امروز، ۲۲ مهر",
+    "groups": [
+      {
+        "key": "upcoming",
+        "label": "پیش رو",
+        "count": 0,
+        "months": []
+      },
+      {
+        "key": "history",
+        "label": "گذشته",
+        "count": 0,
+        "months": []
+      }
+    ],
+    "filters": {
+      "services": [
+        {
+          "value": "all",
+          "label": "همه",
+          "image": ""
+        },
+        {
+          "value": "hair",
+          "label": "اصلاح سر",
+          "image": "img/public/classic.png"
+        },
+        {
+          "value": "face-hair",
+          "label": "اصلاح سر و صورت",
+          "image": "img/public/shave.png"
+        },
+        {
+          "value": "facial",
+          "label": "فیشیال",
+          "image": "img/public/facial.png"
+        },
+        {
+          "value": "beard-color",
+          "label": "رنگ ریش",
+          "image": "img/booking/beard-color.png"
+        }
+      ],
+      "stylists": [
+        {
+          "value": "all",
+          "label": "همه",
+          "image": ""
+        },
+        {
+          "value": "taha",
+          "label": "طاها",
+          "image": "img/public/taha.png"
+        },
+        {
+          "value": "amir",
+          "label": "امیر",
+          "image": "img/public/amir.png"
+        },
+        {
+          "value": "sina",
+          "label": "سینا",
+          "image": "img/booking/sina.png"
+        },
+        {
+          "value": "mehdi",
+          "label": "مهدی",
+          "image": ""
+        }
+      ],
+      "status": [
+        {
+          "value": "all",
+          "label": "همه",
+          "image": ""
+        },
+        {
+          "value": "booked",
+          "label": "رزرو شده",
+          "image": ""
+        },
+        {
+          "value": "completed",
+          "label": "انجام شده",
+          "image": ""
+        },
+        {
+          "value": "absent",
+          "label": "عدم حضور",
+          "image": ""
+        },
+        {
+          "value": "cancelled",
+          "label": "لغو شده",
+          "image": ""
+        }
+      ],
+      "ranges": [
+        {
+          "value": "all",
+          "label": "همه"
+        },
+        {
+          "value": "week",
+          "label": "۷ روز آینده"
+        },
+        {
+          "value": "month",
+          "label": "۳۰ روز آینده"
+        },
+        {
+          "value": "custom",
+          "label": "بازه دلخواه"
+        }
+      ],
+      "boundaries": {
+        "week": {
+          "from": "1405/07/22",
+          "to": "1405/07/29"
+        },
+        "month": {
+          "from": "1405/07/22",
+          "to": "1405/08/22"
+        }
+      },
+      "example": {
+        "range": "month",
+        "from": "1405/07/22",
+        "to": "1405/08/22",
+        "stylist": "amir"
+      },
+      "dateFields": [
+        {
+          "key": "from",
+          "label": "از تاریخ",
+          "example": "۱۴۰۵/۰۷/۲۲"
+        },
+        {
+          "key": "to",
+          "label": "تا تاریخ",
+          "example": "۱۴۰۵/۰۸/۲۲"
+        }
+      ],
+      "hint": "هر دو تاریخ قابل انتخاب‌اند؛ فیلترها در پیش رو و گذشته مشترک می‌مانند."
+    },
+    "emptyStates": [
+      {
+        "key": "empty",
+        "icon": "scissors",
+        "title": "هنوز نوبتی ندارید",
+        "text": "هر نوبتی که رزرو کنید، اینجا با تاریخ و وضعیتش می‌آید. برای رزرو، دکمه «رزرو» پایین صفحه را بزنید.",
+        "clear": false
+      },
+      {
+        "key": "noresult",
+        "icon": "filter",
+        "title": "نوبتی با این فیلترها نیست",
+        "text": "یکی از فیلترها را بردارید یا همه را پاک کنید.",
+        "clear": true
+      }
+    ]
+  }
+}

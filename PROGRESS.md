@@ -1,5 +1,181 @@
 # Rival Progress
 
+## Phase 04 accepted — 2026-11-26
+
+The owner accepted the customer panel and its existing desktop layouts under DEC-086. All eight Phase 04 routes are accepted in the registry. Phase 05 awaits assignment. [Final scope and checks](docs-work/PHASE_04_CLOSEOUT_FA.md)
+
+## Phase 04 architecture review — 2026-11-24
+
+Consolidated customer date conversion, calendar Sheet ownership, card-preview lifecycle, shared dashboard state and build-time routes. Verified runtime consumers after moving shared files. [Architecture review](docs-work/PHASE_04_ARCHITECTURE_REVIEW_FA.md). The full phase gate remains open.
+
+## Phase 04 interface consistency review — 2026-11-24
+
+Reviewed CUS-01 through CUS-10 for shared controls and motion. Reused the customer notification bell and mobile More return, aligned the request filter with appointment controls, and connected the remaining variable records and card previews to shared motion. [Review and evidence](docs-work/PHASE_04_CONSISTENCY_REVIEW_FA.md). The full phase gate remains open.
+
+## Local context and QA workflow — 2026-11-24
+
+Page and phase startup now use a compact local lookup. Affected QA scopes literal import and registration additions to their consumers and treats registry acceptance metadata as a review check. Scoped subpath runs skip audited duplicate visual widths. [Measurements and retained coverage](docs-work/CONTEXT_OPTIMIZATION_REPORT_FA.md#اجرای-دوم-۲۴-نوامبر-۲۰۲۶)
+
+## CUS-10 customer profile accepted — 2026-11-24
+
+The owner accepted the implemented mobile and tablet profile, its six preview states and the mobile keyboard follow-up under DEC-084. DEC-085 records acceptance of the existing single-column desktop layout and closes the two-column proposal. The Phase 04 gate remains open. [CUS-10 brief](docs-work/desktop-layouts/CUS-10.md)
+
+Closeout rebuilt both deployment paths and passed 26/26 at root and 23/23 under `/rival-demo/` across the profile, sign-in and review variants. The root output was restored. The mobile keyboard was verified with a simulated visual viewport.
+
+## CUS-09 customer notifications accepted — 2026-11-24
+
+The owner accepted the inbox, all-read and empty views under DEC-083. The registry records acceptance and the desktop brief records source comparisons. [Accepted brief](docs-work/desktop-layouts/CUS-09.md)
+
+Closeout builds and lint passed. The notification and preview-variant suites passed 14/14 at root and 14/14 under `/rival-demo/`. The root output was restored.
+
+## CUS-09 customer notifications preview — 2026-11-24
+
+The next owner-assigned Phase 04 slice implements the grouped notification inbox, persistent read actions, dashboard unread indicator, pagination and direct resource links. The three Batch 3 states are available in the preview directory. Desktop review is pending under DEC-072. [Sources and layout](docs-work/desktop-layouts/CUS-09.md)
+
+Build, lint and map freshness passed. The CUS-09 suite passed 9/9 at root and 9/9 under `/rival-demo/`. The related customer and review suites passed 47/47 at root. Under the subpath all 46 other tests passed, and the preview review suite passed 5/5 after scoping its obsolete directory-wide variant count to the two pages under test. The local root preview on port 8183 returned the CUS-09 example route.
+
+## CUS-08 availability alerts accepted — 2026-11-24
+
+The owner accepted CUS-08 and authorized its slice closeout under DEC-082. The registry records acceptance of the page with its four preview states. [Desktop brief and verification](docs-work/desktop-layouts/CUS-08.md)
+
+Closeout build and lint passed. The focused availability, booking, dashboard and appointment-detail suites passed 33/33 at root and 33/33 under `/rival-demo/`. The root preview was restored.
+
+## CUS-08 availability alerts preview
+
+Started the next owner-assigned Phase 04 slice. The customer can add an eligible availability alert, review duplicate status, cancel it, and see finished alerts. Booking and the dashboard use the same local demo alert records. The four source variants are available separately in the preview directory. [Layout and source comparisons](docs-work/desktop-layouts/CUS-08.md).
+
+Build and lint passed. The focused availability, booking, dashboard and appointment detail suites passed 33/33 at root and 33/33 under `/rival-demo/`. The test runner restored the root build. CUS-08 is at live owner review under DEC-072.
+
+## Phase 04 worktree integration
+
+`vivid-zebra` supplied an alternate CUS-06 stylesheet on the same base commit. The request page retains the latest owner-directed centered column, timeline, and Sheet scroll fix. The integration carries over the response grid and next-step card treatment, scoped to CUS-06. Generated stylesheet line endings do not change the tracked token values.
+
+## CUS-05/06 desktop Sheet scroll gap
+
+In the desktop request filter, freezing the entry animation at 1 ms exposed 618px of extra document scroll. The transformed Sheet extended below its containing layer. The request pages now clip overflow at the desktop Sheet layer so the entry and exit animations cannot add document scroll. The layer still sizes to its content. The request regression checks scrim coverage during entry for both the filter and cancellation.
+
+## CUS-06 desktop layout and package timeline — 2026-11-23
+
+Owner feedback puts the request detail in a centered desktop column and connects consecutive package date markers from center to center. [Desktop brief](docs-work/desktop-layouts/CUS-06.md).
+
+## CUS-05 tab rename and appointment radio style — 2026-11-23
+
+Per the owner's live-browser annotations, the completed group tab reads “تکمیل” instead of “تکمیل شده” (fixture group and preview variant labels), and the three status tabs use the CUS-03 appointment radio treatment: the shared glass strip, muted inset unselected pill, white raised selected pill and the scale transition replace the earlier transparent/ink selection. Count bubbles and the compact three-tab spacing down to 320px remain. [DEC-081](docs/DECISION_LOG.md#dec-081)
+
+Build, lint and the focused requests suite passed 13/13 at root, including the 320/390/768/1023/1024/1280 visual and axe checks. Live preview updated on port 4173. CUS-05/06 desktop review remains open under DEC-072.
+
+## CUS-05 and CUS-06 fidelity review — 2026-11-23
+
+Rechecked the sixteen Batch 3 boards after the interrupted implementation. Restored the integrated hold cards, three tab states, fixed upper date and Jalali picker, the two detail layouts for single services and packages, and per-part appointment links. Existing booking submissions now reach their own customer detail and list entry. Payment returns through PAY-RES and cancellation updates the demo list and dashboard. [List review](docs-work/desktop-layouts/CUS-05.md), [detail review](docs-work/desktop-layouts/CUS-06.md). Desktop review remains open under DEC-072.
+
+Final CUS-05/06 suite: 13/13 at root and 13/13 under `/rival-demo/`. All sixteen states were captured at 320, 390, 768, 1023, 1024 and 1280px, with axe across the 390/1280 state matrices and focused axe checks at the other widths. The broader booking/customer regression passed 56/56 under the subpath. The earlier root run recorded two Chromium `ERR_NETWORK_CHANGED` failures during the 768/1023 request checks, which passed in the final root run. Build, lint and map freshness passed.
+
+## CUS-05 and CUS-06 requests preview — 2026-11-22
+
+The owner started the next Phase 04 slice after accepting CUS-04. CUS-05 provides the payment, review and completed groups, filtering and an empty view. CUS-06 provides single-service and package details, inactive and terminal states, and cancellation impact previews. Cancellation and payment use browser-local demo data and the existing payment-result path. The [request list](docs-work/desktop-layouts/CUS-05.md) and [request detail](docs-work/desktop-layouts/CUS-06.md) desktop previews await owner review under DEC-072.
+
+## CUS-04 Appointment Swap — 2026-11-22
+
+The owner accepted CUS-04 and authorized publication on the Phase 04 branch after the final corrections in DEC-080. The rest of Phase 04 remains open.
+
+The targeted detail, swap, rescheduling and dashboard checks passed 56/56 under `/rival-demo/`. At root, 55 passed in the combined run and the remaining layout assertion passed after waiting for the entry animation to settle. Lint passed and the test runner restored root output.
+
+DEC-079 aligns swap dimming and entry with cancellation and adjusts shared Sheet focus visuals. [Visual and interaction brief](docs-work/desktop-layouts/CUS-04.md#swap-visual-evidence)
+
+DEC-078 adds five directory shortcuts, status-aware actions, the dashboard-style timer, centered success and shared appointment lift. [Feature contract](docs/features/APPOINTMENT_SWAP.md)
+
+DEC-077 adds the outgoing and incoming schedule review before final consent and a distinct success view within the redemption Sheet. [Feature contract](docs/features/APPOINTMENT_SWAP.md)
+
+DEC-076 assigns the appointment-swap slice. [Feature contract](docs/features/APPOINTMENT_SWAP.md) and [desktop brief](docs-work/desktop-layouts/CUS-04.md) define the shared Sheet states, mock ownership and review entry points. Owner review is pending.
+
+The root and subpath full Playwright runs each reported 269 passing tests and three failing tests. The same booking calendar animation assertion and two preview-directory count assertions also failed on an isolated build of the original HEAD, `bbd837a`. The 19 swap cases passed in both configurations. The subpath runner restored the root build. [Checks and changed files](docs/features/APPOINTMENT_SWAP.md#verification)
+
+## CUS-04 rescheduling preview — 2026-11-21
+
+The owner assigned the appointment rescheduling screens and provided the mobile references. The preview directory includes the eight CUS-04-RSC variants and the late-window detail entry under CUS-04. The calendar, confirmation, result and updated appointment run through the local demo data boundary. [Sources and review brief](docs-work/desktop-layouts/CUS-04-RSC.md).
+
+## CUS-04 preview accepted — 2026-11-21
+
+The owner accepted the implemented CUS-04 preview and requested closeout and publication on the Phase 04 branch. Cancellation submission, rescheduling and other CUS-04 variants remain pending. Further product work awaits owner instruction.
+
+## CUS-04 first detail preview — 2026-11-21
+
+After accepting CUS-03 on 2026-11-19, the owner asked to start the next Phase 04 slice. CUS-04 now opens from the customer home and appointment list, with the default and completed receipts, inactive account, a cancellation impact preview, and an unknown-record fallback. The [desktop review brief](docs-work/desktop-layouts/CUS-04.md) is pending owner feedback under DEC-072. Cancellation submission, rescheduling, and the remaining CUS-04 action variants are still pending.
+
+Static build and lint passed. Focused CUS-04, home, desktop and appointment-list regressions passed 36/36 at root and 36/36 under `/rival-demo/`. Root output was restored and the live detail was opened on port 8183. The [review brief](docs-work/desktop-layouts/CUS-04.md#source-comparisons) records the screenshot comparisons.
+
+## CUS-03 retained-filter calendar follow-up — 2026-11-17
+
+DEC-075 keeps the filter popup visibly in place while its calendar opens as an overlaid Sheet; the underlying filter is inert/ARIA-hidden until the calendar closes, then focus returns to the originating date control. The calendar header/day grid now has a space-3 gap. Appointment day/time typography is 26px/14px for improved readability without changing card grouping or desktop columns. [Interaction record](docs-work/CUS_03_MOTION_2026-11-17.md). CUS-03 remains at owner review; no next page has started.
+
+## CUS-03 filter interaction follow-up — 2026-11-17
+
+DEC-074 adds a bounded glass container and token-based selection motion to the view radios, makes non-date filter groups multi-select with exclusive “all”, opens the existing Jalali calendar from the whole date field, removes the visible close control and calendar-icon chrome, and suppresses customer-only mobile tap highlighting. Nested Sheet return is static instead of replaying entry; initial appointment motion now follows source/DOM order. [Motion and interruption record](docs-work/CUS_03_MOTION_2026-11-17.md). CUS-03 remains at owner review and no next Phase 04 page has started.
+
+## CUS-03 owner feedback — 2026-11-17
+
+DEC-073 implements all seven annotated changes and the supplied glass-popup reference: desktop tools beside the bell, native radios, maximum three same-month cards per row, semibold day/time with light weekday, single-row history, and centered half-width empty/error frames. One shared filter preserves selections across views; both date boundaries accept Persian input and open the existing Jalali calendar, with shared nested-sheet focus restoration. The stylist rail supports native touch, keyboard and mouse dragging. [Scope, source comparisons and actual validation](docs-work/CUS_03_OWNER_FEEDBACK_2026-11-17.md). CUS-03 remains at owner review; remaining Phase 04 destinations and the overall phase gate are unchanged.
+
+## Phase 04 accepted slice and appointment-list review — 2026-11-17
+
+DEC-072 records owner acceptance of the existing CUS-01 slice (including embedded CUS-07 balance) and authorization to continue remaining Phase 04 work. CUS-01 is marked accepted; manual review approvals remain independent and untouched. CUS-03 now implements future/history lists, actual source-date/service/stylist/status filters, no-result/empty/loading/error states, keyboard navigation and shared initial-only record motion. Desktop reuses the accepted sidebar and is at the owner-requested live review gate on port 8183. [Specification](docs-work/CUS_03_SPEC.md), [brief](docs-work/desktop-layouts/CUS-03.md), [source comparisons and actual checks](docs-work/CUS_03_REVIEW_2026-11-17.md).
+
+Next action: review CUS-03 desktop, apply feedback, then implement CUS-04 and the remaining customer pages. Detail destinations CUS-04/06 and CUS-05/08/09/10 are still placeholders. Full Phase 04 acceptance/closeout and full regression remain pending; Phase 05 has not started. Earlier pending/unassigned statements below are historical.
+
+## Initial-load-only record entry — 2026-11-17
+
+DEC-071 removes list-animation replay on popup close, filter changes and inserted records. Initial data enters once per document; modal opening cancels pending entry, while reloading starts a fresh sequence. The pre-fix portfolio regression reproduced 7 initial calls becoming 13 after closing its viewer; corrected root lifecycle/motion/canvas checks passed 16/16. [Scope and verification](docs-work/VARIABLE_LIST_MOTION_2026-11-17.md). Phase acceptance is unchanged.
+
+## Mobile entry canvas stability — 2026-11-17
+
+Reproduced a transient 8px document overflow in mobile portfolio entry. Replaced late body-level clipping with stable public/booking/workspace canvas clipping below 1024px. Per-item motion and native rails remain intact; root 24/24 responsive, axe, motion and canvas checks passed. [Cause and frame-by-frame evidence](docs-work/VARIABLE_LIST_MOTION_2026-11-17.md). Phase acceptance remains unchanged.
+
+## Faster row-order motion and preview CLI — 2026-11-17
+
+DEC-070 uses 240ms entry and 170ms staggering in visual RTL row order, preserving static chrome and native data-list behavior. The preview dev command now forwards --host/--port directly through a Node build/start wrapper; the static server parses/validates CLI values with environment fallback and actionable port errors. [Motion/measurements](docs-work/VARIABLE_LIST_MOTION_2026-11-17.md) and [preview command](README_START_HERE_FA.md). No OS port reservations or unrelated approval data were changed.
+
+## Variable-record motion correction — 2026-11-17
+
+DEC-069 replaces section entry with per-record list sequencing; home, titles, steps, right navigation, balance/tools, auth forms and result facts stay static. Whole-main route fading is removed. New/revealed records join their list sequence, focus/reduced motion cancels entry, and detached records are cleaned up. [Scope, tests and frame-pacing measurements](docs-work/VARIABLE_LIST_MOTION_2026-11-17.md). Phase 04 remains in progress.
+
+## Shared section entry and customer rail shadows — 2026-11-17
+
+DEC-068 extends entry motion to implemented public/auth/booking/result templates through explicit variable-section hooks. Shared headers, navigation, booking steps and fixed payment actions remain static. Customer mobile rails reserve full shadow space without changing card positions or native scrolling. [Implementation and actual checks](docs-work/SHARED_SECTION_ENTRY_2026-11-17.md). No placeholder implementation or phase acceptance is included.
+
+## Customer section entry motion — 2026-11-16
+
+DEC-067 implements the owner's desktop active-bar expansion and staggered home variable sections: desktop fade, mobile/tablet local-left fade/slide. Shared chrome stays static; reduced motion is immediate. [Scope, timing and verification](docs-work/PHASE_04_SECTION_MOTION_2026-11-16.md). Phase 04 remains in progress.
+
+## Customer desktop canvas and sidebar alignment — 2026-11-16
+
+Fixed the capped gradient exposing side seams beyond 1600px and the dashboard's extra 24px horizontal inset moving the shared sidebar relative to booking. Existing composition/mobile scope preserved. The actual navigation regression failed before the fix, then root 39/39 and subpath 39/39 passed, including 1024–2560px alignment, current home states, axe/keyboard, drawer recovery and dock behavior. [Cause, source comparisons and checks](docs-work/PHASE_04_SHELL_ALIGNMENT_2026-11-16.md). Phase 04 remains in progress.
+
+## Customer sizing follow-up — 2026-11-16
+
+DEC-066 removes the salon notice clock tile, caps More at 320px and enlarges the mobile wordmark to 90×30px. Build/lint passed; focused home/recovery checks passed root 19/19 and subpath 19/19. Fresh mobile, desktop and drawer screenshots were inspected. Phase 04 remains in progress. [Evidence](docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md).
+
+## Customer chrome restoration and More recovery — 2026-11-16
+
+DEC-065 restores the previous dashboard header/plain desktop links, moves salon notices below the left support tools, hides the mobile More header and constrains scrolling to its list. More is pinned to the viewport/physical left with 240ms standard timing. The existing Sheet lifecycle now dismisses the customer More stack on breakpoint crossing, including interrupted animation/nested logout; inert/focus/scroll are restored. The precise More-list scroll exception is owner-authorized and narrowly allowed in structure lint. [Reproduction, current scope, comparisons and checks](docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md). Existing paired cards, payment data, dock motion and manual approvals are preserved; Phase 04 remains in progress.
+
+Final scoped QA: build/lint/whitespace passed; root 74/74 and subpath 74/74 passed, including scroll/resize recovery and affected shared consumers. Root output restored; fresh screenshots and six comparisons recorded. This is not full-phase acceptance or a physical-device retest.
+
+## Phase 04 owner element feedback — 2026-11-16
+
+DEC-064 implements the supplied More/dock screenshots and selected-element corrections: Phase 03-sized native-radio desktop navigation, responsive two/one-card appointment/payment grids, two independent payment entries and mobile payment rail, stacked credit/recurring/availability, shared identity header, grouped left-opening customer More and staged non-spring dock selection. Card entry fades without translating main. [Sources, motion contract, comparisons and QA](docs-work/PHASE_04_OWNER_FEEDBACK_2026-11-16.md). Current phase remains in progress; prior acceptance and concurrent manual review data are preserved.
+
+Validation: build/lint passed; related subpath suite 66/66, final root owner-feedback suite 9/9, and additional subpath fallback/card checks 3/3 passed. The broad root run's stale global input-count assertion was scoped to the actual booking main and its focused booking/feedback rerun passed 12/12. Fresh desktop/mobile/drawer screenshots and seven comparisons are recorded; root deployment output restored. Full-phase acceptance remains pending.
+
+## Phase 04 desktop revision — 2026-11-16
+
+DEC-063 directs the customer dashboard redesign using previous desktop phases and the right navigation list. Booking and home now share one customer desktop menu; CUS-01 has horizontal appointment tickets, bounded payment/support cards, and a separate empty-state composition from 1024px. Mobile/tablet remain source-based. The previous pending horizontal-menu proposal is superseded by the direct owner instruction; this is not Phase 04 acceptance. [Revised brief](docs-work/desktop-layouts/CUS-01.md) and [scope/QA](docs-work/PHASE_04_IMPLEMENTATION_FA.md). Existing unrelated/manual approval changes remain preserved.
+
+Validation: build/lint passed; Phase 04 root 18/18 and related subpath 35/35 passed. Additional desktop/shared accessibility/motion checks passed after updating the stale desktop menu-name expectation; the corrected booking-action check passed in both modes. Fresh screenshots and six visual comparisons are recorded. Final output uses root basePath; this is a scoped revision, not full-phase closeout.
+
+## Phase 04 assignment and first implementation — 2026-11-16
+
+Owner explicitly starts Phase 04 on a new local branch (DEC-062), superseding earlier unassigned notes. `phase/04-customer-panel` was created from clean, synchronized master. The first slice implements CUS-01 default/empty/inactive and embedded CUS-07 balance from exact Batch 3 artboards, reusing shared role navigation, More/logout sheets and rail behavior. [Scope, source comparisons, verification and remaining work](docs-work/PHASE_04_IMPLEMENTATION_FA.md). Desktop brief awaits owner review; remaining Phase 04 pages are still placeholders. No Phase 04 acceptance or Phase 05 start. Concurrent manual review approval edits are preserved.
+
 ## Booking navigation flash correction — 2026-11-16
 
 Owner reports a bright flash when selecting choice-page links (DEC-061). Booking anchors now use native navigation without the outgoing 1→0.35 fade; booking main content has no transparent entry. The centered choice dock and product data/routes remain unchanged. [Cause, first-frame checks and results](docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md). Root targeted choice/flash/booking/shared-motion **19/19** passed; first-frame opacity=1, no JS exit fade, Back and reduced motion checked at 390/1280. No phase assignment or acceptance change.

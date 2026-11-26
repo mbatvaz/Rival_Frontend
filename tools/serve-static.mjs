@@ -3,10 +3,11 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { root as workspaceRoot, loadSite } from './lib/site.mjs';
 import { reviewEndpoint } from './lib/review-endpoint.mjs';
+import { previewOptions } from './lib/preview-options.mjs';
 
 const root = path.join(workspaceRoot, 'dist');
 const { basePath } = await loadSite();
-const port = Number(process.env.PORT || 4173);
+const { host, port } = previewOptions();
 const handleReview = reviewEndpoint();
 const mime = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',
@@ -60,15 +61,19 @@ const server = http.createServer(async (req, res) => {
     respond(['ENOENT', 'ENOTDIR'].includes(error.code) ? 404 : 500, 'Static file unavailable.');
   }
 });
-server.on('error', error => { console.error(error.message); process.exit(1); });
+server.on('error', error => {
+  console.error(error.message);
+  if (['EACCES', 'EADDRINUSE'].includes(error.code)) console.error('The port may be reserved, unavailable or in use. Try another available port: npm.cmd run dev -- --host 0.0.0.0 --port ' + (port === 8183 ? 8187 : 8183));
+  process.exit(1);
+});
 function shutdown() {
   server.close(() => process.exit(0));
   server.closeAllConnections();
 }
 process.on('message', message => { if (message === 'shutdown') shutdown(); });
 process.on('disconnect', shutdown);
-server.listen(port, '0.0.0.0', () => {
+server.listen(port, host, () => {
   const listeningPort = server.address().port;
-  console.log('Rival preview: http://localhost:' + listeningPort + basePath + '_preview/');
+  console.log('Rival preview: http://' + (['0.0.0.0', '::'].includes(host) ? 'localhost' : host) + ':' + listeningPort + basePath + '_preview/');
   process.send?.({ ready: true, port: listeningPort });
 });

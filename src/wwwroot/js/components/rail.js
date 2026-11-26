@@ -1,3 +1,13 @@
+export function keepRailChoicesInView(rail) {
+  rail.addEventListener('focusin', event => event.target.closest('label')?.scrollIntoView({ block: 'nearest', inline: 'nearest' }));
+  rail.addEventListener('keydown', event => {
+    if (event.target !== rail || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    if (event.key === 'Home' || event.key === 'End') rail.scrollLeft = event.key === 'Home' ? 0 : -rail.scrollWidth;
+    else rail.scrollBy({ left: (event.key === 'ArrowLeft' ? -1 : 1) * rail.clientWidth / 2 });
+  });
+}
+
 export function center(rail, item, behavior = 'instant') {
   if (!item || !rail.clientWidth) return;
   const frame = rail.getBoundingClientRect();
@@ -46,10 +56,8 @@ export function enableDrag(rail) {
     event.preventDefault();
   });
   const release = () => {
-    const moved = Boolean(drag && suppress);
     drag = null;
     delete rail.dataset.rvDragging;
-    if (moved) rail.dispatchEvent(new window.CustomEvent('rv:dragend'));
   };
   for (const event of ['pointerup', 'pointercancel', 'lostpointercapture']) rail.addEventListener(event, release);
   rail.addEventListener('click', event => {

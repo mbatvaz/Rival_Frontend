@@ -1,0 +1,135 @@
+@layer pages {
+  .rv-profile-page { translate: var(--rv-profile-lift, none); }
+
+  .rv-profile {
+    display: grid;
+    gap: var(--space-6);
+    max-inline-size: 720px;
+    margin-inline: auto;
+  }
+
+  .rv-profile h2 {
+    margin: 0 var(--space-1) var(--space-2);
+    font-size: var(--title-size);
+    line-height: var(--title-line);
+  }
+
+  .rv-profile__identity,
+  .rv-profile__row,
+  .rv-profile__devices li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-inline-size: 0;
+  }
+
+  .rv-profile__identity {
+    padding: var(--space-4);
+    border-radius: var(--radius-xl);
+  }
+
+  .rv-profile__identity strong { font-size: var(--heading-lg-size); line-height: var(--heading-lg-line); }
+  .rv-profile__identity bdi { justify-self: start; color: var(--text-secondary); font-size: var(--body-sm-size); }
+  .rv-profile__identity button { flex: none; }
+
+  .rv-profile__value {
+    flex: 1;
+    display: grid;
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+  .rv-profile__value small { font-size: var(--caption-size); line-height: var(--caption-line); color: var(--text-secondary); }
+
+  .rv-profile__avatar {
+    position: relative;
+    flex: none;
+    display: grid;
+    place-items: center;
+    inline-size: 72px;
+    block-size: 72px;
+    overflow: hidden;
+    border-radius: var(--radius-pill);
+    background: var(--bg-plaster);
+    color: var(--text-secondary);
+    box-shadow: 0 0 0 3px var(--bg-surface), var(--shadow-sm);
+  }
+
+  .rv-profile__avatar img {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+  }
+
+  .rv-profile__list { border-radius: var(--radius-lg); }
+  .rv-profile__list > :not(:first-child) { border-block-start: 1px solid var(--line-hairline); }
+  .rv-profile__row { min-block-size: var(--size-touch); padding: var(--space-3) var(--space-4); }
+
+  button.rv-profile__row {
+    inline-size: 100%;
+    border: 0;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: start;
+    cursor: pointer;
+  }
+
+  button.rv-profile__row:disabled { cursor: default; }
+
+  .rv-profile__change { color: var(--text-secondary); font-size: var(--caption-size); }
+
+  .rv-profile__row > .rv-btn { flex: none; }
+  .rv-profile__row .rv-icon-tile { inline-size: var(--space-8); block-size: var(--space-8); }
+  .rv-profile__tile--danger { background: var(--danger-bg); color: var(--danger-fg); }
+
+  .rv-profile__tag {
+    display: inline-flex;
+    align-items: center;
+    flex: none;
+    gap: var(--space-1);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-pill);
+    color: var(--text-secondary);
+    background: var(--bg-plaster);
+    font-size: var(--caption-size);
+  }
+
+  .rv-profile__tag .ri { inline-size: var(--space-3); block-size: var(--space-3); }
+  .rv-profile__plain { background: transparent; color: var(--text-primary); box-shadow: none; }
+  .rv-profile__delete { color: var(--danger-fg); }
+  .rv-profile__passkeys { padding-block-end: var(--space-3); }
+  .rv-profile__passkeys > .rv-profile__row { padding-block-end: var(--space-2); }
+
+  .rv-profile__devices {
+    margin: 0 var(--space-4);
+    margin-inline-start: var(--space-8);
+    padding: 0;
+    padding-inline-start: var(--space-4);
+    border-inline-start: 2px solid var(--line-hairline);
+    list-style: none;
+  }
+
+  .rv-profile__devices li {
+    min-block-size: var(--space-12);
+    padding-inline: var(--space-3);
+    margin-inline: calc(-1 * var(--space-3));
+    font-size: var(--body-sm-size);
+  }
+
+  .rv-profile__devices li[data-profile-selected] {
+    min-block-size: 64px;
+    border-radius: var(--radius-md);
+    background: var(--bg-plaster);
+    box-shadow: inset 0 0 0 1px var(--line-strong);
+  }
+
+  .rv-profile__add,
+  .rv-profile__support { margin: var(--space-2) var(--space-4) 0; margin-inline-start: var(--space-8); }
+  .rv-profile__add { text-align: start; }
+  .rv-profile > .rv-feedback { margin: 0; }
+
+}

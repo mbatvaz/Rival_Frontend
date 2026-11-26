@@ -1,0 +1,20 @@
+<li class="rv-notification-item{% if not notification.unread %} is-read{% endif %}" data-rv-notification="{{ notification.id }}"{% if notification.unread %} data-rv-notification-unread{% endif %}{% if not notification.initial %} hidden{% endif %} tabindex="-1">
+  <span class="rv-icon-tile rv-notification-item__tile" data-rv-tone="{{ notification.tone }}" aria-hidden="true"><span class="ri ri-{{ notification.icon }}"></span></span>
+  <div class="rv-notification-item__body">
+    <h3 class="rv-notification-item__title" id="rv-notification-{{ notification.id }}">
+      {% if notification.href %}<a href="{{ notification.href }}" aria-describedby="rv-notification-{{ notification.id }}-detail">{{ notification.title }}</a>{% else %}{{ notification.title }}{% endif %}
+    </h3>
+    <p class="rv-notification-item__detail" id="rv-notification-{{ notification.id }}-detail">{{ notification.description }}</p>
+    <div class="rv-notification-item__meta">
+      <span>{{ notification.when }}</span>
+      {% if notification.public %}<span class="rv-notification-item__public"><span class="ri ri-users" aria-hidden="true"></span>عمومی</span>{% endif %}
+    </div>
+  </div>
+  {% if notification.unread %}
+  <div class="rv-notification-item__action" data-rv-notification-action>
+    <span class="rv-notification-item__dot" aria-hidden="true"></span>
+    <button type="button" class="rv-btn rv-btn--small rv-notification-item__read" data-rv-notification-read aria-describedby="rv-notification-{{ notification.id }}" disabled>خواندم</button>
+  </div>
+  {% endif %}
+  {% if notification.href %}<span class="ri ri-chevron-left rv-notification-item__chevron" aria-hidden="true"{% if notification.unread %} hidden{% endif %}></span>{% endif %}
+</li>

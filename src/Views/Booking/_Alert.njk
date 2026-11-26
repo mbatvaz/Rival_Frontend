@@ -1,10 +1,10 @@
-<section class="rv-sheet rv-booking-sheet rv-alert-sheet" id="rv-booking-alert" role="dialog" aria-modal="true" aria-labelledby="rv-alert-title" tabindex="-1" hidden>
+<section class="rv-sheet rv-booking-sheet rv-alert-sheet{% if page.id == 'CUS-08' %} rv-appointments-filter rv-availability-add{% endif %}" id="rv-booking-alert" role="dialog" aria-modal="true" aria-labelledby="rv-alert-title" tabindex="-1" hidden>
   <header class="rv-sheet__header">
     <span class="rv-icon-tile rv-alert-sheet__icon"><span class="ri ri-bell-ring" aria-hidden="true"></span></span>
-    <div><h2 id="rv-alert-title">خبرم کنید</h2><p class="rv-muted">وقتی زمانی آزاد شد، پیامک می‌گیرید.</p></div>
+    <div><h2 id="rv-alert-title">{% if page.id == 'CUS-08' %}اعلان تازه{% else %}خبرم کنید{% endif %}</h2><p class="rv-muted">وقتی زمانی آزاد شد، پیامک می‌گیرید.</p></div>
     <button class="rv-icon-btn" type="button" data-rv-sheet-close aria-label="بستن اعلان"><span class="ri ri-x" aria-hidden="true"></span></button>
   </header>
-  {% include "Booking/_Context.njk" %}
+  {% if page.id == 'CUS-08' %}{% include "Customer/AvailabilityAlerts/_Choices.njk" %}{% else %}{% include "Booking/_Context.njk" %}{% endif %}
   <div class="rv-booking-explainer" data-rv-alert-facts>
     <ul class="rv-booking-facts">
       <li><span class="ri ri-sms" aria-hidden="true"></span>فقط یک پیامک، در اولین آزاد شدن زمانی از این آرایشگر برای این خدمت.</li>
@@ -13,12 +13,13 @@
     </ul>
   </div>
   <div class="rv-alert-duplicate" data-rv-alert-duplicate hidden>
-    <span class="ri ri-bell" aria-hidden="true"></span><div><strong>این اعلان از قبل فعال است</strong><p data-rv-alert-duplicate-text></p></div>
+    <span class="ri ri-bell" aria-hidden="true"></span><div><strong>{% if page.id == 'CUS-08' %}برای همین خدمت و آرایشگر یک اعلان فعال دارید{% else %}این اعلان از قبل فعال است{% endif %}</strong><p data-rv-alert-duplicate-text></p></div>
   </div>
   <p class="rv-booking__notice rv-booking__notice--warning" data-rv-alert-error role="alert" hidden></p>
   <div class="rv-actions">
+    {% if page.id == 'CUS-08' %}<button class="rv-btn" type="submit" form="rv-availability-form" data-rv-alert-confirm disabled>ثبت اعلان</button>{% else %}
     <button class="rv-btn" type="button" data-rv-alert-confirm>ثبت اعلان</button>
-    <a class="rv-btn" href="{{ bookingUrls.alerts }}" data-rv-alert-view hidden>مشاهده اعلان‌ها</a>
+    <a class="rv-btn" href="{{ bookingUrls.alerts }}" data-rv-alert-view hidden>مشاهده اعلان‌ها</a>{% endif %}
     <button class="rv-btn rv-btn--secondary" type="button" data-rv-sheet-close><span data-rv-alert-close-label>انصراف</span></button>
   </div>
 </section>

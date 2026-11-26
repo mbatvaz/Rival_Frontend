@@ -1,27 +1,9 @@
-# Phase 06 — Admin Daily
+# Phase 06 — Admin daily operations
 
-This package is executed by **OpenAI Codex** from the VS Code workspace. It follows root `AGENTS.md` and `docs/RIVAL_PROJECT_CONTRACT.md`.
+Batch 5 ADM-01–09 and ADM-AC, including scope, manual booking, customer detail, and payment mode. Apply D10-171–177 where relevant.
 
-## Scope
-Owner dashboard, scope, calendar, requests, appointments, manual booking, customer directory/detail, ADM-09 payment mode and Action Center. Build canonical shared finance primitives used by ADM-09 and ADM-16.
+## Acceptance
 
-## Required input
-- Root `AGENTS.md` and `docs/RIVAL_PROJECT_CONTRACT.md`.
-- Master docs: Page Inventory, Phase Plan, Component Reuse Matrix, Traceability, Decision Log, Open Questions.
-- `design-export/MANIFEST.json` and exact source evidence for the IDs in this phase.
-- This package's Source Map and `references/Rival_Phase_06_AI_Handoff.md`.
+Verify Action Center versus notification behavior, ledger integrity, and immutable payment history. ADM-09 owns the canonical CreditPayments, WalletLedger, PaymentRow, and balance summary for reuse in ADM-16.
 
-## Rules
-- Do not invent business behavior. Cite Page ID, Component ID, RULE/DEC in code comments or PROGRESS.
-- Keep shared components single-source. Run their reuse regression list after changes.
-- Preserve RTL, Persian copy, fa-digits/Jalali helpers, bottom sheets, Yekan Bakh, 44px touch targets, and the approved scroll policy.
-- Desktop is a page-specific composition based on the mobile design language, not a stretched mobile page.
-- Node/npm are local build/test tools only; cPanel receives static `dist/` files.
-
-## Done when
-- [ ] Action Center vs notification separation is correct.
-- [ ] Ledger integrity and immutable payment history are preserved.
-- [ ] Finance components are reusable by Phase 08.
-- 390/768/1280 checks, axe, keyboard, structure and no-dead-end checks pass.
-- `PROGRESS.md`, `DISCREPANCIES.md`, and traceability are updated.
-- The agent stops for owner review.
+Read the relevant product excerpts in the [phase handoff](references/Rival_Phase_06_AI_Handoff.md) and use the [design manifest](../../design-export/MANIFEST.json) for exact boards.

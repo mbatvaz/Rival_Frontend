@@ -6,6 +6,7 @@
       <img src="{{ basePath }}{{ bookingDefault.stylist.image }}" alt="" data-rv-context-avatar>
       <span data-rv-context-name data-rv-overflow-text>با {{ bookingDefault.stylist.name }}</span>
     </p>
+    {% if bookingCurrentAppointment %}<p class="rv-booking-context__current"><span class="ri ri-calendar-clock" aria-hidden="true"></span> نوبت فعلی: <bdi data-rv-rsc-current></bdi></p>{% endif %}
     {% if model.kind == 'stylists' %}<p class="rv-muted">خدمت انتخاب‌شده</p>{% endif %}
     {% if model.kind == 'requested' %}<p class="rv-muted">خدمت چندبخشی</p>{% endif %}
   </div>

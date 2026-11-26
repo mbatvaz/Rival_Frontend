@@ -75,12 +75,12 @@ export function setupEditor(catalog, save) {
   };
   const confirm = async remove => {
     if (saving) return;
-    saving = true;
-    next.disabled = true;
+    saving = next.disabled = true;
     get(sheet, 'rec-remove').disabled = true;
     try {
-      await save(draft, remove ? [] : draft.id ? [draft.date] : recurringDates(draft, calendar));
-      closeSheet();
+      const update = await save(draft, remove ? [] : draft.id ? [draft.date] : recurringDates(draft, calendar));
+      await closeSheet();
+      await update();
     } catch (error) {
       text(sheet, 'rec-error', error.message);
       visible(sheet, 'rec-error', true);

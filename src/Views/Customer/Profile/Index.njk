@@ -1,0 +1,64 @@
+{% extends "Shared/_CustomerPanelLayout.njk" %}
+{% block workspaceClass %} rv-customer-home rv-customer-panel rv-profile-page{% endblock %}
+{% block panelBack %}{% include "Shared/Components/_CustomerMoreBack.njk" %}{% endblock %}
+{% block panelIdentity %}{% endblock %}
+{% block panelTrailing %}{% endblock %}
+{% block content %}
+<div class="rv-profile" data-rv="customer-profile">
+  <section data-rv-card-media data-rv-entry-zone class="rv-profile__identity rv-glass rv-glass--strong" aria-label="حساب شما">
+    {% include "Customer/Profile/_Avatar.njk" %}
+    <div class="rv-profile__value"><strong data-profile-name>{{ model.firstName }} {{ model.lastName }}</strong><bdi dir="ltr" data-profile-phone>{{ model.phone | faDigits }}</bdi></div>
+    <button class="rv-btn rv-btn--secondary rv-btn--small" type="button" data-profile-open="edit" aria-haspopup="dialog" disabled><span class="ri ri-edit" aria-hidden="true"></span>ویرایش</button>
+  </section>
+  <section aria-labelledby="rv-profile-account">
+    <h2 id="rv-profile-account">اطلاعات حساب</h2>
+    <div data-rv-entry-zone class="rv-profile__list rv-glass">
+      <button class="rv-profile__row" type="button" data-profile-open="edit" aria-haspopup="dialog" disabled>
+        <span class="rv-icon-tile" aria-hidden="true"><span class="ri ri-user"></span></span>
+        <span class="rv-profile__value"><small>نام و نام خانوادگی</small><span data-profile-name>{{ model.firstName }} {{ model.lastName }}</span></span>
+        <span class="ri ri-chevron-left" aria-hidden="true"></span>
+      </button>
+      <button class="rv-profile__row" type="button" data-profile-open="phone" aria-haspopup="dialog" disabled>
+        <span class="rv-icon-tile" aria-hidden="true"><span class="ri ri-smartphone"></span></span>
+        <span class="rv-profile__value"><small>شماره موبایل</small><span><bdi dir="ltr" data-profile-phone>{{ model.phone | faDigits }}</bdi></span></span>
+        <span class="rv-profile__change">تغییر</span><span class="ri ri-chevron-left" aria-hidden="true"></span>
+      </button>
+    </div>
+  </section>
+  <section aria-labelledby="rv-profile-methods">
+    <h2 id="rv-profile-methods">روش‌های ورود</h2>
+    <div data-rv-entry-zone class="rv-profile__list rv-glass">
+      <div class="rv-profile__row">
+        <span class="rv-icon-tile" aria-hidden="true"><span class="ri ri-sms"></span></span>
+        <span class="rv-profile__value"><span>کد پیامکی</span><small>روش اصلی؛ همیشه فعال است.</small></span>
+        <span class="rv-profile__tag"><span class="ri ri-lock" aria-hidden="true"></span>همیشه فعال</span>
+      </div>
+      <div class="rv-profile__passkeys">
+        <div class="rv-profile__row">
+          <span class="rv-icon-tile" aria-hidden="true"><span class="ri ri-fingerprint"></span></span>
+          <span class="rv-profile__value"><span>Passkey</span><small>ورود با اثر انگشت یا چهره</small></span>
+          <span class="rv-profile__tag"><span class="ri ri-check" aria-hidden="true"></span><span data-profile-passkey-count>{{ model.passkeys.length | faDigits }} دستگاه</span></span>
+        </div>
+        <ul class="rv-profile__devices" data-profile-passkeys role="list" aria-label="دستگاه‌های Passkey"></ul>
+        <template data-profile-device>
+          <li>
+            <span class="ri" data-device-icon aria-hidden="true"></span>
+            <span class="rv-profile__value"><span data-device-name></span><small data-device-details></small></span>
+            <button class="rv-icon-btn rv-profile__plain rv-profile__delete" type="button" data-profile-open="passkey-delete" aria-haspopup="dialog"><span class="ri ri-trash" aria-hidden="true"></span></button>
+          </li>
+        </template>
+        <button class="rv-btn rv-btn--small rv-profile__plain rv-profile__add" type="button" data-profile-add-passkey disabled><span class="ri ri-plus" aria-hidden="true"></span>افزودن Passkey روی این دستگاه</button>
+        <p class="rv-muted rv-profile__support" data-profile-passkey-support hidden>در این مرورگر می‌توانید با کد پیامکی یا رمز وارد شوید.</p>
+      </div>
+      <div class="rv-profile__row">
+        <span class="rv-icon-tile" aria-hidden="true"><span class="ri ri-key"></span></span>
+        <span class="rv-profile__value"><span>رمز عبور</span><small data-profile-password-status>تنظیم نشده؛ اختیاری</small></span>
+        <button class="rv-btn rv-btn--secondary rv-btn--small" type="button" data-profile-open="password" aria-haspopup="dialog" disabled>تنظیم رمز</button>
+      </div>
+    </div>
+  </section>
+  <p class="rv-feedback rv-feedback--error" data-profile-error role="alert"></p>
+  <p class="rv-feedback" data-profile-status role="status"></p>
+</div>
+{% endblock %}
+{% block workspaceSheets %}{% include "Customer/Profile/_Sheets.njk" %}{% endblock %}

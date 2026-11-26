@@ -2,7 +2,7 @@
   @media (min-width: 1024px) {
     .rv-booking:has(.rv-booking-sidebar) {
       display: grid;
-      grid-template-columns: clamp(155px, 15vw, 225px) minmax(0, 1fr);
+      grid-template-columns: 245px minmax(0, 1fr);
       grid-template-rows: auto 1fr;
       max-inline-size: 1600px;
       margin-inline: auto;
@@ -68,7 +68,7 @@
 
     .rv-booking-choice-context [data-rv-inactive] { margin-block-start: 0; }
 
-    .rv-booking-choices .rv-booking-rail,
+    .rv-booking-choices .rv-booking-rail__track,
     .rv-booking-requested .rv-booking-package { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
     .rv-booking-choices .rv-booking-choice,
@@ -113,8 +113,6 @@
   }
 
   @media (min-width: 1240px) {
-    .rv-booking:has(.rv-booking-sidebar) { grid-template-columns: clamp(245px, 18vw, 286px) minmax(0, 1fr); }
-
     .rv-booking__main:has(.rv-booking-time) { --booking-summary-width: clamp(245px, 27%, 375px); }
   }
 }

@@ -30,6 +30,7 @@
   .rv-btn--glass { background: var(--glass-fill-strong); color: var(--text-primary); box-shadow: var(--shadow-glass); }
   .rv-btn--light { background: var(--bg-surface); color: var(--text-primary); }
   .rv-btn--danger { background: var(--danger-bg); color: var(--danger-fg); }
+  .rv-btn--danger-solid:enabled { background: var(--danger-solid); color: var(--text-inverse); }
   .rv-icon-btn { padding: var(--space-3); border-radius: var(--radius-pill); }
   .rv-chip { border-radius: var(--radius-pill); white-space: nowrap; padding: var(--space-2) var(--space-4); }
   .rv-chip[aria-pressed="true"] { background: var(--bg-inverse); color: var(--text-inverse); }
@@ -56,6 +57,8 @@
   }
   .rv-muted { color: var(--text-secondary); font-size: var(--body-sm-size); font-weight: 300; }
   .rv-lead { font-size: var(--body-lg-size); line-height: var(--body-lg-line); font-weight: 300; }
+
+  :is(.rv-booking-facts, .rv-state-page__facts) li { font-weight: 300; }
   .rv-feedback { color: var(--text-secondary); }
   .rv-feedback:empty { display: none; }
   .rv-feedback--error { color: var(--danger-fg); }

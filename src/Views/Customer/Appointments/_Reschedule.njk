@@ -1,0 +1,33 @@
+<div class="rv-reschedule" data-rv-rsc-picker hidden>
+  {% include "Booking/_Context.njk" %}
+  <p class="rv-customer-notice rv-customer-notice--inactive" data-rv-rsc-warning hidden><span class="ri ri-alert" aria-hidden="true"></span><span>در این بازه، جابه‌جایی حق بازگشت هزینه را از بین می‌برد.</span></p>
+  <p class="rv-reschedule__note" data-rv-rsc-compensation hidden><span class="ri ri-repeat" aria-hidden="true"></span>با حق جبرانی، سهم جابه‌جایی خودتان مصرف نمی‌شود و حق بازگشت هزینه می‌ماند.</p>
+  <div class="rv-reschedule__times rv-booking-availability">
+    <section class="rv-booking-date-picker" aria-labelledby="rv-rsc-times">
+      <h2 id="rv-rsc-times">روز و ساعت تازه</h2>
+      <div class="rv-booking-mobile-only rv-day-strip"><div class="rv-booking-days rv-glass" data-rv-days role="group" aria-label="روزهای قابل بررسی"></div><span class="rv-day-strip__frame" aria-hidden="true"></span></div>
+      <div class="rv-booking-desktop-only" data-rv-time-calendar>{% include "Booking/_Calendar.njk" %}</div>
+    </section>
+    <section class="rv-booking-time-picker" aria-label="ساعت شروع">
+    <h2 class="rv-booking-desktop-only" data-rv-rsc-picked-day></h2>
+    <fieldset class="rv-booking-picks">
+      <legend>ساعت شروع</legend>
+      <div data-rv-entry-zone class="rv-booking-picks__grid" data-rv-rsc-times></div>
+    </fieldset>
+    <p class="rv-reschedule__note" data-rv-rsc-day-note role="status" hidden>سالن در این روز تعطیل است. روز دیگری انتخاب کنید.</p>
+    <div class="rv-reschedule__note" data-rv-rsc-conflict hidden>
+      <span class="ri ri-calendar-clock" aria-hidden="true"></span>
+      <div>۱۷:۳۰ و ۱۸:۰۰ با نوبت دیگر شما هم‌زمان است: فیشیال با سینا از ۱۸:۰۰.
+        <a class="rv-text-link" href="{{ customerUrls['CUS-04'] }}?appointment=rsc-conflict">مشاهده نوبت</a>
+      </div>
+    </div>
+    </section>
+  </div>
+  <div class="rv-reschedule__footer rv-glass">
+    <div role="status"><strong data-rv-rsc-next></strong><small data-rv-rsc-replaces></small></div>
+    <button class="rv-btn" type="button" data-rv-rsc-continue aria-haspopup="dialog" disabled>ادامه</button>
+  </div>
+</div>
+<div class="rv-reschedule-result rv-booking" data-rv-rsc-result hidden>
+  <template>{% for statePage in rescheduleResult %}{% include "Shared/Components/_StatePage.njk" %}{% endfor %}</template>
+</div>

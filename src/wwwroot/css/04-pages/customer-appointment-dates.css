@@ -1,0 +1,52 @@
+@layer pages {
+  .rv-appointments-filter__dates {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-2);
+    margin-block-start: var(--space-3);
+  }
+
+  .rv-appointments-filter__dates .rv-field {
+    min-inline-size: 0;
+    gap: var(--space-1);
+    font-size: var(--caption-size);
+    cursor: pointer;
+  }
+  .rv-appointments-filter__dates .rv-input { padding-inline: var(--space-2); }
+  .rv-appointments-filter__dates .rv-input:focus-within { padding-inline: calc(var(--space-2) - 1px); }
+
+  .rv-appointments-filter__dates .rv-icon-btn {
+    flex: none;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .rv-appointments-filter__dates input { font-size: var(--caption-size); text-align: start; }
+
+  .rv-appointment-date {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    z-index: 2;
+    padding-block-end: var(--space-5);
+  }
+  .rv-appointment-date .rv-booking-calendar { padding: var(--space-3); }
+  .rv-appointment-date .rv-booking-calendar__head { margin-block-end: var(--space-3); }
+
+  .rv-appointment-date .rv-booking-calendar__grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: minmax(var(--size-touch), auto);
+  }
+
+  @media not all and (min-width: 375px) {
+    .rv-appointment-date {
+      inset-inline: calc(var(--space-1) / 2);
+      padding-block-end: calc(var(--space-1) / 2);
+      inline-size: auto;
+      margin-inline: 0;
+      padding-inline: 0;
+    }
+    .rv-appointment-date .rv-booking-calendar { padding: calc(var(--space-1) / 2); }
+  }
+}

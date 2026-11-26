@@ -1,26 +1,9 @@
-# Phase 04 — Customer Panel
+# Phase 04 — Customer panel
 
-This package is executed by **OpenAI Codex** from the VS Code workspace. It follows root `AGENTS.md` and `docs/RIVAL_PROJECT_CONTRACT.md`.
+Batch 3 CUS-01–10, including customer navigation, appointments, requests, availability alerts, notifications, and profile. Reuse Batch 2 checkout.
 
-## Scope
-Customer dashboard, appointments, requests, availability alerts, notifications, profile, and read-only/disabled variants.
+## Acceptance
 
-## Required input
-- Root `AGENTS.md` and `docs/RIVAL_PROJECT_CONTRACT.md`.
-- Master docs: Page Inventory, Phase Plan, Component Reuse Matrix, Traceability, Decision Log, Open Questions.
-- `design-export/MANIFEST.json` and exact source evidence for the IDs in this phase.
-- This package's Source Map and `references/Rival_Phase_04_AI_Handoff.md`.
+Accepted on 2026-11-26 under DEC-086. Coverage includes the navigation and state matrix, read-only and disabled variants, shared-component regression at 390/768/1280, and existing desktop layouts. [Accepted scope and verification](../../docs-work/PHASE_04_CLOSEOUT_FA.md)
 
-## Rules
-- Do not invent business behavior. Cite Page ID, Component ID, RULE/DEC in code comments or PROGRESS.
-- Keep shared components single-source. Run their reuse regression list after changes.
-- Preserve RTL, Persian copy, fa-digits/Jalali helpers, bottom sheets, Yekan Bakh, 44px touch targets, and the approved scroll policy.
-- Desktop is a page-specific composition based on the mobile design language, not a stretched mobile page.
-- Node/npm are local build/test tools only; cPanel receives static `dist/` files.
-
-## Done when
-- [ ] Customer navigation and state matrix are complete.
-- [ ] Shared component regression passes at 390/768/1280 and approved desktop layout.
-- 390/768/1280 checks, axe, keyboard, structure and no-dead-end checks pass.
-- `PROGRESS.md`, `DISCREPANCIES.md`, and traceability are updated.
-- The agent stops for owner review.
+Read the relevant product excerpts in the [phase handoff](references/Rival_Phase_04_AI_Handoff.md) and use the [design manifest](../../design-export/MANIFEST.json) for exact boards. [Current owner gate](../../docs/PHASE_PLAN.md#current-owner-gate).

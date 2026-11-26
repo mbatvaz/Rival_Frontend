@@ -1,5 +1,6 @@
 import path from 'node:path';
 import { src, readJson, withBase } from './site.mjs';
+import { customerContext } from './customer.mjs';
 
 const desktopHeadings = {
   services: { title: 'چه خدمتی می‌خواهید؟', lead: 'خدمت سالن را انتخاب کنید و مراحل رزرو را ادامه دهید.' },
@@ -51,19 +52,26 @@ function statePages(fixtures, urls, catalog, defaults, asset, defaultResult) {
   });
 }
 
-export async function productContext(page, basePath, pages) {
+export async function productContext(page, basePath, pages, model) {
   const role = page.role.startsWith('Customer') ? 'customer' : page.role.startsWith('Stylist') ? 'stylist'
     : page.role === 'OwnerAdmin' ? 'admin' : null;
   const route = relative => withBase(basePath, relative);
   let shell = null;
   if (role) {
     shell = (await readJson(path.join(src, `MockData/nav.${role}.json`))).data;
+    const activePath = { 'CUS-04': '/customer/appointments/', 'CUS-06': '/customer/requests/' }[page.id] ?? page.previewPath;
     const map = item => {
       const [pathname, query] = item.href.split('?');
-      return { ...item, href: route(pathname) + (query ? '?' + query : ''), active: pathname === page.previewPath };
+      return { ...item, href: route(pathname) + (query ? '?' + query : ''), active: !query && pathname === activePath };
     };
     shell = { ...shell, role, book: shell.book ? map(shell.book) : null,
       primary: shell.primary.map(map), more: shell.more.map(map) };
+    if (role === 'customer') {
+      const personal = shell.more.filter(item => !['home', 'images', 'shield'].includes(item.icon));
+      shell.moreGroups = [{ title: '', items: [personal[0], personal[1], shell.book, ...personal.slice(2)] },
+        { title: 'سالن', items: shell.more.filter(item => ['home', 'images', 'shield'].includes(item.icon)) }];
+      shell.moreActive = shell.more.some(item => item.active);
+    }
   }
   let booking = {};
   if (page.phase === 'Phase 03') {
@@ -76,7 +84,8 @@ export async function productContext(page, basePath, pages) {
     const defaultSelection = { service: service(page.id === 'BK-R01' ? 'groom' : page.id === 'BK-P01' ? 'facial' : 'face-hair'),
       stylist: stylist(page.id === 'BK-P01' ? 'sina' : 'amir') };
     const bookingUrls = { ...urls, panel: route('/customer/'), alerts: route('/customer/availability-alerts/'),
-      requests: route('/customer/requests/'), appointments: route('/customer/appointments/') };
+      requests: route('/customer/requests/') + '?tab=wait', requestDetail: route('/customer/requests/demo/'),
+      appointments: route('/customer/appointments/') };
     booking = {
       bookingSteps: bookingSteps(page.id),
       bookingStepVariants: page.id === 'BK-02' ? [bookingSteps(page.id), bookingSteps(page.id, true)] : [bookingSteps(page.id)],
@@ -91,8 +100,15 @@ export async function productContext(page, basePath, pages) {
       bookingPackage: service('groom').parts.map(service)
     };
   }
+  const customer = {};
+  if (page.phase === 'Phase 04') {
+    const customerUrls = Object.fromEntries(pages.map(item => [item.id, route(item.previewPath)]));
+    customerUrls.recurring = customerUrls['BK-REC01'];
+    Object.assign(customer, { customerUrls }, await customerContext(page, basePath, customerUrls, model));
+  }
   return {
     ...booking,
+    ...customer,
     shell,
     publicTitle: page.id === 'PUB-01' ? '' : page.titleFa,
     publicPage: page.id.startsWith('PUB-'),

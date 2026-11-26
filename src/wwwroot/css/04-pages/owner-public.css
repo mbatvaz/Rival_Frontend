@@ -29,7 +29,7 @@
     display: block;
     overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis;
+    text-overflow: clip;
   }
   .rv-viewer__details h3 { margin-block: 0 var(--space-1); font-size: var(--heading-xl-size); }
 
@@ -53,7 +53,6 @@
     overflow: clip;
     clip-path: inset(50%);
   }
-  .rv-viewer__rail:has(figure:only-child) { justify-content: center; }
 
   @media (min-width: 1024px) {
     .rv-viewer { max-inline-size: 488px; }

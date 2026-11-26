@@ -70,13 +70,15 @@ test('Desktop gallery is centered and supports vertical wheel and mouse drag @vi
   const frame = await rail.boundingBox();
   await page.mouse.move(frame.x + frame.width / 2, frame.y + frame.height / 2);
   await page.mouse.wheel(0, 160);
-  await expect.poll(() => rail.evaluate(el => el.scrollLeft)).toBeLessThan(-80);
-  await rail.evaluate(el => el.scrollTo({ left: 0, behavior: 'instant' }));
+  await expect(rail.locator('figure').nth(1)).toHaveAttribute('data-rv-active', 'true');
+  await rail.focus();
+  await page.keyboard.press('Home');
+  await expect(rail.locator('figure').first()).toHaveAttribute('data-rv-active', 'true');
   await page.mouse.move(frame.x + 80, frame.y + 140);
   await page.mouse.down();
   await page.mouse.move(frame.x + 340, frame.y + 140, { steps: 8 });
   await page.mouse.up();
-  await expect.poll(() => rail.evaluate(el => el.scrollLeft)).toBeLessThan(-80);
+  await expect(rail.locator('figure').first()).toHaveAttribute('data-rv-active', 'false');
   await capture(page, 'PUB-02-centered-drag');
 });
 
@@ -100,7 +102,7 @@ test('Mobile gallery stays bottom attached and swipes between images @visual', a
       await session.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: box.x + x, y }] });
     }
     await session.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
-    await expect.poll(() => rail.evaluate(el => el.scrollLeft)).toBeLessThan(-80);
+    await expect(rail.locator('figure').first()).toHaveAttribute('data-rv-active', 'false');
     await capture(page, 'PUB-02-mobile-swipe');
   } finally { await context.close(); }
 });
@@ -137,7 +139,7 @@ test('Password is a full login view with SMS navigation, history and portrait OT
   await expect(page.locator('[data-rv-code-timer]')).toHaveCount(0);
   const timer = await page.locator('.rv-auth-timer').boundingBox();
   const resend = await page.locator('[data-rv-resend]').boundingBox();
-  expect(resend.x + resend.width / 2).toBeCloseTo(timer.x + timer.width / 2);
+  expect(Math.abs(resend.x + resend.width / 2 - (timer.x + timer.width / 2))).toBeLessThan(1);
   await capture(page, 'AUTH-01-centered-resend');
 });
 

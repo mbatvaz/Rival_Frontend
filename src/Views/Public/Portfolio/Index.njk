@@ -1,4 +1,5 @@
 {% extends "Shared/_PublicLayout.njk" %}
+{% block pageStyles %}<link rel="stylesheet" href="{{ basePath }}vendor/photoswipe.css">{% endblock %}
 {% block content %}
   <div class="rv-public-content" data-rv="portfolio">
     <p class="rv-muted">کار واقعی آرایشگران سالن طاها. روی هر نمونه‌کار بزنید تا همه تصویرها و توضیحش را ببینید.</p>
@@ -7,7 +8,7 @@
       <div class="rv-filter" role="group" aria-label="فیلتر آرایشگر"><span>آرایشگر</span><div class="rv-chip-rail">{% for stylist in model.stylists %}<button class="rv-chip" type="button" data-rv-filter="stylist" data-rv-value="{{ stylist }}" aria-pressed="{% if loop.first %}true{% else %}false{% endif %}">{{ stylist }}</button>{% endfor %}</div></div>
     </div>
     {% include "Shared/Components/_PortfolioFeedback.njk" %}
-    <section class="rv-portfolio-grid" aria-label="نمونه‌کارها">
+    <section data-rv-entry-zone class="rv-portfolio-grid" aria-label="نمونه‌کارها">
       {% for item in model.items %}{% if item.lead %}{% include "Shared/Components/_PortfolioCard.njk" %}{% endif %}{% endfor %}
       <div class="rv-portfolio-columns">
         <div class="rv-portfolio-column">{% for item in model.items %}{% if item.column == 'right' %}{% include "Shared/Components/_PortfolioCard.njk" %}{% endif %}{% endfor %}</div>

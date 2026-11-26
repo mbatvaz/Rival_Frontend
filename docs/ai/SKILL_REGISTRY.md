@@ -1,6 +1,6 @@
 # Skill registry
 
-Current local workflow reviewed 2026-11-16; original external evaluation dated 2026-11-14 is preserved below. Repository skills live in [.agents/skills](../../.agents/skills/); no duplicate .codex tree, override or global installation was created. Local instructions are project-authored and governed by repository terms; no separate third-party license is asserted.
+This registry covers the active local skills. The original external evaluation is available in Git history. Repository skills live in [.agents/skills](../../.agents/skills/); no duplicate .codex tree, override or global installation was created. Local instructions are project-authored and governed by repository terms; no separate third-party license is asserted.
 
 ## Local triggers and outputs
 
@@ -27,50 +27,6 @@ Common UI QA belongs to rival-visual-qa. Fidelity adds exact-source analysis; re
 
 External map/tool evaluation and validation are in the [context report](../../docs-work/CONTEXT_OPTIMIZATION_REPORT_FA.md). Local instructions are project-authored; no third-party code was copied. The following evaluation is historical evidence from 2026-11-14, not a statement of current plugin availability.
 
-## External sources evaluated — historical 2026-11-14
-
-GitHub tree fetches for five deep paths initially returned restricted-fetch errors; raw GitHub source retrieval then succeeded. Nothing was installed or copied. Revisions below refer to main as fetched on review date; exact commit SHAs were not verified, so vendoring is deliberately deferred. Unknown licenses are not inferred from repository owner. Candidate assessment does not activate an external skill.
-
-### frontend-app-builder
-
-- [Requested source](https://github.com/openai/plugins/tree/main/plugins/build-web-apps/skills/frontend-app-builder); [read SKILL](https://raw.githubusercontent.com/openai/plugins/main/plugins/build-web-apps/skills/frontend-app-builder/SKILL.md).
-- Purpose/trigger: new apps or redesign with generated concepts and browser validation. Dependencies include ImageGen/browser workflows; revision main unpinned; per-skill license not verified.
-- Compatibility: design-first redesign defaults conflict with Rival's immutable approved exports. Framework scaffolding must not replace static/Razor-mappable source. React/Vite applicability requires per-task review; none adopted.
-- Decision: not installed. Use local fidelity/source/layout skills. Preserve existing design rather than generate replacement concepts; any future use must override concept generation and stack assumptions.
-
-### frontend-testing-debugging
-
-- [Requested source](https://github.com/openai/plugins/tree/main/plugins/build-web-apps/skills/frontend-testing-debugging); [read SKILL](https://raw.githubusercontent.com/openai/plugins/main/plugins/build-web-apps/skills/frontend-testing-debugging/SKILL.md).
-- Purpose/trigger: rendered frontend test/debug; Browser-first routing then permitted Playwright fallback. Dependencies: Browser plugin or Playwright. Revision main unpinned; license not verified.
-- Compatibility: stack-independent validation fits MVC/static HTML. Override generic server discovery with existing static build/server/basePath; retain Rival axe/keyboard/phase gates. No React/Vite installation is needed.
-- Decision: not installed; original local equivalent created with explicit user-authorized Playwright fallback. Browser plugin skill is absent in this session; existing Playwright suites provide reproducible QA.
-
-### agent-browser
-
-- [Requested source](https://github.com/openai/plugins/tree/main/plugins/vercel/skills/agent-browser); [read SKILL](https://raw.githubusercontent.com/openai/plugins/main/plugins/vercel/skills/agent-browser/SKILL.md).
-- Purpose/trigger: website navigation/interactions/screenshots via agent-browser CLI. Dependencies: its separate CLI/browser daemon. Revision main unpinned; license not verified.
-- Compatibility: rendered HTML is stack-independent; Next/Vite dev-server examples are irrelevant here. Override server/CLI assumptions with existing static Playwright tooling.
-- Decision: not installed; duplicates available browser/testing capability and adds unnecessary tooling. Use existing browser tools or Playwright.
-
-### frontend-design
-
-- [Requested source](https://github.com/dobromirdikov/codex-frontend-design-skill/tree/main/skills/frontend-design); [read SKILL](https://raw.githubusercontent.com/dobromirdikov/codex-frontend-design-skill/main/skills/frontend-design/SKILL.md).
-- Purpose/trigger: design/build/polish/redesign frontend; dependencies are task-specific asset/browser tools. Revision main unpinned. Source explicitly describes Apache-2.0 derivation; full repository/per-file license not separately verified.
-- Compatibility: browser/overflow/accessibility advice applies to MVC. Creative direction, generated assets and typography choices must be overridden by Rival approved references/tokens/font. No React/Vite sections were adopted.
-- Decision: not installed; local source/fidelity skills enforce existing design and avoid broad redesign triggers.
-
-### awesome-codex-skills
-
-- [Requested collection](https://github.com/LeorickCoder/awesome-codex-skills) was opened. It is a collection, not one installable workflow; repository page displays Apache-2.0. Individual payload licenses/revisions/dependencies remain unverified; main unpinned.
-- Trigger/use: discovery only. MVC/React/Vite compatibility requires inspecting a selected payload, not the collection name.
-- Decision: no bulk install; seven focused local workflows cover this assignment without importing unknown dependencies or conflicting design defaults.
-
-### Figma plugin
-
-- [Requested source](https://github.com/openai/plugins/tree/main/plugins/figma); [read README](https://raw.githubusercontent.com/openai/plugins/main/plugins/figma/README.md).
-- Purpose/trigger: Figma frame/design-system/code-connect workflows; requires connected Figma tools and URLs/node IDs. Main unpinned; README states Figma Developer Terms and per-skill licenses, not a blanket permissive grant.
-- Compatibility: source inspection can inform MVC; Code Connect/framework payloads require separate review. Do not generate replacement files or assume React/Vite bindings.
-- Decision: not installed/connected. Rival's local exports are authoritative and this task supplies no Figma node request; local source audit is sufficient. Future Figma usage requires its actual source and integration availability.
 
 ## Authoring references
 

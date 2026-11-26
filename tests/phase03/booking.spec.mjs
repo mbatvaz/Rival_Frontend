@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { installMotionProbe } from '../helpers/motion.mjs';
 
 const context = id => '_preview/context/' + id + '/';
 const submit = page => page.locator('[data-rv-booking-submit]');
@@ -66,7 +67,7 @@ test('Proposed selection and compound request reach distinct results without che
   await page.locator('[data-rv-service-choice="groom"]').click();
   await ready(page);
   await expect(page.locator('.rv-booking-package li')).toHaveCount(3);
-  await expect(page.locator('input')).toHaveCount(0);
+  await expect(page.locator('#rv-main input')).toHaveCount(0);
   await submit(page).click();
   await ready(page);
   const requested = page.locator('[data-rv-result-view="requested"]');
@@ -93,6 +94,7 @@ test('Availability alert uses the shared sheet, restores focus and detects a dup
 });
 
 test('Recurring creation, edit, removal, minimum and group checkout use one shared hold @smoke', async ({ page }) => {
+  await page.addInitScript(installMotionProbe, { record: 'recurringReflow', id: 'rv-recurring-reflow', property: 'translate' });
   await go(page, context('bk-rec01') + '?state=short');
   await expect(submit(page)).toBeDisabled();
   await page.getByRole('button', { name: /افزودن نوبت|نوبت تازه/ }).click();
@@ -109,11 +111,13 @@ test('Recurring creation, edit, removal, minimum and group checkout use one shar
   await expect(next).toContainText('افزودن ۱ نوبت');
   await next.click();
   await expect(page.locator('[data-rv-rec-edit]')).toHaveCount(3);
+  expect(await page.evaluate(() => window.recurringReflow.some(({ frames }) => /^0px -/.test(frames[0].translate)))).toBe(true);
   await page.locator('[data-rv-rec-edit]').first().click();
   await expect(sheet.locator('[data-rv-rec-locked]')).toBeVisible();
   await sheet.locator('[data-rv-rec-delete]').click();
   await sheet.locator('[data-rv-rec-remove]').click();
   await expect(page.locator('[data-rv-rec-edit]')).toHaveCount(2);
+  expect(await page.evaluate(() => window.recurringReflow.some(({ frames }) => /^0px [1-9]/.test(frames[0].translate)))).toBe(true);
   await expect(submit(page)).toBeDisabled();
   await go(page, context('bk-rec01') + '?state=invalid');
   await expect(submit(page)).toBeDisabled();

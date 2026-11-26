@@ -8,16 +8,17 @@ async function walk(dir) {
   return (await Promise.all(entries.map(entry => entry.isDirectory()
     ? walk(dir + '/' + entry.name) : dir + '/' + entry.name))).flat();
 }
-const documents = ['AGENTS.md', 'GOALS.md', 'PLANS.md', 'PROMPTS.md',
-  'README.md', 'PROGRESS.md', 'docs/ARCHITECTURE.md', 'docs/DESIGN_SYSTEM_EXTRACTION.md',
+const phasePackages = (await fs.readdir(path.join(root, 'phases'), { withFileTypes: true }))
+  .filter(entry => entry.isDirectory() && /^PHASE_0[1-9]_/.test(entry.name))
+  .map(entry => 'phases/' + entry.name + '/README.md');
+const documents = ['AGENTS.md', 'README_START_HERE_FA.md',
+  'README.md', 'PROGRESS.md', 'docs/ARCHITECTURE.md', 'docs/DESIGN_SYSTEM_EXTRACTION.md', 'docs/PHASE_PLAN.md',
   'docs/DISCREPANCIES.md', 'docs/OPEN_QUESTIONS.md', 'docs/PAGE_INVENTORY.md',
   'docs/RIVAL_PROJECT_CONTRACT.md', 'docs/TRACEABILITY.md',
-  'prompts/00b_Architecture_Alignment.md', 'prompts/MASTER_CODEX_DEVELOPMENT_PROMPT.md',
   'docs/COMPONENT_REUSE_MATRIX.md', 'docs-work/PHASE_02_COMPONENT_GUIDE_FA.md',
   'docs-work/PHASE_01_02_REFRESH_PLAN.md', 'docs-work/PHASE_01_02_REFRESH_FA.md',
   'preview-review/README.md', 'docs-work/PREVIEW_REVIEW_REPORT.md', 'docs-work/CONTEXT_OPTIMIZATION_REPORT_FA.md',
-  ...(await walk('phases/PHASE_01_Foundation')).filter(file => file.endsWith('.md') && !file.includes('/references/')),
-  ...(await walk('phases/PHASE_02_Shell_Public_Auth')).filter(file => file.endsWith('.md') && !file.includes('/references/')),
+  ...phasePackages,
   ...(await walk('docs/ai')).filter(file => file.endsWith('.md')),
   ...(await walk('.agents/skills')).filter(file => file.endsWith('.md'))];
 let links = 0;

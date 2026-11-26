@@ -1,5 +1,45 @@
 # Canonical Page Inventory
 
+## Phase 04 accepted — 2026-11-26
+
+CUS-01, CUS-03–06 and CUS-08–10 are accepted under DEC-086. CUS-02 was accepted in Phase 03. CUS-07 is the embedded dashboard balance. CUS-04 includes rescheduling and a cancellation-impact preview. The swap scenes were withdrawn. The registry contains 29 accepted contexts and 43 future placeholders. [Registry](../src/page-registry.json) · [Closeout](../docs-work/PHASE_04_CLOSEOUT_FA.md)
+
+## CUS-08 availability alerts
+
+CUS-08 was accepted by the owner on 2026-11-24 under DEC-082. It includes an active list, finished records and add, duplicate and cancellation Sheets. CUS-09 and CUS-10 are the remaining customer routes. [Desktop brief and sources](../docs-work/desktop-layouts/CUS-08.md).
+
+## CUS-05 tab annotation — 2026-11-23
+
+DEC-081 renames the CUS-05 completed tab to “تکمیل” and applies the CUS-03 appointment radio treatment to the status tabs. No page, route or variant addition; the done variant label follows the new tab name.
+
+## Phase 04 request previews — 2026-11-23
+
+CUS-05 and CUS-06 are implemented for review. CUS-05 owns the list, status groups, filter and empty view. CUS-06 owns details, inactive and terminal views, and cancellation impact. The payment result remains PAY-RES. This leaves CUS-08/09/10 pending. [List brief](../docs-work/desktop-layouts/CUS-05.md), [detail brief](../docs-work/desktop-layouts/CUS-06.md).
+
+## CUS-03 interaction revision — 2026-11-17
+
+DEC-073/074 revise existing CUS-03 views and states, without adding a page or changing phase acceptance. The two filter-preview query aliases show the same popup; appointment-date selection reuses the shared booking calendar. Range is single-select; status/service/stylist are multi-select with exclusive “all”, and their repeated query parameters survive reload/history. CUS-01 remains accepted and CUS-03 remains in progress. [Sources and checks](../docs-work/CUS_03_OWNER_FEEDBACK_2026-11-17.md), [motion record](../docs-work/CUS_03_MOTION_2026-11-17.md).
+
+## Phase 04 status — 2026-11-21
+
+DEC-072 accepts the CUS-01 default/empty/inactive slice and embedded CUS-07 balance. The owner accepted CUS-03 on 2026-11-19 and the first CUS-04 detail preview on 2026-11-21. CUS-04-RSC is available under CUS-04 for owner review. The registry has 73 contexts, with 24 product templates, 23 accepted contexts and 49 placeholders. CUS-07 stays embedded. CUS-05/06/08/09/10 remain placeholders. [CUS-04 brief](../docs-work/desktop-layouts/CUS-04.md), [rescheduling brief](../docs-work/desktop-layouts/CUS-04-RSC.md).
+
+## Customer chrome recovery — 2026-11-16
+
+DEC-065 changes existing CUS-01 chrome and shared More behavior only: restored header/links, left-column salon notice and viewport-contained list scrolling with resize dismissal. Registry contexts and acceptance remain unchanged. [Scope and QA](../docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md).
+
+## CUS-01 owner element revision — 2026-11-16
+
+DEC-064 revises the three existing home states and shared customer chrome. Two local pending-payment items reuse CUS-05 source examples; no new page/route or accepted context is added. [Scope, sources and actual checks](../docs-work/PHASE_04_OWNER_FEEDBACK_2026-11-16.md). Other Phase 04 destinations remain placeholders until their assigned implementation.
+
+## CUS-01 desktop correction — 2026-11-16
+
+DEC-063 authorizes the owner-directed desktop revision: existing Phase 03 right menu, horizontal appointment tickets and bounded supporting cards. All three CUS-01 states now have deliberate desktop compositions; mobile/tablet references and registry acceptance status remain unchanged. The former pending horizontal-menu proposal below is superseded. [Brief and scope](../docs-work/desktop-layouts/CUS-01.md).
+
+## Phase 04 starts — 2026-11-16
+
+DEC-062 assigns Phase 04, superseding earlier unassigned statements. CUS-01 now has mobile/tablet default, empty and inactive implementations under review; desktop composition is pending. CUS-07 remains an embedded balance without an independent route or financial primitives. Current registry: 21 accepted contexts, one in-progress implementation, 51 labelled placeholders. Other customer contexts retain their existing ownership/status. [Execution and gaps](../docs-work/PHASE_04_IMPLEMENTATION_FA.md).
+
 ## Mobile choice-page chrome — 2026-11-16
 
 DEC-060: BK-01/BK-02 hide the separate booking action below 768px and center the existing icon card. No route/variant or acceptance change; CUS-02 and all other contexts retain their previous behavior. [QA](../docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md).
@@ -60,7 +100,7 @@ Phase 01–02 refresh (2026-11-14): PUB-01..03, AUTH-01/02, SYS-ACC-01 and share
 | CUS-01 | `/customer` | Customer | Fully Designed / reused final ref | Batch 3 |
 | CUS-02 | `/customer/book` | Customer | Fully Designed | Batch 2 |
 | CUS-03 | `/customer/appointments` | Customer | Fully Designed | Batch 3 |
-| CUS-04 | `/customer/appointments/{id}` | Customer | Fully Designed | Batch 3 |
+| CUS-04 | `/customer/appointments/{id}` | Customer | Accepted with rescheduling and [Appointment Swap](features/APPOINTMENT_SWAP.md) under DEC-080. | Batch 3 and DEC-076–080 |
 | CUS-05 | `/customer/requests` | Customer | Fully Designed | Batch 3 |
 | CUS-06 | `/customer/requests/{id}` | Customer | Fully Designed | Batch 3 + Batch 2 payment reuse |
 | CUS-07 | embedded balance | Customer | Implied / no route | Batch 3, DS |

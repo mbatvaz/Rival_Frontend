@@ -1,26 +1,23 @@
 @layer pages {
+  @media (prefers-reduced-motion: no-preference) {
+    [data-rv-entry="ready"] .rv-booking-rail[data-rv-carousel] { animation: rv-booking-choices-enter var(--duration-slow) var(--ease-standard); }
+  }
+
+  @keyframes rv-booking-choices-enter {
+    from { opacity: 0.5; translate: calc(-1 * var(--space-3)) 0; }
+    to { opacity: 1; translate: 0 0; }
+  }
+
   .rv-booking-day[data-rv-day-state="closed"] { color: var(--danger-fg); background: var(--danger-bg); }
   .rv-booking-day[data-rv-day-state="pending"] { color: var(--text-secondary); background: var(--warning-bg); }
   .rv-booking-day[data-rv-today] { border-color: var(--accent-500); }
   .rv-booking-time-picker [data-rv-day-note] { text-align: center; }
   .rv-booking-time-picker [data-rv-tone="danger"] { color: var(--danger-fg); background: var(--danger-bg); border-color: var(--danger-line); }
 
-  .rv-quick-skeleton > div {
-    min-block-size: 88px;
-    border-radius: var(--radius-lg);
-    background: linear-gradient(110deg, var(--chrome-100) 30%, var(--bg-surface) 50%, var(--chrome-100) 70%);
-    background-size: 250% 100%;
-    animation: rv-booking-sweep 1.6s linear infinite;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .rv-quick-skeleton > div { animation: none; }
-  }
-
   @media not all and (min-width: 1024px) {
     .rv-booking-days .rv-booking-day > span:first-child { font-size: var(--caption-size); }
 
-    .rv-booking--dock .rv-role-nav {
+    :is(.rv-booking--dock, .rv-customer-home) .rv-role-nav {
       isolation: isolate;
       padding: 0;
       gap: var(--space-2);
@@ -29,7 +26,7 @@
       backdrop-filter: none;
     }
 
-    .rv-booking--dock .rv-role-nav::before {
+    :is(.rv-booking--dock, .rv-customer-home) .rv-role-nav::before {
       content: "";
       position: absolute;
       inset-block: 0;
@@ -42,12 +39,12 @@
       box-shadow: var(--shadow-glass);
     }
 
-    .rv-booking--dock .rv-role-nav > :not(.rv-role-nav__book) > span:last-child {
+    :is(.rv-booking--dock, .rv-customer-home) .rv-role-nav > :not(.rv-role-nav__book) > span:last-child {
       position: absolute;
       clip-path: inset(50%);
     }
 
-    .rv-booking--dock .rv-role-nav .rv-role-nav__book {
+    :is(.rv-booking--dock, .rv-customer-home) .rv-role-nav .rv-role-nav__book {
       flex-direction: row;
       min-block-size: 60px;
       border: 2px solid var(--bg-surface);
@@ -59,24 +56,32 @@
       scroll-padding-inline: 0;
       padding-block: var(--space-3) calc(var(--space-12) + var(--space-4));
       margin-block-end: calc(-1 * var(--space-8));
+    }
+
+    .rv-booking-rail__track {
       align-items: center;
       gap: var(--space-2);
     }
 
-    .rv-booking-rail .rv-booking-choice {
-      flex-basis: clamp(165px, 59vw, 285px);
-      transform: scale(.84);
-      transition: transform var(--duration-base) var(--ease-standard);
+    .rv-booking-rail[data-rv-carousel] {
+      overflow: clip;
+      padding-inline: 0;
+      touch-action: pan-y pinch-zoom;
     }
 
-    .rv-booking-rail .rv-booking-choice[data-rv-centered="true"] { transform: scale(1); }
+    .rv-booking-rail .rv-booking-choice {
+      flex-basis: clamp(165px, 59vw, 285px);
+    }
+
+    .rv-booking-rail[data-rv-carousel] .rv-booking-choice { scale: calc(.84 + .16 * var(--rv-choice-weight, 1)); }
+    .rv-booking-rail[data-rv-carousel] .rv-booking-choice img { opacity: calc(.8 + .2 * var(--rv-choice-weight, 1)); }
     .rv-booking-rail .rv-booking-choice__caption { border-radius: var(--radius-pill); }
 
     .rv-booking-rail .rv-booking-choice__caption > * {
       max-inline-size: 100%;
       overflow: hidden;
       white-space: nowrap;
-      text-overflow: ellipsis;
+      text-overflow: clip;
     }
 
     .rv-booking-days {
@@ -119,7 +124,4 @@
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .rv-booking-rail .rv-booking-choice { transition: none; }
-  }
 }

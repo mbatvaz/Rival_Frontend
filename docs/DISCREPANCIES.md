@@ -1,5 +1,71 @@
 # Discrepancies and Alignment Log
 
+DEC-086 accepts the Phase 04 presentation, including the single-column CUS-10 desktop layout from DEC-085. The withdrawal of swap scenes and the standalone CUS-07 preview supersedes earlier review notes. [Closeout](../docs-work/PHASE_04_CLOSEOUT_FA.md)
+
+## CUS-10 customer profile
+
+DEC-084 accepts the mobile and tablet slice. DEC-085 accepts the existing single-column desktop layout. The shared shell, minimum touch targets and Sheet layout account for spacing differences from the 390px exports. The demo uses a local code hint and the salon number under DEC-035. Credentials and verified phone changes require the eventual identity integration. [Source mapping and accepted desktop layout](../docs-work/desktop-layouts/CUS-10.md)
+
+## CUS-09 notifications
+
+The export gives six notification samples and a total of 24. The additional 18 records are demo notices for pagination. Existing preview routes supply resource links and shared customer chrome. The owner accepted the slice and its single-column desktop composition under DEC-083. [CUS-09 brief](../docs-work/desktop-layouts/CUS-09.md)
+
+## CUS-08 availability alerts
+
+The demo catalog includes Sina for haircut so the released alert opens time selection directly with both values from the reference. The four directory variants reproduce the source sample independently of the customer's local alerts. [Accepted brief](../docs-work/desktop-layouts/CUS-08.md).
+
+## CUS-05 tab annotation — 2026-11-23
+
+DEC-081 supersedes the ink-selection tab treatment recorded in the [list brief](../docs-work/desktop-layouts/CUS-05.md). The owner renamed the completed tab “تکمیل شده” to “تکمیل” and switched the status tabs to the CUS-03 appointment radio design: shared glass strip, muted inset unselected pill and white raised selected pill with the shared scale transition. The count bubbles and compact three-tab spacing remain; no filter, route or acceptance change.
+
+## CUS-05 and CUS-06 request fidelity review — 2026-11-23
+
+The review restores the integrated hold footer, the Jalali filter boundary and picker, image-led package schedule, stylist response card, and the two appointment links explicitly supplied by the booked-package export. The shared customer shell and 44px native controls govern production spacing. RQ-2186 has no dedicated detail artboard or recorded schedule. It opens its summary and links to the appointments list. Desktop compositions await owner review. [List brief](../docs-work/desktop-layouts/CUS-05.md), [detail brief](../docs-work/desktop-layouts/CUS-06.md).
+
+## CUS-04 Appointment Swap — 2026-11-22
+
+Batch 3 supplies the CUS-04 detail hierarchy and an existing action Sheet. It has no Appointment Swap artboard. The review states use the existing Sheet and the CUS-03 stacked date picker as component evidence. Two controlled-customer preview entries supply future appointments and preserve the dates in the historical artboards. The swap states await owner review. [Desktop brief](../docs-work/desktop-layouts/CUS-04.md)
+
+## CUS-04-RSC rescheduling preview — 2026-11-21
+
+The mobile calendar and action controls use the project touch-target minimum. At desktop widths the picker and result fit inside the existing customer shell. The Batch 3 source provides a conflict description and no tracking code for the conflicting facial appointment. The linked demo detail displays the recorded facts. Availability and changes are local fixture scenarios. [Source and review brief](../docs-work/desktop-layouts/CUS-04-RSC.md).
+
+## CUS-04 initial detail preview — 2026-11-21
+
+The live desktop preview uses the existing customer sidebar and a two-column information layout. Mobile keeps the source reading order and uses the existing dock and shared sheet. The first pass includes full receipts for the booked and completed records with exact source snapshots. Other linked records show their recorded appointment facts. The cancellation sheet displays the source impact with confirmation disabled; the reschedule calendar and other action/confirmation states are pending. [Scope and source evidence](../docs-work/desktop-layouts/CUS-04.md).
+
+## CUS-03 calendar layering follow-up — 2026-11-17
+
+DEC-075 supersedes the prior nested-calendar presentation that hid the filter parent. The filter now remains visually present under an overlaid calendar but is inert and ARIA-hidden, preventing duplicate modal interaction. A space-3 separation is added between month controls and day choices. Direct owner instruction also increases card day/time from the prior token sizes 22/13px to 26/14px while preserving 600 weight and the lighter weekday. [Evidence](../docs-work/CUS_03_MOTION_2026-11-17.md).
+
+## CUS-03 interaction overrides — 2026-11-17
+
+DEC-074 supersedes the export's single-choice status/service/stylist behavior and visible filter close control. Direct owner instruction makes those three groups multi-select with exclusive “all”, keeps only date range single-select, opens the calendar from the full field and removes the icon/button chrome. Customer controls suppress browser tap highlight while preserving `:focus-visible`. The shared parent filter does not replay its entry after the nested calendar closes, and CUS-03 appointment entry follows source order rather than geometric sorting. [Motion and fallback record](../docs-work/CUS_03_MOTION_2026-11-17.md).
+
+## CUS-03 owner overrides — 2026-11-17
+
+DEC-073 supersedes export-specific tab styling, one-sided date locks/tab-specific filters and the earlier desktop row proposals. The owner image is visual evidence for glass, date/service grouping and portrait selectors; the direct request overrides its locked start date and tab-specific title. The popup now adds common status options, two editable Persian date fields/calendar buttons and a source-authorized horizontal portrait rail. [Comparisons, resulting layouts and verification](../docs-work/CUS_03_OWNER_FEEDBACK_2026-11-17.md). Mobile history keeps its existing compact layout; desktop alone uses a single information row.
+
+## CUS-03 source fidelity and desktop review — 2026-11-17
+
+DEC-072 permits implementing each desktop review preview before owner feedback. CUS-03 uses the exact six Batch 3 mobile boards; no missing mobile reference is inferred. Native controls use at least 44px targets, so tabs/filter choices and historical rows are slightly taller than exports. Filter adds an explicit close control, an all-status choice and a typed, validated Jalali boundary in place of a drawing-only date field. Narrow 320px choices compact without a horizontal rail or nested vertical scroll. Existing dock/sidebar supersede the export shell. [Source comparisons, geometry and review limitations](../docs-work/CUS_03_REVIEW_2026-11-17.md). No financial/booking behavior changes; detail routes remain the assigned next slice.
+
+## MORE-CUS scroll, pinning and resize recovery — 2026-11-16
+
+DEC-065 supersedes DEC-064's desktop radios/profile header and document-scrolling More. The owner explicitly requests restoration and list-only mobile drawer scrolling. A root test reproduced the menu remaining visible after resize; viewport pinning and shared Sheet stack dismissal correct the cause. The exception is confined to `.rv-customer-more > .rv-more-list`. [Cause and actual checks](../docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md).
+
+## Customer shell and dashboard source corrections — 2026-11-16
+
+DEC-064 supersedes the home-specific sidebar width, single stretched desktop rows, one payment example, bottom-attached mobile customer More, hidden active dock label and anonymous home header. The owner supplies screenshots and direct placement/motion instructions. Customer More is now an explicit left-drawer exception; other overlays retain their current ownership and alignment. [Detailed comparisons and remaining verification limits](../docs-work/PHASE_04_OWNER_FEEDBACK_2026-11-16.md).
+
+## CUS-01 desktop rejection resolved in implementation — 2026-11-16
+
+DEC-063 supersedes the pending horizontal-nav proposal and wide single-column fallback. The owner explicitly requests the prior desktop right-side menu and independent card composition. The accepted booking menu becomes one shared partial; home uses horizontal appointment tickets and bounded supporting cards. Mobile card geometry and source content remain. Implementation follows this direct direction; owner visual/phase acceptance is not inferred. [Brief](../docs-work/desktop-layouts/CUS-01.md), [evidence](../docs-work/PHASE_04_IMPLEMENTATION_FA.md).
+
+## Phase 04 first slice — 2026-11-16
+
+CUS-01 uses the final Batch 3 artboards, not the historical Batch 1 explorations. The historical Phase 04 handoff describes NFR; the current implementation package assigns Customer Panel, with page rules from Batch 3 and confirmed decisions. CUS-07 is an embedded balance and must not become a wallet/finance page. Existing contact/map/recurring route corrections apply. Canonical type tokens replace isolated 44/30/17px export sizes with 40/26/16px; mobile hierarchy, photos, 322px hero, 152px media and 44px overlap are preserved. Touch targets are at least 44px. Fixed board height becomes document scrolling and viewport-fixed navigation. These are recorded deviations pending owner visual review. Desktop composition remains gated by its [proposal](../docs-work/desktop-layouts/CUS-01.md); later customer destination screens remain placeholders. [Exact sources and verification](../docs-work/PHASE_04_IMPLEMENTATION_FA.md).
+
 ## Booking link flash — 2026-11-16
 
 DEC-061 removes the outgoing fade/cancel and transparent incoming main that caused a bright flash during booking navigation. Native booking links and opaque entry preserve current content until the next document; centered choice navigation is unchanged. [Evidence and limits](../docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md).

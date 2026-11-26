@@ -53,6 +53,12 @@ test('page, component, feature, token and test queries navigate both directions'
   assert.equal(page.fresh, true);
   assert.ok(page.edges.some(edge => edge.to === 'src/wwwroot/js/booking.js'));
   assert.ok(page.edges.some(edge => edge.type === 'tested-by' && edge.status === 'INFERRED'));
+  const compact = (await runMap(f.root, 'query', ['--compact', 'BK-X', '--limit=1'])).result;
+  assert.equal(compact.fresh, true);
+  assert.equal(compact.matches.items[0].id, 'page:BK-X');
+  assert.equal(compact.templates.items.length, 1);
+  assert.ok(compact.templates.count > compact.templates.items.length);
+  assert.equal(compact.edges, undefined);
   const token = (await runMap(f.root, 'query', ['--accent'])).result;
   assert.ok(token.possiblePages.includes('BK-X'));
   const card = (await runMap(f.root, 'query', ['Card'])).result;

@@ -1,0 +1,346 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "today": "1405/07/22",
+    "todayLabel": "امروز، ۲۲ مهر",
+    "groups": [
+      {
+        "key": "upcoming",
+        "label": "پیش رو",
+        "count": 3,
+        "months": [
+          {
+            "key": "mehr",
+            "label": "مهر",
+            "items": [
+              {
+                "id": "BK-48213",
+                "serviceId": "face-hair",
+                "service": "اصلاح سر و صورت",
+                "stylistId": "amir",
+                "stylist": "امیر",
+                "date": "1405/07/23",
+                "day": "۲۳",
+                "weekday": "پنج‌شنبه",
+                "month": "مهر",
+                "time": "۱۶:۰۰",
+                "image": "img/public/shave.png",
+                "avatar": "img/public/amir.png",
+                "status": "booked",
+                "statusText": "رزرو شده",
+                "tone": "ink",
+                "icon": "check-circle",
+                "detailState": "default"
+              },
+              {
+                "id": "BK-48390",
+                "serviceId": "hair",
+                "service": "اصلاح سر",
+                "stylistId": "sina",
+                "stylist": "سینا",
+                "date": "1405/07/28",
+                "day": "۲۸",
+                "weekday": "سه‌شنبه",
+                "month": "مهر",
+                "time": "۱۵:۳۰",
+                "image": "img/public/classic.png",
+                "avatar": "img/booking/sina.png",
+                "status": "booked",
+                "statusText": "رزرو شده",
+                "tone": "ink",
+                "icon": "check-circle",
+                "detailState": "default"
+              }
+            ]
+          },
+          {
+            "key": "aban",
+            "label": "آبان",
+            "items": [
+              {
+                "id": "BK-48477",
+                "serviceId": "face-hair",
+                "service": "اصلاح سر و صورت",
+                "stylistId": "amir",
+                "stylist": "امیر",
+                "date": "1405/08/14",
+                "day": "۱۴",
+                "weekday": "پنج‌شنبه",
+                "month": "آبان",
+                "time": "۱۶:۰۰",
+                "image": "img/public/shave.png",
+                "avatar": "img/public/amir.png",
+                "status": "booked",
+                "statusText": "رزرو شده",
+                "tone": "ink",
+                "icon": "check-circle",
+                "detailState": "default"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "history",
+        "label": "گذشته",
+        "count": 5,
+        "months": [
+          {
+            "key": "mehr",
+            "label": "مهر",
+            "items": [
+              {
+                "id": "BK-47920",
+                "serviceId": "face-hair",
+                "service": "اصلاح سر و صورت",
+                "stylistId": "amir",
+                "stylist": "امیر",
+                "date": "1405/07/14",
+                "day": "۱۴",
+                "weekday": "",
+                "month": "مهر",
+                "time": "۱۷:۰۰",
+                "image": "img/public/shave.png",
+                "avatar": "img/public/amir.png",
+                "status": "completed",
+                "statusText": "انجام شده",
+                "tone": "success",
+                "icon": "check-circle",
+                "detailState": "done"
+              },
+              {
+                "id": "BK-47811",
+                "serviceId": "facial",
+                "service": "فیشیال",
+                "stylistId": "sina",
+                "stylist": "سینا",
+                "date": "1405/07/05",
+                "day": "۵",
+                "weekday": "",
+                "month": "مهر",
+                "time": "۱۰:۰۰",
+                "image": "img/public/facial.png",
+                "avatar": "img/booking/sina.png",
+                "status": "cancelled",
+                "statusText": "لغو شده توسط شما",
+                "tone": "rose",
+                "icon": "x-circle",
+                "detailState": "can-done"
+              }
+            ]
+          },
+          {
+            "key": "shahrivar",
+            "label": "شهریور",
+            "items": [
+              {
+                "id": "BK-47603",
+                "serviceId": "hair",
+                "service": "اصلاح سر",
+                "stylistId": "taha",
+                "stylist": "طاها",
+                "date": "1405/06/25",
+                "day": "۲۵",
+                "weekday": "",
+                "month": "شهریور",
+                "time": "۱۸:۰۰",
+                "image": "img/public/classic.png",
+                "avatar": "img/public/taha.png",
+                "status": "absent",
+                "statusText": "عدم حضور",
+                "tone": "danger",
+                "icon": "x-circle",
+                "detailState": "noshow"
+              },
+              {
+                "id": "BK-47455",
+                "serviceId": "beard-color",
+                "service": "رنگ ریش",
+                "stylistId": "amir",
+                "stylist": "امیر",
+                "date": "1405/06/12",
+                "day": "۱۲",
+                "weekday": "",
+                "month": "شهریور",
+                "time": "۱۶:۰۰",
+                "image": "img/booking/beard-color.png",
+                "avatar": "img/public/amir.png",
+                "status": "completed",
+                "statusText": "انجام شده",
+                "tone": "success",
+                "icon": "check-circle",
+                "detailState": "done"
+              },
+              {
+                "id": "BK-47388",
+                "serviceId": "hair",
+                "service": "اصلاح سر",
+                "stylistId": "sina",
+                "stylist": "سینا",
+                "date": "1405/06/03",
+                "day": "۳",
+                "weekday": "",
+                "month": "شهریور",
+                "time": "۱۱:۳۰",
+                "image": "img/public/classic.png",
+                "avatar": "img/booking/sina.png",
+                "status": "cancelled",
+                "statusText": "لغو شده توسط سالن",
+                "tone": "rose",
+                "icon": "x-circle",
+                "detailState": "scxl"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "filters": {
+      "services": [
+        {
+          "value": "all",
+          "label": "همه",
+          "image": ""
+        },
+        {
+          "value": "hair",
+          "label": "اصلاح سر",
+          "image": "img/public/classic.png"
+        },
+        {
+          "value": "face-hair",
+          "label": "اصلاح سر و صورت",
+          "image": "img/public/shave.png"
+        },
+        {
+          "value": "facial",
+          "label": "فیشیال",
+          "image": "img/public/facial.png"
+        },
+        {
+          "value": "beard-color",
+          "label": "رنگ ریش",
+          "image": "img/booking/beard-color.png"
+        }
+      ],
+      "stylists": [
+        {
+          "value": "all",
+          "label": "همه",
+          "image": ""
+        },
+        {
+          "value": "taha",
+          "label": "طاها",
+          "image": "img/public/taha.png"
+        },
+        {
+          "value": "amir",
+          "label": "امیر",
+          "image": "img/public/amir.png"
+        },
+        {
+          "value": "sina",
+          "label": "سینا",
+          "image": "img/booking/sina.png"
+        },
+        {
+          "value": "mehdi",
+          "label": "مهدی",
+          "image": ""
+        }
+      ],
+      "status": [
+        {
+          "value": "all",
+          "label": "همه",
+          "image": ""
+        },
+        {
+          "value": "booked",
+          "label": "رزرو شده",
+          "image": ""
+        },
+        {
+          "value": "completed",
+          "label": "انجام شده",
+          "image": ""
+        },
+        {
+          "value": "absent",
+          "label": "عدم حضور",
+          "image": ""
+        },
+        {
+          "value": "cancelled",
+          "label": "لغو شده",
+          "image": ""
+        }
+      ],
+      "ranges": [
+        {
+          "value": "all",
+          "label": "همه"
+        },
+        {
+          "value": "week",
+          "label": "۷ روز آینده"
+        },
+        {
+          "value": "month",
+          "label": "۳۰ روز آینده"
+        },
+        {
+          "value": "custom",
+          "label": "بازه دلخواه"
+        }
+      ],
+      "boundaries": {
+        "week": {
+          "from": "1405/07/22",
+          "to": "1405/07/29"
+        },
+        "month": {
+          "from": "1405/07/22",
+          "to": "1405/08/22"
+        }
+      },
+      "example": {
+        "range": "month",
+        "from": "1405/07/22",
+        "to": "1405/08/22",
+        "stylist": ["amir"]
+      },
+      "dateFields": [
+        {
+          "key": "from",
+          "label": "از تاریخ",
+          "example": "۱۴۰۵/۰۷/۲۲"
+        },
+        {
+          "key": "to",
+          "label": "تا تاریخ",
+          "example": "۱۴۰۵/۰۸/۲۲"
+        }
+      ],
+      "hint": "هر دو تاریخ قابل انتخاب‌اند؛ فیلترها در پیش رو و گذشته مشترک می‌مانند."
+    },
+    "emptyStates": [
+      {
+        "key": "empty",
+        "icon": "scissors",
+        "title": "هنوز نوبتی ندارید",
+        "text": "هر نوبتی که رزرو کنید، اینجا با تاریخ و وضعیتش می‌آید. برای رزرو، دکمه «رزرو» پایین صفحه را بزنید.",
+        "clear": false
+      },
+      {
+        "key": "noresult",
+        "icon": "filter",
+        "title": "نوبتی با این فیلترها نیست",
+        "text": "یکی از فیلترها را بردارید یا همه را پاک کنید.",
+        "clear": true
+      }
+    ]
+  }
+}

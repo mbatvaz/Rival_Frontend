@@ -1,0 +1,18 @@
+<section class="rv-sheet rv-profile-sheet" id="rv-profile-passkey-delete" role="alertdialog" aria-modal="true" aria-labelledby="rv-profile-passkey-delete-title" aria-describedby="rv-profile-passkey-delete-lead" tabindex="-1" hidden>
+  <span data-rv-sheet-grip aria-hidden="true"></span>
+  <div class="rv-sheet__header">
+    <span class="rv-icon-tile rv-profile__tile--danger" aria-hidden="true"><span class="ri ri-fingerprint"></span></span>
+    <div class="rv-profile__value">
+      <h2 id="rv-profile-passkey-delete-title" data-profile-sheet-title>حذف Passkey</h2>
+      <p class="rv-muted" id="rv-profile-passkey-delete-lead" data-profile-sheet-lead>این دستگاه دیگر با Passkey وارد نمی‌شود. با کد پیامکی همیشه می‌توانید وارد شوید.</p>
+    </div>
+  </div>
+  <form class="rv-profile-sheet__form" method="post" data-profile-form="passkey-delete" novalidate>
+
+    <p class="rv-feedback rv-feedback--error" data-profile-form-error role="alert"></p>
+    <div class="rv-actions">
+      <button class="rv-btn rv-btn--secondary" type="button" data-rv-sheet-initial-focus data-rv-sheet-close>انصراف</button>
+      <button class="rv-btn rv-btn--danger rv-btn--danger-solid" type="submit"><span class="ri ri-trash" aria-hidden="true"></span>حذف</button>
+    </div>
+  </form>
+</section>

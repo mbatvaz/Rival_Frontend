@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "example": {
+      "service": "face-hair",
+      "stylist": "amir",
+      "expiresAt": 1792396800000
+    },
+    "history": [
+      { "service": "hair", "stylist": "sina", "status": "released", "day": "۲۰", "month": "مهر" },
+      { "service": "facial", "stylist": "sina", "status": "expired", "day": "۹", "month": "مهر" },
+      { "service": "beard-color", "stylist": "amir", "status": "cancelled", "day": "۲", "month": "مهر" }
+    ]
+  }
+}

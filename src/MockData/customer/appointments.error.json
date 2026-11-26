@@ -1,0 +1,8 @@
+{
+  "ok": false,
+  "demo": true,
+  "error": {
+    "code": "DEMO_FAILURE",
+    "message": "دریافت نوبت‌ها ممکن نیست. دوباره تلاش کنید."
+  }
+}

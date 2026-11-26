@@ -1,4 +1,6 @@
 import { api } from '../core/api.js';
+import { cancelEntries } from '../components/entry-motion.js';
+import { portfolioEntries } from './public-motion.js';
 import { openSheet } from '../components/sheet.js';
 
 export async function init(root) {
@@ -10,6 +12,9 @@ export async function init(root) {
   const allStylist = root.querySelector('[data-rv-filter="stylist"]').dataset.rvValue;
   let service = query.get('service') ?? allService;
   let stylist = query.get('stylist') ?? allStylist;
+  let filtering = false;
+  let loaded = false;
+  let desired = { service, stylist };
   const initial = ['default', 'filter', 'viewer', 'empty', 'loading', 'error'].includes(query.get('state')) ? query.get('state') : 'default';
   const stateView = state => {
     for (const name of ['empty', 'loading', 'error']) get('portfolio-' + name).hidden = name !== state;
@@ -33,6 +38,7 @@ export async function init(root) {
     history.replaceState(null, '', window.location.pathname + (params.size ? '?' + params : ''));
   }
   async function load(state = 'default') {
+    loaded = false;
     grid.hidden = true;
     cards.forEach(card => { card.hidden = true; });
     stateView('loading');
@@ -42,23 +48,43 @@ export async function init(root) {
       const preview = (await api.read('public/states/' + state)).data;
       if (state === 'error') throw new Error('بارگیری نمونه‌کارها ممکن نشد.');
       if (state === 'loading') return;
-      service = preview.service ?? service;
-      stylist = preview.stylist ?? stylist;
+      service = preview.service ?? desired.service;
+      stylist = preview.stylist ?? desired.stylist;
+      loaded = true;
       apply();
+      desired = { service, stylist };
+      if (document.documentElement.dataset.rvReady) portfolioEntries(root);
       if (state === 'viewer') openSheet('work-1', cards[0].querySelector('button'));
     } catch {
       stateView('error');
     } finally { root.setAttribute('aria-busy', String(state === 'loading')); }
   }
+  async function changeFilter(next) {
+    if (next.service === desired.service && next.stylist === desired.stylist) return;
+    desired = next;
+    if (!loaded || filtering) return;
+    filtering = true;
+    root.setAttribute('aria-busy', 'true');
+    grid.inert = true;
+    try {
+      await portfolioEntries(root, true);
+      ({ service, stylist } = desired);
+      apply();
+      cancelEntries(root);
+      grid.inert = false;
+      portfolioEntries(root);
+    } finally {
+      filtering = false;
+      grid.inert = false;
+    }
+  }
   root.addEventListener('click', event => {
     const button = event.target.closest('[data-rv-filter]');
     if (button) {
-      if (button.dataset.rvFilter === 'service') service = button.dataset.rvValue;
-      else stylist = button.dataset.rvValue;
-      apply();
+      changeFilter({ ...desired, [button.dataset.rvFilter]: button.dataset.rvValue });
     }
   });
-  get('clear-filter').addEventListener('click', () => { service = allService; stylist = allStylist; apply(); });
+  get('clear-filter').addEventListener('click', () => changeFilter({ service: allService, stylist: allStylist }));
   get('retry').addEventListener('click', () => load());
   await load(initial);
 }

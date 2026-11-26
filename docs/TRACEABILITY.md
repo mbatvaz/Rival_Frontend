@@ -1,5 +1,77 @@
 # Traceability Contract
 
+DEC-086 → [accepted Phase 04 routes](../src/page-registry.json) → [final regression and product boundaries](../docs-work/PHASE_04_CLOSEOUT_FA.md). The entries below retain the development history, including the withdrawn swap scenes.
+
+## CUS-10 customer profile
+
+D10-57, D10-58, D10-69 and DEC-084 → [profile](../src/Views/Customer/Profile/Index.njk), [Sheet forms](../src/Views/Customer/Profile/_Sheets.njk), [sample profile](../src/MockData/customer/profile.json), [demo settings](../src/wwwroot/js/features/customer/profile.js), [two-step verification](../src/wwwroot/js/features/customer/profile-phone.js), [keyboard scroll](../src/wwwroot/js/components/sheet-keyboard.js) and [browser coverage](../tests/phase04/profile.spec.mjs). DEC-034 covers authentication capability and fallback. DEC-035 supplies the salon contact. [Source states and desktop proposal](../docs-work/desktop-layouts/CUS-10.md)
+
+## CUS-09 notifications
+
+D10-56, DEC-072 and DEC-083 → [inbox](../src/Views/Customer/Notifications/Index.njk), [NotificationItem](../src/Views/Shared/Components/_NotificationItem.njk), [demo feed](../src/MockData/customer/notifications.json), [read and pagination behavior](../src/wwwroot/js/features/customer/notifications.js), [browser coverage](../tests/phase04/notifications.spec.mjs). [Accepted source states and desktop layout](../docs-work/desktop-layouts/CUS-09.md)
+
+## CUS-08 availability alerts
+
+The owner accepted the page and its four preview states on 2026-11-24 under DEC-082.
+
+D10-37, D10-55, D10-59 and D10-63 → [list](../src/Views/Customer/AvailabilityAlerts/Index.njk), [shared booking Sheet](../src/Views/Booking/_Alert.njk), [local alert adapter](../src/wwwroot/js/core/availability-alerts.js), [source examples](../src/MockData/customer/availability-alerts.json) and [browser coverage](../tests/phase04/availability-alerts.spec.mjs). The route reuses the appointment media and lift, local storage boundary and customer shell. [Desktop brief and comparisons](../docs-work/desktop-layouts/CUS-08.md).
+
+## CUS-05 tab annotation — 2026-11-23
+
+DEC-081 + two live-browser annotations → renamed [group label](../src/MockData/customer/requests.json) and [done variant label](../src/page-registry.json); the [request tab styles](../src/wwwroot/css/04-pages/customer-requests.css) drop their transparent/ink and raised-count overrides so the shared [appointment radio treatment](../src/wwwroot/css/04-pages/customer-appointments.css) and [base radio states](../src/wwwroot/css/04-pages/booking-controls.css) apply. Tab switching and 44px target checks remain in [request coverage](../tests/phase04/requests.spec.mjs).
+
+## CUS-05 and CUS-06 request fidelity review — 2026-11-23
+
+DEC-072 and Batch 3 D10-41, D10-51–54, D10-59, D10-63, D10-65 and D10-68 → [list](../src/Views/Customer/Requests/Index.njk), [RequestCard](../src/Views/Shared/Components/_RequestCard.njk), [detail](../src/Views/Customer/Requests/Detail.njk), [fixtures](../src/MockData/customer/requests.json), [registry variants](../src/page-registry.json) and [request coverage](../tests/phase04/requests.spec.mjs). Filtering and cancellation use the existing Jalali picker, Sheet and card lift. The [booking receipt](../src/wwwroot/js/features/booking/result.js) links each submitted request to its detail, PAY-RES handles demo payment, and CUS-04 displays linked appointment parts. [Source comparisons](../docs-work/desktop-layouts/CUS-06.md#source-comparisons).
+
+## CUS-04 Appointment Swap — 2026-11-22
+
+DEC-078 historically linked five preview states through the [registry](../src/page-registry.json), historically used shared swap actions on detail records and reused the [appointment lift](../src/wwwroot/js/features/customer/card-sheet.js) and dashboard payment-clock styling. [Swap coverage](../tests/phase04/appointment-swap.spec.mjs)
+
+DEC-077 introduces the in-Sheet schedule review and distinct result view. The swap suite verifies that checking the code leaves the ledger unchanged and that a code expiring before consent cannot be redeemed. [Feature contract](features/APPOINTMENT_SWAP.md)
+
+DEC-076 → [product and adapter contract](features/APPOINTMENT_SWAP.md), [review entry points](../src/page-registry.json), [Jalali calendar](../src/Views/Booking/_Calendar.njk), [mock API](../src/wwwroot/js/core/appointment-swap-api.js), [controlled records](../src/MockData/customer/appointment-swap.json) and [Playwright coverage](../tests/phase04/appointment-swap.spec.mjs). CUS-01 and CUS-03 project the current attendee's appointments in the two controlled fixture perspectives.
+
+## CUS-04-RSC rescheduling preview — 2026-11-21
+
+Owner mobile references, Batch 3 CUS-04-RSC, D10-49/59/61 and BR-RSC-01–08 → [registry variants](../src/page-registry.json), [picker](../src/Views/Customer/Appointments/_Reschedule.njk), [confirmation sheet](../src/Views/Customer/Appointments/_RescheduleSheet.njk), shared booking day/slot and StatePage components, [demo fixture](../src/MockData/customer/appointment-reschedule.json) and [Playwright coverage](../tests/phase04/appointment-reschedule.spec.mjs). [State map and desktop adaptation](../docs-work/desktop-layouts/CUS-04-RSC.md).
+
+## CUS-04 initial detail preview — 2026-11-21
+
+DEC-072 and Batch 3 CUS-04, DONE, INACTIVE and CAN-GT24 → [detail view](../src/Views/Customer/Appointments/Detail.njk), [receipt/policy fixture](../src/MockData/customer/appointment-detail.json), shared AppointmentHero and Sheet, and [linked record, responsive, keyboard and axe checks](../tests/phase04/appointment-detail.spec.mjs). [Source and desktop brief](../docs-work/desktop-layouts/CUS-04.md).
+
+## CUS-03 retained-filter calendar — 2026-11-17
+
+DEC-075 + direct owner follow-up → optional parent preservation in [shared Sheet lifecycle](../src/wwwroot/js/components/sheet.js), enabled only by [CUS-03 date adapter](../src/wwwroot/js/features/customer/appointment-date-picker.js), overlaid calendar spacing in [date styles](../src/wwwroot/css/04-pages/customer-appointment-dates.css), and larger day/time in [appointment card](../src/wwwroot/css/03-components/appointment-card.css) → visible-parent/inert/focus/gap/typography assertions and fresh 320/390/768/1280 screenshots in [appointment feedback tests](../tests/phase04/appointment-feedback.spec.mjs), plus shared Sheet regressions. [Motion record](../docs-work/CUS_03_MOTION_2026-11-17.md). No data or write behavior.
+
+## CUS-03 filter interaction follow-up — 2026-11-17
+
+DEC-074 + four browser annotations and direct motion/multi-select request → [filter controls](../src/Views/Customer/Appointments/_Filter.njk), [multi-value query/matching](../src/wwwroot/js/features/customer/appointment-filters.js), [exclusive-all and whole-date-field behavior](../src/wwwroot/js/features/customer/appointment-filter-sheet.js), [nested calendar adapter](../src/wwwroot/js/features/customer/appointment-date-picker.js), [shared Sheet resume correction](../src/wwwroot/js/components/sheet.js) and [CUS-03 DOM-order entry](../src/wwwroot/js/components/list-entry.js) → [filter/motion regressions](../tests/phase04/appointment-feedback.spec.mjs), [initial-order regression](../tests/phase04/appointments.spec.mjs) and [motion record](../docs-work/CUS_03_MOTION_2026-11-17.md). Date range stays native radio/single-select; other groups use native checkboxes. No product write or new route.
+
+## CUS-03 annotated revision — 2026-11-17
+
+DEC-073 + seven owner browser comments + supplied popup screenshot → [native tools](../src/Views/Customer/Appointments/_Tools.njk), [common filter](../src/Views/Customer/Appointments/_Filter.njk), [two-boundary calendar wrapper](../src/Views/Shared/Components/_CustomerDatePicker.njk), [date adapter](../src/wwwroot/js/features/customer/appointment-date-picker.js) reusing Phase 03 calendar.js/monthGrid, [desktop history](../src/wwwroot/css/04-pages/customer-history-desktop.css) and scoped list/panel styles → [annotation regressions](../tests/phase04/appointment-feedback.spec.mjs), [updated list/filter regressions](../tests/phase04/appointments.spec.mjs), home and recurring calendar parity → [actual evidence](../docs-work/CUS_03_OWNER_FEEDBACK_2026-11-17.md). No new page/role/write endpoint.
+
+## CUS-03 list and filters — 2026-11-17
+
+DEC-072 + Batch 3 CUS-03/PAST/FILTER/FILTER-PAST/EMPTY/NORESULT + consolidated Handoff 06 D10-41/42/45/59/60 → [source/state specification](../docs-work/CUS_03_SPEC.md), [desktop review brief](../docs-work/desktop-layouts/CUS-03.md) → [page](../src/Views/Customer/Appointments/Index.njk), [filter sheet](../src/Views/Customer/Appointments/_Filter.njk), [AppointmentCard](../src/Views/Shared/Components/_AppointmentCard.njk), [history row](../src/Views/Shared/Components/_AppointmentHistoryRow.njk), [shared customer layout](../src/Views/Shared/_CustomerPanelLayout.njk), [fixture](../src/MockData/customer/appointments.json), [feature](../src/wwwroot/js/features/customer/appointments.js) → [browser regression](../tests/phase04/appointments.spec.mjs) and existing home/shared-motion/initial-entry regressions → [actual results and comparisons](../docs-work/CUS_03_REVIEW_2026-11-17.md). CUS-01 acceptance is explicit owner slice acceptance; CUS-03 and full-phase acceptance remain pending.
+
+## Customer More recovery and restored chrome — 2026-11-16
+
+DEC-065 → [plain shared desktop menu](../src/Views/Shared/_CustomerDesktopNav.njk), [restored home header](../src/Views/Customer/Home/Index.njk), [support-column composition](../src/wwwroot/css/04-pages/customer-review-layout.css), [viewport/list-scrolling More](../src/wwwroot/css/03-components/customer-more-mobile.css) and [shared Sheet interruption cleanup](../src/wwwroot/js/components/sheet.js) → [reproduction/regression](../tests/phase04/more-recovery.spec.mjs), existing customer/shell/booking/motion/root/subpath tests → [actual evidence](../docs-work/PHASE_04_MORE_RECOVERY_2026-11-16.md). Prior radio/header decisions below are superseded; no role, money or backend permission changes.
+
+## Customer owner feedback — 2026-11-16
+
+DEC-064 and supplied More/dock screenshots → [shared native navigation](../src/Views/Shared/_CustomerDesktopNav.njk), [customer identity](../src/Views/Shared/_CustomerIdentity.njk), [More](../src/Views/Shared/_MoreDrawer.njk), [dock motion](../src/wwwroot/js/components/customer-dock.js), [responsive cards](../src/wwwroot/css/04-pages/customer-review-layout.css) and CUS-05's second pending-payment example → [owner-feedback regression](../tests/phase04/owner-feedback.spec.mjs) plus booking/shell/motion/axe/root/subpath checks. [Evidence](../docs-work/PHASE_04_OWNER_FEEDBACK_2026-11-16.md). Actual radios replace desktop-only page selection; fallback hrefs remain in static HTML. No financial/backend authorization is introduced.
+
+## CUS-01 desktop revision — 2026-11-16
+
+DEC-063 → [revised desktop brief](../docs-work/desktop-layouts/CUS-01.md), accepted booking menu → [shared menu partial](../src/Views/Shared/_CustomerDesktopNav.njk) reused by booking/home, [desktop composition](../src/wwwroot/css/04-pages/customer-home-desktop.css) and [appointment ticket layout](../src/wwwroot/css/04-pages/customer-appointment-desktop.css) → [desktop geometry, state, menu and keyboard tests](../tests/phase04/desktop.spec.mjs), mobile home/booking/choice/shared-shell regressions. [Actual results and comparisons](../docs-work/PHASE_04_IMPLEMENTATION_FA.md). Same source copy/data/routes; no permission or backend change.
+
+## Phase 04 first slice — 2026-11-16
+
+DEC-062 → Batch 3 CUS-01-A/EMPTY/INACTIVE and AppointmentHero/ScreensCustomer → [home template](../src/Views/Customer/Home/Index.njk), [canonical hero](../src/Views/Shared/Components/_AppointmentHero.njk), [fixture](../src/MockData/customer/home.json), [home feature](../src/wwwroot/js/features/customer/home.js) and existing shell/sheet/rail owners → [state, timer, readonly, keyboard, responsive and axe tests](../tests/phase04/home.spec.mjs). CUS-07 is only the embedded balance in [tools partial](../src/Views/Customer/Home/_Tools.njk). [Sources, comparisons and remaining phase work](../docs-work/PHASE_04_IMPLEMENTATION_FA.md); [desktop proposal](../docs-work/desktop-layouts/CUS-01.md) awaits review. No backend authorization or finance implementation is claimed.
+
 ## Booking flash correction — 2026-11-16
 
 DEC-061 → [booking-link fade bypass](../src/wwwroot/js/components/navigation-motion.js) and [opaque booking entry](../src/wwwroot/css/05-utilities/motion.css) → [first-frame and real navigation regression](../tests/phase03/choice-navigation-flash.spec.mjs), choice-layout/booking/shared-motion tests → [report](../docs-work/BOOKING_CHOICE_NAVIGATION_2026-11-16.md). No route/data/acceptance changes.
@@ -75,7 +147,7 @@ Owner request 2026-11-14 → [standalone UI/storage](../preview-review/) + [buil
 
 ## Infrastructure maintenance — 2026-11-14
 
-- ARCH: [project context](ai/PROJECT_CONTEXT.md), [frontend guide](ai/FRONTEND_ARCHITECTURE.md), root workflow prompts and ten local skills preserve static/Razor compatibility and phase gates.
+- ARCH: [frontend guide](ai/FRONTEND_ARCHITECTURE.md), [root instructions](../AGENTS.md) and the [phase plan](PHASE_PLAN.md) track static/Razor compatibility and phase gates.
 - DS: [export inventory](ai/DESIGN_EXPORT_INVENTORY.md), [source map](ai/DESIGN_SOURCE_MAP.md), [catalog](ai/COMPONENT_CATALOG.md), [conflicts](ai/DESIGN_SOURCE_CONFLICTS.md) derive from immutable source evidence and existing owner decisions.
 - RULE: [implementation](ai/DESIGN_IMPLEMENTATION_CONTRACT.md), [responsive](ai/RESPONSIVE_DESIGN_CONTRACT.md), [motion](ai/MOTION_SPEC.md), [dependency](ai/DEPENDENCY_POLICY.md), [QA](ai/QA_CHECKLIST.md) and seven evidence templates govern later assigned work.
 - Acceptance evidence: [maintenance report](ai/AUDIT_REPORT.md), existing root/subpath suites (76 passed each), full lint/build and maintained-doc structural checks. This is maintenance evidence, not new PAGE_INVENTORY product rows or Phase 03 acceptance.

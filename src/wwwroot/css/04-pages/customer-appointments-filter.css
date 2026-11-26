@@ -1,0 +1,139 @@
+@layer pages {
+  .rv-appointments-filter {
+    position: relative;
+    background: var(--glass-fill-strong);
+    backdrop-filter: blur(var(--blur-strong)) saturate(180%);
+    border: 1px solid var(--glass-edge);
+  }
+
+  .rv-appointments-filter[data-rv-under-sheet] { visibility: visible; }
+
+  @media (min-width: 1024px) {
+    .rv-appointments-filter__grip {
+      display: block;
+      inline-size: var(--space-8);
+      block-size: var(--space-1);
+      margin: calc(-1 * var(--space-3)) auto var(--space-4);
+      border-radius: var(--radius-pill);
+      background: var(--line-strong);
+    }
+  }
+  .rv-appointments-filter form { display: grid; gap: var(--space-3); }
+
+  .rv-appointments-filter fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-inline-size: 0;
+  }
+  .rv-appointments-filter legend { margin-block-end: var(--space-2); font-size: var(--body-sm-size); }
+  .rv-appointments-filter .rv-sheet__header h2 { font-size: var(--heading-lg-size); }
+  .rv-appointments-filter [data-rv-sheet-initial-focus]:focus { outline: 0; }
+  .rv-appointments-filter__options { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+  .rv-appointments-filter__chip,
+  .rv-appointments-filter__person {
+    position: relative;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .rv-appointments-filter input:is([type="radio"], [type="checkbox"]) {
+    position: absolute;
+    opacity: 0;
+    inline-size: 1px;
+    block-size: 1px;
+  }
+
+  .rv-appointments-filter__chip > span {
+    display: flex;
+    min-inline-size: var(--size-touch);
+    min-block-size: var(--size-touch);
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-pill);
+    font-size: var(--caption-size);
+    color: var(--text-secondary);
+    background: var(--glass-fill);
+    transform: scale(0.96);
+    transition: transform var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
+  }
+
+  .rv-appointments-filter__chip img {
+    border-radius: var(--radius-pill);
+    object-fit: cover;
+    inline-size: 28px;
+    block-size: 28px;
+  }
+
+  .rv-appointments-filter__hint {
+    font-size: var(--caption-size);
+    line-height: var(--caption-line);
+    font-weight: 300;
+    margin: var(--space-2) 0 0;
+  }
+
+  .rv-appointments-filter__people {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--space-2);
+    overflow-x: auto;
+    padding: var(--space-1);
+    scrollbar-width: thin;
+  }
+  .rv-appointments-filter__person { flex: 0 0 max(var(--size-touch), calc((100% - var(--space-8)) / 5)); }
+
+  .rv-appointments-filter__person > span {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-1);
+    min-inline-size: var(--size-touch);
+    padding: var(--space-1) 0;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    font-size: var(--caption-size);
+    color: var(--text-secondary);
+    transform: scale(0.96);
+    transition: transform var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
+  }
+
+  .rv-appointments-filter__person img {
+    object-fit: cover;
+    inline-size: 60px;
+    block-size: 60px;
+    border-radius: var(--radius-pill);
+    filter: grayscale(1);
+  }
+  .rv-appointments-filter__person .rv-icon-tile { border-radius: var(--radius-pill); inline-size: var(--space-12); block-size: var(--space-12); }
+
+  .rv-appointments-filter .rv-sheet__header > .rv-text-link {
+    min-block-size: var(--size-touch);
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    white-space: nowrap;
+    font-size: var(--caption-size);
+  }
+
+  .rv-appointments-filter__chip input:checked + span {
+    background: var(--bg-surface);
+    border-color: var(--glass-edge);
+    box-shadow: var(--shadow-md);
+    color: var(--text-primary);
+    font-weight: 600;
+    transform: scale(1);
+  }
+  .rv-appointments-filter input:focus-visible + span { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+  .rv-appointments-filter__person input:checked + span { color: var(--text-primary); font-weight: 600; transform: scale(1); }
+  .rv-appointments-filter__person input:checked + span img { filter: none; }
+  .rv-appointments-filter :is(.rv-appointments-filter__chip, .rv-appointments-filter__person):active > span { transform: scale(0.93); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rv-appointments-filter__chip > span,
+    .rv-appointments-filter__person > span { transition: none; }
+  }
+}

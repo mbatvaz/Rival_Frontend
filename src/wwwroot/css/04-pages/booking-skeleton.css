@@ -1,0 +1,46 @@
+@layer pages {
+  .rv-booking-skeleton__cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: clip;
+    gap: var(--space-2);
+    padding-block: var(--space-3) var(--space-4);
+    margin-inline: calc(-1 * var(--space-4));
+  }
+
+  .rv-booking-skeleton__cards > .rv-skel {
+    flex: 0 0 clamp(165px, 59vw, 285px);
+    aspect-ratio: 18 / 25;
+    background: var(--chrome-100);
+  }
+
+  @media not all and (min-width: 1024px) {
+    .rv-booking-skeleton__cards > :is(:first-child, :nth-child(3)) { scale: 0.84; }
+    .rv-booking-skeleton__cards > :last-child { display: none; }
+  }
+
+  @media (min-width: 1024px) {
+    .rv-booking-skeleton__cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-4);
+      margin: 0;
+      padding: 0;
+    }
+
+    .rv-booking-skeleton__cards > .rv-skel { aspect-ratio: 4 / 5; border-radius: var(--radius-lg); }
+  }
+
+  .rv-quick-skeleton .rv-skel {
+    block-size: var(--space-3);
+    border-radius: var(--radius-pill);
+    background: var(--chrome-100);
+  }
+  .rv-quick-skeleton .rv-skel:first-child { block-size: auto; aspect-ratio: 3 / 2; border-radius: var(--radius-md); }
+  .rv-quick-skeleton .rv-skel:last-child { inline-size: 72%; }
+
+  @media (min-width: 1024px) {
+    .rv-quick-skeleton .rv-skel:first-child { grid-row: span 2; aspect-ratio: 1; }
+  }
+}

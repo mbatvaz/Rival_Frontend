@@ -26,14 +26,15 @@ for (const role of ['customer', 'stylist', 'admin']) {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(role + '/');
     await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
-    await expect(page.getByText('این صفحه هنوز پیاده‌سازی نشده است.')).toBeVisible();
+    if (role === 'customer') await expect(page.getByRole('heading', { name: 'نوبت‌های پیش رو', exact: true })).toBeVisible();
+    else await expect(page.getByText('این صفحه هنوز پیاده‌سازی نشده است.')).toBeVisible();
     await page.getByRole('button', { name: 'بیشتر', exact: true }).click();
     const more = page.getByRole('dialog', { name: 'بیشتر', exact: true });
     for (const href of await more.locator('a').evaluateAll(nodes => nodes.map(n => n.getAttribute('href')))) {
       expect((await request.get(href)).ok(), href).toBe(true);
       expect(href).not.toMatch(/wallet|reports|announcements|my-schedule/);
     }
-    const first = more.locator('button').first();
+    const first = more.locator('a[href]:visible, button:visible').first();
     await first.focus();
     await page.keyboard.press('Shift+Tab');
     await expect(more.getByRole('button', { name: 'خروج از حساب' })).toBeFocused();

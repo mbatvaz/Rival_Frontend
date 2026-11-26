@@ -50,3 +50,17 @@ test('Long variable service and stylist names stay within compact cards and shor
   await expect(name.locator('.rv-text-line__content')).toHaveCSS('animation-name', 'none');
   await expect(name).toHaveCSS('overflow-x', 'auto');
 });
+
+test('Portfolio captions are centered and long card text moves without ellipsis @smoke', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 900 });
+  await page.goto('portfolio/');
+  await ready(page);
+  const caption = page.locator('.rv-portfolio-card__caption').first();
+  const title = caption.locator('span[data-rv-overflow-text]');
+  await expect(title).toHaveCSS('text-align', 'center');
+  await expect(caption.locator('p')).toHaveCSS('text-align', 'center');
+  await title.evaluate(el => { el.textContent = 'عنوان نمونه‌کار برای آزمایش نمایش کامل متن در کارت '.repeat(5); });
+  await expect(title).toHaveAttribute('data-rv-text-overflow', 'true');
+  await expect(title).toHaveCSS('text-overflow', 'clip');
+  await expect(title.locator('.rv-text-line__content')).toHaveCSS('animation-name', 'rv-overflow-text');
+});

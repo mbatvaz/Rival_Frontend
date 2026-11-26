@@ -1,26 +1,9 @@
-# Phase 07 — Admin Management
+# Phase 07 — Admin management
 
-This package is executed by **OpenAI Codex** from the VS Code workspace. It follows root `AGENTS.md` and `docs/RIVAL_PROJECT_CONTRACT.md`.
+Batch 6 ADM-10–15, including stylists, services, mappings, pricing, schedules, holidays, and BookableFrom.
 
-## Scope
-Stylists, services, mappings, pricing, schedules, holidays, and BookableFrom.
+## Acceptance
 
-## Required input
-- Root `AGENTS.md` and `docs/RIVAL_PROJECT_CONTRACT.md`.
-- Master docs: Page Inventory, Phase Plan, Component Reuse Matrix, Traceability, Decision Log, Open Questions.
-- `design-export/MANIFEST.json` and exact source evidence for the IDs in this phase.
-- This package's Source Map and `references/Rival_Phase_07_AI_Handoff.md`.
+Verify impact previews, immutable service type, and BookableFrom. Reuse the Phase 06 admin shell and existing schedule and form components. Derive route and business behavior from approved evidence.
 
-## Rules
-- Do not invent business behavior. Cite Page ID, Component ID, RULE/DEC in code comments or PROGRESS.
-- Keep shared components single-source. Run their reuse regression list after changes.
-- Preserve RTL, Persian copy, fa-digits/Jalali helpers, bottom sheets, Yekan Bakh, 44px touch targets, and the approved scroll policy.
-- Desktop is a page-specific composition based on the mobile design language, not a stretched mobile page.
-- Node/npm are local build/test tools only; cPanel receives static `dist/` files.
-
-## Done when
-- [ ] Impact previews, immutable service type, and BookableFrom behavior match the canonical docs.
-- [ ] Shared schedule and form components are reused.
-- 390/768/1280 checks, axe, keyboard, structure and no-dead-end checks pass.
-- `PROGRESS.md`, `DISCREPANCIES.md`, and traceability are updated.
-- The agent stops for owner review.
+Read the relevant product excerpts in the [phase handoff](references/Rival_Phase_07_AI_Handoff.md) and use the [design manifest](../../design-export/MANIFEST.json) for exact boards.

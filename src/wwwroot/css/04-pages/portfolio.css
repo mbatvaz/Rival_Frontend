@@ -45,6 +45,7 @@
   .rv-portfolio-card--lead img { block-size: 420px; border-radius: inherit; }
 
   .rv-portfolio-card__caption {
+    text-align: center;
     position: absolute;
     inset-inline: var(--space-4);
     inset-block-end: var(--space-4);
@@ -63,7 +64,7 @@
     cursor: pointer;
   }
   .rv-portfolio-card__caption > span { display: block; }
-  .rv-portfolio-card:focus-within { outline: 2px solid var(--focus-ring); outline-offset: 3px; }
+  .rv-portfolio-card:has(:focus-visible) { outline: 2px solid var(--focus-ring); outline-offset: 3px; }
 
   .rv-portfolio-card__caption p {
     margin: 0;

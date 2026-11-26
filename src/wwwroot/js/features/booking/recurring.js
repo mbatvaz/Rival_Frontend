@@ -1,3 +1,5 @@
+import { motionBatch, cancelEntries } from '../../components/entry-motion.js';
+import { sceneTiming, startMotion } from '../../components/motion.js';
 import { api } from '../../core/api.js';
 import { localUrl } from '../../core/config.js';
 import { faDigits } from '../../core/format.js';
@@ -28,10 +30,31 @@ export async function initRecurring(root, { catalog }) {
     }));
     const next = [...remaining, ...additions].sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
     if (!preview) await api.write(resource, { items: next });
+    return () => updateList(next, draft.id);
+  });
+  async function updateList(next, editedId) {
+    const previous = new Set(items.map(item => item.id));
+    const nextIds = new Set(next.map(item => item.id));
+    const rows = () => new Map([...list.querySelectorAll('.rv-recurring-row')].map(row => [get(row, 'rec-edit').dataset.rvRecItemId, row]).concat([[null, addRow]]));
+    const oldRows = rows();
+    const removed = items.filter(item => !nextIds.has(item.id)).map(item => oldRows.get(item.id));
+    if (removed.length) await motionBatch(list, ({ list: exit }) => exit(removed, 'left'), { exit: true });
+    const positions = new Map([...oldRows].map(([id, row]) => [id, row.getBoundingClientRect().top]));
+    cancelEntries(list);
     items = next;
     render();
-    window.requestAnimationFrame(() => (list.querySelector('[data-rv-rec-item-id="' + draft.id + '"]') ?? add).focus({ preventScroll: true }));
-  });
+    const updated = rows();
+    const shifts = [...updated].filter(([id]) => positions.has(id))
+      .map(([id, row]) => ({ row, delta: positions.get(id) - row.getBoundingClientRect().top }))
+      .filter(({ delta }) => delta !== 0);
+    const timing = sceneTiming('duration-base');
+    for (const { row, delta } of shifts) {
+      startMotion(row, [{ translate: '0 ' + delta + 'px' }, { translate: '0 0' }], { ...timing, id: 'rv-recurring-reflow' });
+    }
+    const added = next.filter(item => !previous.has(item.id)).map(item => updated.get(item.id));
+    motionBatch(list, ({ list: enter }) => enter(added, 'left', shifts.length ? timing.duration : 0));
+    (updated.has(editedId) ? get(updated.get(editedId), 'rec-edit') : add).focus({ preventScroll: true });
+  }
   const render = () => {
     let month = '';
     list.replaceChildren(...items.map((item, index) => {

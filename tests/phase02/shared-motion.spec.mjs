@@ -7,7 +7,7 @@ test('Role-shell booking uses the canonical ink action and accessible booking na
   for (const width of [390, 1280]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('customer/');
-    const link = page.getByRole('navigation', { name: 'ناوبری اصلی مشتری' }).getByRole('link', { name: 'رزرو نوبت', exact: true });
+    const link = page.getByRole('navigation', { name: width >= 1024 ? 'منوی مشتری' : 'ناوبری اصلی مشتری', exact: true }).getByRole('link', { name: 'رزرو نوبت', exact: true });
     await expect(link).toBeVisible();
     expect(await link.evaluate(element => getComputedStyle(element).backgroundColor)).toBe('rgb(18, 20, 23)');
     expect(await link.getAttribute('href')).toBe(basePath + 'customer/book/');
@@ -23,9 +23,9 @@ for (const width of [390, 1280]) {
     await opener.click();
     const panel = page.getByRole('dialog', { name: 'فید کوتاه کلاسیک' });
     await expect(panel).toBeVisible();
-    const entry = await panel.evaluate(element => ({ name: getComputedStyle(element).animationName,
-      duration: getComputedStyle(element).animationDuration }));
-    expect(entry).toEqual({ name: width === 390 ? 'rv-sheet-enter' : 'rv-viewer-enter', duration: '0.38s' });
+    const entry = await panel.evaluate(element => element.getAnimations()
+      .filter(animation => animation.id === 'rv-sheet-enter').map(animation => animation.effect.getTiming().duration));
+    expect(entry).toEqual(width < 1024 ? [633] : [633, 633]);
     await page.emulateMedia({ reducedMotion: 'reduce' });
     expect(await panel.evaluate(element => element.getAnimations().length)).toBe(0);
     await page.keyboard.press('Escape');
@@ -45,9 +45,9 @@ test('Shared motion cancellation follows live reduced-motion preference and pres
   await page.goto('');
   await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
   await page.evaluate(async prefix => {
-    const { playMotion } = await import(prefix + 'js/components/motion.js');
+    const { motionTiming, startMotion } = await import(prefix + 'js/components/motion.js');
     window.motionResult = 'pending';
-    playMotion(document.querySelector('main'), [{ opacity: 1 }, { opacity: 0 }], 'duration-deliberate')
+    startMotion(document.querySelector('main'), [{ opacity: 1 }, { opacity: 0 }], motionTiming('duration-deliberate')).finished
       .then(() => { window.motionResult = 'settled'; });
   }, basePath);
   await page.emulateMedia({ reducedMotion: 'reduce' });
@@ -69,8 +69,8 @@ test('Unsupported animation and visibility APIs leave native navigation, sheets 
   await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
   await expect(page.locator('.rv-home-steps h3')).toHaveCount(3);
   await page.evaluate(async prefix => {
-    const { playMotion } = await import(prefix + 'js/components/motion.js');
-    await playMotion(document.querySelector('main'), [{ opacity: 1 }, { opacity: 0 }]);
+    const { motionTiming, startMotion } = await import(prefix + 'js/components/motion.js');
+    await startMotion(document.querySelector('main'), [{ opacity: 1 }, { opacity: 0 }], motionTiming()).finished;
   }, basePath);
   await page.locator('[data-rv-carousel-caption]:visible a').click();
   await expect(page).toHaveURL(new RegExp(basePath + 'portfolio/'));

@@ -182,11 +182,17 @@
       "status": "Fully Designed / reused final ref",
       "source": "Batch 3",
       "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
+      "template": "Customer/Home/Index.njk",
+      "mockData": "MockData/customer/home.json",
+      "notes": "Accepted under DEC-086. Customer dashboard, embedded balance, and customer More list scrolling with resize recovery.",
       "titleFa": "داشبورد مشتری",
-      "phase": "Phase 04"
+      "phase": "Phase 04",
+      "implementationStatus": "accepted",
+      "ownerAcceptedAt": "2026-11-17",
+      "variants": [
+        { "label": "بدون نوبت", "query": "?state=empty" },
+        { "label": "حساب غیرفعال", "query": "?state=inactive" }
+      ]
     },
     {
       "id": "CUS-02",
@@ -226,11 +232,43 @@
       "status": "Fully Designed",
       "source": "Batch 3",
       "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
+      "template": "Customer/Appointments/Index.njk",
+      "mockData": "MockData/customer/appointments.json",
+      "notes": "Phase 04 slice: appointment list and filters accepted by the owner.",
       "titleFa": "نوبت‌های من",
-      "phase": "Phase 04"
+      "phase": "Phase 04",
+      "implementationStatus": "accepted",
+      "ownerAcceptedAt": "2026-11-19",
+      "variants": [
+        {
+          "label": "نوبت‌های گذشته",
+          "query": "?tab=history"
+        },
+        {
+          "label": "فیلتر پیش رو",
+          "query": "?state=filter"
+        },
+        {
+          "label": "فیلتر گذشته",
+          "query": "?state=filter-past"
+        },
+        {
+          "label": "نتیجه خالی فیلتر",
+          "query": "?state=noresult"
+        },
+        {
+          "label": "بدون نوبت",
+          "query": "?state=empty"
+        },
+        {
+          "label": "در حال دریافت",
+          "query": "?state=loading"
+        },
+        {
+          "label": "خطای دریافت",
+          "query": "?state=error"
+        }
+      ]
     },
     {
       "id": "CUS-04",
@@ -240,11 +278,28 @@
       "status": "Fully Designed",
       "source": "Batch 3",
       "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
+      "template": "Customer/Appointments/Detail.njk",
+      "mockData": "MockData/customer/appointment-detail.json",
+      "notes": "Accepted under DEC-086. Appointment detail, cancellation impact preview and CUS-04-RSC variants.",
       "titleFa": "جزئیات نوبت",
-      "phase": "Phase 04"
+      "phase": "Phase 04",
+      "implementationStatus": "accepted",
+      "variants": [
+        { "label": "انجام شده", "query": "?appointment=BK-47920&state=done" },
+        { "label": "حساب غیرفعال", "query": "?state=inactive" },
+        { "label": "پیش‌نمایش لغو", "query": "?state=can-gt24" },
+        { "label": "جزئیات نوبت در بازهٔ ۲۴ تا ۳ ساعت", "query": "?state=lt24" },
+        { "label": "جابه‌جایی — انتخاب زمان تازه", "query": "?state=rsc-select" },
+        { "label": "جابه‌جایی — برگه تأیید", "query": "?state=rsc-confirm" },
+        { "label": "جابه‌جایی — هشدار ۲۴ تا ۳ ساعت", "query": "?state=rsc-warn" },
+        { "label": "جابه‌جایی — جبرانی", "query": "?state=rsc-comp" },
+        { "label": "جابه‌جایی — انجام شد", "query": "?state=rsc-done" },
+        { "label": "جابه‌جایی — انجام شد بدون حق بازگشت", "query": "?state=rsc-done-lt24" },
+        { "label": "جابه‌جایی — سهم مصرف شده", "query": "?state=rsc-used" },
+        { "label": "جابه‌جایی — سهم مصرف شده بدون حق بازگشت", "query": "?state=rsc-used-nr" },
+        { "label": "تعویض نوبت — مشتری یک", "query": "?swapCustomer=a" },
+        { "label": "تعویض نوبت — مشتری دو", "query": "?swapCustomer=b" }
+      ]
     },
     {
       "id": "CUS-05",
@@ -254,11 +309,30 @@
       "status": "Fully Designed",
       "source": "Batch 3",
       "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
-      "titleFa": "درخواست‌های من",
-      "phase": "Phase 04"
+      "template": "Customer/Requests/Index.njk",
+      "mockData": "MockData/customer/requests.json",
+      "notes": "Batch 3 request list, accepted under DEC-086.",
+      "titleFa": "درخواست‌ها",
+      "phase": "Phase 04",
+      "implementationStatus": "accepted",
+      "variants": [
+        {
+          "label": "در انتظار پاسخ",
+          "query": "?tab=wait"
+        },
+        {
+          "label": "تکمیل",
+          "query": "?tab=done"
+        },
+        {
+          "label": "فیلتر درخواست‌ها",
+          "query": "?tab=done&state=filter"
+        },
+        {
+          "label": "بدون درخواست",
+          "query": "?state=empty"
+        }
+      ]
     },
     {
       "id": "CUS-06",
@@ -268,25 +342,54 @@
       "status": "Fully Designed",
       "source": "Batch 3 + Batch 2 payment reuse",
       "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
+      "template": "Customer/Requests/Detail.njk",
+      "mockData": "MockData/customer/requests.json",
+      "notes": "Batch 3 request detail, accepted under DEC-086.",
       "titleFa": "جزئیات درخواست",
-      "phase": "Phase 04"
-    },
-    {
-      "id": "CUS-07",
-      "routeTemplate": "embedded balance",
-      "previewPath": "/_preview/context/cus-07/",
-      "role": "Customer",
-      "status": "Implied / no route",
-      "source": "Batch 3, DS",
-      "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
-      "titleFa": "موجودی اعتبار",
-      "phase": "Phase 04"
+      "phase": "Phase 04",
+      "implementationStatus": "accepted",
+      "variants": [
+        {
+          "label": "در انتظار پرداخت — یک خدمت",
+          "query": "?request=RQ-2210"
+        },
+        {
+          "label": "در انتظار بررسی — یک خدمت",
+          "query": "?request=RQ-2215"
+        },
+        {
+          "label": "در انتظار هماهنگی پکیج",
+          "query": "?request=RQ-2219"
+        },
+        {
+          "label": "رزرو شده",
+          "query": "?request=RQ-2194"
+        },
+        {
+          "label": "رد شده",
+          "query": "?request=RQ-2171"
+        },
+        {
+          "label": "لغو شده",
+          "query": "?request=RQ-2160"
+        },
+        {
+          "label": "منقضی شده",
+          "query": "?request=RQ-2152"
+        },
+        {
+          "label": "حساب غیرفعال",
+          "query": "?request=RQ-2210&state=inactive"
+        },
+        {
+          "label": "لغو پیش از پاسخ",
+          "query": "?request=RQ-2215&state=can-review"
+        },
+        {
+          "label": "لغو در مهلت پرداخت",
+          "query": "?request=RQ-2207&state=can-pay"
+        }
+      ]
     },
     {
       "id": "CUS-08",
@@ -296,11 +399,18 @@
       "status": "Fully Designed",
       "source": "Batch 3",
       "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
-      "titleFa": "اعلان آزاد شدن زمان",
-      "phase": "Phase 04"
+      "template": "Customer/AvailabilityAlerts/Index.njk",
+      "mockData": "MockData/customer/availability-alerts.json",
+      "notes": "Availability alert management and source scenarios accepted under DEC-082.",
+      "titleFa": "اعلان آزادشدن زمان",
+      "phase": "Phase 04",
+      "implementationStatus": "accepted",
+      "variants": [
+        { "label": "نمونهٔ طرح — فهرست", "query": "?state=example" },
+        { "label": "افزودن اعلان", "query": "?state=add" },
+        { "label": "ترکیب تکراری", "query": "?state=duplicate" },
+        { "label": "لغو اعلان", "query": "?state=cancel" }
+      ]
     },
     {
       "id": "CUS-09",
@@ -310,11 +420,17 @@
       "status": "Fully Designed",
       "source": "Batch 3",
       "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
-      "titleFa": "اعلان‌های مشتری",
-      "phase": "Phase 04"
+      "template": "Customer/Notifications/Index.njk",
+      "mockData": "MockData/customer/notifications.json",
+      "notes": "Customer inbox and three D10-56 source states accepted under DEC-083.",
+      "titleFa": "اعلان‌ها",
+      "phase": "Phase 04",
+      "implementationStatus": "accepted",
+      "variants": [
+        { "label": "نمونهٔ طرح — فهرست", "query": "?state=example" },
+        { "label": "همه خوانده شد", "query": "?state=read" },
+        { "label": "بدون اعلان", "query": "?state=empty" }
+      ]
     },
     {
       "id": "CUS-10",
@@ -324,11 +440,20 @@
       "status": "Fully Designed",
       "source": "Batch 3",
       "primaryBatch": 3,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
-      "titleFa": "پروفایل مشتری",
-      "phase": "Phase 04"
+      "template": "Customer/Profile/Index.njk",
+      "mockData": "MockData/customer/profile.json",
+      "notes": "D10-57/D10-58 profile and method Sheets accepted under DEC-084. The existing single-column desktop layout was accepted under DEC-085.",
+      "titleFa": "پروفایل",
+      "phase": "Phase 04",
+      "implementationStatus": "accepted",
+      "variants": [
+        { "label": "نمونهٔ طرح — پروفایل", "query": "?state=example" },
+        { "label": "ویرایش پروفایل", "query": "?state=edit" },
+        { "label": "تنظیم رمز عبور", "query": "?state=password" },
+        { "label": "تأیید شماره فعلی", "query": "?state=phone-current" },
+        { "label": "تأیید شماره تازه", "query": "?state=phone-new" },
+        { "label": "حذف Passkey", "query": "?state=passkey-delete" }
+      ]
     },
     {
       "id": "BK-01",

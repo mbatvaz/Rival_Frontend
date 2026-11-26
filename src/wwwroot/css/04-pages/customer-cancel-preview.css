@@ -1,0 +1,52 @@
+@layer pages {
+  .rv-appointment-cancel-hero,
+  .rv-reschedule-lift {
+    position: fixed;
+    inset-inline: auto;
+    top: var(--rv-hero-top);
+    left: var(--rv-hero-left);
+    width: var(--rv-hero-width);
+    pointer-events: none;
+  }
+
+  .rv-appointment-cancel-hero {
+    display: block;
+    z-index: 0;
+    padding: 0;
+    margin: 0;
+    background: none;
+  }
+  .rv-appointment-cancel-hero[hidden] { display: none; }
+  .rv-appointment-cancel-hero .rv-appointment-hero { width: 100%; }
+  .rv-appointment-cancel { position: relative; z-index: 1; }
+  .rv-appointment-cancel__icon { background: var(--rose-bg); color: var(--rose-fg); }
+  .rv-appointment-cancel__coin { background: var(--success-bg); color: var(--success-fg); }
+
+  .rv-appointment-cancel .rv-appointment-cancel__impact {
+    display: flex;
+    gap: var(--space-3);
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    border-block: 1px solid var(--line-hairline);
+  }
+  .rv-appointment-cancel__impact > div { flex: 1; }
+  .rv-appointment-cancel .rv-sheet__header button { background: none; box-shadow: none; }
+
+  .rv-appointment-cancel__deadline > span::after {
+    content: "";
+    display: block;
+    width: 2px;
+    height: var(--space-2);
+    margin: auto;
+    background: var(--bg-inverse);
+  }
+
+  @media (min-width: 1024px) {
+    .rv-appointment-detail .rv-appointment-hero__service { padding-block-start: var(--space-5); }
+    .rv-appointment-cancel-hero .rv-appointment-hero__panel { display: block; margin-block-start: calc(-1 * var(--space-6)); }
+    .rv-appointment-cancel-hero .rv-appointment-hero__service { margin-block-start: var(--space-4); padding-block-start: var(--space-5); }
+  }
+  .rv-appointment-detail__timeline > li:first-child { border-image: linear-gradient(to bottom, transparent 0 16px, var(--chrome-300) 16px) 1; }
+}

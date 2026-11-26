@@ -1,0 +1,27 @@
+{# CUS-05 / D10-51. Active requests reuse the appointment media frame and completed requests reuse the history row. #}
+<article data-rv-card-media class="rv-request-record" data-rv-request-record="{{ request.id }}" data-rv-record="{{ request.id }}" data-rv-request-list-status="{{ request.status }}">
+  <a class="rv-booking-context rv-glass rv-appointment-card rv-request-card" data-rv-request-active href="{{ customerUrls['CUS-06'] }}?request={{ request.id }}"{% if request.status != 'pay' and request.status != 'wait' %} hidden{% endif %}>
+    <img src="{{ basePath }}{{ request.image }}" alt="" width="128" height="138" loading="lazy">
+    <div class="rv-appointment-card__body">
+      <span class="rv-recurring-date"><strong data-rv-request-day>{{ request.day | faDigits }}</strong><span data-rv-request-month>مهر</span></span>
+      <strong data-rv-request-name>{{ request.name }}</strong><span data-rv-request-list-caption>{{ request.subtitle }}</span>
+      <span class="rv-appointment-status rv-request-status" data-rv-tone="{{ model.statuses[request.status][1] }}"><span class="ri ri-{{ model.statuses[request.status][2] }}" aria-hidden="true"></span>{{ model.statuses[request.status][0] }}</span>
+    </div>
+  </a>
+  {% if request.status == 'pay' %}
+    <div class="rv-request-hold" data-rv-request-hold>
+      <div><span role="timer"><bdi data-rv-request-clock>{{ request.clock }}</bdi> تا آزاد شدن زمان{% if request.parts.length %}‌ها{% endif %}</span><span>هزینه رزرو <b>{{ request.amount }}</b> تومان</span></div>
+      <progress value="{{ request.remainingSeconds }}" max="{{ request.totalSeconds }}" aria-label="مهلت پرداخت {{ request.name }}"></progress>
+    </div>
+  {% endif %}
+  <a class="rv-appointment-history" data-rv-request-history href="{{ customerUrls['CUS-06'] }}?request={{ request.id }}"{% if request.status == 'pay' or request.status == 'wait' %} hidden{% endif %}>
+    <img class="rv-appointment-history__image" src="{{ basePath }}{{ request.image }}" alt="" width="72" height="72" loading="lazy">
+    <div class="rv-appointment-history__body"><strong data-rv-request-name>{{ request.name }}</strong><span class="rv-muted" data-rv-request-list-caption>{{ request.identity }}</span>
+      {% for key in ['booked', 'rejected', 'expired', 'cancelled'] %}
+        <span data-rv-request-result="{{ key }}"{% if key != request.status %} hidden{% endif %}>{% include "Shared/Components/_RequestStatus.njk" %}</span>
+      {% endfor %}
+    </div>
+    <span class="rv-appointment-history__when"><bdi data-rv-request-day>{{ request.day | faDigits }}</bdi><small data-rv-request-month>مهر</small></span>
+    <span class="ri ri-chevron-left" aria-hidden="true"></span>
+  </a>
+</article>

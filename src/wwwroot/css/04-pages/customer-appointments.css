@@ -1,0 +1,100 @@
+@layer pages {
+  [data-rv-list-loading] > .rv-skel { min-block-size: calc(var(--size-touch) * 2); }
+
+  .rv-appointments { display: grid; gap: var(--space-5); }
+  .rv-appointments :is(h2, p) { margin: 0; }
+  .rv-appointments__tools { display: flex; gap: var(--space-2); align-items: center; }
+
+  .rv-appointments__tabs {
+    display: flex;
+    flex: 1;
+    gap: var(--space-1);
+    padding: var(--space-1);
+    border: 1px solid var(--glass-edge);
+    border-radius: var(--radius-pill);
+    background: var(--glass-fill);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .rv-appointments__tabs > label { flex: 1; min-inline-size: 0; }
+
+  .rv-appointments__tabs > label > span {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    padding-inline: var(--space-3);
+  }
+  .rv-appointments__tabs [data-rv-total] { font-size: var(--caption-size); }
+
+  .rv-appointments__tabs .rv-booking-radio > span {
+    transform: scale(0.97);
+    transition: transform var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
+  }
+  .rv-appointments__tabs .rv-booking-radio :checked + span { transform: scale(1); }
+  .rv-appointments__tabs .rv-booking-radio:active > span { transform: scale(0.95); }
+
+  .rv-appointments__tools > button {
+    position: relative;
+    flex: none;
+    inline-size: var(--size-control);
+    block-size: var(--size-control);
+    border-radius: var(--radius-pill);
+  }
+  .rv-appointments [data-rv-appointments-panel] { display: grid; gap: var(--space-4); position: relative; }
+
+  .rv-appointments [data-rv-appointments-panel]:has(.rv-appointments__month--future)::before {
+    content: "";
+    position: absolute;
+    inset-block: var(--space-4);
+    inset-inline-start: var(--space-6);
+    inline-size: 1px;
+    background: var(--line-strong);
+  }
+  .rv-appointments__month { display: grid; gap: var(--space-2); }
+
+  .rv-appointments__month > h2 {
+    font-size: var(--caption-size);
+    font-weight: 300;
+    color: var(--text-secondary);
+    padding-inline: var(--space-1);
+  }
+  .rv-appointments__month--future { grid-template-columns: var(--space-12) minmax(0, 1fr); }
+
+  .rv-appointments__month--future > h2 {
+    place-self: start center;
+    z-index: 1;
+    margin-block-start: var(--space-3);
+    padding: var(--space-1) var(--space-2);
+    color: var(--text-inverse);
+    background: var(--bg-inverse);
+    border-radius: var(--radius-pill);
+    font-weight: 400;
+  }
+  .rv-appointments__records { display: grid; gap: var(--space-2); min-inline-size: 0; }
+  .rv-appointments__records--past { border-radius: var(--radius-xl); padding: var(--space-2) var(--space-4); gap: 0; }
+
+  .rv-appointments__chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+  .rv-appointments__chips button {
+    min-block-size: var(--size-touch);
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-pill);
+    background: var(--bg-inverse);
+    color: var(--text-inverse);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  @media (min-width: 1024px) {
+    .rv-appointments__tools { inline-size: min(380px, 45%); }
+    .rv-appointments__records:not(.rv-appointments__records--past) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
+  }
+
+  @media (min-width: 1240px) {
+    .rv-appointments__records:not(.rv-appointments__records--past) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rv-appointments__tabs .rv-booking-radio > span { transition: none; }
+  }
+}

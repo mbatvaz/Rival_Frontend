@@ -32,13 +32,12 @@
   }
 
   .rv-booking-rail {
-    display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: var(--space-3);
     padding: var(--space-2) var(--space-4) var(--space-5);
     margin-inline: calc(var(--space-4) * -1);
   }
+  .rv-booking-rail__track { display: flex; gap: var(--space-3); }
 
   .rv-booking-choice {
     flex: 0 0 min(62%, 270px);
@@ -118,19 +117,4 @@
     font-weight: var(--heading-lg-weight);
   }
   .rv-booking-package .rv-booking-choice__caption > [data-rv-overflow-text] { font-weight: inherit; }
-
-  .rv-booking-skeleton div {
-    block-size: 280px;
-    margin-block-start: var(--space-2);
-    border-radius: var(--radius-xl);
-    background: linear-gradient(110deg, var(--chrome-100) 30%, var(--bg-surface) 50%, var(--chrome-100) 70%);
-    background-size: 250% 100%;
-    animation: rv-booking-sweep 1.6s linear infinite;
-  }
-
-  @keyframes rv-booking-sweep { to { background-position: -170% 0; } }
-
-  @media (prefers-reduced-motion: reduce) {
-    .rv-booking-skeleton div { animation: none; }
-  }
 }

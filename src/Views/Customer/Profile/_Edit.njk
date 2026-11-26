@@ -1,0 +1,44 @@
+<section class="rv-sheet rv-profile-sheet" id="rv-profile-edit" role="dialog" aria-modal="true" aria-labelledby="rv-profile-edit-title" aria-describedby="rv-profile-edit-lead" tabindex="-1" hidden>
+  <span data-rv-sheet-grip aria-hidden="true"></span>
+  <div class="rv-sheet__header">
+    <span class="rv-icon-tile" aria-hidden="true"><span class="ri ri-edit"></span></span>
+    <div class="rv-profile__value">
+      <h2 id="rv-profile-edit-title" data-profile-sheet-title>ویرایش پروفایل</h2>
+      <p class="rv-muted" id="rv-profile-edit-lead" data-profile-sheet-lead>نام و عکس شما برای سالن</p>
+    </div>
+    <button class="rv-icon-btn rv-profile__plain" type="button" data-rv-sheet-close aria-label="بستن"><span class="ri ri-x" aria-hidden="true"></span></button>
+  </div>
+  <form class="rv-profile-sheet__form" method="post" data-profile-form="edit" novalidate>
+    <div class="rv-profile-sheet__photo">
+      {% include "Customer/Profile/_Avatar.njk" %}
+      <input id="profile-photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+      <div class="rv-actions">
+        <button class="rv-btn rv-btn--secondary rv-btn--small" type="button" data-profile-pick-photo><span class="ri ri-upload" aria-hidden="true"></span>عکس تازه</button>
+        <button class="rv-btn rv-btn--small rv-profile__plain" type="button" data-profile-remove-photo><span class="ri ri-trash" aria-hidden="true"></span>حذف عکس</button>
+      </div>
+      <p class="rv-muted">عکس چهره در فهرست نوبت‌های آرایشگر کنار نامتان دیده می‌شود.</p>
+    </div>
+    <section class="rv-profile-crop" data-profile-crop aria-labelledby="rv-profile-crop-title" hidden>
+      <h3 id="rv-profile-crop-title">برش مربع عکس</h3>
+      <div class="rv-profile-crop__surface" data-profile-crop-surface tabindex="0" aria-label="جابه‌جایی عکس با کشیدن یا کلیدهای جهت"></div>
+      <div class="rv-actions">
+        <button class="rv-btn rv-btn--secondary rv-btn--small" type="button" data-profile-crop-zoom-in>بزرگ‌تر</button>
+        <button class="rv-btn rv-btn--secondary rv-btn--small" type="button" data-profile-crop-zoom-out>کوچک‌تر</button>
+        <button class="rv-btn rv-btn--small" type="button" data-profile-crop-apply>اعمال برش</button>
+        <button class="rv-btn rv-btn--small rv-profile__plain" type="button" data-profile-crop-cancel>لغو برش</button>
+      </div>
+    </section>
+    {% for field in [{ id: "firstName", label: "نام", autocomplete: "given-name" }, { id: "lastName", label: "نام خانوادگی", autocomplete: "family-name" }] %}
+      <div class="rv-field">
+        <label for="profile-{{ field.id }}">{{ field.label }}</label>
+        <div class="rv-input"><span class="ri ri-user" aria-hidden="true"></span><input id="profile-{{ field.id }}" name="{{ field.id }}" autocomplete="{{ field.autocomplete }}" maxlength="60" required{% if loop.first %} data-rv-sheet-initial-focus{% endif %}></div>
+      </div>
+    {% endfor %}
+    <p class="rv-muted"><span class="ri ri-info" aria-hidden="true"></span> شماره موبایل از بخش «شماره موبایل» در پروفایل تغییر می‌کند.</p>
+    <p class="rv-feedback rv-feedback--error" data-profile-form-error role="alert"></p>
+    <div class="rv-actions">
+      <button class="rv-btn" type="submit" data-profile-submit>ذخیره</button>
+      <button class="rv-btn rv-btn--secondary" type="button" data-rv-sheet-close>انصراف</button>
+    </div>
+  </form>
+</section>

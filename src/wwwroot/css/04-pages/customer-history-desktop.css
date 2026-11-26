@@ -1,0 +1,33 @@
+@layer pages {
+  @media (min-width: 1024px) {
+    .rv-appointments [data-rv-appointments-panel="history"] {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+    }
+
+    .rv-appointments__records--past {
+      container: history-month / inline-size;
+      padding-inline: var(--space-2);
+    }
+
+    .rv-appointment-history {
+      display: grid;
+      grid-template-columns: var(--size-tile) minmax(0, max-content) max-content max-content max-content var(--space-3);
+      justify-content: space-between;
+      column-gap: var(--space-2);
+      padding-block: var(--space-4);
+    }
+    .rv-appointment-history__image { inline-size: var(--size-tile); block-size: var(--size-tile); border-radius: var(--radius-md); }
+    .rv-appointment-history__body { display: contents; }
+    .rv-appointment-history__body > .rv-appointment-status { justify-self: start; }
+    .rv-appointment-history__when { display: flex; gap: var(--space-2); align-items: center; }
+
+    @container history-month (width < 420px) {
+      .rv-appointment-history {
+        grid-template-columns: var(--size-tile) minmax(0, 1fr) max-content var(--space-3);
+      }
+      .rv-appointment-history__body { display: grid; }
+      .rv-appointment-history__when { display: grid; gap: var(--space-1); }
+    }
+  }
+}

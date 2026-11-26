@@ -1,22 +1,26 @@
 import { api } from '../core/api.js';
 import { basePath } from '../core/config.js';
-import { faDigits } from '../core/format.js';
-import { normalizePhone, validPhone, latinDigits, stateFor, issueCode, verify, finishSession, safeReturn } from '../core/auth-demo.js';
-import { initOtp } from '../components/otp.js';
+import { faDigits, latinDigits } from '../core/format.js';
+import { normalizePhone, validPhone, stateFor, issueCode, verify, finishSession, safeReturn } from '../core/auth-demo.js';
+import { authTransition, closeForRegistration } from './auth-transition.js';
+import { initOtp, shakeOtp } from '../components/otp.js';
 import { initMethods, passwordMode } from './auth-methods.js';
 import { render, fieldError, notice } from './auth-view.js';
 import { applyPreview } from './auth-preview.js';
-
 export async function init() {
   const root = document;
   const get = name => root.querySelector('[data-rv-' + name + ']');
   const form = get('auth-form');
   const view = { stage: 'phone', busy: false, newUser: false };
-  let policy;
-  let account = { issuedAt: 0, lockedUntil: 0, failures: [] };
-  let timer;
-  let accountRevision = 0;
-  const refresh = () => render(root, view, policy, account);
+  let policy, account = { issuedAt: 0, lockedUntil: 0, failures: [] };
+  let timer, accountRevision = 0;
+  const syncOtp = initOtp(root);
+  const refresh = () => {
+    render(root, view, policy, account);
+    const expires = account.issuedAt + policy.validSeconds * 1000 - Date.now();
+    syncOtp(view.stage === 'otp' && !get('code').disabled && expires > 0 ? account.issuedAt : null, expires);
+  };
+  const changeStage = authTransition(form, view, refresh);
   const candidate = new URLSearchParams(window.location.search).get('return');
   async function load() {
     try {
@@ -35,8 +39,7 @@ export async function init() {
     }
   }
   get('auth-retry').addEventListener('click', () => {
-    view.busy = false;
-    notice(root, '');
+    view.busy = false; notice(root, '');
     get('auth-retry').hidden = true;
     if (policy) refresh(); else load();
   });
@@ -61,7 +64,6 @@ export async function init() {
     get('phone').value = faDigits(latinDigits(event.clipboardData.getData('text')).replace(/\D/g, '').slice(0, 11));
     fieldError(root, 'phone', '');
   });
-  initOtp(root);
   get('code').addEventListener('input', () => {
     const caret = get('code').selectionStart;
     get('code').value = faDigits(latinDigits(get('code').value).replace(/\D/g, '').slice(0, policy?.digits ?? 5));
@@ -70,27 +72,26 @@ export async function init() {
     refresh();
     if (view.stage === 'otp' && policy && get('code').value.length === policy.digits && !get('auth-submit').disabled) form.requestSubmit();
   });
-  const edit = () => { view.stage = 'phone'; get('code').value = ''; refresh(); get('phone').focus(); };
-  get('edit-phone').addEventListener('click', edit);
-  initMethods(root, view, refresh, () => Boolean(policy));
+  get('edit-phone').addEventListener('click', () => changeStage('phone', () => { get('code').value = ''; return get('phone'); }));
+  initMethods(root, changeStage, () => Boolean(policy));
   async function submit(resending = false) {
-    if (!policy || view.busy || account.lockedUntil > Date.now()) return;
+    if (!policy || view.busy || account.lockedUntil > Date.now() || (view.stage === 'phone' && form.hasAttribute('data-rv-auth-switching'))) return;
     const phone = normalizePhone(get('phone').value);
     if (!validPhone(phone)) { fieldError(root, 'phone', 'شماره موبایل را درست بنویسید.'); get('phone').focus(); return; }
     view.busy = true;
     accountRevision++;
-    notice(root, '');
-    refresh();
+    notice(root, ''); refresh();
     try {
       if (view.stage === 'phone' || resending) {
         const result = await issueCode(phone, policy);
         account = result.account;
         if (!result.locked) {
-          view.stage = 'otp';
-          get('code').value = '';
-          refresh();
-          get('code').focus();
-          fieldError(root, 'code', '');
+          const prepareOtp = () => {
+            get('code').value = ''; fieldError(root, 'code', '');
+            return get('code');
+          };
+          if (resending) { prepareOtp(); refresh(); get('code').focus(); }
+          else changeStage('otp', prepareOtp);
         }
       } else {
         const method = view.stage === 'password' ? 'password' : 'otp';
@@ -99,13 +100,14 @@ export async function init() {
         account = result.account;
         if (result.ok) {
           const destination = safeReturn(policy, candidate);
-          if (view.newUser) window.location.assign(basePath() + policy.completePath.slice(1) + '?return=' + encodeURIComponent(destination));
+          if (view.newUser) await closeForRegistration(form, basePath() + policy.completePath.slice(1) + '?return=' + encodeURIComponent(destination));
           else { await finishSession(); window.location.assign(destination); }
         } else if (!result.locked) {
           const message = result.expired ? 'اعتبار کد تمام شده است. کد تازه بگیرید.' : method === 'otp'
             ? 'کد درست نیست. ' + faDigits(policy.maxAttempts - account.failures.length) + ' تلاش دیگر دارید.'
             : 'اطلاعات ورود درست نیست. دوباره تلاش کنید.';
           fieldError(root, method === 'otp' ? 'code' : 'password', message);
+          if (method === 'otp' && !result.expired) shakeOtp(form);
         }
       }
     } catch (error) { notice(root, error.message); }

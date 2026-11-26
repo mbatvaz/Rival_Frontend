@@ -1,0 +1,101 @@
+@layer pages {
+  .rv-requests .rv-section-head { align-items: baseline; }
+  .rv-requests .rv-section-head > span { color: var(--text-secondary); font-size: var(--caption-size); }
+  .rv-requests .rv-section-head > h2 { font-size: var(--heading-md-size); }
+
+  .rv-requests-page .rv-appointments__tabs > label > span {
+    align-items: center;
+    gap: var(--space-1);
+    padding-inline: var(--space-1);
+    white-space: nowrap;
+  }
+
+  .rv-requests-page [data-rv-request-count] {
+    display: grid;
+    place-items: center;
+    min-inline-size: var(--space-5);
+    block-size: var(--space-5);
+    border-radius: var(--radius-pill);
+    background: var(--neutral-line);
+    color: var(--neutral-fg);
+    font-size: var(--caption-size);
+  }
+
+  .rv-requests__records { display: grid; gap: var(--space-3); }
+  .rv-request-record { min-inline-size: 0; }
+  .rv-requests__records.rv-appointments__records--past { gap: 0; }
+  .rv-requests__records.rv-appointments__records--past .rv-request-record:not([hidden]) ~ .rv-request-record { border-block-start: 1px solid var(--line-hairline); }
+  .rv-request-card > .rv-appointment-card__body > span:not(.rv-appointment-status) { font-size: var(--caption-size); }
+  .rv-request-filter-date strong { font-size: var(--body-size); }
+  .rv-request-card > .rv-appointment-card__body > strong { font-size: var(--body-size); }
+
+  .rv-request-parts {
+    display: grid;
+    gap: 0;
+    grid-template-rows: 1fr 1fr;
+    height: 245px;
+    min-inline-size: 0;
+  }
+
+  .rv-request-part { position: relative; overflow: hidden; }
+  .rv-request-status[data-rv-tone="warning"] { background: var(--warning-bg); border-color: var(--warning-line); color: var(--warning-fg); }
+  .rv-request-status[data-rv-tone="plum"] { background: var(--plum-bg); border-color: var(--plum-line); color: var(--plum-fg); }
+  .rv-request-record[data-rv-request-list-status="booked"] .rv-appointment-history__body strong { color: var(--text-primary); }
+
+  .rv-request-record[data-rv-request-list-status="pay"] {
+    border-radius: var(--radius-xl);
+    background: var(--glass-fill-strong);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .rv-request-record[data-rv-request-list-status="pay"] .rv-request-card {
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    box-shadow: none;
+  }
+
+  .rv-request-hold { display: grid; gap: var(--space-1); padding: var(--space-2) var(--space-3); }
+  .rv-request-record > .rv-request-hold { border-block-start: 1px solid var(--line-hairline); padding: var(--space-3) var(--space-4); }
+
+  .rv-request-hold > div {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-2);
+    font-size: var(--caption-size);
+  }
+
+  .rv-request-hold bdi, .rv-request-hold b { font-size: var(--body-sm-size); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+  .rv-request-hold progress {
+    inline-size: 100%;
+    block-size: var(--space-1);
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: var(--line-hairline);
+    accent-color: var(--warning-solid);
+    overflow: hidden;
+  }
+  .rv-request-hold progress::-webkit-progress-bar { background: var(--line-hairline); }
+  .rv-request-hold progress::-webkit-progress-value { background: var(--warning-solid); border-radius: var(--radius-pill); }
+  .rv-request-hold progress::-moz-progress-bar { background: var(--warning-solid); }
+  .rv-requests__desktop-book { display: none; }
+
+  .rv-request-filter-date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-1);
+    padding-inline: var(--space-2);
+    font-size: var(--body-size);
+  }
+
+  @media (min-width: 1024px) {
+    /* Keep the Sheet animation from adding scrollable space below the scrim. */
+    :is(.rv-requests-page, .rv-request-page) + .rv-sheet-layer { overflow: clip; }
+
+    .rv-requests-page .rv-appointments__tools { inline-size: min(450px, 58%); }
+    .rv-requests__records:not(.rv-appointments__records--past) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .rv-requests__records.rv-appointments__records--past { max-inline-size: 760px; }
+    .rv-requests__desktop-book { display: inline-flex; }
+    .rv-requests__mobile-book-text { display: none; }
+  }
+}
