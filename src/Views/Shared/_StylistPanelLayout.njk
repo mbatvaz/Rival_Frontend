@@ -1,5 +1,12 @@
 {% extends "Shared/_RoleLayout.njk" %}
 {% block workspaceClass %} rv-stylist-panel{% endblock %}
+{% block workspaceHeader %}
+  <div class="rv-stylist-mast">
+    <a href="{{ basePath }}stylist/"><img src="{{ urls.logo }}" alt="ریوال، داشبورد آرایشگر" width="56" height="20"></a>
+    <h1>{% block stylistHeaderTitle %}{{ page.titleFa }}{% endblock %}</h1>
+  </div>
+  <a class="rv-icon-btn rv-stylist-bell{% block stylistBellClass %}{% endblock %}" href="{{ basePath }}stylist/notifications/" aria-label="{% block stylistBellLabel %}اعلان‌ها{% endblock %}"><span class="ri ri-bell" aria-hidden="true"></span></a>
+{% endblock %}
 {% block workspaceSidebar %}
   <nav class="rv-booking-sidebar rv-stylist-sidebar" aria-label="منوی آرایشگر">
     {% include "Shared/_RoleSideLinks.njk" %}

@@ -1,41 +1,32 @@
 import { api } from '../../core/api.js';
 import { basePath } from '../../core/config.js';
 import { closeSheet, openSheet } from '../../components/sheet.js';
+import { cancelEntries, enterList } from '../../components/entry-motion.js';
 import { showNoShows } from './dashboard-attendance.js';
-
 const resource = 'stylist/dashboard-no-shows';
 const sheetId = 'rv-stylist-no-show';
 const completions = new Set(['completed', 'no-show', 'no-show-saved']);
 const loadNoShows = async () => (await api.read('stylist/dashboard-no-shows')).data;
-
-function activate(tab, tabs) {
-  for (const item of tabs) {
-    const selected = item === tab;
-    item.setAttribute('aria-selected', String(selected));
-    item.tabIndex = selected ? 0 : -1;
-    document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
+function configureDayView(root, state) {
+  const group = root.querySelector('[role="radiogroup"]');
+  const radios = [...group.querySelectorAll('input')];
+  if (completions.has(state)) radios.find(radio => radio.value === 'completed').checked = true;
+  function render(animate) {
+    for (const radio of radios) {
+      const panel = document.getElementById(radio.getAttribute('aria-controls'));
+      const list = panel.querySelector('[data-rv-entry-list]');
+      panel.hidden = !radio.checked;
+      if (panel.hidden) cancelEntries(list);
+      else if (animate) enterList(list);
+    }
   }
-}
-
-function configureTabs(root, state) {
-  const tabs = [...root.querySelectorAll('[role="tab"]')];
-  const list = root.querySelector('[role="tablist"]');
-  list.addEventListener('click', event => {
-    const tab = event.target.closest('[role="tab"]');
-    if (tabs.includes(tab)) activate(tab, tabs);
-  });
-  list.addEventListener('keydown', event => {
-    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-    event.preventDefault();
-    const tab = event.key === 'Home' ? tabs[0] : event.key === 'End' ? tabs.at(-1)
-      : tabs.find(item => item !== event.target);
-    activate(tab, tabs);
-    tab.focus();
-  });
-  if (completions.has(state)) activate(tabs[1], tabs);
+  group.addEventListener('change', () => render(true));
+  render(false);
 }
 
 export async function init(root) {
+  const progress = root.querySelector('.rv-stylist-current__progress progress');
+  progress.parentElement.style.setProperty('--rv-elapsed-percent', `${Math.max(0, progress.position) * 100}%`);
   const state = new URLSearchParams(location.search).get('state');
   const inactive = state === 'inactive';
   const empty = state === 'empty';
@@ -55,13 +46,34 @@ export async function init(root) {
       }
     }
   }
-  configureTabs(root, state);
+  configureDayView(root, state);
   const toast = root.querySelector('[data-rv-stylist-toast]');
   const initial = root.querySelector('[data-rv-stylist-confirm]');
   const sheet = document.getElementById(sheetId);
   const save = sheet.querySelector('[data-rv-stylist-save]');
   const error = sheet.querySelector('[data-rv-stylist-save-error]');
   let opener;
+  let toastTimer;
+  toast.addEventListener('animationend', event => {
+    if (event.target === toast && event.animationName === 'rv-toast-out' && toast.hasAttribute('data-rv-toast-exiting')) {
+      toast.hidden = true;
+      delete toast.dataset.rvToastExiting;
+    }
+  });
+  function showReceipt(button) {
+    const row = button.closest('[data-rv-stylist-completed]');
+    const name = row.querySelector('[data-rv-stylist-client]').textContent;
+    const time = row.querySelector('bdi').textContent;
+    toast.querySelector('[data-rv-toast-title]').textContent = `عدم حضور ${name} ثبت شد`;
+    toast.querySelector('[data-rv-toast-description]').textContent = `نوبت ${time} امروز، بدون اثر مالی`;
+    window.clearTimeout(toastTimer);
+    delete toast.dataset.rvToastExiting;
+    toast.hidden = false;
+    toastTimer = window.setTimeout(() => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) toast.hidden = true;
+      else toast.dataset.rvToastExiting = '';
+    }, 4000);
+  }
   function stage(button, options) {
     opener = button;
     error.textContent = '';
@@ -85,8 +97,8 @@ export async function init(root) {
       const updated = await (navigator.locks ? navigator.locks.request(basePath() + resource, record) : record());
       if (opener === button && !sheet.hidden) await closeSheet();
       showNoShows(root, state, updated);
-      if (opener === button && sheet.hidden) button.closest('[role="tabpanel"]').focus({ preventScroll: true });
-      toast.hidden = false;
+      if (opener === button && sheet.hidden) button.closest('[role="region"]').focus({ preventScroll: true });
+      showReceipt(button);
     } catch (failure) {
       error.textContent = failure.message;
     } finally {
@@ -99,7 +111,7 @@ export async function init(root) {
   }
   const ids = state === 'no-show-saved' ? [initial.dataset.rvStylistConfirm] : [];
   showNoShows(root, state, ids);
-  if (state === 'no-show-saved') toast.hidden = false;
+  if (state === 'no-show-saved') showReceipt(initial);
   if (!completions.has(state) || state === 'completed') {
     try {
       showNoShows(root, state, await loadNoShows());

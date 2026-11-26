@@ -1,0 +1,31 @@
+@layer pages {
+  .rv-stylist-current__progress { position: relative; }
+  .rv-stylist-current__progress progress { display: block; }
+
+  .rv-stylist-current__elapsed {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    inline-size: var(--rv-elapsed-percent, 0%);
+    overflow: clip;
+    border-radius: var(--radius-pill);
+    pointer-events: none;
+  }
+
+  .rv-stylist-current__elapsed::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 25%, var(--bg-inverse) 50%, transparent 75%);
+    animation: rv-stylist-progress-shade calc(var(--duration-deliberate) * 4) linear infinite;
+    content: "";
+  }
+
+  @keyframes rv-stylist-progress-shade {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rv-stylist-current__elapsed { display: none; }
+  }
+}

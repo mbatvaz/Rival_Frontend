@@ -1,43 +1,31 @@
 <section aria-labelledby="rv-stylist-today" data-rv-stylist-has-appointments>
   <div class="rv-section-head"><h2 id="rv-stylist-today">برنامه امروز</h2><a href="{{ basePath }}stylist/calendar/">تقویم<span class="ri ri-chevron-left" aria-hidden="true"></span></a></div>
-  <div class="rv-stylist-tabs rv-glass" role="tablist" aria-label="برنامه امروز">
-    <button type="button" id="rv-stylist-upcoming-tab" role="tab" aria-selected="true" aria-controls="rv-stylist-upcoming">پیش رو <span>۳</span></button>
-    <button type="button" id="rv-stylist-completed-tab" role="tab" aria-selected="false" aria-controls="rv-stylist-completed" tabindex="-1">پایان‌یافته <span>{{ model.completed.length | faDigits }}</span></button>
+  <div class="rv-appointments__tabs rv-glass" role="radiogroup" aria-labelledby="rv-stylist-today">
+    <label class="rv-booking-radio" id="rv-stylist-upcoming-label">
+      <input type="radio" name="stylist-day-view" value="upcoming" aria-controls="rv-stylist-upcoming" checked>
+      <span>پیش رو <span data-rv-total>۳</span></span>
+    </label>
+    <label class="rv-booking-radio" id="rv-stylist-completed-label">
+      <input type="radio" name="stylist-day-view" value="completed" aria-controls="rv-stylist-completed">
+      <span>پایان‌یافته <span data-rv-total>{{ model.completed.length | faDigits }}</span></span>
+    </label>
   </div>
-  <div id="rv-stylist-upcoming" role="tabpanel" aria-labelledby="rv-stylist-upcoming-tab" tabindex="0">
-    <ol class="rv-stylist-timeline" data-rv-entry-zone>
-      {% for slot in model.timeline %}
-      <li><bdi>{{ slot.time }}</bdi>
-        {% if slot.kind == 'free' %}
-          <a class="rv-stylist-slot rv-stylist-slot--free" href="{{ basePath }}stylist/manual-booking/?date={{ model.dateKey }}&amp;at={{ slot.start }}" data-rv-stylist-manual><span class="ri ri-plus" aria-hidden="true"></span>{{ slot.duration }} آزاد · رزرو دستی</a>
-          <div class="rv-stylist-slot rv-stylist-slot--free" data-rv-stylist-inactive hidden><span class="ri ri-clock" aria-hidden="true"></span>{{ slot.duration }} آزاد</div>
-        {% else %}
-          {% if slot.kind == 'block' %}
-          <div class="rv-stylist-slot rv-stylist-slot--block"><span class="rv-stylist-avatar"><span class="ri ri-lock" aria-hidden="true"></span></span><div><strong>{{ slot.name }}</strong><small>بستن شخصی · {{ slot.duration }}</small>{% if slot.release %}<small class="rv-stylist-release"><span class="ri ri-timer" aria-hidden="true"></span> آزاد برای رزرو از {{ slot.release }}</small>{% endif %}</div></div>
-          {% else %}
-            {% if slot.kind == 'hold' %}
-            <a class="rv-stylist-slot rv-stylist-slot--hold" href="{{ basePath }}_preview/context/sty-04/?request={{ slot.id }}" data-rv-stylist-active-requests><span class="rv-stylist-avatar" aria-hidden="true">{{ slot.initial }}</span><div><strong>{{ slot.name }}</strong><small>{{ slot.service }} · {{ slot.duration }}</small><small>پاسخ شما در نگه‌داشت؛ پرداخت تا {{ slot.deadline }}</small></div></a>
-            <div class="rv-stylist-slot rv-stylist-slot--free" data-rv-stylist-inactive hidden><span class="ri ri-clock" aria-hidden="true"></span>{{ slot.duration }} آزاد</div>
-            {% else %}
-            <a class="rv-stylist-slot rv-glass" href="{{ basePath }}stylist/appointments/demo/?appointment={{ slot.id }}" data-rv-stylist-upcoming-record><span class="rv-stylist-avatar" aria-hidden="true">{{ slot.initial }}</span><div><strong>{{ slot.name }}</strong><small>{{ slot.service }} · {{ slot.duration }}</small></div></a>
-            {% endif %}
-          {% endif %}
-        {% endif %}
-      </li>
-      {% endfor %}
+  <div id="rv-stylist-upcoming" role="region" aria-labelledby="rv-stylist-upcoming-label" tabindex="-1">
+    <ol class="rv-stylist-timeline" data-rv-entry-zone="rows" data-rv-entry-list>
+      {% include "Stylist/_UpcomingSlots.njk" %}
     </ol>
   </div>
-  <div id="rv-stylist-completed" role="tabpanel" aria-labelledby="rv-stylist-completed-tab" tabindex="0" hidden>
-    <ol class="rv-stylist-timeline">
+  <div id="rv-stylist-completed" role="region" aria-labelledby="rv-stylist-completed-label" tabindex="-1" hidden>
+    <ol class="rv-stylist-timeline" data-rv-entry-zone="rows" data-rv-entry-list>
       {% for slot in model.completed %}
       <li data-rv-stylist-completed="{{ slot.id }}"><bdi>{{ slot.time }}</bdi>
         <div class="rv-stylist-slot rv-glass">
           <span class="rv-stylist-avatar" aria-hidden="true">{{ slot.initial }}</span>
-          <a class="rv-stylist-completed-link" href="{{ basePath }}stylist/appointments/demo/?appointment={{ slot.id }}"><strong>{{ slot.service }}</strong><small>{{ slot.name }}</small></a>
+          <a class="rv-stylist-completed-link" href="{{ basePath }}stylist/appointments/demo/?appointment={{ slot.id }}"><strong>{{ slot.service }}</strong><small data-rv-stylist-client>{{ slot.name }}</small></a>
           <div class="rv-stylist-attendance">
-            <small data-rv-stylist-attended><span class="ri ri-check" aria-hidden="true"></span> انجام شده</small>
-            <button class="rv-btn rv-btn--secondary rv-btn--small" type="button" data-rv-stylist-confirm="{{ slot.id }}" aria-haspopup="dialog" aria-label="ثبت عدم حضور برای {{ slot.name }}">عدم حضور</button>
-            <small data-rv-stylist-absent-label hidden><span class="ri ri-ban" aria-hidden="true"></span> عدم حضور</small>
+            <span class="rv-appointment-status" data-rv-tone="success" data-rv-stylist-attended><span class="ri ri-check-circle" aria-hidden="true"></span>انجام شده</span>
+            <button class="rv-btn rv-btn--danger rv-btn--small" type="button" data-rv-stylist-confirm="{{ slot.id }}" aria-haspopup="dialog" aria-label="ثبت عدم حضور برای {{ slot.name }}">عدم حضور</button>
+            <span class="rv-appointment-status" data-rv-tone="warning" data-rv-stylist-absent-label hidden><span class="ri ri-ban" aria-hidden="true"></span>عدم حضور</span>
           </div>
         </div>
       </li>

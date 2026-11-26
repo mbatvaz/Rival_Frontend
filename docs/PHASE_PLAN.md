@@ -32,4 +32,4 @@ For phases 05–09 apply DEC-087. Start with an [accepted implementation](COMPON
 
 ## Current owner gate
 
-The owner accepted Phase 04 on 2026-11-26 under DEC-086 and assigned Phase 05 to a single branch from master. Phase 05 is in development on `phase/05-stylist-panel`, beginning with STY-01. See the [Phase 04 closeout](../docs-work/PHASE_04_CLOSEOUT_FA.md) for prerequisite evidence.
+The owner accepted Phase 04 on 2026-11-26 under DEC-086 and assigned Phase 05 to a single branch from master. Phase 05 is in development on `web/phase-05-stylist-panel`. STY-01 closed out under DEC-089 and STY-02 under DEC-091. [Dashboard closeout](../docs-work/STY-01.md) · [Calendar closeout](../docs-work/STY-02.md)

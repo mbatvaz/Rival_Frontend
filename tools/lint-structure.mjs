@@ -28,7 +28,10 @@ for (const file of [...await walk(src), ...await walk(path.join(root, 'preview-r
     : file.endsWith('customer-more-mobile.css')
       ? text.replace(/\.rv-customer-more\s*>\s*\.rv-more-list\s*\{[^}]*\}/, '')
       : text;
-  if (/overflow-y\s*:\s*(auto|scroll)/i.test(sheetBody)) fail('nested vertical scrolling');
+  const pageBody = rel === 'src/wwwroot/css/04-pages/stylist-calendar-sheets.css'
+    ? sheetBody.replace(/\.rv-release-wheel\s*\{[^}]*\}/, '')
+    : sheetBody;
+  if (/overflow-y\s*:\s*(auto|scroll)/i.test(pageBody)) fail('nested vertical scrolling');
   if (/\.(?:b[2-7]|f)-[a-z0-9_-]+/i.test(text)) fail('legacy batch class prefix');
   if (ext === '.js' && !rel.endsWith('/core/api.js') && rel !== 'preview-review/storage.js'
     && /\b(fetch|localStorage|sessionStorage)\b/.test(text)) {

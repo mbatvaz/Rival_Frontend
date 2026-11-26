@@ -1,0 +1,59 @@
+{% extends "Shared/_StylistPanelLayout.njk" %}
+{% block stylistHeaderTitle %}تقویم{% endblock %}
+{% block stylistBellClass %} rv-stylist-bell--unread{% endblock %}
+{% block stylistBellLabel %}اعلان‌ها، ۱ خوانده‌نشده{% endblock %}
+{% block content %}
+  <div class="rv-stylist-calendar" data-rv="stylist-calendar">
+    <section class="rv-stylist-week rv-glass" aria-labelledby="rv-stylist-week-heading">
+      <div class="rv-stylist-week__head">
+        <h2 id="rv-stylist-week-heading">
+          <button class="rv-btn rv-btn--secondary" type="button" data-rv-calendar-month aria-haspopup="dialog" disabled>
+            <span data-rv-week-month>{{ model.calendar.month }}</span><span class="ri ri-chevron-down" aria-hidden="true"></span>
+          </button>
+        </h2>
+        <div>
+          <button class="rv-icon-btn" type="button" data-rv-week-move="-1" aria-label="هفتهٔ قبل" disabled><span class="ri ri-chevron-right" aria-hidden="true"></span></button>
+          <button class="rv-icon-btn" type="button" data-rv-week-move="1" aria-label="هفتهٔ بعد" disabled><span class="ri ri-chevron-left" aria-hidden="true"></span></button>
+        </div>
+      </div>
+      <ul class="rv-stylist-week__days" aria-label="هفتهٔ جاری">
+        {% for day in model.calendar.days %}
+          <li aria-label="{{ day.label }}"{% if day.state %} data-rv-calendar-day="{{ day.state }}"{% endif %}{% if day.state == 'today' %} aria-current="date"{% endif %}>
+            <small aria-hidden="true">{{ day.letter }}</small>
+            <bdi aria-hidden="true">{{ day.number }}</bdi>
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="rv-section-head rv-stylist-week__summary">
+        <span data-rv-calendar-summary>{{ model.calendar.summary }}</span>
+        <a href="{{ basePath }}stylist/appointments/">سابقه نوبت‌ها</a>
+      </div>
+    </section>
+    <p class="rv-feedback rv-feedback--error" data-rv-calendar-error role="alert"></p>
+    <section aria-labelledby="rv-stylist-calendar-today">
+      <div class="rv-section-head">
+        <h2 id="rv-stylist-calendar-today" tabindex="-1" data-rv-calendar-heading aria-live="polite">امروز، {{ model.weekday }} {{ model.date }}</h2>
+        <span class="rv-stylist-calendar__badge" data-rv-calendar-day-badge hidden></span>
+      </div>
+      {% include "Stylist/Calendar/_DayNotices.njk" %}
+      <ol class="rv-stylist-timeline" data-rv-entry-zone="rows" data-rv-entry-list>
+        <li>
+          <bdi>{{ model.current.start }}<small class="rv-stylist-calendar__now">اکنون</small></bdi>
+          <div class="rv-stylist-slot rv-glass">
+            <span class="rv-stylist-avatar" aria-hidden="true">ر</span>
+            <a class="rv-stylist-completed-link" href="{{ basePath }}stylist/appointments/demo/?appointment={{ model.current.id }}">
+              <strong>{{ model.current.name }}</strong>
+              <small>{{ model.current.service }} · {{ model.current.remaining | faDigits }} دقیقه مانده</small>
+            </a>
+            <a class="rv-icon-btn" href="tel:{{ model.current.phone }}" aria-label="تماس با {{ model.current.name }}"><span class="ri ri-phone" aria-hidden="true"></span></a>
+          </div>
+        </li>
+        {% include "Stylist/_UpcomingSlots.njk" %}
+      </ol>
+    </section>
+    {% include "Stylist/Calendar/_RowTemplates.njk" %}
+  </div>
+{% endblock %}
+{% block workspaceSheets %}
+  {% include "Stylist/Calendar/_Sheets.njk" %}
+{% endblock %}

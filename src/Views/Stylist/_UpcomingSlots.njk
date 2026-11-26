@@ -1,0 +1,19 @@
+{% for slot in model.timeline %}
+<li><bdi>{{ slot.time }}</bdi>
+  {% if slot.kind == 'free' %}
+    <a class="rv-stylist-slot rv-stylist-slot--free" href="{{ basePath }}stylist/manual-booking/?date={{ model.dateKey }}&amp;at={{ slot.start }}" data-rv-stylist-manual><span class="ri ri-plus" aria-hidden="true"></span>{{ slot.duration }} آزاد · رزرو دستی</a>
+    <div class="rv-stylist-slot rv-stylist-slot--free" data-rv-stylist-inactive hidden><span class="ri ri-clock" aria-hidden="true"></span>{{ slot.duration }} آزاد</div>
+  {% else %}
+    {% if slot.kind == 'block' %}
+    <div class="rv-stylist-slot rv-stylist-slot--block"><span class="rv-stylist-avatar"><span class="ri ri-lock" aria-hidden="true"></span></span><div><strong>{{ slot.name }}</strong><small>بستن شخصی · {{ slot.duration }}</small>{% if slot.release %}<small class="rv-stylist-release"><span class="ri ri-timer" aria-hidden="true"></span> آزاد برای رزرو از {{ slot.release }}</small>{% endif %}</div></div>
+    {% else %}
+      {% if slot.kind == 'hold' %}
+      <a class="rv-stylist-slot rv-stylist-slot--hold" href="{{ basePath }}_preview/context/sty-04/?request={{ slot.id }}" data-rv-stylist-active-requests><span class="rv-stylist-avatar" aria-hidden="true">{{ slot.initial }}</span><div><strong>{{ slot.name }}</strong><small>{{ slot.service }} · {{ slot.duration }}</small><small>پاسخ شما در نگه‌داشت؛ پرداخت تا {{ slot.deadline }}</small></div></a>
+      <div class="rv-stylist-slot rv-stylist-slot--free" data-rv-stylist-inactive hidden><span class="ri ri-clock" aria-hidden="true"></span>{{ slot.duration }} آزاد</div>
+      {% else %}
+      <a class="rv-stylist-slot rv-glass" href="{{ basePath }}stylist/appointments/demo/?appointment={{ slot.id }}" data-rv-stylist-upcoming-record><span class="rv-stylist-avatar" aria-hidden="true">{{ slot.initial }}</span><div><strong>{{ slot.name }}</strong><small>{{ slot.service }} · {{ slot.duration }}</small></div></a>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+</li>
+{% endfor %}

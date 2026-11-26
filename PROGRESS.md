@@ -1,8 +1,16 @@
 # Rival Progress
 
+## Stylist calendar accepted — 2026-11-26
+
+DEC-091 closes STY-02, including date navigation, holiday states, personal time blocks and the bounded release time picker. Phase 05 continues on `web/phase-05-stylist-panel`. [Calendar evidence](docs-work/STY-02.md)
+
+## Stylist dashboard closed and calendar started — 2026-11-26
+
+DEC-089 records the owner-authorized closeout of STY-01 and the four shared motion patterns. The STY-02 initial preview starts with the week strip and today's agenda. Phase 05 remains in development. [Dashboard closeout](docs-work/STY-01.md) · [Calendar scope](docs-work/STY-02.md)
+
 ## Phase 05 started — 2026-11-26
 
-The owner assigned the stylist panel to `phase/05-stylist-panel`. See the [STY-01 dashboard specification and review](docs-work/STY-01.md).
+The owner assigned the stylist panel to the branch now named `web/phase-05-stylist-panel`. See the [STY-01 dashboard specification and review](docs-work/STY-01.md).
 
 ## Phase 04 accepted — 2026-11-26
 

@@ -1,8 +1,8 @@
 <section aria-labelledby="rv-stylist-requests" data-rv-stylist-active-requests>
   <div class="rv-section-head"><h2 id="rv-stylist-requests">منتظر پاسخ شما</h2><a href="{{ basePath }}stylist/requests/">همه<span class="ri ri-chevron-left" aria-hidden="true"></span></a></div>
-  <div class="rv-stylist-requests" data-rv-entry-zone>
+  <div class="rv-stylist-requests" data-rv-entry-zone data-rv-entry-list>
     {% for request in model.requests %}
-    <article class="rv-stylist-request rv-glass{% if request.urgent %} rv-stylist-request--urgent{% endif %}">
+    <article class="rv-stylist-request rv-glass{% if request.urgent %} rv-stylist-request--urgent{% endif %}" data-rv-card-media>
       <a href="{{ basePath }}_preview/context/sty-04/?request={{ request.id }}">
         <div><strong>{{ request.service }}</strong><p><span class="rv-stylist-avatar" aria-hidden="true">{{ request.initial }}</span>{{ request.name }}</p><small>ترجیح: {{ request.preference }}</small></div>
         <img src="{{ basePath }}{{ request.image }}" alt="" width="155" height="124" loading="lazy">

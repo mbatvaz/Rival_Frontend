@@ -1,11 +1,7 @@
 {% extends "Shared/_StylistPanelLayout.njk" %}
-{% block workspaceHeader %}
-  <div class="rv-stylist-mast">
-    <a href="{{ basePath }}stylist/"><img src="{{ urls.favicon }}" alt="ریوال، داشبورد آرایشگر" width="20" height="20"></a>
-    <h1>{{ model.weekday }} <span class="rv-muted">{{ model.date }}</span></h1>
-  </div>
-  <a class="rv-icon-btn rv-stylist-bell" href="{{ basePath }}stylist/notifications/" aria-label="اعلان‌ها، ۱ خوانده‌نشده"><span class="ri ri-bell" aria-hidden="true"></span></a>
-{% endblock %}
+{% block stylistHeaderTitle %}{{ model.weekday }} <span>{{ model.date }}</span>{% endblock %}
+{% block stylistBellClass %} rv-stylist-bell--unread{% endblock %}
+{% block stylistBellLabel %}اعلان‌ها، ۱ خوانده‌نشده{% endblock %}
 {% block content %}
 <div class="rv-stylist-dashboard" data-rv="stylist-dashboard">
   <section class="rv-stylist-notice rv-glass" data-rv-stylist-personal aria-label="اعلان شخصی">
@@ -13,9 +9,9 @@
     <div><strong>{{ model.personal.title }}</strong><p>{{ model.personal.text }}</p></div>
     <button class="rv-icon-btn" data-rv-stylist-dismiss type="button" aria-label="بستن این اعلان"><span class="ri ri-x" aria-hidden="true"></span></button>
   </section>
-  <section class="rv-stylist-notice rv-stylist-notice--inactive" data-rv-stylist-inactive aria-labelledby="rv-stylist-inactive-title" hidden>
-    <span class="rv-icon-tile"><span class="ri ri-lock" aria-hidden="true"></span></span>
-    <div><h2 id="rv-stylist-inactive-title">حساب کاری شما غیرفعال است</h2><p>رزرو تازه و رزرو دستی بسته است و درخواست‌های پیشنهادی باز لغو شدند. نوبت‌های قطعی، برنامه کاری، نمونه‌کار، اعلان‌ها و پروفایل در دسترس است.</p><p>برای فعال شدن دوباره با مدیر سالن هماهنگ کنید.</p></div>
+  <section class="rv-stylist-notice rv-stylist-notice--inactive" data-rv-stylist-inactive data-rv-notice-reveal aria-labelledby="rv-stylist-inactive-title" hidden>
+    <span class="ri ri-alert" aria-hidden="true"></span>
+    <div><h2 id="rv-stylist-inactive-title">حساب کاری شما غیرفعال است</h2><p>رزرو تازه و رزرو دستی بسته است و درخواست‌های پیشنهادی باز لغو شدند. نوبت‌های قطعی، برنامه کاری، نمونه‌کار، اعلان‌ها و پروفایل در دسترس است.</p><p class="rv-stylist-notice__next">برای فعال شدن دوباره با مدیر سالن هماهنگ کنید.</p></div>
   </section>
 
   <section class="rv-stylist-quick" aria-label="امروز و اقدام‌های سریع">
@@ -33,7 +29,7 @@
   </section>
 
   {% include "Stylist/Home/_Current.njk" %}
-  <section class="rv-panel rv-stylist-empty" data-rv-stylist-empty aria-labelledby="rv-stylist-empty-title" hidden>
+  <section class="rv-panel rv-stylist-empty" data-rv-stylist-empty aria-labelledby="rv-stylist-empty-title" data-rv-entry-zone data-rv-entry-item hidden>
       <span class="rv-icon-tile"><span class="ri ri-calendar" aria-hidden="true"></span></span>
       <h2 id="rv-stylist-empty-title">امروز نوبتی ندارید</h2>
       <p>ساعت کاری امروز شما ۰۸:۰۰ تا ۱۹:۰۰ است و همه آن آزاد است. مشتری حضوری یا تلفنی را با «رزرو دستی» ثبت کنید.</p>
@@ -50,7 +46,12 @@
       <button class="rv-icon-btn" data-rv-stylist-dismiss type="button" aria-label="بستن این اطلاعیه"><span class="ri ri-x" aria-hidden="true"></span></button>
     </div>
   </section>
-  <div class="rv-stylist-toast" role="status"><p data-rv-stylist-toast hidden>عدم حضور ثبت شد</p></div>
+  <div class="rv-toast-region" role="status" aria-atomic="true">
+    <div class="rv-toast" data-rv-stylist-toast hidden>
+      <span class="rv-toast__icon"><span class="ri ri-check" aria-hidden="true"></span></span>
+      <div><p class="rv-toast__title" data-rv-toast-title></p><p class="rv-toast__description" data-rv-toast-description></p></div>
+    </div>
+  </div>
 </div>
 {% endblock %}
 {% block workspaceSheets %}{% include "Stylist/Home/_NoShow.njk" %}{% endblock %}

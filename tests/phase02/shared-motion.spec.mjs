@@ -23,19 +23,30 @@ for (const width of [390, 1280]) {
     await opener.click();
     const panel = page.getByRole('dialog', { name: 'فید کوتاه کلاسیک' });
     await expect(panel).toBeVisible();
-    const entry = await panel.evaluate(element => element.getAnimations()
-      .filter(animation => animation.id === 'rv-sheet-enter').map(animation => animation.effect.getTiming().duration));
-    expect(entry).toEqual(width < 1024 ? [633] : [633, 633]);
+    const entry = await panel.evaluate(element => {
+      const animation = element.getAnimations().find(motion => motion.id === 'rv-sheet-enter');
+      const frames = animation?.effect.getKeyframes() ?? [];
+      return { duration: animation?.effect.getTiming().duration, frames };
+    });
+    expect(entry.duration).toBe(633);
+    expect(entry.frames[0].transform).toContain('translateY');
+    expect(entry.frames.every(frame => frame.opacity === undefined)).toBe(true);
+    await expect(panel.locator('[data-rv-sheet-grip]')).toBeVisible();
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    expect(await panel.evaluate(element => element.getAnimations().length)).toBe(0);
+    await expect.poll(() => panel.evaluate(element => element.getAnimations().length)).toBe(0);
     await page.keyboard.press('Escape');
     await page.keyboard.press('Escape');
     await expect(panel).toBeHidden();
     await expect(opener).toBeFocused();
     await expect(page.locator('[data-rv-page]')).not.toHaveAttribute('inert');
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
     await opener.click();
     await expect(panel).toBeVisible();
     await panel.getByRole('button', { name: 'بستن نمایشگر' }).click();
+    const exit = await panel.evaluate(element => element.getAnimations()
+      .find(animation => animation.id === 'rv-sheet-exit')?.effect.getKeyframes() ?? []);
+    expect(exit.at(-1)?.transform).toContain('translateY');
+    expect(exit.every(frame => frame.opacity === undefined)).toBe(true);
     await expect(panel).toBeHidden();
     await expect(opener).toBeFocused();
   });

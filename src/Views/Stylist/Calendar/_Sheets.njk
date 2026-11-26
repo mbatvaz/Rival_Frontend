@@ -1,0 +1,92 @@
+<section class="rv-sheet rv-stylist-calendar-sheet" id="rv-stylist-month" role="dialog" aria-modal="true" aria-labelledby="rv-stylist-month-title" tabindex="-1" hidden>
+  <header class="rv-sheet__header">
+    <span class="rv-icon-tile"><span class="ri ri-calendar" aria-hidden="true"></span></span>
+    <div><h2 id="rv-stylist-month-title">رفتن به روز</h2><p class="rv-muted">روزی را لمس کنید تا برنامه همان روز باز شود.</p></div>
+    <button class="rv-icon-btn" type="button" data-rv-sheet-close aria-label="بستن برگه"><span class="ri ri-x" aria-hidden="true"></span></button>
+  </header>
+  {% include "Booking/_Calendar.njk" %}
+  <a class="rv-stylist-calendar__history" href="{{ basePath }}stylist/appointments/">روزهای گذشته را در نوبت‌ها ببینید.</a>
+</section>
+
+<section class="rv-sheet rv-stylist-calendar-sheet" id="rv-stylist-block" role="dialog" aria-modal="true" aria-labelledby="rv-stylist-block-title" tabindex="-1" hidden>
+  <header class="rv-sheet__header">
+    <span class="rv-icon-tile"><span class="ri ri-lock" aria-hidden="true"></span></span>
+    <h2 id="rv-stylist-block-title" data-rv-block-title>بستن این زمان</h2>
+    <button class="rv-icon-btn" type="button" data-rv-sheet-close aria-label="بستن برگه"><span class="ri ri-x" aria-hidden="true"></span></button>
+  </header>
+  <form class="rv-stylist-calendar-form" method="post">
+    <fieldset data-rv-block-halves><legend>کدام نیم‌ساعت‌ها؟</legend><div data-rv-block-times></div></fieldset>
+    <label>عنوان، فقط برای خودتان
+      <span class="rv-input"><input name="title" type="text" maxlength="80" placeholder="مثلاً ناهار"></span>
+    </label>
+    <fieldset>
+      <legend>آزاد شدن برای رزرو</legend>
+      <div class="rv-appointments__tabs rv-glass">
+        <label class="rv-booking-radio"><input type="radio" name="release" value="none" checked><span>بسته بماند</span></label>
+        <label class="rv-booking-radio"><input type="radio" name="release" value="scheduled"><span>از ساعتی مشخص</span></label>
+      </div>
+    </fieldset>
+    <div class="rv-stylist-calendar__times" data-rv-release-fields hidden>
+      <div>
+        <span id="rv-release-date-label">تاریخ آزاد شدن</span>
+        <div class="rv-input rv-release-trigger" aria-labelledby="rv-release-date-label">
+          <bdi data-rv-release-date></bdi><span class="ri ri-lock" aria-hidden="true"></span>
+        </div>
+      </div>
+      <div>
+        <span id="rv-release-time-label">ساعت آزاد شدن</span>
+        <button class="rv-btn rv-btn--secondary rv-release-trigger" type="button" data-rv-release-time aria-haspopup="dialog" aria-labelledby="rv-release-time-label rv-release-time-value">
+          <bdi id="rv-release-time-value"></bdi><span class="ri ri-clock" aria-hidden="true"></span>
+        </button>
+        <input type="hidden" name="releaseTime">
+      </div>
+    </div>
+    <p class="rv-muted" data-rv-release-unavailable hidden>زمان آزاد شدن فقط برای بازه‌های امروز قابل تنظیم است.</p>
+    <p class="rv-muted" data-rv-block-help>نوبتی در این بازه نیست. تکرار هفتگی و بازه‌های بلند در برنامه کاری.</p>
+    <p class="rv-feedback rv-feedback--error" data-rv-form-error role="alert"></p>
+    <div class="rv-actions">
+      <button class="rv-btn" type="submit">بستن این زمان</button>
+      <button class="rv-btn rv-btn--secondary" type="button" data-rv-sheet-close>انصراف</button>
+    </div>
+  </form>
+</section>
+
+{% include "Stylist/Calendar/_ReleasePickers.njk" %}
+
+<section class="rv-sheet rv-stylist-calendar-sheet" id="rv-stylist-block-detail" role="dialog" aria-modal="true" aria-labelledby="rv-stylist-block-detail-title" tabindex="-1" hidden>
+  <header class="rv-sheet__header">
+    <span class="rv-icon-tile"><span class="ri ri-lock" aria-hidden="true"></span></span>
+    <div><h2 id="rv-stylist-block-detail-title" data-rv-detail-title></h2><p class="rv-muted">بستن شخصی، فقط برای خودتان</p></div>
+    <button class="rv-icon-btn" type="button" data-rv-sheet-close aria-label="بستن برگه"><span class="ri ri-x" aria-hidden="true"></span></button>
+  </header>
+  <dl class="rv-stylist-calendar__facts rv-glass">
+    <div><dt>بازه</dt><dd data-rv-detail-range></dd></div>
+    <div><dt>مدت</dt><dd data-rv-detail-duration></dd></div>
+    <div><dt>آزاد برای رزرو</dt><dd><span data-rv-detail-release></span><small class="rv-muted" data-rv-detail-countdown hidden></small></dd></div>
+  </dl>
+  <p class="rv-muted" data-rv-detail-policy>این زمانِ آزاد شدنِ بستنِ شخصی شماست. زمان باز شدن رزرو خدمت‌ها را مدیر سالن تعیین می‌کند.</p>
+  <p class="rv-feedback rv-feedback--error" data-rv-form-error role="alert"></p>
+  <div class="rv-actions">
+    <button class="rv-btn" type="button" data-rv-detail-edit>ویرایش</button>
+    <button class="rv-btn rv-btn--secondary" type="button" data-rv-detail-release-now>باز کردن همین حالا</button>
+  </div>
+</section>
+
+<section class="rv-sheet rv-stylist-calendar-sheet" id="rv-stylist-holiday" role="dialog" aria-modal="true" aria-labelledby="rv-stylist-holiday-title" tabindex="-1" hidden>
+  <header class="rv-sheet__header">
+    <span class="rv-icon-tile"><span class="ri ri-calendar-clock" aria-hidden="true"></span></span>
+    <div><h2 id="rv-stylist-holiday-title">پذیرش در تعطیل رسمی</h2><p class="rv-muted" data-rv-holiday-date></p></div>
+    <button class="rv-icon-btn" type="button" data-rv-sheet-close aria-label="بستن برگه"><span class="ri ri-x" aria-hidden="true"></span></button>
+  </header>
+  <form class="rv-stylist-calendar-form" method="post">
+    <div class="rv-stylist-calendar__times">
+      <label>از ساعت<span class="rv-input"><input name="start" type="time" step="1800" required></span></label>
+      <label>تا ساعت<span class="rv-input"><input name="end" type="time" step="1800" required></span></label>
+    </div>
+    <p class="rv-feedback rv-feedback--error" data-rv-form-error role="alert"></p>
+    <div class="rv-actions">
+      <button class="rv-btn" type="submit">ثبت پذیرش</button>
+      <button class="rv-btn rv-btn--secondary" type="button" data-rv-sheet-close>انصراف</button>
+    </div>
+  </form>
+</section>

@@ -122,8 +122,8 @@ Phase 01–02 refresh (2026-11-14): PUB-01..03, AUTH-01/02, SYS-ACC-01 and share
 
 | ID | Route/Context | Role | Status | Source |
 |---|---|---|---|---|
-| STY-01 | `/stylist` | Stylist/OwnerAdmin scope=me | Implemented, pending review | Batch 4 · [Evidence](../docs-work/STY-01.md) |
-| STY-02 | `/stylist/calendar` | Stylist | Fully Designed | Batch 4 |
+| STY-01 | `/stylist` | Stylist/OwnerAdmin scope=me | Closed out under DEC-089 | Batch 4 · [Evidence](../docs-work/STY-01.md) |
+| STY-02 | `/stylist/calendar` | Stylist | Accepted under DEC-091 | Batch 4 · [Calendar evidence](../docs-work/STY-02.md) |
 | STY-03 | `/stylist/requests` | Stylist | Fully Designed | Batch 4 |
 | STY-04 | request response | Stylist | Fully Designed | Batch 4 |
 | STY-05 | `/stylist/appointments` | Stylist | Fully Designed | Batch 4 |

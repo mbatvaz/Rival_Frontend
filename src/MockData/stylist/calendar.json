@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "today": "2026-10-18",
+    "now": "11:40",
+    "hours": ["08:00", "20:00"],
+    "holidays": ["2026-10-27"],
+    "acceptanceHours": ["10:00", "16:00"],
+    "days": {
+      "2026-10-19": [
+        { "kind": "appointment", "start": "09:30", "end": "10:00", "id": "BK-48311", "name": "کاوه احمدی", "initial": "ک", "service": "اصلاح سر" }
+      ]
+    },
+    "acceptedHolidayDemo": [
+      { "kind": "appointment", "start": "10:00", "end": "10:30", "id": "BK-48321", "name": "علیرضا موسوی", "initial": "ع", "service": "اصلاح سر" },
+      { "kind": "appointment", "start": "11:00", "end": "12:00", "id": "BK-48322", "name": "نیما باقری", "initial": "ن", "service": "اصلاح سر و صورت" },
+      { "kind": "block", "start": "13:00", "end": "14:00", "id": "B-203", "name": "ناهار" },
+      { "kind": "appointment", "start": "14:00", "end": "14:30", "id": "BK-48323", "name": "یاسر قربانی", "initial": "ی", "service": "اصلاح سر" }
+    ]
+  }
+}

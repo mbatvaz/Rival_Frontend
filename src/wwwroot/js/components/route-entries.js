@@ -1,8 +1,7 @@
-import { motionBatch, initEntryCleanup, visibleEntries } from './entry-motion.js';
+import { enterDeclaredContent, motionBatch, initEntryCleanup, visibleEntries } from './entry-motion.js';
 import { expandAuthForm } from '../features/auth-transition.js';
 import { initNoticeEntries } from './notice-motion.js';
 import { otpEntries, portfolioEntries, rulesEntries } from '../features/public-motion.js';
-
 const listEntries = (root, selector, style) => motionBatch(root, ({ list, items }) => list(items(selector), style));
 const actions = (add, items, selector, otherwise = 'left') => {
   for (const el of items(selector)) add(el, getComputedStyle(el).position === 'fixed' ? 'bottom' : otherwise);
@@ -116,5 +115,6 @@ export function initRouteEntries(page) {
     const root = page.querySelector(selector);
     if (root) enter(root);
   }
+  enterDeclaredContent(page);
   initNoticeEntries(page);
 }

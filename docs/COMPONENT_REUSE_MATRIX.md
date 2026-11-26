@@ -12,8 +12,10 @@ Choose the closest accepted page and reuse its partials, styles or behavior. Sup
 | Appointment list, history and detail | CUS-01, CUS-03, CUS-04 | [AppointmentHero](../src/Views/Shared/Components/_AppointmentHero.njk), [AppointmentCard](../src/Views/Shared/Components/_AppointmentCard.njk), [history row](../src/Views/Shared/Components/_AppointmentHistoryRow.njk) |
 | Requests and notifications | CUS-05, CUS-06, CUS-09 | [RequestCard](../src/Views/Shared/Components/_RequestCard.njk), [detail behavior](../src/wwwroot/js/features/customer/request-detail.js), [NotificationItem](../src/Views/Shared/Components/_NotificationItem.njk) |
 | Booking, calendar and checkout | BK-01, BK-F01, BK-F02, BK-REC01 | [Booking dispatcher](../src/wwwroot/js/features/booking/index.js), [calendar partial](../src/Views/Booking/_Calendar.njk), [checkout](../src/wwwroot/js/features/booking/checkout.js) |
+| Stylist calendar | STY-02 | [Shared month sheet](../src/wwwroot/js/features/booking/calendar-sheet.js), [stylist calendar](../src/Views/Stylist/Calendar/Index.njk), [personal block sheets](../src/Views/Stylist/Calendar/_Sheets.njk) |
 | Form verification and profile editing | AUTH-01, CUS-10 | [OTP](../src/Views/Shared/Components/_Otp.njk), [OTP behavior](../src/wwwroot/js/components/otp.js), [profile forms](../src/wwwroot/js/features/customer/profile-forms.js) |
 | Result, empty, loading and motion | PAY-RES, STATE-04, CUS-03 | [StatePage](../src/Views/Shared/Components/_StatePage.njk), [skeleton](../src/wwwroot/css/03-components/skeleton.css), [Motion adapter](../src/wwwroot/js/components/motion.js) |
+| Action confirmation toast | STY-01 saved no-show | [Toast surface and entry](../src/wwwroot/css/03-components/toast.css), [Feedback source](../design-export/design-system-v2/components/Feedback/README.md) |
 | Portfolio previews and photo editing | PUB-02, CUS-10 | [Gallery rail](../src/wwwroot/js/features/gallery-rail.js), [profile photo editor](../src/wwwroot/js/features/customer/profile-photo.js) |
 
 Look up source and an accepted analogue together with [task context](ai/PROMPT_ROUTING.md#context). Confirm real consumers before changing a shared contract.

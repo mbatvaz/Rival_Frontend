@@ -4,7 +4,11 @@ DEC-086 → [accepted Phase 04 routes](../src/page-registry.json) → [final reg
 
 ## STY-01 stylist dashboard
 
-Batch 4 STY-01-M/M2/E/OFF/NS/NS2, DEC-087, D10-13 and SF-03 → [dashboard](../src/Views/Stylist/Home/Index.njk), [browser tests](../tests/phase05/dashboard.spec.mjs), [source and review evidence](../docs-work/STY-01.md).
+Batch 4 STY-01-M/M2/E/OFF/NS/NS2, DEC-087, DEC-089, D10-13 and SF-03 → [dashboard](../src/Views/Stylist/Home/Index.njk), [browser tests](../tests/phase05/dashboard.spec.mjs), [source and review evidence](../docs-work/STY-01.md).
+
+## STY-02 stylist calendar
+
+Batch 4 STY-02-M/MON/E/HOL/HOLA/BLK/BLKD, D10-67, D10-68, BR-SCH-10 and DEC-091 → [calendar](../src/Views/Stylist/Calendar/Index.njk), [calendar sheets](../src/Views/Stylist/Calendar/_Sheets.njk), [local scheduling adapter](../src/wwwroot/js/features/stylist/calendar-data.js), [browser tests](../tests/phase05/calendar.spec.mjs), [source and review evidence](../docs-work/STY-02.md).
 
 ## CUS-10 customer profile
 

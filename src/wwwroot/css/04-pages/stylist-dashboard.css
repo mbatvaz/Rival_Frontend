@@ -1,19 +1,4 @@
 @layer pages {
-  .rv-stylist-mast { display: flex; gap: var(--space-3); align-items: center; }
-  .rv-stylist-mast a { min-inline-size: var(--size-touch); }
-  .rv-stylist-mast h1 { font-size: var(--title-size); line-height: var(--title-line); }
-  .rv-stylist-bell { position: relative; }
-
-  .rv-stylist-bell::after {
-    position: absolute;
-    inset: var(--space-2) auto auto var(--space-2);
-    inline-size: var(--space-2);
-    block-size: var(--space-2);
-    border-radius: var(--radius-pill);
-    background: var(--bg-inverse);
-    content: "";
-  }
-
   .rv-stylist-dashboard { display: grid; gap: var(--space-6); }
   .rv-stylist-dashboard h2 { margin: 0; font-size: var(--heading-md-size); }
   .rv-stylist-dashboard p { margin: 0; }
@@ -31,9 +16,19 @@
 
   .rv-stylist-notice p { color: var(--text-secondary); font-size: var(--body-sm-size); font-weight: var(--body-sm-weight); }
   .rv-stylist-notice__rose { background: var(--rose-bg); color: var(--rose-fg); }
-  .rv-stylist-notice--inactive { background: var(--warning-bg); color: var(--warning-fg); }
-  .rv-stylist-notice--inactive p { color: inherit; }
   .rv-stylist-notice .rv-icon-btn { background: transparent; box-shadow: none; }
+
+  .rv-stylist-notice--inactive {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--warning-line);
+    background: var(--warning-bg);
+  }
+
+  .rv-stylist-notice--inactive > .ri { margin-block-start: var(--space-1); color: var(--warning-fg); }
+  .rv-stylist-notice--inactive h2 { margin-block-end: var(--space-1); }
+  .rv-stylist-notice--inactive .rv-stylist-notice__next { margin-block-start: var(--space-2); color: var(--text-primary); }
 
   .rv-stylist-quick { display: grid; grid-template-columns: minmax(0, 1.9fr) repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
 
@@ -125,24 +120,8 @@
   .rv-stylist-dashboard progress::-webkit-progress-bar { background: var(--rv-progress-track); }
   .rv-stylist-dashboard progress::-webkit-progress-value { background: var(--rv-progress-fill); }
   .rv-stylist-dashboard progress::-moz-progress-bar { background: var(--rv-progress-fill); }
+
   .rv-stylist-empty { display: grid; gap: var(--space-4); text-align: center; }
   .rv-stylist-empty > span { justify-self: center; }
   .rv-stylist-next { display: grid; text-align: start; text-decoration: none; }
-
-  .rv-stylist-toast {
-    position: fixed;
-    z-index: 3;
-    inset: auto var(--space-4) calc(var(--size-nav) + var(--space-6));
-    display: grid;
-    justify-content: center;
-    pointer-events: none;
-  }
-
-  .rv-stylist-toast p {
-    padding: var(--space-3) var(--space-5);
-    border-radius: var(--radius-pill);
-    color: var(--text-inverse);
-    background: var(--bg-inverse);
-    box-shadow: var(--shadow-md);
-  }
 }

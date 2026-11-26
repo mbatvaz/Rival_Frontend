@@ -17,7 +17,7 @@ test('Manual platform and final approvals are independent from phase acceptance 
   await ready(page);
   await expect(row(page)).toHaveAttribute('data-status', 'yellow');
   await expect(button(page, 'final')).toBeHidden();
-  const missing = page.locator('[data-rv-review-id="STY-02"]');
+  const missing = page.locator('[data-rv-review-id="STY-03"]');
   await expect(missing).toHaveAttribute('data-status', 'red');
   await expect(missing.locator(':scope > .rv-review__approvals')).toBeHidden();
   await expect(button(page, 'mobile')).toBeVisible();

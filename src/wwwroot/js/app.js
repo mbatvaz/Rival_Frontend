@@ -27,6 +27,7 @@ registerFeature('customer-profile', () => import('./features/customer/profile.js
 registerFeature('customer-notification-badge', () => import('./features/customer/notification-badge.js'));
 registerFeature('customer-dock', () => import('./components/customer-dock.js'));
 registerFeature('stylist-dashboard', () => import('./features/stylist/dashboard.js'));
+registerFeature('stylist-calendar', () => import('./features/stylist/calendar.js'));
 initSheets();
 initNavigationMotion();
 initOverflowText();
