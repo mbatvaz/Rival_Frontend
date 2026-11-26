@@ -58,14 +58,14 @@ for (const width of [1280, 1920]) {
   });
 }
 
-test('Desktop gallery is centered and supports vertical wheel and mouse drag @visual', async ({ page }) => {
+test('Desktop gallery is bottom attached and supports vertical wheel and mouse drag @visual', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.setViewportSize({ width: 1280, height: 940 });
   await page.goto('portfolio/?state=viewer');
   await ready(page);
   const dialog = page.getByRole('dialog');
   const rect = await dialog.boundingBox();
-  expect(Math.abs(rect.y + rect.height / 2 - 470)).toBeLessThan(2);
+  expect(Math.abs(rect.y + rect.height - 940)).toBeLessThan(2);
   const rail = dialog.locator('.rv-viewer__rail');
   const frame = await rail.boundingBox();
   await page.mouse.move(frame.x + frame.width / 2, frame.y + frame.height / 2);

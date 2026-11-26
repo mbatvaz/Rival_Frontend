@@ -26,7 +26,7 @@ function bindPanel(panel, canDrag, close) {
     panel.prepend(grip);
   }
   const handle = ({ intentional, movement, swipe, last, canceled, event }) => {
-    if (!handheld.matches || !canDrag(panel) || !intentional) return;
+    if ((more && !handheld.matches) || !canDrag(panel) || !intentional) return;
     const offset = Math.max(0, more ? -movement[0] : movement[1]);
     if (!drag && !last && offset) {
       drag = { panel };

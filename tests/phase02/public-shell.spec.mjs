@@ -27,6 +27,7 @@ for (const role of ['customer', 'stylist', 'admin']) {
     await page.goto(role + '/');
     await expect(page.locator('html')).toHaveAttribute('data-rv-ready', 'true');
     if (role === 'customer') await expect(page.getByRole('heading', { name: 'نوبت‌های پیش رو', exact: true })).toBeVisible();
+    else if (role === 'stylist') await expect(page.getByRole('heading', { name: 'برنامه امروز', exact: true })).toBeVisible();
     else await expect(page.getByText('این صفحه هنوز پیاده‌سازی نشده است.')).toBeVisible();
     await page.getByRole('button', { name: 'بیشتر', exact: true }).click();
     const more = page.getByRole('dialog', { name: 'بیشتر', exact: true });

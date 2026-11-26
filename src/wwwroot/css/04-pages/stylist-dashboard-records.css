@@ -1,0 +1,141 @@
+@layer pages {
+  .rv-stylist-requests { display: grid; gap: var(--space-4); }
+
+  .rv-stylist-request {
+    --rv-progress-track: var(--chrome-300);
+    --rv-progress-fill: var(--warning-solid);
+
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: var(--bg-surface);
+  }
+
+  .rv-stylist-request--urgent { --rv-progress-fill: var(--danger-solid); }
+
+  .rv-stylist-request > a {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    min-block-size: calc(var(--size-nav) + var(--size-control));
+    text-decoration: none;
+  }
+
+  .rv-stylist-request > a:focus-visible { outline-offset: -4px; }
+
+  .rv-stylist-request > a > div {
+    display: grid;
+    align-content: center;
+    gap: var(--space-1);
+    padding: var(--space-3) var(--space-4);
+  }
+  .rv-stylist-request > a > div > strong { font-size: var(--heading-md-size); }
+
+  .rv-stylist-request > a p {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--title-size);
+    font-weight: 600;
+  }
+
+  .rv-stylist-request img {
+    display: block;
+    inline-size: 100%;
+    block-size: calc(var(--size-nav) + var(--size-control) + var(--space-2));
+    object-fit: cover;
+    object-position: center 35%;
+    mask-image: linear-gradient(to right, var(--bg-inverse) 55%, transparent);
+  }
+
+  .rv-stylist-request__deadline {
+    display: grid;
+    gap: var(--space-1);
+    padding: var(--space-2) var(--space-4);
+    border-block-start: 1px solid var(--line-hairline);
+  }
+
+  .rv-stylist-request__times {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-1) var(--space-2);
+  }
+  .rv-stylist-request__remaining { color: var(--warning-fg); font-size: var(--body-sm-size); }
+  .rv-stylist-request__deadline .ri { vertical-align: middle; inline-size: var(--space-4); block-size: var(--space-4); }
+  .rv-stylist-request--urgent .rv-stylist-request__remaining { color: var(--danger-fg); }
+
+  .rv-stylist-timeline {
+    display: grid;
+    gap: var(--space-3);
+    list-style: none;
+    margin-block: var(--space-4) 0;
+    padding: 0;
+  }
+
+  .rv-stylist-timeline li {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--size-control) minmax(0, 1fr);
+    align-items: start;
+    gap: var(--space-3);
+  }
+
+  .rv-stylist-timeline li > bdi {
+    position: relative;
+    padding-block: var(--space-1);
+    border-radius: var(--radius-pill);
+    text-align: center;
+    background: var(--chrome-100);
+  }
+
+  .rv-stylist-timeline li:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    inset-block: var(--space-6) calc(var(--space-3) * -1);
+    inset-inline-start: calc(var(--size-control) / 2);
+    border-inline-start: 1px dashed var(--chrome-500);
+  }
+
+  .rv-stylist-slot {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-block-size: var(--size-control);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  .rv-stylist-slot small { display: block; }
+  .rv-stylist-slot--free { justify-content: center; border: 1px dashed var(--line-control); color: var(--text-secondary); }
+  .rv-stylist-slot--block { background: repeating-linear-gradient(135deg, var(--chrome-100) 0 var(--space-2), var(--bg-plaster) var(--space-2) var(--space-4)); }
+  .rv-stylist-slot--hold { border: 1px dashed var(--warning-line); background: var(--warning-bg); }
+  .rv-stylist-slot--hold small:last-child { color: var(--warning-fg); }
+
+  .rv-stylist-completed-link {
+    min-block-size: var(--size-touch);
+    display: grid;
+    flex: 1;
+    align-content: center;
+    text-decoration: none;
+  }
+
+  .rv-stylist-attendance {
+    display: grid;
+    grid-template-rows: calc(var(--size-touch) / 2) var(--size-touch);
+    align-self: stretch;
+    place-items: center center;
+  }
+
+  .rv-stylist-attendance .rv-btn {
+    padding: 0 var(--space-2);
+    color: var(--danger-fg);
+    background: transparent;
+    box-shadow: none;
+    white-space: nowrap;
+  }
+
+  .rv-stylist-attendance [data-rv-stylist-absent-label] { grid-row: 1 / -1; }
+  .rv-stylist-dashboard .rv-stylist-attendance-note { margin-block-start: var(--space-3); }
+}

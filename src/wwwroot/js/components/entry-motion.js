@@ -26,6 +26,17 @@ export function cancelEntries(scope) {
   batch?.abort();
 }
 
+export function enterList(scope) {
+  return motionBatch(scope, ({ list, items }) => list(items(':scope > *'), scope.dataset.rvEntryList === 'zoom' ? 'zoom' : 'left'));
+}
+
+export function enterDeclaredContent(page) {
+  for (const list of visibleEntries(page, '[data-rv-entry-list]')) enterList(list);
+  for (const item of visibleEntries(page, '[data-rv-entry-item]')) {
+    motionBatch(item, ({ add }) => add(item, item.dataset.rvEntryItem === 'zoom' ? 'zoom' : 'left'));
+  }
+}
+
 export function motionBatch(scope, arrange, { exit = false } = {}) {
   if (!window.Element.prototype.animate || reduced.matches || scope.closest('[inert]')) {
     cancelEntries(scope);

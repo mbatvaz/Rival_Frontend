@@ -1,0 +1,31 @@
+<template data-rv-slot-template="free">
+  <li>
+    <bdi></bdi>
+    <div class="rv-stylist-slot rv-stylist-slot--free rv-stylist-calendar__free">
+      <a class="rv-btn rv-btn--secondary" data-rv-slot-link href="{{ basePath }}stylist/manual-booking/"><span class="ri ri-plus" aria-hidden="true"></span>رزرو دستی</a>
+      <button class="rv-btn rv-btn--secondary" type="button" data-rv-block-create aria-haspopup="dialog"><span class="ri ri-lock" aria-hidden="true"></span>بستن</button>
+    </div>
+  </li>
+</template>
+<template data-rv-slot-template="block">
+  <li>
+    <bdi></bdi>
+    <button class="rv-stylist-slot rv-stylist-slot--block rv-stylist-calendar__block" type="button" data-rv-block-detail aria-haspopup="dialog">
+      <span class="rv-stylist-avatar"><span class="ri ri-lock" aria-hidden="true"></span></span>
+      <span><strong data-rv-slot-name></strong><small data-rv-slot-info></small><small class="rv-stylist-release" data-rv-slot-release hidden></small></span>
+      <span class="ri ri-chevron-left" aria-hidden="true"></span>
+    </button>
+  </li>
+</template>
+<template data-rv-slot-template="record">
+  <li>
+    <bdi></bdi>
+    <a class="rv-stylist-slot rv-glass" data-rv-slot-link href="{{ basePath }}stylist/appointments/demo/">
+      <span class="rv-stylist-avatar" data-rv-slot-avatar aria-hidden="true"></span>
+      <span><strong data-rv-slot-name></strong><small data-rv-slot-info></small><small data-rv-slot-note hidden></small></span>
+    </a>
+  </li>
+</template>
+<template data-rv-slot-template="end">
+  <li><bdi></bdi><span class="rv-stylist-slot rv-muted" data-rv-slot-info></span></li>
+</template>

@@ -1,0 +1,36 @@
+<section aria-labelledby="rv-stylist-today" data-rv-stylist-has-appointments>
+  <div class="rv-section-head"><h2 id="rv-stylist-today">برنامه امروز</h2><a href="{{ basePath }}stylist/calendar/">تقویم<span class="ri ri-chevron-left" aria-hidden="true"></span></a></div>
+  <div class="rv-appointments__tabs rv-glass" role="radiogroup" aria-labelledby="rv-stylist-today">
+    <label class="rv-booking-radio" id="rv-stylist-upcoming-label">
+      <input type="radio" name="stylist-day-view" value="upcoming" aria-controls="rv-stylist-upcoming" checked>
+      <span>پیش رو <span data-rv-total>۳</span></span>
+    </label>
+    <label class="rv-booking-radio" id="rv-stylist-completed-label">
+      <input type="radio" name="stylist-day-view" value="completed" aria-controls="rv-stylist-completed">
+      <span>پایان‌یافته <span data-rv-total>{{ model.completed.length | faDigits }}</span></span>
+    </label>
+  </div>
+  <div id="rv-stylist-upcoming" role="region" aria-labelledby="rv-stylist-upcoming-label" tabindex="-1">
+    <ol class="rv-stylist-timeline" data-rv-entry-zone="rows" data-rv-entry-list>
+      {% include "Stylist/_UpcomingSlots.njk" %}
+    </ol>
+  </div>
+  <div id="rv-stylist-completed" role="region" aria-labelledby="rv-stylist-completed-label" tabindex="-1" hidden>
+    <ol class="rv-stylist-timeline" data-rv-entry-zone="rows" data-rv-entry-list>
+      {% for slot in model.completed %}
+      <li data-rv-stylist-completed="{{ slot.id }}"><bdi>{{ slot.time }}</bdi>
+        <div class="rv-stylist-slot rv-glass">
+          <span class="rv-stylist-avatar" aria-hidden="true">{{ slot.initial }}</span>
+          <a class="rv-stylist-completed-link" href="{{ basePath }}stylist/appointments/demo/?appointment={{ slot.id }}"><strong>{{ slot.service }}</strong><small data-rv-stylist-client>{{ slot.name }}</small></a>
+          <div class="rv-stylist-attendance">
+            <span class="rv-appointment-status" data-rv-tone="success" data-rv-stylist-attended><span class="ri ri-check-circle" aria-hidden="true"></span>انجام شده</span>
+            <button class="rv-btn rv-btn--danger rv-btn--small" type="button" data-rv-stylist-confirm="{{ slot.id }}" aria-haspopup="dialog" aria-label="ثبت عدم حضور برای {{ slot.name }}">عدم حضور</button>
+            <span class="rv-appointment-status" data-rv-tone="warning" data-rv-stylist-absent-label hidden><span class="ri ri-ban" aria-hidden="true"></span>عدم حضور</span>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+    <p class="rv-muted rv-stylist-attendance-note">«عدم حضور» تا ۲۳:۵۹ امروز ثبت می‌شود و اثر مالی ندارد.</p>
+  </div>
+</section>

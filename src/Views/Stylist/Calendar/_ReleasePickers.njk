@@ -1,0 +1,22 @@
+<section class="rv-sheet rv-stylist-calendar-sheet" id="rv-stylist-release-time" role="dialog" aria-modal="true" aria-labelledby="rv-release-time-title" tabindex="-1" hidden>
+  <header class="rv-sheet__header">
+    <span class="rv-icon-tile"><span class="ri ri-clock" aria-hidden="true"></span></span>
+    <h2 id="rv-release-time-title">ساعت آزاد شدن</h2>
+    <button class="rv-icon-btn" type="button" data-rv-sheet-close aria-label="بستن برگه"><span class="ri ri-x" aria-hidden="true"></span></button>
+  </header>
+  <div class="rv-release-clock" dir="ltr">
+    <div>
+      <span id="rv-clock-hour">ساعت</span>
+      <div class="rv-release-wheel" data-rv-clock-hour role="spinbutton" tabindex="0" aria-labelledby="rv-clock-hour"></div>
+    </div>
+    <span class="rv-release-clock__separator" aria-hidden="true">:</span>
+    <div>
+      <span id="rv-clock-minute">دقیقه</span>
+      <div class="rv-release-wheel" data-rv-clock-minute role="spinbutton" tabindex="0" aria-labelledby="rv-clock-minute"></div>
+    </div>
+  </div>
+  <div class="rv-actions">
+    <button class="rv-btn" type="button" data-rv-clock-confirm>ثبت ساعت</button>
+    <button class="rv-btn rv-btn--secondary" type="button" data-rv-sheet-close>انصراف</button>
+  </div>
+</section>

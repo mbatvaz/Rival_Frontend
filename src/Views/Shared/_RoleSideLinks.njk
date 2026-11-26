@@ -1,0 +1,2 @@
+{% for item in shell.primary %}<a href="{{ item.href }}"{% if item.active %} aria-current="page"{% endif %}><span class="ri ri-{{ item.icon }}" aria-hidden="true"></span>{{ item.title }}</a>{% endfor %}
+{% for item in shell.more %}<a href="{{ item.href }}"{% if item.active %} aria-current="page"{% endif %}><span class="ri ri-{{ item.icon }}" aria-hidden="true"></span>{{ item.title }}</a>{% endfor %}

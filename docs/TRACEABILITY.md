@@ -2,6 +2,14 @@
 
 DEC-086 → [accepted Phase 04 routes](../src/page-registry.json) → [final regression and product boundaries](../docs-work/PHASE_04_CLOSEOUT_FA.md). The entries below retain the development history, including the withdrawn swap scenes.
 
+## STY-01 stylist dashboard
+
+Batch 4 STY-01-M/M2/E/OFF/NS/NS2, DEC-087, DEC-089, D10-13 and SF-03 → [dashboard](../src/Views/Stylist/Home/Index.njk), [browser tests](../tests/phase05/dashboard.spec.mjs), [source and review evidence](../docs-work/STY-01.md).
+
+## STY-02 stylist calendar
+
+Batch 4 STY-02-M/MON/E/HOL/HOLA/BLK/BLKD, D10-67, D10-68, BR-SCH-10 and DEC-091 → [calendar](../src/Views/Stylist/Calendar/Index.njk), [calendar sheets](../src/Views/Stylist/Calendar/_Sheets.njk), [local scheduling adapter](../src/wwwroot/js/features/stylist/calendar-data.js), [browser tests](../tests/phase05/calendar.spec.mjs), [source and review evidence](../docs-work/STY-02.md).
+
 ## CUS-10 customer profile
 
 D10-57, D10-58, D10-69 and DEC-084 → [profile](../src/Views/Customer/Profile/Index.njk), [Sheet forms](../src/Views/Customer/Profile/_Sheets.njk), [sample profile](../src/MockData/customer/profile.json), [demo settings](../src/wwwroot/js/features/customer/profile.js), [two-step verification](../src/wwwroot/js/features/customer/profile-phone.js), [keyboard scroll](../src/wwwroot/js/components/sheet-keyboard.js) and [browser coverage](../tests/phase04/profile.spec.mjs). DEC-034 covers authentication capability and fallback. DEC-035 supplies the salon contact. [Source states and desktop proposal](../docs-work/desktop-layouts/CUS-10.md)

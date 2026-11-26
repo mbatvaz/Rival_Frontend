@@ -61,6 +61,7 @@
   .rv-appointment-status .ri { inline-size: var(--space-3); block-size: var(--space-3); }
   .rv-appointment-status[data-rv-tone="ink"] { background: var(--bg-inverse); color: var(--text-inverse); border-color: var(--bg-inverse); }
   .rv-appointment-status[data-rv-tone="success"] { background: var(--success-bg); color: var(--success-fg); border-color: var(--success-line); }
+  .rv-appointment-status[data-rv-tone="warning"] { background: var(--warning-bg); color: var(--warning-fg); border-color: var(--warning-line); }
   .rv-appointment-status[data-rv-tone="rose"] { background: var(--rose-bg); color: var(--rose-fg); border-color: var(--rose-line); }
   .rv-appointment-status[data-rv-tone="danger"] { background: var(--danger-bg); color: var(--danger-fg); border-color: var(--danger-line); }
 

@@ -1,0 +1,86 @@
+@layer pages {
+  .rv-stylist-mast { display: flex; gap: var(--space-3); align-items: center; }
+  .rv-stylist-mast img { inline-size: calc(var(--space-12) + var(--space-2)); block-size: auto; }
+
+  .rv-stylist-mast h1 {
+    margin: 0;
+    padding-inline-start: var(--space-3);
+    border-inline-start: 1px solid var(--line-strong);
+    font-size: var(--heading-md-size);
+    line-height: var(--heading-md-line);
+  }
+
+  .rv-stylist-mast h1 span { color: var(--text-secondary); font-weight: 300; }
+  .rv-stylist-bell { position: relative; background: var(--glass-fill-strong); box-shadow: var(--shadow-sm); }
+
+  .rv-stylist-bell--unread::after {
+    position: absolute;
+    inset-block-start: var(--space-2);
+    inset-inline-end: var(--space-3);
+    inline-size: var(--space-2);
+    block-size: var(--space-2);
+    border-radius: var(--radius-pill);
+    background: var(--bg-inverse);
+    box-shadow: 0 0 0 2px var(--bg-surface);
+    content: "";
+  }
+
+  .rv-stylist-panel .rv-workspace__content { padding-block-start: var(--space-2); }
+  .rv-stylist-sidebar { display: none; }
+
+  .rv-stylist-panel .rv-role-nav { display: flex; }
+
+  .rv-stylist-panel .rv-role-nav > * { flex: 1; flex-direction: row; }
+  .rv-stylist-panel .rv-role-nav > [aria-current="page"] { flex-grow: 1.85; }
+
+  .rv-stylist-panel .rv-role-nav > :not([aria-current="page"]) > span:last-child {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  @media (min-width: 768px) {
+    .rv-stylist-panel { padding-block-end: var(--space-8); }
+
+    .rv-stylist-panel .rv-workspace__body {
+      display: grid;
+      grid-template-columns: minmax(185px, 22%) minmax(0, 1fr);
+      align-items: start;
+      gap: var(--space-5);
+      padding: var(--space-4);
+    }
+
+    .rv-stylist-panel .rv-workspace__content {
+      inline-size: min(100%, 720px);
+      margin-inline: auto;
+      padding: 0;
+    }
+
+    .rv-stylist-panel .rv-role-nav { display: none; }
+
+    .rv-stylist-sidebar {
+      display: grid;
+      gap: var(--space-2);
+      padding: var(--space-3);
+      background: var(--glass-fill-strong);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-glass);
+    }
+
+    .rv-stylist-sidebar > a {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      min-block-size: var(--size-touch);
+      padding-inline: var(--space-3);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+    }
+
+    .rv-stylist-sidebar > a[aria-current="page"] { color: var(--text-inverse); background: var(--bg-inverse); }
+    .rv-stylist-sidebar > a[aria-disabled="true"] { color: var(--text-muted); }
+  }
+}

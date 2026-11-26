@@ -176,7 +176,7 @@ Desktop-specific rules:
 - Stylist and OwnerAdmin workspaces may use a persistent right-side navigation rail (RTL) for primary work areas, with secondary destinations in a More menu. Reuse the exact mobile navigation destinations; do not create new routes.
 - Booking flows may use a main form/step column plus a contextual summary column when that summary exists in the approved mobile flow.
 - For an assigned redesign of an accepted desktop composition, update its `docs-work/desktop-layouts/<PAGE-ID>.md` and obtain the owner's review.
-- Dialogs, pickers and confirmations remain bottom sheets. On desktop, a sheet remains bottom-attached and horizontally centered with a maximum width of 560px. DEC-037 is the explicit exception: PortfolioViewer is centered in the desktop viewport from 1024px and stays bottom-attached on mobile.
+- Dialogs, pickers, confirmations and PortfolioViewer are bottom sheets. On desktop, sheets are bottom-attached and horizontally centered with a maximum width of 560px.
 - Nested vertical scrolling is prohibited outside two owner-approved cases: the mobile BK-REC01 editor and, under DEC-065, only the direct `.rv-more-list` inside mobile/tablet customer More. The customer drawer is viewport-fixed, its header row is hidden, its footer stays in the frame and only the list scrolls; crossing the 1024px boundary dismisses its modal stack. The recurring editor retains its separately documented header/handle behavior. Intentional horizontal rails/carousels with design evidence may scroll horizontally (including documented snap rails such as ADM-14). Do not introduce arbitrary horizontal scrolling for whole pages or tables.
 
 ## 7. Accessibility and QA
@@ -261,10 +261,24 @@ A phase is complete when its IDs and states are traceable, the acceptance checkl
 - Treat owner comments marked mobile as observations from a physical Samsung Galaxy S20 FE. Reproduce in the browser at the reported width and record separately whether physical-device retesting occurred.
 - Keep compact labels and aligned card metadata on one line. Let flexible children shrink with `min-inline-size: 0`. Expose the full text via the associated detail view or an accessible reveal when it overflows. Preserve wrapping for prose and long status messages.
 - Give every horizontally scrolling rail native touch scrolling, pointer drag on desktop, and keyboard access. Reuse `components/rail.js` and suppress activation only after a drag crosses the movement threshold.
-- Use brief native CSS motion, primarily transform and opacity. Page entry, supported route exit, and overlay entry/exit must respect reduced motion. Bottom sheets animate from and back to the bottom edge, retaining background inertness and restoring scroll and focus after closing. Centered desktop gallery remains the approved desktop exception. The mobile gallery stays anchored to the viewport when the viewport can contain it. On short viewports, allow the document to scroll for access to the full gallery details.
+- The STY-02 release time picker has two fixed-height vertical value wheels. Scroll snapping is scoped to the wheels. The sheet follows the shared document layout and dismissal behavior.
+- Use brief native CSS motion, primarily transform and opacity, with reduced-motion support. The gallery stays anchored to the bottom when its contents fit. On short viewports, allow document scrolling for access to the full gallery details.
 - Keep real labels visible above inputs in both empty and filled states. Use the placeholder only for an example. When the keyboard opens, scroll the field into view smoothly and honor reduced motion. Animate invalid color and border without changing control dimensions.
 - Use a viewport-height layout for phone login and account states where content fits. Permit document scrolling with a keyboard, short screen, large text, or expanded messages.
 - When implementing the OwnerAdmin featured-image settings, provide separate uploads for portrait mobile and landscape desktop hero images. PUB-01 selects the source with `picture` at the existing 1024px desktop breakpoint. The current landscape demo uses the existing salon-wide photo.
+
+## Loading and motion defaults
+
+Apply the shared Phase 04 loading and motion patterns to new and updated pages in every phase unless the owner explicitly requests an exception. Keep the page shell, headings and navigation stable during loading. Mark variable content with `data-rv-entry-zone` so the shared skeleton reserves its final space. Use the `rows` value for row groups and `data-rv-card-media` for cards that need images before appearing.
+
+Use these four shared motion patterns across phases:
+
+1. Inline notices such as inactive accounts reveal from the physical right edge toward the left. New notices opt in with `data-rv-notice-reveal`.
+2. Bottom sheets enter fully from below the viewport and leave fully toward the bottom at constant panel opacity. The shared grip, header drag area, distance and swipe thresholds apply across widths. A short or cancelled gesture returns to rest. Escape, dismissal controls, focus trapping and scroll restoration use the shared sheet lifecycle. DEC-065 continues to govern the separate customer navigation drawer.
+3. Dynamic content can enter from the physical left toward its resting position while becoming fully opaque. Mark lists with `data-rv-entry-list` and standalone content with `data-rv-entry-item`.
+4. Dynamic content can scale up to full size while becoming fully opaque. Use `data-rv-entry-list="zoom"` or `data-rv-entry-item="zoom"`.
+
+For patterns 3 and 4, lists stagger their direct children in display order using the shared timing and start after data, fonts and applicable media settle. Explicit view changes can replay entry for the newly selected list. Preserve normal navigation, focus restoration and a readable static state when reduced motion is requested or motion is unavailable. [Phase 04 motion evidence](../docs-work/VARIABLE_LIST_MOTION_2026-11-17.md)
 
 ## Design evidence before implementation
 

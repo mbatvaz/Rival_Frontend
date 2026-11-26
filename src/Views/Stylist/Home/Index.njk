@@ -1,0 +1,57 @@
+{% extends "Shared/_StylistPanelLayout.njk" %}
+{% block stylistHeaderTitle %}{{ model.weekday }} <span>{{ model.date }}</span>{% endblock %}
+{% block stylistBellClass %} rv-stylist-bell--unread{% endblock %}
+{% block stylistBellLabel %}اعلان‌ها، ۱ خوانده‌نشده{% endblock %}
+{% block content %}
+<div class="rv-stylist-dashboard" data-rv="stylist-dashboard">
+  <section class="rv-stylist-notice rv-glass" data-rv-stylist-personal aria-label="اعلان شخصی">
+    <span class="rv-icon-tile rv-stylist-notice__rose"><span class="ri ri-calendar-x" aria-hidden="true"></span></span>
+    <div><strong>{{ model.personal.title }}</strong><p>{{ model.personal.text }}</p></div>
+    <button class="rv-icon-btn" data-rv-stylist-dismiss type="button" aria-label="بستن این اعلان"><span class="ri ri-x" aria-hidden="true"></span></button>
+  </section>
+  <section class="rv-stylist-notice rv-stylist-notice--inactive" data-rv-stylist-inactive data-rv-notice-reveal aria-labelledby="rv-stylist-inactive-title" hidden>
+    <span class="ri ri-alert" aria-hidden="true"></span>
+    <div><h2 id="rv-stylist-inactive-title">حساب کاری شما غیرفعال است</h2><p>رزرو تازه و رزرو دستی بسته است و درخواست‌های پیشنهادی باز لغو شدند. نوبت‌های قطعی، برنامه کاری، نمونه‌کار، اعلان‌ها و پروفایل در دسترس است.</p><p class="rv-stylist-notice__next">برای فعال شدن دوباره با مدیر سالن هماهنگ کنید.</p></div>
+  </section>
+
+  <section class="rv-stylist-quick" aria-label="امروز و اقدام‌های سریع">
+    <div class="rv-stylist-gauge rv-glass" role="img" aria-label="از ۷ نوبت امروز: ۳ انجام‌شده، ۱ جاری، ۳ مانده" data-rv-stylist-gauge>
+      <svg viewBox="0 0 120 64" aria-hidden="true" focusable="false">
+        <path d="M10 60 A50 50 0 0 1 110 60" pathLength="7"></path>
+        <path d="M10 60 A50 50 0 0 1 110 60" pathLength="7" stroke-dasharray="3 7" data-rv-stylist-finished></path>
+        <path d="M10 60 A50 50 0 0 1 110 60" pathLength="7" stroke-dasharray="0 7" data-rv-stylist-absent></path>
+      </svg>
+      <div aria-hidden="true"><strong data-rv-stylist-count>۳</strong><small data-rv-stylist-total>از ۷ نوبت</small></div>
+    </div>
+    <a class="rv-stylist-shortcut rv-glass" href="{{ basePath }}stylist/schedule/"><span class="ri ri-clock" aria-hidden="true"></span>برنامه کاری</a>
+    <a class="rv-stylist-shortcut rv-stylist-shortcut--primary" href="{{ basePath }}stylist/manual-booking/" data-rv-stylist-manual><span class="ri ri-calendar-plus" aria-hidden="true"></span>رزرو دستی</a>
+    <span class="rv-stylist-shortcut rv-glass" aria-disabled="true" data-rv-stylist-inactive hidden><span class="ri ri-lock" aria-hidden="true"></span>رزرو دستی</span>
+  </section>
+
+  {% include "Stylist/Home/_Current.njk" %}
+  <section class="rv-panel rv-stylist-empty" data-rv-stylist-empty aria-labelledby="rv-stylist-empty-title" data-rv-entry-zone data-rv-entry-item hidden>
+      <span class="rv-icon-tile"><span class="ri ri-calendar" aria-hidden="true"></span></span>
+      <h2 id="rv-stylist-empty-title">امروز نوبتی ندارید</h2>
+      <p>ساعت کاری امروز شما ۰۸:۰۰ تا ۱۹:۰۰ است و همه آن آزاد است. مشتری حضوری یا تلفنی را با «رزرو دستی» ثبت کنید.</p>
+      <a class="rv-panel rv-stylist-next" href="{{ basePath }}stylist/appointments/demo/?appointment={{ model.next.id }}"><small>نوبت بعدی شما</small><strong>{{ model.next.date }}</strong><small>{{ model.next.text }}</small></a>
+      <a class="rv-btn rv-btn--secondary" href="{{ basePath }}stylist/calendar/">باز کردن تقویم</a>
+  </section>
+  {% include "Stylist/Home/_Requests.njk" %}
+  {% include "Stylist/Home/_Today.njk" %}
+  <section aria-labelledby="rv-stylist-announcement">
+    <h2 id="rv-stylist-announcement">اطلاعیه‌های سالن</h2>
+    <div class="rv-stylist-notice">
+      <span class="rv-icon-tile"><span class="ri ri-clock" aria-hidden="true"></span></span>
+      <div><strong>{{ model.announcement.title }}</strong><p>{{ model.announcement.text }}</p><small>{{ model.announcement.date }}</small></div>
+      <button class="rv-icon-btn" data-rv-stylist-dismiss type="button" aria-label="بستن این اطلاعیه"><span class="ri ri-x" aria-hidden="true"></span></button>
+    </div>
+  </section>
+  <div class="rv-toast-region" role="status" aria-atomic="true">
+    <div class="rv-toast" data-rv-stylist-toast hidden>
+      <span class="rv-toast__icon"><span class="ri ri-check" aria-hidden="true"></span></span>
+      <div><p class="rv-toast__title" data-rv-toast-title></p><p class="rv-toast__description" data-rv-toast-description></p></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block workspaceSheets %}{% include "Stylist/Home/_NoShow.njk" %}{% endblock %}

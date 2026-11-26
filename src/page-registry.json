@@ -762,11 +762,20 @@
       "status": "Fully Designed",
       "source": "Batch 4",
       "primaryBatch": 4,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
+      "template": "Stylist/Home/Index.njk",
+      "mockData": "MockData/stylist/dashboard.json",
+      "notes": "Dashboard slice closed out under DEC-089.",
       "titleFa": "داشبورد آرایشگر",
-      "phase": "Phase 05"
+      "phase": "Phase 05",
+      "implementationStatus": "accepted",
+      "variants": [
+        { "label": "پایان‌یافته", "query": "?state=completed" },
+        { "label": "روز بدون نوبت", "query": "?state=empty" },
+        { "label": "آرایشگر غیرفعال", "query": "?state=inactive" },
+        { "label": "تأیید عدم حضور", "query": "?state=no-show" },
+        { "label": "عدم حضور ثبت شد", "query": "?state=no-show-saved" }
+      ],
+      "ownerAcceptedAt": "2026-11-26"
     },
     {
       "id": "STY-02",
@@ -776,11 +785,21 @@
       "status": "Fully Designed",
       "source": "Batch 4",
       "primaryBatch": 4,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
+      "template": "Stylist/Calendar/Index.njk",
+      "mockData": "MockData/stylist/dashboard.json",
+      "notes": "Calendar slice accepted under DEC-091, including the scheduled release date and time controls.",
+      "implementationStatus": "accepted",
+      "ownerAcceptedAt": "2026-11-26",
       "titleFa": "تقویم آرایشگر",
-      "phase": "Phase 05"
+      "phase": "Phase 05",
+      "variants": [
+        { "label": "انتخاب تاریخ از تقویم ماهانه", "query": "?state=month" },
+        { "label": "روز بدون نوبت", "query": "?state=empty" },
+        { "label": "تعطیل رسمی، بدون پذیرش", "query": "?state=holiday" },
+        { "label": "تعطیل رسمی، با پذیرش", "query": "?state=holiday-accepting" },
+        { "label": "بستن سریع زمان آزاد", "query": "?state=block" },
+        { "label": "جزئیات بستن شخصی", "query": "?state=block-detail" }
+      ]
     },
     {
       "id": "STY-03",

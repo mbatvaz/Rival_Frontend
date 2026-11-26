@@ -4,18 +4,13 @@ const directed = () => Boolean(document.querySelector('[data-rv-bottom-sheets]')
 const sheetTiming = (panel, duration) => (directed() || panel.dataset.rvDrawerMode === 'mobile' ? sceneTiming : motionTiming)(duration);
 
 function startFrame(panel) {
-  if (window.matchMedia('(min-width: 1024px)').matches && panel.classList.contains('rv-viewer')) {
-    return { opacity: 0, transform: 'scale(0.98)' };
-  }
   if (panel.dataset.rvDrawerMode === 'mobile') return { transform: 'translateX(-100%)' };
-  if (directed()) return { transform: 'translateY(calc(100% + 24px))' };
-  return { opacity: 0.35, transform: 'translateY(min(19%, 68px))' };
+  return { transform: 'translateY(calc(100% + var(--space-6)))' };
 }
 
 export function enterSheet(panel) {
   const first = startFrame(panel);
-  const last = 'opacity' in first ? { opacity: 1, transform: 'none' } : { transform: 'none' };
-  return startMotion(panel, [first, last], { ...sheetTiming(panel, 'duration-slow'), id: 'rv-sheet-enter' });
+  return startMotion(panel, [first, { transform: 'none' }], { ...sheetTiming(panel, 'duration-slow'), id: 'rv-sheet-enter' });
 }
 
 export function exitSheet(panel, dragOffset) {
@@ -25,7 +20,7 @@ export function exitSheet(panel, dragOffset) {
   const from = Object.fromEntries(Object.keys(end).map(property => [property, computed[property]]));
   const timing = sheetTiming(panel, 'duration-base');
   if (distance) timing.duration = Math.max(motionTiming('duration-fast').duration, timing.duration * (1 - dragOffset / distance));
-  return startMotion(panel, [from, end], { ...timing, retain: true });
+  return startMotion(panel, [from, end], { ...timing, id: 'rv-sheet-exit', retain: true });
 }
 
 export function animateScrim(layer, entering) {

@@ -1,5 +1,21 @@
 # Decision Log
 
+## DEC-091 — STY-02 acceptance and Phase 05 branch rename
+
+On 2026-11-26 the owner accepted the calendar slice, including the locked release date and bounded time wheels. The owner authorized publication and renamed the active Phase 05 branch to `web/phase-05-stylist-panel`. [Calendar closeout](../docs-work/STY-02.md)
+
+## DEC-090 — STY-02 initial calendar approval
+
+On 2026-11-26 the owner accepted the initial current-week and today agenda preview and authorized the remaining calendar interactions. The expanded calendar is tracked in the [STY-02 evidence](../docs-work/STY-02.md).
+
+## DEC-089 — Shared motion patterns and STY-01 closeout
+
+The owner makes right-edge notice reveals, opaque bottom-sheet entry and exit with the shared drag grip, left-entry with fade, and zoom-entry with fade the standard motion patterns. Left and zoom entries stagger records in lists. PortfolioViewer follows the bottom-sheet rule at desktop widths, superseding DEC-037. The owner authorizes STY-01 closeout and the start of STY-02 in Phase 05 after verification. [Shared rules](RIVAL_PROJECT_CONTRACT.md#loading-and-motion-defaults) · [Dashboard evidence](../docs-work/STY-01.md) · [Calendar scope](../docs-work/STY-02.md)
+
+## DEC-088 — Phase 04 loading and motion defaults across phases
+
+The owner directs every phase to use the accepted Phase 04 loading and motion patterns by default. A change or removal requires an explicit owner request. STY-01 applies the shared patterns to today's appointment and the request and day-plan lists. [Project defaults](RIVAL_PROJECT_CONTRACT.md#loading-and-motion-defaults) · [STY-01 review](../docs-work/STY-01.md)
+
 ## DEC-087 — Reuse and mobile-first delivery for phases 05–09
 
 The owner directs future frontend work to reuse accepted Phase 01–04 code, resolve task context locally and return compact evidence. New pages use the mobile composition at every width. From tablet width the Stylist and OwnerAdmin panels use a right-hand list of role links in place of the bottom dock. Desktop inherits that responsive layout at wider dimensions. [Responsive contract](RIVAL_PROJECT_CONTRACT.md#6-responsive-and-desktop-design-contract) · [Prompt routing](ai/PROMPT_ROUTING.md)

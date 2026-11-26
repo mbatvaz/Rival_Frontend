@@ -1,6 +1,6 @@
 import { motionBatch } from './entry-motion.js';
 
-const notices = '.rv-auth-lock, .rv-customer-notice, .rv-booking__notice, [data-rv-request-outcome]';
+const notices = '.rv-auth-lock, .rv-customer-notice, .rv-booking__notice, [data-rv-request-outcome], [data-rv-notice-reveal]';
 
 export function initNoticeEntries(page) {
   const seen = new WeakSet();
