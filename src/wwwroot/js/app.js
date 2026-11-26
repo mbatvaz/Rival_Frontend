@@ -26,6 +26,7 @@ registerFeature('customer-notifications', () => import('./features/customer/noti
 registerFeature('customer-profile', () => import('./features/customer/profile.js'));
 registerFeature('customer-notification-badge', () => import('./features/customer/notification-badge.js'));
 registerFeature('customer-dock', () => import('./components/customer-dock.js'));
+registerFeature('stylist-dashboard', () => import('./features/stylist/dashboard.js'));
 initSheets();
 initNavigationMotion();
 initOverflowText();

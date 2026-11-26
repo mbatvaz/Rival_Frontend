@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "demo": true,
+  "data": {
+    "date": "۲۶ مهر",
+    "dateKey": "1405-07-26",
+    "weekday": "یکشنبه",
+    "personal": { "title": "علی محمدی نوبت ۱۷:۰۰ امروز را لغو کرد", "text": "این زمان دوباره آزاد شد و در «ادامه روز» دیده می‌شود." },
+    "announcement": { "title": "پنج‌شنبه‌ها تا ساعت ۲۰:۰۰ باز هستیم", "text": "از اول آبان، یک ساعت بیشتر برای نوبت‌های عصر.", "date": "۱۸ مهر" },
+    "current": { "id": "BK-48302", "name": "رضا کریمی", "service": "اصلاح سر و صورت", "start": "۱۱:۰۰", "duration": "۱ ساعت", "elapsed": 40, "minutes": 60, "remaining": 20, "phone": "09142713840", "phoneLabel": "۰۹۱۴ ۲۷۱ ۳۸۴۰" },
+    "requests": [
+      { "id": "RQ-2221", "service": "فیشیال", "name": "بهراد شریفی", "initial": "ب", "preference": "یکشنبه ۳ آبان، صبح", "deadline": "۶ ساعت و ۵۰ دقیقه", "ends": "امروز ۱۸:۳۰", "remaining": 4, "image": "img/public/facial.png", "urgent": true },
+      { "id": "RQ-2215", "service": "رنگ ریش", "name": "رضا کریمی", "initial": "ر", "preference": "دوشنبه ۴ آبان، عصر", "deadline": "۲ روز و ۸ ساعت", "ends": "سه‌شنبه ۲۸ مهر ۲۰:۱۰", "remaining": 33, "image": "img/booking/beard-color.png", "urgent": false }
+    ],
+    "timeline": [
+      { "kind": "free", "time": "۱۲:۰۰", "start": "12:00", "duration": "۱ ساعت" },
+      { "kind": "appointment", "time": "۱۳:۰۰", "id": "BK-48303", "name": "محمد رستمی", "initial": "م", "service": "اصلاح سر", "duration": "۳۰ دقیقه" },
+      { "kind": "block", "time": "۱۳:۳۰", "name": "ناهار", "duration": "۱ ساعت" },
+      { "kind": "appointment", "time": "۱۴:۳۰", "id": "BK-48304", "name": "حسین جعفری", "initial": "ح", "service": "اصلاح سر", "duration": "۳۰ دقیقه" },
+      { "kind": "hold", "time": "۱۵:۰۰", "id": "RQ-2209", "name": "مجید کاظمی", "initial": "م", "service": "فیشیال", "duration": "۱ ساعت", "deadline": "۱۴:۱۰" },
+      { "kind": "appointment", "time": "۱۶:۰۰", "id": "BK-48305", "name": "سامان نوری", "initial": "س", "service": "اصلاح سر و صورت", "duration": "۱ ساعت" },
+      { "kind": "free", "time": "۱۷:۰۰", "start": "17:00", "duration": "۳۰ دقیقه" },
+      { "kind": "block", "time": "۱۷:۳۰", "name": "نگه‌داشته برای مشتری ثابت", "duration": "۱ ساعت و ۳۰ دقیقه", "release": "۱۵:۰۰ امروز" }
+    ],
+    "completed": [
+      { "id": "BK-48299", "time": "۱۰:۳۰", "service": "اصلاح سر", "name": "عرفان رحیمی", "initial": "ع" },
+      { "id": "BK-48296", "time": "۰۹:۳۰", "service": "اصلاح سر", "name": "پویا صادقی", "initial": "پ" },
+      { "id": "BK-48291", "time": "۰۸:۳۰", "service": "فیشیال", "name": "کاوه احمدی", "initial": "ک" }
+    ],
+    "next": { "id": "BK-48311", "date": "دوشنبه ۲۷ مهر، ۰۹:۳۰", "text": "کاوه احمدی · اصلاح سر · ۳۰ دقیقه" }
+  }
+}

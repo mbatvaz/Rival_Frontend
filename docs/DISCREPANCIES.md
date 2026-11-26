@@ -2,6 +2,10 @@
 
 DEC-086 accepts the Phase 04 presentation, including the single-column CUS-10 desktop layout from DEC-085. The withdrawal of swap scenes and the standalone CUS-07 preview supersedes earlier review notes. [Closeout](../docs-work/PHASE_04_CLOSEOUT_FA.md)
 
+## STY-01 stylist dashboard
+
+The first Phase 05 preview uses service thumbnails and customer initials in the source media slots. The request badge and separate contact actions in the upcoming timeline are pending. The dashboard retains the fixture's depicted day and the links to the remaining stylist routes. [Source comparison and review](../docs-work/STY-01.md)
+
 ## CUS-10 customer profile
 
 DEC-084 accepts the mobile and tablet slice. DEC-085 accepts the existing single-column desktop layout. The shared shell, minimum touch targets and Sheet layout account for spacing differences from the 390px exports. The demo uses a local code hint and the salon number under DEC-035. Credentials and verified phone changes require the eventual identity integration. [Source mapping and accepted desktop layout](../docs-work/desktop-layouts/CUS-10.md)

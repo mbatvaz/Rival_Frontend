@@ -1,0 +1,15 @@
+<article class="rv-stylist-current" aria-labelledby="rv-stylist-current" data-rv-stylist-has-appointments>
+  <div class="rv-stylist-current__heading">
+    <span class="rv-stylist-avatar" aria-hidden="true">ر</span>
+    <div><small>نوبت جاری · از <bdi>{{ model.current.start }}</bdi></small><h2 id="rv-stylist-current">{{ model.current.name }}</h2><p>{{ model.current.service }} · {{ model.current.duration }}</p></div>
+  </div>
+  <progress value="{{ model.current.elapsed }}" max="{{ model.current.minutes }}" aria-label="پیشرفت نوبت" aria-valuetext="{{ model.current.elapsed | faDigits }} دقیقه گذشته، {{ model.current.remaining | faDigits }} دقیقه مانده"></progress>
+  <div class="rv-stylist-current__time"><small>{{ model.current.elapsed | faDigits }} دقیقه گذشته</small><small><strong>{{ model.current.remaining | faDigits }} دقیقه</strong> مانده</small></div>
+  <div class="rv-stylist-current__contact">
+    <span class="ri ri-smartphone" aria-hidden="true"></span><bdi>{{ model.current.phoneLabel }}</bdi>
+    <a class="rv-icon-btn" href="{{ basePath }}stylist/appointments/demo/?appointment={{ model.current.id }}&amp;action=sms" aria-label="پیامک به {{ model.current.name }}"><span class="ri ri-sms" aria-hidden="true"></span></a>
+    <a class="rv-icon-btn" href="tel:{{ model.current.phone }}" aria-label="تماس با {{ model.current.name }}"><span class="ri ri-phone" aria-hidden="true"></span></a>
+  </div>
+  <a class="rv-btn rv-btn--light" href="{{ basePath }}stylist/appointments/demo/?appointment={{ model.current.id }}">جزئیات نوبت</a>
+  <small>بعد از پایان این نوبت، «عدم حضور» تا ۲۳:۵۹ امروز در «پایان‌یافته‌های امروز» قابل ثبت است.</small>
+</article>

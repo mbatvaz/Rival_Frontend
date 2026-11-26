@@ -1,8 +1,12 @@
 # Rival Progress
 
+## Phase 05 started — 2026-11-26
+
+The owner assigned the stylist panel to `phase/05-stylist-panel`. See the [STY-01 dashboard specification and review](docs-work/STY-01.md).
+
 ## Phase 04 accepted — 2026-11-26
 
-The owner accepted the customer panel and its existing desktop layouts under DEC-086. All eight Phase 04 routes are accepted in the registry. Phase 05 awaits assignment. [Final scope and checks](docs-work/PHASE_04_CLOSEOUT_FA.md)
+The owner accepted the customer panel and its existing desktop layouts under DEC-086. All eight Phase 04 routes are accepted in the registry. [Final scope and checks](docs-work/PHASE_04_CLOSEOUT_FA.md)
 
 ## Phase 04 architecture review — 2026-11-24
 

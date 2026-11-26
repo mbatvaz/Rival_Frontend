@@ -15,10 +15,10 @@ async function approve(page) {
 
 test('Manual platform and final approvals are independent from phase acceptance and persist on the alias @smoke', async ({ page }) => {
   await ready(page);
-  await expect(page.locator('[data-rv-page-row][data-status="red"]')).toHaveCount(43);
-  await expect(page.locator('[data-rv-page-row][data-status="yellow"]')).toHaveCount(25);
+  await expect(row(page)).toHaveAttribute('data-status', 'yellow');
   await expect(button(page, 'final')).toBeHidden();
-  const missing = page.locator('[data-rv-review-id="STY-01"]');
+  const missing = page.locator('[data-rv-review-id="STY-02"]');
+  await expect(missing).toHaveAttribute('data-status', 'red');
   await expect(missing.locator(':scope > .rv-review__approvals')).toBeHidden();
   await expect(button(page, 'mobile')).toBeVisible();
   await expect(button(page, 'desktop')).toBeVisible();

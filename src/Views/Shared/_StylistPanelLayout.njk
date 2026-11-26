@@ -1,0 +1,8 @@
+{% extends "Shared/_RoleLayout.njk" %}
+{% block workspaceClass %} rv-stylist-panel{% endblock %}
+{% block workspaceSidebar %}
+  <nav class="rv-booking-sidebar rv-stylist-sidebar" aria-label="منوی آرایشگر">
+    {% include "Shared/_RoleSideLinks.njk" %}
+    <button class="rv-btn rv-btn--danger" type="button" data-rv-sheet-open="rv-logout">خروج از حساب</button>
+  </nav>
+{% endblock %}

@@ -32,4 +32,4 @@ For phases 05–09 apply DEC-087. Start with an [accepted implementation](COMPON
 
 ## Current owner gate
 
-The owner accepted Phase 04 on 2026-11-26 under DEC-086. Phase 05 awaits explicit assignment. See the [Phase 04 closeout](../docs-work/PHASE_04_CLOSEOUT_FA.md) for the accepted routes and regression evidence.
+The owner accepted Phase 04 on 2026-11-26 under DEC-086 and assigned Phase 05 to a single branch from master. Phase 05 is in development on `phase/05-stylist-panel`, beginning with STY-01. See the [Phase 04 closeout](../docs-work/PHASE_04_CLOSEOUT_FA.md) for prerequisite evidence.

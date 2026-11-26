@@ -762,11 +762,19 @@
       "status": "Fully Designed",
       "source": "Batch 4",
       "primaryBatch": 4,
-      "template": null,
-      "mockData": null,
-      "notes": "Implementation template is assigned during the relevant phase.",
+      "template": "Stylist/Home/Index.njk",
+      "mockData": "MockData/stylist/dashboard.json",
+      "notes": "Dashboard states implemented for owner review.",
       "titleFa": "داشبورد آرایشگر",
-      "phase": "Phase 05"
+      "phase": "Phase 05",
+      "implementationStatus": "implemented",
+      "variants": [
+        { "label": "پایان‌یافته", "query": "?state=completed" },
+        { "label": "روز بدون نوبت", "query": "?state=empty" },
+        { "label": "آرایشگر غیرفعال", "query": "?state=inactive" },
+        { "label": "تأیید عدم حضور", "query": "?state=no-show" },
+        { "label": "عدم حضور ثبت شد", "query": "?state=no-show-saved" }
+      ]
     },
     {
       "id": "STY-02",
