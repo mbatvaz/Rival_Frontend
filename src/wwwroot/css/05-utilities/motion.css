@@ -7,62 +7,6 @@
   ::-webkit-scrollbar { display: none; }
   [data-rv-dragging] { scroll-snap-type: none; user-select: none; cursor: grabbing; }
 
-  [data-rv-confirm-action] {
-    position: relative;
-    touch-action: manipulation;
-    user-select: none;
-    -webkit-touch-callout: none;
-  }
-
-  [data-rv-confirm-action]:active { transform: none; }
-
-  .rv-confirm-face,
-  .rv-confirm-fill {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2);
-    border-radius: inherit;
-    pointer-events: none;
-  }
-
-  .rv-confirm-face {
-    background: var(--bg-surface);
-    color: var(--text-primary);
-    box-shadow: inset 0 0 0 2px var(--rv-confirm-color);
-  }
-
-  .rv-confirm-fill {
-    background: var(--rv-confirm-color);
-    color: var(--rv-confirm-text);
-    clip-path: inset(0 0 0 100%);
-  }
-
-  [data-rv-confirm-hint]::after {
-    position: absolute;
-    z-index: 1;
-    inset-inline: 0;
-    inset-block-end: calc(100% + var(--space-1));
-    min-inline-size: max-content;
-    padding: var(--space-1) var(--space-2);
-    border-radius: var(--radius-sm);
-    background: var(--bg-inverse);
-    color: var(--text-inverse);
-    font-size: var(--body-sm-size);
-    content: attr(data-rv-confirm-hint);
-    pointer-events: none;
-  }
-
-  .rv-confirm-announcement {
-    position: absolute;
-    inline-size: 1px;
-    block-size: 1px;
-    overflow: clip;
-    clip-path: inset(50%);
-  }
-
   [data-rv-page] > main {
     animation: none;
   }

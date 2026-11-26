@@ -5,7 +5,6 @@ import { initSheets } from './components/sheet.js';
 import { initOverflowText } from './components/overflow-text.js';
 import { initRouteEntries } from './components/route-entries.js';
 import { initListEntry } from './components/list-entry.js';
-import { initConfirmActions } from './components/confirm-action.js';
 import { initCardMedia } from './components/card-media.js';
 
 registerFeature('public-session', () => import('./features/public-session.js'));
@@ -28,7 +27,6 @@ registerFeature('customer-profile', () => import('./features/customer/profile.js
 registerFeature('customer-notification-badge', () => import('./features/customer/notification-badge.js'));
 registerFeature('customer-dock', () => import('./components/customer-dock.js'));
 initSheets();
-initConfirmActions();
 initNavigationMotion();
 initOverflowText();
 document.querySelectorAll('.rv-chip-rail, .rv-booking-days, [data-rv-drag-rail]').forEach(enableDrag);

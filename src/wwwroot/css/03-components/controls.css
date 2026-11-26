@@ -30,7 +30,7 @@
   .rv-btn--glass { background: var(--glass-fill-strong); color: var(--text-primary); box-shadow: var(--shadow-glass); }
   .rv-btn--light { background: var(--bg-surface); color: var(--text-primary); }
   .rv-btn--danger { background: var(--danger-bg); color: var(--danger-fg); }
-  .rv-btn--danger[data-rv-confirm-action]:enabled { background: var(--danger-solid); color: var(--text-inverse); }
+  .rv-btn--danger-solid:enabled { background: var(--danger-solid); color: var(--text-inverse); }
   .rv-icon-btn { padding: var(--space-3); border-radius: var(--radius-pill); }
   .rv-chip { border-radius: var(--radius-pill); white-space: nowrap; padding: var(--space-2) var(--space-4); }
   .rv-chip[aria-pressed="true"] { background: var(--bg-inverse); color: var(--text-inverse); }

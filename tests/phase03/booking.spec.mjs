@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 import { installMotionProbe } from '../helpers/motion.mjs';
-import { holdAction } from '../helpers/hold-action.mjs';
 
 const context = id => '_preview/context/' + id + '/';
 const submit = page => page.locator('[data-rv-booking-submit]');
@@ -28,13 +27,7 @@ test('Fixed booking carries service, stylist and time through one hold and an id
   await expect(page).toHaveURL(/bk-f02.*hold=/);
   const checkout = page.url();
   await submit(page).click();
-  await expect(submit(page)).not.toHaveAttribute('data-rv-confirm-holding');
-  await expect(page).toHaveURL(checkout);
-  await submit(page).focus();
-  await page.keyboard.down('Enter');
-  await expect(submit(page)).toHaveAttribute('data-rv-confirm-holding');
   await expect(page.getByRole('heading', { name: 'نوبت شما ثبت شد' })).toBeVisible();
-  await page.keyboard.up('Enter');
   const reference = await page.locator('[data-rv-result-view="success"] [data-rv-result-code]').textContent();
   await go(page, checkout);
   await expect(page.getByRole('heading', { name: 'نوبت شما ثبت شد' })).toBeVisible();
@@ -122,11 +115,7 @@ test('Recurring creation, edit, removal, minimum and group checkout use one shar
   await page.locator('[data-rv-rec-edit]').first().click();
   await expect(sheet.locator('[data-rv-rec-locked]')).toBeVisible();
   await sheet.locator('[data-rv-rec-delete]').click();
-  const remove = sheet.locator('[data-rv-rec-remove]');
-  await remove.click();
-  await expect(remove).toBeVisible();
-  await expect(remove).not.toHaveAttribute('data-rv-confirm-holding');
-  await holdAction(remove);
+  await sheet.locator('[data-rv-rec-remove]').click();
   await expect(page.locator('[data-rv-rec-edit]')).toHaveCount(2);
   expect(await page.evaluate(() => window.recurringReflow.some(({ frames }) => /^0px [1-9]/.test(frames[0].translate)))).toBe(true);
   await expect(submit(page)).toBeDisabled();

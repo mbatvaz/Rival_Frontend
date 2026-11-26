@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import { holdAction } from '../helpers/hold-action.mjs';
 import AxeBuilder from '@axe-core/playwright';
 
 const route = 'customer/appointments/demo/';
@@ -87,7 +86,7 @@ test('CUS-04-RSC changes the day and time, keeps confirmation keyboard-accessibl
   await page.keyboard.press('Escape');
   await expect(proceed(page)).toBeFocused();
   await page.keyboard.press('Enter');
-  await holdAction(dialog(page).getByRole('button', { name: 'تأیید جابه‌جایی' }));
+  await dialog(page).getByRole('button', { name: 'تأیید جابه‌جایی' }).click();
   await expect(page.getByRole('heading', { name: 'نوبت جابه‌جا شد' })).toBeVisible();
   await expect(page.getByText('لغو تا شنبه ۲۵ مهر، ۰۹:۳۰ با بازگشت کامل هزینه است.')).toBeVisible();
   await page.getByRole('link', { name: 'مشاهده نوبت' }).click();
@@ -104,7 +103,7 @@ test('CUS-04-RSC late reschedule keeps forfeiture after reload @smoke', async ({
   await start(page).click();
   await expect(page.getByText(/در این بازه، جابه‌جایی حق بازگشت هزینه را از بین می‌برد/)).toBeVisible();
   await proceed(page).click();
-  await holdAction(dialog(page).getByRole('button', { name: 'جابه‌جا می‌کنم' }));
+  await dialog(page).getByRole('button', { name: 'جابه‌جا می‌کنم' }).press('Space');
   await expect(page.getByText(/لغو از این پس بدون بازگشت هزینه است/)).toBeVisible();
   await page.getByRole('link', { name: 'مشاهده نوبت' }).click();
   await page.reload();
@@ -120,7 +119,7 @@ test('CUS-04-RSC compensation can be used once without consuming the ordinary al
   await gotoState(page, 'rsc-comp');
   await proceed(page).click();
   await expect(dialog(page).getByText(/حق جبرانی مصرف می‌شود/)).toBeVisible();
-  await holdAction(dialog(page).getByRole('button', { name: 'تأیید جابه‌جایی' }));
+  await dialog(page).getByRole('button', { name: 'تأیید جابه‌جایی' }).click();
   await page.getByRole('link', { name: 'مشاهده نوبت' }).click();
   await expect(start(page)).toBeEnabled();
   await start(page).click();

@@ -165,15 +165,11 @@ test('Passkey touch confirmation restores focus and unsupported browsers retain 
   const box = await action.boundingBox();
   const point = [{ x: box.x + box.width / 2, y: box.y + box.height / 2 }];
   await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: point });
-  await expect(action.locator('.rv-confirm-face')).toHaveCSS('background-color', 'rgb(255, 255, 255)');
-  expect(await action.locator('.rv-confirm-fill').evaluate(el => el.getAnimations()[0].effect.getTiming().duration)).toBe(1000);
-  await expect(action.locator('.rv-confirm-fill')).not.toHaveCSS('clip-path', 'inset(0px 0px 0px 100%)');
   await touch.send('Input.dispatchTouchEvent', { type: 'touchCancel', touchPoints: [] });
   await expect(confirm).toBeVisible();
-  await expect(action).not.toHaveAttribute('data-rv-confirm-holding');
   await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: point });
-  await expect(page.getByRole('button', { name: 'حذف Passkey آیفون رضا' })).toBeFocused();
   await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+  await expect(page.getByRole('button', { name: 'حذف Passkey آیفون رضا' })).toBeFocused();
   await page.reload();
   await expect(page.getByText('۱ دستگاه', { exact: true })).toBeVisible();
   await expect(remove).toHaveCount(0);

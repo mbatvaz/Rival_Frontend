@@ -51,7 +51,7 @@
         <p class="rv-muted" data-rv-request-inactive hidden>حساب غیرفعال است؛ پرداخت و لغو ممکن نیست. با پایان مهلت، زمان آزاد می‌شود.</p>
         {% endif %}
         <div class="rv-actions"><button class="rv-btn{% if request.status == 'pay' %} rv-btn--secondary{% else %} rv-btn--danger{% endif %}" type="button" aria-haspopup="dialog" data-rv-request-cancel disabled>{% if request.parts.length and request.status == 'pay' %}لغو کل{% else %}لغو درخواست{% endif %}</button>
-          {% if request.status == 'pay' %}<button class="rv-btn" type="button" data-rv-confirm-action data-rv-request-pay disabled>{% if request.parts.length %}پرداخت کل{% else %}پرداخت و قطعی کردن{% endif %}</button>{% endif %}</div>
+          {% if request.status == 'pay' %}<button class="rv-btn" type="button" data-rv-request-pay disabled>{% if request.parts.length %}پرداخت کل{% else %}پرداخت و قطعی کردن{% endif %}</button>{% endif %}</div>
       </div>
     {% endif %}
     {% if request.status != 'booked' %}<a class="rv-btn" data-rv-request-new href="{{ productUrls.booking }}?service={{ request.service }}"{% if request.status != 'expired' and request.status != 'rejected' %} hidden{% endif %}>ثبت درخواست تازه</a>{% endif %}
