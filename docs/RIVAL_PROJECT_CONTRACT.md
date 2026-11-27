@@ -254,6 +254,8 @@ Use `OPEN_QUESTIONS.md` for unresolved items. The desktop strategy in OQ-07 is r
 
 ## 12. Definition of done for every phase
 
+Apply the [section workflow](PHASE_PLAN.md#phase-sections) to group related pages inside a phase. A section starts on an explicit owner instruction. Explicit acceptance triggers its closeout, which records affected QA, page and state evidence, and completion in the phase README and Progress.
+
 A phase is complete when its IDs and states are traceable, the acceptance checklist passes, [responsive QA](#7-accessibility-and-qa) is recorded, shared-component regression passes, `PROGRESS.md`/`DISCREPANCIES.md`/`OPEN_QUESTIONS.md` reflect the outcome, and the owner accepts it. Start the next phase only when assigned.
 
 ## Owner mobile-device review rules

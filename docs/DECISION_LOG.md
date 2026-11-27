@@ -1,5 +1,13 @@
 # Decision Log
 
+## DEC-093 — All-phase section plans and Phase 05 section 1 status
+
+On 2026-11-27 the owner confirmed that the section hierarchy covers all nine phases and that Phase 05 section 1 is «در دست توسعه», pending explicit section-level approval. STY-01 and STY-02 have page-level records under DEC-089 and DEC-091. The section maps for previously accepted phases reference historical phase evidence. [Section plans](PHASE_PLAN.md#nine-implementation-phases) · [Current owner gate](PHASE_PLAN.md#current-owner-gate)
+
+## DEC-092 — Dependency-based sections and explicit owner gates
+
+On 2026-11-27 the owner adopted the Project → Phase → Section → Page hierarchy. Each phase groups related pages into sections for a shared implementation and review round. An explicit owner start changes the section to «در دست توسعه». An explicit owner acceptance triggers its closeout and the recorded status «تکمیل شد». Phase 05 section 1 records the previously accepted dashboard and calendar. [Section workflow](PHASE_PLAN.md#phase-sections) · [Phase 05 sections](../phases/PHASE_05_Stylist_Panel/README.md#phase-05-sections)
+
 ## DEC-091 — STY-02 acceptance and Phase 05 branch rename
 
 On 2026-11-26 the owner accepted the calendar slice, including the locked release date and bounded time wheels. The owner authorized publication and renamed the active Phase 05 branch to `web/phase-05-stylist-panel`. [Calendar closeout](../docs-work/STY-02.md)
