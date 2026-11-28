@@ -6,6 +6,7 @@ import { openSheet } from '../../components/sheet.js';
 import { loadCalendar, releaseInstant } from './calendar-data.js';
 import { dayLabel, renderAgenda } from './calendar-view.js';
 import { firstOfWeek, renderWeek } from './calendar-week.js';
+import { initWeekMotion } from './calendar-week-motion.js';
 import { bindSave, initBlockSheets } from './calendar-forms.js';
 
 function initHolidaySheet(calendar, refresh) {
@@ -67,6 +68,14 @@ export async function init(root) {
   };
   const blocks = initBlockSheets(calendar, refresh);
   const openHoliday = initHolidaySheet(calendar, refresh);
+  const slideWeek = initWeekMotion(root.querySelector('.rv-stylist-week'), moveWeek);
+  function moveWeek(direction) {
+    const arrow = root.querySelector(`[data-rv-week-move="${direction}"]`);
+    if (arrow.disabled) return;
+    week = plusDays(week, direction * 7);
+    slideWeek(direction, () => renderWeek(root, calendar, week, selected));
+    if (arrow.disabled && document.activeElement === arrow) monthButton.focus();
+  }
   monthButton.disabled = false;
   monthButton.addEventListener('click', () => openMonth(monthButton, week === firstOfWeek(selected) ? selected : week, today));
   root.addEventListener('click', event => {
@@ -74,11 +83,7 @@ export async function init(root) {
     if (!button || button.disabled) return;
     const { rvSelectDate, rvWeekMove, rvBlockCreate, rvBlockDetail } = button.dataset;
     if (rvSelectDate) pick(rvSelectDate, true);
-    if (rvWeekMove) {
-      week = plusDays(week, Number(rvWeekMove) * 7);
-      renderWeek(root, calendar, week, selected);
-      if (button.disabled) monthButton.focus();
-    }
+    if (rvWeekMove) return moveWeek(Number(rvWeekMove));
     const { slots, hours } = calendar.day(selected);
     if (rvBlockCreate) {
       const slot = slots.find(slot => slot.kind === 'free' && slot.start === rvBlockCreate);

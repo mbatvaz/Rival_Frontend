@@ -16,7 +16,8 @@
           <button class="rv-icon-btn" type="button" data-rv-week-move="1" aria-label="هفتهٔ بعد" disabled><span class="ri ri-chevron-left" aria-hidden="true"></span></button>
         </div>
       </div>
-      <ul class="rv-stylist-week__days" aria-label="هفتهٔ جاری">
+      <div class="rv-stylist-week__viewport">
+      <ul class="rv-stylist-week__days" aria-label="روزهای هفته">
         {% for day in model.calendar.days %}
           <li aria-label="{{ day.label }}"{% if day.state %} data-rv-calendar-day="{{ day.state }}"{% endif %}{% if day.state == 'today' %} aria-current="date"{% endif %}>
             <small aria-hidden="true">{{ day.letter }}</small>
@@ -24,6 +25,7 @@
           </li>
         {% endfor %}
       </ul>
+      </div>
       <div class="rv-section-head rv-stylist-week__summary">
         <span data-rv-calendar-summary>{{ model.calendar.summary }}</span>
         <a href="{{ basePath }}stylist/appointments/">سابقه نوبت‌ها</a>

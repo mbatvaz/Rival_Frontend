@@ -66,11 +66,11 @@ export async function productContext(page, basePath, pages, model) {
     };
     shell = { ...shell, role, book: shell.book ? map(shell.book) : null,
       primary: shell.primary.map(map), more: shell.more.map(map) };
+    shell.moreActive = shell.more.some(item => item.active);
     if (role === 'customer') {
       const personal = shell.more.filter(item => !['home', 'images', 'shield'].includes(item.icon));
       shell.moreGroups = [{ title: '', items: [personal[0], personal[1], shell.book, ...personal.slice(2)] },
         { title: 'سالن', items: shell.more.filter(item => ['home', 'images', 'shield'].includes(item.icon)) }];
-      shell.moreActive = shell.more.some(item => item.active);
     }
   }
   let booking = {};

@@ -25,3 +25,9 @@ The [source map](../docs/ai/DESIGN_SOURCE_MAP.md#sty-02) identifies the seven re
 - The Phase 05 dashboard and calendar suites passed on the project preview at `http://localhost:4173` in Chrome. The five calendar tests also passed under `/rival-demo/`.
 - Browser evidence spans 320px, 390px, 768px and 1280px. The calendar suite covers the shared sheet grip, vertical entry without opacity keyframes, Escape and focus return, axe checks for month and detail, validation, persistence and timed release.
 - Captures are under `tests/screens/phase05/` with the `sty-02-` prefix. The source comparison uses desktop Chrome viewport emulation.
+
+## Week and navigation motion
+
+- A horizontal touch swipe beyond 48 px uses the same bounded week change as the week arrows. Both strips translate across their complete width over `--duration-slow`. Next exits right and enters from the left. Previous exits left and enters from the right. A new move replaces the running animation. Vertical scrolling and pinch zoom use the browser's native gestures.
+- The shared role dock uses the Phase 04 indicator and timing. The right-hand list contracts the current fill over `--duration-base` before navigation and opens the destination over `--duration-slow`. Staff preview destinations use the shared right-hand list at 768 px and above.
+- Reduced motion switches weeks and routes directly. The outgoing strip is inert and hidden from assistive technology while the incoming week owns focus and controls.

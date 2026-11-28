@@ -1,25 +1,28 @@
 @layer utilities {
   .rv-customer-home .rv-workspace__content { animation: none; }
 
-  @media (min-width: 1024px) {
-    .rv-booking-sidebar > a[aria-current="page"] {
-      position: relative;
-      isolation: isolate;
-      background: none;
-      color: var(--text-inverse);
-      border-radius: var(--radius-sm);
-    }
+  .rv-booking-sidebar > a[aria-current="page"] {
+    position: relative;
+    isolation: isolate;
+    background: none;
+    color: var(--text-inverse);
+    border-radius: var(--radius-sm);
+  }
 
-    .rv-booking-sidebar > a[aria-current="page"]::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      border-radius: inherit;
-      background: var(--bg-inverse);
-      transform-origin: right center;
-      animation: rv-sidebar-active-fill var(--duration-slow) var(--ease-standard) both;
-    }
+  .rv-booking-sidebar > a[aria-current="page"]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: var(--bg-inverse);
+    transform-origin: right center;
+    animation: rv-sidebar-active-fill var(--duration-slow) var(--ease-standard) both;
+  }
+
+  .rv-booking-sidebar > a[data-rv-nav-leaving]::before {
+    animation-name: rv-sidebar-active-exit;
+    animation-duration: var(--duration-base);
   }
 
   @keyframes rv-sidebar-active-fill {
@@ -27,11 +30,16 @@
     to { transform: scaleX(1); }
   }
 
+  @keyframes rv-sidebar-active-exit {
+    from { transform: scaleX(1); }
+    to { transform: scaleX(0); }
+  }
+
   @media not all and (min-width: 1024px) {
     .rv-customer-home { overflow-x: clip; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .rv-booking-sidebar > a[aria-current="page"]::before { animation: none; }
+    .rv-booking-sidebar > a:is([aria-current="page"], [data-rv-nav-leaving])::before { animation: none; }
   }
 }

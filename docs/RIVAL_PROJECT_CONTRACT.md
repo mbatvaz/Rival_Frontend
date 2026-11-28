@@ -254,6 +254,8 @@ Use `OPEN_QUESTIONS.md` for unresolved items. The desktop strategy in OQ-07 is r
 
 ## 12. Definition of done for every phase
 
+Apply the [section workflow](PHASE_PLAN.md#phase-sections) to group related pages inside a phase. A section starts on an explicit owner instruction. Explicit acceptance triggers its closeout, which records affected QA, page and state evidence, and completion in the phase README and Progress.
+
 A phase is complete when its IDs and states are traceable, the acceptance checklist passes, [responsive QA](#7-accessibility-and-qa) is recorded, shared-component regression passes, `PROGRESS.md`/`DISCREPANCIES.md`/`OPEN_QUESTIONS.md` reflect the outcome, and the owner accepts it. Start the next phase only when assigned.
 
 ## Owner mobile-device review rules
@@ -279,6 +281,8 @@ Use these four shared motion patterns across phases:
 4. Dynamic content can scale up to full size while becoming fully opaque. Use `data-rv-entry-list="zoom"` or `data-rv-entry-item="zoom"`.
 
 For patterns 3 and 4, lists stagger their direct children in display order using the shared timing and start after data, fonts and applicable media settle. Explicit view changes can replay entry for the newly selected list. Preserve normal navigation, focus restoration and a readable static state when reduced motion is requested or motion is unavailable. [Phase 04 motion evidence](../docs-work/VARIABLE_LIST_MOTION_2026-11-17.md)
+
+Use the same navigation motion on every route that renders the shared role navigation (DEC-094). In the bottom dock, move and resize a single dark indicator from the previous item to the chosen item before loading its route. In the right-hand list, contract the old fill toward its physical right edge before navigation and expand the destination fill from that edge on arrival. Customer, Stylist, and OwnerAdmin routes share these behaviors at the breakpoints where each control is shown. Keep the canonical active route readable with reduced motion and through direct links.
 
 ## Design evidence before implementation
 
