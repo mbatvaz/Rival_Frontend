@@ -46,4 +46,4 @@ Section closeout follows the phase review and documentation procedure at section
 
 ## Current owner gate
 
-The owner accepted Phase 04 on 2026-11-26 under DEC-086. Phase 05 is in development on `web/phase-05-stylist-panel`. Section 1 is **در دست توسعه** and awaits explicit section acceptance under DEC-093. Its two pages, STY-01 and STY-02, have implementation and page-level acceptance records under DEC-089 and DEC-091. Sections 2–4 are **شروع نشده**. [Phase 05 sections](../phases/PHASE_05_Stylist_Panel/README.md#phase-05-sections)
+The owner accepted Phase 04 on 2026-11-26 under DEC-086. Phase 05 is in development on `web/phase-05-stylist-panel`. Section 1 is **در دست توسعه** and awaits explicit section acceptance under DEC-093. Its two pages, STY-01 and STY-02, have implementation and page-level acceptance records under DEC-089 and DEC-091. On 2026-11-28 the owner also started sections 2–4. All four sections are **در دست توسعه**. [Phase 05 sections](../phases/PHASE_05_Stylist_Panel/README.md#phase-05-sections)
