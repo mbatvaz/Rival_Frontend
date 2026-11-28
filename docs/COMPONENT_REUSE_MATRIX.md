@@ -6,7 +6,7 @@ Choose the closest accepted page and reuse its partials, styles or behavior. Sup
 
 | Need | Accepted reference | Runtime owner |
 | --- | --- | --- |
-| Role shell and navigation | CUS-01, BK-01 | [RoleLayout](../src/Views/Shared/_RoleLayout.njk), [mobile dock](../src/Views/Shared/_RoleNav.njk), [right-hand list](../src/Views/Shared/_CustomerDesktopNav.njk) |
+| Role shell and navigation | CUS-01, BK-01, STY-02 | [RoleLayout](../src/Views/Shared/_RoleLayout.njk), [mobile dock](../src/Views/Shared/_RoleNav.njk), [customer sidebar](../src/Views/Shared/_CustomerDesktopNav.njk), [staff sidebar](../src/Views/Shared/_StaffSideNav.njk), [navigation motion](../src/wwwroot/js/components/navigation-motion.js) |
 | Controls, glass surfaces and typography | CUS-01, CUS-10 | [Controls](../src/wwwroot/css/03-components/controls.css), [tokens](../src/wwwroot/css/00-tokens/) |
 | Sheets, feedback and field focus | CUS-03, CUS-06, CUS-10 | [Sheet lifecycle](../src/wwwroot/js/components/sheet.js), [keyboard positioning](../src/wwwroot/js/components/sheet-keyboard.js) |
 | Appointment list, history and detail | CUS-01, CUS-03, CUS-04 | [AppointmentHero](../src/Views/Shared/Components/_AppointmentHero.njk), [AppointmentCard](../src/Views/Shared/Components/_AppointmentCard.njk), [history row](../src/Views/Shared/Components/_AppointmentHistoryRow.njk) |

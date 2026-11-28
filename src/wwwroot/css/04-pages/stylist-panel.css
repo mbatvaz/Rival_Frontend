@@ -26,26 +26,12 @@
   }
 
   .rv-stylist-panel .rv-workspace__content { padding-block-start: var(--space-2); }
-  .rv-stylist-sidebar { display: none; }
-
-  .rv-stylist-panel .rv-role-nav { display: flex; }
-
-  .rv-stylist-panel .rv-role-nav > * { flex: 1; flex-direction: row; }
-  .rv-stylist-panel .rv-role-nav > [aria-current="page"] { flex-grow: 1.85; }
-
-  .rv-stylist-panel .rv-role-nav > :not([aria-current="page"]) > span:last-child {
-    position: absolute;
-    inline-size: 1px;
-    block-size: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
+  .rv-staff-sidebar { display: none; }
 
   @media (min-width: 768px) {
-    .rv-stylist-panel { padding-block-end: var(--space-8); }
+    .rv-staff-panel { padding-block-end: var(--space-8); }
 
-    .rv-stylist-panel .rv-workspace__body {
+    .rv-staff-panel .rv-workspace__body {
       display: grid;
       grid-template-columns: minmax(185px, 22%) minmax(0, 1fr);
       align-items: start;
@@ -53,15 +39,15 @@
       padding: var(--space-4);
     }
 
-    .rv-stylist-panel .rv-workspace__content {
+    .rv-staff-panel .rv-workspace__content {
       inline-size: min(100%, 720px);
       margin-inline: auto;
       padding: 0;
     }
 
-    .rv-stylist-panel .rv-role-nav { display: none; }
+    .rv-staff-panel .rv-role-nav { display: none; }
 
-    .rv-stylist-sidebar {
+    .rv-staff-sidebar {
       display: grid;
       gap: var(--space-2);
       padding: var(--space-3);
@@ -70,7 +56,7 @@
       box-shadow: var(--shadow-glass);
     }
 
-    .rv-stylist-sidebar > a {
+    .rv-staff-sidebar > a {
       display: flex;
       align-items: center;
       gap: var(--space-2);
@@ -80,7 +66,7 @@
       text-decoration: none;
     }
 
-    .rv-stylist-sidebar > a[aria-current="page"] { color: var(--text-inverse); background: var(--bg-inverse); }
-    .rv-stylist-sidebar > a[aria-disabled="true"] { color: var(--text-muted); }
+    .rv-staff-sidebar > a[aria-current="page"] { color: var(--text-inverse); background: var(--bg-inverse); }
+    .rv-staff-sidebar > a[aria-disabled="true"] { color: var(--text-muted); }
   }
 }

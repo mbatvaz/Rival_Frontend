@@ -1,0 +1,4 @@
+<nav class="rv-booking-sidebar rv-staff-sidebar{% if shell.role == 'stylist' %} rv-stylist-sidebar{% endif %}" aria-label="منوی {{ shell.label }}">
+  {% include "Shared/_RoleSideLinks.njk" %}
+  <button class="rv-btn rv-btn--danger" type="button" data-rv-sheet-open="rv-logout">خروج از حساب</button>
+</nav>

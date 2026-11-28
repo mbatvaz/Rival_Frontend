@@ -4,9 +4,17 @@ const states = new WeakMap();
 const options = root => [...root.querySelectorAll('.rv-customer-dock__tabs > a, .rv-customer-dock__tabs > button')];
 const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+function placePill(state, target) {
+  const frame = state.tabs.getBoundingClientRect();
+  const next = target.getBoundingClientRect();
+  state.indicator.style.setProperty('--rv-dock-x', next.left - frame.left + 'px');
+  state.indicator.style.setProperty('--rv-dock-width', next.width + 'px');
+  return next;
+}
+
 export async function selectDock(root, target, animate = true) {
   const state = states.get(root);
-  if (!state || !root.offsetWidth) return true;
+  if (!state || !state.tabs.offsetWidth) return true;
   const sequence = ++state.sequence;
   const before = options(root).map(el => ({ el, box: el.getBoundingClientRect() }));
   const old = state.indicator.getBoundingClientRect();
@@ -18,17 +26,16 @@ export async function selectDock(root, target, animate = true) {
     return true;
   }
   options(root).forEach(el => { el.dataset.rvNavActive = String(el === target); });
-  const frame = state.tabs.getBoundingClientRect();
-  const next = target.getBoundingClientRect();
-  state.indicator.style.setProperty('--rv-dock-x', next.left - frame.left + 'px');
-  state.indicator.style.setProperty('--rv-dock-width', next.width + 'px');
+  const next = placePill(state, target);
   root.dataset.rvDockReady = 'true';
-  if (!animate || reduced() || !target.animate) return true;
+  if (!animate || reduced() || !target.animate || !old.width) return true;
   const timing = motionTiming('duration-base', 'ease-standard');
   const add = (el, frames, config = timing) => {
     state.animations.push(startMotion(el, frames, config));
   };
-  add(state.indicator, [{ transform: `translateX(${old.left - next.left}px) scaleX(${old.width / next.width || 1})` }, { transform: 'none' }]);
+  add(state.indicator, [
+    { transform: `translateX(${old.left - next.left}px) scaleX(${old.width / next.width})` }, { transform: 'none' }
+  ], { ...timing, id: 'rv-dock-slide' });
   before.forEach(({ el, box }) => {
     const after = el.getBoundingClientRect();
     if (box.left !== after.left) add(el, [{ transform: `translateX(${box.left - after.left}px)` }, { transform: 'none' }]);
@@ -51,10 +58,21 @@ export function init(root) {
   states.set(root, state);
   const reset = () => selectDock(root, canonical, false);
   reset();
-  if (window.ResizeObserver) new window.ResizeObserver(reset).observe(root);
-  else window.addEventListener('resize', reset);
+  let width = tabs.offsetWidth;
+  const resize = () => {
+    const nextWidth = tabs.offsetWidth;
+    if (nextWidth === width) return;
+    width = nextWidth;
+    state.animations.forEach(animation => animation.cancel());
+    const selected = options(root).find(el => el.dataset.rvNavActive === 'true');
+    if (!width || !selected) return;
+    placePill(state, selected);
+    root.dataset.rvDockReady = 'true';
+  };
+  if (window.ResizeObserver) new window.ResizeObserver(resize).observe(root);
+  else window.addEventListener('resize', resize);
   root.querySelector('button').addEventListener('click', event => { selectDock(root, event.currentTarget); });
   document.addEventListener('rv:sheet-close', event => { if (event.detail.id === 'rv-more') selectDock(root, canonical); });
-  window.addEventListener('pageshow', reset);
+  window.addEventListener('pageshow', event => { if (event.persisted) reset(); });
   window.addEventListener('pagehide', () => state.animations.forEach(animation => animation.cancel()));
 }

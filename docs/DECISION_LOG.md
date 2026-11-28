@@ -1,5 +1,9 @@
 # Decision Log
 
+## DEC-094 — Weekly calendar gestures and shared role navigation motion
+
+On 2026-11-27 the owner requested rightward swipes for the next week and leftward swipes for the previous week in STY-02. The rows slide in the gesture direction for both swipes and week arrows. The owner also made the traveling Phase 04 bottom-dock indicator and physical right-edge sidebar fill transition project-wide defaults for the shared role navigation. [Motion contract](RIVAL_PROJECT_CONTRACT.md#loading-and-motion-defaults) · [Calendar evidence](../docs-work/STY-02.md)
+
 ## DEC-093 — All-phase section plans and Phase 05 section 1 status
 
 On 2026-11-27 the owner confirmed that the section hierarchy covers all nine phases and that Phase 05 section 1 is «در دست توسعه», pending explicit section-level approval. STY-01 and STY-02 have page-level records under DEC-089 and DEC-091. The section maps for previously accepted phases reference historical phase evidence. [Section plans](PHASE_PLAN.md#nine-implementation-phases) · [Current owner gate](PHASE_PLAN.md#current-owner-gate)
