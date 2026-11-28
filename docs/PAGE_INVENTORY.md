@@ -120,7 +120,7 @@ Phase 01–02 refresh (2026-11-14): PUB-01..03, AUTH-01/02, SYS-ACC-01 and share
 
 ## Stylist
 
-Phase 05 section 1 is in development. STY-01 and STY-02 have page-level implementation and acceptance records. See the [section plan](../phases/PHASE_05_Stylist_Panel/README.md#phase-05-sections).
+All four Phase 05 sections are in development. STY-01 and STY-02 have page-level implementation and acceptance records. See the [section plan](../phases/PHASE_05_Stylist_Panel/README.md#phase-05-sections).
 
 | ID | Route/Context | Role | Status | Source |
 |---|---|---|---|---|
